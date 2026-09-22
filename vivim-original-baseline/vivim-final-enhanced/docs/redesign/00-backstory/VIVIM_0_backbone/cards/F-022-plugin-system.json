@@ -1,0 +1,45 @@
+{
+  "id": "F-022",
+  "slug": "plugin-system",
+  "name": "Plugin System",
+  "category": "KERNEL",
+  "state": "WORKING",
+  "value_targets": [
+    "V-3"
+  ],
+  "engines": [
+    "plugin-system.ts",
+    "plugin-hot-reload.ts",
+    "router-capability-bridge.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Plugin lifecycle + hot-reload + bridge from plugin capabilities to the registry.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 5,
+    "integration": 2,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 10,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:25:49.578Z",
+  "evidence_class": "FACT"
+}

@@ -1,0 +1,933 @@
+{
+  "gate_id": "2026-08-29T19-27-21-745Z",
+  "timestamp": "2026-08-29T19:27:21.745Z",
+  "duration_ms": 267714,
+  "cards_evaluated": 41,
+  "cards_advanced": 32,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 1235,
+    "fail": 4
+  },
+  "results": [
+    {
+      "card": "F-001",
+      "name": "Conversation System",
+      "state": "SCAFFOLDED",
+      "next_state": "PARTIAL",
+      "can_advance": false,
+      "blocker": null,
+      "tests": {
+        "unit": 8,
+        "integration": 2,
+        "e2e": 3,
+        "arch": 0,
+        "passing": 23,
+        "failing": 1,
+        "total": 24
+      },
+      "test_files": [
+        "tests/unit/engines/conversation-manager.test.ts",
+        "tests/integration/engines/conversation-manager.test.ts",
+        "tests/unit/engines/conversation-organizer.test.ts",
+        "tests/unit/engines/cross-conversation-synthesis.test.ts",
+        "tests/unit/message-identity.test.ts"
+      ]
+    },
+    {
+      "card": "F-002",
+      "name": "Memory System (FSRS-6)",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 10,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 26,
+        "failing": 0,
+        "total": 26
+      },
+      "test_files": [
+        "tests/unit/engines/memory-engine.test.ts",
+        "tests/unit/engines/memory-export.test.ts",
+        "tests/unit/engines/memory-indexer.test.ts",
+        "tests/unit/fsrs-scheduler.test.ts"
+      ]
+    },
+    {
+      "card": "F-003",
+      "name": "Knowledge Graph",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 12,
+        "integration": 3,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 41,
+        "failing": 0,
+        "total": 41
+      },
+      "test_files": [
+        "tests/unit/engines/knowledge-envelope.test.ts",
+        "tests/unit/engines/knowledge-extractor.test.ts",
+        "tests/unit/engines/knowledge-extractor-continuous.test.ts",
+        "tests/unit/engines/knowledge-index-pipeline.test.ts",
+        "tests/unit/engines/knowledge-ingestion.test.ts",
+        "tests/unit/engines/belief-store.test.ts"
+      ]
+    },
+    {
+      "card": "F-004",
+      "name": "Context Assembly",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 2,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 23,
+        "failing": 0,
+        "total": 23
+      },
+      "test_files": [
+        "tests/unit/engines/context-assembly.test.ts",
+        "tests/unit/engines/semantic-grounding.test.ts",
+        "tests/unit/engines/reference-grounding.test.ts"
+      ]
+    },
+    {
+      "card": "F-005",
+      "name": "Provider + CDP System",
+      "state": "SCAFFOLDED",
+      "next_state": "PARTIAL",
+      "can_advance": false,
+      "blocker": null,
+      "tests": {
+        "unit": 28,
+        "integration": 9,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 103,
+        "failing": 3,
+        "total": 106
+      },
+      "test_files": [
+        "tests/unit/engines/provider-registrar.test.ts",
+        "tests/unit/engines/provider-protocol-loader.test.ts",
+        "tests/unit/engines/provider-protocol-generator.test.ts",
+        "tests/unit/engines/provider-health.test.ts",
+        "tests/unit/engines/provider-mux.test.ts",
+        "tests/unit/engines/chrome-governor.test.ts",
+        "tests/integration/engines/chrome-governor.test.ts",
+        "tests/unit/engines/chrome-setup-wizard.test.ts",
+        "tests/unit/engines/cdp-discovery.test.ts",
+        "tests/unit/engines/cdp-capability-registrar.test.ts",
+        "tests/unit/engines/cdp-watchdog.test.ts",
+        "tests/unit/engines/protocol-discovery.test.ts",
+        "tests/unit/engines/protocol-loop-parser.test.ts"
+      ]
+    },
+    {
+      "card": "F-006",
+      "name": "Provider Discovery & Test Harness",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 9,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 21,
+        "failing": 0,
+        "total": 21
+      },
+      "test_files": [
+        "tests/unit/engines/provider-discovery.test.ts",
+        "tests/unit/engines/provider-test-harness.test.ts",
+        "tests/integration/engines/provider-test-harness.test.ts",
+        "tests/unit/engines/provider-selectors.test.ts"
+      ]
+    },
+    {
+      "card": "F-007",
+      "name": "Capability Registry",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 83,
+        "integration": 7,
+        "e2e": 3,
+        "arch": 0,
+        "passing": 111,
+        "failing": 0,
+        "total": 111
+      },
+      "test_files": [
+        "tests/unit/engines/capability.test.ts",
+        "tests/unit/engines/capability-bootstrap.test.ts",
+        "tests/unit/engines/capability-bootstrap-generated.test.ts",
+        "tests/unit/engines/capability-resolution.test.ts",
+        "tests/unit/engines/capability-composer.test.ts",
+        "tests/unit/engines/capability-binder.test.ts",
+        "tests/unit/engines/capability-event-bus.test.ts",
+        "tests/unit/engines/capability-event-bus-v2.test.ts",
+        "tests/unit/engines/capability-snapshot.test.ts",
+        "tests/unit/engines/capability-taxonomy.test.ts",
+        "tests/unit/engines/capability-shape-registry.test.ts",
+        "tests/unit/engines/capability-discovery-loop.test.ts",
+        "tests/unit/engines/capability-macro.test.ts",
+        "tests/unit/engines/capability-parity.test.ts",
+        "tests/unit/engines/command-parity-capabilities.test.ts",
+        "tests/unit/engines/unified-registry.test.ts",
+        "tests/unit/engines/live-capability-registry.test.ts",
+        "tests/unit/engines/live-capture-engine.test.ts"
+      ]
+    },
+    {
+      "card": "F-008",
+      "name": "ActionPlan IR",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 8,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 48,
+        "failing": 0,
+        "total": 48
+      },
+      "test_files": [
+        "tests/unit/engines/action-plan.test.ts",
+        "tests/unit/engines/action-plan-bridge.test.ts",
+        "tests/unit/engines/action-plan-compiler.test.ts",
+        "tests/unit/engines/plan-validation-gate.test.ts"
+      ]
+    },
+    {
+      "card": "F-009",
+      "name": "Execution Kernel",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 37,
+        "integration": 3,
+        "e2e": 4,
+        "arch": 0,
+        "passing": 76,
+        "failing": 0,
+        "total": 76
+      },
+      "test_files": [
+        "tests/unit/engines/execution-kernel.test.ts",
+        "tests/unit/engines/execution-memoizer.test.ts",
+        "tests/unit/engines/execution-policy.test.ts",
+        "tests/unit/engines/autonomous-execution.test.ts",
+        "tests/unit/engines/autonomous-replay.test.ts",
+        "tests/unit/engines/tool-use-protocol.test.ts",
+        "tests/unit/engines/workflow-compiler.test.ts",
+        "tests/unit/engines/workflow-engine.test.ts",
+        "tests/unit/engines/discovery-session-runner.test.ts",
+        "tests/unit/engines/conceptual-model-service.test.ts"
+      ]
+    },
+    {
+      "card": "F-010",
+      "name": "Agent Builder",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 16,
+        "failing": 0,
+        "total": 16
+      },
+      "test_files": [
+        "tests/unit/engines/agent-builder.test.ts",
+        "tests/unit/engines/agentic-loop.test.ts",
+        "tests/unit/engines/agentic-slm.test.ts",
+        "tests/unit/engines/autonomous-planner.test.ts"
+      ]
+    },
+    {
+      "card": "F-011",
+      "name": "Stream Parsing",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 12,
+        "integration": 0,
+        "e2e": 2,
+        "arch": 0,
+        "passing": 46,
+        "failing": 0,
+        "total": 46
+      },
+      "test_files": [
+        "tests/unit/engines/stream-parser.test.ts",
+        "tests/unit/engines/stream-align.test.ts",
+        "tests/unit/engines/stream-block-store.test.ts",
+        "tests/unit/engines/streaming-channel-caps.test.ts",
+        "tests/unit/engines/streaming-protocol.test.ts",
+        "tests/unit/engines/streaming-response-analyzer.test.ts",
+        "tests/unit/engines/parser-repair.test.ts",
+        "tests/unit/engines/format-classifier.test.ts"
+      ]
+    },
+    {
+      "card": "F-012",
+      "name": "Harness Execution",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 9,
+        "integration": 2,
+        "e2e": 3,
+        "arch": 0,
+        "passing": 42,
+        "failing": 0,
+        "total": 42
+      },
+      "test_files": [
+        "tests/unit/engines/harness-runtime.test.ts",
+        "tests/unit/engines/harness-protocol-engine.test.ts",
+        "tests/unit/engines/harness-repair-engine.test.ts",
+        "tests/unit/engines/harness-command-registry.test.ts",
+        "tests/integration/harness-command-registry.test.ts",
+        "tests/unit/engines/harness-feedback-coordinator.test.ts",
+        "tests/unit/engines/harness-checkpoint.test.ts"
+      ]
+    },
+    {
+      "card": "F-013",
+      "name": "Semantic Retrieval",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 17,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 60,
+        "failing": 0,
+        "total": 60
+      },
+      "test_files": [
+        "tests/unit/engines/semantic-search.test.ts",
+        "tests/unit/engines/embedding-hf.test.ts",
+        "tests/unit/engines/embedding-minilm.test.ts",
+        "tests/unit/engines/embedding-ollama.test.ts",
+        "tests/unit/engines/embedding-classifier.test.ts",
+        "tests/unit/engines/indexing-pipeline.test.ts",
+        "tests/unit/engines/dcb-profile.test.ts",
+        "tests/unit/engines/dcb-projector.test.ts",
+        "tests/unit/engines/classifier-nli.test.ts",
+        "tests/unit/engines/intent-decomposer.test.ts"
+      ]
+    },
+    {
+      "card": "F-014",
+      "name": "Sandbox & Security Eval",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 6,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 37,
+        "failing": 0,
+        "total": 37
+      },
+      "test_files": [
+        "tests/unit/engines/safe-eval.test.ts",
+        "tests/unit/engines/safe-expression.test.ts",
+        "tests/unit/engines/sandbox-runner.test.ts",
+        "tests/unit/engines/airgap.test.ts",
+        "tests/unit/engines/anti-detection.test.ts"
+      ]
+    },
+    {
+      "card": "F-015",
+      "name": "Governance & Policy",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 10,
+        "integration": 4,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 57,
+        "failing": 0,
+        "total": 57
+      },
+      "test_files": [
+        "tests/unit/engines/consent-engine.test.ts",
+        "tests/unit/engines/governance-engine.test.ts",
+        "tests/unit/engines/policy-engine.test.ts",
+        "tests/unit/engines/trust-score.test.ts",
+        "tests/unit/engines/audit-trail.test.ts",
+        "tests/unit/engines/event-record-store.test.ts",
+        "tests/unit/engines/telemetry-audit.test.ts"
+      ]
+    },
+    {
+      "card": "F-016",
+      "name": "Encryption & Privacy",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 16,
+        "failing": 0,
+        "total": 16
+      },
+      "test_files": [
+        "tests/unit/engines/encryption.test.ts",
+        "tests/unit/engines/db-encryption.test.ts"
+      ]
+    },
+    {
+      "card": "F-017",
+      "name": "Observability",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 8,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 55,
+        "failing": 0,
+        "total": 55
+      },
+      "test_files": [
+        "tests/unit/engines/telemetry-aggregator.test.ts",
+        "tests/unit/engines/registration-auditor.test.ts",
+        "tests/unit/engines/sla-monitor.test.ts",
+        "tests/unit/engines/metrics.test.ts",
+        "tests/unit/engines/otel-sink.test.ts",
+        "tests/unit/engines/error-tracker.test.ts",
+        "tests/unit/engines/health-digest.test.ts"
+      ]
+    },
+    {
+      "card": "F-018",
+      "name": "Storage Relocation & Backup",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 6,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 19,
+        "failing": 0,
+        "total": 19
+      },
+      "test_files": [
+        "tests/unit/engines/eviction-manager.test.ts",
+        "tests/unit/engines/backup-manager.test.ts",
+        "tests/unit/engines/backup-scheduler.test.ts",
+        "tests/unit/engines/mirror-engine.test.ts"
+      ]
+    },
+    {
+      "card": "F-019",
+      "name": "Lifecycle & Session",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 8,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 89,
+        "failing": 0,
+        "total": 89
+      },
+      "test_files": [
+        "tests/unit/engines/version-manager.test.ts",
+        "tests/unit/engines/session-checkpoint.test.ts",
+        "tests/unit/engines/session-lifecycle-manager.test.ts",
+        "tests/unit/engines/state-transition.test.ts",
+        "tests/unit/engines/loop-detector.test.ts"
+      ]
+    },
+    {
+      "card": "F-020",
+      "name": "P2P Sync",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 21,
+        "failing": 0,
+        "total": 21
+      },
+      "test_files": [
+        "tests/unit/engines/sync.test.ts",
+        "tests/unit/engines/sync-engine.test.ts",
+        "tests/unit/engines/lock-manager.test.ts",
+        "tests/unit/engines/idempotency-guard.test.ts"
+      ]
+    },
+    {
+      "card": "F-021",
+      "name": "User Identity & Contacts",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 33,
+        "failing": 0,
+        "total": 33
+      },
+      "test_files": [
+        "tests/unit/engines/user-identity.test.ts",
+        "tests/unit/engines/session-caps.test.ts",
+        "tests/unit/engines/contact-engine.test.ts",
+        "tests/unit/engines/notification-engine.test.ts"
+      ]
+    },
+    {
+      "card": "F-022",
+      "name": "Plugin System",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 2,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 10,
+        "failing": 0,
+        "total": 10
+      },
+      "test_files": [
+        "tests/unit/engines/plugin-system.test.ts",
+        "tests/unit/engines/plugin-hot-reload.test.ts"
+      ]
+    },
+    {
+      "card": "F-023",
+      "name": "MCP Integration",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 10,
+        "failing": 0,
+        "total": 10
+      },
+      "test_files": [
+        "tests/unit/engines/mcp-client-adapter.test.ts",
+        "tests/unit/engines/mcp-server-adapter.test.ts"
+      ]
+    },
+    {
+      "card": "F-024",
+      "name": "Workspace & Presets",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 18,
+        "failing": 0,
+        "total": 18
+      },
+      "test_files": [
+        "tests/unit/engines/workspace-presets.test.ts",
+        "tests/unit/engines/adaptive-workspace.test.ts",
+        "tests/unit/engines/manifest-inference.test.ts"
+      ]
+    },
+    {
+      "card": "F-025",
+      "name": "Observation & Outcome",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 10,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 41,
+        "failing": 0,
+        "total": 41
+      },
+      "test_files": [
+        "tests/unit/engines/observation-tap.test.ts",
+        "tests/unit/engines/outcome-tracker.test.ts",
+        "tests/unit/engines/task-history.test.ts",
+        "tests/unit/engines/config-manager.test.ts",
+        "tests/unit/engines/config-universal-surface.test.ts"
+      ]
+    },
+    {
+      "card": "F-026",
+      "name": "Media & LLM Bridge",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 17,
+        "failing": 0,
+        "total": 17
+      },
+      "test_files": [
+        "tests/unit/engines/media-engine.test.ts",
+        "tests/unit/engines/image-gen-bridge.test.ts",
+        "tests/unit/engines/local-model-adapter.test.ts",
+        "tests/unit/engines/api-provider-adapter.test.ts"
+      ]
+    },
+    {
+      "card": "F-027",
+      "name": "Send & Resilience",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 27,
+        "failing": 0,
+        "total": 27
+      },
+      "test_files": [
+        "tests/unit/engines/send-capability.test.ts",
+        "tests/unit/engines/send-resilience.test.ts",
+        "tests/integration/engines/send-resilience.test.ts",
+        "tests/unit/engines/request-queue.test.ts",
+        "tests/unit/engines/retry-engine.test.ts"
+      ]
+    },
+    {
+      "card": "F-028",
+      "name": "Budget & Cost",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 3,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 36,
+        "failing": 0,
+        "total": 36
+      },
+      "test_files": [
+        "tests/unit/engines/budget-engine.test.ts",
+        "tests/unit/engines/cortex-budget.test.ts",
+        "tests/unit/engines/cost-optimizer.test.ts"
+      ]
+    },
+    {
+      "card": "F-029",
+      "name": "Update & Transfer",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 10,
+        "failing": 0,
+        "total": 10
+      },
+      "test_files": [
+        "tests/unit/engines/update-engine.test.ts",
+        "tests/unit/engines/transfer-accelerator.test.ts",
+        "tests/unit/engines/export.test.ts"
+      ]
+    },
+    {
+      "card": "F-030",
+      "name": "Selector Resilience",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 34,
+        "failing": 0,
+        "total": 34
+      },
+      "test_files": [
+        "tests/unit/engines/selector-cache.test.ts",
+        "tests/unit/engines/selector-healer.test.ts",
+        "tests/unit/engines/selector-refiner.test.ts",
+        "tests/unit/engines/situation-detector.test.ts"
+      ]
+    },
+    {
+      "card": "F-031",
+      "name": "Humanization & UX",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 3,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 20,
+        "failing": 0,
+        "total": 20
+      },
+      "test_files": [
+        "tests/unit/engines/humanized-interaction.test.ts",
+        "tests/unit/engines/composer-typing.test.ts",
+        "tests/unit/engines/messaging-archetypes.test.ts"
+      ]
+    },
+    {
+      "card": "F-032",
+      "name": "Content & Collections",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 37,
+        "failing": 0,
+        "total": 37
+      },
+      "test_files": [
+        "tests/unit/engines/content-item-engine.test.ts",
+        "tests/unit/engines/content-unit-decomposer.test.ts",
+        "tests/unit/engines/entity-container-engine.test.ts",
+        "tests/unit/engines/collection-engine.test.ts",
+        "tests/unit/engines/objective-engine.test.ts"
+      ]
+    },
+    {
+      "card": "F-033",
+      "name": "Canvas Frontend",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 1,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 6,
+        "failing": 0,
+        "total": 6
+      },
+      "test_files": [
+        "tests/unit/engines/canvas-layer-mounter.test.ts"
+      ]
+    },
+    {
+      "card": "F-034",
+      "name": "Frontend Surfaces (Next.js + React)",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-035",
+      "name": "Desktop Installer (Tauri v2)",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-036",
+      "name": "Dual-DB System (system + user)",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-037",
+      "name": "Seed Pipeline",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-038",
+      "name": "DevOps Tooling",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-039",
+      "name": "Test Suite",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-040",
+      "name": "Logging Infrastructure",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 1,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 6,
+        "failing": 0,
+        "total": 6
+      },
+      "test_files": [
+        "tests/unit/engines/logger.test.ts"
+      ]
+    },
+    {
+      "card": "F-041",
+      "name": "Voice Input",
+      "state": "MAPPED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    }
+  ]
+}

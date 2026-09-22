@@ -1,0 +1,115 @@
+# GLOBAL SHARED TAXONOMY LIBRARY
+# The single source of truth for language across all agents and experiments.
+# Every agent reads this on bootstrap. A write using a term, ID format, or
+# status value not defined here is non-conforming and should be refused by
+# the maintainer's validation pass.
+#
+# Versioned so the vocabulary can evolve without breaking agents mid-run:
+# publish a new version, agents pick it up on their next bootstrap.
+
+version: 2
+status: active   # draft | active | superseded
+
+# ---------------------------------------------------------------------------
+# Controlled vocabulary — each term has exactly ONE meaning. No synonyms.
+# ---------------------------------------------------------------------------
+terms:
+  capability:
+    definition: "A discrete typed operation the system performs"
+    never_means: "A feature, a UI element"
+  realization:
+    definition: "A substitutable implementation of a capability"
+    never_means: "A plugin, a module"
+  depth:
+    definition: "Implementation completeness of a capability (L0-L3)"
+    never_means: "Priority, effort"
+  invariant:
+    definition: "The one thing a capability must never violate"
+    never_means: "A goal, a nice-to-have"
+  dependency:
+    definition: "A typed edge that constrains build order"
+    never_means: "A suggestion"
+  work_item:
+    definition: "An atomic unit of build work targeting a depth"
+    never_means: "A task, a ticket"
+  experiment:
+    definition: "An isolated parallel dev effort with defined scope"
+    never_means: "A branch"
+  lease:
+    definition: "A soft, time-bound claim on a capability"
+    never_means: "A lock, a permanent assignment"
+  agent:
+    definition: "An autonomous actor (scoped builder, fullscope builder, coordinator, or maintainer) operating on this workspace"
+    never_means: "A human user"
+  signal:
+    definition: "An append-only, typed event emitted to log/ for other agents to observe"
+    never_means: "A direct RPC call between agents"
+  discovery:
+    definition: "A learned insight appended to state/discoveries.yaml that helps other agents"
+    never_means: "A private note"
+  failure:
+    definition: "A logged dead-end appended to state/failures.yaml"
+    never_means: "An unhandled error"
+  pattern:
+    definition: "A reusable implementation template in patterns/"
+    never_means: "A framework or dependency"
+
+# ---------------------------------------------------------------------------
+# ID schemes — canonical formats. Validate new IDs against these regexes.
+# ---------------------------------------------------------------------------
+id_schemes:
+  capability_family:   { format: "FAM-{nn}",          example: "FAM-09",        regex: '^FAM-\d{2}$' }
+  sub_capability:       { format: "FAM-{nn}.{n}",       example: "FAM-09.3",      regex: '^FAM-\d{2}\.\d$' }
+  work_item:             { format: "WRK-FAM{nn}-{seq}", example: "WRK-FAM09-014", regex: '^WRK-FAM\d{2}-\d{3}$' }
+  experiment:             { format: "EXP-{yyyy}-{seq}",  example: "EXP-2026-001",  regex: '^EXP-\d{4}-\d{3}$' }
+  agent:                   { format: "AGT-{name}",         example: "AGT-alpha",     regex: '^AGT-[a-z0-9_-]+$' }
+  discovery:                { format: "DISC-{nnn}",         example: "DISC-001",      regex: '^DISC-\d{3}$' }
+  failure:                   { format: "FAIL-{nnn}",         example: "FAIL-001",      regex: '^FAIL-\d{3}$' }
+  pattern:                    { format: "PAT-{name}",         example: "PAT-provider-bridge", regex: '^PAT-[a-z0-9_-]+$' }
+
+# ---------------------------------------------------------------------------
+# Depth levels — canonical 4-level scale (see RECONCILIATION.md)
+# ---------------------------------------------------------------------------
+depth_levels:
+  - { code: L0, name: SPEC,      description: "It is defined. Has an invariant.",                     entry_criteria: "Canonical ID + invariant written" }
+  - { code: L1, name: STUB,      description: "It has an interface. Compiles. Returns something.",     entry_criteria: "Schema/types exist, compiles, returns mock, passes gate" }
+  - { code: L2, name: WORKS,     description: "It functions correctly on the happy path.",              entry_criteria: "Happy path + error path handled, logged to log/" }
+  - { code: L3, name: HARDENED,  description: "It survives failure, is logged, is production-safe.",    entry_criteria: "Adversarial-tested, failure-safe, replayable, no hidden deps" }
+
+# ---------------------------------------------------------------------------
+# Controlled enums — the exact allowed values for status fields
+# ---------------------------------------------------------------------------
+enums:
+  work_item_status:   [backlog, scoped, in_progress, in_review, falsified, landed, deferred]
+  experiment_status:   [proposed, active, merging, merged, abandoned, archived]
+  lease_status:         [active, released, expired, reassigned]
+  agent_status:          [active, idle, stalled, terminated]
+  agent_role:              [scoped_builder, fullscope_builder, coordinator, maintainer]
+  edge_type:                [REQUIRES, BLOCKS, ENABLES, SUPERSEDES, CONFLICTS]
+  autonomy_band:             [self_approve, propose_then_act, require_human]
+
+# ---------------------------------------------------------------------------
+# Signal types — the event vocabulary for the log-based event bus
+# ---------------------------------------------------------------------------
+signal_types:
+  - LEASE_ACQUIRED
+  - LEASE_RELEASED
+  - LEASE_RENEWED           # v2: heartbeat / TTL extension via `bcp_tool.py lease renew`
+  - DEPTH_BUMPED
+  - BLOCKED_ON_DEPENDENCY
+  - DEPENDENCY_SATISFIED
+  - LEASE_CONFLICT_DETECTED
+  - STALLED_LEASE_RELEASED
+  - INTEGRATION_READY
+  - REBALANCE_SUGGESTED
+  - DISCOVERY_LOGGED
+  - FAILURE_LOGGED
+  - DRIFT_DETECTED
+  - STATE_REPAIRED
+  - METRICS_UPDATED
+  - STALE_EXPERIMENT_FLAGGED
+  - TAXONOMY_VIOLATION
+  - MAINTENANCE_SWEEP
+  - STALL_DETECTED          # v2: emitted by fullscope-builder.md, was missing from this list
+  - CYCLE_DETECTED          # v2: emitted by fullscope-builder.md and sweep.py
+  - ORPHAN_DETECTED         # v2: emitted by fullscope-builder.md

@@ -1,0 +1,42 @@
+name: Bundles
+
+# Rebuilds the full git-bundle suite on every push and keeps versioned copies.
+# Versioning = artifact name (run number + commit SHA) + MANIFEST.md header
+# (source commit, build version, per-bundle SHA256). Artifacts retained 90 days.
+# Local parity: pre-push hook runs build + txt sync; `bun run bundles:all` anytime.
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build + verify bundles
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build all bundles
+        run: pwsh scripts/bundles/build-bundles.ps1
+
+      - name: Sync .txt copies + checksums
+        run: pwsh scripts/bundles/sync-txt-copies.ps1
+
+      - name: Verify bundles (test-clone + SHA compare)
+        run: pwsh scripts/bundles/verify-bundles.ps1
+        env:
+          BUNDLE_VERSION: ${{ github.run_number }}-${{ github.sha }}
+
+      - name: Upload versioned bundle artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundles-${{ github.run_number }}-${{ github.sha }}
+          path: |
+            bundles/*.bundle
+            bundles/*.bundle.txt
+            bundles/MANIFEST.md
+            bundles/SHA256SUMS.txt
+          retention-days: 90

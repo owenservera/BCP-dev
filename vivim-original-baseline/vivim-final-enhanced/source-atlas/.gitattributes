@@ -1,0 +1,4 @@
+# source-atlas ships LF everywhere so the git-bundle unit checks out
+# byte-identical on Windows (core.autocrlf=true would otherwise expand to CRLF
+# in clones of the subtree-split bundle, which has no root .gitattributes).
+* text=auto eol=lf

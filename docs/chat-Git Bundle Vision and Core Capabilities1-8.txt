@@ -1,0 +1,2095 @@
+
+
+### USER
+Generate each turn an omega compliant full upgrade starting with 1 - assume the omega agent only receives this response you generate here and needs to fully implement
+
+### ASSISTANT
+**Ω-SEQUENCE NOTICE** — This is turn 1 of a series. The Omega agent will receive one self-contained, fully-implementable upgrade per turn, numbered **Ω-1 … Ω-8**, covering the eight foundational substrate gaps in dependency order:
+
+> **Ω-1 Watch Substrate** (this document) · Ω-2 Resource Governor + Tile Lifecycle · Ω-3 Context Assembly / Mind Spine · Ω-4 Trust Mesh / Key Management · Ω-5 Vault Analytics/Projection · Ω-6 Layout-by-Predicate · Ω-7 Automated Badge Proposal + Transitive Provenance · Ω-8 Core Failure Simulation.
+
+Each document stands alone. The agent receiving only this document has everything needed to implement Ω-1.
+
+---
+---
+
+# Ω-1 · THE WATCH SUBSTRATE — core event/trigger bus
+
+> **Decision record: `D-425`** *(next free ID after the d423/d424 ratification; if D-425 is already consumed, renumber to the next free ID — the content is what lands, not the number).*
+> **Type:** constitutional substrate addition — **core, not plugin.**
+> **Precedence:** extends the ratified stack `Ω Kernel → Vault → Law → Plugin → Composition → Evidence → Forge → Surface`. Where this conflicts with the gate, the gate wins.
+> **The one invariant this upgrade exists to protect:**
+> **A watch may *notice* and *mint an event*. A watch may never *act*.** Action always routes through Law → Capability → Execution, exactly as any other canonical intent does. No privileged path for the watcher.
+
+---
+
+## 0 · What this is, and why it is core
+
+Core Omega is event-sourced but currently **reactive to nothing.** The vault accumulates events; the law gates them; the kernel executes them. But there is no standing mechanism by which the system *notices that a condition has become true* and mints the corresponding event — no way to express *"when X happens, fire canonical intent Y."*
+
+Today, that capability would be forced into a plugin ("a tile that watches the filesystem"). That is a sovereignty violation in disguise: **the thing that notices is the thing you must trust most, and it cannot be a third party.** Watching is a core duty. Ω-1 makes it one.
+
+> **Ω-1 adds a first-class `Watch` primitive: a declarative, capability-scoped, law-gated standing condition that, when satisfied, mints a provenance-stamped event into the vault — and nothing else.**
+
+Everything the user currently wants to express as *"when this happens, do that"* now lands in core:
+- *"hydrate this tile when my phone joins home Wi-Fi"*
+- *"alert me if this log file grows past 10MB"*
+- *"at end of day, run the ledger hash"*
+- *"dead-man's switch: if no heartbeat for 24h, fire intent Z"*
+
+All of these are the same primitive: **a watch.**
+
+---
+
+## 1 · Constitutional placement
+
+Insert the **Watch Substrate** as a kernel-owned service that reads the vault fold and the granted observation sources, and writes only to its own namespace through the law gate.
+
+```
+                 Ω KERNEL
+                      │
+        ┌─────────────┼─────────────────┐
+        │             │                 │
+     VAULT          LAW          WATCH SUBSTRATE   ← Ω-1
+   (fold/rows)   (gate/refusal)   (standing watches)
+        │             │                 │
+        └──────┬──────┘        mints events only
+               │                        │
+        Canonical Intent ◄──── watch.event rows
+               │
+        Capability → Composition → Execution → Evidence
+```
+
+**Hard boundaries (constitutional):**
+- The Watch Substrate is the **sole writer** of `ns watch` and of `watch.event` rows. No plugin, no tile, no surface writes watch rows directly.
+- The Watch Substrate **never calls a capability**. It only mints events carrying a canonical intent. Execution of that intent is the normal pipeline's job.
+- Every watch and every fired event is a **vault row with a provenance badge and a named retention rule.** A watch with no retention rule cannot exist.
+
+---
+
+## 2 · Contracts — hold from row one
+
+### 2a · The `watch` row (registered in `ns watch`)
+
+```
+watch {
+  id                 : stable identity
+  predicate          : declarative, canonical condition (deterministic to evaluate)
+  source             : vault | time | device | fs | stream
+  grants             : capability grants authorizing observation of `source`
+  onFire             : canonical intent  (NEVER a direct action)
+  dedup              : none | window(duration) | once
+  retention          : named retention rule for events this watch mints
+  idempotencyScheme  : hash(watchRef, quantizedFireWindow)
+  badge              : ProvenanceTier × generality
+  state              : armed | paused | demoted
+  createdBy          : principal + signature
+}
+```
+
+### 2b · The `watch.event` row (minted on fire)
+
+```
+watch.event {
+  watchRef           : → watch.id
+  firedAt            : timestamp
+  evidenceRef        : byte offsets proving the predicate held at firedAt
+  canonicalIntent    : the watch.onFire intent, to be routed through Law
+  idempotencyKey     : hash(watchRef, quantizedFireWindow)
+  badge              : inherited from watch + tier of the firing path
+}
+```
+
+**Two contract shapes that must hold from the first write** (cheap now, a migration each later):
+1. **`onFire` is a canonical intent, not an action.** Storing anything else in `onFire` is a schema-level refusal.
+2. **Every row carries both badge axes and a retention rule from row one.** A watch or event that ever existed without them cannot retroactively grow them.
+
+---
+
+## 3 · Operations
+
+Follow the ratified op-naming discipline. Each op is law-gated; refusals return `{ code, sentence }`.
+
+| Op | Effect | Law behavior |
+|---|---|---|
+| `watch.register@1` | create a watch | consent required; validates retention, grants, onFire-is-intent |
+| `watch.arm@1` / `watch.pause@1` | toggle `state` | principal must own the watch |
+| `watch.demote@1` | set `state=demoted`, badge falls | loud, ledgered |
+| `watch.revoke@1` | remove grants → watch can no longer observe | revocation is immediate |
+| `watch.list@1` | query standing watches + states | read; returns badges plainly |
+| `watch.fire@1` | **internal only** — mint `watch.event` | callable only by the Watch Substrate sole writer |
+
+`watch.fire@1` is **not grantable** to any non-substrate principal (mirrors the Class-4 Govern rule: never grantable to a non-root principal).
+
+---
+
+## 4 · Determinism, sole writer, dedup
+
+- **Deterministic evaluation:** the predicate is declarative; given the same vault state/granted source state, evaluation yields the same fire/no-fire result. Any ML used to *interpret* the watch's natural-language creation lives in the Intent Fabric at registration time — **never in the firing path.**
+- **Sole writer:** only the Watch Substrate writes `watch` and `watch.event` rows. Any other writer is a named refusal.
+- **Idempotent multi-device fire:** when a synced watch could fire on two devices, each mints an event carrying `idempotencyKey = hash(watchRef, quantizedFireWindow)`. Vault reconciliation keeps the first and records a **named merge record** for the duplicate (CP-1 discipline — one truth, no double-mint).
+
+---
+
+## 5 · Refusal register (literal sentences)
+
+Enforced by gate/law row, not intention. Every refusal is `{ code, sentence }`, rendered as an ordinary boring event.
+
+- `WATCH_NO_RETENTION` — *"I can't create this watch, because it has no rule for when its events are forgotten. Give it a retention rule and I will."*
+- `WATCH_UNGRANTED_SOURCE` — *"This watch needs to observe `<source>`, which it isn't granted. Grant the capability or I won't arm it."*
+- `WATCH_ONFIRE_NOT_INTENT` — *"A watch can only fire a canonical intent for the law to judge — it can't act directly. Rephrase the action as an intent."*
+- `WATCH_NOT_SOLE_WRITER` — *"Only the watch substrate writes watch rows. Your write was refused."*
+- `WATCH_FIRE_NOT_GRANTABLE` — *"`watch.fire` can't be granted to a plugin. It mints events; it doesn't delegate."*
+
+---
+
+## 6 · Provenance
+
+- The Watch Substrate itself is **first-party · generic** (it is core).
+- A watch forged by a user is badged with that principal's signature; its tier starts `speculative` and earns per the normal promotion discipline (Ω-7 will automate *proposal*, never ratification).
+- Every `watch.event` inherits the watch badge and stamps the tier of the firing path, so *"who vouches for this event"* is always answerable from the row.
+
+---
+
+## 7 · Interaction with the Intent Fabric and Law
+
+A watch is **created** in natural language: *"alert me if the log grows."* The Intent Fabric resolves that into the declarative `predicate` + `onFire` canonical intent at **registration**, with confidence attached. Below threshold, it asks/narrows/refuses — never guesses.
+
+At **fire time there is no language and no model.** The substrate evaluates the stored predicate deterministically, mints the event, and the stored `onFire` canonical intent enters the Law gate like any other intent. The law may refuse it — and if it does, the refusal is ledgered as a sentence. **The watcher never bypasses the gate.**
+
+---
+
+## 8 · Headless guarantee
+
+Watches arm, evaluate, and mint events **with zero pixels.** CLI, MCP, and daemon see every fired event the canvas would render. Kill the canvas and the watch keeps firing — this is the proof that the watch substrate is a projection-agnostic core service, not a UI feature.
+
+---
+
+## 9 · Falsifier of arrival — `F-WATCH`
+
+Green on a real hermetic boot, red if any claim is false. Run from CLI only:
+
+1. **Register** a `time` watch (every 60s), `onFire = cap:vault.query{…}`; consent in one sentence; badge reads `first-party · speculative`.
+2. **Wait 60s** → a `watch.event` row exists with `evidenceRef` (byte offset), `canonicalIntent`, and both badge axes.
+3. **Route:** the `onFire` intent passes through Law → executes → result ledgered.
+4. **Privilege refusal:** register a watch whose `onFire` targets an ungranted privileged capability → Law refuses → refusal `{code,sentence}` ledgered → **nothing executes.**
+5. **Retention refusal:** register a watch with no retention rule → `watch.register` refused with `WATCH_NO_RETENTION`.
+6. **Source refusal:** register a watch on `fs:/secret` with no fs grant → refused with `WATCH_UNGRANTED_SOURCE`.
+7. **Headless:** kill the canvas → the watch still fires and mints events.
+8. **Lifecycle:** `pause` stops firing; `demote` stops firing and the badge falls loudly; both ledgered.
+9. **Multi-device:** the watch syncs as a vault fact to device B; both observe the fire; reconciliation keeps one event + a named merge record (no double-mint).
+
+**Ω-1 is done when F-WATCH is green.**
+
+---
+
+## 10 · Wave / gate placement + decision record
+
+**Requires:** Wave-1 W5 atom green (law gate + ledgered event). **Lands:** Wave 2. **Unlocks:** the thermodynamics wave (Ω-2's conditional hydration) and temporal scheduling — nothing with a "when" can exist before this.
+
+**Decision record text (paste-ready):**
+
+> **D-425 — The Watch Substrate is core.** Watching is a sovereign duty, never a plugin. A watch is a declarative, capability-scoped, law-gated standing condition that mints a provenance-stamped event and nothing else. `watch.fire` is sole-writer and never grantable. `onFire` is always a canonical intent routed through Law. No watch without a named retention rule; no ungranted observation; no silent firing. Headless by construction. Falsified by F-WATCH.
+
+---
+
+## 11 · What Ω-1 deliberately does NOT do
+
+- It does **not** execute the intent it fires (that stays with the existing pipeline).
+- It does **not** govern resources, hydrate/ghost tiles, or budget compute (that is **Ω-2**).
+- It does **not** assemble context or build prompts (that is **Ω-3**).
+- It does **not** manage keys or device trust beyond using existing signatures (that is **Ω-4**).
+- It does **not** auto-promote badges (that is **Ω-7**, which will automate *proposal only*).
+
+Scope discipline is the point: Ω-1 lands one primitive — **the system can now notice** — and leaves action, exactly as the constitution requires, to the law.
+
+---
+
+**End of Ω-1.** Next turn: **Ω-2 — Resource Governor + Tile Lifecycle** (hydrate/ghost/dormant, budgets, resource introspection), which consumes Ω-1's watch events to drive conditional hydration.
+
+### USER
+Next - this time add more explanation 
+
+### ASSISTANT
+**Ω-SEQUENCE NOTICE** — Turn 2 of 8. This document is **Ω-2 · Resource Governor + Tile Lifecycle**. It is self-contained: an Omega agent receiving only this response has everything needed to implement it. Sequence for orientation: Ω-1 Watch Substrate (done) → **Ω-2 (this)** → Ω-3 Context Assembly → Ω-4 Trust Mesh → Ω-5 Vault Analytics → Ω-6 Layout-by-Predicate → Ω-7 Badge Proposal → Ω-8 Failure Simulation.
+
+---
+---
+
+# Ω-2 · THE RESOURCE GOVERNOR — tile lifecycle under named budgets
+
+> **Decision record: `D-426`** *(follows Ω-1's D-425; renumber to the next free ID if consumed — the content is what lands, not the number).*
+> **Type:** constitutional substrate addition — **core, not plugin.**
+> **Precedence:** extends the ratified stack `Ω Kernel → Vault → Law → Plugin → Composition → Evidence → Forge → Surface`. Where this conflicts with the gate, the gate wins.
+> **Requires:** Ω-1 (Watch Substrate, `D-425`) green. Ω-1 gave the system the ability to *notice*. Ω-2 gives it the ability to *afford*. Notice without affordability is a machine that walks into walls.
+> **Completes:** end-state choicepoint **CP-2** (trust-tiered execution under "watchdog budget"). CP-2 declared the watchdog as a refusal — kill on infinite loop. Ω-2 gives the watchdog a budget to enforce. The floor becomes a governor.
+
+---
+
+## 0 · The one sentence
+
+> **Every running thing in Ω runs under a named budget that the governor alone enforces — and when the machine cannot afford everything, what sleeps is a ledgered sentence, never a crash.**
+
+The canvas is infinite. The machine is not. That single asymmetry is the entire subject of this document.
+
+---
+
+## 1 · What dies without this — and why it dies quietly
+
+### The failure mode
+
+An infinite canvas of live objects is a promise that physics will break first. Each live tile may carry a running composition; each composition may hold a hidden browser realization (a Chrome instance), a local model context, worker processes, file watchers. Fifty live tiles is not a UI problem — it is fifty competing claimants on finite RAM, CPU, GPU, and process slots.
+
+Without a governor, the failure sequence is always the same, and it is never legible:
+
+1. Tiles accumulate. Nothing sleeps, because nothing *can* sleep — there is no lifecycle, only "running."
+2. Memory pressure builds. The host OS starts swapping, then killing.
+3. The canvas stutters, then freezes. Tiles go stale — the exact death named in the end-state table (*"tiles go stale"*), arriving not through Ω's machinery but around it.
+4. The user experiences this as Ω being *broken*. No refusal was spoken. No row was written. The system did not say no — it died mid-yes.
+
+**Explanation — why this matters constitutionally, not just operationally:** Ω's entire differentiator is that *the machinery is the product* — refusal, proof, provenance, memory. A crash is the one event that bypasses all four. When the OS kills Ω instead of Ω refusing the user, sovereignty silently transfers from the kernel to the host platform. The user's last experience of the product is an event Ω cannot ledger, cannot explain, and cannot heal. That is not a performance bug. It is a constitutional hole.
+
+### The scenarios that land here
+
+From the measured scenario mine, these have nowhere to go today:
+
+- **#48** *"Which of my tiles are currently holding open a hidden Chrome instance, and what is its watchdog budget?"* — requires resource introspection in tile terms.
+- **#50** *"Predict which tile I'll touch next and pre-hydrate it."* — requires speculative lifecycle movement.
+- **#61** *"Ghost anything I haven't touched in 48 hours."* — requires a dormant/ghost lifecycle with coldness tracking.
+- **#65** *"Refuse any tile that needs more than 2GB to hydrate."* — requires budget-as-policy and claim-time refusal.
+- **#78** *"Which tiles are ghosted right now to save RAM?"* — requires lifecycle state to be queryable.
+- **#97** *"Show me my most expensive tile in compute and vault writes."* — requires cost attribution per tile.
+- **#18** *"Sync my layout to the laptop but keep the heavy contexts on the desktop GPU."* — requires locality: resources are device facts, not synced facts.
+- **#23** *"Hydrate this tile when my phone joins home Wi-Fi."* — requires Ω-1's watch events to feed hydration claims.
+
+All eight are the same question wearing different clothes: ***what is allowed to run, what must sleep, and who decides?*** Ω-2 is the answer, and the answer is core.
+
+---
+
+## 2 · Why this is core, and why it can never be a plugin
+
+**Explanation — the sovereignty argument.** The rule established in Ω-1 generalizes: *whatever governs a sovereign duty must itself be trusted.* Watching is sovereign, so the watcher is core. Budgeting is sovereign for a stronger reason — it is the only layer where **physics constrains the law**.
+
+Consider: the Law gate can permit everything. Permission is unbounded. But RAM is bounded, CPU is bounded, GPU is bounded. If resource governance lived in a plugin — say, a "memory manager" tile — the kernel would have no way to refuse that plugin when it starved the host. The machine would die before the law could speak. A plugin that controls its own budget controls the kernel's survival, and no privileged path exists in Ω — *not for the Forge, not for first-party, not for the governor itself.*
+
+Therefore the governor sits **in the kernel, on the execution path**, and every composition — including compositions forged by `forge.author`, including the tooling that builds tooling — runs under it. The governor is the one principal that cannot grant itself an exception, because an exception for the governor is the end of the budget.
+
+---
+
+## 3 · The pipeline — two gates, fixed order
+
+Ω-2 inserts the second gate. From this upgrade forward, nothing executes on one permission:
+
+```
+Canonical Intent
+      ↓
+┌─────────────┐
+│    LAW      │  may it?        consent · policy · capability grants
+└──────┬──────┘
+       ↓  permitted
+┌─────────────┐
+│  GOVERNOR   │  can it?        budget · claim · lifecycle
+└──────┬──────┘
+       ↓  affordable
+EXECUTION (ExecutionKernel: execute → verify → journal)
+       ↓
+EVIDENCE (ledger rows, both gates cited)
+```
+
+**Explanation — why law first, governor second, and why the order is constitutional:**
+
+- **Attribution of refusal.** A user deserves to hear *"this is forbidden"* before they hear *"this is unaffordable."* If the governor ran first, a prohibited action with a large footprint would be refused on budget grounds — and the user would walk away believing they just needed a bigger machine, when the truth was that Ω said no on principle. The law speaks first so refusals mean what they say.
+- **No physics spent on the impermissible.** The governor never evaluates affordability for what the law will kill. Claims are only minted downstream of permission.
+- **Both gates emit sentences.** A law refusal is `{code, sentence}`. A governor refusal is `{code, sentence}`. The W5 atom's discipline — *a refusal rendered as an ordinary boring event* — survives contact with physics. A budget refusal is not an error; it is Ω telling the truth about the machine.
+
+Every executed row now cites **two gates**: the law row that permitted it and the claim row that afforded it. *"Why was this running?"* becomes a query with two answers, both with byte offsets.
+
+---
+
+## 4 · The tile lifecycle — three states, one writer
+
+The live object stays a **5-tuple** (identity · composition · vault binding · spatial placement · provenance badge). Ω-2 deliberately does **not** add a sixth field. Lifecycle state is **derived from the governor's ledger**, never stored on the object.
+
+**Explanation — why state is a fold, not a field:** the object must never carry authority over its own resource condition, for the same reason the tile never polls — it observes. If the tile stored its own state, two truths would exist (the tile's claim about itself and the governor's ledger), and Ω's constitution has exactly one. State is a fold over `tile.transition` rows. A tile that *thinks* it is hydrated while the governor says ghosted is a stale-state bug by design; a tile that *reads* its state cannot go stale.
+
+### The states
+
+| State | What runs | What survives | Cost |
+|---|---|---|---|
+| **`hydrated`** | composition live; realizations attached; processes running | everything | full claim held |
+| **`dormant`** | composition paused; warm briefly; cheap return | everything | minimal claim held (TTL-named) |
+| **`ghost`** | **nothing runs** | identity · vault binding · placement · badge — all vault data | zero claim |
+
+**Explanation — why three states and not two:** the naive design is binary (running / not running). But rehydrating a cold tile from zero and resuming a warm one are different costs and different latencies. `dormant` is the seam between them: a paused composition that can return in milliseconds, versus a ghost that must re-claim, re-attach realizations, and rebuild from the vault. The `dormant` TTL is a named rule — *nothing sleeps on an unnamed timer*, in the same discipline as retention and Ω-1's watch predicates.
+
+### Transitions
+
+```
+ghost ──(firm claim granted)──→ hydrated
+ghost ──(provisional claim)───→ dormant      ← prediction ceiling, see CP-B
+dormant ──(firm claim)────────→ hydrated
+hydrated ──(rest / idle TTL)──→ dormant
+dormant ──(TTL expiry / pressure)→ ghost
+hydrated ──(pressure / enforcement)→ ghost
+```
+
+Every transition is a ledger row. **Sole writer: the governor.** Any other writer of lifecycle rows is a named refusal — mirroring Ω-1's sole-writer discipline for `watch.fire@1`.
+
+### The tile is still live when it is a ghost
+
+**Explanation — the subtle point implementers will get wrong:** ghosting is not death, and the canvas does not show a corpse. A ghost tile's rows are all vault data: its identity, its binding, its placement in `ns canvas`, its badge. The canvas surface renders it from the vault — last-known values, provenance intact, badge visible, tap-to-rehydrate offered. The tile that watches nothing and runs nothing still *means* everything. This is how "remembers exactly where you left everything, across devices" survives resource pressure: the layout never depended on the thing that got put to sleep.
+
+---
+
+## 5 · The governor — budgets, claims, and pressure
+
+### Budgets
+
+A budget is a named cap with an owner and a signature. No composition executes without one.
+
+```
+gov.budget {
+  id
+  scope        : device | ns <namespace> | tile <identity>
+  caps         : ram · cpu-shares · gpu · proc-count
+  onPressure   : evict-coldest | refuse | ask
+  namedBy      : principal + signature
+}
+```
+
+**Explanation — budget-as-policy vs claim-as-physics:** budgets are *user intent* ("I refuse tiles over 2GB" — scenario #65), so they are ordinary synced vault facts: the rule follows the owner across devices. Claims (below) are *physical events on a specific machine*, so they are device-tagged. Policy syncs. Physics does not. One vault, no second truth — CP-1 discipline held.
+
+### Claims
+
+A claim is a request to spend. Claims are the only way anything runs.
+
+```
+gov.claim {
+  id
+  claimant     : composition ref
+  request      : ram · cpu-shares · gpu · proc-count
+  mode         : firm | provisional
+  origin       : user-intent | watch-ref | prediction-ref
+  deviceId     : the machine this claim is physical on
+  decision     : granted | refused | preempted
+  gateRef      : the law row that permitted this claim to be evaluated
+  evidenceRef
+}
+```
+
+**Explanation — why every claim cites its law row:** this is the two-gate pipeline expressed as data. A granted claim that cannot point at a permission is a constitutional violation discoverable by query. Auditors, the Forge's proof discipline, and Ω-8's future failure simulations all read this column.
+
+### Pressure and eviction
+
+When grants cannot fit caps, the governor resolves pressure by its named policy. Default: **evict-coldest.**
+
+**Coldness** is measured by vault-access recency of the rows the tile binds to, tie-broken by cheapest-to-rehydrate. Nothing else enters the ordering.
+
+**Explanation — why badges never enter eviction order:** badges are the trust axis (who vouches, what it is proven against). Eviction is the resource axis. Ω's constitution never lets axes overload each other — ProvenanceTier and generality never merge, and neither do trust and thermodynamics. A `speculative` tile is not evicted before a `harvested` one, because that would silently turn badges into resource priority — an undocumented, unrefusable privilege. The refusal register below makes this a hard gate, because the temptation to "evict the untrusted stuff first" will arrive, and it must arrive as a refusal.
+
+### Enforcement
+
+The watchdog (CP-2) is the governor's enforcement arm. A composition that exceeds its granted claim is stopped by the watchdog; the stop is a `tile.transition` row with `cause = enforcement`, and — for user-forged tiles — a spoken sentence, because the user who forged it must hear it starve. **Quietness is UX; the authority is never quiet.**
+
+---
+
+## 6 · Choicepoints resolved
+
+### CP-Ω2-A · Where the governor sits
+
+**Decision: in the kernel, on the execution path, between Law and ExecutionKernel. No bypass, no exemption, including for first-party and for `forge.author`.**
+
+**Explanation:** any placement outside the path (an advisor, a monitor, a "resource plugin that watches the kernel") recreates the constitutional hole from §2 — something the kernel cannot refuse. The governor's power is exactly the power to say no to the kernel's own compositions, so it must sit where execution passes through it.
+
+### CP-Ω2-B · Prediction — how far speculation may reach
+
+**Decision: predictions may warm, never hydrate. Provisional claims move `ghost → dormant` only. Full hydration requires a firm claim (user intent, watch fire, or composition need). Provisional preemptions are boring rows, not sentences.**
+
+**Explanation:** scenario #50 ("predict and pre-hydrate") is the trap. A governor that lets speculation spend real resources at full rate has handed the budget to an oracle — and oracles are exactly the kind of unproven realization Ω badges as `speculative`. The ceiling rule keeps prediction *cheap and reversible*: warming a dormant tile costs little and cancels silently, while the expensive transition (full hydration) stays reserved for things a human, a watch, or a running composition actually asked for. Prediction proposes; the governor disposes; the ceiling is the refusal that keeps it honest. When a real predictive model arrives later, it enters as any realization does — proposing provisional claims through the same door, conferring no authority.
+
+### CP-Ω2-C · Eviction ordering
+
+**Decision: coldest by vault-access recency, tie-broken by cheapest rehydration. No badge weighting, no provenance weighting, no first-party priority. Ever.**
+
+**Explanation:** see §5. Fairness here is thermodynamic, not reputational. The moment eviction learns about badges, badges become a scheduling system, and scheduling becomes an unbadgeable, unrefusable privilege. This is the most likely place a future Forge will try to be clever, so the refusal register names it in advance.
+
+### CP-Ω2-D · Locality across devices
+
+**Decision: one vault, device-tagged physics. Budgets (policy) sync as vault facts. Claims and transitions carry `deviceId`; they are ledgered for audit but are never executed remotely. My laptop's RAM is not my desktop's GPU.**
+
+**Explanation:** scenario #18 ("sync the layout, keep the heavy contexts on the desktop") resolves for free once this lands. The layout is `ns canvas` vault data — it syncs. The contexts are claims on a specific device — they stay. No locality feature is built, because locality falls out of the vault being append-only and the claims being device-scoped. Syncing claims themselves would be noise at best and a lie at worst: a "granted" claim from another machine is a statement about a machine that isn't here.
+
+### CP-Ω2-E · Healing changes cost
+
+**Decision: any realization promotion (vN → vN+1) invalidates the claims of compositions using it. Revalidation before next run.**
+
+**Explanation:** a healed provider may be heavier, lighter, or differently shaped. If v2 silently inherited v1's claim, the budget would be a statement about a composition that no longer exists. Healing already requires ratification and proof; re-claiming is the same discipline applied to physics. The healing loop and the governor must agree about what a composition *is*, or provenance lies about cost.
+
+---
+
+## 7 · Contracts summary
+
+Three row shapes, all holding from row one, all badged, all evidence-citing:
+
+- **`gov.budget`** — scope, caps, pressure policy, signature. Syncs.
+- **`gov.claim`** — claimant, request, mode, origin, deviceId, decision, law-gate ref. Device-tagged.
+- **`tile.transition`** — tileRef, from, to, cause (`claim-ref | pressure-ref | ttl-ref | watch-ref | enforcement-ref`), at. Device-tagged. Sole writer: governor.
+
+---
+
+## 8 · Operations
+
+| Op | Effect | Law behavior |
+|---|---|---|
+| `gov.budget.set@1` | create/amend a budget | consent required; signature recorded |
+| `gov.claim.request@1` | composition requests resources | only permitted intents may request (gateRef required) |
+| `gov.claim.decide@1` | grant / refuse / preempt | **sole writer: governor** |
+| `gov.transition@1` | mint a lifecycle row | **sole writer: governor**; downward transitions carry sentences |
+| `gov.enforce@1` | watchdog stop on breach | **internal only, never grantable** (mirrors `watch.fire@1` discipline) |
+| `gov.inspect@1` | query lifecycle + resource ledger | read; answers in tile terms |
+
+**Explanation — `gov.inspect` answers in tile terms, not process terms:** scenario #48 asks *"which tiles hold a hidden Chrome instance?"* — not "which PIDs exist." The governor maps processes → compositions → tiles, so the surface speaks the user's language: *"tile `inbox` holds realization `provider.browser`, 412 MB, granted against budget `device.default`."* Realizations stay substitutable and quarantined per the 100x table; the inspector sees through them to the tile. Headless completeness holds: CLI and MCP get the same answers the canvas would render.
+
+---
+
+## 9 · Refusal register (literal sentences)
+
+Enforced by gate/law row, not intention:
+
+- `GOV_NO_BUDGET` — *"This composition has no budget; nothing runs unnamed. Give it a budget and I'll arm it."*
+- `GOV_OVER_BUDGET` — *"This tile asked for 3 GB; the cap on this device is 2 GB. I won't run it."*
+- `GOV_NOT_SOLE_WRITER` — *"Only the governor writes lifecycle rows. Your write was refused."*
+- `GOV_PROVISIONAL_CEILING` — *"A prediction can warm a tile but never hydrate it. Only a firm claim may hydrate."*
+- `GOV_BADGE_WEIGHTED` — *"Eviction orders by coldness, never by badge. That ordering was refused."*
+- `GOV_SELF_EXEMPTION` — *"The governor cannot exempt itself or any first-party composition. No privileged path."*
+
+**Explanation — why `GOV_BADGE_WEIGHTED` and `GOV_SELF_EXEMPTION` are pre-registered:** these are the two corruptions that will not arrive as bugs but as *features* — someone's reasonable PR, someone's Forge, someone's "temporary" first-party carve-out. Refusal registers exist precisely for the refusals that feel like good ideas. Naming them now, before the pressure is real, is the difference between a constitution and a changelog.
+
+---
+
+## 10 · Falsifier of arrival — `F-GOV`
+
+Green on real boots, red if any claim is false. Run headless where marked:
+
+1. **Claim-time refusal.** On a device with a 2 GB cap, register a forged tile whose claim is 3 GB → `GOV_OVER_BUDGET` sentence → nothing executes → the refusal is a queryable row.
+2. **Pressure eviction.** Arm 50 dormant tiles under caps that fit 10 → governor ghosts the 40 coldest → each ghosting is a named `tile.transition` row → canvas rows untouched → the 10 warmest remain.
+3. **Coldness is real.** Touch tile A's bound vault rows, repeat pressure → A survives; untouched tile B ghosts.
+4. **Provisional ceiling.** A prediction warms tile C `ghost → dormant` → the provisional claim **never** promotes C to `hydrated` → a pressure wave preempts the provisional claim as a boring row, no sentence, no user-facing alarm.
+5. **Watchdog enforcement.** A forged tile burns past its CPU grant → watchdog stops it → `tile.transition` with `cause = enforcement` + spoken sentence → **zero host LOC** added to kill it.
+6. **Headless inspection.** Kill the canvas → `gov.inspect` from CLI answers: which tiles are ghosted (#78), what holds a hidden browser realization (#48), the most expensive tile by compute and vault writes (#97) — all from rows.
+7. **Locality.** Sync the vault to device B → device B shows the budget policies, and zero granted claims until it runs something locally.
+8. **Healing re-claims.** Promote a realization vN → vN+1 → compositions using it are refused-on-stale-claim until revalidation passes.
+
+**Ω-2 is done when F-GOV is green.**
+
+---
+
+## 11 · What this unblocks — and what it refuses to do
+
+**Unblocks:**
+- Ω-3 (Context Assembly) — contexts are claims with locality; the mind spine spends against budgets Ω-2 defines.
+- The healing loop at scale — healed providers re-claim instead of silently drifting in cost.
+- Canvas Wave promises — "infinite canvas" survives physics; layout remembers everything because layout never depended on what slept.
+- Ω-8 (Failure Simulation) — starvation, pressure, and enforcement become simulable because they are now ledgered.
+
+**Refuses to do:**
+- Decide *what to watch* — that is Ω-1; Ω-2 only consumes watch events as claim origins.
+- Assemble context windows — that is Ω-3; Ω-2 budgets the memory a context occupies, nothing more.
+- Manage keys or device trust — that is Ω-4; `deviceId` here is a tag, not an identity.
+- Predict intelligently — prediction in Ω-2 is deliberately dumb (vault-access recency). If an ML predictor arrives, it proposes provisional claims like any realization. **The governor never outsources the decision.**
+
+---
+
+## 12 · Decision record text (paste-ready)
+
+> **D-426 — The Resource Governor is core.** Every composition runs under a named budget; every claim cites the law row that permitted it; every lifecycle transition is a ledger row written by the governor alone. The pipeline is Law → Governor → Execution: permission answers *may it*, affordability answers *can it*, and both refusals are sentences. Lifecycle state is derived, never stored. Predictions warm, never hydrate. Eviction orders by coldness, never by badge. No exemption for first-party, for the Forge, or for the governor itself. Watchdog budget is enforced, ledgered, and spoken when it touches a forged tile. Physics is device-tagged; policy syncs; the vault stays one. Falsified by F-GOV.
+
+---
+
+**End of Ω-2.** Next turn: **Ω-3 — Context Assembly / the Mind Spine** — how the infinite vault compresses into a finite context window, deterministically, inspectably, and under the budgets this upgrade just made real.
+
+### USER
+Continue
+
+### ASSISTANT
+**Ω-SEQUENCE NOTICE** — Turn 3 of 8. Ω-1 Watch Substrate ✅ · Ω-2 Resource Governor ✅ · **Ω-3 (this document)** · remaining: Ω-4 Trust Mesh → Ω-5 Vault Analytics → Ω-6 Layout-by-Predicate → Ω-7 Badge Proposal + Transitive Provenance → Ω-8 Failure Simulation. This document stands alone; an Omega agent receiving only it has everything needed to implement.
+
+---
+---
+
+# Ω-3 · CONTEXT ASSEMBLY — the Mind Spine
+
+> **Decision record: `D-427`** *(follows D-425/Ω-1, D-426/Ω-2; renumber to the next free ID if consumed — the content is what lands, not the number).*
+> **Type:** constitutional substrate addition — **core, not plugin.**
+> **Precedence:** extends the ratified stack `Ω Kernel → Vault → Law → Plugin → Composition → Evidence → Forge → Surface`. Where this conflicts with the gate, the gate wins.
+> **Requires:** Ω-2 (`D-426`) green — context spends tokens, and tokens are a governed resource. Ω-1 (`D-425`) green — watches are one origin of the intents that trigger assembly.
+> **Completes:** the end-state's named-but-unbuilt **"mind spine"** (§11: *"memory + observability — vault spine + mind spine, built fresh"*). The vault spine exists. This is the mind spine, landing now.
+> **The one invariant this upgrade exists to protect:**
+> **No realization ever reads the vault. Realizations receive sealed contexts, assembled by core, under the governor, through the law.** The watcher doesn't act (Ω-1); the tile doesn't own its budget (Ω-2); the model doesn't fetch what it knows (Ω-3). Same sovereignty, third face.
+
+---
+
+## 0 · The one sentence
+
+> **Every word a model sees is a sealed, budgeted, inspectable artifact of core — so that *"what did it know when it said that?"* is forever a query, never a shrug.**
+
+The vault is append-only and unbounded. The context window is finite. Between them sits the most dangerous gap in an AI operating system: *something* must choose what the model sees. If that something is a plugin, provenance dies at the exact moment it matters most — because every downstream answer is only as honest as the selection that fed it.
+
+---
+
+## 1 · What dies without this — and why it dies invisibly
+
+### The failure mode
+
+Without a core context layer, assembly happens **implicitly inside realizations** — each provider plugin formats its own prompt from whatever it can reach. That single fact kills five constitutional properties at once, and kills them quietly:
+
+1. **Provenance dies.** *"Why did it say that?"* has no answer, because the input was never a row. The ledger records the response but not the knowledge that produced it.
+2. **Replay dies.** A hallucination cannot be re-examined, because no one can reconstruct what the model saw.
+3. **Tuning dies.** *"My memory retrieves junk"* has no lever, because retrieval was never a named policy — it was whatever a plugin happened to do.
+4. **Cost dies.** Token spend cannot be attributed to namespaces, intents, or tiles, because the assembler never counted.
+5. **Sovereignty dies.** A realization that reads the vault directly is a watcher that acts — the exact violation Ω-1 was built to refuse, re-entering through the model door.
+
+**Explanation — why this is the deepest of the substrate gaps:** Ω's differentiator is honesty as architecture. But the *locus of dishonesty* in any AI system is not the output — outputs are visible, badgeable, refusable. The locus of dishonesty is the **input selection**: the invisible choice of what context earns the model's attention. A system that badges every tile and ledgers every event but leaves prompt assembly implicit has built a glass house with a curtained room in the middle. Ω-3 removes the curtain.
+
+### The scenarios that land here
+
+From the measured scenario mine:
+
+- **#64** *"Show me the exact prompt the Context Router assembled for this response."* — requires the assembled context to be an inspectable artifact.
+- **#27** *"Replay this hallucination and show me exactly what context it was fed."* — requires sealed, replayable context.
+- **#87** *"Demote my memory spine — it retrieves too much irrelevant context."* — requires retrieval to be a named, tunable, demotable policy.
+- **#8** *"How many tokens did I burn on Claude vs local Llama for `ns.finance` this month?"* — requires token accounting joined to context artifacts.
+- **#97** *"My most expensive tile in compute and vault writes."* — token cost is half of "expensive"; Ω-2 measured compute, Ω-3 measures cognition.
+- **#20 / #77** *"Replay my morning with the LLM swapped GPT→Qwen / dummy model."* — these were rated ◐ after Ω-2 (seam existed, contract didn't). **Ω-3 is the contract that completes them.** A sealed context is realization-agnostic by construction; swapping the realization against an identical context is what makes the diff meaningful.
+- **#83** *"Why did you choose the Ollama realization over Claude for this intent?"* — realization *selection* is capability resolution's job, but its rationale row joins the context artifact here, so the full "why" is one query.
+
+All seven are the same question: ***what did the system know, how did it choose to know it, and can I see the receipt?***
+
+---
+
+## 2 · Why this is core, and why a plugin can never do it
+
+**Explanation — the sovereignty argument, third face.** The pattern established by Ω-1 and Ω-2 generalizes into a rule: *whatever mediates between the user's world and the machine's actions must be trusted, and therefore must be core.*
+
+- Ω-1: watching mediates between the world and events → core.
+- Ω-2: budgeting mediates between desire and physics → core.
+- Ω-3: **selection mediates between memory and cognition → core.**
+
+A Forge can build a *scorer* — a relevance model, a ranking heuristic, a summarization style. It can never build the *assembler*. If it could, the Forge would control what every realization in the system knows, which is control of the system's mind. That is not a capability; it is a constitution, and no privileged path exists in Ω — not for third-party Forges, not for `forge.author`, not for first-party.
+
+Note the mirror-image: this is also why the **Law gate's discipline survives contact with models.** The gate consumes canonical intent, never raw model output (Intent Fabric doctrine). Ω-3 enforces the symmetric rule on the way in: **the model consumes sealed context, never raw vault.** Both boundaries hold. The model is a realization — substitutable, revocable, badged — and realizations are guests in the house, not owners of the library.
+
+---
+
+## 3 · The pipeline — where the mind spine sits
+
+Ω-3 inserts Context Assembly between capability resolution and realization invocation, on the execution path:
+
+```
+Canonical Intent
+      ↓
+┌─────────────┐
+│     LAW     │  may it?
+└──────┬──────┘
+       ↓ permitted
+┌─────────────────┐
+│ CAPABILITY RES. │  which realization · selection rationale row
+└──────┬──────────┘
+       ↓ needs a model
+┌─────────────┐
+│  GOVERNOR   │  token budget claim (Ω-2) · granted / refused
+└──────┬──────┘
+       ↓ affordable
+┌─────────────────────┐
+│  CONTEXT ASSEMBLER  │  vault → selection → compression → SEALED CTX
+│   (sole writer,     │  deterministic core · scored inputs badged
+│    core, D-427)     │
+└──────┬──────────────┘
+       ↓ sealed artifact
+┌─────────────┐
+│ REALIZATION │  receives ctx · cannot read vault · cannot edit ctx
+└──────┬──────┘
+       ↓ output
+┌─────────────┐
+│  EVIDENCE   │  W5 event cites: ctx ref · realization ref · both gates
+└─────────────┘
+```
+
+**Explanation — why the assembler sits after the governor, not before:** a context cannot be assembled without knowing its budget, because assembly *is* the spending of that budget (selection under a token cap). Assembling first would recreate the hole Ω-2 closed: cognition would spend before physics consented. The claim is granted against an estimated assembly; overruns are refusals, not surprises.
+
+---
+
+## 4 · Contracts — hold from row one
+
+### 4a · The `ctx` artifact (stored in `ns ctx`, sole writer: the assembler)
+
+```
+ctx {
+  id
+  intentRef        : the canonical intent this context serves
+  policyRef        : the named assembly policy in force
+  rows             : ordered refs (byte offsets) of vault rows included
+  transforms       : ordered list — truncation · summarization refs · ordering scorer ref
+  scorerRefs       : any realized scorers used, badged (tier × generality)
+  budgetClaimRef   : the Ω-2 claim that afforded this context
+  tokenCount       : measured, not estimated, after assembly
+  seal             : content hash of the assembled artifact
+  badge            : inherited axes + assembly-path tier
+}
+```
+
+### 4b · The `ctx.policy` row (the tunable memory spine)
+
+```
+ctx.policy {
+  id
+  scope            : device | ns <namespace> | tile <identity> | global
+  weights          : per-namespace relevance weights (recency, binding, explicit-ref)
+  scorerGrants     : which realized scorers may participate, badged
+  budgetDefaults   : standing token caps per scope
+  namedBy          : principal + signature
+}
+```
+
+**Two contract shapes that must hold from the first write** (cheap now, a migration each later):
+
+1. **Every W5 event citing a realization cites a `ctx` ref.** A model response without a context artifact is a schema-level violation — the response exists but its knowledge doesn't, which is the exact lie this upgrade forbids.
+2. **Every transform is named.** If rows were truncated, the truncation is recorded. If rows were summarized, the summarization is a ref to a nested atom (§6, CP-Ω3-C). An unnamed transform is `CTX_UNSORTED_INVISIBLE` — a hard gate error, not a warning.
+
+---
+
+## 5 · Operations
+
+| Op | Effect | Law behavior |
+|---|---|---|
+| `ctx.assemble@1` | build a sealed context for a permitted, budgeted intent | **sole writer: the assembler**; internal to the execution path |
+| `ctx.policy.set@1` | create/amend an assembly policy | consent required; signature recorded; reversible |
+| `ctx.score@1` | **realization slot** — relevance scoring | grantable; scorer output sealed with its badge + confidence |
+| `ctx.summarize@1` | **realization slot** — compression via nested atom | grantable; see CP-Ω3-C |
+| `ctx.inspect@1` | render a ctx artifact in plain words | read; the prompt is a query, every surface gets it |
+| `ctx.replay@1` | re-feed a sealed ctx to a named realization (same or different) | law-gated; produces a new W5 event citing the *same* ctx |
+
+**Explanation — `ctx.replay` is the completion of the ◐:** scenarios #20 and #77 asked for replay-with-substitution and were marked ◐ because the seam existed but the contract didn't. The contract is this: **a sealed context is realization-agnostic by construction.** Replaying the identical `ctx` against Qwen, a dummy model, or a local Ollama produces a *new event that cites the same artifact* — so the diff between outputs is attributable to the realization and nothing else. That is what makes the diff evidence instead of vibes. Replay is also the primitive Ω-8 (Failure Simulation) will rehearse against; this is where simulation's ground truth comes from.
+
+---
+
+## 6 · Choicepoints resolved
+
+### CP-Ω3-A · Where relevance comes from
+
+**Decision: deterministic-first selection — recency, namespace binding, explicit refs, capability scope — all pure vault folds. Semantic/ML relevance may participate only as a badged, grantable `ctx.score` realization whose scores are sealed into the artifact with confidence and version. No invisible sorting. Ever.**
+
+**Explanation:** the sorting of a context *is* an editorial act — it decides what the model weighs. If sorting is invisible, the system's honesty is a function of whichever scorer happened to be installed, which is a badge evasion: influence without provenance. Scorers enter through the same door as every realization — grant, badge, seal — and a context assembled with a `speculative` scorer says so on its face. When a scorer is demoted, contexts it shaped remain truthful: they were shaped by it, and the row says so.
+
+### CP-Ω3-B · Who assembles
+
+**Decision: the assembler is core, sole writer of `ns ctx`. A Forge may ship scorers and summarizers; no Forge, first-party or third-party, ships an assembler.**
+
+**Explanation:** §2's sovereignty argument made concrete. The assembler is a constitution, not a capability. Note this is the same shape as `watch.fire@1` (Ω-1) and lifecycle writes (Ω-2) being sole-writer: Ω's pattern is that the *minting* operations — the ones that create reality — are never grantable, while the *shaping* operations — scoring, summarizing, proposing — are open to all through the same door.
+
+### CP-Ω3-C · Summarization
+
+**Decision: summarization is a nested W5 atom. A `ctx.summarize` call assembles its own deterministic context, feeds a badged summarization realization, and the output becomes a vault row cited as a transform. Recursion depth is bounded by named policy. The assembly step itself never calls a model.**
+
+**Explanation:** the naive design lets the assembler silently rewrite rows to fit the window — which is editing the user's memory inside the machinery that's supposed to be honest about it. The nested-atom rule makes compression an *event*: it has a principal (who authorized the policy), a realization (which model compressed it), evidence (inputs and outputs), and a badge. Compression is now as honest as anything else Ω does. The recursion bound is the refusal that keeps it from being clever: assembly is deterministic, always; only compression may think, and only inside a ledgered box.
+
+### CP-Ω3-D · Forgetting propagates honestly
+
+**Decision: `ctx` artifacts are refs + hashes. When a referenced row is shredded under retention (Ω's named-retention discipline), the ctx gains a `vacated` marker at that position. Replay after forgetting does not silently omit — it reports *"this context included a row you asked me to forget."***
+
+**Explanation:** memory belongs to its owner — including the right to be forgotten. But forgetting must not become *silent rewriting of history*. A vacated marker is the honest record of the collision: the context existed, the row was yours, you asked for it to go, and now the receipt shows the hole where it was. This is the mirror held steady: Ω does not pretend it never knew, and does not keep what you told it to drop. Both truths, one row.
+
+### CP-Ω3-E · Indexes are projections, never truth
+
+**Decision: any retrieval index (vector, inverted, otherwise) is derived, disposable, rebuildable from the vault fold. No index is a second source of truth. An index that cannot be regenerated byte-equivalently from vault rows is a gate error.**
+
+**Explanation:** this is CP-1's doctrine (*one vault, never a second truth*) applied to the mind spine. Embeddings will tempt the design into "the vector store is the memory." It isn't. The vault is the memory; the index is a projection, the way selectors are projections of canonical shapes in the healing loop, the way surfaces are projections of `surfaceOpMeta`. Projections rot and regenerate; truth appends.
+
+---
+
+## 7 · Refusal register (literal sentences)
+
+Enforced by gate/law row, not intention:
+
+- `CTX_REALIZATION_READS_VAULT` — *"Realizations receive sealed contexts; they don't read the vault. That fetch was refused."*
+- `CTX_NO_BUDGET` — *"This context has no token budget. The governor decides what cognition costs before cognition spends."*
+- `CTX_UNSORTED_INVISIBLE` — *"A context was assembled with an unrecorded transform. That assembly is refused — sorting is an editorial act and must be named."*
+- `CTX_SILENT_SUMMARY` — *"Summarization must be a nested, sealed atom. Silent rewriting of vault rows is refused."*
+- `CTX_POLICY_UNNAMED` — *"No assembly without a named policy. Tell me how to choose what you see, and I'll choose."*
+- `CTX_ASSEMBLER_GRANT` — *"The assembler cannot be granted, shipped, or forked. Scorers and summarizers pass the normal door; the constitution doesn't."*
+
+**Explanation — why these six are pre-registered:** every one of them will arrive dressed as an optimization. *"Just let the provider format its own prompt." "Just cache the embeddings as the source." "Just compress inline, it's faster."* Each is reasonable in isolation; each is the curtain going back up over the curtained room. Naming the refusals now, before the pressure of shipping is real, is the difference between a constitution and a changelog — the same discipline as Ω-2's `GOV_BADGE_WEIGHTED` and `GOV_SELF_EXEMPTION`.
+
+---
+
+## 8 · Falsifier of arrival — `F-CTX`
+
+Green on real boots, red if any claim is false. Run headless where marked:
+
+1. **Artifact exists.** Ask a question that requires vault context → the W5 event cites a `ctx` ref → `ctx.inspect` renders the exact row refs, transforms, scorer badges, token count, and budget claim, in plain words, from CLI.
+2. **Determinism.** Same intent issued twice with an unchanged vault and unchanged policy → byte-identical `ctx` artifacts (identical seals).
+3. **Replay-with-substitution.** Take a recorded response → `ctx.replay` against a different realization → a new event cites the *same* `ctx` → the output diff is attributable to the realization alone. (#20, #77 complete.)
+4. **Hallucination forensics.** For any past response: its `ctx` ref resolves to every token the model saw, with byte offsets into the vault. (#27 green.)
+5. **The fetch refusal.** A forged plugin attempts to read vault rows directly to build a prompt → `CTX_REALIZATION_READS_VAULT`, spoken, ledgered, nothing executed.
+6. **Honest forgetting.** Shred a row under retention → replay an old `ctx` that cited it → the artifact shows a `vacated` marker, named, not a silent omission.
+7. **Tunable spine.** `ctx.policy.set` demotes a namespace's relevance weight → subsequent assemblies exclude or deprioritize it → the change is ledgered, badged, and reversible. (#87 green.)
+8. **Token accounting.** Token spend per `ctx` joins realization × namespace → *"Claude vs Llama tokens in `ns.finance` this month"* answers as one query, from rows. (#8 green.)
+
+**Ω-3 is done when F-CTX is green.**
+
+---
+
+## 9 · What this unblocks — and what it refuses to do
+
+**Unblocks:**
+- **Ω-5 (Vault Analytics)** — `ctx` artifacts are now queryable data about the mind's diet: what gets retrieved, what scores, what costs. The analytics layer will have real material.
+- **Ω-8 (Failure Simulation)** — replay is simulation's ground truth; a system that can re-feed sealed contexts can rehearse its own failures.
+- **The healing loop** — a healed realization whose context-shape changed must re-assemble under the new manifest, the same re-claim discipline Ω-2 imposed on cost, now applied to cognition.
+- **The honest mirror** — *"show me what you knew when you said that"* is the deepest self-knowledge question Ω can answer, and it is now a query.
+
+**Refuses to do:**
+- **Reason.** The assembler selects, orders, and compresses under policy. It does not think; it does not generate; it does not decide what is true. Cognition is the realization's job, inside the sealed box.
+- **Choose realizations.** Selection of *which* model serves an intent is capability resolution's territory; Ω-3 joins its rationale row to the artifact so the full "why" is one query, and takes nothing more. (#83's seam, honored.)
+- **Store embeddings as truth.** Indexes are projections (§6, CP-Ω3-E). The vault remains the only source of truth in Ω.
+- **Predict.** Anticipation of what the user will ask next is Ω-2's provisional-claim territory at most; Ω-3 assembles only for intents that have passed the law.
+
+---
+
+## 10 · Decision record text (paste-ready)
+
+> **D-427 — Context Assembly is core, and the mind spine is constitutional.** No realization reads the vault; realizations receive sealed, budgeted contexts assembled solely by the core assembler under the governor and through the law. Every model-serving event cites its context artifact; every transform is named; every scorer is badged; summarization is a nested sealed atom. Selection is deterministic-first — semantic scorers participate as grantable realizations, never as invisible sorting. Forgetting propagates as named `vacated` markers, never silent omission. Indexes are disposable projections; the vault is the only truth. Replay re-feeds sealed contexts against any realization, making substitution diffs evidence. The assembler is never grantable, shippable, or forkable. Falsified by F-CTX.
+
+---
+
+**End of Ω-3.** Next turn: **Ω-4 — Trust Mesh / Key Management** — who vouches, across devices: signing keys, device pairing, revocation, recovery, and the negative proofs (*prove nothing leaked*) that scenarios #22, #36, #44, and #91 have nowhere to land without it.
+
+### USER
+next
+
+### ASSISTANT
+**Ω-SEQUENCE NOTICE** — Turn 3 of 8. Ω-1 Watch Substrate ✅ · Ω-2 Resource Governor ✅ · **Ω-3 (this document)** · remaining: Ω-4 Trust Mesh → Ω-5 Vault Analytics → Ω-6 Layout-by-Predicate → Ω-7 Badge Proposal + Transitive Provenance → Ω-8 Failure Simulation. This document stands alone; an Omega agent receiving only it has everything needed to implement.
+
+---
+---
+
+# Ω-3 · CONTEXT ASSEMBLY — the Mind Spine
+
+> **Decision record: `D-427`** *(follows D-425/Ω-1, D-426/Ω-2; renumber to the next free ID if consumed — the content is what lands, not the number).*
+> **Type:** constitutional substrate addition — **core, not plugin.**
+> **Precedence:** extends the ratified stack `Ω Kernel → Vault → Law → Plugin → Composition → Evidence → Forge → Surface`. Where this conflicts with the gate, the gate wins.
+> **Requires:** Ω-2 (`D-426`) green — context spends tokens, and tokens are a governed resource. Ω-1 (`D-425`) green — watches are one origin of the intents that trigger assembly.
+> **Completes:** the end-state's named-but-unbuilt **"mind spine"** (§11: *"memory + observability — vault spine + mind spine, built fresh"*). The vault spine exists. This is the mind spine, landing now.
+> **The one invariant this upgrade exists to protect:**
+> **No realization ever reads the vault. Realizations receive sealed contexts, assembled by core, under the governor, through the law.** The watcher doesn't act (Ω-1); the tile doesn't own its budget (Ω-2); the model doesn't fetch what it knows (Ω-3). Same sovereignty, third face.
+
+---
+
+## 0 · The one sentence
+
+> **Every word a model sees is a sealed, budgeted, inspectable artifact of core — so that *"what did it know when it said that?"* is forever a query, never a shrug.**
+
+The vault is append-only and unbounded. The context window is finite. Between them sits the most dangerous gap in an AI operating system: *something* must choose what the model sees. If that something is a plugin, provenance dies at the exact moment it matters most — because every downstream answer is only as honest as the selection that fed it.
+
+---
+
+## 1 · What dies without this — and why it dies invisibly
+
+### The failure mode
+
+Without a core context layer, assembly happens **implicitly inside realizations** — each provider plugin formats its own prompt from whatever it can reach. That single fact kills five constitutional properties at once, and kills them quietly:
+
+1. **Provenance dies.** *"Why did it say that?"* has no answer, because the input was never a row. The ledger records the response but not the knowledge that produced it.
+2. **Replay dies.** A hallucination cannot be re-examined, because no one can reconstruct what the model saw.
+3. **Tuning dies.** *"My memory retrieves junk"* has no lever, because retrieval was never a named policy — it was whatever a plugin happened to do.
+4. **Cost dies.** Token spend cannot be attributed to namespaces, intents, or tiles, because the assembler never counted.
+5. **Sovereignty dies.** A realization that reads the vault directly is a watcher that acts — the exact violation Ω-1 was built to refuse, re-entering through the model door.
+
+**Explanation — why this is the deepest of the substrate gaps:** Ω's differentiator is honesty as architecture. But the *locus of dishonesty* in any AI system is not the output — outputs are visible, badgeable, refusable. The locus of dishonesty is the **input selection**: the invisible choice of what context earns the model's attention. A system that badges every tile and ledgers every event but leaves prompt assembly implicit has built a glass house with a curtained room in the middle. Ω-3 removes the curtain.
+
+### The scenarios that land here
+
+From the measured scenario mine:
+
+- **#64** *"Show me the exact prompt the Context Router assembled for this response."* — requires the assembled context to be an inspectable artifact.
+- **#27** *"Replay this hallucination and show me exactly what context it was fed."* — requires sealed, replayable context.
+- **#87** *"Demote my memory spine — it retrieves too much irrelevant context."* — requires retrieval to be a named, tunable, demotable policy.
+- **#8** *"How many tokens did I burn on Claude vs local Llama for `ns.finance` this month?"* — requires token accounting joined to context artifacts.
+- **#97** *"My most expensive tile in compute and vault writes."* — token cost is half of "expensive"; Ω-2 measured compute, Ω-3 measures cognition.
+- **#20 / #77** *"Replay my morning with the LLM swapped GPT→Qwen / dummy model."* — these were rated ◐ after Ω-2 (seam existed, contract didn't). **Ω-3 is the contract that completes them.** A sealed context is realization-agnostic by construction; swapping the realization against an identical context is what makes the diff meaningful.
+- **#83** *"Why did you choose the Ollama realization over Claude for this intent?"* — realization *selection* is capability resolution's job, but its rationale row joins the context artifact here, so the full "why" is one query.
+
+All seven are the same question: ***what did the system know, how did it choose to know it, and can I see the receipt?***
+
+---
+
+## 2 · Why this is core, and why a plugin can never do it
+
+**Explanation — the sovereignty argument, third face.** The pattern established by Ω-1 and Ω-2 generalizes into a rule: *whatever mediates between the user's world and the machine's actions must be trusted, and therefore must be core.*
+
+- Ω-1: watching mediates between the world and events → core.
+- Ω-2: budgeting mediates between desire and physics → core.
+- Ω-3: **selection mediates between memory and cognition → core.**
+
+A Forge can build a *scorer* — a relevance model, a ranking heuristic, a summarization style. It can never build the *assembler*. If it could, the Forge would control what every realization in the system knows, which is control of the system's mind. That is not a capability; it is a constitution, and no privileged path exists in Ω — not for third-party Forges, not for `forge.author`, not for first-party.
+
+Note the mirror-image: this is also why the **Law gate's discipline survives contact with models.** The gate consumes canonical intent, never raw model output (Intent Fabric doctrine). Ω-3 enforces the symmetric rule on the way in: **the model consumes sealed context, never raw vault.** Both boundaries hold. The model is a realization — substitutable, revocable, badged — and realizations are guests in the house, not owners of the library.
+
+---
+
+## 3 · The pipeline — where the mind spine sits
+
+Ω-3 inserts Context Assembly between capability resolution and realization invocation, on the execution path:
+
+```
+Canonical Intent
+      ↓
+┌─────────────┐
+│     LAW     │  may it?
+└──────┬──────┘
+       ↓ permitted
+┌─────────────────┐
+│ CAPABILITY RES. │  which realization · selection rationale row
+└──────┬──────────┘
+       ↓ needs a model
+┌─────────────┐
+│  GOVERNOR   │  token budget claim (Ω-2) · granted / refused
+└──────┬──────┘
+       ↓ affordable
+┌─────────────────────┐
+│  CONTEXT ASSEMBLER  │  vault → selection → compression → SEALED CTX
+│   (sole writer,     │  deterministic core · scored inputs badged
+│    core, D-427)     │
+└──────┬──────────────┘
+       ↓ sealed artifact
+┌─────────────┐
+│ REALIZATION │  receives ctx · cannot read vault · cannot edit ctx
+└──────┬──────┘
+       ↓ output
+┌─────────────┐
+│  EVIDENCE   │  W5 event cites: ctx ref · realization ref · both gates
+└─────────────┘
+```
+
+**Explanation — why the assembler sits after the governor, not before:** a context cannot be assembled without knowing its budget, because assembly *is* the spending of that budget (selection under a token cap). Assembling first would recreate the hole Ω-2 closed: cognition would spend before physics consented. The claim is granted against an estimated assembly; overruns are refusals, not surprises.
+
+---
+
+## 4 · Contracts — hold from row one
+
+### 4a · The `ctx` artifact (stored in `ns ctx`, sole writer: the assembler)
+
+```
+ctx {
+  id
+  intentRef        : the canonical intent this context serves
+  policyRef        : the named assembly policy in force
+  rows             : ordered refs (byte offsets) of vault rows included
+  transforms       : ordered list — truncation · summarization refs · ordering scorer ref
+  scorerRefs       : any realized scorers used, badged (tier × generality)
+  budgetClaimRef   : the Ω-2 claim that afforded this context
+  tokenCount       : measured, not estimated, after assembly
+  seal             : content hash of the assembled artifact
+  badge            : inherited axes + assembly-path tier
+}
+```
+
+### 4b · The `ctx.policy` row (the tunable memory spine)
+
+```
+ctx.policy {
+  id
+  scope            : device | ns <namespace> | tile <identity> | global
+  weights          : per-namespace relevance weights (recency, binding, explicit-ref)
+  scorerGrants     : which realized scorers may participate, badged
+  budgetDefaults   : standing token caps per scope
+  namedBy          : principal + signature
+}
+```
+
+**Two contract shapes that must hold from the first write** (cheap now, a migration each later):
+
+1. **Every W5 event citing a realization cites a `ctx` ref.** A model response without a context artifact is a schema-level violation — the response exists but its knowledge doesn't, which is the exact lie this upgrade forbids.
+2. **Every transform is named.** If rows were truncated, the truncation is recorded. If rows were summarized, the summarization is a ref to a nested atom (§6, CP-Ω3-C). An unnamed transform is `CTX_UNSORTED_INVISIBLE` — a hard gate error, not a warning.
+
+---
+
+## 5 · Operations
+
+| Op | Effect | Law behavior |
+|---|---|---|
+| `ctx.assemble@1` | build a sealed context for a permitted, budgeted intent | **sole writer: the assembler**; internal to the execution path |
+| `ctx.policy.set@1` | create/amend an assembly policy | consent required; signature recorded; reversible |
+| `ctx.score@1` | **realization slot** — relevance scoring | grantable; scorer output sealed with its badge + confidence |
+| `ctx.summarize@1` | **realization slot** — compression via nested atom | grantable; see CP-Ω3-C |
+| `ctx.inspect@1` | render a ctx artifact in plain words | read; the prompt is a query, every surface gets it |
+| `ctx.replay@1` | re-feed a sealed ctx to a named realization (same or different) | law-gated; produces a new W5 event citing the *same* ctx |
+
+**Explanation — `ctx.replay` is the completion of the ◐:** scenarios #20 and #77 asked for replay-with-substitution and were marked ◐ because the seam existed but the contract didn't. The contract is this: **a sealed context is realization-agnostic by construction.** Replaying the identical `ctx` against Qwen, a dummy model, or a local Ollama produces a *new event that cites the same artifact* — so the diff between outputs is attributable to the realization and nothing else. That is what makes the diff evidence instead of vibes. Replay is also the primitive Ω-8 (Failure Simulation) will rehearse against; this is where simulation's ground truth comes from.
+
+---
+
+## 6 · Choicepoints resolved
+
+### CP-Ω3-A · Where relevance comes from
+
+**Decision: deterministic-first selection — recency, namespace binding, explicit refs, capability scope — all pure vault folds. Semantic/ML relevance may participate only as a badged, grantable `ctx.score` realization whose scores are sealed into the artifact with confidence and version. No invisible sorting. Ever.**
+
+**Explanation:** the sorting of a context *is* an editorial act — it decides what the model weighs. If sorting is invisible, the system's honesty is a function of whichever scorer happened to be installed, which is a badge evasion: influence without provenance. Scorers enter through the same door as every realization — grant, badge, seal — and a context assembled with a `speculative` scorer says so on its face. When a scorer is demoted, contexts it shaped remain truthful: they were shaped by it, and the row says so.
+
+### CP-Ω3-B · Who assembles
+
+**Decision: the assembler is core, sole writer of `ns ctx`. A Forge may ship scorers and summarizers; no Forge, first-party or third-party, ships an assembler.**
+
+**Explanation:** §2's sovereignty argument made concrete. The assembler is a constitution, not a capability. Note this is the same shape as `watch.fire@1` (Ω-1) and lifecycle writes (Ω-2) being sole-writer: Ω's pattern is that the *minting* operations — the ones that create reality — are never grantable, while the *shaping* operations — scoring, summarizing, proposing — are open to all through the same door.
+
+### CP-Ω3-C · Summarization
+
+**Decision: summarization is a nested W5 atom. A `ctx.summarize` call assembles its own deterministic context, feeds a badged summarization realization, and the output becomes a vault row cited as a transform. Recursion depth is bounded by named policy. The assembly step itself never calls a model.**
+
+**Explanation:** the naive design lets the assembler silently rewrite rows to fit the window — which is editing the user's memory inside the machinery that's supposed to be honest about it. The nested-atom rule makes compression an *event*: it has a principal (who authorized the policy), a realization (which model compressed it), evidence (inputs and outputs), and a badge. Compression is now as honest as anything else Ω does. The recursion bound is the refusal that keeps it from being clever: assembly is deterministic, always; only compression may think, and only inside a ledgered box.
+
+### CP-Ω3-D · Forgetting propagates honestly
+
+**Decision: `ctx` artifacts are refs + hashes. When a referenced row is shredded under retention (Ω's named-retention discipline), the ctx gains a `vacated` marker at that position. Replay after forgetting does not silently omit — it reports *"this context included a row you asked me to forget."***
+
+**Explanation:** memory belongs to its owner — including the right to be forgotten. But forgetting must not become *silent rewriting of history*. A vacated marker is the honest record of the collision: the context existed, the row was yours, you asked for it to go, and now the receipt shows the hole where it was. This is the mirror held steady: Ω does not pretend it never knew, and does not keep what you told it to drop. Both truths, one row.
+
+### CP-Ω3-E · Indexes are projections, never truth
+
+**Decision: any retrieval index (vector, inverted, otherwise) is derived, disposable, rebuildable from the vault fold. No index is a second source of truth. An index that cannot be regenerated byte-equivalently from vault rows is a gate error.**
+
+**Explanation:** this is CP-1's doctrine (*one vault, never a second truth*) applied to the mind spine. Embeddings will tempt the design into "the vector store is the memory." It isn't. The vault is the memory; the index is a projection, the way selectors are projections of canonical shapes in the healing loop, the way surfaces are projections of `surfaceOpMeta`. Projections rot and regenerate; truth appends.
+
+---
+
+## 7 · Refusal register (literal sentences)
+
+Enforced by gate/law row, not intention:
+
+- `CTX_REALIZATION_READS_VAULT` — *"Realizations receive sealed contexts; they don't read the vault. That fetch was refused."*
+- `CTX_NO_BUDGET` — *"This context has no token budget. The governor decides what cognition costs before cognition spends."*
+- `CTX_UNSORTED_INVISIBLE` — *"A context was assembled with an unrecorded transform. That assembly is refused — sorting is an editorial act and must be named."*
+- `CTX_SILENT_SUMMARY` — *"Summarization must be a nested, sealed atom. Silent rewriting of vault rows is refused."*
+- `CTX_POLICY_UNNAMED` — *"No assembly without a named policy. Tell me how to choose what you see, and I'll choose."*
+- `CTX_ASSEMBLER_GRANT` — *"The assembler cannot be granted, shipped, or forked. Scorers and summarizers pass the normal door; the constitution doesn't."*
+
+**Explanation — why these six are pre-registered:** every one of them will arrive dressed as an optimization. *"Just let the provider format its own prompt." "Just cache the embeddings as the source." "Just compress inline, it's faster."* Each is reasonable in isolation; each is the curtain going back up over the curtained room. Naming the refusals now, before the pressure of shipping is real, is the difference between a constitution and a changelog — the same discipline as Ω-2's `GOV_BADGE_WEIGHTED` and `GOV_SELF_EXEMPTION`.
+
+---
+
+## 8 · Falsifier of arrival — `F-CTX`
+
+Green on real boots, red if any claim is false. Run headless where marked:
+
+1. **Artifact exists.** Ask a question that requires vault context → the W5 event cites a `ctx` ref → `ctx.inspect` renders the exact row refs, transforms, scorer badges, token count, and budget claim, in plain words, from CLI.
+2. **Determinism.** Same intent issued twice with an unchanged vault and unchanged policy → byte-identical `ctx` artifacts (identical seals).
+3. **Replay-with-substitution.** Take a recorded response → `ctx.replay` against a different realization → a new event cites the *same* `ctx` → the output diff is attributable to the realization alone. (#20, #77 complete.)
+4. **Hallucination forensics.** For any past response: its `ctx` ref resolves to every token the model saw, with byte offsets into the vault. (#27 green.)
+5. **The fetch refusal.** A forged plugin attempts to read vault rows directly to build a prompt → `CTX_REALIZATION_READS_VAULT`, spoken, ledgered, nothing executed.
+6. **Honest forgetting.** Shred a row under retention → replay an old `ctx` that cited it → the artifact shows a `vacated` marker, named, not a silent omission.
+7. **Tunable spine.** `ctx.policy.set` demotes a namespace's relevance weight → subsequent assemblies exclude or deprioritize it → the change is ledgered, badged, and reversible. (#87 green.)
+8. **Token accounting.** Token spend per `ctx` joins realization × namespace → *"Claude vs Llama tokens in `ns.finance` this month"* answers as one query, from rows. (#8 green.)
+
+**Ω-3 is done when F-CTX is green.**
+
+---
+
+## 9 · What this unblocks — and what it refuses to do
+
+**Unblocks:**
+- **Ω-5 (Vault Analytics)** — `ctx` artifacts are now queryable data about the mind's diet: what gets retrieved, what scores, what costs. The analytics layer will have real material.
+- **Ω-8 (Failure Simulation)** — replay is simulation's ground truth; a system that can re-feed sealed contexts can rehearse its own failures.
+- **The healing loop** — a healed realization whose context-shape changed must re-assemble under the new manifest, the same re-claim discipline Ω-2 imposed on cost, now applied to cognition.
+- **The honest mirror** — *"show me what you knew when you said that"* is the deepest self-knowledge question Ω can answer, and it is now a query.
+
+**Refuses to do:**
+- **Reason.** The assembler selects, orders, and compresses under policy. It does not think; it does not generate; it does not decide what is true. Cognition is the realization's job, inside the sealed box.
+- **Choose realizations.** Selection of *which* model serves an intent is capability resolution's territory; Ω-3 joins its rationale row to the artifact so the full "why" is one query, and takes nothing more. (#83's seam, honored.)
+- **Store embeddings as truth.** Indexes are projections (§6, CP-Ω3-E). The vault remains the only source of truth in Ω.
+- **Predict.** Anticipation of what the user will ask next is Ω-2's provisional-claim territory at most; Ω-3 assembles only for intents that have passed the law.
+
+---
+
+## 10 · Decision record text (paste-ready)
+
+> **D-427 — Context Assembly is core, and the mind spine is constitutional.** No realization reads the vault; realizations receive sealed, budgeted contexts assembled solely by the core assembler under the governor and through the law. Every model-serving event cites its context artifact; every transform is named; every scorer is badged; summarization is a nested sealed atom. Selection is deterministic-first — semantic scorers participate as grantable realizations, never as invisible sorting. Forgetting propagates as named `vacated` markers, never silent omission. Indexes are disposable projections; the vault is the only truth. Replay re-feeds sealed contexts against any realization, making substitution diffs evidence. The assembler is never grantable, shippable, or forkable. Falsified by F-CTX.
+
+---
+
+**End of Ω-3.** Next turn: **Ω-4 — Trust Mesh / Key Management** — who vouches, across devices: signing keys, device pairing, revocation, recovery, and the negative proofs (*prove nothing leaked*) that scenarios #22, #36, #44, and #91 have nowhere to land without it.
+
+### USER
+next
+
+### ASSISTANT
+**Ω-SEQUENCE NOTICE** — Turn 4 of 8. Ω-1 Watch Substrate ✅ · Ω-2 Resource Governor ✅ · Ω-3 Context Assembly ✅ · **Ω-4 (this document)** · remaining: Ω-5 Vault Analytics → Ω-6 Layout-by-Predicate → Ω-7 Badge Proposal + Transitive Provenance → Ω-8 Failure Simulation. This document stands alone; an Omega agent receiving only it has everything needed to implement.
+
+---
+---
+
+# Ω-4 · THE TRUST MESH — Local Key Management & Device Identity
+
+> **Decision record: `D-428`** *(follows D-425/Ω-1, D-426/Ω-2, D-427/Ω-3; renumber to the next free ID if consumed — the content is what lands, not the number).*
+> **Type:** constitutional substrate addition — **core, not plugin.**
+> **Precedence:** extends the ratified stack. Where this conflicts with the gate, the gate wins.
+> **Requires:** Ω-1, Ω-2, Ω-3 green. The vault is append-only (Ω spine), the mind is sealed (Ω-3), and the physics are governed (Ω-2). But none of it is sovereign if the keys that sign it can be stolen, lost, or silently duplicated by a third party.
+> **The one invariant this upgrade exists to protect:**
+> **Sovereignty requires a self-owned identity that survives the loss, theft, or revocation of any single device, without ever asking a remote server for permission.**
+
+---
+
+## 0 · The one sentence
+
+> **Every row in the vault is vouched for by a cryptographic signature that belongs to the user’s hardware, not their account — and the system can mathematically prove when a device has been exiled, even if that device is currently offline.**
+
+Ω’s manifesto demands "local-first, network-optional" and "no cloud account, ever required." It demands multi-device sync via CRDTs and signatures on every row ("who vouches"). But the ratified stack left a gaping hole: *where do the keys live, and how do they survive the physical world?* If identity is managed by a plugin, or relies on a cloud-backed keychain, sovereignty is an illusion. Ω-4 builds the Trust Mesh.
+
+---
+
+## 1 · What dies without this — and why it dies silently
+
+### The failure mode
+
+Without a core Trust Mesh, multi-device local-first systems inevitably fall into one of two traps:
+1. **The Cloud Trap:** Keys are synced via a central server (e.g., a vendor account). The moment the server goes down, or the vendor bans the user, the user loses their machine. Sovereignty is revoked by a remote admin.
+2. **The Fragility Trap:** Keys are generated locally on Device A. Device A is lost, dropped in a river, or stolen. The user’s entire append-only vault, their badges, their forged tiles, and their layout are permanently orphaned. There is no recovery because there is no server to reset a password.
+
+**Explanation — why this matters constitutionally:** Ω's provenance model ("who vouches") relies on signatures. If a stolen laptop can continue signing vault rows, the provenance is a lie. If a user cannot revoke a compromised device without an internet connection, the Law Gate is bypassed by physical theft. The Trust Mesh is the mechanism that makes "sole writer" and "who vouches" physically enforceable.
+
+### The scenarios that land here
+
+From the measured scenario mine:
+- **#22** *"Prove to me that this specific action didn't leak my private signing key to the network."* — requires architectural proof of hardware-bound keys.
+- **#36** *"What happens to my multi-device trust mesh if I revoke the signing key for my work laptop right now?"* — requires a causal revocation protocol.
+- **#44** *"Revoke the `forge.author` privilege from my secondary device."* — requires capability-scoped device keys.
+- **#91** *"Asking the system to simulate what happens if I lose my primary signing key."* — requires a decentralized recovery protocol.
+
+---
+
+## 2 · Why this is core, and why a plugin can never do it
+
+**Explanation — the sovereignty argument, fourth face.** 
+- Ω-1: Watching is sovereign → core.
+- Ω-2: Budgeting is sovereign → core.
+- Ω-3: Selection is sovereign → core.
+- Ω-4: **Identity is sovereign → core.**
+
+If a plugin manages keys, that plugin holds the master password to the user's digital life. A third-party Forge could silently exfiltrate the root key, or a buggy first-party plugin could corrupt the keychain, bricking the vault. The Trust Mesh must sit in the kernel, interfacing directly with the host OS's Secure Enclave (TPM, Apple Secure Enclave, Android StrongBox). The kernel is the only entity trusted to hold the gates of identity.
+
+---
+
+## 3 · The Architecture — Principals, Nodes, and the Mesh
+
+The Trust Mesh introduces a strict two-tier cryptographic hierarchy.
+
+### 3a · The Principal (The Root)
+The **Principal** is the human user. The Principal possesses a **Root Key**. 
+- The Root Key *never* signs daily vault rows. It is too valuable to expose to daily execution paths.
+- The Root Key lives exclusively in a hardware-backed Secure Enclave. It is mathematically un-extractable by the OS, let alone by Ω or any plugin.
+- The Root Key's only job is to sign **Enrollment Certificates** for devices and **Revocation Edicts**.
+
+### 3b · The Node (The Device)
+A **Node** is a physical machine (desktop, laptop, phone). 
+- When a new device is added, it generates a local **Device Key** in its own Secure Enclave.
+- The Principal uses their Root Key (via a local, out-of-band pairing ritual like a QR code or local-network PAKE) to sign an Enrollment Certificate binding the Device Key to the Principal.
+- The Device Key signs the daily vault rows, watch events, and context artifacts.
+
+### 3c · The Mesh (The Sync & Revocation Fabric)
+Because there is no central server, the "mesh" is simply the append-only vault log itself. 
+- Enrollment is a vault row (`trust.enrollment`).
+- Revocation is a vault row (`trust.revocation`).
+- When Device A and Device B sync via CRDTs, they exchange their vault logs. If Device B sees a `trust.revocation` row signed by the Root Key that targets Device A's key, Device B instantly rejects any post-revocation writes from Device A.
+
+---
+
+## 4 · Contracts — hold from row one
+
+### 4a · The `trust.enrollment` row
+```
+trust.enrollment {
+  principalRef     : the Root Identity
+  deviceKeyPub     : the public half of the Node's Device Key
+  capabilityGrants : what this specific device is allowed to do (e.g., `forge.author`, `law.approve`)
+  signedBy         : Root Key signature
+}
+```
+
+### 4b · The `trust.revocation` row
+```
+trust.revocation {
+  targetDeviceKey  : the public key being exiled
+  reason           : lost | stolen | compromised | user-requested
+  signedBy         : Root Key signature (or quorum of recovery shards)
+}
+```
+
+**Two contract shapes that must hold from the first write:**
+1. **No Device Key signs its own enrollment.** A device cannot bootstrap itself into the mesh. It must be invited by the Root Key or an already-trusted device with delegation rights.
+2. **Revocations are causal and absolute.** Once a `trust.revocation` row enters the vault fold, any vault row signed by the target key with a timestamp *after* the revocation is treated as a hostile forgery and rejected by the Law Gate.
+
+---
+
+## 5 · Operations
+
+| Op | Effect | Law behavior |
+|---|---|---|
+| `trust.pair@1` | Initiate local-network/QR pairing to enroll a new Node | Requires physical presence / out-of-band confirmation |
+| `trust.revoke@1` | Mint a revocation row for a specific Device Key | Requires Root Key signature; instantly propagates to local mesh |
+| `trust.rotate@1` | Replace a Device Key on the same physical hardware | Seamless; old key signs the handover to the new key |
+| `trust.recover@1` | Reconstruct a lost Root Key via Shamir's Secret Sharing | Requires physical shards; see CP-Ω4-B |
+| `trust.inspect@1` | Query the mesh: which devices are active, what are their grants? | Read; renders the mesh topology plainly |
+
+---
+
+## 6 · Choicepoints resolved
+
+### CP-Ω4-A · Where the Root Key lives
+**Decision: The Root Key is generated and stored exclusively in the host OS's hardware Secure Enclave (TPM 2.0, Secure Enclave, StrongBox). Ω never touches the private key bytes. All signing is done via OS-level cryptographic APIs that return only the signature.**
+**Explanation:** This is the architectural answer to scenario #22 (*"Prove it didn't leak"*). The proof is not a policy; it is physics. If the key bytes never enter user-space memory, they cannot be leaked by a compromised plugin, a memory dump, or a network exfiltration bug. The Trust Mesh delegates the math to the silicon.
+
+### CP-Ω4-B · Recovery of a lost Root Key
+**Decision: Shamir's Secret Sharing (SSS) split into physical shards. No cloud backup. No "email a reset link."**
+When the Root Key is generated, the user is prompted to split it into $N$ shards (e.g., 3 of 5). These shards are exported to physical media (USB drives, printed QR codes, or enrolled secondary offline devices). 
+**Explanation:** Scenario #91 (*simulate losing the primary key*). If the user loses their primary device and has no cloud account, the *only* way back in is to physically gather the shards and run `trust.recover@1`. This is the ultimate expression of local-first sovereignty: the user's security is bounded by their physical security, not a vendor's password reset flow.
+
+### CP-Ω4-C · Offline Revocation & The Split-Brain Problem
+**Decision: Revocation is an append-only vault event. Sync reconciliation enforces causal ordering.**
+If Device A is stolen, the user revokes it from Device B. Device A is offline and keeps generating local vault rows. When Device A eventually connects to the network and tries to sync with Device B, Device B's CRDT engine sees the `trust.revocation` row. Because the revocation is signed by the Root Key (which Device A cannot forge), Device B rejects all of Device A's post-revocation rows as invalid.
+**Explanation:** This solves scenario #36 (*what breaks when I revoke?*). The stolen device doesn't "break" locally—it just becomes a ghost. Its writes are mathematically orphaned the moment it touches the honest mesh.
+
+### CP-Ω4-D · Capability-Scoped Device Keys
+**Decision: Device Keys are not omnipotent. The `trust.enrollment` row carries a capability grant.**
+Scenario #44 (*revoke `forge.author` from device 2*). A user can enroll a secondary device (e.g., a travel laptop) with a restricted grant: it can read the vault and execute basic intents, but it lacks the `forge.author` capability. The Law Gate checks the device's specific grant before allowing a Forge operation.
+**Explanation:** Trust is not binary. A device can be trusted with memory but not with the ability to alter the kernel's tooling.
+
+---
+
+## 7 · Refusal register (literal sentences)
+
+Enforced by gate/law row, not intention:
+
+- `TRUST_UNENROLLED_DEVICE` — *"This device is not part of your trust mesh. Pair it with your primary device to enroll it."*
+- `TRUST_REVOKED_KEY` — *"This signature belongs to a device you exiled on [date]. Its writes are rejected."*
+- `TRUST_KEY_EXTRACTABLE` — *"This hardware does not support a Secure Enclave. I will not generate a Root Key in plain memory. Refusing to compromise your sovereignty."*
+- `TRUST_INSUFFICIENT_SHARDS` — *"Recovery requires 3 shards. You have provided 2. I cannot reconstruct the Root Key."*
+- `TRUST_GRANT_MISSING` — *"This device is enrolled, but it was not granted `forge.author`. The operation is refused."*
+
+---
+
+## 8 · Falsifier of arrival — `F-TRUST`
+
+Green on real boots, red if any claim is false. Run headless where marked:
+
+1. **Hardware Binding.** Generate a Root Key. Inspect the OS-level keychain/TPM. The private key bytes are absent; only a handle exists. Attempting to export the private key yields a hardware-level refusal. (#22 green).
+2. **Local Pairing.** Enroll Device B from Device A via local-network PAKE/QR. Device B can now sign vault rows. The `trust.enrollment` row is in the vault, signed by A's Root Key.
+3. **Causal Revocation.** From Device B, revoke Device A. Write a row on Device A. Attempt to sync. Device B rejects Device A's new row. The refusal is ledgered. (#36 green).
+4. **Granular Grants.** Enroll Device C with `read-only` grants. Device C attempts to forge a tile. Law Gate refuses with `TRUST_GRANT_MISSING`. (#44 green).
+5. **Shard Recovery.** Destroy the primary device's Secure Enclave (simulate hardware death). Gather 3 physical USB shards. Run `trust.recover@1`. The Root Key is restored to a new Secure Enclave. The mesh survives. (#91 green).
+
+**Ω-4 is done when F-TRUST is green.**
+
+---
+
+## 9 · What this unblocks — and what it refuses to do
+
+**Unblocks:**
+- **The Law Gate's ultimate authority:** The Law Gate can now verify not just *what* is being requested, but *who* (which physical machine) is requesting it, and whether that machine is still trusted.
+- **True Multi-Device Sync:** CRDT sync is no longer a vector for hostile takeovers. A stolen device cannot poison the vault.
+- **Ω-7 (Transitive Provenance):** When we build automated badge proposals, we need to know exactly which device and which Principal authorized the Forge. The Trust Mesh provides the unforgeable chain of custody.
+
+**Refuses to do:**
+- **Cloud Sync.** The Trust Mesh will never phone home to a vendor server to verify a certificate. If the local network is down, pairing is impossible. This is the price of sovereignty.
+- **Password Reset.** There is no "forgot password." If the user loses their hardware and their physical shards, the vault is cryptographically sealed forever. Ω refuses to build a backdoor for the user's convenience, because a backdoor for the user is a backdoor for the attacker.
+
+---
+
+## 10 · Decision record text (paste-ready)
+
+> **D-428 — The Trust Mesh is core.** Identity is a two-tier cryptographic hierarchy: a hardware-bound Root Key (the Principal) and capability-scoped Device Keys (the Nodes). The Root Key never touches user-space memory; it relies on the host Secure Enclave. Enrollment and Revocation are append-only vault events, making the mesh survivable across offline splits and device theft. Recovery relies on physical Shamir shards, never cloud accounts. The Law Gate validates every signature against the causal revocation log. No device can bootstrap itself; no server can reset a key. Falsified by F-TRUST.
+
+---
+
+**End of Ω-4.** Next turn: **Ω-5 — Vault Analytics & Projection** — how to query, aggregate, and visualize the infinite append-only vault without violating the "no second source of truth" doctrine. (Scenarios #8, #12, #24, #34, #37, #56, #60, #80, #97).
+
+### USER
+next
+
+### ASSISTANT
+**Ω-SEQUENCE NOTICE** — Turn 5 of 8. Ω-1 Watch Substrate ✅ · Ω-2 Resource Governor ✅ · Ω-3 Context Assembly ✅ · Ω-4 Trust Mesh ✅ · **Ω-5 (this document)** · remaining: Ω-6 Layout-by-Predicate → Ω-7 Badge Proposal + Transitive Provenance → Ω-8 Failure Simulation. This document stands alone; an Omega agent receiving only it has everything needed to implement.
+
+---
+---
+
+# Ω-5 · VAULT ANALYTICS & PROJECTION — The Honest Heatmap
+
+> **Decision record: `D-429`** *(follows D-425/Ω-1, D-426/Ω-2, D-427/Ω-3, D-428/Ω-4; renumber to the next free ID if consumed — the content is what lands, not the number).*
+> **Type:** constitutional substrate addition — **core, not plugin.**
+> **Precedence:** extends the ratified stack. Where this conflicts with the gate, the gate wins.
+> **Requires:** Ω-1 through Ω-4 green. The vault now captures events (Ω-1), physics (Ω-2), cognition (Ω-3), and identity (Ω-4). But an infinite append-only log is a black box to the human eye. Ω-5 builds the lens.
+> **The one invariant this upgrade exists to protect:**
+> **A projection is a disposable, deterministic fold over the vault. It is never a second source of truth, and it must always cite the exact byte-range of the vault it was derived from.**
+
+---
+
+## 0 · The one sentence
+
+> **You cannot govern what you cannot see, but seeing must never compromise the truth — so every chart, heatmap, and topology graph is a mathematically provable, disposable projection that knows exactly how stale it is.**
+
+The vault is the memory. The analytics layer is the *mirror* held up to the memory. If the mirror becomes a separate database (a Postgres analytics warehouse, a Redis cache, a vector store) that drifts from the vault, sovereignty breaks. The user is now looking at a lie. Ω-5 ensures that every aggregation is a verifiable fold over the single source of truth.
+
+---
+
+## 1 · What dies without this — and why it dies invisibly
+
+### The failure mode
+
+Without a core projection engine, users who want to understand their system ("What is my most used tool?", "Where is my compute going?", "Show me the shape of my week") are forced into one of two traps:
+1. **The BI Trap:** Exporting vault data to an external tool (Metabase, Grafana, a custom Python script). This breaks local-first sovereignty and creates an unbadged, unregulated shadow pipeline.
+2. **The Mutable State Trap:** Building internal "summary tables" or "counters" that increment on write. The moment a bug occurs, or a row is shredded under retention, the counter drifts from the vault. The summary table becomes a *second source of truth*, and the system begins making decisions based on a phantom reality.
+
+**Explanation — why this matters constitutionally:** Ω's differentiator is forensic honesty. But honesty is useless if it takes 40 minutes to query a 50GB append-only log just to find out which tile used the most RAM. Analytics must be fast, but speed usually requires caching, and caching introduces drift. Ω-5 solves this by making *staleness* a first-class, visible metric. 
+
+### The scenarios that land here
+
+From the measured scenario mine:
+- **#8** *"How many tokens did I burn on Claude vs local Llama for `ns.finance` this month?"* (Requires joining Ω-3 context artifacts with time).
+- **#12** *"Topology graph of intent clusters over the last year."* (Requires semantic projection).
+- **#24** *"What is the most frequently invoked canonical intent this week?"* (Requires frequency folding).
+- **#34** *"Heatmap of which namespaces generate the most write-events."* (Requires spatial/temporal aggregation).
+- **#37** *"Conceptual center-of-gravity of my current project."* (Requires weighted graph projection).
+- **#56** *"Oldest row in my vault that hasn't been queried in a year."* (Requires access-tracking joins).
+- **#97** *"My most expensive tile in compute and vault writes."* (Requires joining Ω-2 resource claims with vault write frequency).
+
+All of these are the same question: ***What is the shape of my digital life, and can I prove the answer is true?***
+
+---
+
+## 2 · Why this is core, and why a plugin can never do it
+
+**Explanation — the sovereignty argument, fifth face.** 
+If a third-party Forge builds the analytics engine, it dictates how the user perceives their own history. A Forge could silently weight certain namespaces higher, or drop "irrelevant" events from the heatmap to save compute. The lens through which the user views their sovereignty must be owned by the sovereign kernel. 
+
+Furthermore, projections require deep access to the vault's physical layout (byte offsets, Log Sequence Numbers, retention shards). A plugin reading the vault via API would be too slow to build real-time heatmaps. The Projection Engine must sit inside the kernel, reading the vault fold directly, but writing *only* to its own strictly quarantined namespace (`ns analytics`).
+
+---
+
+## 3 · The Architecture — Folds, Projections, and Materializations
+
+Ω-5 introduces a strict three-tier analytics pipeline.
+
+### 3a · The Fold (The Query)
+A deterministic function that maps vault rows to a summary state. 
+*Example: "Count `gov.claim` rows where `decision=granted`, grouped by `claimant` and `deviceId`, bounded by time $T$."*
+
+### 3b · The Projection (The Schema)
+The definition of the fold, stored as a vault row. It defines the dimensions, the metrics, and the retention policy of the resulting materialization.
+
+### 3c · The Materialization (The Cache)
+The actual computed result (the heatmap, the bar chart data). **Crucially, every materialization row carries a `vaultLSN` (Log Sequence Number) or byte-offset watermark.** It explicitly states: *"I am the truth of the vault up to byte offset X."*
+
+```
+                 Ω VAULT (Append-Only Log)
+                      │
+        ┌─────────────▼─────────────────┐
+        │    PROJECTION ENGINE (Core)   │  Reads vault fold
+        │    (Deterministic, stateless) │
+        └─────────────┬─────────────────┘
+                      │
+        ┌─────────────▼─────────────────┐
+        │   ns analytics (Materialized) │  Disposable, rebuildable
+        │   (Carries vaultLSN watermark)│
+        └─────────────┬─────────────────┘
+                      │
+               Surface / Canvas
+          (Renders data + Staleness Delta)
+```
+
+---
+
+## 4 · Contracts — hold from row one
+
+### 4a · The `analytics.projection` row
+```
+analytics.projection {
+  id
+  name               : "tile_resource_heatmap"
+  foldDefinition     : deterministic query plan (e.g., SQL/AST over vault schema)
+  sourceNamespaces   : ["gov.claim", "tile.transition"]
+  refreshPolicy      : on-write | temporal(interval) | manual
+  namedBy            : principal + signature
+}
+```
+
+### 4b · The `analytics.materialization` row
+```
+analytics.materialization {
+  projectionRef      : → analytics.projection.id
+  payload            : the aggregated data (JSON/Parquet blob)
+  vaultWatermark     : the exact byte-offset / LSN of the vault when this was computed
+  computedAt         : timestamp
+  computeCost        : tokens / CPU spent to build this (joins Ω-2 / Ω-3)
+  badge              : ProvenanceTier × generality
+}
+```
+
+**Two contract shapes that must hold from the first write:**
+1. **No manual edits.** A materialization row cannot be `UPDATE`d. It can only be `INSERT`ed (as a new version) or `DELETE`d (to force a rebuild). Any attempt to manually alter a cached metric is a schema-level refusal.
+2. **Watermarks are mandatory.** A materialization without a `vaultWatermark` is a gate error. The surface must always be able to calculate `CurrentVaultLSN - materialization.vaultWatermark` to display the "Staleness Delta" to the user.
+
+---
+
+## 5 · Operations
+
+| Op | Effect | Law behavior |
+|---|---|---|
+| `analytics.define@1` | Register a new projection fold | Consent required; validates query plan against vault schema |
+| `analytics.materialize@1` | Execute the fold and cache the result | **Sole writer: Projection Engine**; consumes compute budget (Ω-2) |
+| `analytics.query@1` | Read a materialization | Read-only; returns payload + watermark |
+| `analytics.invalidate@1` | Delete a materialization to force rebuild | Allowed; triggers refresh policy |
+| `analytics.rebuild@1` | Recompute from vault byte 0 (or last snapshot) | Heavy compute; requires explicit user intent |
+
+---
+
+## 6 · Choicepoints resolved
+
+### CP-Ω5-A · Where do projections live?
+**Decision: In `ns analytics`, which is a first-class vault namespace but marked `derived`.** 
+**Explanation:** Projections are vault rows, meaning they sync across devices via CRDTs (Ω-4/CP-1). However, because they are marked `derived`, a device receiving a sync conflict on an analytics row simply discards both and rebuilds from the local vault fold. The vault is the truth; the analytics are just a local cache of the truth.
+
+### CP-Ω5-B · Semantic Clustering & "The Shape of My Life"
+**Decision: Deterministic tagging at write-time + ML clustering as a badged realization.**
+**Explanation:** Scenario #12 asks for a "topology graph of intent clusters." We cannot run an LLM over 50GB of history on the fly. Instead, the Intent Fabric (from the Master Spec) tags intents with deterministic semantic hashes at write-time. The Projection Engine folds these hashes into a graph. If the user wants *fuzzy* semantic clustering, they invoke `analytics.cluster@1`, which calls a badged ML realization (Ω-3 discipline) to group the deterministic hashes. The ML output is sealed into the materialization row with its badge. If the ML model is later demoted, the user knows exactly which heatmaps were shaped by it.
+
+### CP-Ω5-C · The "Honest Heatmap" (Rendering Staleness)
+**Decision: Surfaces must render the Staleness Delta.**
+**Explanation:** If a user looks at a token-spend chart (#8) that was materialized 3 hours ago, the canvas must visually indicate (e.g., via a subtle fade or a "syncing" badge) that the data is 3 hours behind the vault tip. Ω refuses to present stale data as absolute truth. The quietness is UX; the authority is never quiet.
+
+### CP-Ω5-D · Access Tracking (The "Oldest Unqueried Row")
+**Decision: Read-events are vault rows, but heavily sampled/batched to prevent write-amplification.**
+**Explanation:** Scenario #56 requires knowing what hasn't been read. If every `SELECT` writes a vault row, the vault doubles in size. Ω-5 implements a `read.access` batcher in the kernel: it aggregates read-access in memory and flushes a single `analytics.access_batch` row to the vault every $N$ seconds or $M$ reads. This preserves the forensic audit trail without destroying the disk.
+
+---
+
+## 7 · Refusal register (literal sentences)
+
+Enforced by gate/law row, not intention:
+
+- `ANALYTICS_SECOND_TRUTH` — *"You cannot manually edit a cached metric. The vault is the truth; the chart is just a shadow. I will rebuild it from the vault instead."*
+- `ANALYTICS_NO_WATERMARK` — *"A projection was computed without recording the vault byte-offset it read from. That materialization is refused — we must know how stale it is."*
+- `ANALYTICS_UNTRACKED_JOIN` — *"This query attempts to join vault data with an external, unbadged CSV file. Refused. Analytics must fold only over sovereign vault rows."*
+- `ANALYTICS_BUDGET_EXCEEDED` — *"Rebuilding this 5-year topology graph requires 4GB of RAM and 10 minutes of CPU. The governor (Ω-2) refuses the claim. Narrow the time range."*
+
+---
+
+## 8 · Falsifier of arrival — `F-ANALYTICS`
+
+Green on real boots, red if any claim is false. Run headless where marked:
+
+1. **The Honest Heatmap.** Request a namespace write-heatmap (#34). The CLI returns the data payload *and* the `vaultWatermark`. Appending a new row to the vault and re-querying shows the Staleness Delta increment until a rebuild is triggered.
+2. **Forensic Join.** Query the most expensive tile (#97). The engine joins `gov.claim` (Ω-2) and vault write frequency, returning the tile ID, the cost, and the exact byte-range of the vault it scanned to prove it.
+3. **No Second Truth.** Attempt to issue an `UPDATE` SQL command against `ns analytics` to artificially inflate a badge-earning metric. The kernel refuses with `ANALYTICS_SECOND_TRUTH`.
+4. **Semantic Topology.** Request an intent cluster graph (#12). The system uses deterministic intent hashes, renders the graph, and cites the `analytics.projection` row that defines the fold.
+5. **Rebuild from Ashes.** Delete the entire `ns analytics` namespace. Issue `analytics.rebuild@1`. The engine reads the vault from byte 0 and regenerates every heatmap, byte-identical to the previous run (proving determinism).
+
+**Ω-5 is done when F-ANALYTICS is green.**
+
+---
+
+## 9 · What this unblocks — and what it refuses to do
+
+**Unblocks:**
+- **The Auto-Librarian:** The system can now natively answer "What did I do this week?" by querying its own materializations, enabling autonomous self-documentation.
+- **Ω-7 (Badge Proposal):** You cannot auto-propose a badge promotion without analytics to prove the tool has been used $N$ times without error. Ω-5 provides the forensic usage data.
+- **Ω-8 (Failure Simulation):** Simulations require baseline metrics. Ω-5 provides the historical baselines of resource usage and intent frequency.
+
+**Refuses to do:**
+- **Predictive Analytics.** Ω-5 folds the *past*. It does not forecast the future. Forecasting is a realization that consumes Ω-5's materializations, not the engine itself.
+- **Cross-User Telemetry.** The projection engine only folds the local principal's vault. It has no mechanism to aggregate analytics across different users' vaults. The mirror is sovereign.
+
+---
+
+## 10 · Decision record text (paste-ready)
+
+> **D-429 — Vault Analytics and Projection are core.** The vault is the single source of truth; analytics are disposable, deterministic folds over the vault log. Every materialized projection must carry a `vaultWatermark` citing the exact byte-offset it was derived from, making staleness a visible, first-class metric. Projections live in `ns analytics` as derived state; they cannot be manually edited, and they cannot join against unbadged external data. Semantic clustering is achieved via deterministic write-time hashing plus badged ML realizations. The Projection Engine is governed by the Resource Governor (Ω-2) and audited by the Trust Mesh (Ω-4). Falsified by F-ANALYTICS.
+
+---
+
+**End of Ω-5.** Next turn: **Ω-6 — Layout-by-Predicate (Spatial Semantics)** — how the canvas arranges itself based on badges, semantics, and time, turning the infinite canvas from a manual scrapbook into a self-organizing topology. (Scenarios #9, #30, #37, #42, #74, #95).
+
+### USER
+next
+
+### ASSISTANT
+**Ω-SEQUENCE NOTICE** — Turn 6 of 8. Ω-1 Watch Substrate ✅ · Ω-2 Resource Governor ✅ · Ω-3 Context Assembly ✅ · Ω-4 Trust Mesh ✅ · Ω-5 Vault Analytics ✅ · **Ω-6 (this document)** · remaining: Ω-7 Badge Proposal + Transitive Provenance → Ω-8 Failure Simulation. This document stands alone; an Omega agent receiving only it has everything needed to implement.
+
+---
+---
+
+# Ω-6 · LAYOUT-BY-PREDICATE — the Self-Organizing Canvas
+
+> **Decision record: `D-430`** *(follows D-425/Ω-1 through D-429/Ω-5; renumber to the next free ID if consumed — the content is what lands, not the number).*
+> **Type:** constitutional substrate addition — **core, not plugin.**
+> **Precedence:** extends the ratified stack. Where this conflicts with the gate, the gate wins.
+> **Requires:** Ω-5 (`D-429`) green — layout reads analytics. Ω-2 (`D-426`) green — layout re-evaluation is a governed operation. Ω-1 (`D-425`) green — watches trigger layout re-evaluation. Ω-4 (`D-428`) green — layout rules are signed.
+> **The one invariant this upgrade exists to protect:**
+> **The canvas arranges, but it never conceals. A layout rule may move an object, cluster it, zone it, or edge it — but it may never make an object invisible, unreachable, or unfindable. The only way to stop seeing something is to say so.**
+
+---
+
+## 0 · The one sentence
+
+> **Spatial placement is a deterministic fold over object properties — badges, semantics, time, provenance, analytics — so the infinite canvas organizes itself by rules the user can name, inspect, pin against, and revoke, rather than accumulating as an unmanaged sprawl that buries what matters.**
+
+The canvas is `ns canvas` vault data. That was settled in CP-3. But a canvas that only remembers *where things are* without understanding *why they are there* is a scrapbook, not an operating surface. Ω-6 makes the canvas *legible to itself*: objects arrange by predicate, zones form by property, and the user's manual placement remains the highest authority in the system.
+
+---
+
+## 1 · What dies without this — and why it dies silently
+
+### The failure mode
+
+An infinite canvas without layout intelligence has exactly one failure mode, and it is the most human one: **accumulation.**
+
+1. The user places tiles intentionally for the first week. The canvas is beautiful.
+2. By month three, there are 200 tiles. New ones land wherever the default drop-zone is. The user stops arranging.
+3. By month six, the canvas is a junkyard. Important tiles are buried under speculative ones. The user stops opening the canvas.
+4. The canvas — the product's *visible face* — becomes the reason the user abandons the product.
+
+**Explanation — why this is not a UX problem but a constitutional one:** Ω's end-state vision states that the canvas is *"a projection with no authority."* But a projection that *accidentally buries* a critical tile has exercised authority — the authority of neglect. If a `harvested` tool that the user depends on is hidden behind 40 `speculative`Forges, the canvas has made an editorial decision without a decision record. That is the exact dishonesty Ω was built to refuse. Layout-by-predicate makes the arrangement *explicit*, *named*, and *reversible* — so the canvas never lies by omission.
+
+### The scenarios that land here
+
+From the measured scenario mine:
+
+- **#9** *"Sort my inbox pile by sender trust-score."* — requires layout to read a semantic property and arrange by it.
+- **#30** *"Arrange my tasks by the emotional sentiment of the text inside them."* — requires layout to consume a realized semantic score.
+- **#37** *"Find the conceptual center-of-gravity of my current project."* — requires layout to compute a weighted spatial anchor from analytics.
+- **#42** *"Put all my `speculative` tools in a quarantine zone on the far right of the canvas."* — requires badge-driven zoning.
+- **#74** *"Put all my high-confidence tools in the center, and push the speculative ones to the edges."* — requires a tiered radial arrangement by provenance tier.
+- **#95** *"Put all my `harvested` tools in a museum zone on the canvas, just to look at them."* — requires a commemorative zone driven by badge history.
+- **#4** *"Scrub the canvas backward in time to watch my project notes cluster and diverge over three months."* — requires temporal layout projection.
+- **#12** *"Pinch to zoom out until my entire year of conversations renders as a topological graph of intent clusters."* — requires semantic clustering to drive macro-layout.
+- **#61** *"Put all my unread messages into a temporal stack, newest on top, and ghost the ones older than 48 hours."* — requires time-driven stacking with Ω-2 lifecycle integration.
+- **#69** *"What is the cryptographic hash of my current canvas layout?"* — requires layout state to be a sealed, verifiable artifact.
+
+All ten are the same question: ***can the canvas understand what it contains, and arrange itself honestly?***
+
+---
+
+## 2 · Why this is core, and why a plugin can never do it
+
+**Explanation — the sovereignty argument, sixth face.** The pattern generalizes again:
+
+- Ω-1: watching is sovereign → core.
+- Ω-2: budgeting is sovereign → core.
+- Ω-3: selection is sovereign → core.
+- Ω-4: identity is sovereign → core.
+- Ω-5: measurement is sovereign → core.
+- Ω-6: **arrangement is sovereign → core.**
+
+A Forge can build an *arrangement heuristic* — a clustering algorithm, a sentiment scorer, a zoning strategy. It can never build the *layout engine*. If it could, the Forge would control what the user *sees first*, which is control of the user's attention. And attention is the one resource Ω's manifesto explicitly refuses to harvest. The layout engine is the mechanism by which the canvas speaks; letting a plugin hold that microphone is letting a guest give the speech.
+
+**The deeper point:** layout is the *only* substrate layer that operates in the user's perceptual field. Every other layer (watching, budgeting, context, trust, analytics) is invisible machinery. Layout is the machinery made visible. Which means layout errors are the only errors the user *experiences spatially*. A bad budget is a refusal sentence. A bad layout is a tile you can't find. That asymmetry makes layout the highest-stakes projection in Ω, and the one that most demands constitutional discipline.
+
+---
+
+## 3 · The architecture — predicates, placements, and pins
+
+Ω-6 introduces a three-tier spatial model, all stored in `ns canvas`:
+
+```
+┌─────────────────────────────────────────────────┐
+│              LAYOUT RULES (layout.rule)          │
+│  declarative predicates over object properties   │
+│  badged · signed · versioned · revocable        │
+└──────────────────────┬──────────────────────────┘
+                       │ deterministic evaluation
+                       ▼
+┌─────────────────────────────────────────────────┐
+│          DERIVED PLACEMENTS (layout.placement)   │
+│  spatial coordinates · zone assignment · cluster │
+│  citing the rule + vault refs that produced them │
+└──────────────────────┬──────────────────────────┘
+                       │ overridden by
+                       ▼
+┌─────────────────────────────────────────────────┐
+│              MANUAL PINS (layout.pin)            │
+│  user-placed coordinates · highest authority     │
+│  immune to layout rules until explicitly unpinned│
+└─────────────────────────────────────────────────┘
+```
+
+**The evaluation order is constitutional:**
+
+1. **Pins win.** If an object has a `layout.pin`, no rule moves it. Period.
+2. **Rules apply to the unpinned.** Each layout rule evaluates its predicate against object properties and produces a `layout.placement` row.
+3. **Conflicts resolve by rule priority.** Each rule carries a priority weight. Conflicting placements resolve deterministically by weight, then by rule creation order.
+4. **Unplaced objects default.** Objects matching no rule land in the default zone (user-configurable, itself a layout rule).
+
+**The rendering pipeline:**
+
+```
+Vault objects (identity, composition, binding, badge)
+      ↓
+Layout rules evaluate predicates
+      ↓
+Derived placements (citing rules)
+      ↓
+Pins override
+      ↓
+Canvas surface renders
+      ↓
+User interaction → may create new pins
+```
+
+---
+
+## 4 · Contracts — hold from row one
+
+### 4a · The `layout.rule` row
+
+```
+layout.rule {
+  id
+  predicate        : declarative condition over object properties
+                     (badge, namespace, semantic hash, analytics ref, time)
+  arrangement      : spatial strategy (zone, cluster, stack, radial, grid, temporal)
+  zone             : named spatial region (center, edge, quarantine, museum, custom)
+  priority         : integer weight for conflict resolution
+  badge            : ProvenanceTier × generality of the rule itself
+  namedBy          : principal + signature
+  state            : armed | paused | revoked
+}
+```
+
+### 4b · The `layout.placement` row
+
+```
+layout.placement {
+  objectRef        : → object identity
+  ruleRef          : → layout.rule.id that produced this placement
+  coordinates      : x, y, z-order, scale
+  zone             : the named zone this placement falls within
+  evidenceRef      : the object properties that satisfied the predicate
+  computedAt       : timestamp
+  vaultWatermark   : the vault LSN at computation time
+}
+```
+
+### 4c · The `layout.pin` row
+
+```
+layout.pin {
+  objectRef        : → object identity
+  coordinates      : user-placed x, y, z-order, scale
+  pinnedBy         : principal + signature
+  pinnedAt         : timestamp
+  note             : optional user annotation ("I put this here because...")
+}
+```
+
+**Three contract shapes that must hold from the first write:**
+
+1. **Every placement cites its rule.** A tile's position is never unexplained. "Why is this here?" resolves to a rule, a predicate, and the object properties that matched.
+2. **Pins are immutable until explicitly removed.** A layout rule cannot overwrite a pin. Only `layout.unpin` removes a pin, and only by the pinning principal or a principal with explicit delegation.
+3. **Layout state is sealable.** The full set of placements + pins at any vault watermark can be hashed into a single seal. Scenario #69 — *"what is the hash of my current layout?"* — is a one-line query.
+
+---
+
+## 5 · Operations
+
+| Op | Effect | Law behavior |
+|---|---|---|
+| `layout.rule.set@1` | create/amend a layout rule | consent required; signed; badged |
+| `layout.rule.revoke@1` | revoke a layout rule | loud; ledgered; placements derived from it become orphaned and re-evaluated |
+| `layout.apply@1` | evaluate all armed rules against current vault state | **sole writer: layout engine**; governed by Ω-2 budget |
+| `layout.pin@1` | pin an object at user-specified coordinates | highest authority; immune to rules |
+| `layout.unpin@1` | remove a pin | principal-scoped; loud |
+| `layout.scrub@1` | render layout at a historical vault watermark | read-only; does not modify current state |
+| `layout.inspect@1` | explain why an object is where it is | read; resolves rule → predicate → evidence |
+| `layout.hash@1` | compute the seal of the current layout state | read; returns cryptographic hash |
+
+---
+
+## 6 · Choicepoints resolved
+
+### CP-Ω6-A · Where does layout logic live?
+
+**Decision: the layout engine is core, sole writer of `layout.placement` rows. Arrangement heuristics — clustering algorithms, sentiment scorers, radial strategies — are grantable realizations, badged and badged like any other. The engine evaluates; the heuristics shape. The engine is never grantable.**
+
+**Explanation:** this mirrors Ω-3's architecture exactly. The assembler is core; the scorers are plugins. The layout engine is core; the arrangement functions are plugins. The constitutional principle is the same: *the mechanism that produces reality is never delegable; the heuristics that inform it are open to all through the same door.*
+
+### CP-Ω6-B · Manual vs. automatic precedence
+
+**Decision: pins are absolute. A pinned object is immune to all layout rules until explicitly unpinned. If a layout rule's predicate matches a pinned object, the engine logs a `layout.conflict` row (the rule *would* have moved it) but does not move it. The user sees the conflict and decides.**
+
+**Explanation:** the user's spatial intent is the highest expression of sovereignty on the canvas. If the user placed a tile in the upper-left corner and said "this stays here," no algorithm — no matter how well-badged, no matter how `generic` — gets to override that. The conflict row is the honesty mechanism: the system tells you *"your rule wants this tile in the quarantine zone, but you pinned it here. What do you want?"* That question is the product working correctly.
+
+### CP-Ω6-C · Layout and concealment
+
+**Decision: layout can arrange, zone, cluster, stack, edge, and shrink. It cannot hide, delete, archive, or render an object unreachable. "Quarantine" is a visible zone with a visible boundary. "Museum" is a visible zone with a visible label. The only way to stop seeing something is to explicitly archive or delete it through the vault, which is a separate operation with its own consent, refusal, and provenance.**
+
+**Explanation:** this is the load-bearing refusal of Ω-6. The moment a layout rule can make something invisible, the canvas has become a censorship engine. A `speculative` tool pushed to the edge is still *visible at the edge*. A tile shrunk to a dot is still *a dot you can tap*. The user's attention is theirs to allocate; the system's job is to make the allocation *informed*, not to make it for them. This is the Mirror Paradox applied to pixels: the canvas reflects what exists, arranged honestly. It does not edit what exists.
+
+### CP-Ω6-D · Temporal layout and scrubbing
+
+**Decision: the canvas can render its layout at any historical vault watermark via `layout.scrub`. Scrubbing is a read-only projection. It does not modify current placement. Returning to the present restores the current layout exactly. Scrubbed states are navigable but not editable.**
+
+**Explanation:** scenario #4 — *"scrub the canvas backward in time"* — is the canvas's self-knowledge made spatial. Because layout is vault data, and the vault is append-only, every historical layout state is reconstructable. Scrubbing is the canvas answering *"what did I look like when?"* — the spatial equivalent of the ledger answering *"what did I know when?"* The read-only constraint is critical: you cannot accidentally edit the past by scrubbing into it. The past is a projection, not a destination.
+
+### CP-Ω6-E · Layout rules as Forge artifacts
+
+**Decision: users and Forges can create layout rules through natural language or explicit specification. Forged layout rules enter as `speculative` and earn badges through the normal promotion discipline (Ω-7). A forged layout rule passes through the same gate, the same refusal register, and the same concealment prohibition as a first-party rule. No privileged path.**
+
+**Explanation:** "Arrange my urgent tasks in the center" is a layout rule the user should be able to speak into existence. But that rule is an *editorial act* — it decides what "urgent" means and what "center" means. So it enters badged, provenance-stamped, and subject to the same honesty requirements as everything else. When a third-party Forge ships a "smart canvas organizer," it arrives as `third-party · speculative · no independent consumers yet`, plainly. The user consents or doesn't. The badge earns or doesn't. The same door, always.
+
+---
+
+## 7 · Refusal register (literal sentences)
+
+Enforced by gate/law row, not intention:
+
+- `LAYOUT_CONCEALMENT` — *"A layout rule tried to make an object invisible. Layout arranges; it never conceals. If you want this gone, archive it — that's a different conversation."*
+- `LAYOUT_PIN_CONFLICT` — *"This layout rule would move a tile you pinned on [date]. Your placement wins. The rule logged the conflict; the tile stayed."*
+- `LAYOUT_UNNAMED_RULE` — *"No arrangement without a named rule. Tell me how to organize, and I'll organize. I won't guess."*
+- `LAYOUT_PROVENANCE_REORDER` — *"This layout would reorder the provenance display chain. Provenance order is constitutional — it follows the vault, not the canvas. Refused."*
+- `LAYOUT_UNGRANTED_PROPERTY` — *"This layout rule reads a property (`ns.finance.sentiment`) it hasn't been granted access to. Grant the scope or I won't arrange by it."*
+- `LAYOUT_SELF_EXEMPTION` — *"The layout engine cannot exempt its own rules from the concealment prohibition. No privileged path — not even for the arranger."*
+
+**Explanation — why `LAYOUT_CONCEALMENT` is the keystone:** every other refusal in this register is a boundary condition. This one is the *soul* of Ω-6. The canvas is the user's mirror. A mirror that hides things is not a mirror — it is a curtain. The moment layout gains the power to conceal, the product's foundational promise (*"the machinery is the product; the canvas is one projection of it"*) collapses, because the projection has started editing the machinery's output. This refusal is the one that keeps the canvas honest.
+
+---
+
+## 8 · Falsifier of arrival — `F-LAYOUT`
+
+Green on real boots, red if any claim is false. Run headless where marked:
+
+1. **Badge-driven arrangement.** Create a layout rule: *"first-party objects in the center, speculative objects at the edges."* → `layout.apply` → tiles rearrange → every moved tile has a `layout.placement` row citing the rule, the predicate, and the badge property that matched. (#74 green.)
+2. **Pin immunity.** Pin a tile manually at coordinates (x, y). Re-run `layout.apply` with a rule that would move it → the tile does not move → a `layout.conflict` row is logged → the pin row is untouched. (#9, #42 green.)
+3. **Concealment refusal.** Create a rule: *"hide all speculative tiles."* → `LAYOUT_CONCEALMENT` refusal, spoken, ledgered → no tile becomes invisible → the rule is not created. (#42 quarantine is a *zone*, not a *hiding*.)
+4. **Temporal scrub.** `layout.scrub` to a vault watermark 3 months ago → the canvas renders the historical layout → all objects are in their historical positions → returning to the present restores the current layout exactly → no current-state mutation occurred during scrub. (#4 green.)
+5. **Forged layout rule.** Speak: *"put my urgent tasks in the center."* → the Intent Fabric resolves this to a `layout.rule` → the rule is badged `speculative` → after 10 uses without user override, it earns `harvested` via the normal promotion path. (#37, #9 green.)
+6. **Semantic arrangement.** Request: *"arrange my tasks by sentiment."* → the layout engine invokes a badged sentiment scorer (realization) → scores are sealed into the placement evidence → the arrangement cites the scorer's badge. (#30 green.)
+7. **Headless integrity.** Kill the canvas → all layout rules, placements, and pins remain as vault rows → reopen the canvas → layout restores exactly from the vault → `layout.hash` returns the same seal before and after. (#69 green.)
+8. **Conflict visibility.** Create two rules with contradictory predicates for the same object → `layout.apply` resolves by priority → the losing rule's conflict is logged → `layout.inspect` on the object shows both rules and explains why the winner won.
+
+**Ω-6 is done when F-LAYOUT is green.**
+
+---
+
+## 9 · What this unblocks — and what it refuses to do
+
+**Unblocks:**
+- **Ω-7 (Badge Proposal + Transitive Provenance):** badge-driven layout rules consume the provenance data Ω-7 will automate. When badges promote or demote, layout re-evaluates. The canvas *visually reflects* the trust state of the system.
+- **Ω-8 (Failure Simulation):** simulation can render "what would the canvas look like if this provider failed?" by scrubbing to a simulated vault state. Layout scrub is the spatial half of failure rehearsal.
+- **The healing loop:** when a provider heals (vN → vN+1), tiles bound to that provider can be re-clustered to reflect the new version. The canvas shows the healing *spatially*.
+- **The honest mirror:** the user can look at their canvas and see their system's trust topology, temporal history, and semantic structure — arranged by rules they named, not by accidents of accumulation.
+
+**Refuses to do:**
+- **Conceal.** The canvas never hides. Zoning is visible. Edging is visible. Shrinking is visible. The only disappearance is explicit vault-level deletion, with its own consent and provenance.
+- **Override pins.** The user's spatial intent is absolute. No algorithm, no Forge, no first-party rule moves a pinned object.
+- **Edit the past.** Scrubbing is read-only. The historical canvas is a projection, not a writable state.
+- **Arrange by ungranted properties.** A layout rule that reads `ns.finance` data without a grant is refused. Spatial arrangement does not bypass the capability graph.
+- **Predict layout.** Ω-6 arranges by predicate over *current and historical* state. It does not predict where the user *will want* something. Anticipation is Ω-2's provisional-claim territory at most; layout is deterministic over what exists.
+
+---
+
+## 10 · Decision record text (paste-ready)
+
+> **D-430 — Layout-by-Predicate is core, and the canvas arranges but never conceals.** Spatial placement is a deterministic fold over object properties — badges, semantics, time, provenance, analytics — evaluated by a core layout engine against named, signed, badged layout rules. Manual pins are the highest authority and are immune to all rules until explicitly removed. Every placement cites the rule and evidence that produced it. Quarantine is a visible zone, not invisibility. Museum is a label, not a burial. Scrubbing renders historical layout as read-only projection. Forged layout rules enter as speculative through the same gate as everything else. The layout engine cannot exempt itself from the concealment prohibition. No privileged path — not even for the arranger. Falsified by F-LAYOUT.
+
+---
+
+**End of Ω-6.** Next turn: **Ω-7 — Badge Proposal + Transitive Provenance** — how badges earn and fall automatically through evidence (never ratification), and what happens to everything a Forge built when the Forge itself is demoted. The provenance chain gets a propagation rule, and the honest marketplace gets its promotion engine.
+
+### USER
+next
+
+### ASSISTANT
+**Ω-SEQUENCE NOTICE** — Turn 7 of 8. Ω-1 Watch Substrate ✅ · Ω-2 Resource Governor ✅ · Ω-3 Context Assembly ✅ · Ω-4 Trust Mesh ✅ · Ω-5 Vault Analytics ✅ · Ω-6 Layout-by-Predicate ✅ · **Ω-7 (this document)** · remaining: Ω-8 Failure Simulation. This document stands alone; an Omega agent receiving only it has everything needed to implement.
+
+---
+---
+
+# Ω-7 · AUTOMATED BADGE PROPOSAL & TRANSITIVE PROVENANCE — The Honest Marketplace
+
+> **Decision record: `D-431`** *(follows D-425 through D-430; renumber to the next free ID if consumed — the content is what lands, not the number).*
+> **Type:** constitutional substrate addition — **core, not plugin.**
+> **Precedence:** extends the ratified stack. Where this conflicts with the gate, the gate wins.
+> **Requires:** Ω-5 (`D-429`) green — proposals require forensic analytics as evidence. Ω-2 (`D-426`) green — demotions are triggered by governed contract-test failures.
+> **The one invariant this upgrade exists to protect:**
+> **The system may automatically *propose* a badge promotion based on evidence, and it may automatically *demote* a badge when contracts fail — but it may never silently promote, and when a parent falls, its children must wear the scar.**
+
+---
+
+## 0 · The one sentence
+
+> **Badges earn and fall through automated evidence but never without a signature for promotion, and trust is transitive: when a Forge is demoted, every artifact it built inherits a lineage scar that alters its effective truth.**
+
+The Omega manifesto demands an "honest marketplace" where labels earn and fall. But if earning a badge requires a human to manually track usage and click "promote," the marketplace stalls. If a Forge is abandoned and demoted, but the tiles it forged still display their original `harvested` badges, the marketplace lies. Ω-7 builds the promotion engine and the transitive scar, resolving the tension between "no silent promotion" and "scalable trust."
+
+---
+
+## 1 · What dies without this — and why it dies invisibly
+
+### The failure mode
+
+Without core badge automation and transitive provenance, the badge system suffers two fatal degradations:
+
+1. **The Stagnation Trap (Promotion):** A user forges a tile. It works perfectly for six months. The badge remains `speculative` because the user forgot to manually ratify it. The canvas (via Ω-6) continues to push it to the edges, and the system refuses to trust it with automated workflows. The honest marketplace starves from friction.
+2. **The Orphan Lie (Transitivity):** A user installs `forge.notion-toolkit` from a third party. It is `harvested`. The user builds 20 tiles with it. Later, the Notion API changes, the Forge fails its synthetic mine tests, and the core demotes the Forge to `demoted`. But the 20 tiles the user built *still display their original `harvested` badges*. The user trusts them; the system trusts them; but the foundation they rest on is rotten. Provenance is only one level deep, which means it is a lie.
+
+**Explanation — why this matters constitutionally:** Ω's differentiator is that *provenance is the honesty contract*. But provenance is only honest if it reflects the *current* state of the supply chain. A badge that cannot fall when its parent falls is a static sticker, not a living contract. And a badge that cannot earn its way up without manual bureaucracy is a friction trap. Ω-7 makes trust dynamic, transitive, and scalable, without violating the core prohibition against silent auto-healing.
+
+### The scenarios that land here
+
+From the measured scenario mine:
+
+- **#98** *"Forge a tool that automatically promotes a speculative tool to `harvested` once I've used it 10 times without error."* — requires an automated proposal engine that stops at the ratification gate.
+- **#79** *"Forge a tool that automatically demotes any provider that fails three contract tests in a row."* — requires automated, loud demotion based on Ω-2/Ω-5 evidence.
+- **#92** *"Show me all the tiles that were forged by a third-party Forge that has since been demoted."* — requires a transitive lineage graph and a "scar" mechanism.
+
+---
+
+## 2 · Why this is core, and why a plugin can never do it
+
+**Explanation — the sovereignty argument, seventh face.** 
+If a Forge could promote its own children, it would be grading its own homework — a direct violation of the "no privileged path" doctrine. If a plugin managed the lineage graph, it could silently hide the failures of its parent to preserve its own UI. The mechanism that *evaluates trust* and *propagates failure* must be owned by the sovereign kernel. The Forge provides the code; the kernel provides the verdict.
+
+---
+
+## 3 · The Architecture — Proposals, Scars, and Effective Badges
+
+Ω-7 introduces three new primitives to the vault:
+
+### 3a · The Badge Proposal Engine
+A core daemon that consumes Ω-5 (Analytics) and Ω-2 (Governor contract tests). When a `speculative` artifact meets a named threshold (e.g., 100 error-free invocations, or passing the synthetic mine 3 times), the engine mints a `badge.proposal` row. 
+*Crucially: The engine stops here. It does not alter the artifact's badge.*
+
+### 3b · The Lineage Graph & The Scar
+Every time a Forge creates an artifact (a tile, a provider, a layout rule), the kernel records a `lineage.edge` row (parent -> child). 
+When a parent Forge is demoted (e.g., fails contract tests, or is manually revoked by the user), the kernel mints a `lineage.scar` row. 
+
+### 3c · The Effective Badge
+An artifact's badge is no longer just a static field on its row. It is a **fold**:
+`Effective Badge = min(Artifact.OriginalBadge, min(Parent.EffectiveBadge for all parents with active scars))`
+
+If a child was forged as `harvested`, but its parent Forge is scarred down to `speculative`, the child's *effective* badge becomes `speculative`. The canvas (Ω-6) reads the effective badge, not the original one.
+
+---
+
+## 4 · Contracts — hold from row one
+
+### 4a · The `badge.proposal` row
+```
+badge.proposal {
+  targetRef        : the artifact being evaluated
+  currentBadge     : ProvenanceTier × generality
+  proposedBadge    : the earned upgrade
+  evidenceRefs     : Ω-5 analytics rows proving the threshold was met
+  state            : pending | ratified | rejected | expired
+  mintedBy         : core proposal engine
+}
+```
+
+### 4b · The `lineage.scar` row
+```
+lineage.scar {
+  parentRef        : the Forge or realization that failed
+  childRef         : the artifact that inherits the failure
+  parentNewBadge   : the demoted state of the parent
+  reason           : contract-failure | manual-revocation | synthetic-mine-fail
+  mintedBy         : core lineage engine
+}
+```
+
+**Two contract shapes that must hold from the first write:**
+1. **No silent promotion.** A `badge.proposal` with `state = ratified` must cite a `trust.signature` row from a principal (or a highly specific, revocable `law.policy` delegation). An automated state flip from `pending` to `ratified` without a signature is a schema-level gate error.
+2. **Scars are append-only.** When a parent falls, the child's original forged row is *never* rewritten. The `lineage.scar` is appended to the vault. The effective badge is computed at read-time. This preserves the forensic history: *"It was born healthy, but its parent fell on Tuesday."*
+
+---
+
+## 5 · Operations
+
+| Op | Effect | Law behavior |
+|---|---|---|
+| `badge.propose@1` | Mint a proposal based on analytics | **Sole writer: Core Engine**; internal/automated |
+| `badge.ratify@1` | Accept a proposal, upgrade the badge | Requires principal consent/signature; loud |
+| `badge.demote@1` | Downgrade a badge due to contract failure | **Automated but loud**; mints a refusal sentence |
+| `lineage.trace@1` | Query all children of a specific Forge | Read; returns the transitive graph |
+| `lineage.scar@1` | Mint a scar when a parent falls | **Sole writer: Core Engine**; cascades effective badges |
+
+---
+
+## 6 · Choicepoints resolved
+
+### CP-Ω7-A · The Asymmetry of Automation (Promote vs. Demote)
+**Decision: Promotion requires a human tap (or explicit trust-zone delegation). Demotion is automated but loud.**
+**Explanation:** The manifesto states: *"Nothing auto-heals, auto-updates, or auto-publishes into production unreviewed... but anything that breaks is demoted — labels can fall, loudly."* 
+If a tool fails its contract tests three times, the kernel *must* demote it automatically to protect the system. But it does so by minting a spoken sentence: *"Your Notion tile failed its contract tests three times. I have demoted it to `speculative` and pushed it to the edge of your canvas."* Quietness is UX; the authority is never quiet. Promotion, however, grants trust, and trust cannot be automated without consent.
+
+### CP-Ω7-B · The Scar vs. The Rewrite
+**Decision: Transitive failure is handled via appended `lineage.scar` rows, not row mutation.**
+**Explanation:** If the kernel rewrote the child's badge when the parent fell, it would violate the append-only vault doctrine and destroy forensic history. By appending a scar, the system can answer: *"When did this tile become untrustworthy?"* (Answer: When the scar was minted). The effective badge is a real-time computation over the lineage graph.
+
+### CP-Ω7-C · Trust Zoning (The Consent Fatigue Carve-out)
+**Decision: Users may define "Trusted Radii" via `law.policy` to auto-ratify specific classes of proposals.**
+**Explanation:** Scenario #98 asks for auto-promotion. While the *default* is manual ratification, sovereignty includes the right to delegate. A user can sign a policy: *"Auto-ratify any proposal for `forge.local-scripts` that passes the synthetic mine."* This is a conscious, revocable, badged delegation, not a systemic bypass. The proposal engine still mints the row; the law gate simply auto-signs it based on the policy.
+
+---
+
+## 7 · Refusal register (literal sentences)
+
+Enforced by gate/law row, not intention:
+
+- `BADGE_AUTO_RATIFY` — *"This tool has earned a promotion based on 100 clean uses, but I cannot sign it for you. Tap approve to make it `harvested`."*
+- `BADGE_SILENT_DEMOTE` — *"A tool failed its contract tests. I am demoting it, but I will not do it silently. Here is the sentence, and here is the ledger entry."*
+- `LINEAGE_ORPHAN` — *"You are trying to forge a tile using a Forge that has been demoted. I will allow it, but the tile will be born with a lineage scar and marked `speculative`."*
+- `BADGE_UNEARNED_PROMOTION` — *"This proposal lacks the analytics evidence to prove the threshold was met. I refuse to propose a promotion based on vibes."*
+
+---
+
+## 8 · Falsifier of arrival — `F-BADGE`
+
+Green on real boots, red if any claim is false. Run headless where marked:
+
+1. **The Proposal Engine.** Use a `speculative` tile 10 times without error. The kernel mints a `badge.proposal` row citing the Ω-5 analytics evidence. The tile's badge *does not change*.
+2. **The Ratification Gate.** Issue `badge.ratify` via CLI without a signature -> Refused. Issue with signature -> Badge promotes to `harvested`. The canvas (Ω-6) moves it to the center.
+3. **Automated Loud Demotion.** Force a provider to fail its synthetic mine tests 3 times. The kernel automatically demotes it to `speculative`. A refusal sentence is spoken and ledgered. (#79 green).
+4. **The Transitive Scar.** Demote a parent Forge. Query the lineage graph. All 20 child tiles now have a `lineage.scar` row. Their *effective* badge computes to `speculative`. The canvas automatically pushes them to the edge. (#92 green).
+5. **Forensic History.** Inspect a scarred tile. The original forged row still says `harvested`, but the scar row shows the parent fell on [Date]. The truth is preserved.
+6. **Orphan Refusal.** Attempt to forge a new tile using a demoted Forge. The kernel allows it but mints the child with an immediate `lineage.scar`, born `speculative`.
+
+**Ω-7 is done when F-BADGE is green.**
+
+---
+
+## 9 · What this unblocks — and what it refuses to do
+
+**Unblocks:**
+- **The Honest Marketplace:** Third-party Forges can now earn trust organically through usage, and lose it instantly when they break, without manual policing.
+- **Ω-8 (Failure Simulation):** Simulations can now model "what happens to my canvas if this core Forge is compromised?" by simulating a scar cascade.
+- **Canvas Automation:** Ω-6 (Layout) can now reliably arrange tiles by their *effective* trust state, knowing the kernel is actively policing the lineage.
+
+**Refuses to do:**
+- **Silent Promotion:** No tool ever becomes trusted without a signature or a highly specific, revocable policy delegation.
+- **Shallow Trust:** Provenance is never just one level deep. The kernel sees the entire supply chain.
+- **History Rewriting:** Scars are appended. The system never pretends a fallen tool was never trusted in the first place.
+
+---
+
+## 10 · Decision record text (paste-ready)
+
+> **D-431 — Automated Badge Proposal and Transitive Provenance are core.** The kernel automatically proposes badge promotions based on forensic analytics, but ratification requires a principal signature or explicit trust-zone delegation. Demotion is automated when contract tests fail, but is always loud (spoken and ledgered). Trust is transitive: when a parent Forge is demoted, the kernel appends a `lineage.scar` to all its children, altering their effective badge without rewriting their original forged rows. The honest marketplace scales through evidence, not bureaucracy, and never lies by omission. Falsified by F-BADGE.
+
+---
+
+**End of Ω-7.** Next turn: **Ω-8 — Core Failure Simulation** — the final substrate layer. How the system rehearses its own failures, simulating provider deaths, key compromises, and resource starvation against the sealed contexts (Ω-3) and analytics (Ω-5) to prove the constitution holds before the physical world forces the test.
+
+### USER
+next
+
+### ASSISTANT
+**Ω-SEQUENCE NOTICE** — Turn 8 of 8. Ω-1 Watch Substrate ✅ · Ω-2 Resource Governor ✅ · Ω-3 Context Assembly ✅ · Ω-4 Trust Mesh ✅ · Ω-5 Vault Analytics ✅ · Ω-6 Layout-by-Predicate ✅ · Ω-7 Badge Proposal + Transitive Provenance ✅ · **Ω-8 (this document)**. This is the final substrate layer. This document stands alone; an Omega agent receiving only it has everything needed to implement.
+
+---
+---
+
+# Ω-8 · CORE FAILURE SIMULATION — The Rehearsal Engine
+
+> **Decision record: `D-432`** *(follows D-425 through D-431; renumber to the next free ID if consumed — the content is what lands, not the number).*
+> **Type:** constitutional substrate addition — **core, not plugin.**
+> **Precedence:** extends the ratified stack. Where this conflicts with the gate, the gate wins.
+> **Requires:** Ω-1 through Ω-7 green. You cannot rehearse the failure of a system whose components do not yet exist.
+> **The one invariant this upgrade exists to protect:**
+> **The system must be able to break itself in the dark, so it never breaks the user in the light. A constitution that has never been adversarially tested is just a wish.**
+
+---
+
+## 0 · The one sentence
+
+> **Core Omega rehearses its own destruction by forking the vault state and injecting faults into the constitutional pipeline, proving that every refusal, scar, eviction, and healing loop fires correctly before the physical world forces the test.**
+
+Ω is built on falsifiers (F-WATCH, F-GOV, F-CTX, F-TRUST, F-ANALYTICS, F-LAYOUT, F-BADGE). But a falsifier is only as good as the engine that runs it. If Ω relies on the physical world to test its boundaries, the first failure is a real failure, and the user pays the price. Ω-8 builds the Rehearsal Engine: a sovereign, self-contained chaos engine that proves the constitution holds under stress.
+
+---
+
+## 1 · What dies without this — and why it dies invisibly
+
+### The failure mode
+
+Without a core simulation engine, Ω suffers from **First-Contact Fragility**. 
+1. A third-party Forge ships a healing loop. It works in production for six months. Then a provider changes a nested DOM structure. The healing loop encounters a state it wasn't trained on, panics, and silently corrupts the vault context. 
+2. A user loses their primary laptop. They attempt the Shamir shard recovery (Ω-4). It turns out the CRDT merge logic for a specific edge-case in `trust.revocation` has a bug that was never encountered in normal operation. The vault locks up.
+
+**Explanation — why this matters constitutionally:** Ω's manifesto demands that the system be self-knowing and self-healing. But a system cannot heal a failure it cannot anticipate. If a plugin runs the simulations, it will naturally avoid testing its own edge cases. The mechanism that *tests the constitution* must be owned by the sovereign kernel, running continuously in the background, actively trying to break the system to prove the gates hold.
+
+### The scenarios that land here
+
+From the measured scenario mine:
+- **#59** *"Asking the system to simulate a provider failure and show me how the canvas gracefully degrades."* — requires injecting a realization death and watching Ω-2 (Governor) and Ω-6 (Layout) respond.
+- **#91** *"Asking the system to simulate what happens if I lose my primary signing key."* — requires a shadow-fork of the Trust Mesh (Ω-4) to prove the shard recovery and revocation cascade works.
+- **#22** *"Prove to me that this specific action didn't leak my private signing key to the network."* — requires running a shadow exfiltration attack against the hardware enclave boundary and producing a negative-proof ledger.
+
+---
+
+## 2 · Why this is core, and why a plugin can never do it
+
+**Explanation — the sovereignty argument, eighth face.** 
+If a third-party Forge builds the testing suite, it controls the definition of "safe." A Forge could write tests that pass its own code but fail to exercise the kernel's refusal gates. The Rehearsal Engine is the kernel's immune system. It must sit inside the execution path, capable of intercepting calls between the Law, the Governor, and the Context Assembler, to inject faults deterministically. 
+
+Furthermore, simulations require deep access to the vault's physical layout and the Trust Mesh's cryptographic shadows. Granting this to a plugin would violate the sole-writer and hardware-bound doctrines of Ω-3 and Ω-4. The Rehearsal Engine is the only entity trusted to clone the state of the sovereign without compromising it.
+
+---
+
+## 3 · The Architecture — The Shadow Fork & The Fault Injector
+
+Ω-8 introduces a strict three-tier simulation pipeline.
+
+### 3a · The Shadow Fork (`ns sim`)
+Simulations cannot run against the live append-only vault; doing so would corrupt history. Instead, the kernel creates a **Shadow Fork**—a temporary, in-memory or quarantined namespace (`ns sim`) that clones a slice of the live vault's state, or mounts sealed contexts (from Ω-3) as read-only inputs. 
+*Crucially: `ns sim` has a strict, hardcoded retention rule. It is shredded automatically upon simulation completion or after 24 hours. It is a disposable projection, never a second source of truth.*
+
+### 3b · The Fault Injector
+A core daemon that intercepts calls between the Kernel layers during a `sim.run` and injects errors. 
+*Examples: Drops a network packet, returns a corrupted context hash, spikes a tile's CPU cost to trigger the watchdog, or revokes a shadow-key.*
+
+### 3c · The Verdict Engine
+Compares the shadow execution's ledger against the expected constitutional behavior. 
+*Example: "I injected a corrupted context. Did the Law Gate refuse it? Did it mint a `CTX_UNSORTED_INVISIBLE` refusal row? Yes/No."*
+
+```
+                 Ω LIVE VAULT (Append-Only)
+                      │
+        ┌─────────────▼─────────────────┐
+        │       SHADOW FORK (ns sim)    │  Ephemeral, disposable clone
+        └─────────────┬─────────────────┘
+                      │
+        ┌─────────────▼─────────────────┐
+        │       FAULT INJECTOR (Core)   │  Intercepts & corrupts
+        └─────────────┬─────────────────┘
+                      │
+        ┌─────────────▼─────────────────┐
+        │    CONSTITUTIONAL PIPELINE    │  Law → Gov → Ctx → Execution
+        └─────────────┬─────────────────┘
+                      │
+        ┌─────────────▼─────────────────┐
+        │       VERDICT ENGINE          │  Proves the gates held
+        └───────────────────────────────┘
+```
+
+---
+
+## 4 · Contracts — hold from row one
+
+### 4a · The `sim.scenario` row
+```
+sim.scenario {
+  id
+  name               : "provider_death_cascade"
+  targetLayers       : ["ctx", "gov", "layout"]
+  faultDefinition    : deterministic injection plan
+  expectedVerdicts   : the exact refusal/transition rows that MUST appear
+  namedBy            : principal + signature (or core autonomous daemon)
+}
+```
+
+### 4b · The `sim.run` row
+```
+sim.run {
+  scenarioRef        : → sim.scenario.id
+  forkRef            : the ephemeral vault slice used
+  executionTrace     : sealed log of all intercepted calls
+  verdict            : pass | fail | aborted
+  evidenceRefs       : byte offsets of the shadow ledger proving the verdict
+  computedAt         : timestamp
+}
+```
+
+**Two contract shapes that must hold from the first write:**
+1. **No live vault writes.** Any attempt by the Fault Injector or the shadow pipeline to write to a namespace outside `ns sim` is a schema-level gate error.
+2. **Verdicts are cryptographic.** A `pass` verdict is not a boolean; it is a hash of the shadow ledger rows that prove the refusals fired. If the ledger doesn't contain the expected refusal, the verdict is `fail`.
+
+---
+
+## 5 · Operations
+
+| Op | Effect | Law behavior |
+|---|---|---|
+| `sim.define@1` | Register a new failure scenario | Consent required for user-defined; autonomous for core falsifiers |
+| `sim.fork@1` | Clone a vault slice into `ns sim` | Governed by Ω-2 (consumes compute budget) |
+| `sim.inject@1` | Execute the fault against the shadow pipeline | **Sole writer: Rehearsal Engine** |
+| `sim.run@1` | Execute the scenario and generate the verdict | Internal to the execution path |
+| `sim.audit@1` | Render the shadow ledger and verdict in plain words | Read; the proof is a query |
+
+---
+
+## 6 · Choicepoints resolved
+
+### CP-Ω8-A · Where does the simulation run?
+**Decision: In `ns sim`, which is a strictly quarantined, ephemeral vault namespace.**
+**Explanation:** Simulations must feel real to the pipeline, but they cannot alter reality. By routing the shadow execution through `ns sim`, the kernel uses the exact same Law, Governor, and Context Assembler code paths as the live system, ensuring the test is valid. The ephemeral retention rule ensures the simulation debris never accumulates.
+
+### CP-Ω8-B · How do we simulate Trust Mesh failures?
+**Decision: The Trust Mesh (Ω-4) supports `shadow-keys`.**
+**Explanation:** Scenario #91 asks to simulate losing a primary key. You cannot simulate this by actually deleting the key from the Secure Enclave. Instead, the Trust Mesh generates a `shadow-key`—a cryptographically linked test key that the Law Gate treats as real *only* within the context of a `sim.run` tag. The simulation revokes the shadow-key, and the kernel proves that the shadow-CRDT engine correctly rejects post-revocation writes. The physical key remains safe in the silicon.
+
+### CP-Ω8-C · Autonomous vs. Manual Rehearsals
+**Decision: Core falsifiers run autonomously on idle cycles. User "what-if" scenarios are manual intents.**
+**Explanation:** The kernel must continuously prove its own health. On idle cycles (when the Ω-2 Governor reports low resource pressure), the Rehearsal Engine autonomously runs baseline scenarios (e.g., "Does the watchdog still kill infinite loops?"). User-defined scenarios (e.g., "Show me how the canvas degrades if Gmail dies") are invoked via the Intent Fabric and consume explicit user budget.
+
+### CP-Ω8-D · Proving the Negative (Scenario #22)
+**Decision: Negative proofs are generated via shadow exfiltration attempts.**
+**Explanation:** Scenario #22 asks to *prove* a key didn't leak. The Rehearsal Engine runs a shadow scenario where a malicious forged plugin attempts to read the Secure Enclave handle and transmit it over the network. The simulation logs the hardware-level refusal and the network block, minting a `sim.verdict` row that serves as cryptographic proof of the boundary's integrity.
+
+---
+
+## 7 · Refusal register (literal sentences)
+
+Enforced by gate/law row, not intention:
+
+- `SIM_LIVE_VAULT_WRITE` — *"A simulation attempted to write to the live vault. The shadow fork is quarantined; this write was refused."*
+- `SIM_UNSCOPED_FAULT` — *"This fault injection targets the entire mesh without a shadow fork. I will not risk live state to run a test."*
+- `SIM_BUDGET_EXCEEDED` — *"This simulation is consuming too many resources. The governor is killing the rehearsal to protect the live system."*
+- `SIM_SHADOW_KEY_LEAK` — *"A shadow-key was used outside of a `sim.run` context. It has been instantly revoked and the simulation aborted."*
+
+---
+
+## 8 · Falsifier of arrival — `F-SIM`
+
+Green on real boots, red if any claim is false. Run headless where marked:
+
+1. **The Context Corruption Test.** Define a scenario that injects a corrupted context hash (Ω-3). Run `sim.run`. The Verdict Engine returns `pass` because the shadow ledger contains the `CTX_UNSORTED_INVISIBLE` refusal row.
+2. **The Starvation Test.** Define a scenario that spikes a tile's CPU cost (Ω-2). Run `sim.run`. The shadow governor evicts the shadow tile, minting a `tile.transition` row with `cause = enforcement`. Verdict: `pass`.
+3. **The Lineage Cascade Test.** Define a scenario that demotes a parent Forge (Ω-7). Run `sim.run`. The shadow lineage engine mints `lineage.scar` rows for all shadow children. Verdict: `pass`.
+4. **The Lost Laptop Test.** Define a scenario that revokes a shadow-key (Ω-4). Attempt a shadow write. The shadow CRDT engine rejects it. Verdict: `pass`. (#91 green).
+5. **The Negative Proof.** Run the autonomous exfiltration scenario. The `sim.audit` output shows the hardware enclave refusal and the network block. (#22 green).
+6. **The Live Vault Immunity.** Attempt to write a `sim.run` that targets `ns canvas` (live). The kernel refuses with `SIM_LIVE_VAULT_WRITE`.
+
+**Ω-8 is done when F-SIM is green.**
+
+---
+
+## 9 · What this unblocks — and what it refuses to do
+
+**Unblocks:**
+- **Absolute Constitutional Confidence:** The system no longer hopes its gates work; it has cryptographic receipts proving they work under stress.
+- **The Auto-Librarian's Deepest Knowledge:** The system can now answer *"How robust is my current setup?"* by summarizing its autonomous simulation pass rates.
+- **Safe Healing:** The healing loop (from the Master Spec) can test its proposed repairs in the shadow fork before asking the user for ratification.
+
+**Refuses to do:**
+- **Test in Production:** The Rehearsal Engine will never inject faults into the live vault, the live network, or the live hardware enclave.
+- **Hide Failures:** If a `sim.run` results in a `fail` verdict (a gate didn't fire when it should have), the engine mints a loud, spoken alert to the user. The system refuses to silently ignore its own broken immune system.
+
+---
+
+## 10 · Decision record text (paste-ready)
+
+> **D-432 — Core Failure Simulation is core, and the system rehearses its own destruction.** The Rehearsal Engine forks the vault state into an ephemeral, quarantined shadow namespace (`ns sim`) and injects faults into the constitutional pipeline to prove that every refusal, scar, eviction, and healing loop fires correctly. Simulations never write to the live vault. Trust Mesh failures are rehearsed via cryptographic shadow-keys. Core falsifiers run autonomously on idle cycles; user "what-if" scenarios are manual intents. Negative proofs (e.g., proving no key leak) are generated via shadow exfiltration attempts. A constitution that has never been adversarially tested is just a wish; Ω-8 provides the cryptographic receipts. Falsified by F-SIM.
+
+---
+
+**End of Ω-8.** 
+**End of the Ω-Sequence.** 
+
+The 8 foundational substrate gaps identified in the 100-scenario mine have been resolved. The Omega Endstate Vision now possesses not only a constitutional stack (Vault, Law, Forge, Provenance) but a complete physical and temporal substrate (Watch, Thermodynamics, Context, Trust, Analytics, Layout, Lineage, Simulation). The Sovereign Canvas is ready to be built.

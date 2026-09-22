@@ -1,0 +1,47 @@
+{
+  "id": "F-025",
+  "slug": "observation-outcome",
+  "name": "Observation & Outcome",
+  "category": "INFRA",
+  "state": "WORKING",
+  "value_targets": [
+    "V-3"
+  ],
+  "engines": [
+    "observation-tap.ts",
+    "outcome-tracker.ts",
+    "task-history.ts",
+    "config-manager.ts",
+    "config-universal-surface.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Observation tap (event stream), outcome tracking, task history, universal config.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 10,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 41,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:26:13.426Z",
+  "evidence_class": "FACT"
+}

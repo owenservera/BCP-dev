@@ -1,0 +1,7 @@
+# Session registry — agent_id -> serve session binding (Task 4 control plane).
+# Maintained by the master on create/destroy ONLY. Watchdog reads it.
+# validate.py / sweep.py ignore unknown state files (fixed FILES map) — v1
+# does not extend the validators. Never hand-edit mid-run; use serve-control.py.
+sessions: {}
+updated_at: '2026-09-22T00:00:00Z'
+version: 1

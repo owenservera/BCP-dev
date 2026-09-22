@@ -1,0 +1,45 @@
+{
+  "id": "F-038",
+  "slug": "devops-tooling",
+  "name": "DevOps Tooling",
+  "category": "INFRA",
+  "state": "DISCOVERED",
+  "value_targets": [
+    "V-1",
+    "V-3"
+  ],
+  "engines": [],
+  "frontend_paths": [
+    "devops/",
+    "scripts/"
+  ],
+  "description": "Desktop build, runtime test, provider onboarding, audit, cleanup, cross-surface verification, harness, openapi gen, db doctor, context-tag-pass.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 0,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 0,
+    "failing": 0
+  },
+  "migration": {
+    "from": "nothing",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:22:53.880Z",
+  "evidence_class": "FACT"
+}

@@ -1,0 +1,574 @@
+{
+  "gate_id": "2026-08-28T11-28-14-242Z",
+  "timestamp": "2026-08-28T11:28:14.243Z",
+  "duration_ms": 169,
+  "cards_evaluated": 40,
+  "cards_advanced": 0,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 0,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-001",
+      "name": "Conversation System",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 8,
+        "integration": 2,
+        "e2e": 3,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-002",
+      "name": "Memory System (FSRS-6)",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 10,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-003",
+      "name": "Knowledge Graph",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 12,
+        "integration": 3,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-004",
+      "name": "Context Assembly",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 2,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-005",
+      "name": "Provider + CDP System",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 28,
+        "integration": 9,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-006",
+      "name": "Provider Discovery & Test Harness",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 9,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-007",
+      "name": "Capability Registry",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 83,
+        "integration": 7,
+        "e2e": 3,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-008",
+      "name": "ActionPlan IR",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 8,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-009",
+      "name": "Execution Kernel",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 37,
+        "integration": 3,
+        "e2e": 4,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-010",
+      "name": "Agent Builder",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 5,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-011",
+      "name": "Stream Parsing",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 12,
+        "integration": 0,
+        "e2e": 2,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-012",
+      "name": "Harness Execution",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 9,
+        "integration": 2,
+        "e2e": 3,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-013",
+      "name": "Semantic Retrieval",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 17,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-014",
+      "name": "Sandbox & Security Eval",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 6,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-015",
+      "name": "Governance & Policy",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 10,
+        "integration": 4,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-016",
+      "name": "Encryption & Privacy",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 4,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-017",
+      "name": "Observability",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 8,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-018",
+      "name": "Storage Relocation & Backup",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 6,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-019",
+      "name": "Lifecycle & Session",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 8,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-020",
+      "name": "P2P Sync",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 4,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-021",
+      "name": "User Identity & Contacts",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-022",
+      "name": "Plugin System",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 5,
+        "integration": 2,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-023",
+      "name": "MCP Integration",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-024",
+      "name": "Workspace & Presets",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 5,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-025",
+      "name": "Observation & Outcome",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 10,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-026",
+      "name": "Media & LLM Bridge",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 5,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-027",
+      "name": "Send & Resilience",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 4,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-028",
+      "name": "Budget & Cost",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 3,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-029",
+      "name": "Update & Transfer",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-030",
+      "name": "Selector Resilience",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 5,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-031",
+      "name": "Humanization & UX",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 3,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-032",
+      "name": "Content & Collections",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 5,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-033",
+      "name": "Canvas Frontend",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 1,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    },
+    {
+      "card": "F-034",
+      "name": "Frontend Surfaces (Next.js + React)",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-035",
+      "name": "Desktop Installer (Tauri v2)",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-036",
+      "name": "Dual-DB System (system + user)",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-037",
+      "name": "Seed Pipeline",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-038",
+      "name": "DevOps Tooling",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-039",
+      "name": "Test Suite",
+      "state": "DISCOVERED",
+      "tests": {
+        "unit": 0,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-engines"
+    },
+    {
+      "card": "F-040",
+      "name": "Logging Infrastructure",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 1,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    }
+  ]
+}

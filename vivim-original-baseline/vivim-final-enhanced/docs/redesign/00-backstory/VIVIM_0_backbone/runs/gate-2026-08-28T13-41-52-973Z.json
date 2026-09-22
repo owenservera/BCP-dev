@@ -1,0 +1,37 @@
+{
+  "gate_id": "2026-08-28T13-41-52-973Z",
+  "timestamp": "2026-08-28T13:41:52.986Z",
+  "duration_ms": 2069,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 33,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-021",
+      "name": "User Identity & Contacts",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 33,
+        "failing": 0,
+        "total": 33
+      },
+      "test_files": [
+        "tests/unit/engines/user-identity.test.ts",
+        "tests/unit/engines/session-caps.test.ts",
+        "tests/unit/engines/contact-engine.test.ts",
+        "tests/unit/engines/notification-engine.test.ts"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "F-013",
+  "slug": "semantic-retrieval",
+  "name": "Semantic Retrieval",
+  "category": "PLUGIN",
+  "state": "WORKING",
+  "value_targets": [
+    "V-3"
+  ],
+  "engines": [
+    "semantic-search.ts",
+    "embedding-hf.ts",
+    "embedding-minilm.ts",
+    "embedding-ollama.ts",
+    "embedding-classifier.ts",
+    "indexing-pipeline.ts",
+    "dcb-profile.ts",
+    "dcb-projector.ts",
+    "classifier-nli.ts",
+    "intent-decomposer.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Hybrid retrieval: sparse TF-IDF + dense embeddings. 3 providers: Ollama (nomic), MiniLM, HuggingFace.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 17,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 60,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:24:41.919Z",
+  "evidence_class": "FACT"
+}

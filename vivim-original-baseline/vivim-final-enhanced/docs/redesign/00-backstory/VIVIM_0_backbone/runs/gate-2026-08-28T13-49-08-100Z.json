@@ -1,0 +1,36 @@
+{
+  "gate_id": "2026-08-28T13-49-08-100Z",
+  "timestamp": "2026-08-28T13:49:08.100Z",
+  "duration_ms": 1386,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 18,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-024",
+      "name": "Workspace & Presets",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 18,
+        "failing": 0,
+        "total": 18
+      },
+      "test_files": [
+        "tests/unit/engines/workspace-presets.test.ts",
+        "tests/unit/engines/adaptive-workspace.test.ts",
+        "tests/unit/engines/manifest-inference.test.ts"
+      ]
+    }
+  ]
+}

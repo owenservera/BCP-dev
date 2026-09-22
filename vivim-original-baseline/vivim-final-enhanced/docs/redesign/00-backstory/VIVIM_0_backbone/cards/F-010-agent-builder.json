@@ -1,0 +1,47 @@
+{
+  "id": "F-010",
+  "slug": "agent-builder",
+  "name": "Agent Builder",
+  "category": "PLUGIN",
+  "state": "WORKING",
+  "value_targets": [
+    "V-3"
+  ],
+  "engines": [
+    "agent-builder.ts",
+    "agentic-loop.ts",
+    "agentic-slm.ts",
+    "autonomous-planner.ts",
+    "autonomous-types.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Builds and runs autonomous agents. Planner + loop + small model adapter.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 5,
+    "integration": 1,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 16,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:24:13.280Z",
+  "evidence_class": "FACT"
+}

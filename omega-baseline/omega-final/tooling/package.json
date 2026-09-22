@@ -1,0 +1,17 @@
+{
+  "name": "@vivim/omega-tooling",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vivim/omega-host": "workspace:*",
+    "@vivim/omega-contracts": "workspace:*",
+    "@vivim/omega-platform": "workspace:*",
+    "@vivim/omega-shim": "workspace:*",
+    "@vivim/omega-sdk": "workspace:*",
+    "@vivim/omega-testkit": "workspace:*",
+    "@vivim/daemon-client": "workspace:*",
+    "@vivim/surfaces-daemon": "workspace:*",
+    "@vivim/plugin-vivim-law": "workspace:*"
+  }
+}

@@ -1,0 +1,10 @@
+# Failure log — what didn't work, so other agents don't repeat it.
+# Read filtered by capability/family before starting work.
+version: 1
+failures:
+- id: FAIL-001
+  ts: '2026-09-22T14:40:32Z'
+  agent: AGT-b2
+  applies_to:
+  - FAM-08.4
+  text: Do not assay src/engines/nlcl shims as language; ~30 are re-export stubs plus 3 real helpers flagged out-of-scope (composite-splitter/dynamic-linker/classifier-resolver) to avoid double-counting the 59-file mine

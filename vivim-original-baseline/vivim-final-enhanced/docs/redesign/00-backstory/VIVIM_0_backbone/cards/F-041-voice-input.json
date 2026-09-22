@@ -1,0 +1,42 @@
+{
+  "id": "F-041",
+  "slug": "voice-input",
+  "name": "Voice Input",
+  "category": "PLUGIN",
+  "state": "MAPPED",
+  "value_targets": [
+    "V-5"
+  ],
+  "engines": [],
+  "frontend_paths": [],
+  "description": "Admitted from AR-001 on 2026-08-28T11:42:54.005Z. Voice input is core to the local-first UX story",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 0,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 0,
+    "failing": 0
+  },
+  "migration": {
+    "from": "nothing",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-28T11:42:54.005Z",
+  "last_verified": "2026-08-29T19:22:53.883Z",
+  "evidence_class": "DECISION",
+  "admitted_from": "AR-001"
+}

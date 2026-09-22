@@ -1,0 +1,40 @@
+{
+  "gate_id": "2026-08-28T13-39-58-582Z",
+  "timestamp": "2026-08-28T13:39:58.582Z",
+  "duration_ms": 3346,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 57,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-015",
+      "name": "Governance & Policy",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 10,
+        "integration": 4,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 57,
+        "failing": 0,
+        "total": 57
+      },
+      "test_files": [
+        "tests/unit/engines/consent-engine.test.ts",
+        "tests/unit/engines/governance-engine.test.ts",
+        "tests/unit/engines/policy-engine.test.ts",
+        "tests/unit/engines/trust-score.test.ts",
+        "tests/unit/engines/audit-trail.test.ts",
+        "tests/unit/engines/event-record-store.test.ts",
+        "tests/unit/engines/telemetry-audit.test.ts"
+      ]
+    }
+  ]
+}

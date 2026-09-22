@@ -1,0 +1,50 @@
+{
+  "id": "F-014",
+  "slug": "sandbox-security",
+  "name": "Sandbox & Security Eval",
+  "category": "KERNEL",
+  "state": "WORKING",
+  "value_targets": [
+    "V-1",
+    "V-2"
+  ],
+  "engines": [
+    "safe-eval.ts",
+    "safe-expression.ts",
+    "sandbox-runner.ts",
+    "sandbox-runner-vm.ts",
+    "sandbox-runner-quickjs.ts",
+    "airgap.ts",
+    "anti-detection.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Safe-eval gate, sandbox runners (VM + QuickJS), airgap mode, anti-detection. H1-H15 remediation lives here.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 6,
+    "integration": 1,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 37,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:24:49.651Z",
+  "evidence_class": "FACT"
+}

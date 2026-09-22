@@ -1,0 +1,62 @@
+{
+  "id": "F-007",
+  "slug": "capability-registry",
+  "name": "Capability Registry",
+  "category": "KERNEL",
+  "state": "WORKING",
+  "value_targets": [
+    "V-1",
+    "V-3"
+  ],
+  "engines": [
+    "capability.ts",
+    "capability-bootstrap.ts",
+    "capability-bootstrap-generated.ts",
+    "capability-resolution.ts",
+    "capability-composer.ts",
+    "capability-binder.ts",
+    "capability-event-bus.ts",
+    "capability-event-bus-v2.ts",
+    "capability-snapshot.ts",
+    "capability-taxonomy.ts",
+    "capability-shape-registry.ts",
+    "capability-discovery-loop.ts",
+    "capability-macro.ts",
+    "capability-parity.ts",
+    "command-parity-capabilities.ts",
+    "unified-registry.ts",
+    "live-capability-registry.ts",
+    "live-capture-engine.ts",
+    "builtin-capability-wrappers.ts"
+  ],
+  "frontend_paths": [],
+  "description": "UnifiedCapability registry. Every operation is a capability. CLI/UI/API/MCP are thin shells over this.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 83,
+    "integration": 7,
+    "e2e": 3,
+    "arch": 0,
+    "passing": 111,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:23:59.529Z",
+  "evidence_class": "FACT"
+}

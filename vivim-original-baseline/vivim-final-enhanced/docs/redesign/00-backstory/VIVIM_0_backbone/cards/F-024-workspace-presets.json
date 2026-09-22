@@ -1,0 +1,45 @@
+{
+  "id": "F-024",
+  "slug": "workspace-presets",
+  "name": "Workspace & Presets",
+  "category": "PLUGIN",
+  "state": "WORKING",
+  "value_targets": [
+    "V-1"
+  ],
+  "engines": [
+    "workspace-presets.ts",
+    "adaptive-workspace.ts",
+    "manifest-inference.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Workspace presets + adaptive workspace + manifest inference (auto-discover capabilities).",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 5,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 18,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:26:01.375Z",
+  "evidence_class": "FACT"
+}

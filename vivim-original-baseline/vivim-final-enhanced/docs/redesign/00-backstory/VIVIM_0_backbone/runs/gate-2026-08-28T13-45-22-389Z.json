@@ -1,0 +1,36 @@
+{
+  "gate_id": "2026-08-28T13-45-22-389Z",
+  "timestamp": "2026-08-28T13:45:22.389Z",
+  "duration_ms": 2051,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 23,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-004",
+      "name": "Context Assembly",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 2,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 23,
+        "failing": 0,
+        "total": 23
+      },
+      "test_files": [
+        "tests/unit/engines/context-assembly.test.ts",
+        "tests/unit/engines/semantic-grounding.test.ts",
+        "tests/unit/engines/reference-grounding.test.ts"
+      ]
+    }
+  ]
+}

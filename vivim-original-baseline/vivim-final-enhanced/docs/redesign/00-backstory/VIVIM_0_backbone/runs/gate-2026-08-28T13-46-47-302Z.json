@@ -1,0 +1,38 @@
+{
+  "gate_id": "2026-08-28T13-46-47-302Z",
+  "timestamp": "2026-08-28T13:46:47.302Z",
+  "duration_ms": 2934,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 41,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-025",
+      "name": "Observation & Outcome",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 10,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 41,
+        "failing": 0,
+        "total": 41
+      },
+      "test_files": [
+        "tests/unit/engines/observation-tap.test.ts",
+        "tests/unit/engines/outcome-tracker.test.ts",
+        "tests/unit/engines/task-history.test.ts",
+        "tests/unit/engines/config-manager.test.ts",
+        "tests/unit/engines/config-universal-surface.test.ts"
+      ]
+    }
+  ]
+}

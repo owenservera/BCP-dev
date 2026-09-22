@@ -1,0 +1,54 @@
+{
+  "id": "F-009",
+  "slug": "execution-kernel",
+  "name": "Execution Kernel",
+  "category": "KERNEL",
+  "state": "WORKING",
+  "value_targets": [
+    "V-1",
+    "V-3"
+  ],
+  "engines": [
+    "execution-kernel.ts",
+    "execution-memoizer.ts",
+    "execution-policy.ts",
+    "autonomous-execution.ts",
+    "autonomous-replay.ts",
+    "tool-orchestrator-facade.ts",
+    "tool-use-protocol.ts",
+    "workflow-compiler.ts",
+    "workflow-engine.ts",
+    "discovery-session-runner.ts",
+    "conceptual-model-service.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Executes ActionPlans. Memoizes, enforces policy, supports replay for debugging.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 37,
+    "integration": 3,
+    "e2e": 4,
+    "arch": 0,
+    "passing": 76,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:24:09.655Z",
+  "evidence_class": "FACT"
+}

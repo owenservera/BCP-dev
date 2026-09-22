@@ -1,0 +1,43 @@
+{
+  "gate_id": "2026-08-28T13-46-00-089Z",
+  "timestamp": "2026-08-28T13:46:00.089Z",
+  "duration_ms": 6557,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 60,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-013",
+      "name": "Semantic Retrieval",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 17,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 60,
+        "failing": 0,
+        "total": 60
+      },
+      "test_files": [
+        "tests/unit/engines/semantic-search.test.ts",
+        "tests/unit/engines/embedding-hf.test.ts",
+        "tests/unit/engines/embedding-minilm.test.ts",
+        "tests/unit/engines/embedding-ollama.test.ts",
+        "tests/unit/engines/embedding-classifier.test.ts",
+        "tests/unit/engines/indexing-pipeline.test.ts",
+        "tests/unit/engines/dcb-profile.test.ts",
+        "tests/unit/engines/dcb-projector.test.ts",
+        "tests/unit/engines/classifier-nli.test.ts",
+        "tests/unit/engines/intent-decomposer.test.ts"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "gate_id": "2026-08-28T13-44-56-372Z",
+  "timestamp": "2026-08-28T13:44:56.373Z",
+  "duration_ms": 4071,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 41,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-003",
+      "name": "Knowledge Graph",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 12,
+        "integration": 3,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 41,
+        "failing": 0,
+        "total": 41
+      },
+      "test_files": [
+        "tests/unit/engines/knowledge-envelope.test.ts",
+        "tests/unit/engines/knowledge-extractor.test.ts",
+        "tests/unit/engines/knowledge-extractor-continuous.test.ts",
+        "tests/unit/engines/knowledge-index-pipeline.test.ts",
+        "tests/unit/engines/knowledge-ingestion.test.ts",
+        "tests/unit/engines/belief-store.test.ts"
+      ]
+    }
+  ]
+}

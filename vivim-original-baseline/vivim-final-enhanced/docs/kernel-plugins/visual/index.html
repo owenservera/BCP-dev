@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vivim Plugin Kernel — Layer Map</title>
+<style>
+  :root {
+    --bg: #0b0f14;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --line: #1f2a37;
+    --core: #0ea5e9;
+    --core-bg: #0c4a6e;
+    --kernel: #8b5cf6;
+    --kernel-bg: #3b1f6e;
+    --default-plugins: #f59e0b;
+    --default-bg: #78350f;
+    --tooling: #10b981;
+    --tooling-bg: #064e3b;
+    --external: #ef4444;
+    --external-bg: #7f1d1d;
+    --ok: #22c55e;
+    --warn: #f59e0b;
+    --bad: #ef4444;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font: 14px/1.5 ui-sans-system, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+  a { color: var(--core); }
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(11,15,20,.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 18px;
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+  }
+  header h1 { margin: 0; font-size: 15px; letter-spacing: .2px; }
+  header p { margin: 0; color: var(--muted); font-size: 12px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .controls input[type="search"] {
+    background: #111827; color: var(--fg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; min-width: 240px; outline: none;
+  }
+  .toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+  .toggle input { accent-color: var(--kernel); }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 999px; font-size: 11px; border: 1px solid var(--line); background: #0f172a; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; }
+  main { max-width: 1180px; margin: 0 auto; padding: 18px; }
+  .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+  @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: #0f172a; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .card h2 { margin: 0; padding: 12px 14px; font-size: 12px; letter-spacing: .8px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+  .card h2 .badge { font-size: 10px; padding: 2px 6px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  .stack { display: grid; gap: 12px; padding: 14px; }
+  .layer {
+    border-radius: 12px; border: 1px solid var(--line); overflow: hidden;
+    cursor: pointer; transition: transform .12s ease, border-color .12s ease, opacity .12s ease;
+  }
+  .layer:hover { transform: translateY(-1px); }
+  .layer.active { border-color: currentColor; box-shadow: 0 0 0 1px currentColor inset; }
+  .layer.dim { opacity: .45; }
+  .layer-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; color: #fff; }
+  .layer-head h3 { margin: 0; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .layer-head .meta { font-size: 11px; opacity: .85; }
+  .layer-body { padding: 10px 12px 12px; background: rgba(255,255,255,.03); }
+  .layer-body .desc { color: var(--muted); font-size: 12px; margin: 0 0 8px; }
+  .files { display: flex; flex-wrap: wrap; gap: 6px; }
+  .file { font: 11px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; padding: 4px 6px; border-radius: 6px; background: #0b1220; border: 1px solid #1e293b; color: #cbd5e1; }
+  .file.hl { background: #1e293b; color: #fff; border-color: currentColor; }
+  .arrow { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 11px; gap: 6px; padding: 2px 0; }
+  .arrow .line { flex: 1; height: 1px; background: var(--line); position: relative; }
+  .arrow.allowed .line::after { content: "▼"; position: absolute; right: -6px; top: -8px; font-size: 10px; }
+  .arrow.forbidden .line { background: repeating-linear-gradient(90deg, var(--bad) 0 6px, transparent 6px 10px); height: 2px; }
+  .detail { padding: 14px; }
+  .detail h3 { margin: 0 0 6px; font-size: 13px; }
+  .detail p { margin: 0 0 10px; color: var(--muted); font-size: 12px; }
+  .kv { display: grid; grid-template-columns: 120px 1fr; gap: 6px 10px; font-size: 12px; }
+  .kv dt { color: var(--muted); }
+  .kv dd { margin: 0; }
+  .contribs { display: grid; gap: 8px; }
+  .contrib { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: #0b1220; cursor: pointer; }
+  .contrib:hover { border-color: #334155; }
+  .contrib.active { border-color: var(--kernel); }
+  .contrib h4 { margin: 0 0 4px; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+  .contrib h4 .tag { font-size: 10px; padding: 1px 6px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  .contrib h4 .tag.v2 { border-color: var(--warn); color: var(--warn); }
+  .contrib h4 .tag.v1 { border-color: var(--ok); color: var(--ok); }
+  .contrib p { margin: 0 0 6px; color: var(--muted); font-size: 12px; }
+  .contrib code { font: 11px ui-monospace, monospace; color: #cbd5e1; word-break: break-all; }
+  .flow { display: grid; gap: 6px; font-size: 11px; }
+  .flow .step { display: flex; gap: 8px; align-items: flex-start; }
+  .flow .step .dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex: 0 0 8px; }
+  .footer { padding: 14px; color: var(--muted); font-size: 11px; border-top: 1px solid var(--line); margin-top: 16px; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Vivim Plugin Kernel — Layer Map <span style="color:var(--muted); font-weight:400;">· I-1 formalization · v1 = 3 axes, v2 = harness/features/compiled</span></h1>
+    <p>Click a layer or a contribution to trace the file path · Toggle v2 to dim deferred scope · Search filters files &amp; permissions</p>
+  </div>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search file, permission, or contribution (e.g. scriptUrl, provider-registrar, chrome:control)" />
+    <label class="toggle"><input id="showV2" type="checkbox" checked /> Show v2 (dim when off)</label>
+    <div class="legend" id="legend"></div>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+    <div class="card" id="stackCard">
+      <h2>Stack — top depends on bottom, never the reverse <span class="badge" id="countBadge"></span></h2>
+      <div class="stack" id="stack"></div>
+      <div class="footer">
+        Dependency rule (enforced by <code>tests/arch/kernel-boundary.test.ts</code>): <code>plugin-kernel → {shared, src/schema, src/storage/contracts, src/lib}</code> only.
+        Engines never import from <code>plugin-kernel</code>. <code>PluginContext</code> is the only capability object a plugin receives.
+        Red dashed arrows are violations by construction.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Detail &amp; contributions <span class="badge">click to trace</span></h2>
+      <div class="detail" id="detail"></div>
+      <div style="padding:0 14px 14px;">
+        <div class="contribs" id="contribs"></div>
+        <div class="flow" id="flow" style="margin-top:12px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h2>How to use this map</h2>
+    <div class="detail" style="color:var(--muted); font-size:12px;">
+      <ul style="margin:0; padding-left:18px; display:grid; gap:4px;">
+        <li><strong>Click a layer</strong> to highlight its files and the allowed downward arrows. Click again to clear.</li>
+        <li><strong>Click a contribution</strong> (schema / service / ui …) to highlight the exact file path from manifest → registry → store → renderer.</li>
+        <li><strong>Toggle v2</strong> to visually scope v1: <span style="color:var(--warn)">v2</span> contributions dim when off — v1 = 3 axes only.</li>
+        <li><strong>Search</strong> filters files and permission strings across all layers. Empty search restores full map.</li>
+        <li>Keep <code>MAP.md</code> and this file's <code>LAYERS</code> const in sync — same PR.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+const LAYERS = [
+  {
+    id: 'external',
+    n: '4 — External Plugins',
+    trust: 'untrusted · PluginContext only',
+    lifecycle: 'on-install · lazy',
+    color: 'var(--external)',
+    bg: 'var(--external-bg)',
+    desc: 'Third-party .vivim-plugin archives (e.g. acme.invoicer). Verified at host.ts:discover()/certify(), then fanned out to per-axis registries.',
+    files: ['.vivim-plugin (tar.gz)', 'manifest.json (Zod, strict)', 'contributes: {schema, services, ui}'],
+    search: 'external plugin .vivim-plugin acme invoicer untrusted',
+  },
+  {
+    id: 'tooling',
+    n: '3 — Plugin Tooling',
+    trust: 'system · build/dev time',
+    lifecycle: 'CLI · scaffolding · hot reload',
+    color: 'var(--tooling)',
+    bg: 'var(--tooling-bg)',
+    desc: 'Design & development infra: CLI scaffolding, manifest validation, dev server, kernel-controlled asset store for scriptUrl.',
+    files: ['src/server/plugin-router.ts:100', 'src/server/plugin-builder-router.ts', 'src/cli/*', 'src/plugin-kernel/manifest.ts', 'scaffolding CLI (new)'],
+    search: 'tooling cli scaffolding plugin-builder-router asset store scriptUrl',
+  },
+  {
+    id: 'default-plugins',
+    n: '2 — Core Default Plugins',
+    trust: 'trusted:true · review-gated',
+    lifecycle: 'eager in v1 → lazy via activationEvents in v2',
+    color: 'var(--default-plugins)',
+    bg: 'var(--default-bg)',
+    desc: 'Engines migrated to plugins/core/*, shipped with product. In v1 they are still eager; in v2 they register via feature-registry inside the capabilities phase only.',
+    files: ['plugins/core/provider-discord/ (Phase 3.5 proof)', 'plugins/core/schema-* (Phase 4.4 proof)', 'plugins/core/browser-automation/ (v2)', 'plugins/core/memory/ (v2)', 'plugins/core/canvas/ (v2)'],
+    search: 'core default plugins plugins/core provider-discord browser-automation trusted',
+  },
+  {
+    id: 'kernel',
+    n: '1 — Plugin Kernel',
+    trust: 'system · permission-gated',
+    lifecycle: 'at boot · delegates to Core',
+    color: 'var(--kernel)',
+    bg: 'var(--kernel-bg)',
+    desc: 'src/plugin-kernel/ — PluginHost + PluginContext + per-axis registries + V1→V2 bridge + permissions. Thin wrappers; host.ts is the only new work.',
+    files: ['src/plugin-kernel/host.ts', 'src/plugin-kernel/plugin-context.ts', 'src/plugin-kernel/manifest.ts', 'src/plugin-kernel/permissions.ts', 'src/plugin-kernel/events.ts (V1→V2 bridge)', 'src/plugin-kernel/registries/schema-registry.ts', 'src/plugin-kernel/registries/service-registry.ts', 'src/plugin-kernel/registries/ui-registry.ts'],
+    search: 'plugin kernel host plugin-context manifest permissions events bridge schema-registry service-registry ui-registry',
+  },
+  {
+    id: 'core',
+    n: '0 — Core (immutable)',
+    trust: 'system · never changed for plugins',
+    lifecycle: 'eager at boot · 5-phase pipeline',
+    color: 'var(--core)',
+    bg: 'var(--core-bg)',
+    desc: 'Bootstraps, stores, and renderers that the kernel delegates to. Must remain importable by plugin-kernel; must never import from it.',
+    files: ['src/server/bootstrap/orchestrator.ts:15', 'src/server/bootstrap/context.ts:37', 'src/schema/node.ts:207 (SchemaRegistry)', 'src/storage/contracts/* (40+ contracts)', 'src/server/module-registry.ts:59', 'frontend/src/components/canvas/SandboxedNode.tsx:19', 'src/engines/harness-command-registry.ts:54', 'src/engines/provider-registrar.ts:62', 'frontend/src/shared/universal-registry.ts:127'],
+    search: 'core bootstrap orchestrator context schema node SchemaRegistry storage contracts module-registry SandboxedNode harness provider-registrar universal-registry',
+  },
+];
+
+const CONTRIBS = [
+  { id:'schema', label:'schema (Tier A)', v:'v1', perm:'schema:extend', path:'manifest.contributes.schema[] → schema-registry.ts → SchemaRegistry.register() with plugin:${id}. prefix → Node table (data: unknown, Zod-validated)', files:['src/schema/node.ts:56 (NodeType widen)','src/schema/node.ts:210 (register)','src/plugin-kernel/registries/schema-registry.ts'] },
+  { id:'services-api', label:'services · api-protocol', v:'v1', perm:'network', path:'manifest.contributes.services[] (kind: api-protocol) → service-registry.ts → ProviderRegistrar.registerOne() → provider_* tables + generator cache', files:['src/engines/provider-registrar.ts:76 (register)','src/engines/provider-protocol-generator.ts (cache)','src/plugin-kernel/registries/service-registry.ts'] },
+  { id:'services-mcp', label:'services · mcp-server / mcp-client', v:'v1', perm:'network', path:'kind: mcp-* → service-registry.ts → ai/protocol + mcp/server.ts', files:['src/mcp/server.ts','src/engines/mcp-client-adapter.ts','src/plugin-kernel/registries/service-registry.ts'] },
+  { id:'ui-generated', label:'ui · generated', v:'v1', perm:'ui:custom-html-css-only / ui:custom-scripturl', path:'manifest.contributes.ui.generated[] → ui-registry.ts → UiComponentStore (shared/ui-component.ts:99) → SandboxedNode.tsx:19 (opaque origin, MessageChannel)', files:['shared/ui-component.ts:99','frontend/src/components/canvas/SandboxedNode.tsx:19','frontend/src/shared/universal-registry.ts:127','src/plugin-kernel/registries/ui-registry.ts'] },
+  { id:'ui-compiled', label:'ui · compiled', v:'v2', perm:'ui:compiled-component (highest trust)', path:'manifest.contributes.ui.compiled[] → UniversalComponentRegistry.register() — review-gated, parsed but rejected in v1', files:['frontend/src/shared/universal-registry.ts:127','src/plugin-kernel/registries/ui-registry.ts'] },
+  { id:'browser-provider', label:'services · browser-provider', v:'v2', perm:'network + chrome:control', path:'kind: browser-provider → service-registry.ts → ProviderRegistrar.registerOne() — rejected in v1 until chrome gate exists', files:['src/engines/provider-registrar.ts','src/plugin-kernel/registries/service-registry.ts','src/plugin-kernel/permissions.ts'] },
+  { id:'harness', label:'harness', v:'v2', perm:'chrome:control', path:'manifest.contributes.harness.commands[] → harness-registry.ts → ${pluginId}. prefix + chrome:control confirmation → harness-command-registry.ts', files:['src/engines/harness-command-registry.ts:54','src/plugin-kernel/registries/harness-registry.ts (v2)'] },
+  { id:'features', label:'features', v:'v2', perm:'(dependsOn + PluginContext)', path:'manifest.contributes.features[] → feature-registry.ts → ModuleRegistry inside capabilities phase only (src/server/bootstrap/phases/capabilities.ts:26)', files:['src/server/module-registry.ts:59','src/server/bootstrap/phases/capabilities.ts:26','src/plugin-kernel/registries/feature-registry.ts (v2)'] },
+];
+
+const ALLOWED_DOWN = new Set([
+  'external->tooling', 'tooling->default-plugins', 'default-plugins->kernel', 'kernel->core',
+  'external->kernel', // manifest contributes directly to kernel registries (via tooling/host)
+]);
+
+let activeLayer = null;
+let activeContrib = null;
+
+function el(tag, cls, text) {
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (text != null) n.textContent = text;
+  return n;
+}
+
+function renderLegend() {
+  const c = document.getElementById('legend');
+  c.innerHTML = '';
+  for (const l of LAYERS) {
+    const chip = el('span','chip');
+    chip.style.borderColor = l.color;
+    const dot = el('span'); dot.style.cssText = `width:8px;height:8px;border-radius:50%;background:${l.color};display:inline-block;`;
+    chip.appendChild(dot);
+    chip.appendChild(document.createTextNode(l.n.split(' — ')[1] || l.n));
+    c.appendChild(chip);
+  }
+}
+
+function renderStack() {
+  const q = (document.getElementById('q').value || '').toLowerCase().trim();
+  const showV2 = document.getElementById('showV2').checked;
+  const stack = document.getElementById('stack');
+  stack.innerHTML = '';
+
+  LAYERS.forEach((layer, idx) => {
+    const isActive = activeLayer === layer.id;
+    const card = el('div','layer' + (isActive ? ' active' : ''));
+    card.style.color = layer.color;
+    if (q && !(`${layer.n} ${layer.desc} ${layer.files.join(' ')} ${layer.search}`.toLowerCase().includes(q))) {
+      card.classList.add('dim');
+    }
+    if (!showV2 && layer.id === 'default-plugins') {
+      // keep visible but mark v2 content inside
+    }
+    card.addEventListener('click', () => {
+      activeLayer = isActive ? null : layer.id;
+      activeContrib = null;
+      renderStack(); renderDetail(); renderContribs();
+    });
+
+    const head = el('div','layer-head');
+    head.style.background = layer.bg;
+    const h3 = el('h3'); h3.textContent = layer.n;
+    const dot = el('span'); dot.style.cssText = `width:10px;height:10px;border-radius:50%;background:${layer.color};display:inline-block;flex:0 0 10px;`;
+    h3.prepend(dot);
+    const meta = el('span','meta', `${layer.trust} · ${layer.lifecycle}`);
+    head.appendChild(h3); head.appendChild(meta);
+
+    const body = el('div','layer-body');
+    const p = el('p','desc', layer.desc);
+    body.appendChild(p);
+    const files = el('div','files');
+    for (const f of layer.files) {
+      const file = el('span','file', f);
+      if (q && f.toLowerCase().includes(q)) file.classList.add('hl');
+      files.appendChild(file);
+    }
+    body.appendChild(files);
+
+    card.appendChild(head); card.appendChild(body);
+    stack.appendChild(card);
+
+    if (idx < LAYERS.length - 1) {
+      const next = LAYERS[idx+1];
+      const allowed = ALLOWED_DOWN.has(`${layer.id}->${next.id}`) || ALLOWED_DOWN.has(`${next.id}->${layer.id}`);
+      // Stack is top→bottom: external at top, core at bottom. Downward depends = allowed.
+      const arrow = el('div','arrow ' + (allowed ? 'allowed' : 'forbidden'));
+      const line = el('div','line');
+      const label = el('span', null, allowed ? 'depends on / delegates to (allowed)' : 'forbidden — would violate kernel-boundary');
+      label.style.fontSize = '10px';
+      arrow.appendChild(line); arrow.appendChild(label);
+      // Highlight when active layer participates
+      if (isActive || activeLayer === next.id) arrow.style.color = layer.color;
+      stack.appendChild(arrow);
+    }
+  });
+
+  document.getElementById('countBadge').textContent = `${LAYERS.length} layers · ${CONTRIBS.filter(c=>c.v==='v1').length} v1 contribs · ${CONTRIBS.filter(c=>c.v==='v2').length} v2 (dim when toggled off)`;
+}
+
+function renderDetail() {
+  const d = document.getElementById('detail');
+  d.innerHTML = '';
+  if (!activeLayer) {
+    d.appendChild(el('h3', null, 'Select a layer'));
+    d.appendChild(el('p', null, 'Click any layer on the left to focus it. Click a contribution below to trace its file path through the stack.'));
+    const kv = el('dl','kv');
+    kv.appendChild(el('dt', null, 'Rule')); kv.appendChild(el('dd', null, 'plugin-kernel → {shared, schema, contracts, lib} only. Engines never import from plugin-kernel.'));
+    kv.appendChild(el('dt', null, 'Proof')); kv.appendChild(el('dd', null, 'ProviderRegistrar.registerOne + generator cache (Phase 3), schema prefix (Phase 4), SandboxedNode opaque origin (Phase 2).'));
+    d.appendChild(kv);
+    return;
+  }
+  const layer = LAYERS.find(l=>l.id===activeLayer);
+  d.appendChild(el('h3', null, layer.n));
+  d.appendChild(el('p', null, layer.desc));
+  const kv = el('dl','kv');
+  kv.appendChild(el('dt', null, 'Trust')); kv.appendChild(el('dd', null, layer.trust));
+  kv.appendChild(el('dt', null, 'Lifecycle')); kv.appendChild(el('dd', null, layer.lifecycle));
+  kv.appendChild(el('dt', null, 'Key files')); kv.appendChild(el('dd', null, layer.files.join(' · ')));
+  d.appendChild(kv);
+}
+
+function renderContribs() {
+  const q = (document.getElementById('q').value || '').toLowerCase().trim();
+  const showV2 = document.getElementById('showV2').checked;
+  const c = document.getElementById('contribs');
+  const flow = document.getElementById('flow');
+  c.innerHTML = ''; flow.innerHTML = '';
+
+  for (const contrib of CONTRIBS) {
+    const isV2 = contrib.v === 'v2';
+    if (!showV2 && isV2) {
+      // still render but dimmed rather than hidden, so scope is visible
+    }
+    const matchesQ = !q || `${contrib.label} ${contrib.perm} ${contrib.path} ${contrib.files.join(' ')}`.toLowerCase().includes(q);
+    if (q && !matchesQ) continue;
+
+    const div = el('div','contrib' + (activeContrib===contrib.id ? ' active' : ''));
+    if (!showV2 && isV2) div.style.opacity = '.45';
+    const h4 = el('h4');
+    h4.appendChild(document.createTextNode(contrib.label + '  '));
+    const tag = el('span','tag ' + contrib.v, contrib.v);
+    h4.appendChild(tag);
+    const perm = el('span','tag', contrib.perm);
+    perm.style.marginLeft = '6px';
+    h4.appendChild(perm);
+    div.appendChild(h4);
+    div.appendChild(el('p', null, contrib.path));
+    const files = el('div','files');
+    for (const f of contrib.files) {
+      const file = el('span','file', f);
+      if (q && f.toLowerCase().includes(q)) file.classList.add('hl');
+      if (activeContrib===contrib.id) file.classList.add('hl');
+      files.appendChild(file);
+    }
+    div.appendChild(files);
+    if (isV2) {
+      const note = el('p', null, 'v2 — designed, not built in I-1..I-4. Parsed in v1, rejected with actionable error.');
+      note.style.fontSize = '11px'; note.style.color = 'var(--warn)'; note.style.marginTop = '6px';
+      div.appendChild(note);
+    }
+    div.addEventListener('click', () => {
+      activeContrib = activeContrib===contrib.id ? null : contrib.id;
+      renderContribs();
+      // also highlight related layers
+      if (contrib.id.startsWith('services') || contrib.id==='browser-provider') activeLayer = 'kernel';
+      else if (contrib.id==='schema') activeLayer = 'kernel';
+      else if (contrib.id.startsWith('ui')) activeLayer = 'kernel';
+      else if (contrib.id==='harness' || contrib.id==='features') activeLayer = 'kernel';
+      renderStack(); renderDetail();
+    });
+    c.appendChild(div);
+  }
+
+  if (activeContrib) {
+    const contrib = CONTRIBS.find(x=>x.id===activeContrib);
+    const title = el('div', null, 'Trace: ' + contrib.label);
+    title.style.fontWeight = '600'; title.style.fontSize = '12px'; title.style.marginBottom = '6px';
+    flow.appendChild(title);
+    const steps = contrib.path.split(' → ');
+    steps.forEach((s, i) => {
+      const row = el('div','step');
+      const dot = el('div','dot'); dot.style.background = i===0 ? 'var(--external)' : i===steps.length-1 ? 'var(--core)' : 'var(--kernel)';
+      row.appendChild(dot);
+      const txt = el('span', null, s);
+      if (s.includes('rejected') || s.includes('not yet')) txt.style.color = 'var(--warn)';
+      row.appendChild(txt);
+      flow.appendChild(row);
+      if (i < steps.length-1) {
+        const arr = el('div','step');
+        arr.style.paddingLeft = '3px'; arr.style.color = 'var(--muted)';
+        arr.appendChild(el('span', null, '↓'));
+        flow.appendChild(arr);
+      }
+    });
+  } else {
+    flow.appendChild(el('p', null, 'Click a contribution above to trace its file path.'));
+    flow.lastChild.style.color = 'var(--muted)'; flow.lastChild.style.fontSize='12px';
+  }
+}
+
+document.getElementById('q').addEventListener('input', () => { renderStack(); renderContribs(); });
+document.getElementById('showV2').addEventListener('change', () => { renderStack(); renderContribs(); });
+
+renderLegend(); renderStack(); renderDetail(); renderContribs();
+</script>
+</body>
+</html>

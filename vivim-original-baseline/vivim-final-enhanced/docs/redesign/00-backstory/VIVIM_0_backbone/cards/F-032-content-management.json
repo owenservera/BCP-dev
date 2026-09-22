@@ -1,0 +1,48 @@
+{
+  "id": "F-032",
+  "slug": "content-management",
+  "name": "Content & Collections",
+  "category": "PLUGIN",
+  "state": "WORKING",
+  "value_targets": [
+    "V-1",
+    "V-4"
+  ],
+  "engines": [
+    "content-item-engine.ts",
+    "content-unit-decomposer.ts",
+    "entity-container-engine.ts",
+    "collection-engine.ts",
+    "objective-engine.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Content items, decomposition, entity containers, collections, objectives (goals).",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 5,
+    "integration": 1,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 37,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:27:18.227Z",
+  "evidence_class": "FACT"
+}

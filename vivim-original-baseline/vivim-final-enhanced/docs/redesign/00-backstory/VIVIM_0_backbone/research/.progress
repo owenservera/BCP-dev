@@ -1,0 +1,46 @@
+# Research progress — append-only log
+2026-08-28 14:00 — process designed (EXTENSION-MODEL-PROCESS.md)
+2026-08-28 14:00 — 0/15 baseline steps done
+2026-08-28 — 1.1 done: F-022 plugin-system read
+2026-08-28 — 1.2 done: plugin-hot-reload read — TWO ProviderPlugin types, hot-reload has no contract beyond id
+2026-08-28 — 1.3 done: router-capability-bridge is a static table, NOT a plugin runtime; 70+ HTTP endpoints → capabilities
+2026-08-28 — 1.4 done: reprogrammability module — 8 ops, 7 spec kinds, 6 provenance tags, atomic mutations, SurfaceRegistry singleton, DSL exists
+2026-08-28 — 1.5 done: surface system — CanvasStore (Zustand) + CanvasDefinition (DB) are separate; mutation contract (8 ops) does not connect to store actions; adapter missing
+2026-08-28 — 1.5 done: canvas surface system — closed NodeType (7), config.toml hot-reload, P8 (no inline script), CRDT-aware; NO reprogrammability imports
+2026-08-28 — 1.6 done: providers are DATA-DRIVEN manifests (JSON → Zod → DB → static file), 12 manifests, 6 tables/registration, no code hot-reload
+2026-08-28 — 1.7 done: capability system — UnifiedCapabilityRegistry (declarative) + LiveCapabilityRegistry (RUNTIME EXTENSION MODEL, 3 handler kinds, persisted, cross-surface auto)
+2026-08-28 — 1.8 done: capability bootstrap — generated from pool.taxonomy.json (vivim-next path); hand-written default-caps.ts is forge-only; extendHandlerMap() is the runtime extension point
+2026-08-28 — 1.9 done: harness = DAG executor (browser-only HarnessContext) + LLM-output repair (HarnessRepairEngine with side-table); closed to user code
+2026-08-28 — 1.10 done: memory/knowledge — episodic/semantic/procedural + FSRS-6 + knowledge envelope (canonical ingest) + Node layer; extensions access via capabilities only
+2026-08-28 — 1.11 done: security — QuickJS WASM sandbox (real isolation) + 6-tier consent engine (read<write<navigate<destructive<financial=communication); live HTTP handlers BYPASS consent
+2026-08-28 — 1.12 done: frontend extensibility — 30-slot catalog, UIComponentRegistry external store, capabilitySlug > providerSlug > default, sandbox per component (P8)
+2026-08-28 — 1.13 done: storage contracts — ~60 contracts, NodeStore = universal layer, ConversationStore = 10K lines exemplar, contracts in contract/ not impl/
+2026-08-28 — 1.14 done: distribution — POST /api/plugins/install is a STUB (acks upload + emits event), test references onUpgrade/onUninstall/onHealthCheck hooks NOT in plugin-system.ts, NO marketplace, NO signing
+2026-08-28 — 1.15 done: BASELINE SYNTHESIS — 4 extension surfaces (capabilities, providers, slots, reprogrammability), 8 implementation layers, 4 stubs, 1 unified model needed
+2026-08-28 — 2.1 done: 133 register() calls, 9 subscribe, 8 extend, 2 mount, 2 install, 0 addListener; UnifiedCapabilityRegistry is the central sink
+2026-08-28 — 2.2 done: ~95 interfaces cataloged; stable extension-facing = capability/storage/security/ui; convention: Live* = runtime, Store* = data, Row* = DB, Spec* = user-facing
+2026-08-28 — 2.3 done: lifecycle hooks — 5 mandatory + 3 Phase 9 + 3 test-only (not in code); hot-reload & manager unglued; no activate/suspend/upgrade paths
+2026-08-28 — 2.4 done: data surfaces — NodeStore universal; capability layer is the user API; ACL on data not contract; stringly-typed type+dataJson is the de facto extension point
+2026-08-28 — 2.5 done: UI surfaces — 3 layers (canvas closed, slots open, reprogrammability forge-only); chat is the central surface with 13 overridable slots
+2026-08-28 — 2.6 done: commands — UnifiedCapabilityRegistry IS the command palette; 5 surfaces auto-project; live path is primary; NLCL is forge-only static catalog
+2026-08-28 — 2.7 done: EXTENSION POINTS SYNTHESIS — full (a)/(b)/(c) map; 4 working extension mechanisms; 8 missing pieces for true VS Code model
+2026-08-28 — 3.1 done: CapabilityContribution contract — adds permissions, requiresConfirmation, outputSchema, display, activation; wraps LiveCapabilitySpec
+2026-08-28 — 3.2 done: SurfaceContribution contract — wraps slot system (catalog key, sandbox, mount/unmount); bridges to reprogrammability and canvas as separate paths
+2026-08-28 — 3.3 done: CommandContribution is a CapabilityContribution with surfaces=['cli']; adds nlPatterns (runtime NL), docs, scope; no separate type needed
+2026-08-28 — 3.4 done: ProviderContribution wraps ProviderManifest; reuses existing pipeline; orthogonal to CapabilityContribution
+2026-08-28 — 3.5 done: StorageContribution declares new Node type with JSON schema, ACL, indexes, auto-CRUD capabilities, migration path; data lives in NodeStore
+2026-08-28 — 3.6 done: LifecycleContribution — typed subscriptions (event/boot/shutdown/conversation/cron), inline or capability handler, eager/lazy/onEvent activation
+2026-08-28 — 3.7 done: CONTRACT SYNTHESIS — vivim-extension.json unifies 5 contribution types (capability/surface/provider/storage/lifecycle); install/uninstall/update lifecycle; explicit permissions
+2026-08-28 — 4.1 done: 3 engines (ConsentEngine operation-level, P0PolicyEngine capability-level, GovernanceEngine agent-level); extensions need extensionId dimension + permissionsProvider injection
+2026-08-28 — 4.2 done: QuickJS sandbox production-grade; SandboxPermissions allowlist; needs permissionsProvider injection in LiveCapabilityRegistry
+2026-08-28 — 4.3 done: trust levels — 3-tier (bundled/workspace/user); per-extension trust score; user-overridable
+2026-08-28 — 4.4 done: resource limits — per-extension CPU/memory/network/storage/cost; sliding window; defaults + per-extension overrides
+2026-08-28 — 4.5 done: supply chain — v1 ships unsigned (sandbox+audit is the gate); v2 has signing design (ed25519/rsa-pss-sha256); SHA-256 weak signing is the v1 minimum
+2026-08-28 — 4.6 done: SECURITY SYNTHESIS — 5 layers (permissions/grants/sandbox/consent/audit); 3-tier trust; per-extension limits; 5 must-dos for v1
+2026-08-28 — 5.1 done: install path — 5 paths (tarball/URL/marketplace/directory/workspace) backed by one pipeline; tarball format specified; install state as Node
+2026-08-28 — 5.2 done: activation — eager/lazy/onEvent per contribution; activation state machine; lazy/onEvent wait for trigger
+2026-08-28 — 5.3 done: hot-reload — dev mode uses PluginHotReload; production update has onUpgrade hook; tamper detection via SHA-256
+2026-08-28 — 5.4 done: disable/uninstall — disable (v1.5) pauses; uninstall deletes per deleteData policy; onUninstall hook; bulk unregister orchestrator needed
+2026-08-28 — 5.5 done: marketplace — v2 out of scope; v1 contract is marketplace-compatible; v2 needs signing + publisher registry + review system + marketplace server
+2026-08-28 — 5.6 done: EXTENSION-MODEL.md FINAL SYNTHESIS — 12 sections, 16 sub-cards (F-042 to F-057), 5 must-dos, 3-tier trust, 5 install paths, marketplace v2
+2026-08-28 — ARCHITECTURE-STRATEGY.md created — centralized strategy doc with 8 decision registry entries + 4 remaining design gaps

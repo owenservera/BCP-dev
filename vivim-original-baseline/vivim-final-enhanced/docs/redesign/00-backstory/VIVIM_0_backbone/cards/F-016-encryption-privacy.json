@@ -1,0 +1,44 @@
+{
+  "id": "F-016",
+  "slug": "encryption-privacy",
+  "name": "Encryption & Privacy",
+  "category": "KERNEL",
+  "state": "WORKING",
+  "value_targets": [
+    "V-2"
+  ],
+  "engines": [
+    "encryption.ts",
+    "db-encryption.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Encryption layer (app-level) + DB-level encryption. Local-first privacy guarantees.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 4,
+    "integration": 1,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 16,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:25:06.384Z",
+  "evidence_class": "FACT"
+}

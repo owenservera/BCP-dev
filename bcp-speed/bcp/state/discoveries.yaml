@@ -1,0 +1,133 @@
+# Shared discovery log — institutional memory. Agents append here so a
+# lesson is learned once, not once per agent. Read filtered by applies_to
+# before starting work on a capability or family.
+version: 1
+discoveries:
+- id: DISC-001
+  ts: '2026-09-22T13:46:47Z'
+  agent: AGT-a1
+  applies_to:
+  - FAM-07.2
+  text: 'Pass-1 days-cost: L1 stub walked within minutes (~0.05d, stdlib Python, zero deps, CLI-only fixture replay). Fixture path done; remaining Pass-1 cost is FAM-07.1 live page-send wiring against owner debug-port Chrome — estimate days not weeks. Lane C velocity number starts here.'
+- id: DISC-002
+  ts: '2026-09-22T13:54:24Z'
+  agent: AGT-b1
+  applies_to:
+  - FAM-08.1
+  text: 'IR L1 stub: meaning_hash over normalized+action+slots+state+policy; GOLD-09 hash==GOLD-01 and GOLD-10 hash==GOLD-02 proves same triple same meaning across UNDERSTOOD/EXECUTED; stdlib only, offline, 7 tests green'
+- id: DISC-003
+  ts: '2026-09-22T14:40:29Z'
+  agent: AGT-b2
+  applies_to:
+  - FAM-08.4
+  text: NLCL mine = src/intel/nlcl 59 files; 63 deterministic intents across 16 categories re-expressed IR-ready in work/AGT-b2/FAM-08.4/deterministic-rules.json; AGT-b1 consume verb/slot/confirmation 1:1, no second IR
+- id: DISC-004
+  ts: '2026-09-22T14:40:31Z'
+  agent: AGT-b2
+  applies_to:
+  - FAM-08.4
+  text: Tail is 12 files with gates det0.3/fuzzy0.7/sem0.6/cls0.55/llm0.5/help0.7; below-gate stays CLARIFY never executes; literal help + deterministic arm + prerouter-local are the only deterministic carve-outs (tail-marking.json)
+- id: DISC-005
+  ts: '2026-09-22T15:03:56Z'
+  agent: AGT-a1
+  applies_to:
+  - FAM-07.1
+  text: L1 stub reuses FAM-07.2 handler by import (no second architecture); law.check and ledger are flagged stubs for FAM-07.3/07.4; live page-send deferred to L2 lease per DISC-001.
+- id: DISC-006
+  ts: '2026-09-22T15:05:11Z'
+  agent: AGT-b2
+  applies_to:
+  - FAM-08.4
+  text: 'L2 confirmation gate for b1: IR-shaped records mirror IR v1.0.0 fields/status/refusal/policy/state; intent_ids B2-CONF-xx (GOLD cap untouched); EXECUTED actions lawful-ops only (message.send/ledger.query/chrome.profiles.list); meaning_hash recipe identical (sha256 canonical sorted JSON, 32hex) so b1/08.3 can cross-check; assay confirm set = email.send+channel.add/remove/connect+workflow.newsletter mapped onto message.send mint-resume; grant POLICY stays with FAM-08.3, gate proves mechanics only; gate 8/8 + battery 4/4 GREEN in work/AGT-b2/FAM-08.4/'
+- id: DISC-007
+  ts: '2026-09-22T15:10:44Z'
+  agent: AGT-b1
+  applies_to:
+  - FAM-08.2
+  text: 'Perception L1: longest-trigger-wins + structured-token masking (email/url/quote never verb evidence); only L1 narrowing is send+email-cue->email.send 0.85; 4-way list collision keeps count in question, alternatives<=3; layout-enum gap clarifies (L2)'
+- id: DISC-008
+  ts: '2026-09-22T15:19:39Z'
+  agent: AGT-a1
+  applies_to:
+  - FAM-07.3
+  text: 'Law gate L1: allowlist 3 ops + forbidden table 8 keys; gate delegates to 07.2 handler by import (no second architecture); refusals ledger to refusal-ledger.jsonl as ordinary events for FAM-07.4 query.'
+- id: DISC-009
+  ts: '2026-09-22T15:42:33Z'
+  agent: AGT-b1
+  applies_to:
+  - FAM-08.3
+  text: 08.2 UNDERSTOOD actions are recognized mine-verbs, NOT executable lawful ops; only LAWFUL_OPS execute; 08.3 resolves-or-clarifies.
+- id: DISC-010
+  ts: '2026-09-22T15:47:22Z'
+  agent: AGT-b1
+  applies_to:
+  - FAM-08.3
+  text: 'Compile order consent-before-target: gates traverse consent even with no lawful target (pending-asks/granted-recorded, plans nothing); token alone plans only email.send; resolver.LAWFUL_OPS closed-3, classifier import vocabulary superseded per DISC-009'
+- id: DISC-011
+  ts: '2026-09-22T15:56:49Z'
+  agent: AGT-coordinator
+  applies_to:
+  - FAM-08.2
+  text: 'Safety repair by external verification: classifier.py rebound intent_ir.LAWFUL_OPS at import (closed-3 widened to 66 process-wide). Fixed to local RECOGNIZED_OPS; regression test locks the closed set; 08.2 now 8/8, 08.1 7/7, replay green. Cause: W2 brief said verb-to-op map imprecisely — recognition vs execution boundary now explicit: map resolves in 08.3, gate stays frozen.'
+- id: DISC-012
+  ts: '2026-09-22T16:36:35Z'
+  agent: AGT-a1
+  applies_to:
+  - FAM-07.4
+  text: L1 query unifies 07.3 refusal-ledger + 07.1 turn stub ts-ordered; 07.1 rows lack type so streamId marks the turn; every row gets why+evidence; gate/handler reused by import; vault backing deferred to L2.
+- id: DISC-013
+  ts: '2026-09-22T16:37:53Z'
+  agent: AGT-b1
+  applies_to:
+  - FAM-08.3
+  text: 'L2: alternatives passthrough added to ResolutionResult (perception alternatives<=3 now visible at resolution layer; found via multi-verb adversarial); resolver never scans utterances for tokens — consent reads token param only'
+- id: DISC-014
+  ts: '2026-09-22T16:39:25Z'
+  agent: AGT-a1
+  applies_to:
+  - FAM-07.3
+  text: 'L2: boundary-aware forbidden match killed substring false-positives; exact op allowlist kills injection-shaped ops; 20-row battery + ledger-replay via real 07.4 query path is the reusable refusal-harness pattern.'
+- id: DISC-015
+  ts: '2026-09-22T16:41:09Z'
+  agent: AGT-a1
+  applies_to:
+  - FAM-07.4
+  text: 'L2: ledger query treats malformed input as skip-and-continue and empty results as count-0 shape; ts-ordered replay is deterministic; vault backing stays L3 with JSONL carrying the L2 contract.'
+- id: DISC-016
+  ts: '2026-09-22T16:43:18Z'
+  agent: AGT-b1
+  applies_to:
+  - FAM-08.2
+  text: 'L2: IR normalized now canonical (lead-ins/case/edge-punct stripped, raw preserved in utterance) so politeness variants share one hash; narrowing stays at exactly 2 decisive cues (send+email, list+folder), all else asks; updated battery 45U/18A'
+- id: DISC-017
+  ts: '2026-09-22T16:44:03Z'
+  agent: AGT-a1
+  applies_to:
+  - FAM-07.1
+  text: 'L2: asserts replaced by fail-closed refusals; missing/corrupt fixture is FIXTURE_MISSING/CORRUPT (live Chrome named as the only live path); live-vs-fixture substitution still needs owner debug-port session — pairs with FAM-07.2 L2 attach proof.'
+- id: DISC-018
+  ts: '2026-09-22T16:46:08Z'
+  agent: AGT-b1
+  applies_to:
+  - FAM-08.1
+  text: 'L2: validate_ir.py locks schema semantics in stdlib (no third-party validator needed); round-trip identity + drift refusal + 3rd-op EXECUTED close the schema loop'
+- id: DISC-019
+  ts: '2026-09-22T16:46:20Z'
+  agent: AGT-a1
+  applies_to:
+  - FAM-07.2
+  text: 'L2: boundary rule for forbidden match lives in 07.3 law; row-level fence is exact id grammar + profile isolation; live attach proof needs owner debug-port session — probe harness records the evidence shape so the session wires in one lease.'
+- id: DISC-020
+  ts: '2026-09-22T16:47:10Z'
+  agent: AGT-b1
+  applies_to:
+  - FAM-08.1
+  - FAM-08.2
+  - FAM-08.3
+  text: 'LOOP END at target: 08.1/08.2/08.3 all L2 (gates 13/13 + adversarial 23/23 + replay green, full cross-regression each bump); EXP-2026-005 done_when met (deterministic replay, asks-not-guesses, code+sentence refusals, 8/8 injection ledgered, hash-unity); 08.4 L2 live-held by AGT-b2 (not mine); zero leasable caps so no BLOCKED edge logged (saturation, not blockage) and no lease to heartbeat on — standing by for inbox'
+- id: DISC-021
+  ts: '2026-09-22T16:47:13Z'
+  agent: AGT-a1
+  applies_to:
+  - FAM-07
+  text: 'Loop complete: 07.1/07.2/07.3/07.4 all L2 on fixtures (chain L1 + weakest-first L2); zero leasable caps in EXP-2026-004. Only live work outstanding: Chrome attach + page-send vs owner debug-port session (probe harness deterministic NO_LIVE_CHROME, one session wires it). Standing by for inbox STOP or L3/orders.'

@@ -1,0 +1,36 @@
+{
+  "gate_id": "2026-08-28T13-49-21-408Z",
+  "timestamp": "2026-08-28T13:49:21.408Z",
+  "duration_ms": 1460,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 36,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-028",
+      "name": "Budget & Cost",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 3,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 36,
+        "failing": 0,
+        "total": 36
+      },
+      "test_files": [
+        "tests/unit/engines/budget-engine.test.ts",
+        "tests/unit/engines/cortex-budget.test.ts",
+        "tests/unit/engines/cost-optimizer.test.ts"
+      ]
+    }
+  ]
+}

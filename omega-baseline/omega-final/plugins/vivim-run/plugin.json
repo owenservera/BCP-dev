@@ -1,0 +1,309 @@
+{
+  "manifestVersion": "1",
+  "id": "vivim.run",
+  "version": "0.1.0",
+  "description": "Ω3 spine: bounded task pool with a priority queue, per-task budgets and the freshness contract, plus compartment crash-loop quarantine. Scheduling POLICY only — transport (spawn/terminate/stats) stays with the µhost, administered through capability-gated host ops.",
+  "entry": "src/index.ts",
+  "publisher": {
+    "keyId": "",
+    "signature": ""
+  },
+  "contributions": {
+    "contract": [
+      {
+        "kind": "contract",
+        "id": "run.submit",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "run.stats",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "run.health",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "run.process.call",
+        "version": "1",
+        "risk": "MUTATION",
+        "justification": "D-374 polyglot process tier: calls a declared process pool through the broker; pools exist only in signed composition config"
+      },
+      {
+        "kind": "contract",
+        "id": "exec.inspect",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-435: the plan.state derived view (graph, blockedOn liveness|budget|consent|dependency, budgetTrace, lastProgress) + the stall sweep; the ps view renders headlessly as text."
+      },
+      {
+        "kind": "contract",
+        "id": "exec.intervene",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-435: pause/resume/step/cancel as law-gated ledgered ops; ungated refuses EXEC_INTERVENE_UNGATED; cancel is EXTERNAL_MUTATION; contract-forbidden cancel refuses EXEC_CANCEL_FORBIDDEN_BY_CONTRACT."
+      },
+      {
+        "kind": "contract",
+        "id": "capability.deprecate",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-435: census-first deprecation (dependents counted from the vault BEFORE ratification, CAP_DEPRECATE_CENSUS_UNCITED), successor named or explicit none, time-boxed badged migration shim."
+      },
+      {
+        "kind": "contract",
+        "id": "capability.lifecycle.read",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-435: the lifecycle view (state, successor, dependents census digest, shim window, sunset) + the use-now verdict."
+      },
+      {
+        "kind": "contract",
+        "id": "watch.register",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-440 (Ω-1): the watch registration door — process/signal/heartbeat scopes, typed predicates, the watcher's own lease, budget-seamed; malformed watches refuse WATCH_* named."
+      },
+      {
+        "kind": "contract",
+        "id": "watch.observe",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-440: record one raw observation, return the evaluated verdict (a pure fold; late observers flag on first sight)."
+      },
+      {
+        "kind": "contract",
+        "id": "watch.list",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-440: the headless listing — every watch's latest verdict, escalated first."
+      },
+      {
+        "kind": "contract",
+        "id": "budget.declare",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-442 (Ω-2): the budget declaration door — five metered scopes, limits + the declared burn-sample cadence; append-only, amendments cite the prior row's ref (GOV_BUDGET_AMENDMENT_UNCITED), bad scopes refuse GOV_BUDGET_SCOPE_INVALID."
+      },
+      {
+        "kind": "contract",
+        "id": "budget.consume",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-442: record consumption against a declaration — refuses GOV_BUDGET_EXCEEDED when over (naming budget + consumer) and GOV_BUDGET_UNDECLARED with no declaration; landing exactly at limits records the visible EXHAUSTED state; burn rows sample at the declared cadence."
+      },
+      {
+        "kind": "contract",
+        "id": "budget.read",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-442: the derived burn-vs-declared view — consumed/remaining, freshness CURRENT|LAGGING|STALE, predicted exhaustion — rendered headless as text; the fold recomputed every call, never a stored summary."
+      },
+      {
+        "kind": "contract",
+        "id": "context.assemble",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-443 (Ω-3): the deterministic assembly fold over the caller's cited per-namespace source batch — digest over refs + rules + bounds, byte offsets, epistemic kinds, named fail-closed eviction at caps; refuses CTX_* named (unmetered, unknown ns, absent source, unlabelled kind, over-bound, undeclared eviction)."
+      },
+      {
+        "kind": "contract",
+        "id": "context.read",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-443: fetch an assembly by id or digest — provenance rows ride along, the window renders as cited text; an unchanged vaultVersion short-circuits through the digest cache (the light call, zero full assemblies); a row the fold cannot reproduce refuses CTX_DIGEST_DIVERGENCE."
+      },
+      {
+        "kind": "contract",
+        "id": "badge.mint",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-441 (Ω-7): the kernel ceremony assigns tiers — self-claims refuse BADGE_TIER_CLAIMED; era-aware from the first row."
+      },
+      {
+        "kind": "contract",
+        "id": "badge.promote",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-441: promotion to GEN_GENERIC cites ≥2 resolvable, ≥1 independent evidence (the static law lifted to runtime)."
+      },
+      {
+        "kind": "contract",
+        "id": "badge.demote",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-441: reason-carrying demotion; the scar rides affected rows forward, nothing deletes."
+      },
+      {
+        "kind": "contract",
+        "id": "badge.print",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-441: THE renderer — the two-axis sentence from rows alone; surfaces may style it, never source it elsewhere."
+      },
+      {
+        "kind": "contract",
+        "id": "layout.snapshot",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-446 (Ω-6): record a versioned placement snapshot — identity-referencing tiles, deterministic digest fold over canonical tile state, geometry door (LAYOUT_TILE_OVERLAP), fork law (LAYOUT_SNAPSHOT_FORKED — two snapshots claiming one parent refuse; divergence reconciles through one named merge record). ns layout; canvas stays reserved for the canvas-surface writer."
+      },
+      {
+        "kind": "contract",
+        "id": "layout.restore",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-446: verified re-hydration — the recorded digest must match the re-computed fold or the restore refuses LAYOUT_DIGEST_MISMATCH with the diffs; never blind, never 'mostly restoring'."
+      },
+      {
+        "kind": "contract",
+        "id": "layout.read",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-446: the headless view — snapshots, merge records, and the active placement rendered as text (the layout is data, renderable by anything)."
+      },
+      {
+        "kind": "contract",
+        "id": "sim.record",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-447 (Ω-8): pin a scenario — named, seeded (SIM_SEED_UNPINNED on unpinned digests), step-grammar-gated (SIM_FAULT_UNKNOWN on unnamed faults); a simulation citing only itself refuses SIM_SELF_CERTIFICATION."
+      },
+      {
+        "kind": "contract",
+        "id": "sim.replay",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-447: run the replay fold — same pinned scenario + same seeded substrate ⇒ byte-identical receipts; divergence refuses SIM_REPLAY_DIVERGENT; writes land only in ns sim.* (SIM_CONTAINMENT_BREACH refused and ledgered); advisory-for-production — the citing record owns blocking."
+      },
+      {
+        "kind": "contract",
+        "id": "sim.read",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-447: the headless view — pinned scenarios, run receipts, and containment breaches rendered as text (divergence is the product)."
+      },
+      {
+        "kind": "contract",
+        "id": "trust.bind",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-444 (Ω-4): the key ceremony — binds a key to a D-412 principal record (TRUST_PRINCIPAL_UNRESOLVABLE when the row is absent, retired is forever), era-windowed (TRUST_KEY_EXPIRED past notAfter), fingerprint-attested (TRUST_FINGERPRINT_MISMATCH), never re-bound (TRUST_DUPLICATE_BIND)."
+      },
+      {
+        "kind": "contract",
+        "id": "trust.verify",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-444: the era-aware verify fold — a signature is judged under the law of its signing time (total resolution via the successor chain; zero soft-pass branches; suspect-window verdicts carry REVOKED_KEY_ERA scars; refusal-as-data)."
+      },
+      {
+        "kind": "contract",
+        "id": "trust.revoke",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-444: emergency revocation — the scar rides the key row forward, nothing deletes; the revoked key's next write is a named refusal."
+      },
+      {
+        "kind": "contract",
+        "id": "analytics.record",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-445 (Ω-5): the event sink — the attention wall enforced at write (ANALYTICS_ATTENTION_REFUSED, §29; the refusal itself lands as a SYSTEM event), retention-declared families only (ANALYTICS_RETENTION_UNDECLARED), known vocabulary only (ANALYTICS_NS_UNKNOWN), honest digests only (ANALYTICS_DIGEST_MISMATCH)."
+      },
+      {
+        "kind": "contract",
+        "id": "analytics.query",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-445: the observation read — filter by family/kind/window with a headless text render; absence is data, tombstones visible."
+      },
+      {
+        "kind": "contract",
+        "id": "analytics.counters",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-445: the counter fold read — always carries basis.inputHash (regenerable by replay); a stored counter that disagrees with its own replay names ANALYTICS_DIGEST_MISMATCH (the drift is a finding, never an overwrite)."
+      },
+      {
+        "kind": "contract",
+        "id": "aperture.scope.set",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-448 (Ω-9): the disclosure-scope door — per-target per-principal rows over the ordered width lattice (summary|body|detail|raw); the first declaring writer owns the target (DISCLOSURE_SCOPE_FOREIGN_WRITER), width amendments cite the prior row (DISCLOSURE_SCOPE_CONFLICT), and widening demands a cited ceremony (DISCLOSURE_WIDENING_UNCITED)."
+      },
+      {
+        "kind": "contract",
+        "id": "aperture.view",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-448: the projection fold — the requester's honest view at their scope's width, elision carried as {count,kinds} (raw minus the view equals exactly the elided set), scope-cited and digest-carried; no scope fails closed to summary-of-existence and an explicit width without a scope refuses DISCLOSURE_SCOPE_UNKNOWN; the evidence batch rides the payload (the vault mirror path)."
+      },
+      {
+        "kind": "contract",
+        "id": "aperture.read",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-448: the audit trail — disclosure scopes and widening receipts (who was widened to what, under which consent, citing the evidence digest of exactly what became viewable) rendered headless as text."
+      },
+      {
+        "kind": "contract",
+        "id": "partial.evaluate",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-449 (Ω-10): the partial fold over the plan IR — determined prefix + named unknowns (source ambiguity|missing|deferred) + the residual as a fresh plan citing its partial row; anonymous holes refuse PARTIAL_UNKNOWN_UNLABELLED, double truths refuse PARTIAL_BINDING_CONFLICT, cycles refuse PARTIAL_CYCLE, silent default fills refuse, and a width beyond the input scopes' allowance refuses PARTIAL_APERTURE_EXCEEDED."
+      },
+      {
+        "kind": "contract",
+        "id": "partial.read",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-449: the partial rows with their unknown-set as permanent luggage (consuming a partial as complete refuses PARTIAL_RESULT_AS_COMPLETE) and the residual runs (fresh gated invocations only — PARTIAL_RESIDUAL_UNGATED otherwise), rendered headless."
+      },
+      {
+        "kind": "contract",
+        "id": "liveness.set",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-450 (Ω-14): the liveness ceremony door — placement/sleep/shed/suspend over the ghost|dormant|hydrated|suspended machine; unlawful edges refuse LIVENESS_STATE_INVALID, a from the row cannot derive refuses LIVENESS_STATE_DRIFT, and suspends carry typed reasons (battery|pressure|law) with the §18 badge sentence on the row."
+      },
+      {
+        "kind": "contract",
+        "id": "liveness.wake",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-450: the budget-check-first framed hydration ceremony — a wake without a declared budgetRef refuses LIVENESS_WAKE_BUDGET_UNDECLARED, an unaffordable hydration refuses LIVENESS_BUDGET_REFUSED naming the trade (shed or suspend first), an ungated wake refuses LIVENESS_WAKE_UNGATED, and success lands the row with its wakeProof."
+      },
+      {
+        "kind": "contract",
+        "id": "liveness.read",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-450: the headless liveness view — states, transition history, dormancy proofs (stale proofs refuse LIVENESS_PROOF_STALE), and the badge sentences the renderer would print; a ghost's write attempt refuses LIVENESS_GHOST_WRITE at the door."
+      }
+    ]
+  },
+  "dependencies": [],
+  "capabilities": {
+    "requested": [
+      "host.compartment.admin",
+      "port:echo.ping@1"
+    ],
+    "justification": "scheduled task execution: run executes granted ops on behalf of submitters under their deadlines (port:echo.ping@1), and observes compartment health + quarantines crash loops via host.compartment.admin"
+  },
+  "runtime": {
+    "tier": "worker-thread",
+    "budget": {
+      "cpuMs": 500,
+      "memMB": 128,
+      "maxConcurrentCalls": 32
+    }
+  },
+  "contentHash": ""
+}

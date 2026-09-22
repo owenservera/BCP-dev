@@ -1,0 +1,401 @@
+{
+  "generatedAt": "2026-09-21T08:34:55.460Z",
+  "repo": "vivim-omega",
+  "branch": "omega",
+  "head": "9b443c6",
+  "toolchain": {
+    "bun": "1.3.14",
+    "node": "24.3.0",
+    "os": "linux 5.10.134-013.15.kangaroo.al8.x86_64",
+    "arch": "x64"
+  },
+  "waves": [
+    {
+      "id": "Ω0",
+      "title": "µhost",
+      "deliverable": "Recipe verify, worker compartments, port router (B1–B4), recovery, CLI, demos",
+      "status": "built"
+    },
+    {
+      "id": "Ω1",
+      "title": "vivim.law",
+      "deliverable": "Gate/consent, attenuation, revocation, registry, amendment",
+      "status": "built"
+    },
+    {
+      "id": "Ω2",
+      "title": "vivim.vault",
+      "deliverable": "SQLite WAL+FTS5, CAS, Merkle changelog, verify, compaction",
+      "status": "built"
+    },
+    {
+      "id": "Ω3",
+      "title": "vivim.run",
+      "deliverable": "Bounded pool, budgets, crash-loop quarantine",
+      "status": "built"
+    },
+    {
+      "id": "Ω4",
+      "title": "SDK + testkit",
+      "deliverable": "zod schemas, signing, typed client, FakeHost, conformance",
+      "status": "built"
+    },
+    {
+      "id": "Ω5",
+      "title": "domain-email + provider",
+      "deliverable": "First domain pack, full loop through vault + consent",
+      "status": "built"
+    },
+    {
+      "id": "Ω6",
+      "title": "surfaces",
+      "deliverable": "CLI + MCP surfaces, provider-llm, webmail scaffold",
+      "status": "built"
+    },
+    {
+      "id": "Ω7",
+      "title": "discovery perception/observation",
+      "deliverable": "ApplicationGraph from captured fixtures, zero LLM",
+      "status": "built"
+    },
+    {
+      "id": "Ω8",
+      "title": "discovery inference/mapping/verification",
+      "deliverable": "DRAFT→PROMOTED only on postcondition probes",
+      "status": "built"
+    },
+    {
+      "id": "Ω9",
+      "title": "healing + ecosystem",
+      "deliverable": "Drift→rediscovery→probation→promotion, builder tooling",
+      "status": "built"
+    },
+    {
+      "id": "Ω10",
+      "title": "vivim.mind (self-knowledge)",
+      "deliverable": "WorldModel derived from registry+vault+projections, contacts learned from history",
+      "status": "built"
+    },
+    {
+      "id": "Ω11",
+      "title": "vivim.nlcl (deterministic NLP)",
+      "deliverable": "17 symbol families, 7-stage pure pipeline, instant feedback projection, nlcl-pure shared browser/server",
+      "status": "built"
+    },
+    {
+      "id": "Ω12",
+      "title": "vivim.director (reprogramming)",
+      "deliverable": "Rules/teach/consent as data, tick loop, NL-driven backend reconfiguration",
+      "status": "built"
+    },
+    {
+      "id": "Ω13",
+      "title": "surfaces/web (Ω console)",
+      "deliverable": "WorldModel replication, authoritative interpret/execute/consent, live stream, browser-side keystroke feedback",
+      "status": "built"
+    }
+  ],
+  "gate": {
+    "startedAt": "2026-09-21T08:33:15.172Z",
+    "checks": {
+      "host-loc": {
+        "ok": true,
+        "detail": {
+          "loc": 1500,
+          "budget": 1500
+        }
+      },
+      "anvil-loc": {
+        "ok": true,
+        "detail": {
+          "loc": 856,
+          "budget": 860,
+          "frozenBy": "D-404"
+        }
+      },
+      "anvil-surface": {
+        "ok": true,
+        "detail": {
+          "exports": 45,
+          "frozenBy": "D-404"
+        }
+      },
+      "fresh-tree": {
+        "ok": true,
+        "skipped": true,
+        "detail": {
+          "reason": "no sibling legacy repos present (clean clone / CI) — nothing to verify untouched",
+          "legacyImports": 0
+        }
+      },
+      "decisions": {
+        "ok": true,
+        "detail": {
+          "rows": 161,
+          "records": 135,
+          "ratified": 135,
+          "grandfatherBelow": 313,
+          "generatedFrom": 413,
+          "trackWarnings": 1,
+          "openQuestions": {
+            "count": 0,
+            "ids": [],
+            "board": "stale"
+          }
+        }
+      },
+      "compositions": {
+        "ok": true,
+        "detail": {
+          "specs": 18,
+          "entries": 76,
+          "driftAllowlisted": {
+            "vivim.law": {
+              "files": [
+                "agent.json",
+                "browser.json",
+                "chat.json",
+                "console.json",
+                "credentials.json",
+                "demo.json",
+                "discovery-mind.json",
+                "discovery.json",
+                "email.json",
+                "forge-author.json",
+                "healing.json",
+                "kernel.json",
+                "law.json",
+                "llm.json",
+                "notes.json",
+                "run.json",
+                "spine.json",
+                "vault.json"
+              ],
+              "reason": "D-325: per-composition law scope (memory-only law.json … vault-durable agent.json); new shapes fail until allowlisted"
+            },
+            "vivim.director": {
+              "files": [
+                "chat.json",
+                "console.json"
+              ],
+              "reason": "D-358/D-359: chat.json grants the resolution half only (resolve.classify/report + their vault ports); console/run carry the full director surface"
+            },
+            "provider.llm": {
+              "files": [
+                "chat.json",
+                "console.json",
+                "discovery-mind.json",
+                "llm.json"
+              ],
+              "reason": "D-385: discovery-mind.json carries the parser contribution with empty grants (signed manifest, never spawned); chat/console/llm.json grant the contract ops"
+            },
+            "vivim.chat": {
+              "files": [
+                "chat.json",
+                "discovery-mind.json"
+              ],
+              "reason": "D-385: discovery-mind.json carries the parser contribution with empty grants (signed manifest, never spawned); chat.json grants the chat ops"
+            },
+            "vivim.run": {
+              "files": [
+                "run.json",
+                "spine.json"
+              ],
+              "reason": "alias-style variance run.json vs spine.json: same effective authority (HOST_OP_TO_CAP auto-mint); convergence deferred, see _note in run.json"
+            }
+          },
+          "riskParityOps": 52,
+          "matrixConformance": "green",
+          "shippableFence": {
+            "marker": "SHIPPABLE-V1 (D-420)",
+            "tagged": [
+              "browser"
+            ],
+            "aiApiRealizations": [
+              "provider.llm"
+            ]
+          },
+          "contractTypes": 132,
+          "callSiteAllowlisted": [
+            "CompositionSpecEntry",
+            "LangContribution",
+            "OutcomeStatus",
+            "PROMOTION_INVARIANT",
+            "PlanStepTemplate",
+            "PlanTemplate",
+            "PlanTemplateV2",
+            "PortErrorCode",
+            "SagaEvidenceRef",
+            "StorageDriverContract",
+            "StorageKey",
+            "StorageOp",
+            "StorageResult",
+            "StorageTable"
+          ]
+        }
+      },
+      "bun-surface": {
+        "ok": true,
+        "detail": {
+          "adapters": [
+            "plugins/vivim-vault/src/drivers/bun-sqlite.ts"
+          ],
+          "scan": "36 prod dirs (incl. every plugins/*/src)"
+        }
+      },
+      "os-surface": {
+        "ok": true,
+        "detail": {
+          "seam": [
+            "platform/src/platform.ts"
+          ],
+          "scan": "36 prod dirs (incl. every plugins/*/src)"
+        }
+      },
+      "import-surface": {
+        "ok": true,
+        "detail": {
+          "scanned": 177,
+          "rules": 5
+        }
+      },
+      "forge-surface": {
+        "ok": true,
+        "detail": {
+          "forgePlugins": 1,
+          "compositions": 18,
+          "catalogOps": 24,
+          "packFixtures": 14
+        }
+      },
+      "invariants-freshness": {
+        "ok": true,
+        "detail": {
+          "policy": "report-only (D-415, A3 — the flip to failing is a future record's call, after one green wave of reports)",
+          "pass": 7,
+          "asOf": "D-431",
+          "ratifiedSince": 24,
+          "gateStages": 15,
+          "stale": false,
+          "triggers": []
+        }
+      },
+      "process": {
+        "ok": true,
+        "detail": {
+          "policy": "report-only (D-423 — mirrors D-415/D-368; the flip to failing, if ever, is a future record's call)",
+          "gateGreen": false,
+          "gateStale": false,
+          "boardOpen": 0,
+          "boardBlocking": 0,
+          "boardFreshness": "stale",
+          "docscanFindings": 0,
+          "ledgerResolved": true,
+          "sessionOpen": true,
+          "sessionHomePresent": true,
+          "sessionEvents": 13,
+          "sessionClosedCount": 2,
+          "ratifiedCount": 160
+        }
+      },
+      "genome": {
+        "ok": true,
+        "detail": {
+          "policy": "mechanical (D-425): artifact integrity fails; record-status and the assumed directive are reported facts (the ratify ceremony and the owner own them)",
+          "counts": {
+            "layers": 32,
+            "implemented": 32,
+            "externalAssumed": 0,
+            "ratifiedUnimplemented": 0,
+            "queued": 0,
+            "decisions": 161,
+            "ratified": 160,
+            "proposed": 1,
+            "records": 135,
+            "testFiles": 143,
+            "gateStages": 15,
+            "plugins": 25,
+            "compositions": 19
+          },
+          "genomeBytes": 68162,
+          "briefBytes": 12040,
+          "inFlight": [],
+          "externalAssumed": 0,
+          "unresolvedFalsifiers": []
+        }
+      },
+      "tests": {
+        "ok": true,
+        "detail": {
+          "pass": 1418,
+          "fail": 0,
+          "maxConcurrency": 4
+        }
+      },
+      "attest": {
+        "ok": true,
+        "detail": {
+          "compileMs": 4,
+          "bootMs": 22,
+          "echo": true,
+          "counterBump": true,
+          "counterValue": {
+            "count": 1
+          },
+          "compartments": [
+            "vivim.law",
+            "omega.echo",
+            "omega.counter"
+          ],
+          "refusalRegister": "REFUSED",
+          "budgetRegister": "BUDGET",
+          "recovery": {
+            "midSwapCleaned": true,
+            "replayRefused": true
+          }
+        }
+      }
+    }
+  },
+  "hostLoc": 1500,
+  "tests": {
+    "pass": 1418,
+    "fail": 0
+  },
+  "benchmarks": {
+    "at": "2026-09-18T10:16:48.896Z",
+    "bootMs": 11,
+    "portRtt": {
+      "n": 200,
+      "p50": 0.03,
+      "p99": 2.49,
+      "unit": "ms"
+    },
+    "interCompartmentRtt": {
+      "n": 50,
+      "p50": 0.12,
+      "unit": "ms"
+    },
+    "envelope": {
+      "rttP99Max": 50,
+      "bootMax": 500,
+      "unit": "ms"
+    },
+    "daemonCallRtt": {
+      "n": 50,
+      "p50": 0.52,
+      "unit": "ms"
+    },
+    "poolBurst": {
+      "n": 8,
+      "poolSize": 2,
+      "wallMs": 87.5,
+      "hits": 8,
+      "coldFallbacks": 0,
+      "fallbackRate": 0,
+      "unit": "ms",
+      "note": "MEASURED: sync refill serves every burst checkout from parked stock (0 fallbacks) — the burst cost is the inline thread spawn per checkout; size the pool ≥ peak concurrent boots (D-388)"
+    },
+    "coldCliCallMs": 88
+  }
+}

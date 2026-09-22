@@ -1,0 +1,41 @@
+{
+  "gate_id": "2026-08-28T11-35-43-704Z",
+  "timestamp": "2026-08-28T11:35:43.704Z",
+  "duration_ms": 5157,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 46,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-011",
+      "name": "Stream Parsing",
+      "state": "SCAFFOLDED",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 12,
+        "integration": 0,
+        "e2e": 2,
+        "arch": 0,
+        "passing": 46,
+        "failing": 0,
+        "total": 46
+      },
+      "test_files": [
+        "tests/unit/engines/stream-parser.test.ts",
+        "tests/unit/engines/stream-align.test.ts",
+        "tests/unit/engines/stream-block-store.test.ts",
+        "tests/unit/engines/streaming-channel-caps.test.ts",
+        "tests/unit/engines/streaming-protocol.test.ts",
+        "tests/unit/engines/streaming-response-analyzer.test.ts",
+        "tests/unit/engines/parser-repair.test.ts",
+        "tests/unit/engines/format-classifier.test.ts"
+      ]
+    }
+  ]
+}

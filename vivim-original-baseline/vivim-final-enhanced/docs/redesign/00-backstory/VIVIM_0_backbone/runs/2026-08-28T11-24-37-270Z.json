@@ -1,0 +1,45 @@
+{
+  "run_id": "2026-08-28T11-24-37-270Z",
+  "timestamp": "2026-08-28T11:24:37.283Z",
+  "forge": "C:\\0-BlackBoxProject-0\\VIVIM_0\\work\\forge",
+  "totals": {
+    "total_engines": 185,
+    "clustered": 163,
+    "orphans": 22,
+    "cards_created": 39
+  },
+  "orphans": [
+    "browser-action-types.ts",
+    "builtin-capability-wrappers.ts",
+    "capability-bootstrap-generated.ts",
+    "capability-discovery-loop.ts",
+    "capability-event-bus-v2.ts",
+    "capability-macro.ts",
+    "capability-parity.ts",
+    "capability-shape-registry.ts",
+    "chrome-setup-wizard.ts",
+    "classifier-nli.ts",
+    "command-parity-capabilities.ts",
+    "conceptual-model-service.ts",
+    "discovery-session-runner.ts",
+    "intent-decomposer.ts",
+    "live-capture-engine.ts",
+    "logger.ts",
+    "protocol-discovery.ts",
+    "protocol-loop-parser.ts",
+    "tool-orchestrator-facade.ts",
+    "tool-use-protocol.ts",
+    "workflow-compiler.ts",
+    "workflow-engine.ts"
+  ],
+  "by_state": {
+    "MAPPED": 33,
+    "DISCOVERED": 6
+  },
+  "by_category": {
+    "KERNEL": 15,
+    "PLUGIN": 14,
+    "INFRA": 8,
+    "SURFACE": 2
+  }
+}

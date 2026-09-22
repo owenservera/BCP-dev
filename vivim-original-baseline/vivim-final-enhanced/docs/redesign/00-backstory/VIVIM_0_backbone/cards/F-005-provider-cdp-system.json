@@ -1,0 +1,56 @@
+{
+  "id": "F-005",
+  "slug": "provider-cdp-system",
+  "name": "Provider + CDP System",
+  "category": "PLUGIN",
+  "state": "SCAFFOLDED",
+  "value_targets": [
+    "V-1"
+  ],
+  "engines": [
+    "provider-registrar.ts",
+    "provider-protocol-loader.ts",
+    "provider-protocol-generator.ts",
+    "provider-health.ts",
+    "provider-mux.ts",
+    "provider-caps.ts",
+    "chrome-governor.ts",
+    "chrome-setup-wizard.ts",
+    "cdp-discovery.ts",
+    "cdp-capability-registrar.ts",
+    "cdp-watchdog.ts",
+    "browser-action-types.ts",
+    "protocol-discovery.ts",
+    "protocol-loop-parser.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Multi-provider system with Chrome DevTools Protocol via ChromeGovernor. 16 providers registered, 6 UI-facing (chatgpt, claude, gemini, deepseek, qwen, grok).",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 28,
+    "integration": 9,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 103,
+    "failing": 3
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:23:43.954Z",
+  "evidence_class": "FACT"
+}

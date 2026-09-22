@@ -1,0 +1,93 @@
+{
+  "$schema": "FEATURE_CARD schema v1.0",
+  "purpose": "Atomic, trackable unit of work in the project backbone",
+  "lifecycle": "see .backbone/STATE-MACHINE.md",
+  "admission": "see .backbone/ADMISSION-RUBRIC.md",
+
+  "fields": {
+    "id":              { "type": "string", "required": true,  "format": "F-NNN",        "notes": "Stable. Never reuse. Sequential." },
+    "slug":            { "type": "string", "required": true,  "format": "kebab-case",    "notes": "Code-friendly. Used in paths." },
+    "name":            { "type": "string", "required": true,  "notes": "Human-readable title" },
+    "category":        { "type": "enum",   "required": true,  "values": ["KERNEL","PLUGIN","SURFACE","INFRA","CONTENT"], "notes": "Where it lives in the architecture" },
+    "state":           { "type": "enum",   "required": true,  "values": ["DISCOVERED","MAPPED","DESIGNED","SCAFFOLDED","PARTIAL","WORKING","SHIPPED","MAINTAINED","DROPPED"] },
+    "value_targets":   { "type": "array",  "required": true,  "items": "V-1|V-2|V-3|V-4|V-5", "notes": "Which value targets this card serves" },
+    "engines":         { "type": "array",  "required": false, "items": "string",         "notes": "Engine filenames in src/engines/" },
+    "frontend_paths":  { "type": "array",  "required": false, "items": "string",         "notes": "Frontend paths in frontend/src/" },
+    "db_models":       { "type": "array",  "required": false, "items": "string",         "notes": "Prisma model names this card touches" },
+    "tests": {
+      "type": "object",
+      "required": false,
+      "properties": {
+        "unit":         { "type": "number" },
+        "integration":  { "type": "number" },
+        "e2e":          { "type": "number" },
+        "arch":         { "type": "number" },
+        "passing":      { "type": "number" },
+        "failing":      { "type": "number" }
+      }
+    },
+    "deps": {
+      "type": "object",
+      "required": false,
+      "properties": {
+        "engines_blocks": { "type": "array", "items": "F-NNN", "notes": "Cards this depends on to be WORKING" },
+        "engines_uses":   { "type": "array", "items": "string", "notes": "Engines it calls (not blocks)" },
+        "external":       { "type": "array", "items": "string", "notes": "npm packages it needs" }
+      }
+    },
+    "sota_status":     { "type": "enum",   "required": true,  "values": ["CURRENT","BEHIND","DEPRECATED","UNKNOWN"] },
+    "conflicts":       { "type": "array",  "required": false, "items": "string",         "notes": "Conflict IDs from KB or backbone conflict log" },
+    "gates":           { "type": "array",  "required": false, "items": "G-N",            "notes": "Which backbone gates this card affects" },
+    "migration": {
+      "type": "object",
+      "required": false,
+      "properties": {
+        "from":         { "type": "string", "notes": "Current state description" },
+        "to":           { "type": "string", "notes": "Target state description" },
+        "steps":        { "type": "array", "items": "string" },
+        "effort":       { "type": "enum", "values": ["XS","S","M","L","XL"] },
+        "risk":         { "type": "enum", "values": ["LOW","MEDIUM","HIGH"] },
+        "reversible":   { "type": "boolean" }
+      }
+    },
+    "cleanup_debt": {
+      "type": "object",
+      "required": false,
+      "properties": {
+        "files_to_remove": { "type": "array", "items": "string" },
+        "files_to_rename": { "type": "array", "items": "string" },
+        "files_to_split":  { "type": "array", "items": "string" },
+        "dead_code":       { "type": "array", "items": "string" },
+        "stale_tests":     { "type": "array", "items": "string" },
+        "stale_docs":      { "type": "array", "items": "string" }
+      }
+    },
+    "friend_interest": { "type": "array",  "required": false, "items": "string",         "notes": "Friend IDs who asked for this" },
+    "shipped_in_wave": { "type": "string", "required": false, "format": "W-YYYY-MM-X",   "notes": "Which wave shipped this card" },
+    "shipped_at":      { "type": "string", "required": false, "format": "ISO-8601" },
+    "dropped_reason":  { "type": "string", "required": false, "notes": "Required if state=DROPPED" },
+    "admission": {
+      "type": "object",
+      "required": false,
+      "properties": {
+        "rubric_score":    { "type": "number" },
+        "rubric_breakdown":{ "type": "object" },
+        "decided_by":      { "type": "string", "notes": "pro|user" },
+        "decided_at":      { "type": "string", "format": "ISO-8601" }
+      }
+    },
+    "created":         { "type": "string", "required": true, "format": "ISO-8601" },
+    "last_verified":   { "type": "string", "required": true, "format": "ISO-8601" },
+    "notes":           { "type": "string", "required": false }
+  },
+
+  "evidence_class": "FACT (file:line citations required for code_refs)",
+
+  "invariants": [
+    "id is permanent, never reused",
+    "state transitions are atomic (one commit)",
+    "WORKING requires zero cleanup_debt",
+    "DROPPED requires dropped_reason",
+    "last_verified updated on every refresh"
+  ]
+}

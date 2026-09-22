@@ -1,0 +1,47 @@
+{
+  "id": "F-002",
+  "slug": "memory-system",
+  "name": "Memory System (FSRS-6)",
+  "category": "KERNEL",
+  "state": "WORKING",
+  "value_targets": [
+    "V-1",
+    "V-3"
+  ],
+  "engines": [
+    "memory-engine.ts",
+    "memory-export.ts",
+    "memory-indexer.ts",
+    "fsrs-scheduler.ts"
+  ],
+  "frontend_paths": [],
+  "description": "FSRS-6 spaced repetition memory. Stores, schedules, retrieves memories across sessions.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 10,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 26,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:23:31.252Z",
+  "evidence_class": "FACT"
+}

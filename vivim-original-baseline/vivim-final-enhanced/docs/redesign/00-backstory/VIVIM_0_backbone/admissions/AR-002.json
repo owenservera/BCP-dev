@@ -1,0 +1,55 @@
+{
+  "id": "AR-002",
+  "slug": "image-attachments",
+  "name": "Image Attachments",
+  "proposed_at": "2026-08-28T14:05:06.105Z",
+  "proposed_by": "user",
+  "rubric": {
+    "V": 5,
+    "KI": 3,
+    "T": 3,
+    "S": 3,
+    "C": 3,
+    "R": 3,
+    "FI": 2
+  },
+  "rubric_score": 22,
+  "rubric_breakdown": {
+    "V": {
+      "got": 5,
+      "max": 5
+    },
+    "KI": {
+      "got": 3,
+      "max": 3
+    },
+    "T": {
+      "got": 3,
+      "max": 3
+    },
+    "S": {
+      "got": 3,
+      "max": 3
+    },
+    "C": {
+      "got": 3,
+      "max": 3
+    },
+    "R": {
+      "got": 3,
+      "max": 3
+    },
+    "FI": {
+      "got": 2,
+      "max": 2
+    },
+    "IIW": {
+      "got": 0,
+      "max": 1
+    }
+  },
+  "auto_verdict": "ADMIT",
+  "final_verdict": "ADMIT",
+  "status": "PENDING",
+  "reason": ""
+}

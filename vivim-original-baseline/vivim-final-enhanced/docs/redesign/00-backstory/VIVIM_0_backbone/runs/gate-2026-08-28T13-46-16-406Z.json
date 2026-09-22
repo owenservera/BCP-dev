@@ -1,0 +1,40 @@
+{
+  "gate_id": "2026-08-28T13-46-16-406Z",
+  "timestamp": "2026-08-28T13:46:16.406Z",
+  "duration_ms": 4819,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 55,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-017",
+      "name": "Observability",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 8,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 55,
+        "failing": 0,
+        "total": 55
+      },
+      "test_files": [
+        "tests/unit/engines/telemetry-aggregator.test.ts",
+        "tests/unit/engines/registration-auditor.test.ts",
+        "tests/unit/engines/sla-monitor.test.ts",
+        "tests/unit/engines/metrics.test.ts",
+        "tests/unit/engines/otel-sink.test.ts",
+        "tests/unit/engines/error-tracker.test.ts",
+        "tests/unit/engines/health-digest.test.ts"
+      ]
+    }
+  ]
+}

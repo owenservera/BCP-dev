@@ -1,0 +1,36 @@
+{
+  "gate_id": "2026-08-28T13-49-25-249Z",
+  "timestamp": "2026-08-28T13:49:25.249Z",
+  "duration_ms": 1827,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 10,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-029",
+      "name": "Update & Transfer",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 10,
+        "failing": 0,
+        "total": 10
+      },
+      "test_files": [
+        "tests/unit/engines/update-engine.test.ts",
+        "tests/unit/engines/transfer-accelerator.test.ts",
+        "tests/unit/engines/export.test.ts"
+      ]
+    }
+  ]
+}

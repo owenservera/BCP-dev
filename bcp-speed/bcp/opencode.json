@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "bcp": {
+      "type": "local",
+      "command": ["python", "mcp-servers/bcp-mcp/server.py"],
+      "enabled": true,
+      "environment": {
+        "BCP_ROOT": "C:\\0-BlackBoxProject-0\\Vivim-omega\\BCP-dev\\bcp-speed\\bcp"
+      }
+    }
+  },
+  "tools": {
+    "bcp_*": false
+  },
+  "agent": {
+    "lane-a": {
+      "tools": {
+        "bcp_*": true
+      }
+    },
+    "lane-b1": {
+      "tools": {
+        "bcp_*": true
+      }
+    },
+    "lane-b2": {
+      "tools": {
+        "bcp_*": true
+      }
+    },
+    "lane-c": {
+      "tools": {
+        "bcp_*": true
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "F-006",
+  "slug": "provider-discovery-test",
+  "name": "Provider Discovery & Test Harness",
+  "category": "PLUGIN",
+  "state": "WORKING",
+  "value_targets": [
+    "V-3"
+  ],
+  "engines": [
+    "provider-discovery.ts",
+    "provider-test-harness.ts",
+    "provider-conversation-adapter.ts",
+    "provider-selectors.ts"
+  ],
+  "frontend_paths": [],
+  "description": "8-phase onboarding pipeline: discover → infer → test-selectors → test-parse → test-cap → test-frontend → verify → converge.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 9,
+    "integration": 1,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 21,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:23:46.202Z",
+  "evidence_class": "FACT"
+}

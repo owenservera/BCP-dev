@@ -1,0 +1,49 @@
+{
+  "id": "F-017",
+  "slug": "observability",
+  "name": "Observability",
+  "category": "INFRA",
+  "state": "WORKING",
+  "value_targets": [
+    "V-3"
+  ],
+  "engines": [
+    "telemetry-aggregator.ts",
+    "registration-auditor.ts",
+    "sla-monitor.ts",
+    "metrics.ts",
+    "otel-sink.ts",
+    "error-tracker.ts",
+    "health-digest.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Telemetry, metrics, OpenTelemetry sink, error tracking, health digest, SLA monitor.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 8,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 55,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:25:13.709Z",
+  "evidence_class": "FACT"
+}

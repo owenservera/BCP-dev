@@ -1,0 +1,22 @@
+{
+  "run_id": "2026-08-28T11-26-05-510Z",
+  "timestamp": "2026-08-28T11:26:05.529Z",
+  "forge": "C:\\0-BlackBoxProject-0\\VIVIM_0\\work\\forge",
+  "totals": {
+    "total_engines": 185,
+    "clustered": 185,
+    "orphans": 0,
+    "cards_created": 40
+  },
+  "orphans": [],
+  "by_state": {
+    "MAPPED": 34,
+    "DISCOVERED": 6
+  },
+  "by_category": {
+    "KERNEL": 15,
+    "PLUGIN": 14,
+    "INFRA": 9,
+    "SURFACE": 2
+  }
+}

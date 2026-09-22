@@ -1,0 +1,15 @@
+{
+  "id": "W-ARCH-002",
+  "name": "Provider + CDP Stabilization",
+  "description": "Fix the 3 failing tests in F-005. Critical for multi-provider value.",
+  "cards": [
+    {
+      "id": "F-005",
+      "name": "Provider + CDP System",
+      "state": "SCAFFOLDED",
+      "blocker": "3 failing tests"
+    }
+  ],
+  "estimated_effort": "M",
+  "risk": "MEDIUM"
+}

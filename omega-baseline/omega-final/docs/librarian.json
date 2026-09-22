@@ -1,0 +1,21 @@
+{
+  "rows": [
+    {
+      "docPath": "build/genome.md",
+      "era": "generated",
+      "sources": [
+        {
+          "path": "genome/layers.json",
+          "role": "the layer registry — the only hand-authored input to the fold",
+          "sha256": "6bf94ccdda38e1bb0bd537012a0d670c103e691b161b22e98ce73fad0afaf601"
+        },
+        {
+          "path": "docs/BUILD-DECISIONS.md",
+          "role": "the decision index the fold reads for record statuses",
+          "sha256": "0e62a7a2e2317fc96f4de23fdc1c490e4e2d85b4804f25d9e6af2701e7330293"
+        }
+      ],
+      "generator": "omega:genome"
+    }
+  ]
+}

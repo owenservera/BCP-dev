@@ -1,0 +1,35 @@
+{
+  "gate_id": "2026-08-28T13-48-23-494Z",
+  "timestamp": "2026-08-28T13:48:23.494Z",
+  "duration_ms": 1200,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 10,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-022",
+      "name": "Plugin System",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 2,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 10,
+        "failing": 0,
+        "total": 10
+      },
+      "test_files": [
+        "tests/unit/engines/plugin-system.test.ts",
+        "tests/unit/engines/plugin-hot-reload.test.ts"
+      ]
+    }
+  ]
+}

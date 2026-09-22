@@ -1,0 +1,40 @@
+{
+  "gate_id": "2026-08-28T13-37-18-820Z",
+  "timestamp": "2026-08-28T13:37:18.820Z",
+  "duration_ms": 7251,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 42,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-012",
+      "name": "Harness Execution",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 9,
+        "integration": 2,
+        "e2e": 3,
+        "arch": 0,
+        "passing": 42,
+        "failing": 0,
+        "total": 42
+      },
+      "test_files": [
+        "tests/unit/engines/harness-runtime.test.ts",
+        "tests/unit/engines/harness-protocol-engine.test.ts",
+        "tests/unit/engines/harness-repair-engine.test.ts",
+        "tests/unit/engines/harness-command-registry.test.ts",
+        "tests/integration/harness-command-registry.test.ts",
+        "tests/unit/engines/harness-feedback-coordinator.test.ts",
+        "tests/unit/engines/harness-checkpoint.test.ts"
+      ]
+    }
+  ]
+}

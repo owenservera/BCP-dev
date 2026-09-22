@@ -1,0 +1,37 @@
+{
+  "gate_id": "2026-08-28T13-47-17-229Z",
+  "timestamp": "2026-08-28T13:47:17.229Z",
+  "duration_ms": 2974,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 19,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-018",
+      "name": "Storage Relocation & Backup",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 6,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 19,
+        "failing": 0,
+        "total": 19
+      },
+      "test_files": [
+        "tests/unit/engines/eviction-manager.test.ts",
+        "tests/unit/engines/backup-manager.test.ts",
+        "tests/unit/engines/backup-scheduler.test.ts",
+        "tests/unit/engines/mirror-engine.test.ts"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "W-ARCH-001",
+  "name": "Conversation System Hardening",
+  "description": "Fix the 3 integration test failures in F-001 to advance to WORKING. Then promote to a future ship wave.",
+  "cards": [
+    {
+      "id": "F-001",
+      "name": "Conversation System",
+      "state": "SCAFFOLDED",
+      "blocker": "1 failing tests"
+    }
+  ],
+  "estimated_effort": "S",
+  "risk": "MEDIUM"
+}

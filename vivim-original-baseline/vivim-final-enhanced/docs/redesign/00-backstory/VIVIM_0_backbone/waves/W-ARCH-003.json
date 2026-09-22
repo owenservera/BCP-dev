@@ -1,0 +1,39 @@
+{
+  "id": "W-ARCH-003",
+  "name": "Infrastructure Coverage",
+  "description": "F-034 to F-039 (frontend, desktop installer, dual-DB, seeds, devops, test suite) need explicit test strategies. Currently DISCOVERED with no engines.",
+  "cards": [
+    {
+      "id": "F-034",
+      "name": "Frontend Surfaces (Next.js + React)",
+      "state": "DISCOVERED"
+    },
+    {
+      "id": "F-035",
+      "name": "Desktop Installer (Tauri v2)",
+      "state": "DISCOVERED"
+    },
+    {
+      "id": "F-036",
+      "name": "Dual-DB System (system + user)",
+      "state": "DISCOVERED"
+    },
+    {
+      "id": "F-037",
+      "name": "Seed Pipeline",
+      "state": "DISCOVERED"
+    },
+    {
+      "id": "F-038",
+      "name": "DevOps Tooling",
+      "state": "DISCOVERED"
+    },
+    {
+      "id": "F-039",
+      "name": "Test Suite",
+      "state": "DISCOVERED"
+    }
+  ],
+  "estimated_effort": "M",
+  "risk": "LOW"
+}

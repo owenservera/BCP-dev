@@ -1,0 +1,46 @@
+{
+  "id": "F-034",
+  "slug": "frontend-surfaces",
+  "name": "Frontend Surfaces (Next.js + React)",
+  "category": "SURFACE",
+  "state": "DISCOVERED",
+  "value_targets": [
+    "V-1"
+  ],
+  "engines": [],
+  "frontend_paths": [
+    "frontend/src/app/",
+    "frontend/src/components/",
+    "frontend/src/engines/",
+    "frontend/src/features/"
+  ],
+  "description": "Next.js 16 + React 19 frontend. App router + canvas + components + engines + features. 200+ components.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 0,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 0,
+    "failing": 0
+  },
+  "migration": {
+    "from": "nothing",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:22:53.876Z",
+  "evidence_class": "FACT"
+}

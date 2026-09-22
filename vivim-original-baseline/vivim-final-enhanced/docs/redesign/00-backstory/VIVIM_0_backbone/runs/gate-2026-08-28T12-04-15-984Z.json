@@ -1,0 +1,38 @@
+{
+  "gate_id": "2026-08-28T12-04-15-984Z",
+  "timestamp": "2026-08-28T12:04:15.984Z",
+  "duration_ms": 35174,
+  "cards_evaluated": 1,
+  "cards_advanced": 0,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 23,
+    "fail": 1
+  },
+  "results": [
+    {
+      "card": "F-001",
+      "name": "Conversation System",
+      "state": "SCAFFOLDED",
+      "next_state": "PARTIAL",
+      "can_advance": false,
+      "blocker": null,
+      "tests": {
+        "unit": 8,
+        "integration": 2,
+        "e2e": 3,
+        "arch": 0,
+        "passing": 23,
+        "failing": 1,
+        "total": 24
+      },
+      "test_files": [
+        "tests/unit/engines/conversation-manager.test.ts",
+        "tests/integration/engines/conversation-manager.test.ts",
+        "tests/unit/engines/conversation-organizer.test.ts",
+        "tests/unit/engines/cross-conversation-synthesis.test.ts",
+        "tests/unit/message-identity.test.ts"
+      ]
+    }
+  ]
+}

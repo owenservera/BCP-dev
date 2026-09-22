@@ -1,0 +1,15 @@
+# BCP-dev snapshot — heavy files excluded by design
+**/node_modules/
+**/__pycache__/
+*.pyc
+*.pyo
+**/.test-tmp/
+.bcp.lock
+# Redundant / regenerable weight (see README "What was left out")
+bcp-speed.zip
+vivim-original-baseline/vivim-final-enhanced/.opencode/
+vivim-original-baseline/vivim-final-enhanced/bundles/
+omega-baseline/vivim-omega-final.bundle
+# OS noise
+Thumbs.db
+Desktop.ini

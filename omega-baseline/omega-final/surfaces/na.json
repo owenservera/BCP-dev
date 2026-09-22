@@ -1,0 +1,18 @@
+{
+  "rows": [
+    {
+      "op": "vault.append@1",
+      "surface": "web",
+      "reason": "the web surface is a read-path projection today (D-387 lazy vault poll); writes route through the daemon-client surface — re-deriving this row is the web write wave's first act",
+      "author": "D-436 (the wave-A landing, stated before the flip)",
+      "at": 1789958000000
+    },
+    {
+      "op": "vault.getmany@1",
+      "surface": "web",
+      "reason": "same read-path projection stance as vault.append@1; the batched window read lands with the web write wave's event path",
+      "author": "D-436 (the wave-A landing, stated before the flip)",
+      "at": 1789958000000
+    }
+  ]
+}

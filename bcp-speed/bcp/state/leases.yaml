@@ -1,0 +1,79 @@
+# Capability leases — soft, TTL-bound claims. Prevents two agents building
+# the same capability. Auto-maintained by the coordinator; agents read
+# before acquiring, append when acquiring, update status on release.
+version: 1
+updated_at: '2026-09-22T17:46:04Z'
+leases:
+  FAM-07.2:
+    leased_to: AGT-a1
+    status: released
+    role: scoped_builder
+    experiment: EXP-2026-004
+    depth_target: L2
+    leased_at: '2026-09-22T16:44:30Z'
+    expires_at: '2026-09-23T00:46:13Z'
+    released_at: '2026-09-22T16:46:24Z'
+  FAM-08.4:
+    leased_to: AGT-b2
+    status: expired
+    role: scoped_builder
+    experiment: EXP-2026-005
+    depth_target: L2
+    leased_at: '2026-09-22T15:01:32Z'
+    expires_at: '2026-09-22T23:18:15Z'
+    expired_at: '2026-09-22T17:46:04Z'
+    expired_reason: no activity from AGT-b2 for 2h00m
+  FAM-08.1:
+    leased_to: AGT-b1
+    status: released
+    role: scoped_builder
+    experiment: EXP-2026-005
+    depth_target: L2
+    leased_at: '2026-09-22T16:44:18Z'
+    expires_at: '2026-09-23T00:45:52Z'
+    released_at: '2026-09-22T16:46:12Z'
+  FAM-07.1:
+    leased_to: AGT-a1
+    status: released
+    role: scoped_builder
+    experiment: EXP-2026-004
+    depth_target: L2
+    leased_at: '2026-09-22T16:41:43Z'
+    expires_at: '2026-09-23T00:43:58Z'
+    released_at: '2026-09-22T16:44:06Z'
+  FAM-08.2:
+    leased_to: AGT-b1
+    status: released
+    role: scoped_builder
+    experiment: EXP-2026-005
+    depth_target: L2
+    leased_at: '2026-09-22T16:38:35Z'
+    expires_at: '2026-09-23T00:43:02Z'
+    released_at: '2026-09-22T16:43:21Z'
+  FAM-07.3:
+    leased_to: AGT-a1
+    status: released
+    role: scoped_builder
+    experiment: EXP-2026-004
+    depth_target: L2
+    leased_at: '2026-09-22T16:37:09Z'
+    expires_at: '2026-09-23T00:39:18Z'
+    released_at: '2026-09-22T16:39:28Z'
+  FAM-08.3:
+    leased_to: AGT-b1
+    status: released
+    role: scoped_builder
+    experiment: EXP-2026-005
+    depth_target: L2
+    leased_at: '2026-09-22T16:35:28Z'
+    expires_at: '2026-09-23T00:37:31Z'
+    released_at: '2026-09-22T16:37:57Z'
+  FAM-07.4:
+    leased_to: AGT-a1
+    status: released
+    role: scoped_builder
+    experiment: EXP-2026-004
+    depth_target: L2
+    leased_at: '2026-09-22T16:39:55Z'
+    expires_at: '2026-09-23T00:41:03Z'
+    released_at: '2026-09-22T16:41:13Z'

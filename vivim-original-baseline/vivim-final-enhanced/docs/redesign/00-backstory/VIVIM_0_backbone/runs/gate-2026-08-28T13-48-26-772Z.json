@@ -1,0 +1,35 @@
+{
+  "gate_id": "2026-08-28T13-48-26-772Z",
+  "timestamp": "2026-08-28T13:48:26.772Z",
+  "duration_ms": 1161,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 10,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-023",
+      "name": "MCP Integration",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 10,
+        "failing": 0,
+        "total": 10
+      },
+      "test_files": [
+        "tests/unit/engines/mcp-client-adapter.test.ts",
+        "tests/unit/engines/mcp-server-adapter.test.ts"
+      ]
+    }
+  ]
+}

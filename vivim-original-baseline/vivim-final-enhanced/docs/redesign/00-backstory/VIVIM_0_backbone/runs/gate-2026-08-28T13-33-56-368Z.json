@@ -1,0 +1,37 @@
+{
+  "gate_id": "2026-08-28T13-33-56-368Z",
+  "timestamp": "2026-08-28T13:33:56.368Z",
+  "duration_ms": 2425,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 48,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-008",
+      "name": "ActionPlan IR",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 8,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 48,
+        "failing": 0,
+        "total": 48
+      },
+      "test_files": [
+        "tests/unit/engines/action-plan.test.ts",
+        "tests/unit/engines/action-plan-bridge.test.ts",
+        "tests/unit/engines/action-plan-compiler.test.ts",
+        "tests/unit/engines/plan-validation-gate.test.ts"
+      ]
+    }
+  ]
+}

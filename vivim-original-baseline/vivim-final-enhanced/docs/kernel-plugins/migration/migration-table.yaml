@@ -1,0 +1,629 @@
+# Migration Table — Every Existing Source File
+# Schema: see migration-designyaml.md §3
+# Convention: one row per file or per logical unit
+# Generated: 2026-08-29 (manual; verify against raw-all-src.txt and raw-engines.txt)
+
+# =============================================================================
+# PART 1: K0 KERNEL — 17 SUBSYSTEMS (K-001..K-017)
+# Source: inventory/AT-FORENSIC-VERDICT.md §3
+# Target: src/plugin-kernel/<subsystem>/
+# Phase: P0 (P0-1) — the security boundary must land first
+# =============================================================================
+
+# --- K0-1: IPluginManager (C-01) — discover/certify/install/enable/disable/uninstall
+- id: K-001
+  source_path: src/ai/plugins/plugin-manager-impl.ts
+  source_line_start: 1
+  source_line_end: 180
+  current_layer: K1 (stub)
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/plugin-manager/manager.ts
+  target_subsystem: K0-1
+  contracts_affected: [C-01]
+  migration_phase: P0-1
+  migration_pr_sequence: 1
+  pr_size: L
+  blocker_for: [P0-2, P0-5, P3-*]
+  risk: high
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-04
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    Today this file returns `valid:false "not yet implemented (C4 phase 1)"` for discover() and only checks 3 things in certify().
+    P0-1 replaces it with the real 12-attack-vector certifier + the real install() that atomically stages in tmpdir() with sha256 verification.
+    The real install path lives in src/server/plugin-router.ts:100 — K-001 unifies the two.
+
+- id: K-002
+  source_path: src/ai/plugins/manager.ts
+  source_line_start: 1
+  source_line_end: 60
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/plugin-manager/contract.ts
+  target_subsystem: K0-1
+  contracts_affected: [C-01]
+  migration_phase: P0-1
+  migration_pr_sequence: 2
+  pr_size: S
+  blocker_for: [K-001]
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-01
+  evidence_doc: I-2/probe-02-import-boundary.md
+  notes: |
+    The IPluginManager interface shape. Stays in K0; the impl (K-001) lands.
+
+- id: K-003
+  source_path: src/server/plugin-router.ts
+  source_line_start: 100
+  source_line_end: 431
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/plugin-manager/install-router.ts
+  target_subsystem: K0-1, K0-15
+  contracts_affected: [C-01, C-15]
+  migration_phase: P0-1
+  migration_pr_sequence: 3
+  pr_size: L
+  blocker_for: [K-001, K-029]
+  risk: high
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-16
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The real install path today. P0-1 unifies this with the stubbed certifier in K-001.
+    After P0-1 there is exactly one install path; before there are two (architectural malpractice per D4).
+
+# --- K0-2: IPluginContext (C-02) — closed context every plugin receives
+# NEW FILE: see migration-new-files.yaml N-001
+# This row documents the MIGRATION TARGET, not a source row.
+
+- id: K-004
+  source_path: src/server/bootstrap/context.ts
+  source_line_start: 37
+  source_line_end: 250
+  current_layer: K1 (60+ field BootstrapContext leaked to first-party engines)
+  proposed_layer: SPLIT — interface in K0, impl in K1
+  proposed_path: src/plugin-kernel/plugin-context/context.ts (interface); src/server/bootstrap/context.ts (impl, reduced)
+  target_subsystem: K0-2
+  contracts_affected: [C-02]
+  migration_phase: P0-5
+  migration_pr_sequence: 1
+  pr_size: L
+  blocker_for: [K-001, P3-*]
+  risk: high
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-06, T-07
+  evidence_doc: I-2/probe-03-bootstrap-read-sites.md
+  notes: |
+    The 60+ field BootstrapContext today is a kernel-internals leak. P0-5 replaces it with a closed IPluginContext.
+    Every first-party engine is migrated to the closed context. P0-5 exit gate: every field in old BootstrapContext is reachable through new IPluginContext.
+
+# --- K0-3: IEventBus (C-03) — typed pub/sub with envelopes, DLQ, publishAndWait
+- id: K-005
+  source_path: src/ai/events/bus.ts
+  source_line_start: 1
+  source_line_end: 75
+  current_layer: K1 (interface)
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/event-bus/contract.ts
+  target_subsystem: K0-3
+  contracts_affected: [C-03]
+  migration_phase: P0-1
+  migration_pr_sequence: 4
+  pr_size: S
+  blocker_for: [K-006, K-007]
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The IEventBus interface. Moves to K0; the impls (K-006, K-007) follow.
+
+- id: K-006
+  source_path: src/ai/events/in-memory-bus.ts
+  source_line_start: 1
+  source_line_end: 150
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/event-bus/in-memory.ts
+  target_subsystem: K0-3
+  contracts_affected: [C-03]
+  migration_phase: P0-1
+  migration_pr_sequence: 5
+  pr_size: M
+  blocker_for: [K-007]
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The in-memory bus impl. P0-1 adds dot-namespace enforcement + DLQ + publishAndWait.
+
+- id: K-007
+  source_path: src/ai/events/event-record-bridge.ts
+  source_line_start: 1
+  source_line_end: 100
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/event-bus/record-bridge.ts
+  target_subsystem: K0-3, K0-11
+  contracts_affected: [C-03, C-18]
+  migration_phase: P0-1
+  migration_pr_sequence: 6
+  pr_size: M
+  blocker_for: []
+  risk: med
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-09
+  evidence_doc: I-2/probe-04-bus-event-diff.md
+  notes: |
+    The V1↔V2 bus bridge. Stays in K0; the legacy V1 bus becomes a first-party shim (out of scope for K0).
+    P0-1 ensures the bridge does not lose events (per AT-FORENSIC-VERDICT §8 risk #6).
+
+# --- K0-4: IProviderRegistry + IModelRegistry (C-06, C-07) — registry + state machine
+- id: K-008
+  source_path: src/ai/registry/registry.ts
+  source_line_start: 33
+  source_line_end: 80
+  current_layer: K1 (interface)
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/registry/provider-contract.ts
+  target_subsystem: K0-4
+  contracts_affected: [C-06, C-07]
+  migration_phase: P0-2
+  migration_pr_sequence: 1
+  pr_size: M
+  blocker_for: [K-009, P3-22..P3-32]
+  risk: med
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-14
+  evidence_doc: I-2/probe-05-contract-consumers.md
+  notes: |
+    Adds `expectedFrom` parameter to setState (TOCTOU defense per REASSESSMENT Gap-7).
+    Splits impl from interface (P1-2).
+
+- id: K-009
+  source_path: src/ai/registry/in-memory-provider-registry.ts
+  source_line_start: 1
+  source_line_end: 120
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/registry/in-memory-provider.ts
+  target_subsystem: K0-4
+  contracts_affected: [C-06]
+  migration_phase: P0-2
+  migration_pr_sequence: 2
+  pr_size: M
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The default in-memory provider registry impl. P0-2 adds state-machine enforcement.
+
+- id: K-010
+  source_path: src/ai/registry/in-memory-model-registry.ts
+  source_line_start: 1
+  source_line_end: 50
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/registry/in-memory-model.ts
+  target_subsystem: K0-4
+  contracts_affected: [C-07]
+  migration_phase: P0-2
+  migration_pr_sequence: 3
+  pr_size: S
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The default in-memory model registry impl. Interface/impl split in P1-2.
+
+# --- K0-5: IProviderAdapter + AdapterError (C-05) — single behavioural surface
+- id: K-011
+  source_path: src/ai/protocol/adapter.ts
+  source_line_start: 1
+  source_line_end: 100
+  current_layer: K1 (interface)
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/adapter/contract.ts
+  target_subsystem: K0-5
+  contracts_affected: [C-05]
+  migration_phase: P0-2
+  migration_pr_sequence: 4
+  pr_size: M
+  blocker_for: [P3-22..P3-32]
+  risk: med
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-12
+  evidence_doc: I-2/probe-05-contract-consumers.md
+  notes: |
+    P0-2 splits the 6-variant AdapterError discriminated union (per REASSESSMENT Gap-4).
+    Versioned by VIVIM_AI_PROTOCOL.
+
+- id: K-012
+  source_path: src/ai/core/types.ts
+  source_line_start: 1
+  source_line_end: 600
+  current_layer: K1 (mixed)
+  proposed_layer: SPLIT — branded types in K0, error types in K0, protocol/version in K0
+  proposed_path: src/plugin-kernel/core/types.ts (K0 subset); remainder in src/plugin-kernel/adapter/errors.ts
+  target_subsystem: K0-5, K0-14
+  contracts_affected: [C-05, C-20]
+  migration_phase: P0-2
+  migration_pr_sequence: 5
+  pr_size: L
+  blocker_for: [K-011, K-013]
+  risk: high
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-12
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The 23KB types file is the single source of truth for branded IDs, error types, and protocol version.
+    P0-2 splits it: branded ID types → K0-14 (EncryptionEngine); error types → K0-5 (AdapterError); protocol/version → K0-5.
+    The migration is a re-export in the original location; no other file changes.
+
+- id: K-013
+  source_path: src/ai/core/errors.ts
+  source_line_start: 1
+  source_line_end: 200
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/core/errors.ts
+  target_subsystem: K0-5, K0-14
+  contracts_affected: [C-05, C-20]
+  migration_phase: P0-2
+  migration_pr_sequence: 6
+  pr_size: M
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The error class hierarchy. AdapterError subset → K0-5; rest stays in K0-14.
+
+- id: K-014
+  source_path: src/ai/core/invariants.ts
+  source_line_start: 1
+  source_line_end: 80
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/core/invariants.ts
+  target_subsystem: K0-15
+  contracts_affected: [C-15]
+  migration_phase: P0-1
+  migration_pr_sequence: 7
+  pr_size: S
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The kernel invariant checks. Stays in K0; consumed by every kernel subsystem.
+
+# --- K0-6: IExecutionManager (C-10) — concurrency, queueing, cancellation
+- id: K-015
+  source_path: src/ai/execution/manager.ts
+  source_line_start: 1
+  source_line_end: 50
+  current_layer: K1 (interface)
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/execution/manager-contract.ts
+  target_subsystem: K0-6
+  contracts_affected: [C-10]
+  migration_phase: P0-2
+  migration_pr_sequence: 7
+  pr_size: S
+  blocker_for: [K-016]
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-01
+  evidence_doc: I-2/probe-05-contract-consumers.md
+  notes: |
+    P0-2 adds `drainProvider()` and `forceStopProvider()` separation (per REASSESSMENT Gap-5).
+
+- id: K-016
+  source_path: src/ai/execution/in-memory-manager.ts
+  source_line_start: 1
+  source_line_end: 300
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/execution/in-memory.ts
+  target_subsystem: K0-6
+  contracts_affected: [C-10]
+  migration_phase: P0-2
+  migration_pr_sequence: 8
+  pr_size: L
+  blocker_for: [K-017]
+  risk: med
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The in-memory ExecutionManager. P0-2 adds the new lifecycle methods.
+
+- id: K-017
+  source_path: src/ai/execution/types.ts
+  source_line_start: 1
+  source_line_end: 120
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/execution/types.ts
+  target_subsystem: K0-6
+  contracts_affected: [C-10]
+  migration_phase: P0-2
+  migration_pr_sequence: 9
+  pr_size: S
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+
+- id: K-018
+  source_path: src/ai/execution/internal.ts
+  source_line_start: 1
+  source_line_end: 50
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/execution/internal.ts
+  target_subsystem: K0-6
+  contracts_affected: [C-10]
+  migration_phase: P0-2
+  migration_pr_sequence: 10
+  pr_size: S
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+
+# --- K0-7: IRuntimeSupervisor + IResourceManager (C-11, C-12) — process boundary + lease
+- id: K-019
+  source_path: src/ai/runtime/supervisor.ts
+  source_line_start: 1
+  source_line_end: 50
+  current_layer: K1 (interface)
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/runtime/supervisor-contract.ts
+  target_subsystem: K0-7
+  contracts_affected: [C-11]
+  migration_phase: P0-1
+  migration_pr_sequence: 8
+  pr_size: S
+  blocker_for: [K-021]
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The IRuntimeSupervisor interface. The Tauri-side Rust impl stays in src-tauri/ (out of scope).
+
+- id: K-020
+  source_path: src/ai/runtime/ts-supervisor.ts
+  source_line_start: 1
+  source_line_end: 200
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/runtime/ts-supervisor.ts
+  target_subsystem: K0-7
+  contracts_affected: [C-11]
+  migration_phase: P0-1
+  migration_pr_sequence: 9
+  pr_size: M
+  blocker_for: []
+  risk: med
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    The TS-side IRuntimeSupervisor impl. The Rust-side Tauri supervisor is a separate subsystem (K4).
+
+- id: K-021
+  source_path: src/ai/runtime/resources.ts
+  source_line_start: 1
+  source_line_end: 60
+  current_layer: K1 (interface)
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/runtime/resources-contract.ts
+  target_subsystem: K0-7
+  contracts_affected: [C-12]
+  migration_phase: P0-1
+  migration_pr_sequence: 10
+  pr_size: S
+  blocker_for: [K-022]
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    P0-1 adds `acquire` (throw) + `tryAcquire` (return null) — per REASSESSMENT Gap-9.
+
+- id: K-022
+  source_path: src/ai/runtime/in-memory-resource-manager.ts
+  source_line_start: 1
+  source_line_end: 120
+  current_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/runtime/in-memory-resources.ts
+  target_subsystem: K0-7
+  contracts_affected: [C-12]
+  migration_phase: P0-1
+  migration_pr_sequence: 11
+  pr_size: M
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+
+# --- K0-8: IPolicyEnforcer + IPolicyEvaluator (C-09) — deny-at-egress
+- id: K-023
+  source_path: src/ai/policy/policy.ts
+  source_line_start: 1
+  source_line_end: 100
+  current_layer: K1 (mixed — enforcer + evaluator)
+  proposed_layer: SPLIT — enforcer in K0-8, evaluator in K1 (plugin:policy)
+  proposed_path: src/plugin-kernel/policy/enforcer.ts (K0); plugins/core/plugin-policy/evaluator.ts (K1)
+  target_subsystem: K0-8
+  contracts_affected: [C-09]
+  migration_phase: P0-2
+  migration_pr_sequence: 11
+  pr_size: M
+  blocker_for: [K-024, K-025]
+  risk: high
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-11
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+  notes: |
+    Per MISSING-12 + REASSESSMENT Change-8, enforcement is KERNEL; policy content is K1.
+    P0-2 splits; P0-2 also adds `enforceCapabilityInvocation` (the capability-abuse defense).
+    This is the most important split — it makes "VIVIM eats its own dog food" testable.
+
+- id: K-024
+  source_path: src/ai/policy/default-policy.ts
+  source_line_start: 1
+  source_line_end: 250
+  current_layer: K1
+  proposed_layer: K0 (default impl of enforcer) + K1 (evaluator defaults)
+  proposed_path: src/plugin-kernel/policy/default-enforcer.ts (K0); plugins/core/plugin-policy/default-evaluator.ts (K1)
+  target_subsystem: K0-8
+  contracts_affected: [C-09]
+  migration_phase: P0-2
+  migration_pr_sequence: 12
+  pr_size: L
+  blocker_for: []
+  risk: med
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-11
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+
+- id: K-025
+  source_path: src/ai/policy/store-backed-policy.ts
+  source_line_start: 1
+  source_line_end: 250
+  current_layer: K1
+  proposed_layer: K0 (store-backed enforcer)
+  proposed_path: src/plugin-kernel/policy/store-backed-enforcer.ts
+  target_subsystem: K0-8
+  contracts_affected: [C-09]
+  migration_phase: P0-2
+  migration_pr_sequence: 13
+  pr_size: M
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+
+# --- K0-9: IRouter + IRoutingStrategy (C-08) — candidate discover + score + decide
+- id: K-026
+  source_path: src/ai/routing/router.ts
+  source_line_start: 1
+  source_line_end: 80
+  current_layer: K1 (interface)
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/router/contract.ts
+  target_subsystem: K0-9
+  contracts_affected: [C-08]
+  migration_phase: P0-2
+  migration_pr_sequence: 14
+  pr_size: S
+  blocker_for: [K-027, K-028]
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+
+- id: K-027
+  source_path: src/ai/routing/strategies.ts
+  source_line_start: 1
+  source_line_end: 200
+  current_layer: K1 (interface + strategies)
+  proposed_layer: SPLIT — interface in K0, default strategies in K1 (plugin:routing-learning)
+  proposed_path: src/plugin-kernel/router/strategy-contract.ts (K0); plugins/core/plugin-routing-learning/strategies.ts (K1)
+  target_subsystem: K0-9
+  contracts_affected: [C-08]
+  migration_phase: P0-2
+  migration_pr_sequence: 15
+  pr_size: M
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+
+- id: K-028
+  source_path: src/ai/routing/default-router.ts
+  source_layer: K1
+  proposed_layer: K0
+  proposed_path: src/plugin-kernel/router/default-router.ts
+  target_subsystem: K0-9
+  contracts_affected: [C-08]
+  migration_phase: P0-2
+  migration_pr_sequence: 16
+  pr_size: M
+  blocker_for: []
+  risk: low
+  capability_preserved: yes
+  capability_enhanced: no
+  test_gate: T-01
+  evidence_doc: I-2/probe-01-per-file-truth-map.md
+
+# --- K0-10: SandboxedNode + SandboxRunner (C-13) — iframe + QuickJS
+- id: K-029
+  source_path: frontend/src/components/canvas/SandboxedNode.tsx
+  source_line_start: 1
+  source_line_end: 600
+  current_layer: K0 (already kernel; verified in 01-AUDIT-FINDINGS A1)
+  proposed_layer: K0
+  proposed_path: frontend/src/plugin-kernel/sandbox/SandboxedNode.tsx (moved to canonical kernel location)
+  target_subsystem: K0-10
+  contracts_affected: [C-13]
+  migration_phase: P0-3
+  migration_pr_sequence: 1
+  pr_size: M
+  blocker_for: [P3-34..P3-38, P4-*]
+  risk: med
+  capability_preserved: yes
+  capability_enhanced: yes
+  test_gate: T-08, T-15
+  evidence_doc: I-2/probe-07-frontend-inventory.md
+  notes: |
+    The iframe host. Already does the right thing (verified). P0-3 moves it to the canonical kernel location
+    and adds: (a) scriptUrl origin gate (per MISSING-15), (b) unified SandboxPolicy.
+
+# (continued in next file segments — see migration-table.yaml for the full list)

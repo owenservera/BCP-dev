@@ -1,0 +1,37 @@
+{
+  "gate_id": "2026-08-28T13-49-12-874Z",
+  "timestamp": "2026-08-28T13:49:12.875Z",
+  "duration_ms": 2519,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 17,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-026",
+      "name": "Media & LLM Bridge",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 17,
+        "failing": 0,
+        "total": 17
+      },
+      "test_files": [
+        "tests/unit/engines/media-engine.test.ts",
+        "tests/unit/engines/image-gen-bridge.test.ts",
+        "tests/unit/engines/local-model-adapter.test.ts",
+        "tests/unit/engines/api-provider-adapter.test.ts"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "gate_id": "2026-08-28T13-44-41-379Z",
+  "timestamp": "2026-08-28T13:44:41.379Z",
+  "duration_ms": 3201,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 26,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-002",
+      "name": "Memory System (FSRS-6)",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 10,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 26,
+        "failing": 0,
+        "total": 26
+      },
+      "test_files": [
+        "tests/unit/engines/memory-engine.test.ts",
+        "tests/unit/engines/memory-export.test.ts",
+        "tests/unit/engines/memory-indexer.test.ts",
+        "tests/unit/fsrs-scheduler.test.ts"
+      ]
+    }
+  ]
+}

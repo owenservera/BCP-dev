@@ -1,0 +1,43 @@
+{
+  "id": "F-040",
+  "slug": "logging",
+  "name": "Logging Infrastructure",
+  "category": "INFRA",
+  "state": "WORKING",
+  "value_targets": [
+    "V-3"
+  ],
+  "engines": [
+    "logger.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Pino-based logger. Per-engine getLogger() pattern. OpenTelemetry forwarding via otel-sink.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 1,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 6,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:27:21.703Z",
+  "evidence_class": "FACT"
+}

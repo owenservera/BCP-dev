@@ -1,0 +1,37 @@
+{
+  "gate_id": "2026-08-28T13-48-14-199Z",
+  "timestamp": "2026-08-28T13:48:14.201Z",
+  "duration_ms": 2661,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 16,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-010",
+      "name": "Agent Builder",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 5,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 16,
+        "failing": 0,
+        "total": 16
+      },
+      "test_files": [
+        "tests/unit/engines/agent-builder.test.ts",
+        "tests/unit/engines/agentic-loop.test.ts",
+        "tests/unit/engines/agentic-slm.test.ts",
+        "tests/unit/engines/autonomous-planner.test.ts"
+      ]
+    }
+  ]
+}

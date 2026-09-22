@@ -1,0 +1,47 @@
+{
+  "id": "F-001",
+  "slug": "conversation-system",
+  "name": "Conversation System",
+  "category": "KERNEL",
+  "state": "SCAFFOLDED",
+  "value_targets": [
+    "V-1"
+  ],
+  "engines": [
+    "conversation-manager.ts",
+    "conversation-organizer.ts",
+    "conversation-history-sync.ts",
+    "cross-conversation-synthesis.ts",
+    "message-identity.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Core chat/messaging system. Manages conversations, messages, history, identity. The user-facing chat surface.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 8,
+    "integration": 2,
+    "e2e": 3,
+    "arch": 0,
+    "passing": 23,
+    "failing": 1
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:23:28.853Z",
+  "evidence_class": "FACT"
+}

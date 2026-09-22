@@ -1,0 +1,38 @@
+{
+  "gate_id": "2026-08-28T13-49-17-945Z",
+  "timestamp": "2026-08-28T13:49:17.945Z",
+  "duration_ms": 2884,
+  "cards_evaluated": 1,
+  "cards_advanced": 1,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 27,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-027",
+      "name": "Send & Resilience",
+      "state": "WORKING",
+      "next_state": "WORKING",
+      "can_advance": true,
+      "blocker": null,
+      "tests": {
+        "unit": 4,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 27,
+        "failing": 0,
+        "total": 27
+      },
+      "test_files": [
+        "tests/unit/engines/send-capability.test.ts",
+        "tests/unit/engines/send-resilience.test.ts",
+        "tests/integration/engines/send-resilience.test.ts",
+        "tests/unit/engines/request-queue.test.ts",
+        "tests/unit/engines/retry-engine.test.ts"
+      ]
+    }
+  ]
+}

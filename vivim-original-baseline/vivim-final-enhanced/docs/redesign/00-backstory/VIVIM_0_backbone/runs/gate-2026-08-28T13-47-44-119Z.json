@@ -1,0 +1,46 @@
+{
+  "gate_id": "2026-08-28T13-47-44-119Z",
+  "timestamp": "2026-08-28T13:47:44.119Z",
+  "duration_ms": 8878,
+  "cards_evaluated": 1,
+  "cards_advanced": 0,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 103,
+    "fail": 3
+  },
+  "results": [
+    {
+      "card": "F-005",
+      "name": "Provider + CDP System",
+      "state": "SCAFFOLDED",
+      "next_state": "PARTIAL",
+      "can_advance": false,
+      "blocker": null,
+      "tests": {
+        "unit": 28,
+        "integration": 9,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 103,
+        "failing": 3,
+        "total": 106
+      },
+      "test_files": [
+        "tests/unit/engines/provider-registrar.test.ts",
+        "tests/unit/engines/provider-protocol-loader.test.ts",
+        "tests/unit/engines/provider-protocol-generator.test.ts",
+        "tests/unit/engines/provider-health.test.ts",
+        "tests/unit/engines/provider-mux.test.ts",
+        "tests/unit/engines/chrome-governor.test.ts",
+        "tests/integration/engines/chrome-governor.test.ts",
+        "tests/unit/engines/chrome-setup-wizard.test.ts",
+        "tests/unit/engines/cdp-discovery.test.ts",
+        "tests/unit/engines/cdp-capability-registrar.test.ts",
+        "tests/unit/engines/cdp-watchdog.test.ts",
+        "tests/unit/engines/protocol-discovery.test.ts",
+        "tests/unit/engines/protocol-loop-parser.test.ts"
+      ]
+    }
+  ]
+}

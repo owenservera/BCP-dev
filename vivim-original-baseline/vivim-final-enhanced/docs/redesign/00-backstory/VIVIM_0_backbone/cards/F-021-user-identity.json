@@ -1,0 +1,47 @@
+{
+  "id": "F-021",
+  "slug": "user-identity",
+  "name": "User Identity & Contacts",
+  "category": "KERNEL",
+  "state": "WORKING",
+  "value_targets": [
+    "V-1",
+    "V-2"
+  ],
+  "engines": [
+    "user-identity.ts",
+    "session-caps.ts",
+    "contact-engine.ts",
+    "notification-engine.ts"
+  ],
+  "frontend_paths": [],
+  "description": "User identity, session capabilities, contact management, notifications.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 4,
+    "integration": 0,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 33,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:25:45.411Z",
+  "evidence_class": "FACT"
+}

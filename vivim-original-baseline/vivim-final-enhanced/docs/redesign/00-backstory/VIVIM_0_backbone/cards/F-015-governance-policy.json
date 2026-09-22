@@ -1,0 +1,50 @@
+{
+  "id": "F-015",
+  "slug": "governance-policy",
+  "name": "Governance & Policy",
+  "category": "KERNEL",
+  "state": "WORKING",
+  "value_targets": [
+    "V-1",
+    "V-2"
+  ],
+  "engines": [
+    "consent-engine.ts",
+    "governance-engine.ts",
+    "policy-engine.ts",
+    "trust-score.ts",
+    "audit-trail.ts",
+    "event-record-store.ts",
+    "telemetry-audit.ts"
+  ],
+  "frontend_paths": [],
+  "description": "User consent, governance, policy enforcement, trust scoring, audit trail, event recording.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 10,
+    "integration": 4,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 57,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:25:00.883Z",
+  "evidence_class": "FACT"
+}

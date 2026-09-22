@@ -1,0 +1,28 @@
+{
+  "gate_id": "2026-08-28T11-28-35-234Z",
+  "timestamp": "2026-08-28T11:28:35.234Z",
+  "duration_ms": 6,
+  "cards_evaluated": 1,
+  "cards_advanced": 0,
+  "cards_blocked": 0,
+  "totals": {
+    "pass": 0,
+    "fail": 0
+  },
+  "results": [
+    {
+      "card": "F-011",
+      "name": "Stream Parsing",
+      "state": "SCAFFOLDED",
+      "tests": {
+        "unit": 12,
+        "integration": 0,
+        "e2e": 2,
+        "arch": 0,
+        "passing": 0,
+        "failing": 0
+      },
+      "skipped": "no-tests"
+    }
+  ]
+}

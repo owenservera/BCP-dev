@@ -1,0 +1,6 @@
+[DONE] Pass 1 (2026-08-29): MASTER-SPEC.md written -- 5 zones, 17 K0 subsystems, 51 features (41 migrated + 10 net-new), 12 boot phases, 8 design principles, 8 open questions, 12 security attack vectors, wave plan, migration strategy
+[TODO] Pass 2: Kernel contracts -- 17 subsystems + IPluginContext v2 + IIntelContext + IScopedStorage + IScopedEventBus + IWhy
+[TODO] Pass 3: Intelligence substrate -- 6-tier pipeline spec, hot-swap protocol, training data format
+[TODO] Pass 4: Reprogrammability + M-Layer -- 8-op DSL, invariant format, IWhy DB schema, Living Librarian v4
+[TODO] Pass 5: Plugin catalog + UX flows -- 51 FEATURE_CARDs, 6 priority UX flows
+[TODO] Pass 6: PMM matrix -- 51 features scored + waved + dependency graph + critical path

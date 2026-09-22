@@ -1,0 +1,56 @@
+{
+  "id": "AR-003",
+  "slug": "vscode-extension-model",
+  "name": "VS Code Extension Model for User-Configurable Programs",
+  "proposed_at": "2026-08-28T14:08:29.693Z",
+  "proposed_by": "user",
+  "rubric": {
+    "V": 5,
+    "KI": 1,
+    "T": 2,
+    "S": 1,
+    "C": 0,
+    "R": 1,
+    "FI": 2,
+    "IIW": 0
+  },
+  "rubric_score": 12,
+  "rubric_breakdown": {
+    "V": {
+      "got": 5,
+      "max": 5
+    },
+    "KI": {
+      "got": 1,
+      "max": 3
+    },
+    "T": {
+      "got": 2,
+      "max": 3
+    },
+    "S": {
+      "got": 1,
+      "max": 3
+    },
+    "C": {
+      "got": 0,
+      "max": 3
+    },
+    "R": {
+      "got": 1,
+      "max": 3
+    },
+    "FI": {
+      "got": 2,
+      "max": 2
+    },
+    "IIW": {
+      "got": 0,
+      "max": 1
+    }
+  },
+  "auto_verdict": "ADMIT",
+  "final_verdict": "ADMIT",
+  "status": "PENDING",
+  "reason": ""
+}

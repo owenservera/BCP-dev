@@ -1,0 +1,150 @@
+{
+  "id": "W-2026-09-A",
+  "name": "Friends Alpha",
+  "description": "First wave to friends. Lowest risk, highest value. The 'does it work at all?' test.",
+  "cards": [
+    {
+      "id": "F-015",
+      "name": "Governance & Policy",
+      "slug": "governance-policy",
+      "value": [
+        "V-1",
+        "V-2"
+      ],
+      "tests": {
+        "unit": 10,
+        "integration": 4,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 57,
+        "failing": 0
+      }
+    },
+    {
+      "id": "F-007",
+      "name": "Capability Registry",
+      "slug": "capability-registry",
+      "value": [
+        "V-1",
+        "V-3"
+      ],
+      "tests": {
+        "unit": 83,
+        "integration": 7,
+        "e2e": 3,
+        "arch": 0,
+        "passing": 111,
+        "failing": 0
+      }
+    },
+    {
+      "id": "F-009",
+      "name": "Execution Kernel",
+      "slug": "execution-kernel",
+      "value": [
+        "V-1",
+        "V-3"
+      ],
+      "tests": {
+        "unit": 37,
+        "integration": 3,
+        "e2e": 4,
+        "arch": 0,
+        "passing": 76,
+        "failing": 0
+      }
+    },
+    {
+      "id": "F-014",
+      "name": "Sandbox & Security Eval",
+      "slug": "sandbox-security",
+      "value": [
+        "V-1",
+        "V-2"
+      ],
+      "tests": {
+        "unit": 6,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 37,
+        "failing": 0
+      }
+    },
+    {
+      "id": "F-019",
+      "name": "Lifecycle & Session",
+      "slug": "lifecycle-session",
+      "value": [
+        "V-1",
+        "V-3"
+      ],
+      "tests": {
+        "unit": 8,
+        "integration": 1,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 89,
+        "failing": 0
+      }
+    },
+    {
+      "id": "F-021",
+      "name": "User Identity & Contacts",
+      "slug": "user-identity",
+      "value": [
+        "V-1",
+        "V-2"
+      ],
+      "tests": {
+        "unit": 4,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 33,
+        "failing": 0
+      }
+    },
+    {
+      "id": "F-002",
+      "name": "Memory System (FSRS-6)",
+      "slug": "memory-system",
+      "value": [
+        "V-1",
+        "V-3"
+      ],
+      "tests": {
+        "unit": 10,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 26,
+        "failing": 0
+      }
+    },
+    {
+      "id": "F-004",
+      "name": "Context Assembly",
+      "slug": "context-assembly",
+      "value": [
+        "V-1",
+        "V-3"
+      ],
+      "tests": {
+        "unit": 2,
+        "integration": 0,
+        "e2e": 0,
+        "arch": 0,
+        "passing": 23,
+        "failing": 0
+      }
+    }
+  ],
+  "estimated_effort": "S",
+  "gates_required": [
+    "G-INSTALL",
+    "G-LAUNCH"
+  ],
+  "friend_testers": 3,
+  "shipped": false
+}

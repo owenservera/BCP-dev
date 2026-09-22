@@ -1,0 +1,46 @@
+{
+  "id": "F-020",
+  "slug": "sync-p2p",
+  "name": "P2P Sync",
+  "category": "PLUGIN",
+  "state": "WORKING",
+  "value_targets": [
+    "V-3"
+  ],
+  "engines": [
+    "sync.ts",
+    "sync-engine.ts",
+    "lock-manager.ts",
+    "idempotency-guard.ts"
+  ],
+  "frontend_paths": [],
+  "description": "Peer-to-peer sync between machines. Lock manager + idempotency guard for safe concurrent writes.",
+  "sota_status": "UNKNOWN",
+  "tests": {
+    "unit": 4,
+    "integration": 1,
+    "e2e": 0,
+    "arch": 0,
+    "passing": 21,
+    "failing": 0
+  },
+  "migration": {
+    "from": "partial",
+    "to": "WORKING",
+    "steps": [],
+    "effort": "M",
+    "risk": "MEDIUM",
+    "reversible": true
+  },
+  "cleanup_debt": {
+    "files_to_remove": [],
+    "files_to_rename": [],
+    "files_to_split": [],
+    "dead_code": [],
+    "stale_tests": [],
+    "stale_docs": []
+  },
+  "created": "2026-08-29T19:22:52.800Z",
+  "last_verified": "2026-08-29T19:25:37.727Z",
+  "evidence_class": "FACT"
+}

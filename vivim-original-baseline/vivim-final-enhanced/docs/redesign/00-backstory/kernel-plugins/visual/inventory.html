@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atomic Inventory — Vivim Plugin Kernel</title>
+<style>
+  :root{
+    --bg:#0b0f14; --fg:#e6edf3; --muted:#8b949e; --line:#1f2a37;
+    --core:#0ea5e9; --core-bg:#0c4a6e;
+    --default:#f59e0b; --default-bg:#78350f;
+    --generic:#10b981; --generic-bg:#064e3b;
+    --debate:#e879f9; --warn:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:13px/1.45 ui-sans-system,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+  a{color:var(--core)}
+  header{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 14px}
+  header h1{margin:0;font-size:15px}
+  header p{margin:4px 0 0;color:var(--muted);font-size:12px}
+  .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .bar input[type=search]{flex:1;min-width:240px;max-width:520px;background:#111827;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;outline:none}
+  .bar select, .bar button{background:#0f172a;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-size:12px}
+  .bar label{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center}
+  .counts{color:var(--muted);font-size:11px}
+  main{max-width:1260px;margin:0 auto;padding:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+  .chip{display:inline-flex;gap:6px;align-items:center;padding:4px 8px;border-radius:999px;font-size:11px;border:1px solid var(--line);background:#0f172a}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .table{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0f172a}
+  .row{display:grid;grid-template-columns:64px 1fr 140px 220px 1fr;gap:0;border-bottom:1px solid var(--line);align-items:stretch}
+  .row.head{background:#0b1220;color:var(--muted);font-size:11px;letter-spacing:.6px;text-transform:uppercase}
+  .cell{padding:8px 9px;border-right:1px solid var(--line);overflow:hidden}
+  .cell:last-child{border-right:none}
+  .id{font:11px ui-monospace,monospace;color:var(--muted)}
+  .sent{font-size:12px}
+  .sent .debate{display:inline-block;margin-left:6px;padding:1px 5px;border-radius:999px;background:#2e1065;border:1px solid var(--debate);color:#f5d0fe;font-size:10px;vertical-align:middle}
+  .layer{font-size:11px;display:inline-flex;gap:6px;align-items:center;padding:3px 7px;border-radius:999px;border:1px solid var(--line)}
+  .layer.core{border-color:var(--core);color:var(--core);background:rgba(14,165,233,.12)}
+  .layer.default{border-color:var(--default);color:var(--default);background:rgba(245,158,11,.14)}
+  .layer.generic{border-color:var(--generic);color:var(--generic);background:rgba(16,185,129,.14)}
+  .code{font:11px ui-monospace,monospace;color:#cbd5e1;word-break:break-all}
+  .code .hl{background:#1e293b;color:#fff;padding:0 2px;border-radius:4px}
+  .note{font-size:11px;color:var(--muted)}
+  .note em{color:var(--warn);font-style:normal}
+  .row.filtered{display:none}
+  .footer{padding:10px;color:var(--muted);font-size:11px;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .explain{color:var(--muted);font-size:12px;margin:10px 0 0}
+  @media(max-width:980px){.row{grid-template-columns:56px 1fr 110px}.row .cell:nth-child(4), .row .cell:nth-child(5){display:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Atomic Inventory — What Goes Where <span style="color:var(--muted);font-weight:400">· 194 rows · 75 CORE + 84 DEFAULT PLUGIN + 35 GENERIC · 17 DEBATE · v1 + v2 flagged</span></h1>
+  <p>Product-language, code-anchored, filterable. <strong>How to lock:</strong> filter to Debate only, leave a note per row (click row → note field), Export Notes → paste JSON to agent. The agent updates <code>MAP.md</code>/<code>PLAN.md</code>/<code>STATUS.md</code> per your calls.</p>
+  <div class="bar">
+    <input id="q" type="search" placeholder="Search product sentence, code anchor, or note (e.g. scriptUrl, provider-registrar, inbox)" />
+    <select id="domain">
+      <option value="">All domains</option>
+      <option value="A">A — Boot/Events/Foundation</option>
+      <option value="B">B — Data/Schema/Storage</option>
+      <option value="C">C — Security/Isolation</option>
+      <option value="D">D — Canvas/Workspace/UI</option>
+      <option value="E">E — Conversations/Providers</option>
+      <option value="F">F — Memory/Knowledge</option>
+      <option value="G">G — Automation/Harness</option>
+      <option value="H">H — Health/Observability</option>
+      <option value="I">I — Policy/Identity/Admin</option>
+      <option value="J">J — Generic Plugin Surface</option>
+    </select>
+    <select id="layer">
+      <option value="">All layers</option>
+      <option value="CORE">CORE</option>
+      <option value="DEFAULT PLUGIN">DEFAULT PLUGIN</option>
+      <option value="GENERIC">GENERIC</option>
+    </select>
+    <label><input id="debate" type="checkbox" /> Debate only</label>
+    <label><input id="v2only" type="checkbox" /> v2 flagged only</label>
+    <button id="clear">Clear</button>
+    <button id="export">Export Notes JSON</button>
+  </div>
+  <div class="bar">
+    <span class="counts" id="counts"></span>
+    <span class="counts">Twin: <code>inventory/ATOMIC-INVENTORY.md</code> · System: <code>inventory/RESEARCH-SYSTEM.md</code></span>
+  </div>
+  <div class="chips" id="chips"></div>
+</header>
+
+<main>
+  <div class="table" id="table">
+    <div class="row head">
+      <div class="cell">ID</div>
+      <div class="cell">Product sentence</div>
+      <div class="cell">Layer</div>
+      <div class="cell">Code anchor</div>
+      <div class="cell">Note / v1 vs v2</div>
+    </div>
+  </div>
+  <p class="explain">
+    <strong>Read as a non-engineer:</strong> CORE = foundation/plumbing you never toggle. DEFAULT PLUGIN = features you see (chat, memory, canvas, providers) that ship on but could be turned off — built with the same machinery plugins use. GENERIC = what <em>you</em> are allowed to build. <strong>v1</strong> = buildable in the first plugin release; <strong>v2</strong> = designed, unlockable later without breaking v1 plugins. <em>Anchor</em> is the file/model an engineer would open to verify the row.
+  </p>
+</main>
+
+<script>
+const ROWS = [
+  // A — 18
+  ["A01","Boot the product in the right order (seeds → stores → knowledge → capabilities → lifecycle)","CORE","src/server/bootstrap/orchestrator.ts:15, phases/*","5-phase pipeline today, 738 lines in capabilities.ts"],
+  ["A02","Remember how the system booted and what was registered (topology)","CORE","src/engines/kernel/kernel-registry.ts:15, KernelTopology","Observability kernel, not plugin kernel"],
+  ["A03","Know which build/version of schemas and providers is running","CORE","SchemaMeta, CapabilityTaxonomyVersion, version-manager.ts","Drift detection"],
+  ["A04","Publish and subscribe to events inside the product","CORE","capability-event-bus.ts:165 (V1) + v2.ts:46 bridge","V2 canonical for kernel (D3)"],
+  ["A05","Durably record every important event so history isn’t lost","CORE","event-record-store.ts, EventRecord, RegistrationEvent","Outbox for replay"],
+  ["A06","Run modules in dependency order and detect cycles","CORE","src/server/module-registry.ts:59 (Kahn topo)","Stays eager in v1 (D6)"],
+  ["A07","Lifecycle hooks — init / start / stop every engine in order","CORE","module-registry.ts:32 lifecycle:{init,start,stop}",""],
+  ["A08","Central configuration (one place for tunables, audited)","CORE","config-manager.ts, ConfigEntry+ConfigAudit","config-store contract"],
+  ["A09","Structured logging and tracing every operation","CORE","logger.ts, otel-sink.ts, KernelSpan+KernelProvenance","getLogger, never console.*"],
+  ["A10","Universal IDs and error shapes","CORE","src/ids.ts (ULID), src/errors.ts",""],
+  ["A11","Encryption key management (keys, rotation)","CORE","encryption.ts, db-encryption.ts",""],
+  ["A12","Encrypt sensitive fields at rest (tokens, secrets)","CORE","db-encryption.ts, ProviderAccount secrets",""],
+  ["A13","Capability taxonomy — global catalog of what product can do","CORE","capability-taxonomy.ts, CapabilityTaxonomy+Tier+Binding","Bindings are contributed, catalog is CORE"],
+  ["A14","Capability discovery loop — find capabilities across surfaces","CORE","capability-discovery-loop.ts","[DEBATE] could be DEFAULT PLUGIN if optional"],
+  ["A15","Natural language → capability (“send message to Claude”)","CORE","capability-bootstrap/nl-interpret.ts, CapabilityIntent","Interpreter CORE; phrases are DEFAULT PLUGIN"],
+  ["A16","CLI as thin shell over capabilities (no second transport)","CORE","src/cli/*, server/index.ts","One path: CLI/API/UI/MCP"],
+  ["A17","Migrations, backups, restore, relocation","CORE","storage/migration/*, backup-manager.ts, WorkspaceBackup",""],
+  ["A18","Air-gapped / offline mode guard","CORE","airgap.ts","Product boots with no network"],
+  // B — 20
+  ["B01","Universal record shape (every “thing” is a Node)","CORE","src/schema/node.ts:207 SchemaRegistry + Node+NodeVersion+NodeAlias+NodeEdge","19 types; widened to plugin:${id}. (D5)"],
+  ["B02","Define a new kind of thing (e.g. Invoice) with validated shape","GENERIC","manifest.contributes.schema[] → SchemaRegistry (prefix)","v1 — Tier A (JSON-validated data on Node)"],
+  ["B03","Store plugin data isolated from core types","GENERIC","schema-registry.ts wrapper (Tier B → plugin_ext)","v2 — design-only in v1"],
+  ["B04","Version every record and read it back at any time","CORE","NodeVersion + node-store.ts","Time travel"],
+  ["B05","Alias / canonicalize identities","CORE","NodeAlias",""],
+  ["B06","Link records with weighted relationships","CORE","NodeEdge.weight","Graph"],
+  ["B07","Primitives & slots — vocabulary of UI pieces","CORE","shared/conceptual-model.ts (PrimitiveScope), Primitive+ProviderType+SlotBinding","6-tier precedence = ordering"],
+  ["B08","Split any record into indexable chunks","CORE","content-unit-decomposer.ts, ContentUnit","For search/index"],
+  ["B09","Conversations list and ordering","CORE","Conversation + conversation-store.ts","Contract CORE; engine DEFAULT PLUGIN"],
+  ["B10","Messages inside a conversation (streams + attachments)","CORE","ConversationMessage+MessageAttachment+StreamBlock",""],
+  ["B11","Channels, collections, membership","CORE","Channel, Collection+CollectionItem+EntityContainer",""],
+  ["B12","Contacts and identities","CORE","Contact+ContactIdentity + contact-engine.ts",""],
+  ["B13","Entities and mentions (auto-extracted)","CORE","Entity+EntityMention + entity-container-engine.ts",""],
+  ["B14","Notifications, sync state, media","CORE","Notification, SyncState+SyncLog, MediaAttachment",""],
+  ["B15","200-table schema, migrations, seed truth","CORE","prisma/schema.prisma (200 models) via db push","DB-only parser logic"],
+  ["B16","Stream parser logic lives in DB (inline LOGIC_CODE)","CORE","stream-parser.ts + parser-store.ts + seeds/parsers/harvested/*","fallbackParserId chain"],
+  ["B17","Conversation history sync (import/export)","DEFAULT PLUGIN","conversation-history-sync.ts, ImportJob, Transfer*","User-visible, pluggable"],
+  ["B18","Workspace presets and templates","DEFAULT PLUGIN","workspace-presets.ts, WorkspaceTemplateRow",""],
+  ["B19","Workspace backups and templates (managed)","DEFAULT PLUGIN","WorkspaceBackup, backup-scheduler.ts","[DEBATE] with A17 if merged"],
+  ["B20","Store contracts — engines depend on contract, never DB","CORE","src/storage/contracts/*.ts (40+)","Layer test gate"],
+  // C — 14
+  ["C01","Plugin sandbox — isolated iframe","CORE","frontend/.../SandboxedNode.tsx:19 sandbox=\"allow-scripts\" opaque","Inline <script> stripped, MessageChannel, S92/S93"],
+  ["C02","CSP for plugin frames (blocks inline, restricts origins)","CORE","SandboxedNode.tsx:157 CSP meta, SandboxPolicy:false","Triple: type+Zod+render"],
+  ["C03","Allow-list for which capabilities a plugin frame may call","CORE","SandboxedNode.tsx:103 allowCapabilities","Host-side"],
+  ["C04","Budget kill-switch — terminate hanging frame","CORE","SandboxedNode.tsx:240 budgetMs",""],
+  ["C05","Verify plugin integrity (sha256) before install","CORE","plugin-router.ts:20 computeFileHash + :47 extractTarGz → host.ts","Moved to host.ts 1.5.2"],
+  ["C06","Certify plugin before it runs (schema/permission/scriptUrl)","CORE","ai/plugins/plugin-manager-impl.ts:35 certify:96 → host.ts","Security review gate"],
+  ["C07","Permissions for what plugin may do","CORE","src/plugin-kernel/permissions.ts (network, storage:scoped, schema:extend, ui:*, chrome:control)","One lattice"],
+  ["C08","Scoped storage — plugin sees only its own data","GENERIC","PluginContext.storage.scoped(pluginId) + storage:scoped",""],
+  ["C09","Consent gates before sensitive actions","DEFAULT PLUGIN","consent-engine.ts","[DEBATE] could be CORE if product-wide"],
+  ["C10","Policy and governance rules","DEFAULT PLUGIN","policy-engine.ts, governance-engine.ts, PolicyRule","[DEBATE] enforcement CORE, rules DEFAULT PLUGIN"],
+  ["C11","Audit trail — tamper-evident log","CORE","audit-trail.ts, RegistrationEvent+BindingStatusLog",""],
+  ["C12","Stealth / anti-detection modes","DEFAULT PLUGIN","stealth-*.ts, Stealth*Profile, anti-detection.ts","Browser-automation adjacent"],
+  ["C13","Sync encryption and peer trust","CORE","sync.ts+sync-engine.ts, SyncPeer+SyncState","[DEBATE] CORE vs DEFAULT PLUGIN if multi-device optional"],
+  ["C14","Budget engine — cost/latency ceilings","DEFAULT PLUGIN","budget-engine.ts, cortex-budget.ts",""],
+  // D — 22
+  ["D01","Infinite canvas — pan/zoom world","DEFAULT PLUGIN","InfiniteCanvas.tsx+LivingCanvas.tsx, quad-tree.ts","[DEBATE] if canvas is CORE — but disable-able in principle"],
+  ["D02","Canvas surface and layers (bg/content/overlays/lines)","DEFAULT PLUGIN","CanvasSurface.tsx, CanvasLayerMounter, ConnectionLayer",""],
+  ["D03","Place anything as draggable/resizable node","DEFAULT PLUGIN","CanvasNode.tsx+SlotNode.tsx","RegionRect geometry"],
+  ["D04","Minimap, minimap nodes, spatial index","DEFAULT PLUGIN","CanvasMinimap.tsx, MinimapNode.tsx, quad-tree.ts",""],
+  ["D05","Panel system — dockable, resizable, themed","DEFAULT PLUGIN","PanelShell.tsx+PanelRegistry.ts+PanelSplit.tsx","Multiple implants; registry shape CORE"],
+  ["D06","Drawer system and slide panels","DEFAULT PLUGIN","DrawerSystem.tsx, SlidePanel.tsx",""],
+  ["D07","UI slots and registry — every visible piece has a slot","CORE","shared/ui-component.ts:99 UiComponent, universal-registry.ts:127","3 scopes + 6-tier precedence"],
+  ["D08","Supply html+css for a slot (no scripting)","GENERIC","manifest.contributes.ui.generated[] html/css + ui:custom-html-css-only","v1 sandboxed"],
+  ["D09","Supply a fully compiled React component","GENERIC","manifest.contributes.ui.compiled[] → UniversalComponentRegistry","v2 — rejected at certify in v1"],
+  ["D10","Theme (dark/light, accent, typography)","DEFAULT PLUGIN","ThemeProvider.tsx+ThemeSettings.tsx",""],
+  ["D11","Workspace switcher, presence avatars","DEFAULT PLUGIN","WorkspaceSwitcher.tsx, PresenceIndicator.tsx",""],
+  ["D12","Default layout per type (region per slot)","CORE","ProviderType.regionLayout in conceptual-model.ts","Product-level"],
+  ["D13","Panel palette and canvas palette","DEFAULT PLUGIN","PanelPalette.tsx, CanvasPalette.tsx","Discovery"],
+  ["D14","Cards (knowledge/canvas/list)","DEFAULT PLUGIN","components/canvas/cards/*",""],
+  ["D15","Search across product (panel/canvas/agent)","DEFAULT PLUGIN","SearchPanel.tsx, CanvasSearch.tsx, search.ts","Uses semantic search"],
+  ["D16","Quick actions, command palette, notifications","DEFAULT PLUGIN","QuickActionsMenu.tsx, CommandPalette.tsx, NotificationsCenter",""],
+  ["D17","Brand, main menu, mobile nav","DEFAULT PLUGIN","Brand.tsx, MainMenu.tsx, MobileNav.tsx","Chrome"],
+  ["D18","Empty states, errors, toasts, skeletons","DEFAULT PLUGIN","EmptyState.tsx, ErrorBanner.tsx, Toast.tsx, Skeleton.tsx",""],
+  ["D19","Builder surface — drag to connect capabilities","DEFAULT PLUGIN","builder/BuilderSurface.tsx+CapabilityNode.tsx","Visual wiring"],
+  ["D20","Provider setup wizard + status badges","DEFAULT PLUGIN","ProviderSetupWizard.tsx, ProviderStatusBadges.tsx",""],
+  ["D21","Per-thing panels: audit, RBAC, templates, mutation history","DEFAULT PLUGIN","AuditDashboard.tsx, RbacManager.tsx, TemplatesGallery.tsx","canvas/panels/*"],
+  ["D22","Tooling that generates UI — scaffolding, hot reload","GENERIC","plugin-system.ts+plugin-hot-reload.ts, sample-plugin","Tooling"],
+  // E — 26
+  ["E01","Unified conversations — one inbox for any provider","DEFAULT PLUGIN","conversation-manager.ts + Conversation+Collection","Ships by default; could be headless"],
+  ["E02","Streamed replies (tokens live)","CORE","stream-parser.ts (DB logic) + stream-block-store.ts","Parser logic in DB"],
+  ["E03","Capture what providers actually returned","CORE","live-capture-engine.ts, StreamBlock pipeline",""],
+  ["E04","Handle sends that fail — retry or explain","DEFAULT PLUGIN","send-capability.ts+send-resilience.ts, retry-engine.ts",""],
+  ["E05","Typed composer and send-button per provider","DEFAULT PLUGIN","composer-typing.ts, provider-selectors.ts",""],
+  ["E06","Account/profile per provider (multiple logins)","CORE","ProviderAccount+Session+ProfileSession, profile-allocator.ts","chrome-profiles/<provider>/<account>"],
+  ["E07","Register a provider (endpoints/parsers/caps/models/fleet)","CORE","provider-registrar.ts:62 register()+seedAll:313","D7 adds registerOne"],
+  ["E08","Add a new provider without changing core","GENERIC","manifest.contributes.services[] kind:browser/api → registerOne","v1 api-protocol, v2 browser-provider (chrome:control)"],
+  ["E09","Discover provider internals automatically","DEFAULT PLUGIN","protocol-discovery.ts, provider-discovery.ts, cdp-discovery.ts",""],
+  ["E10","Heal broken selectors when UI changes","DEFAULT PLUGIN","selector-healer.ts+cache.ts+heal-store, SelectorStrategy","Drift → auto-repair"],
+  ["E11","Govern real browsers (CDP) — launch/health/restart","DEFAULT PLUGIN","chrome-governor.ts+cdp-watchdog.ts, FleetEvent+ProviderHealth","Only ChromeGovernor touches CDP"],
+  ["E12","Human-like interaction when driving browsers","DEFAULT PLUGIN","humanized-interaction.ts, execution-policy.ts","[DEBATE] CORE if every browser touch needs it"],
+  ["E13","Pick best provider for task (cost/latency)","DEFAULT PLUGIN","provider-mux.ts, MuxSession, RoutingPreference",""],
+  ["E14","Conversation organizer (threads/topics/imports)","DEFAULT PLUGIN","conversation-organizer.ts, ImportJob",""],
+  ["E15","Cross-conversation synthesis","DEFAULT PLUGIN","cross-conversation-synthesis.ts",""],
+  ["E16","Response analysis (protocol detection, formatting)","DEFAULT PLUGIN","streaming-protocol.ts, streaming-response-analyzer.ts",""],
+  ["E17","Model selection per provider","DEFAULT PLUGIN","ProviderModel rows, ProviderCapabilityTaxonomy",""],
+  ["E18","Stream channel caps (typing/presence)","DEFAULT PLUGIN","streaming-channel-caps.ts",""],
+  ["E19","Session persistence and checkpointing","CORE","session-checkpoint.ts, SessionCheckpoint, StateTransition","Contract CORE; resume UX DEFAULT PLUGIN"],
+  ["E20","Session capabilities (checkout/fork/branch)","DEFAULT PLUGIN","session-caps.ts",""],
+  ["E21","Discord integration","DEFAULT PLUGIN","seeds/providers/discord.json, DiscordVoiceState","Phase 3.5 proof — plugin path"],
+  ["E22","Slack integration","DEFAULT PLUGIN","seeds/providers/slack.json, SlackChannelMeta",""],
+  ["E23","Notion integration","DEFAULT PLUGIN","seeds/providers/notion.json, NotionBlockMeta","Alt proof"],
+  ["E24","Anthropic/OpenAI/OpenRouter API providers","DEFAULT PLUGIN","anthropic-api.json+openai-api.json+openrouter.json","api_provider family"],
+  ["E25","WhatsApp + Reddit onramps","DEFAULT PLUGIN","whatsapp.json, reddit.json, ProtocolFingerprint",""],
+  ["E26","Built-in capability wrappers (“send” etc.)","CORE","builtin-capability-wrappers.ts","Wrapper shape CORE; entries data"],
+  // F — 22
+  ["F01","Memory — remember across sessions (episodic+semantic+curated)","DEFAULT PLUGIN","memory-engine.ts, EpisodicMemory+SemanticMemory","FSRS, indexing pipeline"],
+  ["F02","Memory embeddings & similarity search","DEFAULT PLUGIN","memory-indexer.ts+indexing-pipeline.ts, embedding-*","Search via semantic-search.ts"],
+  ["F03","Deep knowledge extraction → structured","DEFAULT PLUGIN","knowledge-extractor.ts+continuous, knowledge-index-pipeline","knowledge-envelope.ts"],
+  ["F04","Felt memory with embeddings","DEFAULT PLUGIN","knowledge-envelope.ts, PatternExtract",""],
+  ["F05","Knowledge ingestion — batch import","DEFAULT PLUGIN","knowledge-ingestion.ts, ImportJob",""],
+  ["F06","Context assembly (what memory to include, how much)","CORE","context-assembly.ts, ContextLayerRow+TokenBudgetRow","Budget tables = control plane"],
+  ["F07","Situation detection — what user trying to do","DEFAULT PLUGIN","situation-detector.ts, SituationDetection",""],
+  ["F08","Reference grounding — cite claim source","DEFAULT PLUGIN","reference-grounding.ts, reflection-log",""],
+  ["F09","Semantic grounding & search","DEFAULT PLUGIN","semantic-grounding.ts, semantic-search.ts",""],
+  ["F10","Belief store — what product believes, confidence","DEFAULT PLUGIN","belief-store.ts","[DEBATE] with F01 if one item"],
+  ["F11","FSRS scheduler for memories","DEFAULT PLUGIN","fsrs-scheduler.ts",""],
+  ["F12","Export memories (backup/hand to install)","DEFAULT PLUGIN","memory-export.ts",""],
+  ["F13","Mirror engine — live mirror of external state","DEFAULT PLUGIN","mirror-engine.ts, MirrorState+MirrorSnapshot","With observation-tap.ts"],
+  ["F14","Cost optimizer (tokens vs latency)","DEFAULT PLUGIN","cost-optimizer.ts, cortex-budget.ts, ProviderCostLog",""],
+  ["F15","Contact & notification engines","DEFAULT PLUGIN","contact-engine.ts, notification-engine.ts","AlertCondition+AlertEvent"],
+  ["F16","Add new long-lived knowledge source","GENERIC","manifest.contributes.schema[] new NodeTypes plugin:${id}.corpus","v1 — schema extends knowledge"],
+  ["F17","Agent decisions log (every step recorded)","CORE","AgentDecisionLog, decision-store.ts","Provenance CORE"],
+  ["F18","Decision records, topics, projects, pattern extracts","DEFAULT PLUGIN","DecisionRecord, Topic+Project, PatternExtract",""],
+  ["F19","Trust scoring — reliable fact/source","DEFAULT PLUGIN","trust-score.ts",""],
+  ["F20","Objective engine — current goals","DEFAULT PLUGIN","objective-engine.ts","[DEBATE] CORE if objectives drive boot"],
+  ["F21","Classifier NLI + format/content","DEFAULT PLUGIN","classifier-nli.ts, format-classifier.ts, ContentItem",""],
+  ["F22","Add new intelligence processor","GENERIC","future manifest.features[] activationEvents:['onSchema:plugin:${id}.*']","v2 via feature-registry"],
+  // G — 20
+  ["G01","Workflow engine — define & run multi-step automations","DEFAULT PLUGIN","workflow-engine.ts, WorkflowDefinition+Node+Edge+Execution","With workflow-compiler.ts"],
+  ["G02","Workflow credentials and webhooks","DEFAULT PLUGIN","WorkflowCredential, WorkflowWebhook","Secrets"],
+  ["G03","Automation schedules & runs (cron-like)","DEFAULT PLUGIN","AutomationSchedule+Run, automation-store.ts",""],
+  ["G04","Agent loop — product drives itself through goal","DEFAULT PLUGIN","agentic-loop.ts, AgentLoopRun+AgentStep","agentic/slm.ts variant"],
+  ["G05","Autonomous replay/planner/execution with HITL gates","DEFAULT PLUGIN","autonomous-planner+execution+replay, AutonomousTask+HitlGate",""],
+  ["G06","MCP servers & clients — external tools as capabilities","DEFAULT PLUGIN","mcp-server-adapter.ts+mcp-client-adapter.ts, McpServerConfig","Default wiring DEFAULT PLUGIN"],
+  ["G07","Add new external tool (MCP server or harness recipe)","GENERIC","manifest.contributes.services[] kind:mcp-server (network)","v1 server, client follow-up"],
+  ["G08","Harness runtime — execute DAG (compiled recipe)","CORE","harness-runtime.ts+harness-protocol-engine.ts, HarnessCheckpoint","Runtime CORE; recipes DEFAULT PLUGIN"],
+  ["G09","Harness commands registry — catalog","CORE","harness-command-registry.ts:54, HarnessCommand","Zero collision guard today"],
+  ["G10","Add new reusable browser recipe","GENERIC","future harness.commands[] → harness-registry + ${pluginId}. + chrome:control","v2 — same gate as J12"],
+  ["G11","Harness repair — propose & queue fix when recipe breaks","DEFAULT PLUGIN","harness-repair-engine.ts, RepairSession+WorkflowRetryQueue",""],
+  ["G12","Safe expressions / safe eval for untrusted snippets","CORE","safe-expression.ts, safe-eval.ts, sandbox-runner*.ts","Security boundary"],
+  ["G13","Tool orchestration facade","DEFAULT PLUGIN","tool-orchestrator-facade.ts, tool-use-protocol.ts","Pick right tool"],
+  ["G14","Add native-coded capability (handler at startup)","GENERIC","future features[] → ModuleRegistry inside capabilities phase","v2 — PluginContext gate"],
+  ["G15","Live capability registry — where caps live now","CORE","live-capability-registry.ts","Registry shape CORE; entries contributed"],
+  ["G16","Image generation bridge","DEFAULT PLUGIN","image-gen-bridge.ts","External tool hook"],
+  ["G17","Routing / rule / transfer learning","DEFAULT PLUGIN","router-capability-bridge.ts, Rule, TransferAccelerator",""],
+  ["G18","Routing: route specs/requests/targets/events","CORE","RouteSpec+Request+Target+Event, router-store.ts","Tables CORE shape"],
+  ["G19","Situation-aware context budgeting for workflows","CORE","context-assembly.ts (reuse), ContextBudgetConfig","Same as F06 but workflow"],
+  ["G20","Build plugin without code — NL → scaffold","GENERIC","server/plugin-builder-router.ts + plugin-system.ts","Tooling"],
+  // H — 16
+  ["H01","Heartbeat — record & assess health every tick","CORE","ProviderHealth+HealthTick, health-store.ts","Written by ProviderHealthKernel"],
+  ["H02","Show health of each provider + system","DEFAULT PLUGIN","health-digest.ts, HealthDigest, HealthDashboard.tsx","UI+digest DEFAULT PLUGIN; tables CORE"],
+  ["H03","Provider health history (timeline)","CORE","ProviderHealthHistory",""],
+  ["H04","Telemetry aggregates (latency/success/selector)","CORE","telemetry-aggregator.ts, CapabilityTelemetry+CycleLog",""],
+  ["H05","Selector health over time (hit vs miss)","CORE","SelectorHealthHistory",""],
+  ["H06","Fleet events and circuit breakers","CORE","FleetEvent+CircuitBreakerState, fleet-supervisor contract","Only ChromeGovernor writes"],
+  ["H07","Error tracker — collect/deduplicate/surface","CORE","error-tracker.ts",""],
+  ["H08","Drift detection (provider UI/API diverges)","DEFAULT PLUGIN","DriftEvent+ManifestDrift, registration-auditor.ts","Audit DEFAULT PLUGIN; event table CORE"],
+  ["H09","Manual drift detection","CORE","ManifestChangeLog, ManifestDrift writer","Contrast: auto DEFAULT PLUGIN, record CORE"],
+  ["H10","Latency measurements per attempt","CORE","LatencyMeasurement",""],
+  ["H11","Registration auditor — check provider still matches manifest","DEFAULT PLUGIN","registration-auditor.ts","[DEBATE] with H08 if one item"],
+  ["H12","Diagnostics oracle (query live topology/events/spans)","CORE","kernel/oracle-*.ts + diagnostics/*, KernelSpan",""],
+  ["H13","Log binding/program state change with trigger","CORE","BindingEvent+BindingStatusLog, ProgramVersionMetric",""],
+  ["H14","Outcome tracker — did capability achieve promise?","DEFAULT PLUGIN","outcome-tracker.ts, Outcome",""],
+  ["H15","SLA monitor — warn when provider misses expectations","DEFAULT PLUGIN","sla-monitor.ts",""],
+  ["H16","Metrics endpoint & aggregations","CORE","metrics.ts","[DEBATE] CORE if only consumed by default dashboards"],
+  // I — 14
+  ["I01","Users, onboarding, and RBAC","DEFAULT PLUGIN","User+UserOnboarding+UserPreference, user-identity.ts, RbacManager.tsx","[DEBATE] User table CORE, RBAC UI DEFAULT PLUGIN"],
+  ["I02","Costs, pricing, billing per provider","CORE","ProviderCostLog, CostStore tables","Shape CORE, policy DEFAULT PLUGIN"],
+  ["I03","Alerting — conditions and events","DEFAULT PLUGIN","AlertCondition+AlertEvent, alert-store.ts",""],
+  ["I04","Sync peers and logs (multi-device)","DEFAULT PLUGIN","SyncPeer+SyncLog, sync-engine.ts","[DEBATE] same as C13 multi-device"],
+  ["I05","Stealth policies (per-module/launch)","DEFAULT PLUGIN","StealthPolicy+ModuleProfile+LaunchProfile",""],
+  ["I06","Sandbox audits (every isolated execution)","CORE","SandboxAudit, sandbox-audit-store.ts","Shape CORE even if viewing DEFAULT PLUGIN"],
+  ["I07","HPE sessions (advanced session harness)","CORE","HpeSession, hpe-session-store.ts",""],
+  ["I08","Protocol inference, fingerprints, parser candidates","DEFAULT PLUGIN","ProtocolFingerprint+ParserCandidate+TestResult","Discovery state"],
+  ["I09","Taxonomies for surfaces/web apps/discovery","DEFAULT PLUGIN","WebAppTaxonomy, ProviderArchetype+ShapeBinding",""],
+  ["I10","Capability shapes & shape bindings","CORE","CapabilityShape+ShapeBinding+ProviderShapeBinding","Shapes are CORE vocab"],
+  ["I11","Capability bindings, program versions, events","CORE","CapabilityBinding+CapabilityProgram+ProviderOverride","Plan CORE; program DEFAULT PLUGIN"],
+  ["I12","Inbox, agent definitions, permissions, file edits","DEFAULT PLUGIN","RunInbox+AgentDefinition+PermissionDecision+FileEdit","Agent builder runtime"],
+  ["I13","Surfaces versioning","CORE","SurfaceVersion",""],
+  ["I14","Governance/lifecycle/sla/trust/stealth engines","DEFAULT PLUGIN","governance-engine.ts, lifecycle-engine.ts, etc.","Policy engines, not infra"],
+  // J — 22
+  ["J01","Write manifest: I am acme.foo, need network, contribute page","GENERIC","src/plugin-kernel/manifest.ts Zod (strict D2)","Reverse-DNS + semver + activationEvents"],
+  ["J02","Declare permissions, get rejected if lacking","GENERIC","permissions.ts lattice + host.ts:certify() gate","ui:custom-scripturl gates scriptUrl"],
+  ["J03","Install / enable / disable / uninstall (atomic)","GENERIC","host.ts:install() + staging tmpdir, PluginRegistry","Deletes provider_* + ui_component"],
+  ["J04","Hot reload while developing plugin","GENERIC","plugin-hot-reload.ts","Tooling"],
+  ["J05","Package plugin (tar.gz hash) and verify before install","GENERIC","host.ts:discover() (computeFileHash:20+extractTarGz:47)","Security review gate"],
+  ["J06","Declare schema entry (new NodeType)","GENERIC","manifest.contributes.schema[] → schema-registry.ts","v1 — plugin:${id}. inside registry (D5)"],
+  ["J07","Supply html+css for a slot (no scripting)","GENERIC","manifest.contributes.ui.generated[] html/css + ui:custom-html-css-only","Sandboxed"],
+  ["J08","Supply scriptUrl for slot (scripted isolated)","GENERIC","Same + scriptUrl + ui:custom-scripturl + origin check","Double gate"],
+  ["J09","Supply compiled React component","GENERIC","future ui.compiled[] → UniversalComponentRegistry","v2 — rejected at certify in v1"],
+  ["J10","Add API provider adapter","GENERIC","manifest.contributes.services[] kind:api-protocol + network","v1 — ProviderRegistrar.registerOne"],
+  ["J11","Add MCP server or client","GENERIC","kind:mcp-server (network)","v1 server, client follow-up"],
+  ["J12","Add browser-driven provider","GENERIC","future kind:browser-provider + network+chrome:control","v2 — rejected in v1"],
+  ["J13","Add reusable browser recipe (Harness command)","GENERIC","future harness.commands[] + chrome:control + ${pluginId}.","v2 — same gate as J12"],
+  ["J14","Add native-coded capability (handler at startup)","GENERIC","future features[] → ModuleRegistry inside capabilities","v2 — PluginContext gate"],
+  ["J15","React to events (“when conversation starts, run this”)","GENERIC","PluginContext.events.{on,once,onAny,publish}","One surface"],
+  ["J16","Store data scoped to plugin","GENERIC","PluginContext.storage.scoped(pluginId)+storage:scoped",""],
+  ["J17","Declare when to activate (onStartup, onCommand:*)","GENERIC","manifest.activationEvents — onStartup v1, rest parsed→ignored","Until feature-registry v2"],
+  ["J18","Validate manifest, get actionable errors","GENERIC","manifest.ts Zod strict: unknown keys fail loud","Never silent drop"],
+  ["J19","Namespace protection — cannot shadow another plugin/core","GENERIC","Prefix inside each registry (plugin:${id}./${pluginId}.)","Not trusted from plugin"],
+  ["J20","See everything plugin did (observability)","GENERIC","KernelRegistry.registerEngine() per plugin + Provenance","Free via health UI"],
+  ["J21","Scaffold plugin from NL (“build me Notion archiver”)","GENERIC","server/plugin-builder-router.ts + NL→manifest CLI","Tooling"],
+  ["J22","Lint/type-check/conformance-check before publish","GENERIC","future plugin lint CLI (manifest+permission+origin dry-run)","Tooling"],
+];
+
+const notes = JSON.parse(localStorage.getItem('vivim-inventory-notes')||'{}');
+function saveNotes(){ localStorage.setItem('vivim-inventory-notes', JSON.stringify(notes)); }
+
+function layerClass(l){
+  if(l==='CORE') return 'core';
+  if(l==='DEFAULT PLUGIN') return 'default';
+  return 'generic';
+}
+
+function render(){
+  const q = document.getElementById('q').value.toLowerCase().trim();
+  const domain = document.getElementById('domain').value;
+  const layer = document.getElementById('layer').value;
+  const debateOnly = document.getElementById('debate').checked;
+  const v2only = document.getElementById('v2only').checked;
+  const table = document.getElementById('table');
+  // clear existing rows except header
+  table.querySelectorAll('.row:not(.head)').forEach(n=>n.remove());
+  let shown=0;
+  for(const r of ROWS){
+    const id=r[0], sent=r[1], l=r[2], code=r[3], note=r[4];
+    const dLetter=id[0];
+    const isDebate = note.includes('[DEBATE]');
+    const isV2 = note.includes('v2') || note.includes('v2 —') || note.includes('[v2]') || (l==='GENERIC' && (note.startsWith('v2')||note.includes('v2')));
+    // filters
+    if(domain && dLetter!==domain) continue;
+    if(layer && l!==layer) continue;
+    if(debateOnly && !isDebate) continue;
+    if(v2only && !isV2) continue;
+    if(q && !(sent.toLowerCase().includes(q) || code.toLowerCase().includes(q) || note.toLowerCase().includes(q) || id.toLowerCase().includes(q) || l.toLowerCase().includes(q))) continue;
+    shown++;
+    const row = document.createElement('div');
+    row.className='row';
+    row.dataset.id=id;
+    const debateHtml = isDebate ? '<span class="debate">DEBATE</span>' : '';
+    const v2Badge = isV2 ? '<span class="debate" style="border-color:var(--warn);color:var(--warn)">v2</span>' : (note.startsWith('v1') ? '<span class="debate" style="border-color:var(--generic);color:var(--generic)">v1</span>' : '');
+    // highlight query in code
+    let codeHtml = code.replace(/</g,'&lt;');
+    if(q){
+      const re = new RegExp('('+q.replace(/[.*+?^${}()|[\\]\\\\]/g,'\\$&')+')','ig');
+      codeHtml = codeHtml.replace(re,'<span class="hl">$1</span>');
+    }
+    row.innerHTML = `
+      <div class="cell id">${id}</div>
+      <div class="cell sent">${sent} ${debateHtml} ${v2Badge}</div>
+      <div class="cell"><span class="layer ${layerClass(l)}"><span class="dot" style="background:${l==='CORE'?'var(--core)':l==='DEFAULT PLUGIN'?'var(--default)':'var(--generic)'}"></span>${l}</span></div>
+      <div class="cell code">${codeHtml}</div>
+      <div class="cell note">${note}<div class="note" style="margin-top:6px"><input data-note="${id}" placeholder="Your note / call (e.g. move to CORE because…)" value="${(notes[id]||'').replace(/"/g,'&quot;')}" style="width:100%;background:#0b1220;border:1px solid var(--line);color:var(--fg);padding:6px 7px;border-radius:6px;font-size:11px" /></div></div>
+    `;
+    table.appendChild(row);
+  }
+  document.getElementById('counts').textContent = `Showing ${shown} / ${ROWS.length} · CORE ${ROWS.filter(r=>r[2]==='CORE').length} · DEFAULT PLUGIN ${ROWS.filter(r=>r[2]==='DEFAULT PLUGIN').length} · GENERIC ${ROWS.filter(r=>r[2]==='GENERIC').length} · Debate ${ROWS.filter(r=>r[4].includes('[DEBATE]')).length}`;
+  // attach note handlers
+  table.querySelectorAll('input[data-note]').forEach(inp=>{
+    inp.addEventListener('change', e=>{
+      const id=e.target.getAttribute('data-note');
+      notes[id]=e.target.value;
+      saveNotes();
+    });
+  });
+  // chips
+  const chips=document.getElementById('chips');
+  chips.innerHTML='';
+  const mk=(label,val)=>{ const c=document.createElement('span'); c.className='chip'; c.textContent=label+': '+val; chips.appendChild(c); };
+  if(q) mk('search', q);
+  if(domain) mk('domain', domain);
+  if(layer) mk('layer', layer);
+  if(debateOnly) mk('filter','DEBATE only');
+  if(v2only) mk('filter','v2 only');
+}
+
+document.getElementById('q').addEventListener('input', render);
+document.getElementById('domain').addEventListener('change', render);
+document.getElementById('layer').addEventListener('change', render);
+document.getElementById('debate').addEventListener('change', render);
+document.getElementById('v2only').addEventListener('change', render);
+document.getElementById('clear').addEventListener('click', ()=>{ document.getElementById('q').value=''; document.getElementById('domain').value=''; document.getElementById('layer').value=''; document.getElementById('debate').checked=false; document.getElementById('v2only').checked=false; render(); });
+document.getElementById('export').addEventListener('click', ()=>{
+  const out = { exportedAt:new Date().toISOString(), notes, rows: ROWS.map(r=>({id:r[0], sentence:r[1], layer:r[2], code:r[3], note:r[4], yourCall: notes[r[0]]||''})) };
+  const blob = new Blob([JSON.stringify(out,null,2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='vivim-inventory-notes-'+new Date().toISOString().slice(0,10)+'.json'; a.click(); URL.revokeObjectURL(url);
+});
+
+render();
+</script>
+</body>
+</html>

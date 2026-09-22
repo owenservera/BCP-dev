@@ -1,0 +1,167 @@
+{
+  "manifestVersion": "1",
+  "id": "vivim.law",
+  "version": "0.3.0",
+  "description": "Ω1 law spine: the gate (law.check), consent grants, capability-handle algebra, registry (journal replay + the D-416 vault-journal absorb), per-principal forbidden-action overlay (law.forbidden.set, D-310; vault-durable per D-325 with law.forbidden.reload), shadow amendment, and the principal describe read (law.describe, D-353). D-416 (S3, the evidence-store fold): law's narrative journal rows ride vault ns law (id family journal:<boot>-<seq>) wherever port:vault.append@1 is granted — the legacy host sidecar port stays the write path without it (the transition discipline) — and law.audit.drain@1 persists the kernel's signed audit chain into vault ns audit (the persistence point). D-433 (Ω-2.5, policy coherence): the conflict lattice — policy rows (ns law.conflict, append-only supersession via policy.amend@1) resolve by precedence class with most-restrictive at the tie, a contradiction the lattice cannot resolve is a PARADOX refusing loudly with both rule ids (LAW_POLICY_PARADOX; a blocked scope denies at law.check with LAW_CONFLICT_UNRESOLVED), law.conflict.scan@1 sweeps every interacting pair symbolically, law.conflict.explain@1 replays the lattice walk deterministically, and compose.scan@1 is the five-check pre-activation security scan (secret-pattern · grant-coverage · selector-as-truth · mutation-declaration · budget-binding over versioned inspectable pattern sets; activation requires a passing scan row matching the manifest hash — COMPOSE_SCAN_NOT_RUN otherwise, rows in ns compose.scan). D-451/452/453 (Ω-11/12/13, the boundary chain): privacy.taint@1 + privacy.check@1 — the aperture privacy law (sensitivity lattice open<internal<principal<secret, undeclared fails closed to secret, write-verified taint = max of cited inputs, strengthen-only ratchets, the universal cross-principal fence as REFUSED verdicts + ns privacy refusal rows, deputy dataReach absent = none); invoke.check@1 — the invocation frame {caller, behalf, op, scope, authority, intentRef?} with authority re-resolved live at every check (unframed EXTERNAL_MUTATION refuses INVOKE_FRAME_MISSING; inv rows in ns invoke pair one-for-one with EXECUTED rows); standing.grant@1/revoke@1/check@1 — the radius registry (expiresAt REQUIRED — no perpetual standing; revocation immediate and loud; renewal a fresh citing grant; rows in ns standing forever). Replaces the Ω0 law-stub via recipe re-compile + atomic pin swap (D-213).",
+  "entry": "src/index.ts",
+  "publisher": {
+    "keyId": "",
+    "signature": ""
+  },
+  "contributions": {
+    "contract": [
+      {
+        "kind": "contract",
+        "id": "law.check",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.registry",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.consent.grant",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.tokens.revoke",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.forbidden.set",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.forbidden.reload",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.amendment",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.describe",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.principal.register",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "law.principal.retire",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "law.principal.get",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.audit.drain",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "law.conflict.scan",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "law.conflict.explain",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "compose.scan",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "policy.amend",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "privacy.taint",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "privacy.check",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "invoke.check",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "standing.grant",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "standing.revoke",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "standing.check",
+        "version": "1",
+        "risk": "READ"
+      }
+    ]
+  },
+  "dependencies": [],
+  "capabilities": {
+    "requested": [
+      "host.journal.append",
+      "host.tokens.revoke",
+      "port:vault.append@1",
+      "port:vault.query@1",
+      "port:vault.get@1",
+      "host.kernel.lens"
+    ],
+    "justification": "law.check journals every gate decision: with vault caps the narrative row rides vault ns law (the D-416 fold), without them the host law-journal sidecar (host.journal.append — the transition path); law.tokens.revoke delegates plugin token revocation to the host generation bump (host.tokens.revoke). D-325: law.forbidden.set journals the forbidden overlay to vault ns law and reloads it at boot (vault.append/query/get) — granted per-composition by the user-signed Recipe (agent.json), never by this manifest; compositions without the vault grant stay memory-only. D-416 (S3): law.audit.drain@1 exports the kernel audit chain through host.kernel.lens and persists it whole into vault ns audit — the same per-composition grant shape: the cap is requested here, granted only where a signed recipe says so. D-433 (Ω-2.5): the policy-lattice rows and conflict/scan verdicts ride vault ns law.conflict + compose.scan through the SAME granted ports — the four new contracts declare READ risk (the law.forbidden.set precedent: enforcement lives in law.check@1 and the activation gate, and the risk-parity net's non-READ domain stays untouched)."
+  },
+  "runtime": {
+    "tier": "worker-thread",
+    "budget": {
+      "cpuMs": 100,
+      "memMB": 64
+    }
+  },
+  "contentHash": ""
+}
