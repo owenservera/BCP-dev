@@ -51,22 +51,23 @@ have no setup prompts yet.
 - WS-001 DIR-001 dogfood evidence is merged: 7 GREEN, 2 PARTIAL, 1 NOT-PROVEN.
 - PKT-002 closes PKT-001's provenance hash gap and preserves explicit reader mappings.
 - D-DOG-01 is fixed at the integration layer: canonical files must preserve/refresh packet and handoff backward links.
+- F-AGENT-MULTI-AGENT is PROVEN: IMPL-03 sealed run (HANDOFF-005 rubric 6/6) integrated — 8-link chain re-verified ALIVE, cold-start path walks clean; tally now 8 GREEN / 1 PARTIAL / 1 NOT-PROVEN.
 - The SYSTEM §13 tip-marker/link-maintenance amendment is accepted into the current procedure.
 - Earlier proposed `vivim.self` WS-002 is folded into P1-04 / WS-004; it is not a
   competing workstream.
 
 ## ACTIVE WORK
 
-- WS-001 / P1-01: Phase 2 dogfood completed; verdict remains PARTIALLY PROVEN.
-- Open proof closers:
-  - MULTI-AGENT independence: a second genuinely independent agent/thread must continue from HANDOFF-004 alone.
-  - CROSS-CHATGPT continuity: a fresh P1-01 ChatGPT conversation must boot from CHATGPT-BOOT + CURRENT only.
+- WS-001 / P1-01: Phase 2 dogfood completed; verdict remains PARTIALLY PROVEN (MULTI-AGENT now PROVEN, CROSS-CHATGPT still open).
+- Open proof closer (one remaining):
+  - CROSS-CHATGPT continuity: a fresh P1-01 ChatGPT conversation must boot from CHATGPT-BOOT + CURRENT only — runnable closer: `docs/agent-system/workstreams/WS-001/CROSS-CHATGPT-CLOSER.md` §§0–2.
+- Closed proof: MULTI-AGENT independence — IMPL-03 continued from HANDOFF-004 alone (PKT-004 + HANDOFF-007 + `outbox/IMPL-03/ITEM-001-evidence-independent-verification.md`).
 - No other P1 workstream setup prompt has been created.
 - Next portfolio action after the WS-001 closers: deep-research and bootstrap P1 workstreams one at a time.
 
 ## OPEN QUESTIONS
 
-- Whether the two remaining P1-01 closers pass under genuinely independent participants.
+- Whether the remaining P1-01 closer (CROSS-CHATGPT) passes under a genuinely independent fresh session.
 - Exact researched charter/proof boundary for each of P1-02 through P1-09.
 - Which existing Ω mechanisms should be treated as canonical inputs by each new workstream.
 
@@ -81,6 +82,9 @@ have no setup prompts yet.
 - DOC-01 QA: `docs/agent-system/outbox/DOC-01/ITEM-001-packet-qa.md`
 - Coordinator merge request: `docs/agent-system/outbox/IMPL-02/ITEM-002-merge-request.md`
 - DIR-001: `docs/agent-system/directives/IMPL-02/DIRECTIVE-001-finish-p1-01.md`
+- Closer apparatus (DIR-002 staging): PKT-003 (`packets/PKT-003-p1-01-closer-apparatus.md`), HANDOFF-005/006 (`handoffs/HANDOFF-005.md`, `handoffs/HANDOFF-006.md`), runnable ChatGPT closer (`workstreams/WS-001/CROSS-CHATGPT-CLOSER.md`), ITEM-003/004 (`outbox/IMPL-02/ITEM-003-merge-request.md`, `outbox/IMPL-02/ITEM-004-directive-accept.md`)
+- Independent verification (MULTI-AGENT PROVEN): PKT-004 (`packets/PKT-004-impl-03-independent-verification.md`), HANDOFF-007 (`handoffs/HANDOFF-007.md`), IMPL-03 evidence (`outbox/IMPL-03/ITEM-001-evidence-independent-verification.md`), final integration (HANDOFF-008 + `outbox/IMPL-02/ITEM-005-merge-request-final-integration.md`)
+- DIR-002 (still OPEN — ChatGPT half outstanding): `docs/agent-system/directives/IMPL-02/DIRECTIVE-002-close-p1-01-proof-gaps.md`
 
 ## KNOWN HISTORICAL TRAPS
 

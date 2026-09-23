@@ -7,7 +7,7 @@ workstream: WS-001
 date: 2026-09-24
 repository_tip: b5cdb24
 branch: impl-02/p1-01-closers
-status: OPEN
+status: SUPERSEDED
 links:
   handoff: HANDOFF-006
   packets: [PKT-003]

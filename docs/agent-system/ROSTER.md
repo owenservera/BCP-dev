@@ -9,7 +9,7 @@
 |---|---|---|---|---|---|---|---|---|
 | COORD-01 | workstream coordination / integration | ACTIVE | routing, conflict detection, CURRENT consolidation, gates | WS-001 | own WS-001 integration + gate status | `owner-wave-001` (Ω line; this task works at BCP-dev root, docs-only) | — (owner channel) | — |
 | IMPL-01 | implementation agent (first builder) | RETIRED | cooperative substrate construction (Phase 1) | WS-001 | Phase 1 minimal substrate + ingest + falsifiers | BCP-dev working tree, docs-only, base `becb920` | local session 2026-09-23 | HANDOFF-001 |
-| IMPL-02 | implementation agent (owner-launched continuation) | ACTIVE | cooperative-system dogfood + wall-test evidence | WS-001 | DIR-001 complete; P1-01 integration/closure | `impl-02/p1-01-dogfood` | 2026-09-24 · DIR-001 session | HANDOFF-004 |
+| IMPL-02 | implementation agent (owner-launched continuation) | ACTIVE | cooperative-system dogfood + wall-test evidence | WS-001 | DIR-002/MULTI-AGENT integration close (HANDOFF-008 + ITEM-005) | `impl-02/p1-01-final-integration` | 2026-09-24 · DIR-002 integration | HANDOFF-008 |
 | ARCH-01 | architecture and ontology | STANDBY | Ω law, invariants, composition fence | — | unassigned | — | — | — |
 | ARCHAEOLOGY-01 | historical VIVIM/Ω extraction | STANDBY | legacy mine assay, genealogy | — | unassigned | — | — | — |
 | CODE-01 | source semantics / code indexing | STANDBY | contracts, surfaces, import discipline | — | unassigned | — | — | — |
@@ -17,6 +17,7 @@
 | CONTEXT-01 | context compiler / aperture / progressive disclosure | STANDBY | D-443 substrate, packet lineage, compaction | — | unassigned | — | — | — |
 | TEST-01 | falsifiers / adversarial verification | STANDBY | falsifier-first loop (D-426), gate evidence | WS-001 (completed drill) | proof table delivered; no new task assigned | — | 2026-09-24 · DIR-001 drill | outbox/TEST-01/ITEM-001-proof-table.md |
 | DOC-01 | context packets / documentation lineage | STANDBY | packets, doctruth-compatible provenance | WS-001 (completed drill) | PKT-001 QA + lineage delivered; no new task assigned | — | 2026-09-24 · DIR-001 drill | outbox/DOC-01/ITEM-001-packet-qa.md |
+| IMPL-03 | independent closer (HANDOFF-005 sealed run) | STANDBY | sealed independent verification: link audit + cold-start audit | WS-001 (closed closer) | verification delivered (PKT-004 + HANDOFF-007 + ITEM-001); no new task assigned | `impl-03/p1-01-independent-verification` | 2026-09-24 · closer run (no Ω ledger session — docs-only) | HANDOFF-007 |
 
 ## Registration rules
 

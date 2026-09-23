@@ -11,12 +11,12 @@ ChatGPT conversation.
 ## P1-01 / WS-001 — Cooperative Agent System
 
 - **Mission:** persistent collaboration between humans, ChatGPT sessions, and local agents.
-- **Status:** ACTIVE — Phase 2 dogfood complete; P1-01 PARTIALLY PROVEN (7 GREEN / 2 PARTIAL / 1 NOT-PROVEN).
+- **Status:** ACTIVE — Phase 2 dogfood complete; P1-01 PARTIALLY PROVEN (8 GREEN / 1 PARTIAL / 1 NOT-PROVEN; MULTI-AGENT PROVEN via independent closer, CROSS-CHATGPT still open).
 - **Owner:** owner / COORD-01.
 - **Current scope:** coordination protocol, transcripts, packets, handoffs, agent roster, context bootstrap.
-- **Evidence:** [PKT-001](packets/PKT-001-cooperative-substrate-charter.md), [PKT-002](packets/PKT-002-p1-01-dogfood-findings.md), [HANDOFF-001](handoffs/HANDOFF-001.md), [HANDOFF-004](handoffs/HANDOFF-004.md), [TEST-01 proof table](outbox/TEST-01/ITEM-001-proof-table.md), [DOC-01 QA](outbox/DOC-01/ITEM-001-packet-qa.md).
-- **Coordinator request:** [IMPL-02 MERGE_REQUEST](outbox/IMPL-02/ITEM-002-merge-request.md).
-- **Open proof:** a second independent agent/thread must start from HANDOFF-004 alone; a fresh P1-01 ChatGPT conversation must boot from CHATGPT-BOOT + CURRENT only.
+- **Evidence:** [PKT-001](packets/PKT-001-cooperative-substrate-charter.md), [PKT-002](packets/PKT-002-p1-01-dogfood-findings.md), [HANDOFF-001](handoffs/HANDOFF-001.md), [HANDOFF-004](handoffs/HANDOFF-004.md), [TEST-01 proof table](outbox/TEST-01/ITEM-001-proof-table.md), [DOC-01 QA](outbox/DOC-01/ITEM-001-packet-qa.md), [PKT-003 closer apparatus](packets/PKT-003-p1-01-closer-apparatus.md), [HANDOFF-005 sealed closer](handoffs/HANDOFF-005.md), [HANDOFF-006 staging close](handoffs/HANDOFF-006.md), [PKT-004 independent verification](packets/PKT-004-impl-03-independent-verification.md), [HANDOFF-007 verification close](handoffs/HANDOFF-007.md), [IMPL-03 evidence](outbox/IMPL-03/ITEM-001-evidence-independent-verification.md).
+- **Coordinator request:** [IMPL-02 final MERGE_REQUEST](outbox/IMPL-02/ITEM-005-merge-request-final-integration.md) (supersedes ITEM-003, now SUPERSEDED).
+- **Open proof:** a fresh P1-01 ChatGPT conversation must boot from CHATGPT-BOOT + CURRENT only — runnable closer: [CROSS-CHATGPT-CLOSER.md](workstreams/WS-001/CROSS-CHATGPT-CLOSER.md). MULTI-AGENT is closed (PROVEN).
 - **Launch folder:** `docs/agent-system/workstreams/WS-001/`.
 
 ## P1-02 / WS-002 — Repository Truth, Cleanup & Drift
