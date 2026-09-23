@@ -6,7 +6,7 @@ to: IMPL-02
 workstream: WS-001
 issued: 2026-09-24
 repository_tip: 1f0c43b
-status: OPEN
+status: DONE
 ---
 
 # Close the two remaining P1-01 proof gaps
