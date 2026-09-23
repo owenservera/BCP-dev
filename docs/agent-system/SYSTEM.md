@@ -270,3 +270,33 @@ in packet PKT-001.
 No embeddings, vector DBs, LLM memory layer, semantic code index, ontology DB,
 autonomous prioritization, or cloud sync. First the cooperative memory
 **protocol**; machinery later, through decisions, if needed.
+
+
+## Owner/coordinator directive channel
+
+The repository provides an explicit durable owner/coordinator → agent channel for execution prompts that must survive conversation loss.
+
+Directory: docs/agent-system/directives/<agent-id>/
+File: DIRECTIVE-<nnn>-<slug>.md
+
+Required front-matter:
+
+- directive_id
+- kind: OWNER-DIRECTIVE or COORDINATOR-DIRECTIVE
+- from
+- to
+- workstream
+- issued
+- repository_tip
+- status: OPEN, ACCEPTED, DONE, DECLINED, or SUPERSEDED
+
+Required sections:
+
+- Objective
+- Required reads
+- Required work
+- Constraints
+- Completion criteria
+- Required durable outputs
+
+Agents MUST check their directive directory at session bootstrap and before starting a new task. A directive is operational coordination, not Ω law and does not grant runtime permission. If it conflicts with higher authority, the agent records a CONFLICT and does not perform the conflicting action.
