@@ -48,6 +48,11 @@ needs a patch.
 - b1's formal b2-consumption word; 004's `omega:gate`-at-tip check
 - Untracked surfaces (`bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`)
   — another workstream; see `docs/cleanup/CONFLICT-REGISTER.md` C11.
+- Prompt 4 INTERRUPTED (not complete): checkpoint + per-file dispositions in
+  `docs/cleanup/PROMPT-4-CHECKPOINT.md`; resumption status C13 in CONFLICT-REGISTER.
+- Canonical plugin-authoring path: `docs/cleanup/PLUGIN-BUILDER-ARCHITECTURE.md`
+  (pack.builder → forge.author → builder composition → surface); `sdk/` = internal
+  pre-boot anvil, NOT a developer SDK (see `docs/cleanup/SDK-ANVIL-ACCOUNTING.md`).
 
 ## Next agent reads (in order)
 

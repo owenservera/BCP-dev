@@ -103,3 +103,18 @@ OPEN = unresolved, owner owns the next step.
 - Remaining uncertainty: counting method (files vs dirs vs submodules). Owned by
   next assay that touches `src/engines`; NLCL mine count (59 files) is separately
   verified and unaffected.
+
+## C13 — Prompt-4 interrupted outputs vs "no competing authoring path" [OPEN]
+
+- A: convergence rule — exactly one canonical plugin-authoring path
+  (pack.builder → forge.author → builder composition → surface).
+- B: untracked Prompt-4 work (echo2 substitution experiment, 2 analysis docs,
+  2 parser plugins, MIG-003 draft, bun.lock +37): uses ONLY sdk-validation +
+  testkit-conformance + unsigned scaffolds — no new authoring mechanism, no
+  anvil expansion, no second scaffolder. Compatible with A, but UNCOMMITTED
+  and UNRATIFIED, so it must not be read as current.
+- Evidence: docs/cleanup/PROMPT-4-CHECKPOINT.md (per-file classification:
+  analysis KEEP; code KEEP-BUT-RECONCILE; MIG-003 draft KEEP-incomplete).
+- Remaining step: owner decides resume/rebase/replan (§32); on resume the
+  first gates are `omega:quick` (genome-count sensitivity of 2 new plugins/
+  dirs) + parser-dir conformance runs. Owned by owner + resumption decision.
