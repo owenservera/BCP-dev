@@ -14,9 +14,9 @@ ChatGPT conversation.
 - **Status:** ACTIVE — Phase 2 dogfood complete; P1-01 PARTIALLY PROVEN (7 GREEN / 2 PARTIAL / 1 NOT-PROVEN).
 - **Owner:** owner / COORD-01.
 - **Current scope:** coordination protocol, transcripts, packets, handoffs, agent roster, context bootstrap.
-- **Evidence:** [PKT-001](packets/PKT-001-cooperative-substrate-charter.md), [PKT-002](packets/PKT-002-p1-01-dogfood-findings.md), [HANDOFF-001](handoffs/HANDOFF-001.md), [HANDOFF-004](handoffs/HANDOFF-004.md), [TEST-01 proof table](outbox/TEST-01/ITEM-001-proof-table.md), [DOC-01 QA](outbox/DOC-01/ITEM-001-packet-qa.md).
-- **Coordinator request:** [IMPL-02 MERGE_REQUEST](outbox/IMPL-02/ITEM-002-merge-request.md).
-- **Open proof:** a second independent agent/thread must start from HANDOFF-004 alone; a fresh P1-01 ChatGPT conversation must boot from CHATGPT-BOOT + CURRENT only.
+- **Evidence:** [PKT-001](packets/PKT-001-cooperative-substrate-charter.md), [PKT-002](packets/PKT-002-p1-01-dogfood-findings.md), [PKT-003](packets/PKT-003-p1-01-closer-apparatus.md), [HANDOFF-001](handoffs/HANDOFF-001.md), [HANDOFF-004](handoffs/HANDOFF-004.md), [HANDOFF-005](handoffs/HANDOFF-005.md), [HANDOFF-006](handoffs/HANDOFF-006.md), [TEST-01 proof table](outbox/TEST-01/ITEM-001-proof-table.md), [DOC-01 QA](outbox/DOC-01/ITEM-001-packet-qa.md), [CROSS-CHATGPT-CLOSER](workstreams/WS-001/CROSS-CHATGPT-CLOSER.md).
+- **Coordinator request:** [DIR-002 MERGE_REQUEST](outbox/IMPL-02/ITEM-003-merge-request.md).
+- **Open proof:** MULTI-AGENT remains PARTIAL until a distinct closer passes HANDOFF-005's sealed rubric; CROSS-CHATGPT remains NOT PROVEN until a genuinely fresh ChatGPT session passes the sealed closer.
 - **Launch folder:** `docs/agent-system/workstreams/WS-001/`.
 
 ## P1-02 / WS-002 — Repository Truth, Cleanup & Drift
