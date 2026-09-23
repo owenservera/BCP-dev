@@ -234,8 +234,8 @@ entries stay parked until re-issued.
 - **Tip markers (churn rule):** `Tip:` headers in DERIVED files are rolled at
   coordinator integration only. Between integrations, handoffs (branch +
   base commit) are the live tip source — agents cite those, never guess.
-  (Amendment proposed by IMPL-02, DIR-001 drill — coordinator review in
-  MERGE_REQUEST.)
+  (Amendment accepted by COORD-01 during DIR-001 integration; derived from the
+  D-DOG-01 drill finding and recorded in MERGE_REQUEST ITEM-002.)
 
 ## 14. Context compression rules
 
