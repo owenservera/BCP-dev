@@ -1,5 +1,11 @@
 # BCP → VIVIM Ω
 # MASTER MIGRATION / INTEGRATION AGENT DIRECTIVE
+> STATUS: SUPERSEDED CONSTRUCTION PACKET (cleanup 2026-09-23).
+> This prompt built the first migration (MIG-001, now VERIFIED). It is preserved
+> as historical implementation guidance only — its phase numbering, prompts, and
+> "do this next" orders do not describe the current tree. Do not execute these
+> instructions against the current tree. Current migration truth:
+> `docs/CURRENT-CONTEXT.md` → `docs/migration/MIGRATION_GRAPH.md`.
 
 ## 0. Mission
 

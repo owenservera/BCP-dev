@@ -1,5 +1,10 @@
 # BCP → VIVIM Ω
 # MASTER PROMPT 2 — TURN THE FIRST MIGRATION INTO A MIGRATION FACTORY
+> STATUS: SUPERSEDED CONSTRUCTION PACKET (cleanup 2026-09-23).
+> This prompt built the migration factory (MIG-002, now VERIFIED; registry
+> `bcp-speed/bcp/migration/index.json`). Preserved as historical guidance only.
+> Do not execute these instructions against the current tree. Current migration
+> truth: `docs/CURRENT-CONTEXT.md` → `docs/migration/MIGRATION_GRAPH.md`.
 
 ## CONTEXT
 

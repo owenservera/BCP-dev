@@ -1,4 +1,7 @@
 # AGENTS.md — BCP-dev Build Governance
+> STATUS: HISTORICAL GOVERNANCE DRAFT (cleanup 2026-09-23). Principles stand;
+> superseded as the entry point by the root `/AGENTS.md`. Read this for
+> genealogy, not for orders.
 
 ## Mission
 

@@ -1,4 +1,6 @@
 # VIVIM → Ω Build Context
+> STATUS: HISTORICAL CONTEXT DRAFT (cleanup 2026-09-23). Superseded as the
+> entry point by the root `/BUILD_CONTEXT.md`. Read this for genealogy.
 
 ## The Problem
 

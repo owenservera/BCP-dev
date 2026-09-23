@@ -126,6 +126,8 @@ exist — capability ID is the unit, lease key is the capability (holder-checked
 - I **cannot self-schedule** — between activations the timers + loops carry the
   system. I never push, never amend, never touch released-lease/log history,
   never modify Omega/Vivim repos from BCP-side work.
-- Predecessor context: `master-.md` + `session-ses_f371.md` (past-session logs),
+- Predecessor context: `docs/archive/sessions/master-.md` +
+  `docs/archive/sessions/session-ses_f371.md` (past-session logs, archived
+  2026-09-23),
   `TRACKER.md` (owner one-glance view), `ORCHESTRATION-REDESIGN.md` (canonical
   automation design — wins over the brief on conflict).

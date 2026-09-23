@@ -1,4 +1,9 @@
 # BCP-SPEED — Build Control Plane
+> NOTE (cleanup 2026-09-23): this README describes the generic package shape
+> (20 families / 140 capabilities as a working example). THIS instance tracks
+> 49 capabilities (FAM-01..14) per `state/capabilities.yaml`, with live depths
+> in `docs/CONTEXT-appendix.md` §1. The `EXP-2026-001` seed example in §"How
+> agents run" is illustrative, not the current backlog. Mechanics below are current.
 
 A lightweight, file-based devops/tracking system for parallel autonomous
 agent development. No database required. Git-native. Visually native via

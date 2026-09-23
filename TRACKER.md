@@ -1,4 +1,9 @@
 # BCP LANES TRACKER — owner view
+> STATUS NOTE (cleanup 2026-09-23): parked-snapshot. Time-bound orders below
+> (holds till 23:04Z, expiries 23:18Z on 2026-09-22) are expired. Board state —
+> Paths A+B merging at L2, Path C released but unstarted, automation Tasks 1–6
+> PASS — is confirmed current by `docs/CONTEXT-appendix.md` §3–§4. Anything
+> below that contradicts `docs/CURRENT-CONTEXT.md` loses to it.
 # Updated: agentic automation full setup landed (5n + follow, all 6 tasks PASS).
 # Board still parked clean (0 actives). Resume order when ready: W0 loop +
 # BCP-Serve + BCP-Supervise (run ops-install.ps1), then lanes by inbox with

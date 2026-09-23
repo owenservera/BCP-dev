@@ -1,4 +1,9 @@
 # LANES — first-lease brief for fresh parallel sessions
+# STATUS (cleanup 2026-09-23): the UNIVERSAL RULES + LOOP PROTOCOL + COORDINATOR
+# sections below remain current operating law. The LANE A/B/C FIRST-LEASE
+# SEQUENCES are STALE (EXP-2026-004/005 are MERGING at L2; 006 never started) —
+# do NOT take the leases named below without a fresh coordinator directive.
+# Hand this file (plus agents/bootstrap.md) to each new agent session.
 # Hand this file (plus agents/bootstrap.md) to each new agent session.
 # Source of truth for state: state/*.yaml via bcp_tool.py ONLY. Never hand-edit.
 # Plan context: docs/EXPERIMENTAL-PATHS.md (BCP-dev). Chrome-only per D-418/D-456.

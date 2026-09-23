@@ -1,3 +1,10 @@
+> STATUS: SUPERSEDED CONSTRUCTION PACKET (cleanup 2026-09-23).
+> Wave 0 LANDED (D-406, ratified). This packet's construction orders were
+> executed; what remains valid lives in the ratified records + `BACKLOG.md`.
+> Preserved as historical implementation guidance only. Do not execute these
+> orders against the current tree. Current law:
+> `docs/decisions/CURRENT-INVARIANTS.md`.
+
 Understood. If the team gets **only** `OMEGA-FORGE-ARCHITECTURE.md` plus what I generate now, and the implementer is reasonably intelligent but not omniscient, then my job is to remove judgment gaps before they happen.
 
 Below is the implementation-ready supplement. It is written as **construction orders**, not commentary. It pre-decides ambiguities, names the traps, and makes “done” mechanically checkable.

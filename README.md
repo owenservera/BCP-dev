@@ -15,9 +15,13 @@ released but unstarted, automation Tasks 1–6 PASS.
 | `docs/` | `EXPERIMENTAL-PATHS.md`, chats, `CONTEXT-system.md`, `CONTEXT-product.md`, `CONTEXT-appendix.md` — read in that order |
 | `TRACKER.md` | Owner one-glance board view |
 | `ORCHESTRATION-REDESIGN.md` | Canonical automation design (wins over the brief on conflict) |
-| `master-.md`, `session-ses_f371.md` | Past-session logs |
+| `docs/archive/sessions/` | Past-session logs (`master-.md`, `session-ses_f371.md`) |
 
 ## Resume here
+
+> New agents start at `/AGENTS.md` → `/BUILD_CONTEXT.md` →
+> `docs/CURRENT-CONTEXT.md` (cold-start truth, 2026-09-23 cleanup).
+> The sequence below is the 2026-09-22 snapshot resume path, kept for continuity.
 
 1. Read `docs/CONTEXT-system.md` → `docs/CONTEXT-product.md` → `docs/CONTEXT-appendix.md`.
 2. `cd bcp-speed/bcp`; `python validate.py` (expect 0 errors); `python generate_views.py`.

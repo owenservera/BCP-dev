@@ -1,4 +1,9 @@
 # BCP MISSION — FORENSICALLY MAP VIVIM, THEN MIGRATE ONE REAL CAPABILITY INTO Ω
+> STATUS: SUPERSEDED CONSTRUCTION PACKET (cleanup 2026-09-23).
+> This prompt drove the Prompt-03 forensic slice (evidence now in
+> `docs/migration/FORENSIC_EVIDENCE.md` + `FINAL_DECISION_REPORT.md`).
+> Preserved as historical guidance only. Do not execute these instructions
+> against the current tree. Current migration truth: `docs/CURRENT-CONTEXT.md`.
 
 You are working inside:
 
