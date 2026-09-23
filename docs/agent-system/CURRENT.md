@@ -8,7 +8,7 @@
 ## CURRENT REPOSITORY TIP
 
 - Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, and merged WS-001 DIR-001 dogfood evidence.
-- Current main tip: `5250da9`. The DIR-002 closer apparatus is merged as PR #2 (merge commit `63ba55c91eb2531804b0310c65448138f0630ab0`).
+- Current main tip includes PR #3, the deposited fresh cross-ChatGPT closer evidence (merge commit `01c48ddc95a72a4c45d6def275f47fa4c5fa4bd6`).
 - Existing untracked surfaces remain another workstream's surface: `bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`, `setupdocs.zip`. Do not touch without owner.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
@@ -58,15 +58,15 @@ have no setup prompts yet.
 ## ACTIVE WORK
 
 - WS-001 / P1-01: Phase 2 dogfood completed; verdict remains PARTIALLY PROVEN.
-- Open proof closers:
+- CROSS-CHATGPT continuity is now **PROVEN** under the sealed §3 rubric: fresh-session bootstrap matched the seal, Q1–Q6 were evidenced, Q4/Q5 conditions passed, and transcript + packet + handoff were deposited and merged.
+- Remaining proof closer:
   - MULTI-AGENT independence: launch IMPL-03 (or another distinct identity/thread) from sealed `docs/agent-system/handoffs/HANDOFF-005.md` only.
-  - CROSS-CHATGPT continuity: run the sealed `docs/agent-system/workstreams/WS-001/CROSS-CHATGPT-CLOSER.md` procedure in a genuinely fresh ChatGPT conversation.
 - No other P1 workstream setup prompt has been created; P1-02 through P1-09 remain research-first and unopened.
 - Next portfolio action after the WS-001 closers: deep-research and bootstrap P1 workstreams one at a time.
 
 ## OPEN QUESTIONS
 
-- Whether the two remaining P1-01 closers pass under genuinely independent participants.
+- Whether the remaining P1-01 MULTI-AGENT independence closer passes under a genuinely independent participant.
 - Exact researched charter/proof boundary for each of P1-02 through P1-09.
 - Which existing Ω mechanisms should be treated as canonical inputs by each new workstream.
 
@@ -80,6 +80,9 @@ have no setup prompts yet.
 - TEST-01 proof table: `docs/agent-system/outbox/TEST-01/ITEM-001-proof-table.md`
 - DOC-01 QA: `docs/agent-system/outbox/DOC-01/ITEM-001-packet-qa.md`
 - Coordinator merge request: `docs/agent-system/outbox/IMPL-02/ITEM-002-merge-request.md`
+- CROSS-CHATGPT closer: `docs/agent-system/workstreams/WS-001/CROSS-CHATGPT-CLOSER.md`
+- PKT-004: `docs/agent-system/packets/PKT-004-cross-chatgpt-closer-findings.md`
+- HANDOFF-007: `docs/agent-system/handoffs/HANDOFF-007.md`
 - DIR-001: `docs/agent-system/directives/IMPL-02/DIRECTIVE-001-finish-p1-01.md`
 
 ## KNOWN HISTORICAL TRAPS
