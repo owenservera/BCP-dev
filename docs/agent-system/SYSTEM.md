@@ -234,8 +234,14 @@ entries stay parked until re-issued.
 - **Tip markers (churn rule):** `Tip:` headers in DERIVED files are rolled at
   coordinator integration only. Between integrations, handoffs (branch +
   base commit) are the live tip source — agents cite those, never guess.
-  (Amendment accepted by COORD-01 during DIR-001 integration; derived from the
-  D-DOG-01 drill finding and recorded in MERGE_REQUEST ITEM-002.)
+  (Accepted by COORD-01 during DIR-001 integration; derived from D-DOG-01 and
+  recorded in MERGE_REQUEST ITEM-002.)
+- **Seal-before-run:** an independence proof MUST publish its permitted bootstrap
+  set, forbidden context, breach-stop rule, mission, and PROVEN rubric before the
+  run begins. A staged apparatus is not evidence that the proof passed.
+- **Rubric-before-run:** the coordinator's pass criteria are published with the
+  sealed closer so a verdict is determined mechanically from the run evidence,
+  not from retrospective interpretation. Attempt ≠ pass.
 
 ## 14. Context compression rules
 
