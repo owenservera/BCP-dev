@@ -8,7 +8,7 @@
 ## CURRENT REPOSITORY TIP
 
 - Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, and merged WS-001 DIR-001 dogfood evidence.
-- Current main tip is the latest coordinator integration tip; the DIR-002 closer apparatus is merged as PR #2 (merge commit `63ba55c`).
+- Current main tip: `5250da9`. The DIR-002 closer apparatus is merged as PR #2 (merge commit `63ba55c91eb2531804b0310c65448138f0630ab0`).
 - Existing untracked surfaces remain another workstream's surface: `bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`, `setupdocs.zip`. Do not touch without owner.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
