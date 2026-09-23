@@ -13,7 +13,14 @@ conversations share one durable context without anyone loading all history.
 | agent | setup prompt | launch bootstrap | status |
 |---|---|---|---|
 | IMPL-01 | charter brief = transcript `../../transcripts/2026-09-23/CHAT-2026-09-23-cooperative-agent-context.md` (Phase 1 builder, this session — done) | HANDOFF-001 (closed) | ACTIVE → closing |
-| IMPL-02 | `SETUP-PROMPT-IMPL-02.md` (saved verbatim from owner, 2026-09-23) | `LAUNCH-IMPL-02.md` (read this second) | RESERVED — awaiting owner launch |
+| IMPL-02 | `SETUP-PROMPT-IMPL-02.md` (saved verbatim from owner, 2026-09-23) | `LAUNCH-IMPL-02.md` (read this second) | ACTIVE — DIR-001 drill in flight on branch `impl-02/p1-01-dogfood` |
+
+## Evidence chain (backward links — keep current, see D-DOG-01)
+
+- Charter transcript: `../../transcripts/2026-09-23/CHAT-2026-09-23-cooperative-agent-context.md`
+- Packets: `../../packets/PKT-001-cooperative-substrate-charter.md` (charter extraction, STANDS) → `../../packets/PKT-002-p1-01-dogfood-findings.md` (dogfood findings, pins, PKT-001 reader mapping)
+- Handoffs: `../../handoffs/HANDOFF-001.md` (Phase 1 close) → `HANDOFF-002.md` (→TEST-01) → `HANDOFF-003.md` (→DOC-01) → `HANDOFF-004.md` (→COORD-01, verdict inputs)
+- Directive: `../../directives/IMPL-02/DIRECTIVE-001-finish-p1-01.md` (OPEN → ACCEPTED via outbox ITEM-001)
 
 ## What is already done (do not redo)
 

@@ -227,6 +227,15 @@ entries stay parked until re-issued.
 - **Updates:** CURRENT.md is small and hand-tended through coordination.
   Packets version forward, never in-place rewrite. Transcripts never change.
   ROSTER is kept current by the coordinator on every session open/close.
+- **Link maintenance (D-DOG-01 rule):** every CURRENT/WORKSTREAMS integration
+  preserves or refreshes packet/handoff backward links — canonical files may
+  advance, the derived chain must stay reachable by link, not just by
+  directory listing. Workstream launch cards keep an evidence-chain section.
+- **Tip markers (churn rule):** `Tip:` headers in DERIVED files are rolled at
+  coordinator integration only. Between integrations, handoffs (branch +
+  base commit) are the live tip source — agents cite those, never guess.
+  (Amendment proposed by IMPL-02, DIR-001 drill — coordinator review in
+  MERGE_REQUEST.)
 
 ## 14. Context compression rules
 
