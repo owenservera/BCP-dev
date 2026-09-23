@@ -37,3 +37,10 @@ Body sections: `## Summary` (≤10 lines), `## Detail`, `## Requested action`,
   coordinator applies them.
 - Items are never edited after ACCEPTED/DECLINED — follow-ups are new items
   linking back.
+
+
+## Owner/coordinator directive channel
+
+Durable execution prompts use docs/agent-system/directives/<agent-id>/DIRECTIVE-<nnn>-<slug>.md rather than modifying frozen setup prompts.
+
+A directive is operational coordination, not Ω law and does not grant runtime permission. Agents check their directive directory at bootstrap and before a new task.
