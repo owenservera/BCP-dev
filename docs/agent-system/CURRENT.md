@@ -8,7 +8,7 @@
 ## CURRENT REPOSITORY TIP
 
 - Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, and merged WS-001 DIR-001 dogfood evidence.
-- Current main tip after coordinator integration: `d70fadd` for the merge; subsequent coordinator consolidation commits roll this marker.
+- Current main tip is the latest coordinator integration tip; the DIR-002 closer apparatus is merged as PR #2 (merge commit `63ba55c`).
 - Existing untracked surfaces remain another workstream's surface: `bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`, `setupdocs.zip`. Do not touch without owner.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
@@ -59,9 +59,9 @@ have no setup prompts yet.
 
 - WS-001 / P1-01: Phase 2 dogfood completed; verdict remains PARTIALLY PROVEN.
 - Open proof closers:
-  - MULTI-AGENT independence: a second genuinely independent agent/thread must continue from HANDOFF-004 alone.
-  - CROSS-CHATGPT continuity: a fresh P1-01 ChatGPT conversation must boot from CHATGPT-BOOT + CURRENT only.
-- No other P1 workstream setup prompt has been created.
+  - MULTI-AGENT independence: launch IMPL-03 (or another distinct identity/thread) from sealed `docs/agent-system/handoffs/HANDOFF-005.md` only.
+  - CROSS-CHATGPT continuity: run the sealed `docs/agent-system/workstreams/WS-001/CROSS-CHATGPT-CLOSER.md` procedure in a genuinely fresh ChatGPT conversation.
+- No other P1 workstream setup prompt has been created; P1-02 through P1-09 remain research-first and unopened.
 - Next portfolio action after the WS-001 closers: deep-research and bootstrap P1 workstreams one at a time.
 
 ## OPEN QUESTIONS
