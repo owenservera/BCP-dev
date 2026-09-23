@@ -7,7 +7,8 @@
 
 ## CURRENT REPOSITORY TIP
 
-- Main currently contains the cooperative agent-system substrate plus the P1 portfolio baseline.
+- Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, and merged WS-001 DIR-001 dogfood evidence.
+- Current main tip after coordinator integration: `d70fadd` for the merge; subsequent coordinator consolidation commits roll this marker.
 - Existing untracked surfaces remain another workstream's surface: `bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`, `setupdocs.zip`. Do not touch without owner.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
@@ -47,20 +48,39 @@ have no setup prompts yet.
 - Cooperative substrate: SYSTEM, ROSTER, WORKSTREAMS, CURRENT, CONTEXT-INDEX,
   CHATGPT-BOOT, transcript/packet/handoff/envelope conventions and falsifiers.
 - P1 portfolio charter and nine workstream boundaries.
+- WS-001 DIR-001 dogfood evidence is merged: 7 GREEN, 2 PARTIAL, 1 NOT-PROVEN.
+- PKT-002 closes PKT-001's provenance hash gap and preserves explicit reader mappings.
+- D-DOG-01 is fixed at the integration layer: canonical files must preserve/refresh packet and handoff backward links.
+- The SYSTEM §13 tip-marker/link-maintenance amendment is accepted into the current procedure.
 - Earlier proposed `vivim.self` WS-002 is folded into P1-04 / WS-004; it is not a
   competing workstream.
 
 ## ACTIVE WORK
 
-- WS-001 / P1-01: cooperative substrate Phase 1 landed; Phase 2 dogfood/wall tests remain.
+- WS-001 / P1-01: Phase 2 dogfood completed; verdict remains PARTIALLY PROVEN.
+- Open proof closers:
+  - MULTI-AGENT independence: a second genuinely independent agent/thread must continue from HANDOFF-004 alone.
+  - CROSS-CHATGPT continuity: a fresh P1-01 ChatGPT conversation must boot from CHATGPT-BOOT + CURRENT only.
 - No other P1 workstream setup prompt has been created.
-- Next portfolio action: deep-research and bootstrap P1 workstreams one at a time.
+- Next portfolio action after the WS-001 closers: deep-research and bootstrap P1 workstreams one at a time.
 
 ## OPEN QUESTIONS
 
-- Whether the cooperative substrate passes its wall tests.
+- Whether the two remaining P1-01 closers pass under genuinely independent participants.
 - Exact researched charter/proof boundary for each of P1-02 through P1-09.
 - Which existing Ω mechanisms should be treated as canonical inputs by each new workstream.
+
+## WS-001 EVIDENCE CHAIN
+
+- Charter transcript: `docs/agent-system/transcripts/2026-09-23/CHAT-2026-09-23-cooperative-agent-context.md`
+- PKT-001 (STANDS): `docs/agent-system/packets/PKT-001-cooperative-substrate-charter.md`
+- PKT-002 (current dogfood findings): `docs/agent-system/packets/PKT-002-p1-01-dogfood-findings.md`
+- HANDOFF-001: `docs/agent-system/handoffs/HANDOFF-001.md`
+- HANDOFF-004: `docs/agent-system/handoffs/HANDOFF-004.md`
+- TEST-01 proof table: `docs/agent-system/outbox/TEST-01/ITEM-001-proof-table.md`
+- DOC-01 QA: `docs/agent-system/outbox/DOC-01/ITEM-001-packet-qa.md`
+- Coordinator merge request: `docs/agent-system/outbox/IMPL-02/ITEM-002-merge-request.md`
+- DIR-001: `docs/agent-system/directives/IMPL-02/DIRECTIVE-001-finish-p1-01.md`
 
 ## KNOWN HISTORICAL TRAPS
 
