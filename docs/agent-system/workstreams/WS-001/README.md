@@ -12,37 +12,43 @@ conversations share one durable context without anyone loading all history.
 
 | agent | setup prompt | launch bootstrap | status |
 |---|---|---|---|
-| IMPL-01 | charter brief = transcript `../../transcripts/2026-09-23/CHAT-2026-09-23-cooperative-agent-context.md` (Phase 1 builder, this session — done) | HANDOFF-001 (closed) | ACTIVE → closing |
-| IMPL-02 | `SETUP-PROMPT-IMPL-02.md` (saved verbatim from owner, 2026-09-23) | `LAUNCH-IMPL-02.md` (read this second) | ACTIVE — DIR-001 drill in flight on branch `impl-02/p1-01-dogfood` |
+| IMPL-01 | charter brief = transcript `../../transcripts/2026-09-23/CHAT-2026-09-23-cooperative-agent-context.md` (Phase 1 builder, completed) | HANDOFF-001 (closed) | RETIRED — Phase 1 delivered |
+| IMPL-02 | `SETUP-PROMPT-IMPL-02.md` (saved verbatim from owner, 2026-09-23) | `LAUNCH-IMPL-02.md` (read this second) | ACTIVE — DIR-001 complete; P1-01 remains PARTIALLY PROVEN on two independent-continuity closers |
+| TEST-01 | — | HANDOFF-002 from IMPL-02 drill | STANDBY — proof table delivered |
+| DOC-01 | — | HANDOFF-003 from IMPL-02 drill | STANDBY — packet QA delivered |
 
 ## Evidence chain (backward links — keep current, see D-DOG-01)
 
 - Charter transcript: `../../transcripts/2026-09-23/CHAT-2026-09-23-cooperative-agent-context.md`
 - Packets: `../../packets/PKT-001-cooperative-substrate-charter.md` (charter extraction, STANDS) → `../../packets/PKT-002-p1-01-dogfood-findings.md` (dogfood findings, pins, PKT-001 reader mapping)
-- Handoffs: `../../handoffs/HANDOFF-001.md` (Phase 1 close) → `HANDOFF-002.md` (→TEST-01) → `HANDOFF-003.md` (→DOC-01) → `HANDOFF-004.md` (→COORD-01, verdict inputs)
-- Directive: `../../directives/IMPL-02/DIRECTIVE-001-finish-p1-01.md` (OPEN → ACCEPTED via outbox ITEM-001)
+- Handoffs: `../../handoffs/HANDOFF-001.md` (Phase 1 close) → `../../handoffs/HANDOFF-002.md` (→TEST-01) → `../../handoffs/HANDOFF-003.md` (→DOC-01) → `../../handoffs/HANDOFF-004.md` (→COORD-01, verdict inputs)
+- Proof evidence: `../../outbox/TEST-01/ITEM-001-proof-table.md` + `../../outbox/DOC-01/ITEM-001-packet-qa.md`
+- Coordinator integration: `../../outbox/IMPL-02/ITEM-002-merge-request.md`
+- Directive: `../../directives/IMPL-02/DIRECTIVE-001-finish-p1-01.md` (DONE)
 
 ## What is already done (do not redo)
 
 - Phase 0 audit + Phase 1 minimal substrate landed: SYSTEM, ROSTER,
   WORKSTREAMS, CURRENT, CONTEXT-INDEX, CHATGPT-BOOT, ENVELOPE, FALSIFIERS,
   conventions, transcript + PKT-001, HANDOFF-001. (→ `../../CURRENT.md`)
-- A launched agent continues at **Phase 2 (dogfood)** per HANDOFF-001 NEXT
-  ACTION — it does not restart Phase 1. The setup prompt says "first
-  implementation agent" because it was written before Phase 1 existed; the
-  LAUNCH file corrects the starting line. Prompt particulars govern the
-  *mission*; CURRENT + handoff govern the *starting position*.
+- DIR-001 dogfood/wall-test drill is complete and merged. The durable artifact
+  chain proved seven falsifiers GREEN, left two PARTIAL, and one NOT-PROVEN.
+- D-DOG-01 was exposed and fixed at coordinator integration: canonical files
+  must preserve/refresh packet and handoff backward links.
+- A launched agent continues from the proven substrate; it does not restart
+  Phase 1. Mission particulars remain in the setup prompt, while CURRENT +
+  handoffs govern the actual starting position.
 
-## To launch (owner checklist)
+## Remaining proof closers
 
-1. Point the agent at `SETUP-PROMPT-IMPL-02.md` (mission particulars).
-2. Point it at this folder `docs/agent-system/workstreams/WS-001/` (fresh context).
-3. Tell it its id is `IMPL-02` and its bootstrap is `LAUNCH-IMPL-02.md`.
-4. On first report, coordinator flips IMPL-02 RESERVED → ACTIVE.
+1. **MULTI-AGENT independence:** a genuinely independent second agent/thread must continue from HANDOFF-004 alone.
+2. **CROSS-CHATGPT continuity:** a fresh P1-01 ChatGPT conversation must boot from `CHATGPT-BOOT.md` + `CURRENT.md` only.
+
+Until both are proven, P1-01 remains PARTIALLY PROVEN.
 
 ## Output paths for agents on this workstream
 
 - Transcripts → `../../transcripts/YYYY-MM-DD/` · packets → `../../packets/`
 - Handoffs → `../../handoffs/` · session pointer → `../../sessions/`
 - Scratch/drafts → `work/` (this folder; graduate via handoff, don't park law here)
-- Coordination signals → `../../outbox/IMPL-02/` (inbox created on first incoming item)
+- Coordination signals → `../../outbox/<agent-id>/`
