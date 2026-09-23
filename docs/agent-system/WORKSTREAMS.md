@@ -11,12 +11,12 @@ ChatGPT conversation.
 ## P1-01 / WS-001 — Cooperative Agent System
 
 - **Mission:** persistent collaboration between humans, ChatGPT sessions, and local agents.
-- **Status:** ACTIVE — Phase 2 dogfood complete; P1-01 PARTIALLY PROVEN (7 GREEN / 2 PARTIAL / 1 NOT-PROVEN).
+- **Status:** ACTIVE — Phase 2 dogfood complete; P1-01 PARTIALLY PROVEN (7 GREEN / 1 PARTIAL / 1 PROVEN). CROSS-CHATGPT is PROVEN; MULTI-AGENT remains PARTIAL.
 - **Owner:** owner / COORD-01.
 - **Current scope:** coordination protocol, transcripts, packets, handoffs, agent roster, context bootstrap.
-- **Evidence:** [PKT-001](packets/PKT-001-cooperative-substrate-charter.md), [PKT-002](packets/PKT-002-p1-01-dogfood-findings.md), [PKT-003](packets/PKT-003-p1-01-closer-apparatus.md), [HANDOFF-001](handoffs/HANDOFF-001.md), [HANDOFF-004](handoffs/HANDOFF-004.md), [HANDOFF-005](handoffs/HANDOFF-005.md), [HANDOFF-006](handoffs/HANDOFF-006.md), [TEST-01 proof table](outbox/TEST-01/ITEM-001-proof-table.md), [DOC-01 QA](outbox/DOC-01/ITEM-001-packet-qa.md), [CROSS-CHATGPT-CLOSER](workstreams/WS-001/CROSS-CHATGPT-CLOSER.md).
+- **Evidence:** [PKT-001](packets/PKT-001-cooperative-substrate-charter.md), [PKT-002](packets/PKT-002-p1-01-dogfood-findings.md), [PKT-003](packets/PKT-003-p1-01-closer-apparatus.md), [HANDOFF-001](handoffs/HANDOFF-001.md), [HANDOFF-004](handoffs/HANDOFF-004.md), [HANDOFF-005](handoffs/HANDOFF-005.md), [HANDOFF-006](handoffs/HANDOFF-006.md), [TEST-01 proof table](outbox/TEST-01/ITEM-001-proof-table.md), [DOC-01 QA](outbox/DOC-01/ITEM-001-packet-qa.md), [CROSS-CHATGPT-CLOSER](workstreams/WS-001/CROSS-CHATGPT-CLOSER.md), [PKT-004](packets/PKT-004-cross-chatgpt-closer-findings.md), [HANDOFF-007](handoffs/HANDOFF-007.md).
 - **Coordinator request:** [DIR-002 MERGE_REQUEST](outbox/IMPL-02/ITEM-003-merge-request.md).
-- **Open proof:** MULTI-AGENT remains PARTIAL until a distinct closer passes HANDOFF-005's sealed rubric; CROSS-CHATGPT remains NOT PROVEN until a genuinely fresh ChatGPT session passes the sealed closer.
+- **Proof state:** CROSS-CHATGPT = PROVEN under sealed §3 rubric. MULTI-AGENT = PARTIAL until a distinct closer passes HANDOFF-005's sealed rubric.
 - **Launch folder:** `docs/agent-system/workstreams/WS-001/`.
 
 ## P1-02 / WS-002 — Repository Truth, Cleanup & Drift
