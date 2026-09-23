@@ -3,7 +3,7 @@
 > **Classification: DERIVED — CURRENT**
 > **Authority:** coordination mirror only. Confers no Ω permission and overrides
 > no runtime identity (`vivim-agent` plugin + D-452..D-455 govern the runtime).
-> **Maintainer:** COORD-01 · **Updated:** 2026-09-24 · **Tip:** `63ba55c`
+> **Maintainer:** COORD-01 · **Updated:** 2026-09-24 · **Tip:** `cac427d`
 
 | agentId | role | status | specialization | current workstream | current task | branch / worktree | last session | handoff |
 |---|---|---|---|---|---|---|---|---|
