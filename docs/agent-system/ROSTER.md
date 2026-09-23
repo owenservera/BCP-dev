@@ -3,13 +3,14 @@
 > **Classification: DERIVED — CURRENT**
 > **Authority:** coordination mirror only. Confers no Ω permission and overrides
 > no runtime identity (`vivim-agent` plugin + D-452..D-455 govern the runtime).
-> **Maintainer:** COORD-01 · **Updated:** 2026-09-24 · **Tip:** `d70fadd`
+> **Maintainer:** COORD-01 · **Updated:** 2026-09-24 · **Tip:** `63ba55c`
 
 | agentId | role | status | specialization | current workstream | current task | branch / worktree | last session | handoff |
 |---|---|---|---|---|---|---|---|---|
 | COORD-01 | workstream coordination / integration | ACTIVE | routing, conflict detection, CURRENT consolidation, gates | WS-001 | own WS-001 integration + gate status | `owner-wave-001` (Ω line; this task works at BCP-dev root, docs-only) | — (owner channel) | — |
 | IMPL-01 | implementation agent (first builder) | RETIRED | cooperative substrate construction (Phase 1) | WS-001 | Phase 1 minimal substrate + ingest + falsifiers | BCP-dev working tree, docs-only, base `becb920` | local session 2026-09-23 | HANDOFF-001 |
-| IMPL-02 | implementation agent (owner-launched continuation) | ACTIVE | cooperative-system dogfood + wall-test evidence | WS-001 | DIR-001 complete; P1-01 integration/closure | `impl-02/p1-01-dogfood` | 2026-09-24 · DIR-001 session | HANDOFF-004 |
+| IMPL-02 | implementation agent (owner-launched continuation) | ACTIVE | cooperative-system dogfood + proof-closure apparatus | WS-001 | DIR-002 staging complete; owner-run proof closers pending | `impl-02/p1-01-closers` | 2026-09-24 · DIR-002 session | HANDOFF-006 |
+| IMPL-03 | independent closer participant | RESERVED | independent multi-agent continuity proof | WS-001 | launch from HANDOFF-005 only | — | — | — |
 | ARCH-01 | architecture and ontology | STANDBY | Ω law, invariants, composition fence | — | unassigned | — | — | — |
 | ARCHAEOLOGY-01 | historical VIVIM/Ω extraction | STANDBY | legacy mine assay, genealogy | — | unassigned | — | — | — |
 | CODE-01 | source semantics / code indexing | STANDBY | contracts, surfaces, import discipline | — | unassigned | — | — | — |
