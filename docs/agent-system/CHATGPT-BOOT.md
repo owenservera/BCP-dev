@@ -1,56 +1,57 @@
-# CHATGPT-BOOT.md — Fresh-Session Bridge (ChatGPT or any fresh participant)
+# CHATGPT-BOOT.md — Fresh-Session Bridge
 
-> **Classification: DERIVED — CURRENT** · **Updated:** 2026-09-23 · **Tip:** `7525ae6`
+> **Classification: DERIVED — CURRENT** · **Updated:** 2026-09-24
 
-You are joining an ongoing Ω workstream. The repository — not any past chat —
-is the shared memory. A previous conversation's conclusions are **evidence**,
-never law, until they survive the repo's own gates.
+You are joining an ongoing Ω program. Assume you have no memory of prior chats.
+The repository is the durable shared context.
 
-## Read in this order (stop when you can act; cite what you read)
+## Read first
 
-```text
+```
 1. /AGENTS.md
 2. /BUILD_CONTEXT.md
 3. /docs/CURRENT-CONTEXT.md
 4. /docs/agent-system/SYSTEM.md
 5. /docs/agent-system/CURRENT.md
-6. /docs/agent-system/CONTEXT-INDEX.md
-7. active workstream row in /docs/agent-system/WORKSTREAMS.md
-8. relevant handoff in /docs/agent-system/handoffs/
-9. relevant packets in /docs/agent-system/packets/
-10. relevant decisions / code / tests (follow packet links)
-11. original transcripts in /docs/agent-system/transcripts/ — only where necessary
+6. /docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md
+7. /docs/agent-system/WORKSTREAMS.md
+8. relevant workstream handoff/packet
+9. relevant Ω decisions, code, and tests
+10. original transcripts only where necessary
 ```
 
-For Ω-specific tasks also read:
+## P1 program
 
-```text
-omega-baseline/omega-final/AGENTS.md
-omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md
+The program has nine P1 workstreams:
+
+1. Cooperative Agent System
+2. Repository Truth, Cleanup & Drift
+3. Ω Ontology, Evidence & Representation
+4. Ω Self-Knowledge & Context
+5. Ω Plugin Kernel & Runtime
+6. Ω Agency, Execution & Governance
+7. Provider Intelligence & Autonomous Maintenance
+8. Forge / VIVIM Harvest & Migration
+9. Ω Integration & End-to-End Proof
+
+The portfolio charter is the shared boundary map:
+`docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md`.
+
+## Important
+
+- P1-01 and P1-02 are development-control workstreams.
+- P1-03 through P1-06 form the Ω computational core.
+- P1-07 combines the Provider Laboratory with autonomous maintenance.
+- P1-08 owns VIVIM/BCP extraction and migration.
+- P1-09 proves cross-workstream composition.
+- Setup prompts for the workstreams are deliberately created one at a time after deep research. Do not invent them from this file.
+- Transcripts, packets, handoffs, and agent reasoning are not Ω law.
+- Existing Ω ratified decisions and gates remain authoritative.
+
+## Continuity loop
+
 ```
-
-## Authority warnings (cold-reader traps)
-
-- Transcripts ≠ law. Packets/handoffs/summaries ≠ law. Your own reasoning ≠ law.
-- Old docs ≠ current: check STATUS banners; folder ≠ authority.
-- `provider.llm` / Ollama passages = cited history (D-418/D-456). V1 is Chrome
-  master/slave only.
-- `merging` ≠ integrated; fixture-proven ≠ live-proven.
-- Parked 2026-09-22 lane/inbox entries are history until the coordinator re-issues.
-- Never edit a RATIFIED decision record; supersede-only. Never hand-edit BCP
-  state YAML (tool-only). Never touch `vivim-original-baseline/`.
-
-## How to work and leave continuity
-
-```text
-read boot + CURRENT → identify workstream → inspect packets/handoffs →
-verify against decisions/code/tests → do the work →
-produce findings/proposals →
-deposit your conversation as a transcript (immutable, with front-matter) →
-extract/update a packet (with reasoning lineage, never conclusions-only) →
-request CURRENT advancement via outbox MERGE_REQUEST + handoff
+read → identify P1 workstream → research against authority
+→ produce evidence/proposals → transcript → packet → handoff
+→ coordinator integrates → next session continues
 ```
-
-Your session's durable output is: transcript + packet (+ handoff if handing
-work over) + outbox item. The coordinator advances CURRENT. That is how the
-next fresh session continues without your chat pasted into it.
