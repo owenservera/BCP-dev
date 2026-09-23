@@ -36,6 +36,17 @@
         "@vivim/omega-shim": "workspace:*",
       },
     },
+    "examples/plugin-echo2": {
+      "name": "@vivim/plugin-plugin-echo2",
+      "version": "0.1.0",
+      "dependencies": {
+        "@vivim/omega-contracts": "workspace:*",
+        "@vivim/omega-platform": "workspace:*",
+        "@vivim/omega-sdk": "workspace:*",
+        "@vivim/omega-shim": "workspace:*",
+        "@vivim/omega-testkit": "workspace:*",
+      },
+    },
     "examples/plugin-notes": {
       "name": "@vivim/plugin-plugin-notes",
       "version": "0.1.0",
@@ -172,6 +183,26 @@
       "dependencies": {
         "@vivim/omega-contracts": "workspace:*",
         "@vivim/omega-shim": "workspace:*",
+      },
+    },
+    "plugins/parser-claude-sse": {
+      "name": "@vivim/plugin-parser-claude-sse",
+      "version": "0.1.0",
+      "dependencies": {
+        "@vivim/omega-contracts": "workspace:*",
+        "@vivim/omega-platform": "workspace:*",
+        "@vivim/omega-shim": "workspace:*",
+        "@vivim/omega-testkit": "workspace:*",
+      },
+    },
+    "plugins/parser-claude-sse-v2": {
+      "name": "@vivim/plugin-parser-claude-sse-v2",
+      "version": "0.1.0",
+      "dependencies": {
+        "@vivim/omega-contracts": "workspace:*",
+        "@vivim/omega-platform": "workspace:*",
+        "@vivim/omega-shim": "workspace:*",
+        "@vivim/omega-testkit": "workspace:*",
       },
     },
     "plugins/provider-browser": {
@@ -503,11 +534,17 @@
 
     "@vivim/plugin-law-stub": ["@vivim/plugin-law-stub@workspace:plugins/law-stub"],
 
+    "@vivim/plugin-parser-claude-sse": ["@vivim/plugin-parser-claude-sse@workspace:plugins/parser-claude-sse"],
+
+    "@vivim/plugin-parser-claude-sse-v2": ["@vivim/plugin-parser-claude-sse-v2@workspace:plugins/parser-claude-sse-v2"],
+
     "@vivim/plugin-plugin-counter": ["@vivim/plugin-plugin-counter@workspace:examples/plugin-counter"],
 
     "@vivim/plugin-plugin-crashy": ["@vivim/plugin-plugin-crashy@workspace:examples/plugin-crashy"],
 
     "@vivim/plugin-plugin-echo": ["@vivim/plugin-plugin-echo@workspace:examples/plugin-echo"],
+
+    "@vivim/plugin-plugin-echo2": ["@vivim/plugin-plugin-echo2@workspace:examples/plugin-echo2"],
 
     "@vivim/plugin-plugin-notes": ["@vivim/plugin-plugin-notes@workspace:examples/plugin-notes"],
 

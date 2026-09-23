@@ -1,0 +1,25 @@
+{
+  "manifestVersion": "1",
+  "id": "parser.claude.sse.v2",
+  "version": "1.0.0",
+  "description": "MIG-003 V2 (Prompt 4, Phase 10): independent re-implementation of parser:chat.complete:claude-sse v1. Same row grammar, same refusal law — different machine: decode-then-fold (pure event list + slot-map join) instead of V1's online tail-mutation loop. Shares NO code with V1 (row shapes re-declared; the differential test, not shared code, is the contract). NOT routable.",
+  "entry": "src/index.ts",
+  "publisher": { "keyId": "", "signature": "" },
+  "contributions": {
+    "parser": [
+      { "kind": "parser", "id": "chat.complete", "version": "1", "doc": "parser:chat.complete:claude-sse v2 — same pin surface as v1 (composition membership selects). Single-pass decode into typed events, then an explicit-state fold (OPEN/APPEND/CLOSE) over a slot map. Byte-identical rows to v1 on all in-domain inputs (proven by the differential suite); identical refusal law." }
+    ]
+  },
+  "dependencies": [],
+  "capabilities": { "requested": [] },
+  "runtime": { "tier": "worker-thread", "budget": { "cpuMs": 100, "memMB": 32 } },
+  "contentHash": "",
+  "granularity": "atomic",
+  "generality": {
+    "level": "harvested",
+    "mine": "BCP-dev@e724a51",
+    "originPaths": ["vivim-original-baseline/vivim-final-enhanced/seeds/parsers/claude-streaming-sse.ts", "vivim-original-baseline/vivim-final-enhanced/src/schema/streaming.ts"],
+    "harvestClass": "ALGORITHM",
+    "evidence": ["mine:vivim-original-baseline/vivim-final-enhanced/seeds/parsers/claude-streaming-sse.ts", "fixture:plugins/parser-claude-sse-v2/test/fixtures/"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "migration_id": "MIG-003-claude-sse-parser",
+  "source_behavior": "VIVIM Claude SSE streaming parse (seed parser + ContentPart model)",
+  "required_invariants": ["I-1 determinism incl. V1/V2 identity", "I-2 exactly-one-final", "I-3 typed provenance", "I-4 fail-closed refusals", "I-5 purity (D-354)"],
+  "omega_target": {
+    "contract_op": "parser:chat.complete:claude-sse@1 (parser-kind contribution, NOT routable)",
+    "archetype": "chat.complete",
+    "plugin": "parser.claude.sse.v1 + parser.claude.sse.v2 (independent plugin dirs)",
+    "provider_class": "N/A (governance data, no execution tier)"
+  },
+  "architectural_transformation": "VIVIM parse()+ContentBlock[] -> Omega transform(): string -> ParsedChunk[] with claude.* row kinds; raw-fallback corrected to refusal (T-04 precedent); silent-skip made observable via skippedLines; clock already absent (no change needed); consumed via D-355 pins + buildChunkEnvelope, never via import",
+  "new_dependencies": ["none (contracts parser.ts already provides ParsedChunk + envelope law)"],
+  "removed_dependencies": ["VIVIM seed import", "ContentPart zod schema (row kinds re-expressed, not ported)", "DB-backed selection for this pin (static contribution)"],
+  "preserved_semantics": ["SSE grammar (message/block/delta/stop)", "typed blocks incl. reasoning channel", "message_stop/[DONE] completion", "delta accumulation rule", "meta linkage (message_id, stopped)"],
+  "changed_semantics": ["empty/unterminated/zero-row inputs REFUSE instead of raw-fallback (fail-closed, named errors)", "skipped lines counted in done row (observable degradation)"],
+  "unresolved_semantics": ["input_json_delta streaming", "multi-message bodies", "reasoning-block Ω vocabulary beyond chunk data kinds (inherited U-5)"]
+}

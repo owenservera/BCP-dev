@@ -1,0 +1,25 @@
+{
+  "manifestVersion": "1",
+  "id": "parser.claude.sse.v1",
+  "version": "1.0.0",
+  "description": "MIG-003 V1 (Prompt 4, Phase 9): VIVIM-derived Claude SSE streaming parser as D-355 governance data. Faithful line-split algorithm harvested from the VIVIM seed parser; I/O re-expressed to M1 ParsedChunk rows (claude.* kinds, exactly-one-final). Fail-closed refusals replace the seed's lossy raw-fallback (T-04 precedent). NOT routable.",
+  "entry": "src/index.ts",
+  "publisher": { "keyId": "", "signature": "" },
+  "contributions": {
+    "parser": [
+      { "kind": "parser", "id": "chat.complete", "version": "1", "doc": "parser:chat.complete:claude-sse v1 — recorded Claude SSE text in, ordered claude.* ParsedChunk rows out (text/reasoning/tool_use/file/meta/done-final). Harvested algorithm (line-split, tail-mutation accumulation); VIVIM raw-fallback corrected to named refusal; skipped data lines counted in the done row." }
+    ]
+  },
+  "dependencies": [],
+  "capabilities": { "requested": [] },
+  "runtime": { "tier": "worker-thread", "budget": { "cpuMs": 100, "memMB": 32 } },
+  "contentHash": "",
+  "granularity": "atomic",
+  "generality": {
+    "level": "harvested",
+    "mine": "BCP-dev@e724a51",
+    "originPaths": ["vivim-original-baseline/vivim-final-enhanced/seeds/parsers/claude-streaming-sse.ts", "vivim-original-baseline/vivim-final-enhanced/src/schema/streaming.ts"],
+    "harvestClass": "ALGORITHM",
+    "evidence": ["mine:vivim-original-baseline/vivim-final-enhanced/seeds/parsers/claude-streaming-sse.ts", "fixture:plugins/parser-claude-sse/test/fixtures/"]
+  }
+}
