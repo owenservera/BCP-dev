@@ -6,7 +6,7 @@ to: IMPL-02
 workstream: WS-001
 issued: 2026-09-24
 repository_tip: 1f0c43b
-status: OPEN
+status: DONE
 ---
 
 # Close the two remaining P1-01 proof gaps
@@ -129,3 +129,7 @@ It is NOT permission to begin another P1 workstream.
 
 Pull the latest main, read this directive and the required durable context, then
 execute the proof work without waiting for another conversational prompt.
+
+## Coordinator closure
+
+DIR-002 is DONE with both P1-01 proof gaps closed: MULTI-AGENT → PROVEN (IMPL-03 sealed run, HANDOFF-005 rubric 6/6; PKT-005 + HANDOFF-009 + IMPL-03 ITEM-001, originating IDs PKT-004/HANDOFF-007 @ `3867963`) and CROSS-CHATGPT → PROVEN (genuinely fresh session run, closer §3 rubric 6/6 countersigned; transcript + PKT-004-cross-chatgpt + HANDOFF-007). The DONE flip landed on the origin line before the MULTI-AGENT run was integrated; both-proofs completion criteria are satisfied ex post on reconciliation (HANDOFF-008 + ITEM-005). Resulting P1-01 verdict: PROVEN (7 GREEN / 1 PARTIAL / 2 PROVEN; residual: COMPACTION formal GREEN re-rule owed).

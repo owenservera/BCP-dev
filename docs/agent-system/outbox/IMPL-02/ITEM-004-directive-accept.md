@@ -7,7 +7,7 @@ workstream: WS-001
 date: 2026-09-24
 repository_tip: b5cdb24
 branch: impl-02/p1-01-closers
-status: OPEN
+status: DONE
 links:
   handoff: HANDOFF-006
   packets: [PKT-003]
@@ -32,9 +32,9 @@ Ledger session `20260923-224219-…` opened, streamed, closing with
 retrospective. Branch `impl-02/p1-01-closers` carries 6 new files + 0
 modifications to existing files.
 
-## Requested action
+## Coordinator closure
 
-None in this item — see ITEM-003 for all rulings.
+Accepted and integrated. ITEM-003 contains the coordinator rulings. DIR-002 is DONE. No proof verdict changed: MULTI-AGENT remains PARTIAL, CROSS-CHATGPT remains NOT PROVEN, and P1-01 remains PARTIALLY PROVEN.
 
 ## Context budget
 

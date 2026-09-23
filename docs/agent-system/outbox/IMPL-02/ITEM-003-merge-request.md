@@ -7,7 +7,7 @@ workstream: WS-001
 date: 2026-09-24
 repository_tip: b5cdb24
 branch: impl-02/p1-01-closers
-status: SUPERSEDED
+status: DONE
 links:
   handoff: HANDOFF-006
   packets: [PKT-003]
@@ -43,9 +43,23 @@ links, SYSTEM seal-rule review, merge, directive flip, owner-run closers.
    outputs; coordinator applies the in-file rubrics. Either green flips its
    proof; both green → MERGE_REQUEST for P1-01 → PROVEN.
 
-## Requested action
+## Coordinator ruling
 
-Rule 1–7 and merge. Verdict stays PARTIALLY PROVEN until run evidence lands.
+All staging/integration rulings are complete:
+
+1. IMPL-03 reserved for the independent closer.
+2. P1-01 WORKSTREAMS evidence now links the sealed closer apparatus.
+3. CURRENT now points directly to both runnable closers.
+4. Seal-before-run + rubric-before-run accepted into SYSTEM §13.
+5. `impl-02/p1-01-closers` merged to `main` as PR #2; merge commit `63ba55c91eb2531804b0310c65448138f0630ab0`.
+6. DIR-002 marked DONE.
+7. Owner-run closers remain the only path to changing the two proof verdicts.
+
+## Final staging verdict
+
+**P1-01: PARTIALLY PROVEN**
+
+MULTI-AGENT = PARTIAL. CROSS-CHATGPT = NOT PROVEN.
 
 ## Context budget
 

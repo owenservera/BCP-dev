@@ -3,13 +3,14 @@
 > **Classification: DERIVED — CURRENT**
 > **Authority:** coordination mirror only. Confers no Ω permission and overrides
 > no runtime identity (`vivim-agent` plugin + D-452..D-455 govern the runtime).
-> **Maintainer:** COORD-01 · **Updated:** 2026-09-24 · **Tip:** `d70fadd`
+> **Maintainer:** COORD-01 · **Updated:** 2026-09-24 · **Tip:** `cac427d`
 
 | agentId | role | status | specialization | current workstream | current task | branch / worktree | last session | handoff |
 |---|---|---|---|---|---|---|---|---|
 | COORD-01 | workstream coordination / integration | ACTIVE | routing, conflict detection, CURRENT consolidation, gates | WS-001 | own WS-001 integration + gate status | `owner-wave-001` (Ω line; this task works at BCP-dev root, docs-only) | — (owner channel) | — |
 | IMPL-01 | implementation agent (first builder) | RETIRED | cooperative substrate construction (Phase 1) | WS-001 | Phase 1 minimal substrate + ingest + falsifiers | BCP-dev working tree, docs-only, base `becb920` | local session 2026-09-23 | HANDOFF-001 |
-| IMPL-02 | implementation agent (owner-launched continuation) | ACTIVE | cooperative-system dogfood + wall-test evidence | WS-001 | DIR-002/MULTI-AGENT integration close (HANDOFF-008 + ITEM-005) | `impl-02/p1-01-final-integration` | 2026-09-24 · DIR-002 integration | HANDOFF-008 |
+| IMPL-02 | implementation agent (owner-launched continuation) | ACTIVE | cooperative-system dogfood + wall-test evidence | WS-001 | P1-01 final reconciliation, both closers (HANDOFF-008 + ITEM-005) | `impl-02/p1-01-final-integration` | 2026-09-24 · DIR-002 integration | HANDOFF-008 |
+| IMPL-03 | independent closer (HANDOFF-005 sealed run) | STANDBY | sealed independent verification: link audit + cold-start audit | WS-001 (closed closer) | verification delivered (PKT-005 + HANDOFF-009 + ITEM-001; originating IDs PKT-004/HANDOFF-007 @ `3867963`); no new task assigned | `impl-03/p1-01-independent-verification` | 2026-09-24 · closer run (no Ω ledger session — docs-only) | HANDOFF-009 |
 | ARCH-01 | architecture and ontology | STANDBY | Ω law, invariants, composition fence | — | unassigned | — | — | — |
 | ARCHAEOLOGY-01 | historical VIVIM/Ω extraction | STANDBY | legacy mine assay, genealogy | — | unassigned | — | — | — |
 | CODE-01 | source semantics / code indexing | STANDBY | contracts, surfaces, import discipline | — | unassigned | — | — | — |

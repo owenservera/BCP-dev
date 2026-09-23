@@ -8,7 +8,7 @@
 ## CURRENT REPOSITORY TIP
 
 - Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, and merged WS-001 DIR-001 dogfood evidence.
-- Current main tip after coordinator integration: `d70fadd` for the merge; subsequent coordinator consolidation commits roll this marker.
+- Current main tip includes PR #3, the deposited fresh cross-ChatGPT closer evidence (merge commit `01c48ddc95a72a4c45d6def275f47fa4c5fa4bd6`).
 - Existing untracked surfaces remain another workstream's surface: `bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`, `setupdocs.zip`. Do not touch without owner.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
@@ -51,23 +51,22 @@ have no setup prompts yet.
 - WS-001 DIR-001 dogfood evidence is merged: 7 GREEN, 2 PARTIAL, 1 NOT-PROVEN.
 - PKT-002 closes PKT-001's provenance hash gap and preserves explicit reader mappings.
 - D-DOG-01 is fixed at the integration layer: canonical files must preserve/refresh packet and handoff backward links.
-- F-AGENT-MULTI-AGENT is PROVEN: IMPL-03 sealed run (HANDOFF-005 rubric 6/6) integrated — 8-link chain re-verified ALIVE, cold-start path walks clean; tally now 8 GREEN / 1 PARTIAL / 1 NOT-PROVEN.
+- F-AGENT-MULTI-AGENT is PROVEN: IMPL-03 sealed run (HANDOFF-005 rubric 6/6) integrated — 8-link chain re-verified ALIVE, cold-start path walks clean.
+- F-AGENT-CROSS-CHATGPT is PROVEN: genuinely fresh session run (closer §3 rubric 6/6 countersigned) — transcript + packet + handoff deposited and merged.
+- P1-01 is PROVEN: tally 7 GREEN / 1 PARTIAL / 2 PROVEN (residual: COMPACTION formal GREEN re-rule owed, cure integrated at `d8cb795`).
 - The SYSTEM §13 tip-marker/link-maintenance amendment is accepted into the current procedure.
 - Earlier proposed `vivim.self` WS-002 is folded into P1-04 / WS-004; it is not a
   competing workstream.
 
 ## ACTIVE WORK
 
-- WS-001 / P1-01: Phase 2 dogfood completed; verdict remains PARTIALLY PROVEN (MULTI-AGENT now PROVEN, CROSS-CHATGPT still open).
-- Open proof closer (one remaining):
-  - CROSS-CHATGPT continuity: a fresh P1-01 ChatGPT conversation must boot from CHATGPT-BOOT + CURRENT only — runnable closer: `docs/agent-system/workstreams/WS-001/CROSS-CHATGPT-CLOSER.md` §§0–2.
-- Closed proof: MULTI-AGENT independence — IMPL-03 continued from HANDOFF-004 alone (PKT-004 + HANDOFF-007 + `outbox/IMPL-03/ITEM-001-evidence-independent-verification.md`).
-- No other P1 workstream setup prompt has been created.
+- WS-001 / P1-01: Phase 2 dogfood completed; verdict PROVEN (7 GREEN / 1 PARTIAL / 2 PROVEN; residual: COMPACTION formal re-rule owed).
+- Closed proofs: MULTI-AGENT independence — IMPL-03 continued from HANDOFF-004 alone (PKT-005 + HANDOFF-009 + `outbox/IMPL-03/ITEM-001-evidence-independent-verification.md`); CROSS-CHATGPT continuity — genuinely fresh session run (transcript + `packets/PKT-004-cross-chatgpt-closer-findings.md` + `handoffs/HANDOFF-007.md`, §3 rubric 6/6).
+- No other P1 workstream setup prompt has been created; P1-02 through P1-09 remain research-first and unopened.
 - Next portfolio action after the WS-001 closers: deep-research and bootstrap P1 workstreams one at a time.
 
 ## OPEN QUESTIONS
 
-- Whether the remaining P1-01 closer (CROSS-CHATGPT) passes under a genuinely independent fresh session.
 - Exact researched charter/proof boundary for each of P1-02 through P1-09.
 - Which existing Ω mechanisms should be treated as canonical inputs by each new workstream.
 
@@ -82,9 +81,11 @@ have no setup prompts yet.
 - DOC-01 QA: `docs/agent-system/outbox/DOC-01/ITEM-001-packet-qa.md`
 - Coordinator merge request: `docs/agent-system/outbox/IMPL-02/ITEM-002-merge-request.md`
 - DIR-001: `docs/agent-system/directives/IMPL-02/DIRECTIVE-001-finish-p1-01.md`
-- Closer apparatus (DIR-002 staging): PKT-003 (`packets/PKT-003-p1-01-closer-apparatus.md`), HANDOFF-005/006 (`handoffs/HANDOFF-005.md`, `handoffs/HANDOFF-006.md`), runnable ChatGPT closer (`workstreams/WS-001/CROSS-CHATGPT-CLOSER.md`), ITEM-003/004 (`outbox/IMPL-02/ITEM-003-merge-request.md`, `outbox/IMPL-02/ITEM-004-directive-accept.md`)
-- Independent verification (MULTI-AGENT PROVEN): PKT-004 (`packets/PKT-004-impl-03-independent-verification.md`), HANDOFF-007 (`handoffs/HANDOFF-007.md`), IMPL-03 evidence (`outbox/IMPL-03/ITEM-001-evidence-independent-verification.md`), final integration (HANDOFF-008 + `outbox/IMPL-02/ITEM-005-merge-request-final-integration.md`)
-- DIR-002 (still OPEN — ChatGPT half outstanding): `docs/agent-system/directives/IMPL-02/DIRECTIVE-002-close-p1-01-proof-gaps.md`
+- CROSS-CHATGPT (PROVEN §3 6/6): transcript (`transcripts/2026-09-24/CHATGPT-2026-09-24-cross-chatgpt-closer.md`), PKT-004 (`packets/PKT-004-cross-chatgpt-closer-findings.md`), HANDOFF-007 (ChatGPT closer's, CLOSED) — merged PR #3.
+- Closer apparatus (DIR-002 staging): PKT-003 (`packets/PKT-003-p1-01-closer-apparatus.md`), HANDOFF-005/006 (`handoffs/HANDOFF-005.md`, `handoffs/HANDOFF-006.md`), ChatGPT closer procedure (`workstreams/WS-001/CROSS-CHATGPT-CLOSER.md`), ITEM-003/004 (`outbox/IMPL-02/ITEM-003-merge-request.md`, `outbox/IMPL-02/ITEM-004-directive-accept.md`)
+- MULTI-AGENT (PROVEN HANDOFF-005 6/6): PKT-005 (`packets/PKT-005-impl-03-independent-verification.md`), HANDOFF-009 (`handoffs/HANDOFF-009.md`), IMPL-03 evidence (`outbox/IMPL-03/ITEM-001-evidence-independent-verification.md`) — ID mapping: originating IDs PKT-004/HANDOFF-007 @ `3867963`, remapped on HANDOFF-007 collision reconciliation (bytes identical; ChatGPT artifacts keep PKT-004/HANDOFF-007).
+- Reconciliation (P1-01 PROVEN): HANDOFF-008 (`handoffs/HANDOFF-008.md`) + `outbox/IMPL-02/ITEM-005-merge-request-final-integration.md` + this merge.
+- DIR-002 (DONE — both proofs green, criteria satisfied): `docs/agent-system/directives/IMPL-02/DIRECTIVE-002-close-p1-01-proof-gaps.md`
 
 ## KNOWN HISTORICAL TRAPS
 
