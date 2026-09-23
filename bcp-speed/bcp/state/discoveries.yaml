@@ -156,3 +156,15 @@ discoveries:
   applies_to:
   - FAM-01.1
   text: 'MIG-002: Claude SSE seed parser implements typed blocks (text/reasoning/tool-call/file/meta) with message_stop completion and silent skip of malformed lines (catch{}). Omega chat.ts has no block-kind vocabulary - carried as unresolved I-7.'
+- id: DISC-026
+  ts: '2026-09-23T18:28:20Z'
+  agent: AGT-omega
+  applies_to:
+  - FAM-01.1
+  text: 'Prompt-03 forensics: live provider path is manifest->DB->generated static file (zero-DB hot path); old plugin classes are legacy/compat, NOT in the live chain. Resolves MIG-001 authority UNKNOWN to STRONGLY_INFERRED.'
+- id: DISC-027
+  ts: '2026-09-23T18:28:21Z'
+  agent: AGT-omega
+  applies_to:
+  - FAM-01.1
+  text: 'Prompt-03 forensics: Governor bypasses are real - getTransport feeds raw CDP to SemanticGroundingEngine; harness capture-in-DAG deadlocks on non-reentrant mutex; recoverAuth missing on real FleetSupervisor; execution-path slave pick is account-blind (slaves[0]). See FORENSIC_EVIDENCE.md.'

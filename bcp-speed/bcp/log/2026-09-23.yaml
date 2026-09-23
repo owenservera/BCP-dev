@@ -18,3 +18,13 @@
   signal: DISCOVERY_LOGGED
   detail: DISC-025
   cap: FAM-01.1
+- ts: '2026-09-23T18:28:20Z'
+  agent: AGT-omega
+  signal: DISCOVERY_LOGGED
+  detail: DISC-026
+  cap: FAM-01.1
+- ts: '2026-09-23T18:28:21Z'
+  agent: AGT-omega
+  signal: DISCOVERY_LOGGED
+  detail: DISC-027
+  cap: FAM-01.1

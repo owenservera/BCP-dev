@@ -1,0 +1,85 @@
+{
+  "migration_id": "MIG-002-claude-send-message",
+  "source_capability": "VIVIM Claude send_message (manifest claude block + ClaudePlugin claude_send + claude-streaming-sse parser)",
+  "source_locations": [
+    {"path": "vivim-original-baseline/vivim-final-enhanced/seeds/providers/manifests.ts", "lines": 1221, "sha256": "e1cc34186a17f6f52feaa1df77ad55e4967f7327dc5cc39251c775a626039ff4", "role": "declarative provider knowledge (Claude block lines 147-297: endpoints/selectors/models/recovery)"},
+    {"path": "vivim-original-baseline/vivim-final-enhanced/src/engines/providers/plugins/claude.ts", "lines": 57, "sha256": "eb85aa57251ce31217c24a600595f4de34b475f61b121b006b286609323171a7", "role": "imperative provider plugin (ProseMirror selectors, contenteditable typing, claude_send binding)"},
+    {"path": "vivim-original-baseline/vivim-final-enhanced/seeds/parsers/claude-streaming-sse.ts", "lines": 119, "sha256": "1321bf94898d8fef4dd29b65d8b41e8ab93da86d40dd2b4df5bd1eec81c76c7b", "role": "Claude SSE grammar: typed blocks, message_stop completion, confidence rule"},
+    {"path": "vivim-original-baseline/vivim-final-enhanced/src/engines/providers/plugin-registry.ts", "lines": 340, "sha256": "c977d6bedcb132dde668d7acc7ad0cc2bfbfc50986708060fafc24243967c277", "role": "factory/init lifecycle registry (third representation: unified interface)"},
+    {"path": "vivim-original-baseline/vivim-final-enhanced/src/engines/providers/provider-plugin-interface.ts", "lines": 119, "sha256": "87bbac2fbed1a778118864e71af1b38011f652e6bb178d93e81dccd5c76b5911", "role": "unified plugin interface (ADDITIVE per header; old plugins unaffected)"},
+    {"path": "omega-baseline/omega-final/contracts/src/parser.ts", "lines": 147, "sha256": "958c2b5768a19f7529df824d1551ea265cd185b9325d421991dd5b1018f62c06", "role": "Omega parser law (ParsedChunk + exactly-one-final envelope)"},
+    {"path": "omega-baseline/omega-final/contracts/src/chat.ts", "lines": 135, "sha256": "9ed2bcf7c386ebd45fdf1c0fe5e54898302d63f46960601603e52816bebd2414", "role": "Omega chat vocabulary (flat content string; streamRef counts chunks)"},
+    {"path": "omega-baseline/omega-final/contracts/src/computation.ts", "lines": 75, "sha256": "5bca3a2ce0c7465d0bde7fe7cb51df538a75b248b3657f0aae6f19cc12a226c6", "role": "Omega reasoning-kind axis (decision routing, NOT content-block vocabulary)"}
+  ],
+  "shared_legs": [
+    {"ref": "MIG-001-chatgpt-send-message", "leg": "Governor/CDP authority chain", "status": "cited-unchanged"},
+    {"ref": "MIG-001-chatgpt-send-message", "leg": "stream-parser fallback chain + zero-DB hot path", "status": "cited-unchanged"},
+    {"ref": "MIG-001-chatgpt-send-message", "leg": "conversation-manager turn lifecycle", "status": "cited-unchanged"},
+    {"ref": "MIG-001-chatgpt-send-message", "leg": "unified-registry + capability-binder", "status": "cited-unchanged"},
+    {"ref": "MIG-001-chatgpt-send-message", "leg": "provider-registrar wiring", "status": "cited-unchanged, authority question extended (triple representation)"},
+    {"ref": "MIG-001-chatgpt-send-message", "leg": "Prisma schema partition rule", "status": "cited-unchanged"},
+    {"ref": "MIG-001-chatgpt-send-message", "leg": "Omega provider.ts + recipe.ts + provider-browser + vivim-providers", "status": "cited-unchanged"}
+  ],
+  "observations": [
+    {"claim": "Claude declarative manifest block exists (endpoints/models/recovery incl. extra textarea-fallback edge)", "confidence": "OBSERVED", "source": "manifests.ts lines 147-297"},
+    {"claim": "ClaudePlugin duplicates the same selectors/behavior imperatively with contenteditable policy", "confidence": "OBSERVED", "source": "plugins/claude.ts"},
+    {"claim": "A THIRD provider representation exists (unified interface + factory registry, additive per header)", "confidence": "OBSERVED", "source": "provider-plugin-interface.ts header + plugin-registry.ts"},
+    {"claim": "Which of the three representations drives the live turn is undetermined", "confidence": "UNKNOWN", "source": "wiring trace outstanding (extends MIG-001 authority unknown)"},
+    {"claim": "Claude SSE grammar with typed blocks and message_stop completion is implemented in seed parser", "confidence": "OBSERVED", "source": "claude-streaming-sse.ts parse/detectCompletion/getConfidence"},
+    {"claim": "Seed parser silently skips unparseable SSE lines (catch{}) with no marker", "confidence": "OBSERVED", "source": "claude-streaming-sse.ts catch block"},
+    {"claim": "Whether skipped lines reach ParserExecutionLog via the engine layer is undetermined", "confidence": "UNKNOWN", "source": "engine-layer audit outstanding"},
+    {"claim": "Omega ChatMessage has no block-kind vocabulary (flat content string)", "confidence": "OBSERVED", "source": "contracts/src/chat.ts ChatMessage + ChatStreamRef"},
+    {"claim": "Omega ComputationKind is a routing axis, not a content vocabulary", "confidence": "OBSERVED", "source": "contracts/src/computation.ts D-323"},
+    {"claim": "Turn preserves ordering/identity/content plus typed-block provenance", "confidence": "STRONGLY_INFERRED", "source": "manifest + plugin + SSE parser jointly imply it; live proof outstanding"}
+  ],
+  "behavioral_spec_ref": "bcp-speed/bcp/migration/MIG-002-claude-send-message/behavior-spec.claude-send-message.md",
+  "invariants": ["I-1 ordering preserved", "I-2 identity preserved (message_start linkage)", "I-3 content preserved byte-exact", "I-4 exactly-once delivery intent", "I-5 redact-before-vault", "I-6 failures visible and deterministic", "I-7 typed-block provenance (no silent merge; degradation marked)"],
+  "canonicality": {
+    "verdict": "TRANSFORM",
+    "rationale": "send_message semantics canonical; all three VIVIM representations (manifest row, old plugin class, unified interface) are incidental and must not survive — they become op-map data + realization records behind stable Omega contracts. The silent SSE-skip is a defect corrected at the contract, not preserved.",
+    "decided_by": "agent assay 2026-09-23 (product-intent confirmation still open for OBSOLETE candidates elsewhere, not for send_message itself)"
+  },
+  "omega_target": {
+    "contract_op": "message.send@1 (archetype message.send)",
+    "plugin": "provider-browser (BROWSER_MEDIATED) + vivim-providers registry",
+    "contracts_touched": ["provider.ts", "recipe.ts", "parser.ts", "chat.ts", "computation.ts"],
+    "new_contracts": []
+  },
+  "transformation": {
+    "direction": "VIVIM -> Omega (never Omega -> legacy; never import monolith)",
+    "mechanism": "one-way adapter: VIVIM knowledge -> serialized op-map/parser-pin/session data -> existing Omega send bars + vault provenance; zero Omega core edits; reasoning/tool blocks ride as chunk data kinds pending vocabulary decision",
+    "discarded": ["monolith engine import", "wholesale Prisma port", "selector code port", "second scheduler/orchestrator", "new Omega contract", "old-vs-unified interface choice (retired, not ported)", "silent SSE-skip behavior (corrected to logged event)"]
+  },
+  "dependencies": ["existing authenticated Claude profile (assumed, not proven)", "Omega W1 fixture pipeline (green)", "D-355 parser pins + D-385 fence (ratified)", "browser.attach session lifecycle", "vault conversation index D-378", "block-kind vocabulary decision (human/Omega-design, deferred — does not block the text path)"],
+  "implementation": {
+    "files_touched": ["docs/migration/ (3 new factory docs)", "bcp-speed/bcp/migration/verify_migration.py (generalized: --record/--all)", "bcp-speed/bcp/migration/index.json (new registry)", "bcp-speed/bcp/migration/MIG-002-claude-send-message/ (new)"],
+    "omega_core_edits": 0,
+    "notes": "Additive forge-side only. No host, contract, plugin, composition, VIVIM, or BCP-state hand edits. Shared legs cited by record-ref (first SharedLeg use)."
+  },
+  "verification_plan": ["V-1 record schema conformance (verify_migration.py --record)", "V-2 Omega contract-name resolution against contracts/src", "V-3 Governor-exclusivity scan (global, informative)", "V-4 no monolith import", "V-5 proof-ladder honesty", "V-6 UNKNOWNs explicit", "V-7 cross-record run (verify_migration.py --all) green", "V-8 BCP validate.py healthy", "V-9 sweep dry-run no drift", "V-10 recorded-fixture integration via existing Omega harness (W1 pattern)", "V-11 LIVE browser run (UNVERIFIED — named unblock, independent witness required)"],
+  "verification_result": {
+    "verdict": "INTENTIONALLY_TRANSFORMED",
+    "detail": "STATIC proven (V-1/V-2/V-4/V-5/V-6/V-7 green, V-3 informative); INTEGRATION proven at recorded-fixture level (V-8/V-9/V-10 via pre-existing harness); LIVE UNVERIFIED by explicit record (V-11 outstanding); no equivalence claim beyond the transformed contract path."
+  },
+  "evidence": [
+    "bcp-speed/bcp/migration/MIG-002-claude-send-message/assay.claude-send-message.md",
+    "bcp-speed/bcp/migration/MIG-002-claude-send-message/behavior-spec.claude-send-message.md",
+    "bcp-speed/bcp/migration/MIG-002-claude-send-message/omega-mapping.json",
+    "bcp-speed/bcp/migration/MIG-002-claude-send-message/verification-report.md",
+    "docs/migration/MIGRATION_PROCESS_TRACE.md + MIGRATION_MODEL.md (factory formalization reused by this record)",
+    "BCP discovery entries via bcp_tool.py (triple-representation finding, SSE grammar finding)"
+  ],
+  "disposition": "Transformed",
+  "provenance": {
+    "agent": "opencode/muse-spark (Prompt-2 execution 2026-09-23)",
+    "timestamp": "2026-09-23T00:00:00Z",
+    "sources_hash": "sha256 over the 8 Claude-differentiating source files pinned in source_locations; shared legs by record-ref to MIG-001"
+  },
+  "proof_ladder": {
+    "static": "PROVEN (verify_migration.py --record + --all)",
+    "integration": "PROVEN-recorded-fixture (existing W1 harness pattern; no new live claims)",
+    "live": "UNVERIFIED (no authenticated profile + Chrome run in this environment; unblock mirrors MIG-001 §6 with claude.ai target)",
+    "regression": "UNVERIFIED (restart/mutation/failure-injection deferred to live run)"
+  },
+  "open_unknowns": ["U-1 attachment semantics", "U-2 dedup/replay exactness", "U-3 textarea-fallback target existence", "U-4 skipped-SSE-line engine logging", "U-5 Omega reasoning/tool-block representation", "U-6 triple-representation live authority", "manifest-vs-plugin authority (inherited)", "Governor-exclusivity import scan (inherited)", "provider/account->slave determinism proof (inherited)", "auth recovery production-readiness (inherited)"]
+}

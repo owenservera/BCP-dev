@@ -1,0 +1,21 @@
+{
+  "registry": "BCP migration index (minimal — Prompt 2 reusable machinery)",
+  "migrations": [
+    {
+      "id": "MIG-001-chatgpt-send-message",
+      "record": "bcp-speed/bcp/migration/MIG-001-chatgpt-send-message/migration-record.json",
+      "status": "VERIFIED",
+      "verdict": "INTENTIONALLY_TRANSFORMED",
+      "disposition": "Transformed",
+      "proof": {"static": "PROVEN", "integration": "PROVEN-recorded-fixture", "live": "UNVERIFIED", "regression": "UNVERIFIED"}
+    },
+    {
+      "id": "MIG-002-claude-send-message",
+      "record": "bcp-speed/bcp/migration/MIG-002-claude-send-message/migration-record.json",
+      "status": "VERIFIED",
+      "verdict": "INTENTIONALLY_TRANSFORMED",
+      "disposition": "Transformed",
+      "proof": {"static": "PROVEN", "integration": "PROVEN-recorded-fixture", "live": "UNVERIFIED", "regression": "UNVERIFIED"}
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BCP Migration Record (minimal — Prompt 1 Step 4)",
+  "description": "Smallest artifact that lets BCP reason explicitly about one VIVIM→Ω migration. Provenance on everything; UNKNOWN stays UNKNOWN.",
+  "type": "object",
+  "required": [
+    "migration_id", "source_capability", "source_locations", "observations",
+    "behavioral_spec_ref", "invariants", "canonicality", "omega_target",
+    "transformation", "dependencies", "implementation", "verification_plan",
+    "verification_result", "evidence", "disposition", "provenance",
+    "proof_ladder", "open_unknowns"
+  ],
+  "properties": {
+    "migration_id": { "type": "string", "pattern": "^MIG-[0-9]{3}-[a-z0-9-]+$" },
+    "source_capability": { "type": "string" },
+    "source_locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "lines", "sha256", "role"],
+        "properties": {
+          "path": { "type": "string" },
+          "lines": { "type": "integer" },
+          "sha256": { "type": "string" },
+          "role": { "type": "string" }
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim", "confidence"],
+        "properties": {
+          "claim": { "type": "string" },
+          "confidence": { "enum": ["PROVEN", "OBSERVED", "STRONGLY_INFERRED", "WEAKLY_INFERRED", "UNKNOWN"] },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "behavioral_spec_ref": { "type": "string" },
+    "invariants": { "type": "array", "items": { "type": "string" } },
+    "canonicality": {
+      "type": "object",
+      "required": ["verdict", "rationale"],
+      "properties": {
+        "verdict": { "enum": ["PRESERVE", "TRANSFORM", "REIMPLEMENT", "REPLACE", "DEPRECATE", "DISCARD", "UNKNOWN"] },
+        "rationale": { "type": "string" },
+        "decided_by": { "type": "string" }
+      }
+    },
+    "omega_target": {
+      "type": "object",
+      "required": ["contract_op", "plugin", "contracts_touched"],
+      "properties": {
+        "contract_op": { "type": "string" },
+        "plugin": { "type": "string" },
+        "contracts_touched": { "type": "array", "items": { "type": "string" } },
+        "new_contracts": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "transformation": {
+      "type": "object",
+      "required": ["direction", "mechanism"],
+      "properties": {
+        "direction": { "type": "string" },
+        "mechanism": { "type": "string" },
+        "discarded": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "dependencies": { "type": "array", "items": { "type": "string" } },
+    "implementation": {
+      "type": "object",
+      "required": ["files_touched", "omega_core_edits"],
+      "properties": {
+        "files_touched": { "type": "array", "items": { "type": "string" } },
+        "omega_core_edits": { "type": "integer" },
+        "notes": { "type": "string" }
+      }
+    },
+    "verification_plan": { "type": "array", "items": { "type": "string" } },
+    "verification_result": {
+      "type": "object",
+      "required": ["verdict", "detail"],
+      "properties": {
+        "verdict": { "enum": ["IDENTICAL", "SEMANTICALLY_EQUIVALENT", "INTENTIONALLY_TRANSFORMED", "INTENTIONALLY_REMOVED", "UNKNOWN", "UNVERIFIED"] },
+        "detail": { "type": "string" }
+      }
+    },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "disposition": { "enum": ["Preserved", "Transformed", "Reimplemented", "IntentionallyDiscarded", "Unresolved", "Blocked"] },
+    "provenance": {
+      "type": "object",
+      "required": ["agent", "timestamp", "sources_hash"],
+      "properties": {
+        "agent": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "sources_hash": { "type": "string" }
+      }
+    },
+    "proof_ladder": {
+      "type": "object",
+      "required": ["static", "integration", "live", "regression"],
+      "properties": {
+        "static": { "type": "string" },
+        "integration": { "type": "string" },
+        "live": { "type": "string" },
+        "regression": { "type": "string" }
+      }
+    },
+    "open_unknowns": { "type": "array", "items": { "type": "string" } }
+  }
+}
