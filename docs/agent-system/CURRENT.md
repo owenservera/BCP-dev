@@ -1,82 +1,92 @@
 # CURRENT.md — Durable Shared Working-Memory Bridge
 
 > **Classification: DERIVED — CURRENT**
-> **Rule:** small enough to load every session (target <120 lines). Entries
-> point to evidence; they are not evidence. Coordinator-owned; agents propose
-> via outbox, never direct-edit in flight. **Updated:** 2026-09-23 · **Tip:** `7525ae6`
+> **Rule:** small enough to load every session; entries point to evidence, not evidence.
+> **Coordinator-owned:** agents propose via outbox, never direct-edit in flight.
+> **Updated:** 2026-09-24
 
 ## CURRENT REPOSITORY TIP
 
-- BCP-dev HEAD `becb920` (+ untracked `bcp-algos/`, Ω `docs/architecture/`,
-  `examples/plugin-echo2/`, `setupdocs.zip` — another workstream's surface, do
-  not touch). Board parked, validate 0 errors. (→ `/BUILD_CONTEXT.md`,
-  `docs/CURRENT-CONTEXT.md`)
+- Main currently contains the cooperative agent-system substrate plus the P1 portfolio baseline.
+- Existing untracked surfaces remain another workstream's surface: `bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`, `setupdocs.zip`. Do not touch without owner.
+- Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
-## CURRENT WORKSTREAM / MISSION
+## CURRENT PROGRAM / P1 PORTFOLIO
 
-- WS-001 ACTIVE: build the cooperative agent-context substrate (this task).
-  WS-002 (`vivim.self`) PROPOSED, blocked on WS-001 wall tests.
-  (→ `WORKSTREAMS.md`)
+The program now has nine P1 workstreams registered in
+`docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md` and `WORKSTREAMS.md`:
+
+1. Cooperative Agent System
+2. Repository Truth, Cleanup & Drift
+3. Ω Ontology, Evidence & Representation
+4. Ω Self-Knowledge & Context
+5. Ω Plugin Kernel & Runtime
+6. Ω Agency, Execution & Governance
+7. Provider Intelligence & Autonomous Maintenance
+8. Forge / VIVIM Harvest & Migration
+9. Ω Integration & End-to-End Proof
+
+Only P1-01 / WS-001 currently has an implementation substrate. The other eight
+are registered boundaries, not active implementation programs, and intentionally
+have no setup prompts yet.
 
 ## CURRENT ARCHITECTURAL MODEL
 
-- VIVIM (assay) → BCP (forge) → Ω (land) → final VIVIM. Ω = everything-is-a-
-  plugin under B1–B5; host frozen 1500/1500; Chrome-master/slave-only v1
-  (D-418/D-456); 18-spec matrix. (→ `omega-…/docs/decisions/CURRENT-INVARIANTS.md`)
-- New layer: `docs/agent-system/` = coordination protocol that *references*
-  session ledger (D-430), dev-vault (D-428), doctruth, genome (D-425),
-  agent plugin (D-309 + D-452..455), context substrate (D-443). It duplicates
-  none of them. (→ `SYSTEM.md` §3)
+- VIVIM (assay) → BCP (forge) → Ω (land) → final VIVIM.
+- Ω = everything-is-a-plugin under B1–B5; Chrome-master/slave-only v1; current law
+  remains the Ω ratified decision system and gate.
+- P1-01 is development-control infrastructure across all workstreams.
+- P1-02 is the repository truth/drift function across all workstreams.
+- P1-03..P1-06 define the Ω computational core.
+- P1-07 joins provider experimentation and autonomous maintenance into one lifecycle.
+- P1-08 extracts proven value from the mine/forge.
+- P1-09 continuously challenges composition and eventually proves the whole system.
 
 ## WHAT IS ESTABLISHED
 
-- Ω law + gate arbiter + decision append-only discipline (→ Ω `AGENTS.md`).
-- BCP vocabulary enforcement via `bcp_tool.py` only (→ `/AGENTS.md`).
-- Substrate skeleton landed this session: SYSTEM, ROSTER, WORKSTREAMS,
-  CONTEXT-INDEX, CHATGPT-BOOT, transcript/packet/handoff/envelope conventions,
-  F-AGENT-* falsifiers. (→ `SYSTEM.md`, `FALSIFIERS.md`)
+- Cooperative substrate: SYSTEM, ROSTER, WORKSTREAMS, CURRENT, CONTEXT-INDEX,
+  CHATGPT-BOOT, transcript/packet/handoff/envelope conventions and falsifiers.
+- P1 portfolio charter and nine workstream boundaries.
+- Earlier proposed `vivim.self` WS-002 is folded into P1-04 / WS-004; it is not a
+  competing workstream.
 
-## WHAT IS NEW / WHAT CHANGED (this session)
+## ACTIVE WORK
 
-- NEW `docs/agent-system/` tree (first implementation of the initiating brief).
-- INGESTED initiating brief as transcript `CHAT-2026-09-23-cooperative-agent-context`
-  + packet `PKT-001` (DERIVED, not law).
-- No Ω code, decision, lease, or state touched (docs-only).
-
-## ACTIVE TASKS / AGENTS
-
-- IMPL-01: substrate landed + HANDOFF-001 → COORD-01 review / commit decision. (→ `ROSTER.md`)
-- IMPL-02 RESERVED: owner launches with `workstreams/WS-001/SETUP-PROMPT-IMPL-02.md` + `workstreams/WS-001/` folder → Phase 2 dogfood.
-- NEXT: TEST-01 wall tests (cold-start, handoff, ingest); DOC-01 packet QA.
+- WS-001 / P1-01: cooperative substrate Phase 1 landed; Phase 2 dogfood/wall tests remain.
+- No other P1 workstream setup prompt has been created.
+- Next portfolio action: deep-research and bootstrap P1 workstreams one at a time.
 
 ## OPEN QUESTIONS
 
-- Packet schema v1 sufficient for cross-ChatGPT continuity? (TEST-01 to judge.)
-- Envelope spec v1 sufficient for 3-agent dogfood? (Phase 2, unstarted.)
-
-## KNOWN CONTRADICTIONS
-
-- None open in WS-001. Standing trap: old Ollama/`provider.llm` passages are
-  cited history (D-418/D-456), never plan. (→ `/AGENTS.md`)
+- Whether the cooperative substrate passes its wall tests.
+- Exact researched charter/proof boundary for each of P1-02 through P1-09.
+- Which existing Ω mechanisms should be treated as canonical inputs by each new workstream.
 
 ## KNOWN HISTORICAL TRAPS
 
-- Folder ≠ authority — check STATUS banners. `merging` ≠ integrated;
-  fixture-proven ≠ live-proven. Parked 2026-09-22 lane/inbox entries are not
-  orders. Numbers with dates are snapshots, not law. (→ `/AGENTS.md`)
+- Folder ≠ authority; transcripts/packets/handoffs ≠ law.
+- `merging` ≠ integrated; fixture-proven ≠ live-proven.
+- Old Ollama/`provider.llm` passages are cited history (D-418/D-456), not v1 direction.
+- Parked 2026-09-22 lane/inbox entries are not active orders.
+- Never edit RATIFIED Ω decisions; supersede-only.
+- Never hand-edit BCP state YAML.
 
 ## CURRENT AUTHORITY
 
 1. Ω ratified law: `omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md`
 2. BCP vocabulary: `bcp-speed/bcp/state/taxonomy.yaml` + RECONCILIATION.md
-3. `docs/CURRENT-CONTEXT.md` · 4. live BCP state · 5. migration records.
-   This file is rank-3-area procedure, never rank-1 law.
+3. `docs/CURRENT-CONTEXT.md`
+4. live BCP state
+5. migration records
+6. cooperative/P1 documents as derived operating context only.
 
 ## RECOMMENDED NEXT READS
 
-1. `WORKSTREAMS.md` → active row. 2. relevant handoff (`handoffs/`). 3.
-   relevant packet (`packets/PKT-001-*.md`). 4. linked decisions/code/tests.
-
-## RECENT IMPORTANT SESSIONS
-
-- 2026-09-23 IMPL-01 WS-001 Phase 1 build (this session; close → HANDOFF-001).
+1. `/AGENTS.md`
+2. `/BUILD_CONTEXT.md`
+3. `/docs/CURRENT-CONTEXT.md`
+4. `docs/agent-system/SYSTEM.md`
+5. `docs/agent-system/CURRENT.md`
+6. `docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md`
+7. `docs/agent-system/WORKSTREAMS.md`
+8. then the selected workstream's dedicated research artifacts.
