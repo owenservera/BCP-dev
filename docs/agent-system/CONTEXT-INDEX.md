@@ -1,6 +1,6 @@
 # CONTEXT-INDEX.md — Map Into Deeper Material
 
-> **Classification: DERIVED — CURRENT** · **Updated:** 2026-09-23 · **Tip:** `becb920`
+> **Classification: DERIVED — CURRENT** · **Updated:** 2026-09-23 · **Tip:** `7525ae6`
 
 | Question | Answer (read-first link) |
 |---|---|

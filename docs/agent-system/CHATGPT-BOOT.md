@@ -1,6 +1,6 @@
 # CHATGPT-BOOT.md — Fresh-Session Bridge (ChatGPT or any fresh participant)
 
-> **Classification: DERIVED — CURRENT** · **Updated:** 2026-09-23 · **Tip:** `becb920`
+> **Classification: DERIVED — CURRENT** · **Updated:** 2026-09-23 · **Tip:** `7525ae6`
 
 You are joining an ongoing Ω workstream. The repository — not any past chat —
 is the shared memory. A previous conversation's conclusions are **evidence**,

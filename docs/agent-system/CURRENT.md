@@ -3,7 +3,7 @@
 > **Classification: DERIVED — CURRENT**
 > **Rule:** small enough to load every session (target <120 lines). Entries
 > point to evidence; they are not evidence. Coordinator-owned; agents propose
-> via outbox, never direct-edit in flight. **Updated:** 2026-09-23 · **Tip:** `becb920`
+> via outbox, never direct-edit in flight. **Updated:** 2026-09-23 · **Tip:** `7525ae6`
 
 ## CURRENT REPOSITORY TIP
 
