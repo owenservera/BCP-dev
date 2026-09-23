@@ -131,3 +131,28 @@ discoveries:
   applies_to:
   - FAM-07
   text: 'Loop complete: 07.1/07.2/07.3/07.4 all L2 on fixtures (chain L1 + weakest-first L2); zero leasable caps in EXP-2026-004. Only live work outstanding: Chrome attach + page-send vs owner debug-port session (probe harness deterministic NO_LIVE_CHROME, one session wires it). Standing by for inbox STOP or L3/orders.'
+- id: DISC-022
+  ts: '2026-09-23T17:59:48Z'
+  agent: AGT-omega-mig
+  applies_to:
+  - FAM-10.1
+  - FAM-10.2
+  text: 'MIG-001 assay: ChatGPT send_message has dual representation — seeds/providers/manifests.ts declarative block AND src/engines/providers/plugins/chatgpt.ts imperative plugin with overlapping selectors; live-path authority UNKNOWN, carried as risk R-2. Evidence: docs/migration/VIVIM_FORENSIC_MODEL.md section 1.4.'
+- id: DISC-023
+  ts: '2026-09-23T17:59:49Z'
+  agent: AGT-omega-mig
+  applies_to:
+  - FAM-10.2
+  text: 'MIG-001 assay: stream parsing is DB-only inline logic with cycle-guarded fallback chain (provider->generic->system->error), zero-DB hot path, fallbackDepth logged. Maps to Omega D-355 parser pins + D-385 governed fence. Evidence: stream-parser.ts resolveFallbackChain.'
+- id: DISC-024
+  ts: '2026-09-23T18:19:41Z'
+  agent: AGT-omega
+  applies_to:
+  - FAM-01.1
+  text: 'MIG-002: VIVIM has THREE provider representations (manifest row + old ProviderPlugin class + additive unified interface/factory registry). Live-turn authority unknown extended from MIG-001 dual-path finding.'
+- id: DISC-025
+  ts: '2026-09-23T18:19:42Z'
+  agent: AGT-omega
+  applies_to:
+  - FAM-01.1
+  text: 'MIG-002: Claude SSE seed parser implements typed blocks (text/reasoning/tool-call/file/meta) with message_stop completion and silent skip of malformed lines (catch{}). Omega chat.ts has no block-kind vocabulary - carried as unresolved I-7.'
