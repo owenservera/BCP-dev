@@ -23,8 +23,9 @@ conversations share one durable context without anyone loading all history.
 - Packets: `../../packets/PKT-001-cooperative-substrate-charter.md` (charter extraction, STANDS) → `../../packets/PKT-002-p1-01-dogfood-findings.md` (dogfood findings, pins, PKT-001 reader mapping)
 - Handoffs: `../../handoffs/HANDOFF-001.md` (Phase 1 close) → `../../handoffs/HANDOFF-002.md` (→TEST-01) → `../../handoffs/HANDOFF-003.md` (→DOC-01) → `../../handoffs/HANDOFF-004.md` (→COORD-01, verdict inputs)
 - Proof evidence: `../../outbox/TEST-01/ITEM-001-proof-table.md` + `../../outbox/DOC-01/ITEM-001-packet-qa.md`
-- Coordinator integration: `../../outbox/IMPL-02/ITEM-002-merge-request.md`
-- Directive: `../../directives/IMPL-02/DIRECTIVE-001-finish-p1-01.md` (DONE)
+- DIR-002 closer apparatus: `../../packets/PKT-003-p1-01-closer-apparatus.md` + `../../handoffs/HANDOFF-005.md` + `CROSS-CHATGPT-CLOSER.md` + `../../handoffs/HANDOFF-006.md`
+- Coordinator integration: `../../outbox/IMPL-02/ITEM-002-merge-request.md` + `../../outbox/IMPL-02/ITEM-003-merge-request.md`
+- Directive: `../../directives/IMPL-02/DIRECTIVE-001-finish-p1-01.md` (DONE) + `../../directives/IMPL-02/DIRECTIVE-002-close-p1-01-proof-gaps.md` (DONE)
 
 ## What is already done (do not redo)
 
@@ -45,6 +46,11 @@ conversations share one durable context without anyone loading all history.
 2. **CROSS-CHATGPT continuity:** a fresh P1-01 ChatGPT conversation must boot from `CHATGPT-BOOT.md` + `CURRENT.md` only.
 
 Until both are proven, P1-01 remains PARTIALLY PROVEN.
+
+## Current launch instructions
+
+- **MULTI-AGENT:** reserved `IMPL-03`; launch with `HANDOFF-005.md` + repository only, exactly as its seal specifies.
+- **CROSS-CHATGPT:** owner opens a genuinely fresh ChatGPT conversation and follows `CROSS-CHATGPT-CLOSER.md` §§0–2 exactly.
 
 ## Output paths for agents on this workstream
 
