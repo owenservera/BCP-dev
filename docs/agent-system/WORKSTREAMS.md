@@ -1,47 +1,125 @@
 # WORKSTREAMS.md — Active Workstream Registry
 
 > **Classification: DERIVED — CURRENT**
-> **Maintainer:** COORD-01 · **Updated:** 2026-09-23 · **Tip:** `7525ae6`
+> **Maintainer:** COORD-01 · **Updated:** 2026-09-24
+> **Portfolio:** `docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md`
 
-## WS-001 — Cooperative Ω agent context & cross-session synchronization substrate
+The P1 portfolio is nine durable workstreams. Setup prompts are intentionally not
+created yet; each will be produced after dedicated deep research in its own
+ChatGPT conversation.
 
-- **Mission:** build the repository-resident cooperative memory protocol so
-  many agents/sessions/conversations/workstreams share one durable context
-  without anyone loading all history (initiating brief §§1–31).
-- **Owner/coordinator:** owner / COORD-01.
-- **Status:** ACTIVE — Phase 1 landed (HANDOFF-001); Phase 2 next.
-- **Active agents:** IMPL-01 (closing); IMPL-02 (RESERVED, owner launch pending); COORD-01 (integration).
-- **Launch folder:** `docs/agent-system/workstreams/WS-001/` (card + SETUP-PROMPT-IMPL-02 + LAUNCH-IMPL-02 + work/ scratch).
-- **Base commit:** `becb920`.
-- **Current objective:** land SYSTEM / ROSTER / WORKSTREAMS / CURRENT /
-  CONTEXT-INDEX / CHATGPT-BOOT + transcript, packet, handoff, inbox/outbox
-  conventions + F-AGENT-* falsifiers; ingest the initiating brief as
-  transcript + PKT-001; prove the cold-start wall test.
-- **Known blockers:** none (docs-only; no gate, lease, or host surface touched).
-- **Linked packets:** PKT-001 (initiating brief ingestion; this workstream's
-  own charter — DERIVED, not law).
-- **Linked decisions:** D-425 (genome), D-426 (falsifier-first), D-427
-  (orchestration), D-428 (dev-vault), D-430 (session ledger), D-443 (context
-  substrate), D-448/D-451 (aperture), D-452..D-455 (invocation/standing/
-  delegation/adaptation), D-350 (portrait), D-309 (agent runtime) — all
-  referenced, none amended.
-- **Linked transcripts:** CHAT-2026-09-23-cooperative-agent-context (the
-  initiating MASTER AGENT PROMPT, stored under `transcripts/2026-09-23/`).
-- **Next action:** COORD-01 review → commit decision → owner launches IMPL-02
-  (prompt + launch folder) → Phase 2 dogfood → TEST-01 wall tests.
+## P1-01 / WS-001 — Cooperative Agent System
 
-## WS-002 — Ω-native self-description (`vivim.self`) design (PROPOSED, blocked)
+- **Mission:** persistent collaboration between humans, ChatGPT sessions, and local agents.
+- **Status:** ACTIVE — cooperative substrate Phase 1 landed; Phase 2 wall/dogfood work remains.
+- **Owner:** owner / COORD-01.
+- **Current scope:** coordination protocol, transcripts, packets, handoffs, agent roster, context bootstrap.
+- **Next proof:** cold-start, handoff, transcript-ingest, and multi-agent continuity falsifiers.
+- **Existing launch folder:** `docs/agent-system/workstreams/WS-001/`.
 
-- **Mission:** design the eventual Ω-native self-knowledge system that consumes
-  the WS-001 substrate (external conversations + local work + runtime
-  observations + development evidence + decisions + source semantics →
-  cooperative substrate → Ω self-description → task-conditioned context).
-- **Owner/coordinator:** owner / COORD-01 (TBD).
-- **Status:** PROPOSED — explicitly blocked until WS-001 passes its wall tests
-  (initiating brief Phase 5). No agent assigned. No branch. No work until
-  COORD-01 opens it.
-- **Known content so far:** direction only; `vivim.mind` (Ω10, D-215) stays
-  the live world-model owner; the Wave-2 assembly plugin owns context
-  assembly (D-417) — do not conflate. Everything else is hypothesis.
-- **Next action:** none until WS-001 gate: cold-start + cross-conversation
-  proofs recorded by TEST-01.
+## P1-02 / WS-002 — Repository Truth, Cleanup & Drift
+
+- **Mission:** determine what actually exists, what is authoritative, what is obsolete, and where program/architecture drift exists.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Boundary:** cleanup, disambiguation, source-of-truth mapping, stale/superseded classification, orphan/duplicate detection, program drift.
+- **Dependencies:** all workstreams as evidence sources; cooperative system; Ω/BCP authority.
+
+## P1-03 / WS-003 — Ω Ontology, Evidence & Representation
+
+- **Mission:** establish canonical identity, entity, evidence, provenance, lineage, epistemic status, revision, conflict, staleness, and representation semantics.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Boundary:** what things/claims/evidence/representations are and how their relationships are represented.
+- **Dependencies:** Repository Truth; Ω decisions/genome; vault/event/provenance mechanisms.
+
+## P1-04 / WS-004 — Ω Self-Knowledge & Context
+
+- **Mission:** enable Ω to understand itself, its environment and current situation, and assemble the right context deterministically.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Boundary:** self/world/intent models, semantic source knowledge, reflection, knowledge projection, context compilation.
+- **Known lineage:** the earlier proposed WS-002 `vivim.self` work is folded into this P1 workstream; its prior proposal remains historical context, not a separate active workstream.
+- **Dependencies:** P1-03; D-443 context; D-448/D-451 aperture; vivim.mind; D-424 process bridge.
+
+## P1-05 / WS-005 — Ω Plugin Kernel & Runtime
+
+- **Mission:** make everything-is-a-plugin composition work through the minimal governed runtime substrate.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Boundary:** µHost, contracts, ports, lifecycle, composition, loading/unloading, realization mechanics, authoring substrate.
+- **Hard separation:** runtime mechanics are not authorization policy.
+- **Dependencies:** P1-03; P1-06; B1–B5; Forge.
+
+## P1-06 / WS-006 — Ω Agency, Execution & Governance
+
+- **Mission:** integrate principal, authority, consent, standing, delegation, invocation, capability authorization, budgets, execution, refusal, and governed events.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Boundary:** whether an intended computation/effect is permitted and how that permission is proven/recorded.
+- **Hard separation:** governance does not own plugin loading/composition mechanics.
+- **Dependencies:** P1-03; P1-05; D-452..D-455; aperture/privacy; budgets.
+
+## P1-07 / WS-007 — Provider Intelligence & Autonomous Maintenance
+
+- **Mission:** empirically learn external web-app behavior and maintain provider realizations as reality changes.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Boundary:** real Chrome, discovery, probing, observation, behavioral models, streams/parsers, replay, failures, healing, drift, rediscovery, verification, probation, promotion.
+- **Key principle:** the Provider Laboratory is the experimental mode/engine inside this workstream, not a separate P1 architecture.
+- **Dependencies:** P1-03, P1-05, P1-06, P1-08, real Chrome.
+
+## P1-08 / WS-008 — Forge / VIVIM Harvest & Migration
+
+- **Mission:** systematically extract proven value from VIVIM and convert it into generalized Ω knowledge/mechanisms.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Boundary:** assay, characterize, generalize, verify, migrate, and harvest reusable mechanisms.
+- **Hard separation:** Forge extracts proven value; Provider Intelligence determines external reality.
+- **Dependencies:** P1-02, P1-07, Ω workstreams, BCP migration machinery.
+
+## P1-09 / WS-009 — Ω Integration & End-to-End Proof
+
+- **Mission:** prove that the other workstreams actually compose into the intended Ω system.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Boundary:** integration falsifiers, cross-workstream contract tests, end-to-end scenarios, composition gaps, final proof.
+- **Important:** integration proof begins early with thin falsifiers; it does not wait for subsystem completion.
+- **Dependencies:** all other P1 workstreams.
+
+## Portfolio relationship
+
+```
+P1-01 Cooperative System
+        │
+        ├──────── development control ─────────┐
+        │                                      │
+P1-02 Repository Truth                         │
+        │                                      │
+        └────────────► all workstreams ◄───────┘
+
+P1-03 Ontology / Evidence
+        ↓
+P1-04 Self-Knowledge / Context
+        ↓
+P1-05 Plugin Kernel / Runtime
+        ↓
+P1-06 Agency / Execution / Governance
+        ├────────────► P1-07 Provider Intelligence
+        └────────────► P1-08 Forge / Harvest
+
+P1-03..P1-08
+        ↓
+P1-09 Integration / Proof
+```
+
+This is a dependency map, not a mandatory implementation order.
+
+## Workstream setup rule
+
+Do **not** create the remaining eight setup prompts from this registry alone.
+Each prompt is to be produced after its dedicated ChatGPT conversation performs
+deep repository research and establishes its own evidence-backed charter.
+
+The portfolio charter is the shared program boundary; the future workstream
+prompt is the researched execution contract.
