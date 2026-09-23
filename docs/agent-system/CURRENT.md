@@ -8,7 +8,7 @@
 ## CURRENT REPOSITORY TIP
 
 - Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, and merged WS-001 DIR-001 dogfood evidence.
-- Current main tip includes PR #3, the deposited fresh cross-ChatGPT closer evidence (merge commit `01c48ddc95a72a4c45d6def275f47fa4c5fa4bd6`).
+- Current main tip after coordinator integration: `de147d6` for the P1-01 PROVEN reconciliation merge (both closers green; prior: `fde4c5b` ChatGPT line, `58bd0d7` MULTI-AGENT line); subsequent coordinator consolidation commits roll this marker.
 - Existing untracked surfaces remain another workstream's surface: `bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`, `setupdocs.zip`. Do not touch without owner.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
