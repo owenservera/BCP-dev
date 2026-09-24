@@ -80,5 +80,5 @@ required only after the MCP soak flake is retired.
 | `tar.exe: Can't create … Invalid argument` on extract | Windows can’t create the archived `node_modules` symlinks | Ignore; run `bun install` |
 | `decisions test` timeout at 5000ms | Default `bun test` budget too small for git-spawn-heavy check | Use `--timeout 60000` (gate already does) |
 | MCP `(fail)` with `uv_spawn EUNKNOWN` after long runs | Windows handle exhaustion under soak | Re-run the MCP lane alone; green in isolation |
-| `host-loc` over budget | B5 frozen at 1100 (D-365) | Move the code to a plugin or out-of-tree tooling — same commit |
+| `host-loc` over budget | B5 frozen at 1500/1500, zero headroom (D-391 re-freeze; D-365's 1100 is superseded history) | Move the code to a plugin or out-of-tree tooling — same commit |
 | `verify-status` structural mismatch | `status.json` predates your change | Full green `omega:gate` run rewrites it (Linux CI for soak-sensitive trees) |

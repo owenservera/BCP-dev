@@ -65,6 +65,12 @@ OPEN = unresolved, owner owns the next step.
 - Remaining uncertainty: which count is canonical; likely split-schema double-count
   vs single-schema source. Owned by Path-C start (reconcile before the 09.1 map).
   Flagged in `/BUILD_CONTEXT.md` and `docs/CURRENT-CONTEXT.md`.
+- Measured 2026-09-24 (E-01R, P1-02): split schemas declare 111 (system) + 90 (user)
+  = 201 declarations across 200 unique model names (sole overlap: `SchemaMeta`,
+  present in both); unified `prisma/schema.prisma` declares exactly those 200;
+  `frontend/prisma/schema.prisma` declares 2 more under a separate schema. The ~400
+  figure is a bad denominator (split-file block sum double-counts), not ~400
+  distinct models. Canonical-name reconciliation still owned by Path-C start.
 
 ## C9 — "Promote after #2" vs no state/migrations.yaml [RESOLVED]
 
@@ -86,9 +92,15 @@ OPEN = unresolved, owner owns the next step.
 ## C11 — Untracked Prompt-4 / Chameleon work vs cleanup scope [OPEN]
 
 - A: master prompt for THIS task: "Do NOT implement Prompt 4 / substitution experiments."
-- B: untracked on disk: `bcp-algos/` ("Project Chameleon" fluid-vault sandbox),
-  `omega-…/docs/architecture/` (Prompt-4 Phase 1–2 analysis), `omega-…/examples/plugin-echo2/`
-  (substitution experiment V2), `setupdocs.zip`.
+- B: tracked on main since `a528ffd` (PROMPT-4-INTERRUPTED preservation commit):
+  `omega-…/docs/architecture/` (2 analysis docs), `omega-…/examples/plugin-echo2/`
+  (5 files), `omega-…/plugins/parser-claude-sse*/` (V1+V2),
+  `bcp-speed/bcp/migration/MIG-003-claude-sse-parser/` (assay/spec/mapping only —
+  NO record, NO verification report, NOT in `index.json`), `bun.lock` (+37).
+  Still untracked on disk: `bcp-algos/`, `setupdocs.zip`, plus unlisted
+  `docs/REPO-CLEANUP-PROMPT-V2.md` (untracked, unignored; content/owner UNKNOWN,
+  contains live cleanup instructions — do not execute). `/AGENTS.md` hands-off
+  markings for the now-tracked paths are stale (see P1-02 baseline-freeze).
 - Evidence: plugin-echo2's manifest names "Prompt 4, Phase 3"; architecture docs
   name "Prompt 4, Phase 1/2".
 - Resolution: NONE TAKEN — left fully untouched (not staged, moved, or deleted) as
@@ -103,6 +115,10 @@ OPEN = unresolved, owner owns the next step.
 - Remaining uncertainty: counting method (files vs dirs vs submodules). Owned by
   next assay that touches `src/engines`; NLCL mine count (59 files) is separately
   verified and unaffected.
+- Measured 2026-09-24 (E-01R, P1-02): 186 top-level files + 32 top-level dirs =
+  460 recursive `.ts` files. All three figures are simultaneously true under
+  different denominators; "186 engines" must not be read as the recursive total.
+  Atlas title "`src/engines/` (186 files, clustered)" is the flat-file denominator.
 
 ## C13 — Prompt-4 interrupted outputs vs "no competing authoring path" [OPEN]
 
@@ -111,8 +127,9 @@ OPEN = unresolved, owner owns the next step.
 - B: untracked Prompt-4 work (echo2 substitution experiment, 2 analysis docs,
   2 parser plugins, MIG-003 draft, bun.lock +37): uses ONLY sdk-validation +
   testkit-conformance + unsigned scaffolds — no new authoring mechanism, no
-  anvil expansion, no second scaffolder. Compatible with A, but UNCOMMITTED
-  and UNRATIFIED, so it must not be read as current.
+  anvil expansion, no second scaffolder. Compatible with A; UNRATIFIED, so it
+  must not be read as current. Tracking state updated 2026-09-24: committed via
+  `a528ffd`, so "UNCOMMITTED" no longer holds — "unratified + gates-not-rerun" does.
 - Evidence: docs/cleanup/PROMPT-4-CHECKPOINT.md (per-file classification:
   analysis KEEP; code KEEP-BUT-RECONCILE; MIG-003 draft KEEP-incomplete).
 - Remaining step: owner decides resume/rebase/replan (§32); on resume the

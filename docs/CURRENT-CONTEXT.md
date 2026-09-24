@@ -46,8 +46,10 @@ needs a patch.
 - C-bridge economics (God-Adapter / parity-tar-pit guards: sunset clause, 3–5 cap)
 - Prisma model-count reconciliation (201 claimed vs ~400 blocks counted)
 - b1's formal b2-consumption word; 004's `omega:gate`-at-tip check
-- Untracked surfaces (`bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`)
-  — another workstream; see `docs/cleanup/CONFLICT-REGISTER.md` C11.
+- Hands-off surfaces — do not touch without the owner: untracked `bcp-algos/`,
+  `setupdocs.zip`; tracked-but-unratified Ω `docs/architecture/`,
+  `examples/plugin-echo2/` (see `docs/cleanup/CONFLICT-REGISTER.md` C11/C13);
+  untracked `docs/REPO-CLEANUP-PROMPT-V2.md` (UNKNOWN triage pending owner).
 - Prompt 4 INTERRUPTED (not complete): checkpoint + per-file dispositions in
   `docs/cleanup/PROMPT-4-CHECKPOINT.md`; resumption status C13 in CONFLICT-REGISTER.
 - Canonical plugin-authoring path: `docs/cleanup/PLUGIN-BUILDER-ARCHITECTURE.md`
