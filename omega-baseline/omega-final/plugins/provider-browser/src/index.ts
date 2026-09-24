@@ -1,12 +1,12 @@
 // plugins/provider-browser — index.ts (D-357, M0: the BROWSER_MEDIATED realization)
 // The first provider to hold a categorically larger trust surface than any
 // capability token before it (D-338): it reads and writes another
-// application's UI state. In-sandbox it is a FIXTURE realization — the CDP
-// leg is owner-machine-only, future work, and never silently simulated.
+// application's UI state. It now has two explicit modes: legacy fixture replay
+// and a real ChatGPT CDP leg against a caller-supplied localhost debug port.
 //
 // Ops exposed (PROVIDER contributions, see plugin.json — risk lives on
 // pack.domain-email's contract declarations, the cross-plugin pattern):
-//   browser.attach@1   {captureText, archetypeSlug?, parserVersion?}
+//   browser.attach@1   {captureText, archetypeSlug?, parserVersion?, live?}
 //                      → {sessionId, captureRef, redactions, integrity}
 //                      M12/D-356 ordering law: the capture runs through
 //                      credential.redact@1 BEFORE the vault sees it; the
