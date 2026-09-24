@@ -53,7 +53,8 @@ no pre-merge needed).
 
 ## NEXT_ACTION
 
-Run gate 3.1 (hook safety on non-mission branch + main + bypass logging), then 3.2 (allowlist integrity + new charter-guard test), 3.3 (full suite), 3.4 (resume + fresh-session attempt), 3.5 (WIP blind-spot test); record all in closeout.md; only then merge + push sequence.
+Gates 3.1–3.5 GREEN (evidence/closeout.md). Merge mission/amp-1 --no-ff
+into main now, then §4 sequence (views, pushes, context-sync, WIP task).
 
 ## UNCOMMITTED
 
