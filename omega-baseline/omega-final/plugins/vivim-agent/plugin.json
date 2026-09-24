@@ -29,7 +29,7 @@
   },
   "dependencies": [],
   "capabilities": {
-    "requested": ["port:vault.append@1", "port:vault.get@1", "port:vault.query@1", "port:invoke.check@1", "port:message.send@1", "port:law.forbidden.set@1", "port:law.check@1"],
+    "requested": ["port:vault.append@1", "port:vault.get@1", "port:vault.query@1", "port:law.describe@1", "port:invoke.check@1", "port:message.send@1", "port:law.forbidden.set@1", "port:law.check@1"],
     "justification": "Reads/writes agent, behavior, decision, and Phase-1 agency vault objects (append/get/query); agency.execute@1 invokes the D-452 live invocation gate and the fixed message.send@1 target; existing forbidden.set/law.check remain for the pre-existing agent.exec path. No host capabilities; no write path outside the vault. Granted per-composition by the user-signed Recipe, never by this manifest."
   },
   "runtime": { "tier": "worker-thread", "budget": { "cpuMs": 500, "memMB": 64 } },
