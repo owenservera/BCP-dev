@@ -138,6 +138,8 @@ what happens when you skip straight to declaring something proven.
 
 ## 3. Workstream table — canonical, update this every time something lands
 
+> **HEAD sync note (2026-09-25):** This file was authored against `6c1c392` and was committed as-is before this note was added. `main` is now at `4316c27`; the §3 table may therefore need a fresh sync pass against the newer HEAD.
+
 > Update this table directly whenever new information arrives — a prompt
 > returns, a real run completes, a new contradiction surfaces. This
 > section, plus §4, is what makes this file worth reading instead of
