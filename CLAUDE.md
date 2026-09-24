@@ -30,6 +30,13 @@ survives that. If a prompt goes out without this instruction, whatever
 that workstream produces risks becoming invisible to the next session that
 picks up coordination.
 
+**The same rule applies to coordination turns that do not generate a prompt.**
+A turn that changes task state, workstream status, dependencies, evidence,
+findings, decisions, or the next action must leave that change reflected in
+this file before the turn is considered closed. A turn with no management-state
+change must explicitly be treated as **NO-STATE-CHANGE** rather than silently
+leaving an unrecorded change in the conversation.
+
 The standard instruction block to append to every generated prompt:
 
 ```
@@ -37,6 +44,11 @@ BEFORE YOU FINISH: update CLAUDE.md at the repo root.
 - Find your workstream's row in the "Workstream table" section.
 - Update Status, Evidence (real file paths + real commit hash, not a
   placeholder), and Next action.
+- Update the **Task tracker** row for your current task if its state, dependency,
+  evidence, or next action changed; use a human-readable task description,
+  not an ID-only label.
+- If your turn produced no project-management state change, say
+  **NO-STATE-CHANGE** explicitly in your return instead of inventing an update.
 - If you produced a finding that changes another workstream's assumptions
   (a contradiction, a blocked dependency, a corrected fact), add one line
   to the "Cross-workstream findings log" with today's date and the
@@ -53,6 +65,34 @@ BEFORE YOU FINISH: update CLAUDE.md at the repo root.
 The Claude coordination session is **read-only** (clone/pull/verify only, no push/commit/PR). Every deliverable to the owner must therefore be a **self-contained execution prompt** for the write-access agent to apply, never a raw file for manual pasting — a raw file is a process violation, since it reintroduces the owner as a manual copy step.
 
 Every such prompt gets logged in §8.
+
+### 0.2. Every-turn coordination loop — mandatory closeout
+
+Every coordination turn follows the same lightweight loop. This is the
+mechanism that keeps project management in CLAUDE.md rather than in chat
+memory.
+
+**START** — read this file, verify the current main HEAD, and identify the
+current workstream + task before relying on prior context.
+
+**CLASSIFY** — determine whether the turn changes any of: task state,
+workstream status, dependency/blocker, evidence, finding, decision, queued
+prompt, or next action.
+
+**RECORD** — when it changes, update the affected row(s) here in the same
+turn. For a read-only coordinator, that means the write-capable execution
+agent must carry the update and the coordinator verifies the committed diff;
+do not silently treat an unrecorded chat statement as current project state.
+
+**VERIFY** — never move a task to DONE or a workstream to PROVEN from an
+agent's claim alone. Require the real commit, file, test, or run evidence
+specified by the workstream.
+
+**CLOSE** — the turn ends with one explicit outcome: either the management
+change is recorded and verified, or the turn is **NO-STATE-CHANGE**. Every
+substantive turn must also leave a clear next action.
+
+This is deliberately a process gate, not a second task system.
 
 ---
 
@@ -147,8 +187,9 @@ what happens when you skip straight to declaring something proven.
 ## 3. Workstream table — canonical, update this every time something lands
 
 > Update this table directly whenever new information arrives — a prompt
-> returns, a real run completes, a new contradiction surfaces. This
-> section, plus §4, is what makes this file worth reading instead of
+> returns, a real run completes, a new contradiction surfaces. The table is
+> the workstream-level view; §3.1 is the task-level view. Keep both aligned.
+> This section, §3.1, and §4 are what make this file worth reading instead of
 > re-deriving everything from scratch.
 
 | # | Workstream | Status | Evidence (real paths + commit) | Next action |
@@ -163,6 +204,32 @@ what happens when you skip straight to declaring something proven.
 | P1-08 | Forge / VIVIM Harvest & Migration | **IMPLEMENTED/COMMITTED, BLOCKED ON M4** — real `message.send@1` execution logic committed inside `provider-browser`; `bun test` / `omega:gate` NOT yet run by the owner | `docs/agent-system/workstreams/WS-008/PHASE-1-HANDOFF-PACKAGE.md`; `omega-baseline/omega-final/plugins/provider-browser/src/live.ts`, `.../index.ts`, `.../parsers.ts`, `.../session.ts`; test file `omega-baseline/omega-final/plugins/provider-browser/test/live-send.test.ts` | **Owner must run**, from `omega-baseline/omega-final`: `bun test plugins/provider-browser/test/live-send.test.ts` and `bun run omega:gate`. Paste real output back into the P1-08 conversation. This is the single most load-bearing blocked step in the whole chain right now — P1-06 and P1-07 both wait on it. |
 | P1-09 | Ω Integration & End-to-End Proof | **NOT STARTED** — blocked on P1-06 + P1-07 + P1-08 all having real (not designed-but-unrun) output | none yet | Send last, only once all three of §Wave-2/3's outputs are real. It is the convergence point; do not implement anything new inside it. |
 | P1-10 | Program Observatory / Visual State | **REGISTERED, V0 blueprint only** | `docs/agent-system/workstreams/WS-010/V0-BLUEPRINT.md` | Explicitly deferred past Phase-1. |
+
+### 3.1. Task tracker — canonical task-level management
+
+This is the task-level layer of CLAUDE.md. Keep it small: one row per task
+that is current, queued, blocked, or awaiting evidence. Do not turn every
+research artifact into a task, and do not duplicate completed history that
+already lives in committed workstream evidence.
+
+**Task states:** READY / ACTIVE / BLOCKED / AWAITING EVIDENCE / DONE.
+DONE requires verified evidence, not an agent's declaration.
+
+| State | Human-readable task | Workstream | Dependency / evidence | Next action |
+|---|---|---|---|---|
+| **BLOCKED** | Run the real P1-08 message.send@1 test and Ω gate from omega-baseline/omega-final | P1-08 | Owner machine; real output must be returned to P1-08 | Owner runs both commands and relays unedited output |
+| **BLOCKED** | Complete the two real governed chain executions: success + refusal | P1-06 | Waits on P1-08 real M4 result | Execute using the existing P1-06 runbook after P1-08 clears |
+| **READY** | Prove the executable P1-05 manifest entry is contained inside the content-hashed plugin tree | P1-05 | H-01; existing B5 1,500-line constraint | Take as the next kernel slice when the Phase-1 critical path permits |
+| **BLOCKED** | Launch P1-07 Provider Intelligence workstream | P1-07 | P1-08 real M4 result | Send queued launch prompt when dependency clears |
+| **BLOCKED** | Launch P1-09 Integration & End-to-End Proof | P1-09 | P1-06 + P1-07 + P1-08 real output | Send only after all three dependencies clear |
+
+**Task hygiene:** the description must say what a human can actually do or
+verify. IDs may be included as references, but an ID alone is not a task
+meaning. When a task is replaced, split, or made obsolete, record the change
+in the relevant workstream row/log rather than leaving two live instructions
+that disagree.
+
+---
 
 **Known open decision:** the capability target for Phase-1 was resolved by
 P1-06 (not chosen up front) to **`message.send@1`** on
@@ -278,10 +345,11 @@ If you are picking this up with no memory of prior turns:
    above. If different, treat §3/§4 as possibly stale — spot-check the
    two or three most-recently-touched workstreams against real commits
    before trusting the table blindly.
-3. Check §9 first for queued prompts, before deciding whether anything is
-   safe to send. A prompt already queued there must not be duplicated.
-4. Check §3 for anything marked "AWAITING RETURN" or "BLOCKED" — that's
-   your queue.
+3. Check §3.1 (Task tracker) and §9 (queued prompts) before deciding
+   whether anything is safe to send. The task tracker is the executable queue;
+   §9 records prompt deliverables.
+4. Check §3 for anything marked "AWAITING RETURN" or "BLOCKED" and reconcile
+   it against §3.1 — that's your live coordination queue.
 5. If you're about to generate a new prompt for any workstream, append
    the §0 update-instruction block to it, unmodified, and remember you have
    no write access yourself (§0.1): the prompt, not a raw file, is the
@@ -323,6 +391,13 @@ On every returned commit, check whether the §0 update-instruction was actually 
 A NEEDS RUN result that looks fabricated (round numbers, no raw tool noise, timing that doesn't match a real run) gets that workstream quarantined — marked **UNVERIFIED, SUSPECTED FABRICATION** in §3, every downstream dependency blocked, owner flagged immediately.
 
 The §6 session-start pull-and-HEAD-check must actually be performed and its result stated, not assumed.
+
+**Every-turn closeout is enforced:** if a substantive turn changes project
+state but CLAUDE.md does not record that change, the turn is management-
+incomplete. Do not mark the task DONE, the workstream complete, or the
+prompt cycle closed until the ledger update is committed and verified. If
+the turn genuinely changes nothing, record/return **NO-STATE-CHANGE**. This
+prevents chat memory from becoming a shadow project-management system.
 
 ---
 
