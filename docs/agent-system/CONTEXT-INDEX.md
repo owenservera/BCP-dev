@@ -8,6 +8,7 @@
 | Where is the active workstream registry? | `docs/agent-system/WORKSTREAMS.md` |
 | Where is the cooperative protocol? | `docs/agent-system/SYSTEM.md` |
 | Where is durable current context? | `docs/agent-system/CURRENT.md` |
+| Where is the large architectural mental model? | `docs/agent-system/CHATGPT-ARCHITECTURAL-CONTEXT.md` → synthesized Ω design, VIVIM→BCP→Ω framing, P1 boundaries, self-knowledge vision, open questions, and future-agent model |
 | Where are fresh-session instructions? | `docs/agent-system/CHATGPT-BOOT.md` |
 | Where are recent conversations? | `docs/agent-system/transcripts/` — immutable |
 | Where are packets? | `docs/agent-system/packets/` — derived, versioned, lineage-bearing |
