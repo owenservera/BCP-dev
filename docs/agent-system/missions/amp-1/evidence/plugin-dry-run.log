@@ -1,0 +1,26 @@
+# Self-test 4 — plugin dry run (2026-09-24)
+
+> **Classification: DERIVED — CURRENT**
+
+Harness: `plugin-dry-run.mjs` (committed alongside). It imports the REAL
+committed plugin sources verbatim (copied to `.mjs` for ESM import only),
+stubs OpenCode `client`/`$`, and uses real fs (guard files, inbox, STATE).
+Verdict: 8/8 PASS, ALL GREEN.
+
+    PASS T1 dirty -> exactly one flush -- 1
+    PASS T1 prompt is CONTEXT FLUSH with wip ref
+    PASS T1 non-idle event ignored
+    PASS T2 repeat idle -> silent (guard) -- 0
+    PASS T3 clean -> silent -- 0
+    PASS T4 ralph fires lane prompt -- 1
+    PASS T4 flush stays silent (nothing changed)
+    PASS T4 dirty -> one flush + one lane prompt, no conflict
+
+Notes: T1 used branch mission/selftest-plugin (guard isolated in os.tmpdir).
+T3 used the real mission/amp-1 STATE + real (drained) inbox. T4 ran
+context-flush and bcp-ralph handlers against the same idle event with a
+held lane lease (FAM-09.1 [L1], AGT-1 -> L2): each fired exactly its own
+prompt, no exception, no suppression — disjoint by construction (flush
+never touches BCP_LANE_CAP/BCP_AGENT or lane leases).
+OpenCode events used: `session.idle` only (the sole event confirmed for
+@opencode-ai/plugin 1.18.4); all other event types ignored defensively.

@@ -7,21 +7,27 @@
 
 ## Active missions
 
-- **amp-1** [ACTIVE] branch `mission/amp-1` — NEXT: Write docs/agent-system/AUTONOMY.md, context/INGEST.md, context/THINKER-PROTOCOL.md, context/inbox + insights dirs, first insights (allowlist_ignore decision, hook-target conflict), missions/INDEX.md 
+- **amp-1** [ACTIVE] branch `mission/amp-1` — NEXT: On resume: commit MISSION-000-selftest fixture WITH this STATE touched (prior attempt correctly refused for missing STATE touch), then continue self-test §5.2 (wip ref already refs/wip/MISSION-000-sel
 
 ## Latest ADOPTED decisions
 
-- 20260924-193000-allowlist-ignore.md: id: INS-20260924-193000
 - 20260924-193100-hook-target.md: id: INS-20260924-193100
+- 20260924-193000-allowlist-ignore.md: id: INS-20260924-193000
+- 20260924-194500-shared-worktree.md: id: INS-20260924-194500
 
 ## Open questions by recipient
 
-- None.
+### to: agent
+- 20260924-214855-selftest-deposit-question.md: id: INS-20260924214855
 
 ## 15 most recent insights
 
-- [20260924-193000-allowlist-ignore.md](insights/20260924-193000-allowlist-ignore.md) DECISION/ADOPTED — id: INS-20260924-193000
 - [20260924-193100-hook-target.md](insights/20260924-193100-hook-target.md) FINDING/ADOPTED — id: INS-20260924-193100
+- [20260924-193000-allowlist-ignore.md](insights/20260924-193000-allowlist-ignore.md) DECISION/ADOPTED — id: INS-20260924-193000
+- [20260924-194500-shared-worktree.md](insights/20260924-194500-shared-worktree.md) DECISION/ADOPTED — id: INS-20260924-194500
+- [20260924-214855-selftest-deposit-finding.md](insights/20260924-214855-selftest-deposit-finding.md) FINDING/PROPOSED — id: INS-20260924214855
+- [20260924-214855-selftest-deposit-question.md](insights/20260924-214855-selftest-deposit-question.md) QUESTION/PROPOSED — id: INS-20260924214855
+- [20260924-214900-selftest-raw-judgment.md](insights/20260924-214900-selftest-raw-judgment.md) FINDING/PROPOSED — id: INS-20260924-214900
 
 ## What the agent needs from you
 

@@ -6,21 +6,18 @@
 mission_id: AMP-1
 agent_id: IMPL-04
 branch: mission/amp-1
-last_commit_inspected: fbef973
+last_commit_inspected: 6326c60
 updated: 2026-09-24
-status: ACTIVE
+status: DONE
 ```
 
 ## POSITION
 
-PAUSED per owner (parallel-agent commit review). Verified: 945282e intact
-locally and on origin (14 files, 1640 insertions, 0 deletions — matches the
-report); zero path overlap between mission/amp-1 and
-coord/p1-10-program-observatory-v0, so nothing was superseded and a future
-merge to main is conflict-free. Cause of the mid-mission worktree switch
-identified (shared worktree); recorded as ADOPTED insight. Self-test is
-mid-§5.2 (fixture files written, fixture commit refused by own L1 gate for
-missing STATE touch — correct behavior; wip snapshot taken).
+AMP-1 adoption complete: section 5 self-test passes with evidence in
+missions/amp-1/evidence/ (5/5 parts), `agent_lint.py` GREEN, 30/30 unit
+tests green, and repository-only recovery proven via resume
+(MISSION-000-selftest retired PAUSED). This final STATE is the handoff.
+Merge to main is owner-only (not done in this bootstrap run).
 
 ## DONE
 
@@ -35,23 +32,35 @@ missing STATE touch — correct behavior; wip snapshot taken).
 - Phase 4: SYSTEM.md AMENDMENT 2026-09-24 + [SUPERSEDED by AMP-1] marks on 7/11/12/13-integration/13-tip (old text retained); CHATGPT-BOOT.md trimmed to ~25 lines pointing at thinker protocol (also fixed duplicate-read-line defect); CONTEXT-INDEX.md mission/ledger rows; ROSTER IMPL-04 ACTIVE + Tip abolished; DIR-003 status SUPERSEDED with forward pointer; FALSIFIERS.md F-AGENT-MISSION-RECOVERY added, explicitly NOT proven.
 - Self-test §5.1 done: evidence/gate-refusals.log (T1 live hook refusal, T2 trailer pass, T3 Decision refusal, T4 insight-immutability, T5 transcript-immutability, T6 allowlist — all refused/passed as specified).
 - Pause verification: 945282e == origin/coord (14 files/1640+/0- per report); `git diff main...<branch> --name-only` on both branches shows zero overlap; ADOPTED insight 20260924-194500-shared-worktree (one agent = one worktree).
+- Self-test §5.2: MISSION-000-selftest (retired PAUSED) — resume reconstructed position/branch/wip/NEXT_ACTION from repo files; branch mismatch + stale tip flagged (evidence/recovery.log); clean-claim refusal (T7) included.
+- Self-test §5.3: deposit + raw inbox fixtures — byte-identical archival hash-verified, 2 PROPOSED thinker insights + agent judgment note, digest 28/150, brief 39/250 (evidence/ingest.log).
+- Self-test §5.4: plugin dry-run 8/8 (exactly-once flush, silent-when-clean, guard, ralph coexistence; events used: session.idle only) (evidence/plugin-dry-run.mjs + .log).
+- Self-test §5.5: BCP validate 0 errors; original hook exits 1 on corrupt copy / 0 on clean copy; L1 hook chains both (evidence/bcp-chain.log).
+- Final: 30/30 unittests green; lint GREEN; views regenerated.
 
 ## IN_PROGRESS
 
-- PAUSED per owner direction; self-test resumes on owner go-ahead.
+- None (DONE).
 
 ## NEXT_ACTION
 
-On resume: commit MISSION-000-selftest fixture WITH this STATE touched (prior attempt correctly refused for missing STATE touch), then continue self-test §5.2 (wip ref already refs/wip/MISSION-000-selftest/20260924T194148Z) through §5.5, regenerate views, final STATE, report.
+Owner: review branch mission/amp-1, then merge to main yourself (Tier 2;
+ never push main from a mission). Next unit of work after that: open a
+ first real mission by approving a charter.
 
 ## UNCOMMITTED
 
-- docs/agent-system/missions/amp-1/evidence/gate-refusals.log (new)
-- docs/agent-system/missions/MISSION-000-selftest/CHARTER.md + STATE.md (new, uncommitted — fixture commit refused by L1 gate, see NEXT_ACTION)
-- docs/agent-system/missions/MISSION-000-selftest/scratch.txt (new, deliberate uncommitted fixture work)
-- docs/agent-system/context/insights/20260924-194500-shared-worktree.md (new)
-- wip ref: refs/wip/MISSION-000-selftest/20260924T194148Z
+- docs/agent-system/missions/MISSION-000-selftest/scratch.txt (deliberate
+  uncommitted fixture remnant; captured in
+  refs/wip/MISSION-000-selftest/20260924T194148Z)
 - Hands-off untracked (never touched): bcp-algos/, setupdocs.zip, docs/REPO-CLEANUP-PROMPT-V2.md.
+
+## DECISIONS_IN_FORCE
+
+- Charter allowlist + tier ceiling 1.
+- context/insights/20260924-193000-allowlist-ignore.md (ADOPTED)
+- context/insights/20260924-193100-hook-target.md (ADOPTED)
+- context/insights/20260924-194500-shared-worktree.md (ADOPTED)
 
 ## DECISIONS_IN_FORCE
 
@@ -63,7 +72,7 @@ On resume: commit MISSION-000-selftest fixture WITH this STATE touched (prior at
 
 ## ESCALATIONS
 
-- None.
+None.
 
 ## DO_NOT
 

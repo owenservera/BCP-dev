@@ -6,15 +6,17 @@
 mission_id: MISSION-000-selftest
 agent_id: IMPL-04
 branch: mission/amp-1
-last_commit_inspected: a22e0e1
+last_commit_inspected: 6326c60
 updated: 2026-09-24
-status: ACTIVE
+status: PAUSED
 ```
 
 ## POSITION
 
-Recovery-test fixture at the interruption point: bounded work is done,
-uncommitted scratch remains, wip snapshot taken.
+Self-test complete (evidence in missions/amp-1/evidence/recovery.log):
+resume reconstructed position/branch/wip/NEXT_ACTION from repo files
+alone; injected branch mismatch + stale tip were flagged. Fixture
+retired; scratch.txt left uncommitted on purpose with its wip ref below.
 
 ## DONE
 
@@ -22,7 +24,7 @@ uncommitted scratch remains, wip snapshot taken.
 
 ## IN_PROGRESS
 
-- Interrupted here on purpose; recovery continues from NEXT_ACTION.
+- None (PAUSED fixture; do not act).
 
 ## NEXT_ACTION
 
@@ -31,7 +33,7 @@ Run python agent-tools/agent_views.py resume MISSION-000-selftest and continue f
 ## UNCOMMITTED
 
 - docs/agent-system/missions/MISSION-000-selftest/scratch.txt (uncommitted fixture work)
-- wip ref: pending (filled before resume)
+- wip ref: refs/wip/MISSION-000-selftest/20260924T194148Z
 
 ## DECISIONS_IN_FORCE
 

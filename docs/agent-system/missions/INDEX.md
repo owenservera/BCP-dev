@@ -4,4 +4,5 @@
 
 | mission | status | branch | updated | next action |
 |---|---|---|---|---|
-| amp-1 | ACTIVE | mission/amp-1 | 2026-09-24 | Write docs/agent-system/AUTONOMY.md, context/INGEST.md, context/THINKER-PROTOCOL |
+| MISSION-000-selftest | PAUSED | mission/amp-1 | 2026-09-24 | Run python agent-tools/agent_views.py resume MISSION-000-selftest and continue f |
+| amp-1 | ACTIVE | mission/amp-1 | 2026-09-24 | On resume: commit MISSION-000-selftest fixture WITH this STATE touched (prior at |
