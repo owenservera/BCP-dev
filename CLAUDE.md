@@ -11,7 +11,7 @@
 > or read from here directly. It is the full current state; there is no
 > more-complete snapshot elsewhere (owner-confirmed).
 >
-> **Last synced against `main`:** commit `6c1c392` (2026-09-25). If your
+> **Last synced against `main`:** commit `c44fe5f` (2026-09-25). If your
 > clone shows a different HEAD, pull first — this file describes that
 > commit's state, not necessarily right now's.
 
@@ -45,6 +45,14 @@ BEFORE YOU FINISH: update CLAUDE.md at the repo root.
   follow-up. Do not describe what you intended to do — describe what you
   actually committed, with the real hash.
 ```
+
+---
+
+## 0.1. The coordinator has no write access — deliverables are prompts, not files
+
+The Claude coordination session is **read-only** (clone/pull/verify only, no push/commit/PR). Every deliverable to the owner must therefore be a **self-contained execution prompt** for the write-access agent to apply, never a raw file for manual pasting — a raw file is a process violation, since it reintroduces the owner as a manual copy step.
+
+Every such prompt gets logged in §8.
 
 ---
 
@@ -138,8 +146,6 @@ what happens when you skip straight to declaring something proven.
 
 ## 3. Workstream table — canonical, update this every time something lands
 
-> **HEAD sync note (2026-09-25):** This file was authored against `6c1c392` and was committed as-is before this note was added. `main` is now at `4316c27`; the §3 table may therefore need a fresh sync pass against the newer HEAD.
-
 > Update this table directly whenever new information arrives — a prompt
 > returns, a real run completes, a new contradiction surfaces. This
 > section, plus §4, is what makes this file worth reading instead of
@@ -149,9 +155,9 @@ what happens when you skip straight to declaring something proven.
 |---|---|---|---|---|
 | P1-01 | Cooperative Agent System | **PROVEN** — Phase 2 dogfood complete (7 GREEN / 1 PARTIAL / 2 PROVEN) | `docs/agent-system/workstreams/WS-001/` | None — stable. Residual: COMPACTION formal re-rule owed. |
 | P1-02 | Repository Truth, Cleanup & Drift | **IMPLEMENTED/COMMITTED** — Phase-1 Truth Baseline published; status-sync fix applied | `docs/agent-system/workstreams/WS-002/PHASE-1-TRUTH-BASELINE.md`; C15 in `docs/cleanup/CONFLICT-REGISTER.md`; sync commit `6c1c392` | Dormant unless a new cross-workstream contradiction surfaces (see §4 for the trigger rule). |
-| P1-03 | Ω Ontology, Evidence & Representation | **LAUNCHED, AWAITING RETURN** — prompt sent, no `WS-003/` output yet as of last check | none yet — check `docs/agent-system/workstreams/WS-003/` for `PHASE-1-ONTOLOGY-BASELINE.md` | When it returns: verify commit is real (pull + `git log`), update this row, check whether it flags any conflict with P1-06/P1-08's already-committed events. |
+| P1-03 | Ω Ontology, Evidence & Representation | **IMPLEMENTED/COMMITTED** — M1–M4 baseline published, M4 verdict PASS, no critical ontology contradiction vs P1-06/P1-08 | `docs/agent-system/workstreams/WS-003/PHASE-1-ONTOLOGY-BASELINE.md`, commit `188cbcf` | Dormant; watch two ratified-law triggers relevant to P1-09 — reopening D-324 for a CONTRADICTED state, and a new decision needed to generalize D-424's staleness rule — don't act on either preemptively. |
 | P1-04 | Ω Self-Knowledge & Context | **NOT STARTED** | none | Deferred — not part of Phase-1's five-workstream convergence target. |
-| P1-05 | Ω Plugin Kernel & Runtime | **LAUNCHED, AWAITING RETURN** — prompt sent, no `WS-005/` output yet as of last check | none yet — check `docs/agent-system/workstreams/WS-005/` for `PHASE-1-KERNEL-BASELINE.md` | When it returns: verify commit is real, update this row, check its M2 compliance-check findings against provider-browser and vivim-agent/vivim-law. |
+| P1-05 | Ω Plugin Kernel & Runtime | **IMPLEMENTED/COMMITTED** — baseline published; µhost confirmed exactly 1,500/1,500 lines; no plugin-boundary violation in P1-06 or P1-08 | `docs/agent-system/workstreams/WS-005/PHASE-1-KERNEL-BASELINE.md`, commits `ac3a0d3`, `4316c27` | Treat H-01 (proving the executable manifest entry is contained inside the content-hashed plugin tree) as the next kernel slice, under the existing B5 1,500-line constraint; don't touch P1-06/P1-08 for this. |
 | P1-06 | Ω Agency, Execution & Governance | **IMPLEMENTED/COMMITTED, BLOCKED ON M4/M5** — chain coded (principal → consent → D-452 → `message.send@1` → governed event); real event log NOT yet produced | `docs/agent-system/workstreams/WS-006/PHASE-1-GOVERNANCE-CHAIN.md`; `omega-baseline/omega-final/plugins/vivim-agent/src/governance.ts`, `.../index.ts`; `omega-baseline/omega-final/plugins/vivim-law/src/policy.ts` | Blocked on P1-08's M4 real test result (see below), then on the owner running the two real chain executions (success + refusal) per the runbook already written in its own doc. |
 | P1-07 | Provider Intelligence & Autonomous Maintenance | **NOT STARTED** — blocked on P1-08's handoff | none yet | Send once P1-08's `PHASE-1-HANDOFF-PACKAGE.md` has a real M4 result attached. Use `P1-08-PROMPT-NEXT.md`-style framing: read the handoff, prepare the live-Chrome runbook, wait for real captured output. |
 | P1-08 | Forge / VIVIM Harvest & Migration | **IMPLEMENTED/COMMITTED, BLOCKED ON M4** — real `message.send@1` execution logic committed inside `provider-browser`; `bun test` / `omega:gate` NOT yet run by the owner | `docs/agent-system/workstreams/WS-008/PHASE-1-HANDOFF-PACKAGE.md`; `omega-baseline/omega-final/plugins/provider-browser/src/live.ts`, `.../index.ts`, `.../parsers.ts`, `.../session.ts`; test file `omega-baseline/omega-final/plugins/provider-browser/test/live-send.test.ts` | **Owner must run**, from `omega-baseline/omega-final`: `bun test plugins/provider-browser/test/live-send.test.ts` and `bun run omega:gate`. Paste real output back into the P1-08 conversation. This is the single most load-bearing blocked step in the whole chain right now — P1-06 and P1-07 both wait on it. |
@@ -222,6 +228,16 @@ intentionally not live. **Affects: anyone reading either file** — treat
 `CLAUDE.md` as the faster-updating coordination layer on top of it; treat
 `BUILD_CONTEXT.md` as historical only.
 
+**2026-09-25 — P1-05 host line-count "contradiction" was a counting-method difference, not real drift.**
+P1-05 claimed exactly 1,500/1,500 lines citing `CURRENT-INVARIANTS.md`;
+raw `wc -l` on `host/src/*.ts` gave 1,487, a uniform 13-line gap
+(+1 per file, 13 files); the root cause is the repo's gate script using
+`content.split("\\n").length` vs `wc -l`'s newline-count, which differ by one
+whenever a file ends in a trailing newline. Running the gate's actual method
+returns 1,500/1,500, matching P1-05. **Resolution: NOT a contradiction.**
+**Affects:** anyone manually spot-checking line counts — use the gate's
+method, not raw `wc -l`.
+
 **Trigger rule (from the P1-02 addendum, still standing):** if a *third*
 instance of "status file says X, history/source says Y" turns up beyond the
 two above, that's the signal to propose a standalone
@@ -235,7 +251,7 @@ watch for the pattern.
 ```
 Wave 1 — P1-02 alone                                    [DONE]
 Wave 2 — P1-06 + P1-08 in parallel                       [DONE, both blocked on real runs]
-Wave 2b — P1-03 + P1-05 in parallel (opportunistic,      [SENT, awaiting return]
+Wave 2b — P1-03 + P1-05 in parallel (opportunistic,      [DONE — 188cbcf (P1-03), ac3a0d3 + 4316c27 (P1-05)]
           doesn't block the Phase-1 chain, doesn't
           need the owner's machine)
 Wave 3 — P1-07, once P1-08's handoff has a real M4       [NOT SENT — blocked]
@@ -249,6 +265,104 @@ Wave 4 — P1-09, once P1-06 + P1-07 + P1-08 all have      [NOT SENT — blocked
 commit, and paste the real output into the P1-08 conversation. Everything
 in Wave 2 (P1-06's remaining milestones) and Wave 3 (P1-07 starting at
 all) is downstream of this single action.
+
+
+---
+
+## 7. Program governance — roles, decision authority, enforcement
+
+### Roles
+
+| Role | Authority / responsibility |
+|---|---|
+| **Owner** | Final authority, approves ratified-law changes, runs NEEDS RUN steps. |
+| **Coordinator (Claude)** | Read-only, drafts and logs prompts, maintains §3–§5, flags drift; cannot push or reinterpret ratified law. |
+| **Execution agent** | Read-write, implements and commits; cannot fabricate NEEDS RUN results, touch another workstream's committed files without a logged reason, or alter ratified law without an owner-approved D-### record. |
+
+### Decision authority
+
+D-### changes require an explicit new or amended record **and owner sign-off**, never as a side effect of a baseline document.
+
+Status-label glossary, used consistently: **NOT STARTED / LAUNCHED / AWAITING RETURN / IMPLEMENTED-COMMITTED / ...BLOCKED ON <X> / PROVEN**.
+
+### File ownership
+
+A workstream may only write inside its own `WS-0##/` folder and the source paths named in its own §3 row. Touching another workstream's committed file requires proposing it as a §4 finding first, then the owning workstream makes the change itself.
+
+### Enforcement
+
+On every returned commit, check whether the §0 update-instruction was actually followed via the real diff, not the agent's claim; a miss gets fixed, logged as a **"Process:"** note in §4 naming the workstream and commit, and the next prompt to that workstream opens with an explicit reminder. Two consecutive misses escalate directly to the owner instead of being silently patched a third time.
+
+A NEEDS RUN result that looks fabricated (round numbers, no raw tool noise, timing that doesn't match a real run) gets that workstream quarantined — marked **UNVERIFIED, SUSPECTED FABRICATION** in §3, every downstream dependency blocked, owner flagged immediately.
+
+The §6 session-start pull-and-HEAD-check must actually be performed and its result stated, not assumed.
+
+---
+
+## 8. Prompt log (rolling — most recent 20)
+
+> Every prompt the coordinator hands the owner per §0.1 is logged here, newest first, capped at 20 (drop oldest past that). This logs the deliverable itself, not just its outcome.
+
+**2026-09-25 — Intent: land §0.1/§3/§4/§5/§7/§8 in one pass.**
+
+> Open CLAUDE.md at the repo root. First run `git log -1` and confirm HEAD
+> is `c44fe5f` — if it isn't, stop and report the actual HEAD before
+> touching anything.
+
+>
+
+> Make these edits, then commit:
+
+> A. Header: update "Last synced against main" to commit `c44fe5f`.
+
+>
+
+> B. §3 table:
+
+> - Delete the stale "HEAD sync note (2026-09-25)" line above the table.
+> - P1-03 row → Status: IMPLEMENTED/COMMITTED (M1–M4 baseline published,
+>   M4 verdict PASS, no critical ontology contradiction vs P1-06/P1-08).
+> - P1-05 row → Status: IMPLEMENTED/COMMITTED (baseline published; µhost
+>   confirmed exactly 1,500/1,500 lines; no plugin-boundary violation in
+>   P1-06 or P1-08).
+
+> C. §4 findings log: append one new dated entry (2026-09-25) — the host
+> line-count "contradiction" was a counting-method difference, not real drift.
+
+>
+
+> D. §5 wave tracker: change Wave 2b to
+> "[DONE — 188cbcf (P1-03), ac3a0d3 + 4316c27 (P1-05)]".
+
+>
+
+> E. New §0.1, right after §0's instruction block, titled "The coordinator
+>   has no write access — deliverables are prompts, not files."
+
+>
+
+> F. New §7 "Program governance — roles, decision authority, enforcement",
+>   after current §6.
+
+>
+
+> G. New §8 "Prompt log (rolling — most recent 20)", after the new §7.
+
+>
+
+> H. §6 step 4 — append the no-write-access/prompt-deliverable instruction
+>   and add a new step 6 covering §7's ownership/decision-authority check.
+
+>
+
+> Commit as: "docs: add governance/enforcement (§7), prompt log (§8),
+> no-write-access rule (§0.1); sync P1-03/P1-05 returns (§3/§4/§5)".
+
+>
+
+> BEFORE YOU FINISH: re-read the committed CLAUDE.md back and confirm every
+> section above (A–H) is actually present in the diff, not just intended —
+> paste the real commit hash back into this conversation.
 
 ---
 
@@ -264,7 +378,12 @@ If you are picking this up with no memory of prior turns:
 3. Check §3 for anything marked "AWAITING RETURN" or "BLOCKED" — that's
    your queue.
 4. If you're about to generate a new prompt for any workstream, append
-   the §0 update-instruction block to it, unmodified.
+   the §0 update-instruction block to it, unmodified, and remember you have
+   no write access yourself (§0.1): the prompt, not a raw file, is the
+   deliverable. Log it in §8 before handing it to the owner.
 5. If you learn something that contradicts an existing row or log entry,
    update it in place — don't leave two conflicting claims standing. That's
    the exact failure mode this file exists to prevent elsewhere in the repo.
+6. Before generating a prompt for any workstream that touches ratified law or
+   another workstream's already-committed files, check §7's file-ownership
+   map and decision-authority rule first.
