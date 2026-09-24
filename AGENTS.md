@@ -56,9 +56,11 @@ Never reverse it into "find a place for the legacy code."
   snapshots — present law is in CURRENT-INVARIANTS.md, not in old prose.
 - `provider.llm` / Ollama passages anywhere are cited history (D-418/D-456):
   v1 ships Chrome master/slave only.
-- Untracked work (`bcp-algos/`, `omega-…/docs/architecture/`,
-  `omega-…/examples/plugin-echo2/`, `setupdocs.zip`) is another workstream's
-  active surface — do not move, commit, or build on it without the owner.
+- Hands-off surfaces — do not move, commit, or build on them without the owner:
+  untracked `bcp-algos/`, `setupdocs.zip`; tracked-but-unratified
+  `omega-…/docs/architecture/`, `omega-…/examples/plugin-echo2/` (committed via
+  `a528ffd`, see C11/C13); untracked `docs/REPO-CLEANUP-PROMPT-V2.md` (UNKNOWN —
+  do not execute).
 
 ## Cold start
 

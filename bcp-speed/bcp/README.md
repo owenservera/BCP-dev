@@ -19,8 +19,9 @@ powershell -ExecutionPolicy Bypass -File setup.ps1
 powershell -ExecutionPolicy Bypass -File verify.ps1
 ```
 
-Then open `views/map.html` — you should see a grid of 140 capabilities,
-all grey (L0).
+Then open `views/map.html` — you should see a grid of this instance's capabilities
+(all grey (L0) on a fresh seed; the "140" in older text is the generic-package
+example number, not this instance's 49).
 
 ## Quick start (macOS/Linux)
 

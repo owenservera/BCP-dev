@@ -1,5 +1,9 @@
 # BUILD_CONTEXT.md — what exists in BCP-dev today (2026-09-23 cleanup)
 
+> Snapshot as of the 2026-09-23 cleanup at HEAD `18242a3` + cleanup commit.
+> Numbers below are era-true for that snapshot; live tip and current state:
+> `docs/agent-system/CURRENT.md`. Do not cite this file's HEAD/counts as current.
+
 ## What exists today
 
 A parked, fully-checkpointed migration forge at HEAD `18242a3` + cleanup commit
