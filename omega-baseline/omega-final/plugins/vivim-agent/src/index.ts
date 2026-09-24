@@ -73,6 +73,7 @@ import {
   parseAdaptRatifyOpInput, parseAdaptReadOpInput, parseAdaptRow, ratifierRefs,
   ratifyProposal, renderCeremony, type AdaptProposalRow,
 } from "./adaptation.ts";
+import { PHASE1_CAPABILITY, AGENCY_NS, eventId, validateRequest, type GovernedEvent } from "./governance.ts";
 
 const AGENT_NS = "agent";
 const BEHAVIOR_NS = "behavior";
@@ -160,6 +161,85 @@ startPlugin(definePlugin({
   },
 
   ops: {
+    /** P1-06 Phase-1 governed chain: principal -> consent -> D-452 frame
+     * -> fixed capability -> governed event. Consent is the only authority
+     * form in this slice; standing/delegation/budget/adaptation are absent.
+     */
+    "agency.execute@1": async (payload: unknown, ctx: PluginContext, meta: CallMeta): Promise<Outcome> => {
+      const request = validateRequest(payload);
+      const causationId = meta.causationId;
+      const at = request.now ?? Date.now();
+      const frame = {
+        caller: request.principal.principal, behalf: request.principal.principal,
+        op: PHASE1_CAPABILITY, scope: PHASE1_CAPABILITY,
+        authority: { kind: "consent" as const, ref: request.authority.consentRef },
+        ...(request.intentRef !== undefined ? { intentRef: request.intentRef } : {}),
+      };
+      const invocation = await portCall<{
+        verdict: "framed" | "refused"; code?: string; sentence?: string;
+        frameDigest: string | null; authorityResolved: "consent" | null; causationId: string;
+      }>(ctx, "invoke.check@1", {
+        frame,
+        target: { op: PHASE1_CAPABILITY, opClass: "EXTERNAL_MUTATION" },
+        knownOps: [PHASE1_CAPABILITY],
+        consents: [{
+          consentId: request.authority.consentRef,
+          principal: request.authority.principal,
+          op: PHASE1_CAPABILITY,
+          live: true,
+        }],
+        delegations: [], standings: [], rootPrincipals: [], now: at, causationId,
+      });
+      if (invocation.verdict === "refused") {
+        const event: GovernedEvent = {
+          kind: "governed-action@1", eventId: eventId(causationId), at, causationId,
+          principal: request.principal, authority: request.authority, capability: PHASE1_CAPABILITY,
+          consentChecked: true,
+          invocation: {
+            frameDigest: invocation.frameDigest, verdict: "refused",
+            authorityResolved: invocation.authorityResolved,
+          },
+          execution: { attempted: false, completed: false }, outcome: "REFUSED",
+          ...(invocation.code !== undefined ? { reasonCode: invocation.code } : {}),
+          ...(invocation.sentence !== undefined ? { reasonSentence: invocation.sentence } : {}),
+          ...(request.intentRef !== undefined ? { intentRef: request.intentRef } : {}),
+        };
+        await portCall(ctx, "vault.append@1", {
+          ns: AGENCY_NS, id: event.eventId, data: event,
+          meta: { type: event.kind, capability: PHASE1_CAPABILITY, outcome: event.outcome },
+          refs: [{ ns: "invoke", id: "inv:" + causationId }],
+        });
+        return fail(
+          "REFUSED",
+          (event.reasonCode ?? "INVOKE_REFUSED") + ": " +
+          (event.reasonSentence ?? "governance refused the invocation"),
+        );
+      }
+      const target = await portCall<unknown>(ctx, PHASE1_CAPABILITY, request.payload);
+      const event: GovernedEvent = {
+        kind: "governed-action@1", eventId: eventId(causationId), at, causationId,
+        principal: request.principal, authority: request.authority, capability: PHASE1_CAPABILITY,
+        consentChecked: true,
+        invocation: {
+          frameDigest: invocation.frameDigest, verdict: "framed",
+          authorityResolved: invocation.authorityResolved,
+        },
+        execution: { attempted: true, completed: true }, outcome: "EXECUTED",
+        ...(request.intentRef !== undefined ? { intentRef: request.intentRef } : {}),
+        targetResult: target,
+      };
+      await portCall(ctx, "vault.append@1", {
+        ns: AGENCY_NS, id: event.eventId, data: event,
+        meta: { type: event.kind, capability: PHASE1_CAPABILITY, outcome: event.outcome },
+        refs: [{ ns: "invoke", id: "inv:" + causationId }],
+      });
+      return {
+        status: "OK",
+        value: { eventId: event.eventId, capability: PHASE1_CAPABILITY, outcome: "EXECUTED", target },
+      };
+    },
+
+
     "agent.spawn@1": async (payload: unknown, ctx: PluginContext, meta: CallMeta): Promise<Outcome> => {
       const input = parseSpawnInput(payload); // throws on malformed → DEGRADED
       // 1. resolve the behavior contract (must exist and be active)
