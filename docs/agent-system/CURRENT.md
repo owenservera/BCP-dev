@@ -3,11 +3,11 @@
 > **Classification: DERIVED — CURRENT**
 > **Rule:** small enough to load every session; entries point to evidence, not evidence.
 > **Coordinator-owned:** agents propose via outbox, never direct-edit in flight.
-> **Updated:** 2026-09-24
+> **Updated:** 2026-09-25
 
 ## CURRENT REPOSITORY TIP
 
-- Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, merged WS-001 DIR-001 dogfood evidence, the merged P1-02 baseline-freeze (PR #6: REGISTERED charter + setup prompt durable; workstream NOT PROVEN), the IMPL-03 roster dedup (PR #7), and the P1-02 drift sweep (PR #8: denominators, hands-off lists, stale numbers).
+- Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, merged WS-001 DIR-001 dogfood evidence, the P1-02 truth baseline/drift sweep, the committed P1-06 governance chain, and the committed P1-08 real `message.send@1` provider-browser implementation.
 - Current substantive P1-02 baseline marker: `537d987` (PR #8 merge; incorporates PR #6 baseline-freeze onto `2373cfd` base + PR #7 roster dedup); prior P1-01 PROVEN reconciliation merge marker `de147d6` retained as history (both closers green; before that `fde4c5b` ChatGPT line, `58bd0d7` MULTI-AGENT line).
 - Untracked surfaces remain another workstream's surface: `bcp-algos/`, `setupdocs.zip`. Do not touch without owner. Ω `docs/architecture/` + `examples/plugin-echo2/` are now tracked on main (`a528ffd` checkpoint) but unratified — see `docs/cleanup/PROMPT-4-CHECKPOINT.md` + C13. `docs/REPO-CLEANUP-PROMPT-V2.md` is untracked with UNKNOWN status; triage pending owner decision.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
@@ -28,9 +28,13 @@ The program now has ten P1 workstreams registered in
 9. Ω Integration & End-to-End Proof
 10. Program Observatory / Visual State
 
-Only P1-01 / WS-001 currently has an implementation substrate. The other eight
-are registered boundaries, not active implementation programs, and intentionally
-have no setup prompts yet.
+P1-01 / WS-001 has a proven implementation substrate. P1-02 has completed its
+current Phase-1 repository-truth baseline. P1-06 has committed governance-chain
+code but awaits its M4/M5 real-run proof. P1-08 has committed real
+`message.send@1` provider-browser execution but awaits its M4 owner-run
+(`bun test` + `omega:gate`). P1-03, P1-04, P1-05, P1-07, and P1-09 remain
+research-first/unopened. See `docs/agent-system/WORKSTREAMS.md` and the
+workstream evidence documents for the exact boundaries and proof states.
 
 ## CURRENT ARCHITECTURAL MODEL
 
@@ -63,7 +67,15 @@ have no setup prompts yet.
 
 - WS-001 / P1-01: Phase 2 dogfood completed; verdict PROVEN (7 GREEN / 1 PARTIAL / 2 PROVEN; residual: COMPACTION formal re-rule owed).
 - Closed proofs: MULTI-AGENT independence — IMPL-03 continued from HANDOFF-004 alone (PKT-005 + HANDOFF-009 + `outbox/IMPL-03/ITEM-001-evidence-independent-verification.md`); CROSS-CHATGPT continuity — genuinely fresh session run (transcript + `packets/PKT-004-cross-chatgpt-closer-findings.md` + `handoffs/HANDOFF-007.md`, §3 rubric 6/6).
-- P1-02 / WS-002 is REGISTERED with researched charter + ChatGPT setup prompt prepared (`workstreams/WS-002/`); NOT PROVEN; ACTIVE launch pending owner decision. P1-03 through P1-09 remain research-first and unopened (no setup prompts).
+- P1-02 / WS-002 has a committed Phase-1 repository-truth baseline
+  (`workstreams/WS-002/PHASE-1-TRUTH-BASELINE.md`) and resolved drift entry
+  C15; this is a factual baseline, not a PROVEN/live-run status.
+- P1-06 / WS-006 has committed the governance chain
+  (`workstreams/WS-006/PHASE-1-GOVERNANCE-CHAIN.md`); M4/M5 NEEDS RUN.
+- P1-08 / WS-008 has committed the real `message.send@1` provider-browser
+  implementation (`workstreams/WS-008/PHASE-1-HANDOFF-PACKAGE.md`); M4
+  NEEDS RUN. P1-03, P1-04, P1-05, P1-07, and P1-09 remain research-first
+  and unopened.
 - P1-10 / WS-010 is now a separately designed V0 workstream: registered, not proven, not implementation-active. Full blueprint and paired-agent setup live under docs/agent-system/workstreams/WS-010/.
 - Next portfolio action after the WS-001 closers: deep-research and bootstrap P1 workstreams one at a time.
 
