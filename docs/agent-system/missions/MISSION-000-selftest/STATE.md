@@ -16,7 +16,8 @@ status: PAUSED
 Self-test complete (evidence in missions/amp-1/evidence/recovery.log):
 resume reconstructed position/branch/wip/NEXT_ACTION from repo files
 alone; injected branch mismatch + stale tip were flagged. Fixture
-retired; scratch.txt left uncommitted on purpose with its wip ref below.
+retired; scratch.txt removed at closeout (was uncommitted fixture work;
+content preserved in the local wip ref below).
 
 ## DONE
 
@@ -32,8 +33,8 @@ Run python agent-tools/agent_views.py resume MISSION-000-selftest and continue f
 
 ## UNCOMMITTED
 
-- docs/agent-system/missions/MISSION-000-selftest/scratch.txt (uncommitted fixture work)
-- wip ref: refs/wip/MISSION-000-selftest/20260924T194148Z
+- None (scratch.txt removed at close-out; content in the local wip ref below).
+- wip ref: refs/wip/MISSION-000-selftest/20260924T194148Z (local only, not pushed)
 
 ## DECISIONS_IN_FORCE
 

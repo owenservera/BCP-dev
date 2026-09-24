@@ -8,7 +8,7 @@ agent_id: IMPL-04
 branch: mission/amp-1
 last_commit_inspected: 6326c60
 updated: 2026-09-24
-status: DONE
+status: ACTIVE
 ```
 
 ## POSITION
@@ -18,6 +18,12 @@ missions/amp-1/evidence/ (5/5 parts), `agent_lint.py` GREEN, 30/30 unit
 tests green, and repository-only recovery proven via resume
 (MISSION-000-selftest retired PAUSED). This final STATE is the handoff.
 Merge to main is owner-only (not done in this bootstrap run).
+
+Close-out run (owner-authorized Tier 2: merge to main --no-ff, push
+mission/amp-1 + main ff-only, create/push context-sync, register hourly
+WIP task, AGENTS.md + agent-tools docs for install step). Preconditions
+verified: single worktree (mine alone), origin/main == fbef973 (no drift,
+no pre-merge needed).
 
 ## DONE
 
@@ -37,34 +43,27 @@ Merge to main is owner-only (not done in this bootstrap run).
 - Self-test §5.4: plugin dry-run 8/8 (exactly-once flush, silent-when-clean, guard, ralph coexistence; events used: session.idle only) (evidence/plugin-dry-run.mjs + .log).
 - Self-test §5.5: BCP validate 0 errors; original hook exits 1 on corrupt copy / 0 on clean copy; L1 hook chains both (evidence/bcp-chain.log).
 - Final: 30/30 unittests green; lint GREEN; views regenerated.
+- Close-out: scratch.txt removed (content in local wip ref); duplicate DECISIONS_IN_FORCE section merged.
 
 ## IN_PROGRESS
 
-- None (DONE).
+- Close-out verification gates (§3.1–§3.5), evidence to missions/amp-1/evidence/closeout.md.
 
 ## NEXT_ACTION
 
-Owner: review branch mission/amp-1, then merge to main yourself (Tier 2;
- never push main from a mission). Next unit of work after that: open a
- first real mission by approving a charter.
+Run gate 3.1 (hook safety on non-mission branch + main + bypass logging), then 3.2 (allowlist integrity + new charter-guard test), 3.3 (full suite), 3.4 (resume + fresh-session attempt), 3.5 (WIP blind-spot test); record all in closeout.md; only then merge + push sequence.
 
 ## UNCOMMITTED
 
-- docs/agent-system/missions/MISSION-000-selftest/scratch.txt (deliberate
-  uncommitted fixture remnant; captured in
-  refs/wip/MISSION-000-selftest/20260924T194148Z)
+- evidence/closeout.md (to be written during gates)
 - Hands-off untracked (never touched): bcp-algos/, setupdocs.zip, docs/REPO-CLEANUP-PROMPT-V2.md.
 
 ## DECISIONS_IN_FORCE
 
-- Charter allowlist + tier ceiling 1.
+- Charter allowlist + tier ceiling 1, plus close-out Tier 2 grants (§1.1–§1.5, this run only).
 - context/insights/20260924-193000-allowlist-ignore.md (ADOPTED)
 - context/insights/20260924-193100-hook-target.md (ADOPTED)
 - context/insights/20260924-194500-shared-worktree.md (ADOPTED)
-
-## DECISIONS_IN_FORCE
-
-- Charter allowlist + tier ceiling 1 (no Tier 2: no self-merge to main, no OS task registration).
 
 ## OPEN_QUESTIONS
 
