@@ -13,8 +13,9 @@ status: ACTIVE
 
 ## POSITION
 
-Ledger, AUTONOMY, and thinker lane files are in place; DIGEST/BRIEF/INDEX
-generated within line budgets; lint GREEN. Hooks + plugin (L1-L3) start next.
+L1-L4 are in place: versioned hooks chained with BCP validate, context-flush
+plugin, commented hourly WIP line, AGENTS.md fallback rule. core.hooksPath is
+set. Protocol amendments (SYSTEM, BOOT, INDEX, ROSTER, DIR-003) start next.
 
 ## DONE
 
@@ -24,14 +25,16 @@ generated within line budgets; lint GREEN. Hooks + plugin (L1-L3) start next.
 - agent-tools built (stdlib only): lint (banners, links, immutability, CURRENT budget, STATE fields, branch match, clean-claim, allowlist + allowlist_ignore, DONE+escalations, L1 message rules), views (digest/brief/index/queue/resume), ingest (hash, byte-identical archive, deposit parser, receipts), wip (temp-index snapshots to refs/wip, prune 20).
 - 30 unittest cases pass; real-repo `agent_lint.py` reports GREEN.
 - Phase 2: AUTONOMY.md, context/INGEST.md, context/THINKER-PROTOCOL.md (verbatim boot prompt), context/inbox + insights dirs, 2 ADOPTED insights (allowlist_ignore decision, hook-target finding), generated DIGEST.md (22 lines), THINKER-BRIEF.md (33 lines), context/INDEX.md, missions/INDEX.md.
+- Phase 3: agent-tools/hooks/pre-commit (chains BCP validate, then lint --pre-commit) + commit-msg (STATE-touch/trailer, Decision-trailer rules); core.hooksPath set; bcp-speed/bcp/.opencode/plugins/context-flush.js (session.idle only, disjoint from bcp-ralph, node --check clean); commented hourly WIP schtasks line in ops-install.ps1 (NOT registered, Tier 2); AGENTS.md L4 fallback rule (6 lines); CHARTER allowlist extended with AGENTS.md (owner-authorized via AMP-1 3.4/3.7).
+- Incident: worktree was moved to coord/p1-10-program-observatory-v0 mid-mission by an outside process; recovered via backup + checkout, verified identical, added "verify branch before every commit" to DO_NOT/RESUME discipline.
 
 ## IN_PROGRESS
 
-- Building L1 versioned hooks, L2 context-flush plugin, L3 wiring.
+- Amending SYSTEM.md, CHATGPT-BOOT.md, CONTEXT-INDEX.md, ROSTER.md; superseding DIR-003.
 
 ## NEXT_ACTION
 
-Write agent-tools/hooks/pre-commit (chains BCP validate + lint --pre-commit) and commit-msg (L1 message rules), set core.hooksPath, write bcp-speed/bcp/.opencode/plugins/context-flush.js (session.idle, disjoint from bcp-ralph), add commented hourly WIP line to ops-install.ps1; test hooks live; commit with STATE touch.
+Edit SYSTEM.md (AMENDMENT block + inline SUPERSEDED marks), trim CHATGPT-BOOT.md to ~25 lines, update CONTEXT-INDEX.md, register IMPL-04 ACTIVE in ROSTER.md (drop Tip line), mark DIR-003 SUPERSEDED; run lint; commit with STATE touch.
 
 ## UNCOMMITTED
 
@@ -54,6 +57,7 @@ Write agent-tools/hooks/pre-commit (chains BCP validate + lint --pre-commit) and
 - Do not touch vivim-original-baseline/, RATIFIED Omega decisions, BCP state YAML by hand, hands-off surfaces, or the P1-02 branch.
 - Do not push main; do not self-merge in this bootstrap run.
 - Do not register OS scheduled tasks.
+- Verify `git branch --show-current` (expect mission/amp-1) before every commit.
 
 ## RESUME
 

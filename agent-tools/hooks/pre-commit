@@ -1,0 +1,20 @@
+#!/bin/sh
+# AMP-1 L1 commit gate (versioned; core.hooksPath points at this directory).
+# Chains the existing BCP pre-commit behavior first (state validation stays
+# intact), then runs the AMP staged checks. Never replaces BCP validation.
+# Bypass only with AMP_HOOK_BYPASS=1 (agent_lint.py logs the bypass).
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+[ -z "$REPO_ROOT" ] && exit 0
+if command -v python >/dev/null 2>&1; then
+  if [ -f "$REPO_ROOT/bcp-speed/bcp/validate.py" ]; then
+    (cd "$REPO_ROOT/bcp-speed/bcp" && python validate.py >/dev/null 2>&1) || {
+      echo "pre-commit: REFUSED - bcp validate.py reports errors. Run python validate.py, fix state, retry." >&2
+      exit 1
+    }
+  fi
+  (cd "$REPO_ROOT" && python agent-tools/agent_lint.py --pre-commit) || exit 1
+else
+  echo "pre-commit: python not found, validate gate skipped" >&2
+  exit 0
+fi
+exit 0

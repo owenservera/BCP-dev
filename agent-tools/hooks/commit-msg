@@ -1,0 +1,13 @@
+#!/bin/sh
+# AMP-1 L1 message gate: on mission/* branches every commit must touch that
+# mission's STATE.md or carry a 'State-Unchanged: <reason>' trailer; a commit
+# carrying 'Decision: <slug>' must add a matching file under context/insights/.
+# Bypass only with AMP_HOOK_BYPASS=1 (agent_lint.py logs the bypass).
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+[ -z "$REPO_ROOT" ] && exit 0
+MSG_FILE="$1"
+[ -z "$MSG_FILE" ] && exit 0
+if command -v python >/dev/null 2>&1; then
+  (cd "$REPO_ROOT" && python agent-tools/agent_lint.py --commit-msg "$MSG_FILE") || exit 1
+fi
+exit 0

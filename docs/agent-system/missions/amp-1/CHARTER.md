@@ -14,6 +14,7 @@ write_allowlist:
   - agent-tools/**
   - bcp-speed/bcp/.opencode/plugins/context-flush.js
   - bcp-speed/bcp/ops-install.ps1
+  - AGENTS.md
 allowlist_ignore:
   - bcp-algos/**
   - setupdocs.zip
