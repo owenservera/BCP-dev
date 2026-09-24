@@ -1,14 +1,14 @@
 // plugins/provider-browser — parsers.ts (D-355/D-357)
 // The version-pinned parser registry: parser transforms as PURE, deterministic
-// functions over the captured page text. D-354's isolation law lives here as
-// data: a transform touches ONLY its argument — no ports, no tokens, no host
+// functions over a recorded fixture or a provider stream body. D-354's
+// isolation law lives here as data: a transform touches ONLY its argument — no ports, no tokens, no host
 // calls, no clock — so its entire output channel is the ordered ParsedChunk[]
 // the handler assembles into M1 envelopes and emits under the shim's sequence
 // discipline. Nothing in this file imports anything but contracts.
 //
 // The transforms are DISCOVERY-DERIVED governance data (D-355): each one
-// exists because a recorded session for the archetype exists (the fixture
-// capture), and the pin's evidence trail is the promotion event that verified
+// exists because a recorded session for the archetype exists; v1 additionally
+// governs the corresponding live ChatGPT stream parse, and the pin's evidence trail verifies
 // the realization carrying the pin.
 import type { ParsedChunk } from "@vivim/omega-contracts";
 
