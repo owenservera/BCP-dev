@@ -105,6 +105,11 @@ have no setup prompts yet.
 5. migration records
 6. cooperative/P1 documents as derived operating context only.
 
+## ARCHITECTURAL CONTEXT BRIDGE
+
+- Large cross-session design synthesis: `docs/agent-system/CHATGPT-ARCHITECTURAL-CONTEXT.md`.
+- It preserves the mental model behind the P1 portfolio, Ω self-description vision, VIVIM→BCP→Ω relationship, and major open questions. It is DERIVED context, not Ω law.
+
 ## RECOMMENDED NEXT READS
 
 1. `/AGENTS.md`
