@@ -13,9 +13,8 @@ status: ACTIVE
 
 ## POSITION
 
-Tooling build complete and green: agent_lint.py, agent_views.py,
-agent_ingest.py, agent_wip.py plus 30 unittest cases. Real-repo lint is GREEN.
-Ledger + AUTONOMY + thinker protocol start next.
+Ledger, AUTONOMY, and thinker lane files are in place; DIGEST/BRIEF/INDEX
+generated within line budgets; lint GREEN. Hooks + plugin (L1-L3) start next.
 
 ## DONE
 
@@ -24,14 +23,15 @@ Ledger + AUTONOMY + thinker protocol start next.
 - Mission scaffold: CHARTER.md (ACTIVE, owner-approved in chat 2026-09-24) and this STATE.md.
 - agent-tools built (stdlib only): lint (banners, links, immutability, CURRENT budget, STATE fields, branch match, clean-claim, allowlist + allowlist_ignore, DONE+escalations, L1 message rules), views (digest/brief/index/queue/resume), ingest (hash, byte-identical archive, deposit parser, receipts), wip (temp-index snapshots to refs/wip, prune 20).
 - 30 unittest cases pass; real-repo `agent_lint.py` reports GREEN.
+- Phase 2: AUTONOMY.md, context/INGEST.md, context/THINKER-PROTOCOL.md (verbatim boot prompt), context/inbox + insights dirs, 2 ADOPTED insights (allowlist_ignore decision, hook-target finding), generated DIGEST.md (22 lines), THINKER-BRIEF.md (33 lines), context/INDEX.md, missions/INDEX.md.
 
 ## IN_PROGRESS
 
-- Building the design-context ledger, AUTONOMY.md, thinker lane files.
+- Building L1 versioned hooks, L2 context-flush plugin, L3 wiring.
 
 ## NEXT_ACTION
 
-Write docs/agent-system/AUTONOMY.md, context/INGEST.md, context/THINKER-PROTOCOL.md, context/inbox + insights dirs, first insights (allowlist_ignore decision, hook-target conflict), missions/INDEX.md via agent_views.py; run lint; commit with STATE touch.
+Write agent-tools/hooks/pre-commit (chains BCP validate + lint --pre-commit) and commit-msg (L1 message rules), set core.hooksPath, write bcp-speed/bcp/.opencode/plugins/context-flush.js (session.idle, disjoint from bcp-ralph), add commented hourly WIP line to ops-install.ps1; test hooks live; commit with STATE touch.
 
 ## UNCOMMITTED
 
