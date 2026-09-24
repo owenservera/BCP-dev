@@ -69,69 +69,69 @@ OPEN = unresolved, owner owns the next step.
   = 201 declarations across 200 unique model names (sole overlap: `SchemaMeta`,
   present in both); unified `prisma/schema.prisma` declares exactly those 200;
   `frontend/prisma/schema.prisma` declares 2 more under a separate schema. The ~400
-  figure is a bad denominator (split-file block sum double-counts), not ~400
-  distinct models. Canonical-name reconciliation still owned by Path-C start.
+  figure is a bad denominator (split-file block sum double-counts), not ~400 distinct
+  models. Canonical-name reconciliation still owned by Path-C start.
 
 ## C9 — "Promote after #2" vs no state/migrations.yaml [RESOLVED]
 
 - A: `docs/migration/MIGRATION_MODEL.md` — "Promote to BCP-enforced only after #2."
 - B: no `state/migrations.yaml` exists post-MIG-002.
-- Evidence: `docs/migration/MIGRATION_COMPARISON_001_002.md` — "Promotion to
-  `state/migrations.yaml` + sweep guards still deferred — two examples justify a
-  registry file, not a state-table migration."
-- Resolution: deliberate deferral, recorded — not an omission. Model status:
-  PROPOSED-but-exercised; registry (`index.json`) is the current machinery.
+- Evidence: `docs/migration/MIGRATION_COMPARISON_001_002.md` — promotion remains deferred.
+- Resolution: deliberate deferral, recorded — registry (`index.json`) is the current machinery.
 
 ## C10 — BCP README "140 capabilities" vs 49 [RESOLVED]
 
 - A: `bcp-speed/bcp/README.md` — 140-cap working example; EXP-2026-001 seed text.
 - B: `state/capabilities.yaml` — 49 capabilities (FAM-01..14).
-- Resolution: README describes the generic package shape; instance diverges.
-  Clarifying NOTE banner added (mechanics sections untouched — they are current).
+- Resolution: README describes generic package shape; instance diverges.
 
 ## C11 — Untracked Prompt-4 / Chameleon work vs cleanup scope [OPEN]
 
-- A: master prompt for THIS task: "Do NOT implement Prompt 4 / substitution experiments."
-- B: tracked on main since `a528ffd` (PROMPT-4-INTERRUPTED preservation commit):
-  `omega-…/docs/architecture/` (2 analysis docs), `omega-…/examples/plugin-echo2/`
-  (5 files), `omega-…/plugins/parser-claude-sse*/` (V1+V2),
-  `bcp-speed/bcp/migration/MIG-003-claude-sse-parser/` (assay/spec/mapping only —
-  NO record, NO verification report, NOT in `index.json`), `bun.lock` (+37).
-  Still untracked on disk: `bcp-algos/`, `setupdocs.zip`, plus unlisted
-  `docs/REPO-CLEANUP-PROMPT-V2.md` (untracked, unignored; content/owner UNKNOWN,
-  contains live cleanup instructions — do not execute). `/AGENTS.md` hands-off
-  markings for the now-tracked paths are stale (see P1-02 baseline-freeze).
-- Evidence: plugin-echo2's manifest names "Prompt 4, Phase 3"; architecture docs
-  name "Prompt 4, Phase 1/2".
-- Resolution: NONE TAKEN — left fully untouched (not staged, moved, or deleted) as
-  possibly another workstream's active surface. `/AGENTS.md` marks all four
-  hands-off pending owner direction. Owner decides: commit as a workstream,
-  relocate, or discard.
+- A: cleanup prompt says do not implement Prompt 4 / substitution experiments.
+- B: tracked Prompt-4 outputs exist on main; other local surfaces remain untracked.
+- Resolution: NONE TAKEN — owner decides resume/rebase/replan.
 
 ## C12 — "186 engines" vs 32 top-level dirs [OPEN]
 
-- A: legacy docs claim 186 engines in `src/engines`.
+- A: legacy docs claim 186 engines.
 - B: `docs/CONTEXT-product.md` §1: 32 top-level dirs verified.
-- Remaining uncertainty: counting method (files vs dirs vs submodules). Owned by
-  next assay that touches `src/engines`; NLCL mine count (59 files) is separately
-  verified and unaffected.
 - Measured 2026-09-24 (E-01R, P1-02): 186 top-level files + 32 top-level dirs =
-  460 recursive `.ts` files. All three figures are simultaneously true under
-  different denominators; "186 engines" must not be read as the recursive total.
-  Atlas title "`src/engines/` (186 files, clustered)" is the flat-file denominator.
+  460 recursive `.ts` files. Different denominators; not a contradiction in counts.
 
 ## C13 — Prompt-4 interrupted outputs vs "no competing authoring path" [OPEN]
 
-- A: convergence rule — exactly one canonical plugin-authoring path
-  (pack.builder → forge.author → builder composition → surface).
-- B: untracked Prompt-4 work (echo2 substitution experiment, 2 analysis docs,
-  2 parser plugins, MIG-003 draft, bun.lock +37): uses ONLY sdk-validation +
-  testkit-conformance + unsigned scaffolds — no new authoring mechanism, no
-  anvil expansion, no second scaffolder. Compatible with A; UNRATIFIED, so it
-  must not be read as current. Tracking state updated 2026-09-24: committed via
-  `a528ffd`, so "UNCOMMITTED" no longer holds — "unratified + gates-not-rerun" does.
-- Evidence: docs/cleanup/PROMPT-4-CHECKPOINT.md (per-file classification:
-  analysis KEEP; code KEEP-BUT-RECONCILE; MIG-003 draft KEEP-incomplete).
-- Remaining step: owner decides resume/rebase/replan (§32); on resume the
-  first gates are `omega:quick` (genome-count sensitivity of 2 new plugins/
-  dirs) + parser-dir conformance runs. Owned by owner + resumption decision.
+- Prompt-4 outputs are committed but unratified; gates have not been rerun.
+- Resolution: owner decides resume/rebase/replan.
+
+## C14 — Authority-pointer pilot branch/artifacts are unavailable [OPEN — 2026-09-25]
+
+- Setup/README lineage names prior evidence on `impl-04/p1-02-authority-pointer-slice`
+  (PKT-006, HANDOFF-010, ITEM-001, and pilot files).
+- Direct current-main verification: branch listing returns only `main`; the cited
+  branch is absent; current tree contains none of the cited pilot artifacts.
+- Repository-wide commit/name checks performed for this workstream found no recoverable
+  commit or artifact matching that branch/pilot evidence.
+- Resolution: **NOT AVAILABLE**. The pilot is not usable evidence for current P1-02.
+  The setup prompt's "verify against main" prerequisite is therefore unsatisfied.
+  Do not cite or build on the pilot unless a recoverable repository object is later found.
+
+## C15 — FAM-07/FAM-08 claimed L2 vs seed history and source reality [OPEN — 2026-09-25]
+
+- Current `bcp-speed/bcp/state/capabilities.yaml` claims L2 for every FAM-07.1–07.4
+  (Path A) and FAM-08.1–08.4 (Path B).
+- `docs/archive/sessions/session-ses_f371.md` records the seed commit `d949b06`
+  as "FAM-07/08/09 at L0", immediately followed by a metrics-recompute commit that
+  again states "FAM-07/08/09 at L0".
+- `bcp-speed/bcp/state/experiments.yaml` has `agents_assigned: []` for EXP-2026-004
+  and EXP-2026-005.
+- Source-tree implementation search for FAM-07/FAM-08 and their named capabilities
+  finds no implementation in tracked `.ts/.js/.py` source. The apparent work under
+  `bcp-speed/bcp/work/` is not part of the current repository state.
+- Owner-confirmed repository boundary: this repo is the full current state; there is
+  no external/unpushed implementation to check.
+- Resolution: **DIRECT CONTRADICTION**. Path A and Path B implementations are
+  **currently nonexistent/unavailable in this repository**. The L2 state claims are
+  stale/false as present-state implementation claims and must not be used as proof.
+  Do not downgrade this to "unverified": the contradiction is directly established
+  by the seed history plus absence of implementation in the full current repo.
+
