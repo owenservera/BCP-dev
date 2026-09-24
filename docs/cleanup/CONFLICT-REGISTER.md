@@ -103,7 +103,7 @@ OPEN = unresolved, owner owns the next step.
 - Prompt-4 outputs are committed but unratified; gates have not been rerun.
 - Resolution: owner decides resume/rebase/replan.
 
-## C14 — Authority-pointer pilot branch/artifacts are unavailable [OPEN — 2026-09-25]
+## C14 — Authority-pointer pilot branch/artifacts are unavailable [RESOLVED — NOT AVAILABLE — 2026-09-25]
 
 - Setup/README lineage names prior evidence on `impl-04/p1-02-authority-pointer-slice`
   (PKT-006, HANDOFF-010, ITEM-001, and pilot files).
@@ -115,7 +115,7 @@ OPEN = unresolved, owner owns the next step.
   The setup prompt's "verify against main" prerequisite is therefore unsatisfied.
   Do not cite or build on the pilot unless a recoverable repository object is later found.
 
-## C15 — FAM-07/FAM-08 claimed L2 vs seed history and source reality [OPEN — 2026-09-25]
+## C15 — FAM-07/FAM-08 claimed L2 vs seed history and source reality [RESOLVED — DIRECT CONTRADICTION — 2026-09-25]
 
 - Current `bcp-speed/bcp/state/capabilities.yaml` claims L2 for every FAM-07.1–07.4
   (Path A) and FAM-08.1–08.4 (Path B).
