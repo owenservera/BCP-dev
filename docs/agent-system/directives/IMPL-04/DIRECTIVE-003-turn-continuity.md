@@ -6,7 +6,9 @@ to: IMPL-04
 workstream: WS-001
 issued: 2026-09-24
 repository_tip: dad6383
-status: OPEN
+status: SUPERSEDED
+superseded_by: OWNER-DIRECTIVE AMP-1 (mission/amp-1, 2026-09-24)
+supersede_note: Per-turn checkpoint intent is delivered by mission STATE, L1-L3 context updating, and agent_views.py resume. Body below retained unchanged as history.
 ---
 
 # Build P1-01 Turn-Continuity / Conversation-Recovery Hardening

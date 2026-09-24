@@ -10,6 +10,10 @@
 | Where is durable current context? | `docs/agent-system/CURRENT.md` |
 | Where is the large architectural mental model? | `docs/agent-system/CHATGPT-ARCHITECTURAL-CONTEXT.md` → synthesized Ω design, VIVIM→BCP→Ω framing, P1 boundaries, self-knowledge vision, open questions, and future-agent model |
 | Where are fresh-session instructions? | `docs/agent-system/CHATGPT-BOOT.md` |
+| Where are missions and their state? | `docs/agent-system/missions/INDEX.md` → charter (approval) + STATE (handoff) |
+| Where is the design-context ledger? | `docs/agent-system/context/DIGEST.md` → `INDEX.md` → `insights/` (append-only) |
+| What autonomy do missions run under? | `docs/agent-system/AUTONOMY.md` (tiers + escalation) |
+| How does the external thinker plug in? | `docs/agent-system/context/THINKER-PROTOCOL.md` + `THINKER-BRIEF.md` + `INGEST.md` |
 | Where are recent conversations? | `docs/agent-system/transcripts/` — immutable |
 | Where are packets? | `docs/agent-system/packets/` — derived, versioned, lineage-bearing |
 | Where are handoffs? | `docs/agent-system/handoffs/` |

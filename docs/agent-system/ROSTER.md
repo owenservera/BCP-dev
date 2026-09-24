@@ -3,7 +3,7 @@
 > **Classification: DERIVED — CURRENT**
 > **Authority:** coordination mirror only. Confers no Ω permission and overrides
 > no runtime identity (`vivim-agent` plugin + D-452..D-455 govern the runtime).
-> **Maintainer:** COORD-01 · **Updated:** 2026-09-24 · **Tip:** `5d25664`
+> **Maintainer:** COORD-01 · **Updated:** 2026-09-24 · **Tip:** `git rev-parse HEAD`
 
 | agentId | role | status | specialization | current workstream | current task | branch / worktree | last session | handoff |
 |---|---|---|---|---|---|---|---|---|
@@ -11,7 +11,7 @@
 | IMPL-01 | implementation agent (first builder) | RETIRED | cooperative substrate construction (Phase 1) | WS-001 | Phase 1 minimal substrate + ingest + falsifiers | BCP-dev working tree, docs-only, base `becb920` | local session 2026-09-23 | HANDOFF-001 |
 | IMPL-02 | implementation agent (owner-launched continuation) | ACTIVE | cooperative-system dogfood + wall-test evidence | WS-001 | P1-01 final reconciliation, both closers (HANDOFF-008 + ITEM-005) | `impl-02/p1-01-final-integration` | 2026-09-24 · DIR-002 integration | HANDOFF-008 |
 | IMPL-03 | independent closer (HANDOFF-005 sealed run) | STANDBY | sealed independent verification: link audit + cold-start audit | WS-001 (closed closer) | verification delivered (PKT-005 + HANDOFF-009 + ITEM-001; originating content IDs PKT-004/HANDOFF-007 @ `3867963` per CURRENT/WORKSTREAMS mapping); no new task assigned | `impl-03/p1-01-independent-verification` (branch deleted 2026-09-24 topology reset; deposits preserved on main) | 2026-09-24 · closer run (no Ω ledger session — docs-only) | HANDOFF-009 |
-| IMPL-04 | implementation agent (owner-launched continuity hardening) | RESERVED | cooperative-system durability, turn continuity, recovery protocol | WS-001 | P1-01 turn-continuity hardening pilot (DIR-003) | TBD — assigned branch after launch | awaiting DIR-003 launch | — (P1-02 pilot evidence: PR #4, historical; HANDOFF-010 not landed) |
+| IMPL-04 | implementation agent (AMP-1 mission) | ACTIVE | mission protocol: ledger, gates, thinker lane | WS-001 | AMP-1 adoption (CHARTER ACTIVE, owner-approved 2026-09-24) | `mission/amp-1` | 2026-09-24 · AMP-1 | missions/amp-1/STATE.md (STATE is the handoff) |
 | ARCH-01 | architecture and ontology | STANDBY | Ω law, invariants, composition fence | — | unassigned | — | — | — |
 | ARCHAEOLOGY-01 | historical VIVIM/Ω extraction | STANDBY | legacy mine assay, genealogy | — | unassigned | — | — | — |
 | CODE-01 | source semantics / code indexing | STANDBY | contracts, surfaces, import discipline | — | unassigned | — | — | — |

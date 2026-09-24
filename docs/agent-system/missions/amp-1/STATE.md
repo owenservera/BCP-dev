@@ -13,9 +13,10 @@ status: ACTIVE
 
 ## POSITION
 
-L1-L4 are in place: versioned hooks chained with BCP validate, context-flush
-plugin, commented hourly WIP line, AGENTS.md fallback rule. core.hooksPath is
-set. Protocol amendments (SYSTEM, BOOT, INDEX, ROSTER, DIR-003) start next.
+Amendments landed: SYSTEM AMENDMENT block + inline SUPERSEDED marks,
+CHATGPT-BOOT trimmed to ~25 lines, CONTEXT-INDEX extended, IMPL-04 ACTIVE
+in ROSTER (Tip marker abolished), DIR-003 SUPERSEDED, recovery falsifier
+added (NOT proven). Lint GREEN. Deterministic self-test starts next.
 
 ## DONE
 
@@ -27,14 +28,15 @@ set. Protocol amendments (SYSTEM, BOOT, INDEX, ROSTER, DIR-003) start next.
 - Phase 2: AUTONOMY.md, context/INGEST.md, context/THINKER-PROTOCOL.md (verbatim boot prompt), context/inbox + insights dirs, 2 ADOPTED insights (allowlist_ignore decision, hook-target finding), generated DIGEST.md (22 lines), THINKER-BRIEF.md (33 lines), context/INDEX.md, missions/INDEX.md.
 - Phase 3: agent-tools/hooks/pre-commit (chains BCP validate, then lint --pre-commit) + commit-msg (STATE-touch/trailer, Decision-trailer rules); core.hooksPath set; bcp-speed/bcp/.opencode/plugins/context-flush.js (session.idle only, disjoint from bcp-ralph, node --check clean); commented hourly WIP schtasks line in ops-install.ps1 (NOT registered, Tier 2); AGENTS.md L4 fallback rule (6 lines); CHARTER allowlist extended with AGENTS.md (owner-authorized via AMP-1 3.4/3.7).
 - Incident: worktree was moved to coord/p1-10-program-observatory-v0 mid-mission by an outside process; recovered via backup + checkout, verified identical, added "verify branch before every commit" to DO_NOT/RESUME discipline.
+- Phase 4: SYSTEM.md AMENDMENT 2026-09-24 + [SUPERSEDED by AMP-1] marks on 7/11/12/13-integration/13-tip (old text retained); CHATGPT-BOOT.md trimmed to ~25 lines pointing at thinker protocol (also fixed duplicate-read-line defect); CONTEXT-INDEX.md mission/ledger rows; ROSTER IMPL-04 ACTIVE + Tip abolished; DIR-003 status SUPERSEDED with forward pointer; FALSIFIERS.md F-AGENT-MISSION-RECOVERY added, explicitly NOT proven.
 
 ## IN_PROGRESS
 
-- Amending SYSTEM.md, CHATGPT-BOOT.md, CONTEXT-INDEX.md, ROSTER.md; superseding DIR-003.
+- Running the deterministic self-test (section 5), evidence to missions/amp-1/evidence/.
 
 ## NEXT_ACTION
 
-Edit SYSTEM.md (AMENDMENT block + inline SUPERSEDED marks), trim CHATGPT-BOOT.md to ~25 lines, update CONTEXT-INDEX.md, register IMPL-04 ACTIVE in ROSTER.md (drop Tip line), mark DIR-003 SUPERSEDED; run lint; commit with STATE touch.
+Run self-test: (1) gate refusals incl. live hook refusals, (2) MISSION-000-selftest recovery incl. wip + resume + injected mismatch/stale-tip, (3) inbox fixtures (deposit + raw) incl. byte-identical/hash/views budgets, (4) plugin dry-run (flush once / silent / ralph coexistence), (5) BCP validate 0 errors + corrupt-state refusal; write evidence files; regenerate views; final STATE; commit.
 
 ## UNCOMMITTED
 
