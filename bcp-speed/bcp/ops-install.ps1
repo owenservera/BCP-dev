@@ -30,6 +30,11 @@ if (Test-Path -LiteralPath $hookSrc) {
     Write-Host "hook: MISSING source ops-hooks/pre-commit - skipped" -ForegroundColor Yellow
 }
 
+# AMP-1 L3 hourly WIP snapshot - DISABLED by default.
+# Registering OS scheduled tasks is Tier 2 (owner only); this script never
+# registers it. Owner, to enable for mission amp-1, run exactly this line:
+# schtasks /Create /F /TN "BCP-WIP-amp-1" /SC HOURLY /MO 1 /TR "cmd /c cd /d C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev && python agent-tools/agent_wip.py snapshot amp-1"
+
 Write-Host "--- status ---"
 schtasks /Query /TN "BCP-Maintain" 2>$null | Select-Object -Last 1
 schtasks /Query /TN "BCP-Commit" 2>$null | Select-Object -Last 1

@@ -1,0 +1,61 @@
+# Self-test 2 — recovery from repository files alone (2026-09-24)
+
+> **Classification: DERIVED — CURRENT**
+
+Fixture: `docs/agent-system/missions/MISSION-000-selftest/` (CHARTER +
+STATE, status ACTIVE during test, PAUSED at the end). Verdict: PASS.
+
+## R1 — setup
+
+- Wrote fixture CHARTER.md + STATE.md (branch mission/amp-1,
+  last_commit_inspected 6326c60, NEXT_ACTION = run resume).
+- Left `scratch.txt` uncommitted (deliberate interruption-point work).
+- `python agent-tools/agent_wip.py snapshot MISSION-000-selftest` printed:
+  `refs/wip/MISSION-000-selftest/20260924T194148Z` (plus prune line).
+  Branch, index, worktree untouched (verified in unit test
+  `test_snapshot_without_touching_branch`).
+
+## R2 — resume reconstructs everything (repository files alone)
+
+`python agent-tools/agent_views.py resume MISSION-000-selftest` printed:
+
+    mission: MISSION-000-selftest (status ACTIVE)
+    charter branch: mission/amp-1 | actual branch: mission/amp-1
+    last_commit_inspected: 6326c60 | HEAD: 6326c6008f4872a5296832aa1853c644056a8018
+    latest wip ref: refs/wip/MISSION-000-selftest/20260924T194148Z
+    POSITION: Recovery-test fixture at the interruption point: bounded work is done,
+    NEXT_ACTION: Run python agent-tools/agent_views.py resume MISSION-000-selftest and continue from the reported position.
+    DECISIONS_IN_FORCE:
+      None.
+    OPEN_QUESTIONS:
+      None.
+
+Position, branch (match, no flag), tip (exact HEAD match), wip ref,
+NEXT_ACTION, decisions, questions — all from repo files. PASS.
+
+## R3 — injected branch mismatch is flagged, not guessed past
+
+STATE branch transiently set to `mission/wrong`; resume printed:
+
+    charter branch: mission/wrong | actual branch: mission/amp-1
+    FLAG: branch mismatch — STATE claims 'mission/wrong' but git is on 'mission/amp-1'
+
+Restored to mission/amp-1. PASS.
+
+## R4 — injected stale tip is flagged, not guessed past
+
+`last_commit_inspected` transiently set to `deadbee`; resume printed:
+
+    last_commit_inspected: deadbee | HEAD: 6326c6008f4872a5296832aa1853c644056a8018
+    FLAG: stale tip — last_commit_inspected deadbee is not an ancestor of HEAD ()
+
+Restored to 6326c60. PASS.
+
+## R5 — clean-tree claim over a dirty tree (T7)
+
+amp-1 STATE UNCOMMITTED transiently contained `tree clean` while the
+tracked tree was dirty (fixture STATE edits in flight); lint printed:
+
+    REFUSED: missions/amp-1 STATE claims a clean tree but the tracked tree is dirty
+
+Claim removed; lint GREEN again. PASS.

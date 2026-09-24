@@ -84,3 +84,19 @@ sources per SYSTEM.md §6 and names the governing authority when challenged.
 3. Multi-agent: bounded 3-agent task through envelopes only.
 4. Cross-ChatGPT: ingest a real external chat, start the next session from
    packets only, verify architectural state survives.
+
+---
+
+## F-AGENT-MISSION-RECOVERY (AMP-1; NOT PROVEN — do not claim green merely because the mechanism exists)
+
+A mission survives session death with repository files alone. Agent A works
+a bounded mission task, leaves STATE + insights + an L3 wip ref at a
+deliberate interruption point; Agent A's conversation is considered gone.
+Agent B, starting from only `AGENTS.md` → `context/DIGEST.md` → mission
+STATE, must recover position, branch, wip ref, NEXT_ACTION, decisions in
+force, and open questions, then continue — mechanically (via
+`agent_views.py resume`), without the original chat.
+**RED:** B needs the old conversation, repeats settled work, or guesses
+past a branch mismatch / stale tip. **GREEN:** B's first action matches
+STATE's NEXT_ACTION with cited deltas, and injected inconsistencies are
+flagged, not guessed past.

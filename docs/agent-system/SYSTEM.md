@@ -6,6 +6,19 @@
 > If this file ever contradicts Ω law, Ω law wins and this file needs a patch.
 > **Workstream:** WS-001 · **Base tip:** `becb920` · **Created:** 2026-09-23
 
+## AMENDMENT 2026-09-24 (AMP-1)
+
+Mission-mode operation is now the default. Missions
+(`docs/agent-system/missions/`) carry charters (exactly one owner approval)
+and STATE files (the handoff for missions — no separate handoff needed);
+the design-context ledger (`docs/agent-system/context/`) carries insights,
+DIGEST, THINKER-BRIEF, and the thinker lane; L1 commit gates, the L2 flush
+plugin, and L3 WIP snapshots update context mechanically, with prompt rules
+only as fallback. Clauses marked `[SUPERSEDED by AMP-1]` below keep their old
+text for history; the marked reading governs. `directives/` remains an
+optional channel. DIR-003 is SUPERSEDED: its per-turn checkpoint intent is
+delivered by STATE, L1–L3, and `agent_views.py resume`.
+
 ## 1. What this system is
 
 The repository is the durable synchronization substrate for all participants:
@@ -119,6 +132,10 @@ coordinator ruling (see §11).
 
 ## 7. Context loading order (default)
 
+[SUPERSEDED by AMP-1 §3.7 — cold start is now `AGENTS.md`, then
+`context/DIGEST.md`, then your mission STATE.md; everything else on demand.
+Old text retained below for history.]
+
 A fresh participant MUST NOT read everything. Default order:
 
 ```text
@@ -191,6 +208,10 @@ transcript section. Packets are DERIVED and carry FRESHNESS. See
 
 ## 11. Handoff protocol
 
+[SUPERSEDED by AMP-1 §3.2 for missions — the final mission STATE (status
+DONE/BLOCKED/PAUSED) IS the handoff; existing HANDOFF files remain valid
+history. Old text retained below for history.]
+
 Every meaningful agent handoff creates `handoffs/HANDOFF-<id>.md` with the
 full field set (mission, base commit, files inspected, facts established /
 disproved, discoveries, architectural model, contradictions, unresolved,
@@ -203,6 +224,9 @@ reads) without reconstructing the previous agent's reasoning. Handoffs are
 DERIVED, never law.
 
 ## 12. Inbox / outbox protocol
+
+[SUPERSEDED by AMP-1 §3.7 — the per-agent envelope is optional; a PR or a
+mission STATE replaces it. Old text retained below for history.]
 
 Per-agent structured exchange under `inbox/<agent-id>/` and
 `outbox/<agent-id>/`, with a machine-readable envelope (see `ENVELOPE.md`).
@@ -218,7 +242,10 @@ entries stay parked until re-issued.
   integration, canonical CURRENT consolidation, and gate status reporting.
   All coordination state stays repository-visible; the coordinator is not a
   hidden singleton memory.
-- **Integration:** only the coordinator (or owner) advances CURRENT.md and
+- **Integration:** [SUPERSEDED by AMP-1 §3.1/§3.7 — tiered per `AUTONOMY.md`:
+  Tier 0/1 work self-merges on the mission branch when gates are green; the
+  coordinator now owns judgments, verdicts, and rulings only. Old text
+  retained:] only the coordinator (or owner) advances CURRENT.md and
   WORKSTREAMS.md canonical rows. Agents propose via outbox MERGE_REQUEST +
   handoff; they do not edit CURRENT directly in concurrent flight.
 - **Conflict:** represent contradictions, never silently merge them. Format:
@@ -231,7 +258,8 @@ entries stay parked until re-issued.
   preserves or refreshes packet/handoff backward links — canonical files may
   advance, the derived chain must stay reachable by link, not just by
   directory listing. Workstream launch cards keep an evidence-chain section.
-- **Tip markers (churn rule):** `Tip:` headers in DERIVED files are rolled at
+- **Tip markers (churn rule):** [SUPERSEDED by AMP-1 §3.6 — tip markers are
+  abolished; use `git rev-parse HEAD`. Old text retained:] `Tip:` headers in DERIVED files are rolled at
   coordinator integration only. Between integrations, handoffs (branch +
   base commit) are the live tip source — agents cite those, never guess.
   (Accepted by COORD-01 during DIR-001 integration; derived from D-DOG-01 and

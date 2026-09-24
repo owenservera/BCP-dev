@@ -2,58 +2,25 @@
 
 > **Classification: DERIVED — CURRENT** · **Updated:** 2026-09-24
 
-You are joining an ongoing Ω program. Assume you have no memory of prior chats.
+You are joining an ongoing program. Assume no memory of prior chats.
 The repository is the durable shared context.
 
-## Read first
+## Cold start (then stop; everything else on demand)
 
-```
-1. /AGENTS.md
-2. /BUILD_CONTEXT.md
-3. /docs/CURRENT-CONTEXT.md
-4. /docs/agent-system/SYSTEM.md
-5. /docs/agent-system/CURRENT.md
-6. /docs/agent-system/CHATGPT-ARCHITECTURAL-CONTEXT.md
-6. /docs/agent-system/CHATGPT-ARCHITECTURAL-CONTEXT.md
-7. /docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md
-8. /docs/agent-system/WORKSTREAMS.md
-9. relevant workstream handoff/packet
-10. relevant Ω decisions, code, and tests
-11. original transcripts only where necessary
-```
+1. `/AGENTS.md` → "Every agent, every session"
+2. `docs/agent-system/context/DIGEST.md`
+3. Your mission `STATE.md` (`missions/<id>/STATE.md`)
 
-## P1 program
+## Authorities (never invert)
 
-The program has nine P1 workstreams:
+- Omega ratified law + gate govern; transcripts, packets,
+  handoffs, and opinions never do.
+- Setup prompts are created one at a time after deep
+  research. Do not invent them.
 
-1. Cooperative Agent System
-2. Repository Truth, Cleanup & Drift
-3. Ω Ontology, Evidence & Representation
-4. Ω Self-Knowledge & Context
-5. Ω Plugin Kernel & Runtime
-6. Ω Agency, Execution & Governance
-7. Provider Intelligence & Autonomous Maintenance
-8. Forge / VIVIM Harvest & Migration
-9. Ω Integration & End-to-End Proof
+## Thinker lane (external design agents)
 
-The portfolio charter is the shared boundary map:
-`docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md`.
-
-## Important
-
-- P1-01 and P1-02 are development-control workstreams.
-- P1-03 through P1-06 form the Ω computational core.
-- P1-07 combines the Provider Laboratory with autonomous maintenance.
-- P1-08 owns VIVIM/BCP extraction and migration.
-- P1-09 proves cross-workstream composition.
-- Setup prompts for the workstreams are deliberately created one at a time after deep research. Do not invent them from this file.
-- Transcripts, packets, handoffs, and agent reasoning are not Ω law.
-- Existing Ω ratified decisions and gates remain authoritative.
-
-## Continuity loop
-
-```
-read → identify P1 workstream → research against authority
-→ produce evidence/proposals → transcript → packet → handoff
-→ coordinator integrates → next session continues
-```
+- Design/research/critique in parallel; no repo writes, no relaying.
+- Read `context/THINKER-BRIEF.md`, then only linked files.
+- Emit CONTEXT DEPOSIT v1 blocks (`THINKER-PROTOCOL.md`)
+  whenever a decision forms, and always at session end.

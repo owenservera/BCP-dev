@@ -1,0 +1,34 @@
+# Self-test 5 — BCP validate + pre-commit chain (2026-09-24)
+
+> **Classification: DERIVED — CURRENT**
+
+Verdict: PASS. Real BCP state was never touched; corruption was applied
+to temp copies only.
+
+## B1 — live validate is clean
+
+`python bcp-speed/bcp/validate.py`:
+
+    validate: 49 capabilities, 8 lease records, 105 log events — 0 error(s), 0 warning(s)
+
+## B2 — original BCP hook refuses corrupt state, passes clean state
+
+Copied `{validate.py, bcp_lib.py, state/, log/}` to two temp dirs;
+emptied `taxonomy.yaml` with garbage in the broken copy:
+
+- clean copy `validate.py`: 0 errors.
+- broken copy `validate.py`: 2 errors (`parse_error` + `no_taxonomy`).
+- original `bcp-speed/bcp/ops-hooks/pre-commit` via sh in clean copy:
+  exit 0 (silent).
+- same script in broken copy: exit 1 with
+  `pre-commit: REFUSED - validate.py reports errors. Run python
+  validate.py, fix state, retry.`
+
+## B3 — versioned L1 hook chains the same behavior
+
+`agent-tools/hooks/pre-commit` runs `python bcp-speed/bcp/validate.py`
+(first, same refusal semantics) and then
+`agent_lint.py --pre-commit`. Live proof: mission commits 36b6ae9,
+a22e0e1, 6326c60 passed through both hooks (each printed
+`agent_lint: GREEN` twice — pre-commit and commit-msg); the T1 probe
+commit was refused by the commit-msg half with a precise reason.

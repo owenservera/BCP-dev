@@ -66,3 +66,11 @@ Never reverse it into "find a place for the legacy code."
 
 Read `/BUILD_CONTEXT.md`, then `docs/CURRENT-CONTEXT.md`. Then — and only then —
 the area authority named there.
+After cloning or creating a worktree, run `python agent-tools/install.py`.
+
+## Every agent, every session (AMP-1 fallback rule; hooks do this mechanically)
+
+1. Bootstrap: `AGENTS.md`, then `docs/agent-system/context/DIGEST.md`, then your mission `STATE.md`.
+2. Before any non-trivial design choice, write the insight (claim, rejected alternatives, why).
+3. After substantive work, flush before ending the turn: update STATE, record insights, commit.
+4. Missions run on charter approval (AUTONOMY.md tiers); Tier 2 always needs the owner.
