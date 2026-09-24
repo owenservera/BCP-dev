@@ -40,6 +40,7 @@ import { PARSER_VERSION, resolveParser } from "./parsers.ts";
 import {
   asCaptureRecord, asSessionRecord, buildCaptureRecord, buildSessionRecord,
   captureId, PROVIDERS_NS, sessionId,
+  type LiveSessionDescriptor,
 } from "./session.ts";
 
 interface VaultAppendResult { rev: number; cid: string; seq: number }
@@ -144,7 +145,7 @@ export const def = definePlugin({
     "browser.attach@1": async (payload: unknown, ctx: PluginContext) => {
       const op = "browser.attach@1";
       if (payload === null || typeof payload !== "object" || Array.isArray(payload)) {
-        throw new Error(`${op}: payload must be an object {captureText, archetypeSlug?, parserVersion?}`);
+        throw new Error(`${op}: payload must be an object {captureText, archetypeSlug?, parserVersion?, live?: {providerId:chatgpt, debugPort}}`);
       }
       const p = payload as Record<string, unknown>;
       const captureText = reqStr(op, "captureText", p.captureText);
@@ -175,10 +176,29 @@ export const def = definePlugin({
         refs: [],
       });
 
+      let live: LiveSessionDescriptor | undefined;
+      if (p.live !== undefined) {
+        if (p.live === null || typeof p.live !== "object" || Array.isArray(p.live)) {
+          throw new Error(`${op}: live must be {providerId:chatgpt, debugPort:1024..65535}`);
+        }
+        const lv = p.live as Record<string, unknown>;
+        if (
+          lv.providerId !== "chatgpt" ||
+          typeof lv.debugPort !== "number" ||
+          !Number.isInteger(lv.debugPort) ||
+          lv.debugPort < 1024 ||
+          lv.debugPort > 65535
+        ) {
+          throw new Error(`${op}: live must be {providerId:chatgpt, debugPort:1024..65535}`);
+        }
+        live = { providerId: "chatgpt", debugPort: lv.debugPort };
+      }
+
       const session = buildSessionRecord({
         sessionId: sessionId(`sess_${randomBytes(8).toString("hex")}`),
         archetypeSlug, parserVersion,
         captureRef: { ns: PROVIDERS_NS, id: capId, rev: capAppend.rev },
+        ...(live ? { live } : {}),
       });
       const sessAppend = await portCall<VaultAppendResult>(ctx, "vault.append@1", {
         ns: PROVIDERS_NS, id: session.sessionId, data: session,
