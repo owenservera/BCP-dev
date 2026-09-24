@@ -38,6 +38,12 @@ status: DRAFT
 `budget` defaults to 8 wall hours / 60 commits when omitted (AUTONOMY.md D3).
 `tier_ceiling: 1` is the normal maximum; Tier 2 always needs the owner.
 
+Charter guard (enforced by `agent_lint.py`): widening `write_allowlist`
+or adding `allowlist_ignore` entries requires `approved_by: owner` in the
+same charter text; dropping an owner approval while entries exist is
+refused. Draft flow: commit a new charter with an EMPTY allowlist, add
+paths when the owner approves.
+
 ## Goal
 
 Expand the one-line goal: why this mission, what changes in the repo.

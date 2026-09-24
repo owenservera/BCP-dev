@@ -307,6 +307,93 @@ class TestAllowlist(Harness):
                                               "mission/demo"))
 
 
+class TestCharterGuard(Harness):
+    def charter_path(self):
+        return "docs/agent-system/missions/demo/CHARTER.md"
+
+    def widen(self, extra, owner=True):
+        text = self.read(self.charter_path())
+        text = text.replace("- agent-tools/**",
+                            "- agent-tools/**\n  - %s" % extra)
+        if not owner:
+            text = text.replace("approved_by: owner (chat, 2026-09-24)",
+                                "approved_by: pending")
+        self.write(self.charter_path(), text)
+
+    def test_widen_without_owner_refused(self):
+        self.widen("evil/**", owner=False)
+        self.assertFalse(lint.check_charter_guard(True, False))
+
+    def test_widen_with_owner_passes(self):
+        self.widen("more-docs/**", owner=True)
+        self.assertTrue(lint.check_charter_guard(True, False))
+
+    def test_ignore_add_without_owner_refused(self):
+        text = self.read(self.charter_path())
+        text = text.replace("tier_ceiling: 1",
+                            "allowlist_ignore:\n  - hands-off/**\n"
+                            "tier_ceiling: 1")
+        text = text.replace("approved_by: owner (chat, 2026-09-24)",
+                            "approved_by: pending")
+        self.write(self.charter_path(), text)
+        self.assertFalse(lint.check_charter_guard(True, False))
+
+    def test_deapproval_with_entries_refused(self):
+        text = self.read(self.charter_path())
+        text = text.replace("approved_by: owner (chat, 2026-09-24)",
+                            "approved_by: pending")
+        self.write(self.charter_path(), text)
+        self.assertFalse(lint.check_charter_guard(True, False))
+
+    def test_narrowing_with_owner_passes(self):
+        text = self.read(self.charter_path())
+        text = text.replace("  - agent-tools/**\n", "")
+        self.write(self.charter_path(), text)
+        self.assertTrue(lint.check_charter_guard(True, False))
+
+    def test_new_charter_draft_empty_allowlist_passes(self):
+        os.makedirs(os.path.join(self.tmp, "docs", "agent-system",
+                                 "missions", "newm"), exist_ok=True)
+        self.write("docs/agent-system/missions/newm/CHARTER.md",
+                   GOOD_CHARTER.replace(
+                       "mission_id: demo", "mission_id: newm").replace(
+                       "write_allowlist:\n  - docs/agent-system/**\n"
+                       "  - agent-tools/**\n", "write_allowlist:\n").replace(
+                       "approved_by: owner (chat, 2026-09-24)",
+                       "approved_by: pending"))
+        self.assertTrue(lint.check_charter_guard(True, False))
+
+    def test_new_charter_with_entries_needs_owner(self):
+        os.makedirs(os.path.join(self.tmp, "docs", "agent-system",
+                                 "missions", "newm"), exist_ok=True)
+        self.write("docs/agent-system/missions/newm/CHARTER.md",
+                   GOOD_CHARTER.replace(
+                       "mission_id: demo", "mission_id: newm").replace(
+                       "approved_by: owner (chat, 2026-09-24)",
+                       "approved_by: pending"))
+        self.assertFalse(lint.check_charter_guard(True, False))
+
+
+class TestHooksPathWarning(Harness):
+    def test_warns_when_unset_but_still_green(self):
+        import io
+        from contextlib import redirect_stdout
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            self.assertTrue(lint.check_hooks_path(True))
+        self.assertIn("WARNING: core.hooksPath", buf.getvalue())
+
+    def test_absolute_path_accepted_silently(self):
+        import io
+        from contextlib import redirect_stdout
+        self.ggit("config", "core.hooksPath",
+                  os.path.join(self.tmp, "agent-tools", "hooks"))
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            self.assertTrue(lint.check_hooks_path(True))
+        self.assertNotIn("WARNING", buf.getvalue())
+
+
 class TestL1Message(Harness):
     def test_no_state_no_trailer_refused(self):
         self.ggit("checkout", "-b", "mission/demo")
@@ -329,6 +416,33 @@ class TestL1Message(Harness):
         staged = [("M", "docs/agent-system/missions/demo/STATE.md")]
         self.assertFalse(lint.check_l1_message(
             "progress\n\nDecision: my-slug", staged, True))
+
+    def test_bypass_skips_message_rules_and_logs(self):
+        self.ggit("checkout", "-b", "mission/demo")
+        staged = [("M", "agent-tools/agent_lint.py")]
+        import io
+        from contextlib import redirect_stdout
+        os.environ["AMP_HOOK_BYPASS"] = "closeout-probe"
+        try:
+            buf = io.StringIO()
+            with redirect_stdout(buf):
+                self.assertTrue(lint.check_l1_message("no trailer", staged,
+                                                      True))
+            self.assertIn("NOTICE: AMP_HOOK_BYPASS=closeout-probe",
+                          buf.getvalue())
+        finally:
+            del os.environ["AMP_HOOK_BYPASS"]
+
+    def test_bypass_does_not_skip_immutability(self):
+        rel = "docs/agent-system/packets/PKT-1.md"
+        self.write(rel, "packet\n")
+        self.commit_all("seed packet\n\nState-Unchanged: seed")
+        os.environ["AMP_HOOK_BYPASS"] = "closeout-probe"
+        try:
+            entries = [("M", rel.replace(os.sep, "/"))]
+            self.assertFalse(lint.check_immutability(entries, True))
+        finally:
+            del os.environ["AMP_HOOK_BYPASS"]
 
     def test_decision_with_insight_passes(self):
         self.ggit("checkout", "-b", "mission/demo")

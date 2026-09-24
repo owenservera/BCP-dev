@@ -66,6 +66,7 @@ Never reverse it into "find a place for the legacy code."
 
 Read `/BUILD_CONTEXT.md`, then `docs/CURRENT-CONTEXT.md`. Then — and only then —
 the area authority named there.
+After cloning or creating a worktree, run `python agent-tools/install.py`.
 
 ## Every agent, every session (AMP-1 fallback rule; hooks do this mechanically)
 

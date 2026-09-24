@@ -2,7 +2,10 @@
 # AMP-1 L1 message gate: on mission/* branches every commit must touch that
 # mission's STATE.md or carry a 'State-Unchanged: <reason>' trailer; a commit
 # carrying 'Decision: <slug>' must add a matching file under context/insights/.
-# Bypass only with AMP_HOOK_BYPASS=1 (agent_lint.py logs the bypass).
+# Bypass: AMP_HOOK_BYPASS=1 skips these message rules and is logged with
+# NOTICE; every other gate (BCP validate, immutability, allowlist,
+# charter-guard, banners, links, CURRENT, STATE fields, clean-claims) still
+# runs. Bypass is set per-command, never stored.
 REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
 [ -z "$REPO_ROOT" ] && exit 0
 MSG_FILE="$1"

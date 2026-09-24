@@ -22,6 +22,12 @@ Modes:
                    also takes --staged-list via git directly
   --mission ID   : restrict mission checks to one mission (default: infer from
                    branch mission/<id>, else check all missions)
+
+Bypass: AMP_HOOK_BYPASS=1 skips ONLY the L1 commit-message rules
+(STATE-touch/trailer, Decision-trailer) and is logged with NOTICE.
+Immutability, banners, links, allowlist, charter-guard, CURRENT budget,
+STATE fields, and clean-claim checks are never bypassed. BCP validate.py
+in the hook script is unaffected by the bypass.
 """
 
 import fnmatch
@@ -120,6 +126,7 @@ def parse_front_matter(text):
         fm = re.match(r"^([A-Za-z_][A-Za-z0-9_]*):\s*(.*)$", line)
         if fm:
             current_key = fm.group(1)
+            items = []
             out[current_key] = fm.group(2).strip()
     return out
 
@@ -420,6 +427,11 @@ def check_l1_message(msg, staged, ok=True):
     branch = current_branch()
     if not branch.startswith("mission/"):
         return ok
+    bypass = os.environ.get("AMP_HOOK_BYPASS", "")
+    if bypass:
+        print("NOTICE: AMP_HOOK_BYPASS=%s; L1 message rules skipped "
+              "(all other gates still ran)" % bypass)
+        return ok
     mission = branch.split("/", 1)[1]
     state_rel = "docs/agent-system/missions/%s/STATE.md" % mission
     touches_state = any(rel == state_rel for _, rel in staged)
@@ -442,9 +454,67 @@ def check_l1_message(msg, staged, ok=True):
         if not found:
             ok = fail("commit carries 'Decision: %s' but adds no matching"
                       " file under context/insights/" % slug) and ok
-    bypass = os.environ.get("AMP_HOOK_BYPASS", "")
-    if bypass:
-        print("NOTICE: AMP_HOOK_BYPASS=%s; hook checks still ran" % bypass)
+    return ok
+
+
+def charter_text(rel_posix, staged):
+    """Current charter text: staged blob in hook modes, else worktree."""
+    if staged:
+        code, out, _ = git("show", ":" + rel_posix)
+        if code == 0:
+            return out
+    p = os.path.join(REPO, rel_posix.replace("/", os.sep))
+    try:
+        return read_text(p)
+    except OSError:
+        return ""
+
+
+def check_charter_guard(ok=True, staged=False):
+    """Refuse charter allowlist widening without owner approval.
+
+    If the current charter adds write_allowlist/allowlist_ignore entries
+    over HEAD (or is a new file with entries), the current text must carry
+    'approved_by: owner'. Dropping an owner approval while entries exist
+    is refused too. Narrowing is always allowed. Draft flow: commit a new
+    charter with an empty allowlist, add paths when the owner approves.
+    """
+    for name, mdir in mission_dirs():
+        rel = "docs/agent-system/missions/%s/CHARTER.md" % name
+        code, base, _ = git("show", "HEAD:" + rel)
+        base = base if code == 0 else ""
+        cur = charter_text(rel, staged)
+        if not cur:
+            continue
+        base_fm = parse_front_matter(base) if base else {}
+        cur_fm = parse_front_matter(cur)
+        base_sets = (set(as_str_list(base_fm.get("write_allowlist", ""))),
+                     set(as_str_list(base_fm.get("allowlist_ignore", ""))))
+        cur_sets = (set(as_str_list(cur_fm.get("write_allowlist", ""))),
+                    set(as_str_list(cur_fm.get("allowlist_ignore", ""))))
+        added = (cur_sets[0] - base_sets[0]) | (cur_sets[1] - base_sets[1])
+        if added and "approved_by: owner" not in cur:
+            ok = fail("mission %s charter widens allowlist without owner "
+                      "approval (adds: %s)"
+                      % (name, sorted(added))) and ok
+        if ("approved_by: owner" in base
+                and "approved_by: owner" not in cur
+                and (cur_sets[0] or cur_sets[1])):
+            ok = fail("mission %s charter drops owner approval while "
+                      "allowlist entries exist" % name) and ok
+    return ok
+
+
+def check_hooks_path(ok=True):
+    code, out, _ = git("config", "--get", "core.hooksPath")
+    v = out.strip()
+    expected_abs = os.path.normcase(os.path.join(REPO, "agent-tools",
+                                                 "hooks"))
+    got_abs = os.path.normcase(v) if os.path.isabs(v) else os.path.normcase(
+        os.path.join(REPO, v)) if v else ""
+    if v != "agent-tools/hooks" and got_abs != expected_abs:
+        print("WARNING: core.hooksPath is not the agent hooks dir "
+              "(hooks inactive); run python agent-tools/install.py")
     return ok
 
 
@@ -469,6 +539,7 @@ def main(argv):
     # Allowlist enforced on mission branches (or when --mission given).
     if branch.startswith("mission/") or only:
         ok = check_allowlist(entries, ok, only, branch)
+    ok = check_charter_guard(ok, staged_only or msg_file is not None)
     if msg_file is not None:
         try:
             with open(msg_file, "r", encoding="utf-8",
@@ -478,6 +549,7 @@ def main(argv):
             print("REFUSED: cannot read commit message file (%s)" % e)
             return 1
         ok = check_l1_message(msg, entries, ok)
+    ok = check_hooks_path(ok)
     if ok:
         print("agent_lint: GREEN")
         return 0
