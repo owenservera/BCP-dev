@@ -22,10 +22,12 @@ ChatGPT conversation.
 ## P1-02 / WS-002 — Repository Truth, Cleanup & Drift
 
 - **Mission:** determine what actually exists, what is authoritative, what is obsolete, and where program/architecture drift exists.
-- **Status:** P1 REGISTERED — setup prompt not yet created.
-- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Status:** P1 REGISTERED — researched charter and dedicated ChatGPT setup prompt prepared; not proven and not promoted to ACTIVE implementation.
+- **Owner:** TBD; owner/coordinator launch decision pending.
 - **Boundary:** cleanup, disambiguation, source-of-truth mapping, stale/superseded classification, orphan/duplicate detection, program drift.
 - **Dependencies:** all workstreams as evidence sources; cooperative system; Ω/BCP authority.
+- **Research artifacts:** `workstreams/WS-002/P1-02-RESEARCH-CHARTER.md` (PROPOSED), `workstreams/WS-002/SETUP-PROMPT-CHATGPT.md`, `workstreams/WS-002/README.md`.
+- **Pilot evidence:** `impl-04/p1-02-authority-pointer-slice` (`PKT-006`, `HANDOFF-010`, `ITEM-001`) — evidence toward P1-02, not workstream proof.
 
 ## P1-03 / WS-003 — Ω Ontology, Evidence & Representation
 
