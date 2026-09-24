@@ -7,7 +7,7 @@
 
 ## Active missions
 
-- **amp-1** [ACTIVE] branch `mission/amp-1` — NEXT: Gates 3.1–3.5 GREEN (evidence/closeout.md). Merge mission/amp-1 --no-ff
+- None. (no ACTIVE or BLOCKED missions)
 
 ## Latest ADOPTED decisions
 
@@ -15,6 +15,7 @@
 - 20260924-193100-hook-target.md: id: INS-20260924-193100
 - 20260924-194500-shared-worktree.md: id: INS-20260924-194500
 - 20260924-220000-status-conflict.md: id: INS-20260924-220000
+- 20260924-224500-closure.md: id: INS-20260924-224500
 
 ## Open questions by recipient
 
@@ -30,6 +31,7 @@
 - [20260924-214855-selftest-deposit-question.md](insights/20260924-214855-selftest-deposit-question.md) QUESTION/PROPOSED — id: INS-20260924214855
 - [20260924-214900-selftest-raw-judgment.md](insights/20260924-214900-selftest-raw-judgment.md) FINDING/PROPOSED — id: INS-20260924-214900
 - [20260924-220000-status-conflict.md](insights/20260924-220000-status-conflict.md) FINDING/ADOPTED — id: INS-20260924-220000
+- [20260924-224500-closure.md](insights/20260924-224500-closure.md) FINDING/ADOPTED — id: INS-20260924-224500
 
 ## What the agent needs from you
 

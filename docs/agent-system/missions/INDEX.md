@@ -5,4 +5,4 @@
 | mission | status | branch | updated | next action |
 |---|---|---|---|---|
 | MISSION-000-selftest | PAUSED | mission/amp-1 | 2026-09-24 | Run python agent-tools/agent_views.py resume MISSION-000-selftest and continue f |
-| amp-1 | ACTIVE | mission/amp-1 | 2026-09-24 | Gates 3.1–3.5 GREEN (evidence/closeout.md). Merge mission/amp-1 --no-ff |
+| amp-1 | DONE | main | 2026-09-24 | Owner opens the first real mission via charter approval. Suggested: |
