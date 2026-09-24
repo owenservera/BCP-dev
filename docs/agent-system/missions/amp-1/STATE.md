@@ -5,25 +5,19 @@
 ```yaml
 mission_id: AMP-1
 agent_id: IMPL-04
-branch: mission/amp-1
-last_commit_inspected: 6326c60
+branch: main
+last_commit_inspected: 4a27657
 updated: 2026-09-24
-status: ACTIVE
+status: DONE
 ```
 
 ## POSITION
 
-AMP-1 adoption complete: section 5 self-test passes with evidence in
-missions/amp-1/evidence/ (5/5 parts), `agent_lint.py` GREEN, 30/30 unit
-tests green, and repository-only recovery proven via resume
-(MISSION-000-selftest retired PAUSED). This final STATE is the handoff.
-Merge to main is owner-only (not done in this bootstrap run).
-
-Close-out run (owner-authorized Tier 2: merge to main --no-ff, push
-mission/amp-1 + main ff-only, create/push context-sync, register hourly
-WIP task, AGENTS.md + agent-tools docs for install step). Preconditions
-verified: single worktree (mine alone), origin/main == fbef973 (no drift,
-no pre-merge needed).
+AMP-1 adoption complete and MERGED to main (4a27657, --no-ff, 50 files):
+section 5 + close-out gates green with evidence in
+missions/amp-1/evidence/, `agent_lint.py` GREEN, 41/41 unit tests green,
+BCP validate 0 errors, fresh-session recovery proven (single same-model
+run), closure insight recorded. This final STATE is the handoff.
 
 ## DONE
 
@@ -49,16 +43,17 @@ no pre-merge needed).
 
 ## IN_PROGRESS
 
-- Close-out verification gates (§3.1–§3.5), evidence to missions/amp-1/evidence/closeout.md.
+- None (DONE, merged).
 
 ## NEXT_ACTION
 
-Gates 3.1–3.5 GREEN (evidence/closeout.md). Merge mission/amp-1 --no-ff
-into main now, then §4 sequence (views, pushes, context-sync, WIP task).
+Owner opens the first real mission via charter approval. Suggested:
+AMP-1.1 diet mission (STATE-gate relaxation, check_all.py, drop
+narrative-evidence requirement) with owner-touches measured.
 
 ## UNCOMMITTED
 
-- evidence/closeout.md (to be written during gates)
+- None after this commit (scratch worktrees/clones live in /tmp only).
 - Hands-off untracked (never touched): bcp-algos/, setupdocs.zip, docs/REPO-CLEANUP-PROMPT-V2.md.
 
 ## DECISIONS_IN_FORCE
