@@ -102,7 +102,7 @@ export const LAW_POLICY_V1: PolicyDoc = {
     { op: "intent.resolution@1", risk: "MUTATION" },         // D-411 (S1): the four-state resolution rows (ns intent)
     { op: "law.principal.register@1", risk: "MUTATION" },    // D-412 (S2): principal identity rows (ns principal) — exact rows, never default-riding
     { op: "law.principal.retire@1", risk: "MUTATION" },      // D-412 (S2): retirement appends the identity row's terminal state
-    { op: "law.audit.drain@1", risk: "MUTATION" },           // D-416 (S3): the audit-chain persistence point (ns audit) — vault-internal class family, exact row, never default-riding
+    { op: "law.audit.drain@1", risk: "MUTATION" },\n    { op: "agency.execute@1", risk: "MUTATION" }, // P1-06: governed single-action orchestration, journaled evidence           // D-416 (S3): the audit-chain persistence point (ns audit) — vault-internal class family, exact row, never default-riding
   ],
   defaultRisk: "EXTERNAL_MUTATION", // unknown ops are treated as the strictest class (fail-closed)
   riskDefaults: {
