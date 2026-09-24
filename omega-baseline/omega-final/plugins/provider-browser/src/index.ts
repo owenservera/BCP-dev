@@ -34,6 +34,7 @@ import { definePlugin, startPlugin } from "@vivim/omega-shim";
 import type { PluginContext, CallMeta } from "@vivim/omega-shim";
 import type { PortResult, ProviderRealization, StreamChunk } from "@vivim/omega-contracts";
 import { buildChunkEnvelope, pinMatches } from "@vivim/omega-contracts";
+import { executeChatGptSend } from "./live.ts";
 import { createHash, randomBytes } from "node:crypto";
 import { PARSER_VERSION, resolveParser } from "./parsers.ts";
 import {
@@ -262,7 +263,49 @@ export const def = definePlugin({
         throw new Error(`${op}: no verified pin covers browser/message.send v${session.parserVersion} (pins: ${pins.length}) — refusing (bar 4)`);
       }
 
-      // ── The gated replay ───────────────────────────────────────────────
+      // ── Live realization ─────────────────────────────────────────────
+      // The four bars above are unchanged. A live session substitutes the
+      // fixture replay only after those bars pass. The live CDP leg is the
+      // provider-browser plugin's localhost-only adapter; once its click occurs
+      // it never retries the send intent.
+      if (session.live) {
+        const live = await executeChatGptSend(session.live, input.body);
+        const chunks: StreamChunk[] = buildChunkEnvelope(meta.causationId, live.chunks);
+        for (const c of chunks) meta.emit(c.data, c.final);
+
+        const id = `msg_${randomBytes(8).toString("hex")}`;
+        const sentAt = Date.now();
+        const message = {
+          id,
+          threadId: input.threadId ?? threadIdFor(input.subject, input.to),
+          folder: "sent",
+          from: cfg.from,
+          to: input.to,
+          subject: input.subject,
+          body: input.body,
+          sentAt,
+          flags: { seen: true, flagged: false, draft: false },
+        };
+        const append = await portCall<VaultAppendResult>(ctx, "vault.append@1", {
+          ns: "email", id, data: message,
+          meta: {
+            type: "message", provider: "browser", providerId: "chatgpt",
+            sessionId: session.sessionId, captureRef: session.captureRef,
+            responseUrl: live.responseUrl, responseStatus: live.responseStatus,
+            ...(live.providerMessageId ? { providerMessageId: live.providerMessageId } : {}),
+          },
+          refs: [{ ns: PROVIDERS_NS, id: session.sessionId, rev: sessGot.rev }, session.captureRef],
+        });
+        return {
+          messageId: id,
+          rev: append.rev,
+          sentAt,
+          chunks: chunks.length,
+          ...(live.providerMessageId ? { providerMessageId: live.providerMessageId } : {}),
+        };
+      }
+
+      // ── The gated fixture replay ───────────────────────────────────────
       const capGot = await portCall<VaultGetResult>(ctx, "vault.get@1", {
         ns: session.captureRef.ns, id: session.captureRef.id, rev: session.captureRef.rev,
       });
