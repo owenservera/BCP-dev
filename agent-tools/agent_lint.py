@@ -507,11 +507,13 @@ def check_charter_guard(ok=True, staged=False):
 
 def check_hooks_path(ok=True):
     code, out, _ = git("config", "--get", "core.hooksPath")
+
+    def canon(p):
+        return os.path.normcase(p.replace("/", os.sep))
     v = out.strip()
-    expected_abs = os.path.normcase(os.path.join(REPO, "agent-tools",
-                                                 "hooks"))
-    got_abs = os.path.normcase(v) if os.path.isabs(v) else os.path.normcase(
-        os.path.join(REPO, v)) if v else ""
+    expected_abs = canon(os.path.join(REPO, "agent-tools", "hooks"))
+    got_abs = canon(v) if os.path.isabs(v.replace("/", os.sep)) \
+        else canon(os.path.join(REPO, v)) if v else ""
     if v != "agent-tools/hooks" and got_abs != expected_abs:
         print("WARNING: core.hooksPath is not the agent hooks dir "
               "(hooks inactive); run python agent-tools/install.py")

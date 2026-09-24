@@ -14,7 +14,10 @@ import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HOOKS = os.path.join(ROOT, "agent-tools", "hooks")
+# Forward slashes: backslashes in git-config values risk escape mangling,
+# and a hooksPath pointing at a missing dir makes git skip hooks SILENTLY
+# (proven in close-out). Absolute so any cwd works; re-run after moving.
+HOOKS = os.path.join(ROOT, "agent-tools", "hooks").replace(os.sep, "/")
 
 
 def run(*args):

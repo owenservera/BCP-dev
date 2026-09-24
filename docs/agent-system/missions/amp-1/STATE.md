@@ -45,6 +45,7 @@ no pre-merge needed).
 - Final: 30/30 unittests green; lint GREEN; views regenerated.
 - Close-out: scratch.txt removed (content in local wip ref); duplicate DECISIONS_IN_FORCE section merged.
 - Trim (owner-approved): install.py (absolute hooksPath) + AGENTS.md one-liner; charter-guard + true bypass semantics + hooksPath warning ride along (tested); session-ses_f2b2.md (harness tool-log, 3912 lines) moved to temp (untracked, blocked lint); diet deferred to its own mission after merge.
+- Close-out live-fire: clone proved git SILENTLY skips hooks when hooksPath dir is missing (main pre-merge) — install.py stores forward-slash absolute path + verifies; charter-guard refused the preview merge until the retired fixture's allowlist was honestly emptied (no gate weakened).
 
 ## IN_PROGRESS
 

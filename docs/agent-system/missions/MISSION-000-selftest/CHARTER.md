@@ -9,11 +9,7 @@ done_criteria:
   - resume reconstructs position, branch, wip ref, NEXT_ACTION from repo files alone
   - injected branch mismatch and stale tip are flagged, not guessed past
 write_allowlist:
-  - docs/agent-system/missions/MISSION-000-selftest/**
 allowlist_ignore:
-  - bcp-algos/**
-  - setupdocs.zip
-  - docs/REPO-CLEANUP-PROMPT-V2.md
 budget:
   wall_hours: 1
   commits: 5
@@ -31,4 +27,6 @@ Self-test fixture for AMP-1 §5.2. No real work happens here.
 
 ## Non-goals
 
-Everything. Do not act on this fixture.
+Everything. Do not act on this fixture. (Allowlist emptied at close-out:
+retired fixtures hold no write permission; test-time charter with entries
+is preserved in git history + evidence/recovery.log.)
