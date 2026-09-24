@@ -32,7 +32,7 @@ ChatGPT conversation.
 ## P1-03 / WS-003 — Ω Ontology, Evidence & Representation
 
 - **Mission:** establish canonical identity, entity, evidence, provenance, lineage, epistemic status, revision, conflict, staleness, and representation semantics.
-- **Status:** IMPLEMENTED/COMMITTED — governance chain coded; M4/M5 awaiting real run proof.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
 - **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
 - **Boundary:** what things/claims/evidence/representations are and how their relationships are represented.
 - **Dependencies:** Repository Truth; Ω decisions/genome; vault/event/provenance mechanisms.
@@ -40,7 +40,7 @@ ChatGPT conversation.
 ## P1-04 / WS-004 — Ω Self-Knowledge & Context
 
 - **Mission:** enable Ω to understand itself, its environment and current situation, and assemble the right context deterministically.
-- **Status:** IMPLEMENTED/COMMITTED — `message.send@1` real provider-browser execution implemented; M4 (Bun tests + `omega:gate`) awaiting owner run result.
+- **Status:** P1 REGISTERED — setup prompt not yet created.
 - **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
 - **Boundary:** self/world/intent models, semantic source knowledge, reflection, knowledge projection, context compilation.
 - **Known lineage:** the earlier proposed WS-002 `vivim.self` work is folded into this P1 workstream; its prior proposal remains historical context, not a separate active workstream.
@@ -58,7 +58,7 @@ ChatGPT conversation.
 ## P1-06 / WS-006 — Ω Agency, Execution & Governance
 
 - **Mission:** integrate principal, authority, consent, standing, delegation, invocation, capability authorization, budgets, execution, refusal, and governed events.
-- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Status:** IMPLEMENTED/COMMITTED — governance chain coded; M4/M5 awaiting real run proof.
 - **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
 - **Boundary:** whether an intended computation/effect is permitted and how that permission is proven/recorded.
 - **Hard separation:** governance does not own plugin loading/composition mechanics.
@@ -78,7 +78,7 @@ ChatGPT conversation.
 ## P1-08 / WS-008 — Forge / VIVIM Harvest & Migration
 
 - **Mission:** systematically extract proven value from VIVIM and convert it into generalized Ω knowledge/mechanisms.
-- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Status:** IMPLEMENTED/COMMITTED — `message.send@1` real provider-browser execution implemented; M4 (Bun tests + `omega:gate`) awaiting owner run result.
 - **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
 - **Boundary:** assay, characterize, generalize, verify, migrate, and harvest reusable mechanisms.
 - **Hard separation:** Forge extracts proven value; Provider Intelligence determines external reality.
