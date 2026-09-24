@@ -11,7 +11,7 @@
 > or read from here directly. It is the full current state; there is no
 > more-complete snapshot elsewhere (owner-confirmed).
 >
-> **Last synced against `main`:** commit `c6d2634` (2026-09-25). If your
+> **Last synced against `main`:** commit `be4f424` (2026-09-25). If your
 > clone shows a different HEAD, pull first — this file describes that
 > commit's state, not necessarily right now's.
 
@@ -198,7 +198,7 @@ what happens when you skip straight to declaring something proven.
 | P1-02 | Repository Truth, Cleanup & Drift | **IMPLEMENTED/COMMITTED** — Phase-1 Truth Baseline published; status-sync fix applied | `docs/agent-system/workstreams/WS-002/PHASE-1-TRUTH-BASELINE.md`; C15 in `docs/cleanup/CONFLICT-REGISTER.md`; sync commit `6c1c392` | Dormant unless a new cross-workstream contradiction surfaces (see §4 for the trigger rule). |
 | P1-03 | Ω Ontology, Evidence & Representation | **IMPLEMENTED/COMMITTED** — M1–M4 baseline published, M4 verdict PASS, no critical ontology contradiction vs P1-06/P1-08 | `docs/agent-system/workstreams/WS-003/PHASE-1-ONTOLOGY-BASELINE.md`, commit `188cbcf` | Dormant; watch two ratified-law triggers relevant to P1-09 — reopening D-324 for a CONTRADICTED state, and a new decision needed to generalize D-424's staleness rule — don't act on either preemptively. |
 | P1-04 | Ω Self-Knowledge & Context | **NOT STARTED** | none | Deferred — not part of Phase-1's five-workstream convergence target. |
-| P1-05 | Ω Plugin Kernel & Runtime | **IMPLEMENTED/COMMITTED** — baseline published; µhost confirmed exactly 1,500/1,500 lines; no plugin-boundary violation in P1-06 or P1-08 | `docs/agent-system/workstreams/WS-005/PHASE-1-KERNEL-BASELINE.md`, commits `ac3a0d3`, `4316c27` | Treat H-01 (proving the executable manifest entry is contained inside the content-hashed plugin tree) as the next kernel slice, under the existing B5 1,500-line constraint; don't touch P1-06/P1-08 for this. |
+| P1-05 | Ω Plugin Kernel & Runtime | **DONE (verified)** — current ratified milestone WS-005-M1 is complete; future H-01 milestone is proposed, not yet ratified | `docs/agent-system/workstreams/WS-005/PHASE-1-KERNEL-BASELINE.md` @ `4316c27bbda01dfd91bdfdd81362ce6a2b1b8606` | Ratify WS-005-M2 (H-01) in a separate coordinator turn before implementation; do not touch `tooling/gates/`. |
 | P1-06 | Ω Agency, Execution & Governance | **IMPLEMENTED/COMMITTED, BLOCKED ON M4/M5** — chain coded (principal → consent → D-452 → `message.send@1` → governed event); real event log NOT yet produced | `docs/agent-system/workstreams/WS-006/PHASE-1-GOVERNANCE-CHAIN.md`; `omega-baseline/omega-final/plugins/vivim-agent/src/governance.ts`, `.../index.ts`; `omega-baseline/omega-final/plugins/vivim-law/src/policy.ts` | Blocked on P1-08's M4 real test result (see below), then on the owner running the two real chain executions (success + refusal) per the runbook already written in its own doc. |
 | P1-07 | Provider Intelligence & Autonomous Maintenance | **NOT STARTED** — blocked on P1-08's handoff | none yet | Send once P1-08's `PHASE-1-HANDOFF-PACKAGE.md` has a real M4 result attached. Use `P1-08-PROMPT-NEXT.md`-style framing: read the handoff, prepare the live-Chrome runbook, wait for real captured output. |
 | P1-08 | Forge / VIVIM Harvest & Migration | **IMPLEMENTED/COMMITTED, BLOCKED ON M4** — real `message.send@1` execution logic committed inside `provider-browser`; `bun test` / `omega:gate` NOT yet run by the owner | `docs/agent-system/workstreams/WS-008/PHASE-1-HANDOFF-PACKAGE.md`; `omega-baseline/omega-final/plugins/provider-browser/src/live.ts`, `.../index.ts`, `.../parsers.ts`, `.../session.ts`; test file `omega-baseline/omega-final/plugins/provider-browser/test/live-send.test.ts` | **Owner must run**, from `omega-baseline/omega-final`: `bun test plugins/provider-browser/test/live-send.test.ts` and `bun run omega:gate`. Paste real output back into the P1-08 conversation. This is the single most load-bearing blocked step in the whole chain right now — P1-06 and P1-07 both wait on it. |
@@ -219,7 +219,7 @@ DONE requires verified evidence, not an agent's declaration.
 |---|---|---|---|---|
 | **BLOCKED** | Run the real P1-08 message.send@1 test and Ω gate from omega-baseline/omega-final | P1-08 | Owner machine; real output must be returned to P1-08 | Owner runs both commands and relays unedited output |
 | **BLOCKED** | Complete the two real governed chain executions: success + refusal | P1-06 | Waits on P1-08 real M4 result | Execute using the existing P1-06 runbook after P1-08 clears |
-| **READY** | Prove the executable P1-05 manifest entry is contained inside the content-hashed plugin tree | P1-05 | H-01; existing B5 1,500-line constraint | Take as the next kernel slice when the Phase-1 critical path permits |
+| **BLOCKED** | Prove the executable P1-05 manifest entry is contained inside the content-hashed plugin tree | P1-05 / WS-005-M2 | WS-005-M2 is PROPOSED, UNRATIFIED; existing B5 1,500-line constraint | Ratify WS-005-M2 in a separate coordinator turn before implementation |
 | **BLOCKED** | Launch P1-07 Provider Intelligence workstream | P1-07 | P1-08 real M4 result | Send queued launch prompt when dependency clears |
 | **BLOCKED** | Launch P1-09 Integration & End-to-End Proof | P1-09 | P1-06 + P1-07 + P1-08 real output | Send only after all three dependencies clear |
 
@@ -229,6 +229,55 @@ meaning. When a task is replaced, split, or made obsolete, record the change
 in the relevant workstream row/log rather than leaving two live instructions
 that disagree.
 
+### 3.2. Milestone roadmap
+
+This section is the pre-declared milestone path. The Goal + Non-goals fields
+are each milestone's scope contract. IDs are stable references and are never
+renumbered; a cut milestone is marked SUPERSEDED rather than deleted.
+
+### P1-01 / WS-001 — Cooperative Agent System
+
+milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+
+### P1-02 / WS-002 — Repository Truth, Cleanup & Drift
+
+milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+
+### P1-03 / WS-003 — Ω Ontology, Evidence & Representation
+
+milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+
+### P1-04 / WS-004 — Ω Self-Knowledge & Context
+
+milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+
+### P1-05 / WS-005 — Ω Plugin Kernel & Runtime
+
+| ID | Goal | Deliverable | Success criteria | Depends on | Non-goals | Status | Evidence |
+|---|---|---|---|---|---|---|---|
+| WS-005-M1 | The current Ω plugin kernel/runtime and Phase-1 plugin boundary are characterized from committed repository evidence. | `docs/agent-system/workstreams/WS-005/PHASE-1-KERNEL-BASELINE.md` | `host/src` totals 1,500 lines by the repository gate method; B1–B5 each have an evidence-backed implementation characterization in the baseline; `provider-browser`, `vivim-agent`, and `vivim-law` have no direct host-runtime bypass in their audited source sets. | NONE | No host/plugin/tooling implementation changes; no live execution proof; no ratification of H-01 or H-02. | DONE (verified) | `docs/agent-system/workstreams/WS-005/PHASE-1-KERNEL-BASELINE.md` @ `4316c27bbda01dfd91bdfdd81362ce6a2b1b8606` |
+| WS-005-M2 | Signed plugin execution is constrained to an entry path contained by the content-hashed plugin tree. | `bun run omega:gate` result plus a B1 entry-confinement test covering the four named cases in H-01. | Normal `src/index.ts` entry passes; `../outside.ts` refuses before execution; a symlink entry refuses consistently with the existing symlink-hash rule; a signed manifest cannot execute outside the content-hashed tree; `host/src` remains at or below 1,500 lines by the gate method, with any offset coming only from cosmetic blank/comment-line trims outside `recipe.ts` and `boot.ts`. | WS-005-M1 | No changes to `tooling/gates/`; no provider-specific behavior; no dynamic load/unload work; no logic changes made solely to hit the B5 budget. | PROPOSED, UNRATIFIED | — |
+| WS-005-M3 | Dynamic plugin composition remains outside the Phase-1 host until an explicit trigger and decision exist. | Future design decision record naming the accepted dynamic-composition trigger and signed-Recipe contract, only after a trigger is accepted. | No Phase-1 host change adds hot-load or hot-unload behavior; no M3 implementation begins before an explicit trigger is recorded; the existing composition-time verified model remains unchanged in Phase-1. | NONE | No Phase-1 hot-load/hot-unload implementation; no µhost expansion for a future-only capability; no B5 budget redefinition. | PROPOSED, UNRATIFIED — NOT PLANNED — forward-looking, no current trigger | — |
+
+### P1-06 / WS-006 — Ω Agency, Execution & Governance
+
+milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+
+### P1-07 / WS-007 — Provider Intelligence & Autonomous Maintenance
+
+milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+
+### P1-08 / WS-008 — Forge / VIVIM Harvest & Migration
+
+milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+
+### P1-09 / WS-009 — Ω Integration & End-to-End Proof
+
+milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+
+### P1-10 / WS-010 — Program Observatory / Visual State
+
+milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
 ---
 
 **Known open decision:** the capability target for Phase-1 was resolved by
@@ -384,6 +433,13 @@ Status-label glossary, used consistently: **NOT STARTED / LAUNCHED / AWAITING RE
 
 A workstream may only write inside its own `WS-0##/` folder and the source paths named in its own §3 row. Touching another workstream's committed file requires proposing it as a §4 finding first, then the owning workstream makes the change itself.
 
+### Milestone governance
+
+- A milestone's **Goal + Non-goals** is its scope contract. A task that does not serve the Goal, or that falls inside a named Non-goal, must become its own milestone; it may not be quietly absorbed.
+- Milestones are proposed and sequenced by the coordinator. An execution agent that believes a milestone is wrong files a §4 finding; it does not unilaterally change scope mid-task.
+- A milestone cannot be marked DONE if doing so would make an existing §4 finding stale unless that finding is marked in place as **RESOLVED BY <milestone ID>**.
+- A workstream's §3 Status is a roll-up of its §3.2 milestones, not an independent claim. The latest **ratified** milestone is the current milestone for roll-up purposes; proposed/unratified future milestones do not silently advance the workstream status. If all milestones through the current ratified milestone are DONE (verified), the workstream is DONE (verified).
+
 ### Enforcement
 
 On every returned commit, check whether the §0 update-instruction was actually followed via the real diff, not the agent's claim; a miss gets fixed, logged as a **"Process:"** note in §4 naming the workstream and commit, and the next prompt to that workstream opens with an explicit reminder. Two consecutive misses escalate directly to the owner instead of being silently patched a third time.
@@ -394,7 +450,9 @@ The §6 session-start pull-and-HEAD-check must actually be performed and its res
 
 **Every-turn closeout is enforced:** if a substantive turn changes project
 state but CLAUDE.md does not record that change, the turn is management-
-incomplete. Do not mark the task DONE, the workstream complete, or the
+incomplete. A milestone proposal, ratification, completion, supersession,
+blocker, or scope change is project state and must be recorded in §3.2 in the
+same turn. Do not mark the task DONE, the workstream complete, or the
 prompt cycle closed until the ledger update is committed and verified. If
 the turn genuinely changes nothing, record/return **NO-STATE-CHANGE**. This
 prevents chat memory from becoming a shadow project-management system.
