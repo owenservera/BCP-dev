@@ -1,7 +1,7 @@
 # WORKSTREAMS.md — Active Workstream Registry
 
 > **Classification: DERIVED — CURRENT**
-> **Maintainer:** COORD-01 · **Updated:** 2026-09-24
+> **Maintainer:** COORD-01 · **Updated:** 2026-09-25
 > **Portfolio:** `docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md`
 
 The P1 portfolio is nine durable workstreams. Setup prompts are intentionally not
@@ -22,17 +22,17 @@ ChatGPT conversation.
 ## P1-02 / WS-002 — Repository Truth, Cleanup & Drift
 
 - **Mission:** determine what actually exists, what is authoritative, what is obsolete, and where program/architecture drift exists.
-- **Status:** P1 REGISTERED — researched charter and dedicated ChatGPT setup prompt prepared; not proven and not promoted to ACTIVE implementation.
+- **Status:** IMPLEMENTED/COMMITTED — repository-truth baseline published; Phase-1 truth work is complete for the current baseline, with no live proof claim.
 - **Owner:** TBD; owner/coordinator launch decision pending.
 - **Boundary:** cleanup, disambiguation, source-of-truth mapping, stale/superseded classification, orphan/duplicate detection, program drift.
 - **Dependencies:** all workstreams as evidence sources; cooperative system; Ω/BCP authority.
-- **Research artifacts:** `workstreams/WS-002/P1-02-RESEARCH-CHARTER.md` (PROPOSED), `workstreams/WS-002/SETUP-PROMPT-CHATGPT.md`, `workstreams/WS-002/README.md`.
-- **Pilot evidence:** `impl-04/p1-02-authority-pointer-slice` (`PKT-006`, `HANDOFF-010`, `ITEM-001`) — evidence toward P1-02, not workstream proof.
+- **Evidence:** [PHASE-1-TRUTH-BASELINE](workstreams/WS-002/PHASE-1-TRUTH-BASELINE.md); [P1-02 research charter](workstreams/WS-002/P1-02-RESEARCH-CHARTER.md); [P1-02 README](workstreams/WS-002/README.md). Resolved drift is recorded in `docs/cleanup/CONFLICT-REGISTER.md` (C15).
+- **Proof state:** baseline/cleanup work committed; no claim of live/proven status.
 
 ## P1-03 / WS-003 — Ω Ontology, Evidence & Representation
 
 - **Mission:** establish canonical identity, entity, evidence, provenance, lineage, epistemic status, revision, conflict, staleness, and representation semantics.
-- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Status:** IMPLEMENTED/COMMITTED — governance chain coded; M4/M5 awaiting real run proof.
 - **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
 - **Boundary:** what things/claims/evidence/representations are and how their relationships are represented.
 - **Dependencies:** Repository Truth; Ω decisions/genome; vault/event/provenance mechanisms.
@@ -40,7 +40,7 @@ ChatGPT conversation.
 ## P1-04 / WS-004 — Ω Self-Knowledge & Context
 
 - **Mission:** enable Ω to understand itself, its environment and current situation, and assemble the right context deterministically.
-- **Status:** P1 REGISTERED — setup prompt not yet created.
+- **Status:** IMPLEMENTED/COMMITTED — `message.send@1` real provider-browser execution implemented; M4 (Bun tests + `omega:gate`) awaiting owner run result.
 - **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
 - **Boundary:** self/world/intent models, semantic source knowledge, reflection, knowledge projection, context compilation.
 - **Known lineage:** the earlier proposed WS-002 `vivim.self` work is folded into this P1 workstream; its prior proposal remains historical context, not a separate active workstream.
@@ -63,6 +63,8 @@ ChatGPT conversation.
 - **Boundary:** whether an intended computation/effect is permitted and how that permission is proven/recorded.
 - **Hard separation:** governance does not own plugin loading/composition mechanics.
 - **Dependencies:** P1-03; P1-05; D-452..D-455; aperture/privacy; budgets.
+- **Evidence:** [PHASE-1-GOVERNANCE-CHAIN](workstreams/WS-006/PHASE-1-GOVERNANCE-CHAIN.md); `omega-baseline/omega-final/plugins/vivim-agent/src/governance.ts` and related committed governance files.
+- **Proof state:** coded/committed; M4/M5 NEEDS RUN.
 
 ## P1-07 / WS-007 — Provider Intelligence & Autonomous Maintenance
 
@@ -81,6 +83,8 @@ ChatGPT conversation.
 - **Boundary:** assay, characterize, generalize, verify, migrate, and harvest reusable mechanisms.
 - **Hard separation:** Forge extracts proven value; Provider Intelligence determines external reality.
 - **Dependencies:** P1-02, P1-07, Ω workstreams, BCP migration machinery.
+- **Evidence:** [PHASE-1-HANDOFF-PACKAGE](workstreams/WS-008/PHASE-1-HANDOFF-PACKAGE.md).
+- **Proof state:** implementation committed; M4 NEEDS RUN; live proof not established.
 
 ## P1-09 / WS-009 — Ω Integration & End-to-End Proof
 
