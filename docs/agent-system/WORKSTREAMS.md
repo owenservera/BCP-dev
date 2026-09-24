@@ -91,6 +91,21 @@ ChatGPT conversation.
 - **Important:** integration proof begins early with thin falsifiers; it does not wait for subsystem completion.
 - **Dependencies:** all other P1 workstreams.
 
+## P1-10 / WS-010 — Program Observatory / Visual State
+
+- **Mission:** design and eventually prove a read-only visual observatory of the program as living architecture + mission control.
+- **Status:** REGISTERED — V0 blueprint established; dedicated research/build pair not yet launched.
+- **Owner:** owner / governor.
+- **Boundary:** visual reflection of repository/program state, contextual human-readable representation, entity/relationship projections, semantic zoom, state visualization, attention projection, evidence/provenance presentation.
+- **Hard boundary:** no task mutation, feedback workflow, authority, decision system, or replacement for Git/GitHub, BCP, Ω, or the cooperative system.
+- **Design invariant:** identifiers are references; language carries meaning.
+- **Spatial model:** infinite canvas; VIVIM MINE / BCP-FORGE / Ω DESTINATION; P1 workstreams float across territories.
+- **Agent pair:** external ChatGPT research lead + local OpenCode research/builder.
+- **Blueprint:** `workstreams/WS-010/V0-BLUEPRINT.md`.
+- **Setup:** `SETUP-PROMPT-CHATGPT.md` + `SETUP-PROMPT-LOCAL.md`.
+- **Proof:** `PROOF-PLAN.md`.
+- **Research agenda:** `RESEARCH-AGENDA.md`.
+
 ## Portfolio relationship
 
 ```

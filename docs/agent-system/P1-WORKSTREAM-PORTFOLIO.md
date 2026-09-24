@@ -121,7 +121,36 @@ ChatGPT conversations, transcripts, packets, and agent opinions are evidence/wor
 
 **Proof:** Early thin integration proofs establish that critical contracts compose before subsystems are complete; end-state proof demonstrates an integrated Ω lifecycle across boot, composition, governed context, authorization, execution, evidence/events, self-knowledge, external reality, and relevant drift/recovery.
 
-## 12. Hard separations
+## 12. P1-10 — Program Observatory / Visual State
+
+**Mission:** Design and eventually prove a read-only visual observatory of the
+program: living architecture plus mission-control visibility.
+
+**Boundary:** visual projection of existing program/repository state; human-readable
+context; entity/relationship visualization; semantic zoom; state/attention
+projection; evidence/provenance presentation. It does not own task mutation,
+decision-making, source authority, ontology law, BCP state, Ω law, or any existing
+workstream's source of truth.
+
+**Hard invariant:** identifiers are references; language carries meaning.
+
+**Experience:** infinite canvas with VIVIM MINE, BCP / FORGE and Ω DESTINATION
+territories; P1 workstreams float across/within them; multiple views project one
+derived model.
+
+**Agent model:** dedicated external ChatGPT research agent paired with a local
+OpenCode research/builder agent.
+
+**Proof:** contextual human comprehension, source traceability, authority
+preservation, unknown preservation, relationship/state correctness, semantic zoom,
+read-only integrity, multi-view consistency, rebuildability, attention discipline,
+and boundary discipline.
+
+**Status:** REGISTERED — V0 blueprint established; not proven and not implementation-active.
+
+**Blueprint:** `docs/agent-system/workstreams/WS-010/V0-BLUEPRINT.md`.
+
+## 13. Hard separations
 
 | Boundary | Owner A | Owner B |
 |---|---|---|

@@ -14,7 +14,7 @@
 
 ## CURRENT PROGRAM / P1 PORTFOLIO
 
-The program now has nine P1 workstreams registered in
+The program now has ten P1 workstreams registered in
 `docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md` and `WORKSTREAMS.md`:
 
 1. Cooperative Agent System
@@ -26,6 +26,7 @@ The program now has nine P1 workstreams registered in
 7. Provider Intelligence & Autonomous Maintenance
 8. Forge / VIVIM Harvest & Migration
 9. Ω Integration & End-to-End Proof
+10. Program Observatory / Visual State
 
 Only P1-01 / WS-001 currently has an implementation substrate. The other eight
 are registered boundaries, not active implementation programs, and intentionally
@@ -63,11 +64,13 @@ have no setup prompts yet.
 - WS-001 / P1-01: Phase 2 dogfood completed; verdict PROVEN (7 GREEN / 1 PARTIAL / 2 PROVEN; residual: COMPACTION formal re-rule owed).
 - Closed proofs: MULTI-AGENT independence — IMPL-03 continued from HANDOFF-004 alone (PKT-005 + HANDOFF-009 + `outbox/IMPL-03/ITEM-001-evidence-independent-verification.md`); CROSS-CHATGPT continuity — genuinely fresh session run (transcript + `packets/PKT-004-cross-chatgpt-closer-findings.md` + `handoffs/HANDOFF-007.md`, §3 rubric 6/6).
 - P1-02 / WS-002 is REGISTERED with researched charter + ChatGPT setup prompt prepared (`workstreams/WS-002/`); NOT PROVEN; ACTIVE launch pending owner decision. P1-03 through P1-09 remain research-first and unopened (no setup prompts).
+- P1-10 / WS-010 is now a separately designed V0 workstream: registered, not proven, not implementation-active. Full blueprint and paired-agent setup live under docs/agent-system/workstreams/WS-010/.
 - Next portfolio action after the WS-001 closers: deep-research and bootstrap P1 workstreams one at a time.
 
 ## OPEN QUESTIONS
 
-- Exact researched charter/proof boundary for each of P1-02 through P1-09.
+- Exact researched charter/proof boundary for each remaining workstream.
+- WS-010 V0 research: source feasibility, contextual-language model, relationship derivation, visual state grammar, semantic zoom, and read-only proof.
 - Which existing Ω mechanisms should be treated as canonical inputs by each new workstream.
 
 ## WS-001 EVIDENCE CHAIN
