@@ -232,7 +232,7 @@ intentionally not live. **Affects: anyone reading either file** — treat
 P1-05 claimed exactly 1,500/1,500 lines citing `CURRENT-INVARIANTS.md`;
 raw `wc -l` on `host/src/*.ts` gave 1,487, a uniform 13-line gap
 (+1 per file, 13 files); the root cause is the repo's gate script using
-`content.split("\\n").length` vs `wc -l`'s newline-count, which differ by one
+`content.split("\n").length` vs `wc -l`'s newline-count, which differ by one
 whenever a file ends in a trailing newline. Running the gate's actual method
 returns 1,500/1,500, matching P1-05. **Resolution: NOT a contradiction.**
 **Affects:** anyone manually spot-checking line counts — use the gate's
@@ -265,6 +265,31 @@ Wave 4 — P1-09, once P1-06 + P1-07 + P1-08 all have      [NOT SENT — blocked
 commit, and paste the real output into the P1-08 conversation. Everything
 in Wave 2 (P1-06's remaining milestones) and Wave 3 (P1-07 starting at
 all) is downstream of this single action.
+
+
+---
+
+## 6. How to use this file as a fresh session
+
+If you are picking this up with no memory of prior turns:
+
+1. Read this file in full (you just did).
+2. `git pull origin main`, check the HEAD commit against §"Last synced"
+   above. If different, treat §3/§4 as possibly stale — spot-check the
+   two or three most-recently-touched workstreams against real commits
+   before trusting the table blindly.
+3. Check §3 for anything marked "AWAITING RETURN" or "BLOCKED" — that's
+   your queue.
+4. If you're about to generate a new prompt for any workstream, append
+   the §0 update-instruction block to it, unmodified, and remember you have
+   no write access yourself (§0.1): the prompt, not a raw file, is the
+   deliverable. Log it in §8 before handing it to the owner.
+5. If you learn something that contradicts an existing row or log entry,
+   update it in place — don't leave two conflicting claims standing. That's
+   the exact failure mode this file exists to prevent elsewhere in the repo.
+6. Before generating a prompt for any workstream that touches ratified law or
+   another workstream's already-committed files, check §7's file-ownership
+   map and decision-authority rule first.
 
 
 ---
@@ -308,82 +333,98 @@ The §6 session-start pull-and-HEAD-check must actually be performed and its res
 > Open CLAUDE.md at the repo root. First run `git log -1` and confirm HEAD
 > is `c44fe5f` — if it isn't, stop and report the actual HEAD before
 > touching anything.
-
 >
-
 > Make these edits, then commit:
-
-> A. Header: update "Last synced against main" to commit `c44fe5f`.
-
 >
-
+> A. Header: update "Last synced against main" to commit `c44fe5f`.
+>
 > B. §3 table:
-
 > - Delete the stale "HEAD sync note (2026-09-25)" line above the table.
 > - P1-03 row → Status: IMPLEMENTED/COMMITTED (M1–M4 baseline published,
 >   M4 verdict PASS, no critical ontology contradiction vs P1-06/P1-08).
+>   Evidence: docs/agent-system/workstreams/WS-003/PHASE-1-ONTOLOGY-BASELINE.md,
+>   commit 188cbcf. Next action: dormant; watch two ratified-law triggers
+>   relevant to P1-09 — reopening D-324 for a CONTRADICTED state, and a
+>   new decision needed to generalize D-424's staleness rule — don't act
+>   on either preemptively.
 > - P1-05 row → Status: IMPLEMENTED/COMMITTED (baseline published; µhost
 >   confirmed exactly 1,500/1,500 lines; no plugin-boundary violation in
->   P1-06 or P1-08).
-
+>   P1-06 or P1-08). Evidence: docs/agent-system/workstreams/WS-005/PHASE-1-KERNEL-BASELINE.md,
+>   commits ac3a0d3, 4316c27. Next action: treat H-01 (proving the
+>   executable manifest entry is contained inside the content-hashed
+>   plugin tree) as the next kernel slice, under the existing B5 1,500-line
+>   constraint; don't touch P1-06/P1-08 for this.
+>
 > C. §4 findings log: append one new dated entry (2026-09-25) — the host
-> line-count "contradiction" was a counting-method difference, not real drift.
-
+>   line-count "contradiction" was a counting-method difference, not real
+>   drift. Must cover: P1-05 claimed exactly 1,500/1,500 lines citing
+>   CURRENT-INVARIANTS.md; raw `wc -l` on host/src/*.ts gave 1,487, a
+>   uniform 13-line gap (+1 per file, 13 files); root cause is the repo's
+>   gate script using content.split("\n").length vs wc -l's newline-count,
+>   which differ by one whenever a file ends in a trailing newline;
+>   running the gate's actual method returns 1,500/1,500, matching P1-05.
+>   Resolution: NOT a contradiction. Affects: anyone manually
+>   spot-checking line counts — use the gate's method, not raw wc -l.
 >
-
-> D. §5 wave tracker: change Wave 2b to
-> "[DONE — 188cbcf (P1-03), ac3a0d3 + 4316c27 (P1-05)]".
-
+> D. §5 wave tracker: change Wave 2b from "[SENT, awaiting return]" to
+>   "[DONE — 188cbcf (P1-03), ac3a0d3 + 4316c27 (P1-05)]".
 >
-
 > E. New §0.1, right after §0's instruction block, titled "The coordinator
->   has no write access — deliverables are prompts, not files."
-
+>   has no write access — deliverables are prompts, not files." State: the
+>   Claude coordination session is read-only (clone/pull/verify only, no
+>   push/commit/PR); every deliverable to the owner must therefore be a
+>   self-contained execution prompt for the write-access agent to apply,
+>   never a raw file for manual pasting — a raw file is a process violation,
+>   since it reintroduces the owner as a manual copy step. Every such prompt
+>   gets logged in the new §8.
 >
-
 > F. New §7 "Program governance — roles, decision authority, enforcement",
->   after current §6.
-
+>   after current §6. Include:
+>   - Roles table: Owner (final authority, approves ratified-law changes,
+>     runs NEEDS RUN steps) / Coordinator (Claude, read-only, drafts+logs
+>     prompts, maintains §3–§5, flags drift; cannot push or reinterpret
+>     ratified law) / Execution agent (read-write; implements+commits;
+>     cannot fabricate NEEDS RUN results, touch another workstream's
+>     committed files without a logged reason, or alter ratified law
+>     without an owner-approved D-### record).
+>   - Decision authority: D-### changes need an explicit new/amended
+>     record AND owner sign-off, never as a side effect of a baseline doc.
+>     Status-label glossary, used consistently: NOT STARTED / LAUNCHED,
+>     AWAITING RETURN / IMPLEMENTED-COMMITTED / ...BLOCKED ON <X> / PROVEN.
+>   - File ownership: a workstream may only write inside its own WS-0##/
+>     folder and the source paths named in its own §3 row; touching
+>     another workstream's committed file requires proposing it as a §4
+>     finding first, then the owning workstream makes the change itself.
+>   - Enforcement: on every returned commit, check whether the §0
+>     update-instruction was actually followed via the real diff, not the
+>     agent's claim; a miss gets fixed, logged as a "Process:" note in §4
+>     naming the workstream and commit, and the next prompt to that
+>     workstream opens with an explicit reminder; two consecutive misses
+>     escalate directly to the owner instead of being silently patched a
+>     third time; a NEEDS RUN result that looks fabricated (round numbers,
+>     no raw tool noise, timing that doesn't match a real run) gets that
+>     workstream quarantined — marked UNVERIFIED, SUSPECTED FABRICATION in
+>     §3, every downstream dependency blocked, owner flagged immediately;
+>     the §6 session-start pull-and-HEAD-check must actually be performed
+>     and its result stated, not assumed.
 >
-
 > G. New §8 "Prompt log (rolling — most recent 20)", after the new §7.
-
+>   Header note: every prompt the coordinator hands the owner per §0.1 is
+>   logged here, newest first, capped at 20 (drop oldest past that) — logs
+>   the deliverable itself, not just its outcome. Seed it with one
+>   retroactive entry dated 2026-09-25 whose intent is "land §0.1/§3/§4/
+>   §5/§7/§8 in one pass," quoting this prompt's own text as the entry.
 >
-
-> H. §6 step 4 — append the no-write-access/prompt-deliverable instruction
->   and add a new step 6 covering §7's ownership/decision-authority check.
-
+> H. §6 step 4 — append: "and remember you have no write access yourself
+>   (§0.1): the prompt, not a raw file, is the deliverable. Log it in §8
+>   before handing it to the owner." Add a new step 6: "Before generating
+>   a prompt for any workstream that touches ratified law or another
+>   workstream's already-committed files, check §7's file-ownership map
+>   and decision-authority rule first."
 >
-
 > Commit as: "docs: add governance/enforcement (§7), prompt log (§8),
-> no-write-access rule (§0.1); sync P1-03/P1-05 returns (§3/§4/§5)".
-
+>   no-write-access rule (§0.1); sync P1-03/P1-05 returns (§3/§4/§5)".
 >
-
 > BEFORE YOU FINISH: re-read the committed CLAUDE.md back and confirm every
 > section above (A–H) is actually present in the diff, not just intended —
 > paste the real commit hash back into this conversation.
-
----
-
-## 6. How to use this file as a fresh session
-
-If you are picking this up with no memory of prior turns:
-
-1. Read this file in full (you just did).
-2. `git pull origin main`, check the HEAD commit against §"Last synced"
-   above. If different, treat §3/§4 as possibly stale — spot-check the
-   two or three most-recently-touched workstreams against real commits
-   before trusting the table blindly.
-3. Check §3 for anything marked "AWAITING RETURN" or "BLOCKED" — that's
-   your queue.
-4. If you're about to generate a new prompt for any workstream, append
-   the §0 update-instruction block to it, unmodified, and remember you have
-   no write access yourself (§0.1): the prompt, not a raw file, is the
-   deliverable. Log it in §8 before handing it to the owner.
-5. If you learn something that contradicts an existing row or log entry,
-   update it in place — don't leave two conflicting claims standing. That's
-   the exact failure mode this file exists to prevent elsewhere in the repo.
-6. Before generating a prompt for any workstream that touches ratified law or
-   another workstream's already-committed files, check §7's file-ownership
-   map and decision-authority rule first.
