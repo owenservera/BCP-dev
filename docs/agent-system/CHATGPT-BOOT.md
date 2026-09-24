@@ -14,10 +14,11 @@ The repository is the durable shared context.
 4. /docs/agent-system/SYSTEM.md
 5. /docs/agent-system/CURRENT.md
 6. /docs/agent-system/CHATGPT-ARCHITECTURAL-CONTEXT.md
+6. /docs/agent-system/CHATGPT-ARCHITECTURAL-CONTEXT.md
 7. /docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md
 8. /docs/agent-system/WORKSTREAMS.md
 9. relevant workstream handoff/packet
-9. relevant Ω decisions, code, and tests
+10. relevant Ω decisions, code, and tests
 11. original transcripts only where necessary
 ```
 
