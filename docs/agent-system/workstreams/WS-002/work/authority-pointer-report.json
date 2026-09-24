@@ -1,0 +1,137 @@
+{
+  "corpus": [
+    "AGENTS.md",
+    "BUILD_CONTEXT.md",
+    "README.md",
+    "docs/CURRENT-CONTEXT.md",
+    "docs/agent-system/CURRENT.md",
+    "docs/cleanup/AUTHORITY-MAP.md",
+    "docs/cleanup/CONFLICT-REGISTER.md"
+  ],
+  "corpus_plus_targets": [
+    "AGENTS.md",
+    "BUILD_CONTEXT.md",
+    "ORCHESTRATION-REDESIGN.md",
+    "README.md",
+    "docs/CURRENT-CONTEXT.md",
+    "docs/agent-system/CURRENT.md",
+    "docs/cleanup/AUTHORITY-MAP.md",
+    "docs/cleanup/CONFLICT-REGISTER.md"
+  ],
+  "corpus_sha256": {
+    "AGENTS.md": "841fde75e4717d7ebb082356e6e05b67ac1ad1f2b35e0549528717a236eeeb3f",
+    "BUILD_CONTEXT.md": "6d55e2fd09c2cf4812e23c38852e5dea1dc1bd565252a803d5888e6567e5a54f",
+    "ORCHESTRATION-REDESIGN.md": "6146d07fce7e86d9a16475e643f2105887ba3a6340d5d5afad0802af7c3a3cb4",
+    "README.md": "8c39332c23c87aa74a7a4db3c30ae44e7a8956755c4f2b9febe93a750b227f09",
+    "docs/CURRENT-CONTEXT.md": "d6debd11125f5ea7767ec586d43df56388472eaa24647e9e6e534327c649f74c",
+    "docs/agent-system/CURRENT.md": "342c7859556c28fe2ee838ee44ea6dbad3ed16faa2c6bceb6f194da35f935bf8",
+    "docs/cleanup/AUTHORITY-MAP.md": "a5a313d2a0547c01fc33ddd6c0c256adacf8499786a72894635c4f5c5a5d6460",
+    "docs/cleanup/CONFLICT-REGISTER.md": "cbb9b2f9fd1e00825588a2b4148f74ca2fe67366469024bc65b569896ff8c108"
+  },
+  "findings": [
+    {
+      "action": "report-only",
+      "claim": "canonical automation design",
+      "claim_scope": "snapshot-table-row",
+      "confidence": "deterministic",
+      "evidence": {
+        "agents_excerpt": "· `ORCHESTRATION-REDESIGN.md` (plan since executed) · `docs/migration/00-ASSESSMENT/`",
+        "agents_line": "44",
+        "authmap_excerpt": "(Tasks 1–6 PASS; plan ORCHESTRATION-REDESIGN.md:",
+        "authmap_line": "22",
+        "context_excerpt": "- `ORCHESTRATION-REDESIGN.md` (plan; Tasks 1–6 executed) · `setupdocs/01–03`",
+        "context_line": "37",
+        "source": "README.md",
+        "source_excerpt": "| `ORCHESTRATION-REDESIGN.md` | Canonical automation design (wins over the brief on conflict) |",
+        "source_line": "17",
+        "target": "ORCHESTRATION-REDESIGN.md",
+        "target_excerpt": "> STATUS: HISTORICAL CONSTRUCTION PLAN (cleanup 2026-09-23).",
+        "target_line": "2"
+      },
+      "finding_id": "FINDING-001",
+      "governing_authority": [
+        "AGENTS.md",
+        "docs/CURRENT-CONTEXT.md",
+        "docs/cleanup/AUTHORITY-MAP.md"
+      ],
+      "source": "README.md",
+      "source_line": 17,
+      "target": "ORCHESTRATION-REDESIGN.md",
+      "target_classification": "historical",
+      "target_lifecycle": "historical",
+      "verdict": "contradiction"
+    },
+    {
+      "action": "report-only",
+      "claim": "substantive tip reference",
+      "claim_scope": "coordination-marker",
+      "confidence": "deterministic",
+      "detail": "CURRENT.md declares a substantive-tip convention; literal HEAD difference is expected and is NOT staleness.",
+      "evidence": {
+        "convention_excerpt": "subsequent coordinator consolidation commits roll this marker",
+        "tip_section": "CURRENT REPOSITORY TIP"
+      },
+      "finding_id": "FINDING-002",
+      "head_observed": "ef26df862aed16475d901840fce734f22a5e530a",
+      "literal_differs": true,
+      "semantic_convention_present": true,
+      "source": "docs/agent-system/CURRENT.md",
+      "stored_substantive_tip": "de147d6",
+      "verdict": "consistent-semantic-tip"
+    },
+    {
+      "action": "report-only",
+      "confidence": "deterministic",
+      "conflict": "C8",
+      "detail": "C8 remains explicitly unresolved; no winner chosen.",
+      "finding_id": "FINDING-003",
+      "header_excerpt": "## C8 — Prisma model counts 201 vs ~400 [OPEN]",
+      "header_line": 61,
+      "source": "docs/cleanup/CONFLICT-REGISTER.md",
+      "status": "OPEN",
+      "verdict": "unresolved-preserved"
+    },
+    {
+      "action": "report-only",
+      "confidence": "deterministic",
+      "conflict": "C11",
+      "detail": "C11 remains explicitly unresolved; no winner chosen.",
+      "finding_id": "FINDING-004",
+      "header_excerpt": "## C11 — Untracked Prompt-4 / Chameleon work vs cleanup scope [OPEN]",
+      "header_line": 86,
+      "source": "docs/cleanup/CONFLICT-REGISTER.md",
+      "status": "OPEN",
+      "verdict": "unresolved-preserved"
+    },
+    {
+      "action": "report-only",
+      "confidence": "deterministic",
+      "conflict": "C12",
+      "detail": "C12 remains explicitly unresolved; no winner chosen.",
+      "finding_id": "FINDING-005",
+      "header_excerpt": "## C12 — \"186 engines\" vs 32 top-level dirs [OPEN]",
+      "header_line": 99,
+      "source": "docs/cleanup/CONFLICT-REGISTER.md",
+      "status": "OPEN",
+      "verdict": "unresolved-preserved"
+    }
+  ],
+  "gates": {
+    "all_required_hold": true,
+    "negative_freshness_ignored": true,
+    "positive_contradiction_detected": true,
+    "unresolved_preserved": true
+  },
+  "head_observed": "ef26df862aed16475d901840fce734f22a5e530a",
+  "scope_note": "Bounded pilot only. Untracked/local surfaces (bcp-algos/, omega-baseline/omega-final/docs/architecture/, omega-baseline/omega-final/examples/plugin-echo2/, setupdocs.zip) are NOT observable from committed state and are explicitly UNKNOWN per AGENTS.md hands-off rule. No repository-wide claim is made.",
+  "status": "OK",
+  "summary": {
+    "consistent_semantic_tip": 1,
+    "contradictions": 1,
+    "inconclusive_or_unexpected": 0,
+    "unresolved_preserved": 3
+  },
+  "tool": "p1-02-authority-pointer",
+  "version": "0.1.0",
+  "working_vocabulary_note": "Lifecycle/authority labels are pilot working vocabulary only; not Omega law, not BCP state, not ontology."
+}
