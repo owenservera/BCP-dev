@@ -11,7 +11,7 @@
 > or read from here directly. It is the full current state; there is no
 > more-complete snapshot elsewhere (owner-confirmed).
 >
-> **Last synced against `main`:** commit `65bf801` (2026-09-25). If your
+> **Last synced against `main`:** commit `c6d2634` (2026-09-25). If your
 > clone shows a different HEAD, pull first — this file describes that
 > commit's state, not necessarily right now's.
 
