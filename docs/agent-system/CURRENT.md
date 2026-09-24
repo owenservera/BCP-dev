@@ -7,8 +7,8 @@
 
 ## CURRENT REPOSITORY TIP
 
-- Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, merged WS-001 DIR-001 dogfood evidence, and the merged P1-02 baseline-freeze (PR #6: REGISTERED charter + setup prompt durable; workstream NOT PROVEN).
-- Current substantive P1-02 baseline marker: `5f73a8b` (PR #6 merge of the baseline-freeze onto `2373cfd` base); prior P1-01 PROVEN reconciliation merge marker `de147d6` retained as history (both closers green; before that `fde4c5b` ChatGPT line, `58bd0d7` MULTI-AGENT line).
+- Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, merged WS-001 DIR-001 dogfood evidence, the merged P1-02 baseline-freeze (PR #6: REGISTERED charter + setup prompt durable; workstream NOT PROVEN), the IMPL-03 roster dedup (PR #7), and the P1-02 drift sweep (PR #8: denominators, hands-off lists, stale numbers).
+- Current substantive P1-02 baseline marker: `537d987` (PR #8 merge; incorporates PR #6 baseline-freeze onto `2373cfd` base + PR #7 roster dedup); prior P1-01 PROVEN reconciliation merge marker `de147d6` retained as history (both closers green; before that `fde4c5b` ChatGPT line, `58bd0d7` MULTI-AGENT line).
 - Untracked surfaces remain another workstream's surface: `bcp-algos/`, `setupdocs.zip`. Do not touch without owner. Ω `docs/architecture/` + `examples/plugin-echo2/` are now tracked on main (`a528ffd` checkpoint) but unratified — see `docs/cleanup/PROMPT-4-CHECKPOINT.md` + C13. `docs/REPO-CLEANUP-PROMPT-V2.md` is untracked with UNKNOWN status; triage pending owner decision.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
