@@ -13,10 +13,14 @@ status: ACTIVE
 
 ## POSITION
 
-Amendments landed: SYSTEM AMENDMENT block + inline SUPERSEDED marks,
-CHATGPT-BOOT trimmed to ~25 lines, CONTEXT-INDEX extended, IMPL-04 ACTIVE
-in ROSTER (Tip marker abolished), DIR-003 SUPERSEDED, recovery falsifier
-added (NOT proven). Lint GREEN. Deterministic self-test starts next.
+PAUSED per owner (parallel-agent commit review). Verified: 945282e intact
+locally and on origin (14 files, 1640 insertions, 0 deletions — matches the
+report); zero path overlap between mission/amp-1 and
+coord/p1-10-program-observatory-v0, so nothing was superseded and a future
+merge to main is conflict-free. Cause of the mid-mission worktree switch
+identified (shared worktree); recorded as ADOPTED insight. Self-test is
+mid-§5.2 (fixture files written, fixture commit refused by own L1 gate for
+missing STATE touch — correct behavior; wip snapshot taken).
 
 ## DONE
 
@@ -29,18 +33,25 @@ added (NOT proven). Lint GREEN. Deterministic self-test starts next.
 - Phase 3: agent-tools/hooks/pre-commit (chains BCP validate, then lint --pre-commit) + commit-msg (STATE-touch/trailer, Decision-trailer rules); core.hooksPath set; bcp-speed/bcp/.opencode/plugins/context-flush.js (session.idle only, disjoint from bcp-ralph, node --check clean); commented hourly WIP schtasks line in ops-install.ps1 (NOT registered, Tier 2); AGENTS.md L4 fallback rule (6 lines); CHARTER allowlist extended with AGENTS.md (owner-authorized via AMP-1 3.4/3.7).
 - Incident: worktree was moved to coord/p1-10-program-observatory-v0 mid-mission by an outside process; recovered via backup + checkout, verified identical, added "verify branch before every commit" to DO_NOT/RESUME discipline.
 - Phase 4: SYSTEM.md AMENDMENT 2026-09-24 + [SUPERSEDED by AMP-1] marks on 7/11/12/13-integration/13-tip (old text retained); CHATGPT-BOOT.md trimmed to ~25 lines pointing at thinker protocol (also fixed duplicate-read-line defect); CONTEXT-INDEX.md mission/ledger rows; ROSTER IMPL-04 ACTIVE + Tip abolished; DIR-003 status SUPERSEDED with forward pointer; FALSIFIERS.md F-AGENT-MISSION-RECOVERY added, explicitly NOT proven.
+- Self-test §5.1 done: evidence/gate-refusals.log (T1 live hook refusal, T2 trailer pass, T3 Decision refusal, T4 insight-immutability, T5 transcript-immutability, T6 allowlist — all refused/passed as specified).
+- Pause verification: 945282e == origin/coord (14 files/1640+/0- per report); `git diff main...<branch> --name-only` on both branches shows zero overlap; ADOPTED insight 20260924-194500-shared-worktree (one agent = one worktree).
 
 ## IN_PROGRESS
 
-- Running the deterministic self-test (section 5), evidence to missions/amp-1/evidence/.
+- PAUSED per owner direction; self-test resumes on owner go-ahead.
 
 ## NEXT_ACTION
 
-Run self-test: (1) gate refusals incl. live hook refusals, (2) MISSION-000-selftest recovery incl. wip + resume + injected mismatch/stale-tip, (3) inbox fixtures (deposit + raw) incl. byte-identical/hash/views budgets, (4) plugin dry-run (flush once / silent / ralph coexistence), (5) BCP validate 0 errors + corrupt-state refusal; write evidence files; regenerate views; final STATE; commit.
+On resume: commit MISSION-000-selftest fixture WITH this STATE touched (prior attempt correctly refused for missing STATE touch), then continue self-test §5.2 (wip ref already refs/wip/MISSION-000-selftest/20260924T194148Z) through §5.5, regenerate views, final STATE, report.
 
 ## UNCOMMITTED
 
-- docs/agent-system/missions/amp-1/CHARTER.md (new), STATE.md (new). Tree otherwise clean except hands-off untracked surfaces (bcp-algos/, setupdocs.zip, docs/REPO-CLEANUP-PROMPT-V2.md, WS-010 worktrees files) which are never touched.
+- docs/agent-system/missions/amp-1/evidence/gate-refusals.log (new)
+- docs/agent-system/missions/MISSION-000-selftest/CHARTER.md + STATE.md (new, uncommitted — fixture commit refused by L1 gate, see NEXT_ACTION)
+- docs/agent-system/missions/MISSION-000-selftest/scratch.txt (new, deliberate uncommitted fixture work)
+- docs/agent-system/context/insights/20260924-194500-shared-worktree.md (new)
+- wip ref: refs/wip/MISSION-000-selftest/20260924T194148Z
+- Hands-off untracked (never touched): bcp-algos/, setupdocs.zip, docs/REPO-CLEANUP-PROMPT-V2.md.
 
 ## DECISIONS_IN_FORCE
 
