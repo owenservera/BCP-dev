@@ -14,6 +14,7 @@ import {
   parseChatGptStream,
   validateLiveSessionDescriptor,
 } from "../src/live.ts";
+import { resolveParser } from "../src/parsers.ts";
 import { buildSessionRecord, asSessionRecord, sessionId } from "../src/session.ts";
 
 describe("P1-08 live ChatGPT execution — migrated behavior", () => {
@@ -97,6 +98,17 @@ describe("P1-08 live ChatGPT execution — migrated behavior", () => {
       { kind: "assistant.delta", text: "part A", providerMessageId: "msg-parts" },
       { kind: "assistant.delta", text: "part B", providerMessageId: "msg-parts" },
     ]);
+  });
+
+  test("the bar-pinned v1 parser is the parser used by the live path", () => {
+    const raw = [
+      'data: {"id":"msg-pinned","choices":[{"delta":{"content":"pinned"},"finish_reason":null}]}',
+      'data: {"choices":[{"delta":{},"finish_reason":"stop"}]}',
+      "data: [DONE]",
+    ].join("\n");
+    const chunks = resolveParser("1").transform(raw);
+    expect(chunks.at(-1)?.final).toBe(true);
+    expect(chunks.some((c) => !c.final && (c.data as Record<string, unknown>).text === "pinned")).toBe(true);
   });
 
   test("malformed or incomplete streams refuse by named failure; raw text is never silently accepted", () => {
