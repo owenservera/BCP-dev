@@ -296,19 +296,6 @@ If you are picking this up with no memory of prior turns:
 
 ---
 
-## 9. Pending prompts (queued, not yet sent)
-
-Two prompts are drafted-in-intent but not yet sent, both blocked on the same single owner action:
-
-| # | Prompt | Blocked on | Unblocked by |
-|---|---|---|---|
-| 1 | P1-07 launch (Provider Intelligence & Autonomous Maintenance) | P1-08's PHASE-1-HANDOFF-PACKAGE.md needs a real M4 result attached | The owner running `bun test plugins/provider-browser/test/live-send.test.ts` and `bun run omega:gate` from omega-baseline/omega-final, pasting real output into the P1-08 conversation |
-| 2 | P1-09 launch (Ω Integration & End-to-End Proof) | P1-06 + P1-07 + P1-08 all need real (not designed-but-unrun) output | P1-06's two real chain executions (success + refusal) and prompt #1 completing |
-
-Both are gated behind the same single owner action: running P1-08's tests/gate and relaying the real output. P1-01/02/03/05 are dormant (done, no action pending). P1-04/P1-10 are explicitly deferred past Phase-1. Neither queued prompt has an entry in §8 yet — an entry is only added there once the prompt is actually sent, per §0.1.
-
----
-
 ## 7. Program governance — roles, decision authority, enforcement
 
 ### Roles
@@ -443,3 +430,16 @@ The §6 session-start pull-and-HEAD-check must actually be performed and its res
 > BEFORE YOU FINISH: re-read the committed CLAUDE.md back and confirm every
 > section above (A–H) is actually present in the diff, not just intended —
 > paste the real commit hash back into this conversation.
+
+---
+
+## 9. Pending prompts (queued, not yet sent)
+
+Two prompts are drafted-in-intent but not yet sent, both blocked on the same single owner action:
+
+| # | Prompt | Blocked on | Unblocked by |
+|---|---|---|---|
+| 1 | P1-07 launch (Provider Intelligence & Autonomous Maintenance) | P1-08's PHASE-1-HANDOFF-PACKAGE.md needs a real M4 result attached | The owner running `bun test plugins/provider-browser/test/live-send.test.ts` and `bun run omega:gate` from omega-baseline/omega-final, pasting real output into the P1-08 conversation |
+| 2 | P1-09 launch (Ω Integration & End-to-End Proof) | P1-06 + P1-07 + P1-08 all need real (not designed-but-unrun) output | P1-06's two real chain executions (success + refusal) and prompt #1 completing |
+
+Both are gated behind the same single owner action: running P1-08's tests/gate and relaying the real output. P1-01/02/03/05 are dormant (done, no action pending). P1-04/P1-10 are explicitly deferred past Phase-1. Neither queued prompt has an entry in §8 yet — an entry is only added there once the prompt is actually sent, per §0.1.
