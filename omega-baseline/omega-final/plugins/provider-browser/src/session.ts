@@ -25,7 +25,9 @@ export interface CaptureRecord {
   capturedAt: number;
 }
 
-/** The vault record for one attached session (references, never bytes). */
+/** The vault record for one attached session (references, never bytes).
+ * Fixture sessions use sim:true; a real ChatGPT session carries a localhost
+ * live descriptor and uses sim:false. */
 export interface LiveSessionDescriptor {
   providerId: "chatgpt";
   /** Local Chrome DevTools HTTP debug port; never a remote endpoint. */
