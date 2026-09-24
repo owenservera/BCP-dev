@@ -110,18 +110,168 @@ export interface ParserDef {
 /** v1 message.send parser: the fixture replay. Deterministic — the same
  *  capture text always yields the same rows, in the same order, with exactly
  *  one final row at the tail (buildChunkEnvelope re-checks this at assembly). */
+
+/** Parse the raw ChatGPT/OpenAI SSE response used by the REAL live path.
+ * This remains parser contribution v1: the pinned transform accepts either
+ * the legacy recorded-capture JSON or this provider stream body. It is pure,
+ * deterministic, and has no ports/clock/host dependencies. */
+export function parseChatGptStream(rawBody: string): ParsedChunk[] {
+  if (!rawBody.includes("data:")) {
+    throw new Error("MSG_SEND_STREAM_FORMAT_UNKNOWN: response contains no SSE data frames");
+  }
+  const chunks: ParsedChunk[] = [];
+  let providerMessageId: string | undefined;
+  let completed = false;
+  let deltaCount = 0;
+
+  const providerMessageIdOf = (data: Record<string, unknown>): string | undefined => {
+    const message = data.message && typeof data.message === "object"
+      ? data.message as Record<string, unknown>
+      : undefined;
+    if (typeof data.id === "string" && data.id.length > 0) return data.id;
+    if (typeof message?.id === "string" && message.id.length > 0) return message.id;
+    const v = data.v && typeof data.v === "object" ? data.v as Record<string, unknown> : undefined;
+    const nested = v?.message && typeof v.message === "object" ? v.message as Record<string, unknown> : undefined;
+    return typeof nested?.id === "string" && nested.id.length > 0 ? nested.id : undefined;
+  };
+
+  const textBlocks = (data: Record<string, unknown>): string[] => {
+    const out: string[] = [];
+    const choices = data.choices;
+    if (Array.isArray(choices) && choices[0] && typeof choices[0] === "object") {
+      const first = choices[0] as Record<string, unknown>;
+      const delta = first.delta;
+      if (delta && typeof delta === "object") {
+        const content = (delta as Record<string, unknown>).content;
+        if (content !== undefined && content !== null) out.push(String(content));
+      }
+      const message = first.message;
+      if (message && typeof message === "object") {
+        const content = (message as Record<string, unknown>).content;
+        if (Array.isArray(content)) out.push(...content.filter((x) => typeof x === "string").map(String));
+        else if (typeof content === "string") out.push(content);
+      }
+    }
+
+    if (data.o === "patch" && Array.isArray(data.v)) {
+      for (const item of data.v) {
+        if (!item || typeof item !== "object") continue;
+        const patch = item as Record<string, unknown>;
+        if (
+          typeof patch.p === "string" &&
+          patch.p.startsWith("/message/content/parts/") &&
+          typeof patch.v === "string" &&
+          (patch.o === "append" || patch.o === "add" || patch.o === "replace")
+        ) {
+          out.push(patch.v);
+        }
+      }
+    }
+
+    const add = data.o === "add" && data.v && typeof data.v === "object"
+      ? data.v as Record<string, unknown>
+      : undefined;
+    const addMessage = add?.message && typeof add.message === "object"
+      ? add.message as Record<string, unknown>
+      : undefined;
+    const addContent = addMessage?.content && typeof addMessage.content === "object"
+      ? addMessage.content as Record<string, unknown>
+      : undefined;
+    if (Array.isArray(addContent?.parts)) {
+      out.push(...addContent.parts.filter((x) => typeof x === "string").map(String));
+    }
+
+    const direct = data.message && typeof data.message === "object"
+      ? data.message as Record<string, unknown>
+      : undefined;
+    const directContent = direct?.content && typeof direct.content === "object"
+      ? direct.content as Record<string, unknown>
+      : undefined;
+    if (Array.isArray(directContent?.parts)) {
+      out.push(...directContent.parts.filter((x) => typeof x === "string").map(String));
+    }
+    return out;
+  };
+
+  for (const line of rawBody.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed.startsWith("data:")) continue;
+    const payload = trimmed.slice(5).trim();
+    if (payload === "") continue;
+    if (payload === "[DONE]") {
+      completed = true;
+      break;
+    }
+
+    let data: Record<string, unknown>;
+    try {
+      const parsed = JSON.parse(payload) as unknown;
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+        throw new Error("SSE data is not an object");
+      }
+      data = parsed as Record<string, unknown>;
+    } catch (error) {
+      throw new Error(`MSG_SEND_STREAM_MALFORMED: ${String(error)}`);
+    }
+
+    providerMessageId = providerMessageId ?? providerMessageIdOf(data);
+    for (const text of textBlocks(data)) {
+      if (text.length === 0) continue;
+      chunks.push({
+        data: {
+          kind: "assistant.delta",
+          text,
+          ...(providerMessageId ? { providerMessageId } : {}),
+        },
+        final: false,
+      });
+      deltaCount += 1;
+    }
+
+    const choices = data.choices;
+    if (Array.isArray(choices) && choices[0] && typeof choices[0] === "object") {
+      const finishReason = (choices[0] as Record<string, unknown>).finish_reason;
+      if (finishReason !== null && finishReason !== undefined) completed = true;
+    }
+    if (Object.prototype.hasOwnProperty.call(data, "finish_reason")) completed = true;
+  }
+
+  if (!completed) {
+    throw new Error("MSG_SEND_STREAM_INCOMPLETE: ChatGPT response did not expose [DONE] or a finish_reason");
+  }
+  if (deltaCount === 0) {
+    throw new Error("MSG_SEND_STREAM_NO_DELTA: ChatGPT response completed without any assistant text delta");
+  }
+
+  chunks.push({
+    data: {
+      kind: "assistant.done",
+      provider: "chatgpt",
+      ...(providerMessageId ? { providerMessageId } : {}),
+    },
+    final: true,
+  });
+  return chunks;
+}
+
+/** v1 message.send parser: fixture replay and live ChatGPT SSE share one
+ * pinned contribution, so bar 4 covers the parser actually used in either mode. */
 const messageSendV1: ParserTransform = (captureText: string): ParsedChunk[] => {
-  const capture = parseCapture(captureText);
-  const window = deriveSendWindow(capture);
-  return [
-    { data: { kind: "replay.start", url: window.url, method: window.method, recordedAt: capture.recordedAt }, final: false },
-    { data: { kind: "replay.message", to: window.to, subject: window.subject }, final: false },
-    ...capture.events.map((e, i): ParsedChunk => ({
-      data: { kind: "replay.event", index: i, type: e.type, target: e.target, latencyMs: e.latencyMs },
-      final: false,
-    })),
-    { data: { kind: "replay.done", events: capture.events.length, status: capture.response.status }, final: true },
-  ];
+  const trimmed = captureText.trimStart();
+  if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
+    const capture = parseCapture(captureText);
+    const window = deriveSendWindow(capture);
+    return [
+      { data: { kind: "replay.start", url: window.url, method: window.method, recordedAt: capture.recordedAt }, final: false },
+      { data: { kind: "replay.message", to: window.to, subject: window.subject }, final: false },
+      ...capture.events.map((e, i): ParsedChunk => ({
+        data: { kind: "replay.event", index: i, type: e.type, target: e.target, latencyMs: e.latencyMs },
+        final: false,
+      })),
+      { data: { kind: "replay.done", events: capture.events.length, status: capture.response.status }, final: true },
+    ];
+  }
+  return parseChatGptStream(captureText);
 };
 
 /** The registry — parser version → def. Shipped parsers ONLY: entries here

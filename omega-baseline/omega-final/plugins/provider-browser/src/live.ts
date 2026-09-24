@@ -363,8 +363,19 @@ class LocalCdpClient {
         });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = (await response.json()) as { webSocketDebuggerUrl?: string };
-        if (typeof data.webSocketDebuggerUrl === "string" && data.webSocketDebuggerUrl.startsWith("ws://127.0.0.1:")) {
-          return data.webSocketDebuggerUrl;
+        if (typeof data.webSocketDebuggerUrl === "string") {
+          try {
+            const ws = new URL(data.webSocketDebuggerUrl);
+            if (
+              ws.protocol === "ws:" &&
+              (ws.hostname === "127.0.0.1" || ws.hostname === "localhost") &&
+              Number(ws.port) === debugPort
+            ) {
+              return data.webSocketDebuggerUrl;
+            }
+          } catch {
+            // Fall through to retry with a named refusal.
+          }
         }
         lastError = "Chrome did not advertise a localhost browser websocket";
       } catch (error) {
@@ -629,7 +640,6 @@ export async function executeChatGptSend(
   }
 
   const client = new LocalCdpClient();
-  let clickOccurred = false;
   try {
     await client.connect(live.debugPort);
     const composer = await ensureChatGptComposer(client);
@@ -653,21 +663,15 @@ export async function executeChatGptSend(
     const streamPromise = client.captureChatGptStream(STREAM_TIMEOUT_MS);
 
     await client.evaluate(buildClickExpression(sendSelector));
-    clickOccurred = true;
 
-    let stream: { body: string; url: string; status: number; headers: Record<string, string> };
-    try {
-      stream = await streamPromise;
-    } catch (error) {
-      if (clickOccurred) throw error;
-      throw error;
-    }
+    const stream: { body: string; url: string; status: number; headers: Record<string, string> } = await streamPromise;
 
     if (stream.status < 200 || stream.status >= 300) {
       throw new LiveSendError("MSG_SEND_HTTP_ERROR", `ChatGPT conversation endpoint returned HTTP ${stream.status}`);
     }
 
-    const parsed = parseChatGptStream(stream.body);
+    // Bar 4 pins this exact parser contribution. There is no second live-only parser.
+    const parsed = resolveParser(PARSER_VERSION).transform(stream.body);
     return {
       ...parsed,
       chunks: parsed.chunks,
@@ -676,6 +680,12 @@ export async function executeChatGptSend(
     };
   } catch (error) {
     if (error instanceof LiveSendError) throw error;
+    if (error instanceof Error && error.message.startsWith("MSG_SEND_")) {
+      const split = error.message.indexOf(":");
+      const code = split > 0 ? error.message.slice(0, split) : "MSG_SEND_LIVE_FAILED";
+      const message = split > 0 ? error.message.slice(split + 1).trim() : error.message;
+      throw new LiveSendError(code, message);
+    }
     throw new LiveSendError("MSG_SEND_LIVE_FAILED", String(error));
   } finally {
     // There is intentionally no resend here. A clicked send is one intent,

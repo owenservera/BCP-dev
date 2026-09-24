@@ -12,7 +12,7 @@
       { "kind": "provider", "id": "message.send", "version": "1", "doc": "send {sessionId, to, subject, body, threadId?} → {messageId, rev, sentAt, chunks} plus live-only providerMessageId. The pack contract remains message.send@1 / EXTERNAL_MUTATION. A fixture session replays the pinned capture; a live session executes against ChatGPT through localhost CDP, preserving four bars, exact outgoing body verification, one submit click, SSE capture/parse, ordered M1 chunks, and the existing ns 'email' pack-schema-exact outbound record." }
     ],
     "parser": [
-      { "kind": "parser", "id": "message.send", "version": "1", "doc": "D-355 (M7): the version-pinned parser for the message.send archetype — NOT routable (parser kind registers no op). The transform is pure and deterministic: capture text in, ordered ParsedChunk rows out (replay.start / replay.message / replay.event*n / replay.done-final). Discovery-derived: exists because the recorded fixture session exists; the pin's evidence trail is the promotion event." }
+      { "kind": "parser", "id": "message.send", "version": "1", "doc": "D-355 (M7): the version-pinned parser for the message.send archetype — NOT routable (parser kind registers no op). The pure deterministic transform accepts either the historical recorded-capture JSON or the live ChatGPT SSE response and emits ordered ParsedChunk rows. The same v1 pin therefore covers the fixture replay and the real ChatGPT send path." }
     ]
   },
   "dependencies": [
