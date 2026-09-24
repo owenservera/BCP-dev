@@ -463,6 +463,10 @@ prevents chat memory from becoming a shadow project-management system.
 
 > Every prompt the coordinator hands the owner per §0.1 is logged here, newest first, capped at 20 (drop oldest past that). This logs the deliverable itself, not just its outcome.
 
+**2026-09-25 — Intent: add §3.2 milestone roadmap schema + governance rules; harvest P1-05 roadmap.**
+
+> Added the new §3.2 "Milestone roadmap" section with the ID/Goal/Deliverable/Success-criteria/Depends-on/Non-goals/Status/Evidence schema; added four milestone governance rules to §7; harvested P1-05's roadmap (WS-005-M1 DONE verified, WS-005-M2/H-01 PROPOSED UNRATIFIED, WS-005-M3/H-02 PROPOSED UNRATIFIED — NOT PLANNED); added placeholder "not yet harvested" rows under §3.2 for the other nine workstreams; reconciled P1-05's §3 status and §3.1 task row to the new roll-up rule. Commit: `bd5db38`.
+
 **2026-09-25 — Intent: land §0.1/§3/§4/§5/§7/§8 in one pass.**
 
 > Open CLAUDE.md at the repo root. First run `git log -1` and confirm HEAD
