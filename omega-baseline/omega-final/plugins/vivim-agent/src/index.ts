@@ -175,6 +175,18 @@ startPlugin(definePlugin({
         authority: { kind: "consent" as const, ref: request.authority.consentRef },
         ...(request.intentRef !== undefined ? { intentRef: request.intentRef } : {}),
       };
+      // Resolve the actual current consent registry first. The chain never
+      // turns the caller's assertion into "live: true"; law.describe is the
+      // source of the current consent rows for this principal.
+      const lawState = await portCall<{
+        principal: string;
+        consents: Array<{ consentId: string; active: boolean; scope?: string }>;
+      }>(ctx, "law.describe@1", { principal: request.principal.principal });
+      const liveConsent = lawState.consents.find((c) =>
+        c.consentId === request.authority.consentRef &&
+        c.active === true &&
+        (c.scope === undefined || c.scope === PHASE1_CAPABILITY)
+      );
       const invocation = await portCall<{
         verdict: "framed" | "refused"; code?: string; sentence?: string;
         frameDigest: string | null; authorityResolved: "consent" | null; causationId: string;
@@ -186,7 +198,7 @@ startPlugin(definePlugin({
           consentId: request.authority.consentRef,
           principal: request.authority.principal,
           op: PHASE1_CAPABILITY,
-          live: true,
+          live: liveConsent !== undefined,
         }],
         delegations: [], standings: [], rootPrincipals: [], now: at, causationId,
       });
