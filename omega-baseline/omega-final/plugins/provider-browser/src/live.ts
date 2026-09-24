@@ -17,6 +17,8 @@
 // host surface in this round.
 
 import type { ParsedChunk } from "@vivim/omega-contracts";
+import { PARSER_VERSION, parseChatGptStream, resolveParser } from "./parsers.ts";
+export { parseChatGptStream };
 
 export const CHATGPT_HOME = "https://chatgpt.com/";
 export const CHATGPT_COMPOSER_SELECTORS = [
@@ -671,10 +673,14 @@ export async function executeChatGptSend(
     }
 
     // Bar 4 pins this exact parser contribution. There is no second live-only parser.
-    const parsed = resolveParser(PARSER_VERSION).transform(stream.body);
+    const chunks = resolveParser(PARSER_VERSION).transform(stream.body);
+    const providerMessageId = chunks
+      .map((chunk) => chunk.data)
+      .map((data) => data && typeof data === "object" ? (data as Record<string, unknown>).providerMessageId : undefined)
+      .find((id): id is string => typeof id === "string" && id.length > 0);
     return {
-      ...parsed,
-      chunks: parsed.chunks,
+      ...(providerMessageId ? { providerMessageId } : {}),
+      chunks,
       responseUrl: stream.url,
       responseStatus: stream.status,
     };
