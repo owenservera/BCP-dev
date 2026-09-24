@@ -2,7 +2,7 @@
   "manifestVersion": "1",
   "id": "provider.browser",
   "version": "0.1.0",
-  "description": "M0/D-357 — the BROWSER_MEDIATED realization (D-338 engineering): holds the browser session as FIXTURE-recorded captures (in-sandbox; the CDP leg is owner-machine-only future work and never silently simulated). Sends pass four fail-closed bars: day-one fence holds (law.forbidden.set@1 registered at onInit), session attached, realization PROMOTED through discovery.verify@1's standard lifecycle, and a verified parser pin covers the manifest parser version (D-355). The send replay emits ordered M1 chunks via meta.emit (D-352 discipline) and lands the message ns 'email' pack-schema-exact. Captures run through credential.redact@1 BEFORE the vault sees them (M12/D-356 ordering law).",
+  "description": "P1-08: the BROWSER_MEDIATED realization with explicit fixture-replay and live-ChatGPT modes. Sends pass the same four fail-closed bars: day-one fence holds (law.forbidden.set@1 registered at onInit), session attached, realization PROMOTED through discovery.verify@1's standard lifecycle, and a verified parser pin covers the message.send parser version (D-355). Live sends use a plugin-local localhost Chrome CDP adapter, verify the outgoing composer value exactly before one submit click, capture the ChatGPT conversation SSE, parse it through the pinned message.send@1 v1 parser, emit ordered M1 chunks, and append the existing ns 'email' pack-schema-exact outbound row. No credentials are read or login automated; post-click failures never resend.",
   "entry": "src/index.ts",
   "publisher": { "keyId": "", "signature": "" },
   "contributions": {
