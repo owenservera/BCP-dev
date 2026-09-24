@@ -118,5 +118,6 @@ describe("P1-08 live ChatGPT execution — migrated behavior", () => {
     expect(row.live).toEqual({ providerId: "chatgpt", debugPort: 9222 });
     expect(asSessionRecord(structuredClone(row))).toEqual(row);
     expect(asSessionRecord({ ...row, sim: true })).toBeNull();
+    expect(asSessionRecord({ ...row, live: { providerId: "claude", debugPort: 9222 } })).toBeNull();
   });
 });
