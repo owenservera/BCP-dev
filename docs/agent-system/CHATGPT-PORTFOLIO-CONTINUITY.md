@@ -9,7 +9,7 @@
 
 P1-01 / WS-001 — Cooperative Agent System is **PROVEN**.
 
-P1-02 / WS-002 — Repository Truth, Cleanup & Drift is **REGISTERED / ACTIVE**, with its first implementation slice successfully completed but the workstream **NOT PROVEN**.
+P1-02 / WS-002 — Repository Truth, Cleanup & Drift is **REGISTERED**, with researched charter + ChatGPT setup prompt durable on main as of the P1-02 baseline-freeze integration. The workstream remains **NOT PROVEN** and is not ACTIVE; ACTIVE requires an explicit owner launch.
 
 The first P1-02 slice is the authority-pointer reconciliation pilot:
 - detect one real authority contradiction;
@@ -19,19 +19,18 @@ The first P1-02 slice is the authority-pointer reconciliation pilot:
 - read-only;
 - no Ω law, BCP state, or ontology changes.
 
-The latest reported implementation branch is:
+The historical implementation branch was:
 `impl-04/p1-02-authority-pointer-slice`
+(branch deleted in the 2026-09-24 topology reset; pilot evidence preserved in PR #4, CLOSED UNMERGED — historical source only).
 
-Its reported base is:
-`ef26df8`
+Its reported base was:
+`ef26df8` (historical; main has since advanced).
 
-At the latest handoff, the pilot had not yet been committed/pushed. A durability fix was requested so the research charter is stored in the repository and the pilot can be integrated cleanly.
+At the latest handoff, the pilot had not yet been committed/pushed. The durability fix is COMPLETE as of the P1-02 baseline-freeze integration (researched charter + WS-002 README + ChatGPT setup prompt on main); the pilot implementation itself remains historical evidence only and was not integrated.
 
-## 2. Immediate next action
+## 2. Immediate next action (durability-fix sequence — COMPLETE via the P1-02 baseline-freeze integration; retained as history)
 
-The current local coding-agent conversation is the implementation destination.
-
-It was instructed to:
+The former local coding-agent destination was instructed to:
 1. create `docs/agent-system/workstreams/WS-002/P1-02-RESEARCH-CHARTER.md`;
 2. preserve the successful pilot unchanged;
 3. rerun its existing tests/evidence;

@@ -8,8 +8,8 @@
 ## CURRENT REPOSITORY TIP
 
 - Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, and merged WS-001 DIR-001 dogfood evidence.
-- Current main tip after coordinator integration: `de147d6` for the P1-01 PROVEN reconciliation merge (both closers green; prior: `fde4c5b` ChatGPT line, `58bd0d7` MULTI-AGENT line); subsequent coordinator consolidation commits roll this marker.
-- Existing untracked surfaces remain another workstream's surface: `bcp-algos/`, Ω `docs/architecture/`, `examples/plugin-echo2/`, `setupdocs.zip`. Do not touch without owner.
+- Current substantive P1-02 baseline marker: `2373cfd` (the P1-02 baseline-freeze base); prior P1-01 PROVEN reconciliation merge marker `de147d6` retained as history (both closers green; before that `fde4c5b` ChatGPT line, `58bd0d7` MULTI-AGENT line).
+- Untracked surfaces remain another workstream's surface: `bcp-algos/`, `setupdocs.zip`. Do not touch without owner. Ω `docs/architecture/` + `examples/plugin-echo2/` are now tracked on main (`a528ffd` checkpoint) but unratified — see `docs/cleanup/PROMPT-4-CHECKPOINT.md` + C13. `docs/REPO-CLEANUP-PROMPT-V2.md` is untracked with UNKNOWN status; triage pending owner decision.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
 ## CURRENT PROGRAM / P1 PORTFOLIO
@@ -62,7 +62,7 @@ have no setup prompts yet.
 
 - WS-001 / P1-01: Phase 2 dogfood completed; verdict PROVEN (7 GREEN / 1 PARTIAL / 2 PROVEN; residual: COMPACTION formal re-rule owed).
 - Closed proofs: MULTI-AGENT independence — IMPL-03 continued from HANDOFF-004 alone (PKT-005 + HANDOFF-009 + `outbox/IMPL-03/ITEM-001-evidence-independent-verification.md`); CROSS-CHATGPT continuity — genuinely fresh session run (transcript + `packets/PKT-004-cross-chatgpt-closer-findings.md` + `handoffs/HANDOFF-007.md`, §3 rubric 6/6).
-- No other P1 workstream setup prompt has been created; P1-02 through P1-09 remain research-first and unopened.
+- P1-02 / WS-002 is REGISTERED with researched charter + ChatGPT setup prompt prepared (`workstreams/WS-002/`); NOT PROVEN; ACTIVE launch pending owner decision. P1-03 through P1-09 remain research-first and unopened (no setup prompts).
 - Next portfolio action after the WS-001 closers: deep-research and bootstrap P1 workstreams one at a time.
 
 ## OPEN QUESTIONS
