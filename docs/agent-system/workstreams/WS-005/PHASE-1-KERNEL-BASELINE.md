@@ -2,7 +2,8 @@
 
 > **Classification:** DERIVED — CURRENT RUNTIME CHARACTERIZATION + GAP BASELINE  
 > **Workstream:** WS-005 / P1-05 — Ω Plugin Kernel & Runtime  
-> **Baseline commit:** `6c1c392d5b71c45db6fe3d6e30cafc72ec2cf362`  
+> **Runtime source snapshot:** `6c1c392d5b71c45db6fe3d6e30cafc72ec2cf362`  
+> **Publication note:** `main` advanced after this source snapshot with documentation-only P1-03 work before this WS-005 document; the runtime/plugin source characterized here was unchanged.  
 > **Repository:** `owenservera/BCP-dev`  
 > **Branch:** `main`  
 > **Date:** 2026-09-25  
@@ -44,7 +45,7 @@ The registry defines P1-05 as:
 
 Source: `docs/agent-system/WORKSTREAMS.md:49-54`.
 
-The current GitHub `main` tip is `6c1c392d...`. The older WS-002 truth document records `630ee5d...` as its own baseline tip; that is a historical snapshot inside WS-002, not the current repository tip. WS-002 itself explicitly distinguishes repository reality from historical state and implementation claims (`docs/agent-system/workstreams/WS-002/PHASE-1-TRUTH-BASELINE.md:1-35`).
+The runtime source snapshot used for the characterization is `6c1c392d...`. The older WS-002 truth document records `630ee5d...` as its own baseline tip; that is a historical snapshot inside WS-002, not the current repository tip. WS-002 itself explicitly distinguishes repository reality from historical state and implementation claims (`docs/agent-system/workstreams/WS-002/PHASE-1-TRUTH-BASELINE.md:1-35`).
 
 P1-06 remains coded/committed but **NEEDS RUN**; its document expressly makes no live-execution claim (`docs/agent-system/workstreams/WS-006/PHASE-1-GOVERNANCE-CHAIN.md:1-15`). P1-08 is implemented/committed with the real browser execution leg but also remains **M4 NEEDS OWNER RUN** (`docs/agent-system/workstreams/WS-008/PHASE-1-HANDOFF-PACKAGE.md:1-20`).
 
@@ -321,7 +322,7 @@ The source uses `ctx.port.call()` for its cross-plugin/runtime interactions:
 
 - generic port helper and vault reads: `src/index.ts:92-102`;
 - ledger query: `src/index.ts:315`;
-- the coded Phase-1 governance path calls `law.describe@1` and `invoke.check@1` through the port, then invokes `message.send@1) through the port (`src/index.ts:158-252`);
+- the coded Phase-1 governance path calls `law.describe@1` and `invoke.check@1` through the port, then invokes `message.send@1` through the port (`src/index.ts:158-252`);
 - the later control/adaptation paths continue using vault/control operations through `ctx.port.call()` (`src/index.ts:723-740`, `:909-928`).
 
 The source audit found no `@vivim/omega-host`, `PortRouter`, `worker_threads`, `parentPort`, or direct Worker construction in the current `vivim-agent/src/` source set.
@@ -350,7 +351,7 @@ Those are explicit requests in `plugins/vivim-law/plugin.json:148-159`. The mani
 The source accesses those host operations **through the same Port Protocol**:
 
 - journal fallback uses `ctx.port.call(HOST_OPS.journalAppend, ...)` (`plugins/vivim-law/src/index.ts:407-445`);
-- audit-chain export calls `ctx.port.call(HOST_OPS.auditChain, {})), then persists via `vault.append@1` (`src/index.ts:610-629`);
+- audit-chain export calls `ctx.port.call(HOST_OPS.auditChain, {}), then persists via `vault.append@1` (`src/index.ts:610-629`);
 - token revocation calls `ctx.port.call(HOST_OPS.tokensRevoke, ...)` (`src/index.ts:693-710`).
 
 The current source set was also checked for direct imports/use of `@vivim/omega-host`, `PortRouter`, `worker_threads`, `parentPort`, or direct Worker construction; none were found.
@@ -410,7 +411,7 @@ The actual worker is then created from:
 
 in `host/src/worker.ts:121-123`.
 
-The verifier currently checks that `entry` is a string (`host/src/recipe.ts:86-97`) but does not establish that the normalized resolved entry path is contained by `srcDir).
+The verifier currently checks that `entry` is a string (`host/src/recipe.ts:86-97`) but does not establish that the normalized resolved entry path is contained by `srcDir`.
 
 ### Why this is a genuine gap
 
