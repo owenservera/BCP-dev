@@ -11,7 +11,7 @@
 > or read from here directly. It is the full current state; there is no
 > more-complete snapshot elsewhere (owner-confirmed).
 >
-> **Last synced against `main`:** commit `c44fe5f` (2026-09-25). If your
+> **Last synced against `main`:** commit `019f83e` (2026-09-25). If your
 > clone shows a different HEAD, pull first — this file describes that
 > commit's state, not necessarily right now's.
 
@@ -278,19 +278,34 @@ If you are picking this up with no memory of prior turns:
    above. If different, treat §3/§4 as possibly stale — spot-check the
    two or three most-recently-touched workstreams against real commits
    before trusting the table blindly.
-3. Check §3 for anything marked "AWAITING RETURN" or "BLOCKED" — that's
+3. Check §9 first for queued prompts, before deciding whether anything is
+   safe to send. A prompt already queued there must not be duplicated.
+4. Check §3 for anything marked "AWAITING RETURN" or "BLOCKED" — that's
    your queue.
-4. If you're about to generate a new prompt for any workstream, append
+5. If you're about to generate a new prompt for any workstream, append
    the §0 update-instruction block to it, unmodified, and remember you have
    no write access yourself (§0.1): the prompt, not a raw file, is the
    deliverable. Log it in §8 before handing it to the owner.
-5. If you learn something that contradicts an existing row or log entry,
+6. If you learn something that contradicts an existing row or log entry,
    update it in place — don't leave two conflicting claims standing. That's
    the exact failure mode this file exists to prevent elsewhere in the repo.
-6. Before generating a prompt for any workstream that touches ratified law or
+7. Before generating a prompt for any workstream that touches ratified law or
    another workstream's already-committed files, check §7's file-ownership
    map and decision-authority rule first.
 
+
+---
+
+## 9. Pending prompts (queued, not yet sent)
+
+Two prompts are drafted-in-intent but not yet sent, both blocked on the same single owner action:
+
+| # | Prompt | Blocked on | Unblocked by |
+|---|---|---|---|
+| 1 | P1-07 launch (Provider Intelligence & Autonomous Maintenance) | P1-08's PHASE-1-HANDOFF-PACKAGE.md needs a real M4 result attached | The owner running `bun test plugins/provider-browser/test/live-send.test.ts` and `bun run omega:gate` from omega-baseline/omega-final, pasting real output into the P1-08 conversation |
+| 2 | P1-09 launch (Ω Integration & End-to-End Proof) | P1-06 + P1-07 + P1-08 all need real (not designed-but-unrun) output | P1-06's two real chain executions (success + refusal) and prompt #1 completing |
+
+Both are gated behind the same single owner action: running P1-08's tests/gate and relaying the real output. P1-01/02/03/05 are dormant (done, no action pending). P1-04/P1-10 are explicitly deferred past Phase-1. Neither queued prompt has an entry in §8 yet — an entry is only added there once the prompt is actually sent, per §0.1.
 
 ---
 
