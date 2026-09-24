@@ -164,7 +164,7 @@ Because `behalf == caller`, no deputy/delegation path is entered.
 
 ### Execution ordering
 
-The code enforces this ordering:
+The code first resolves the real current consent table through `law.describe@1`; it never converts the caller's `consentRef` assertion directly into a live grant. The code then enforces this ordering:
 
 1. Validate principal/authority/capability data.
 2. Construct the D-452 invocation frame.
@@ -505,7 +505,7 @@ Committed to `main`:
 2. `omega-baseline/omega-final/plugins/vivim-agent/src/index.ts`
    — `agency.execute@1` real authorization/execution/event chain.
 3. `omega-baseline/omega-final/plugins/vivim-agent/plugin.json`
-   — declares the new engine contribution and required routed dependencies.
+   — declares the new engine contribution and required routed dependencies, including live consent resolution.
 4. `omega-baseline/omega-final/plugins/vivim-law/src/policy.ts`
    — classifies `agency.execute@1` as MUTATION in the versioned law policy.
 
@@ -518,7 +518,7 @@ No real execution result is claimed by these commits.
 **Current status: DESIGNED + CODED, NOT LIVE-PROVEN.**
 
 The repository now contains the smallest concrete authorization chain needed for
-the selected action:
+the selected action. The authorization check consumes a real live consent lookup from `vivim.law`; it is not a hard-coded passing flag:
 
 ```text
 principal
