@@ -30,10 +30,11 @@ if (Test-Path -LiteralPath $hookSrc) {
     Write-Host "hook: MISSING source ops-hooks/pre-commit - skipped" -ForegroundColor Yellow
 }
 
-# AMP-1 L3 hourly WIP snapshot - DISABLED by default.
-# Registering OS scheduled tasks is Tier 2 (owner only); this script never
-# registers it. Owner, to enable for mission amp-1, run exactly this line:
-# schtasks /Create /F /TN "BCP-WIP-amp-1" /SC HOURLY /MO 1 /TR "cmd /c cd /d C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev && python agent-tools/agent_wip.py snapshot amp-1"
+# AMP-1 L3 hourly WIP snapshot (registered 2026-09-24 as BCP-WIP-amp-1;
+# re-running this script keeps it: schtasks /Create /F is idempotent).
+# Full python path: the WindowsApps `python` stub cannot run under the
+# scheduler (last result 267009); the pinned interpreter is verified working.
+schtasks /Create /F /TN "BCP-WIP-amp-1" /SC HOURLY /MO 1 /TR "C:\Users\VIVIM.inc\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev\agent-tools\agent_wip.py snapshot amp-1" 2>&1 | Select-Object -First 1
 
 Write-Host "--- status ---"
 schtasks /Query /TN "BCP-Maintain" 2>$null | Select-Object -Last 1
