@@ -1,0 +1,1532 @@
+{
+  "generated_from_branch": "research/system-intelligence-archaeology",
+  "edge_count": 65,
+  "edges": [
+    {
+      "id": "SIE-210001",
+      "from": "SI-010101",
+      "to": "SI-010102",
+      "type": "AUTHORIZES",
+      "reason": "The recipe supplies the grants and routed contracts enforced by the µhost.",
+      "evidence": [
+        {
+          "id": "EV-100041",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210002",
+      "from": "SI-010102",
+      "to": "SI-010106",
+      "type": "GATES",
+      "reason": "Runtime calls traverse the host port/token boundary.",
+      "evidence": [
+        {
+          "id": "EV-100042",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210003",
+      "from": "SI-010103",
+      "to": "SI-010104",
+      "type": "PERSISTS",
+      "reason": "Law journal/forbidden/policy rows can ride the vault when granted.",
+      "evidence": [
+        {
+          "id": "EV-100043",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210004",
+      "from": "SI-010103",
+      "to": "SI-010105",
+      "type": "PERSISTS",
+      "reason": "Intent is designed as durable vault evidence.",
+      "evidence": [
+        {
+          "id": "EV-100044",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210005",
+      "from": "SI-010103",
+      "to": "SI-010107",
+      "type": "OBSERVES",
+      "reason": "Mind reads live vault evidence to derive its model.",
+      "evidence": [
+        {
+          "id": "EV-100045",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210006",
+      "from": "SI-010104",
+      "to": "SI-010105",
+      "type": "GOVERNS",
+      "reason": "Canonical intent is downstream of law/consent semantics.",
+      "evidence": [
+        {
+          "id": "EV-100046",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210007",
+      "from": "SI-010105",
+      "to": "SI-010106",
+      "type": "ENABLES",
+      "reason": "Resolved intent supplies the execution substrate with structured steps.",
+      "evidence": [
+        {
+          "id": "EV-100047",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210008",
+      "from": "SI-010107",
+      "to": "SI-010105",
+      "type": "REPRESENTS",
+      "reason": "Mind provides the evidence context against which intent grounds.",
+      "evidence": [
+        {
+          "id": "EV-100048",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210013",
+      "from": "SI-020101",
+      "to": "SI-010105",
+      "type": "VARIANT_OF",
+      "reason": "Legacy capability resolution is an earlier realization of intent-to-capability semantics.",
+      "evidence": [
+        {
+          "id": "EV-100053",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210014",
+      "from": "SI-020104",
+      "to": "SI-010103",
+      "type": "VARIANT_OF",
+      "reason": "Legacy relational conversation persistence and Ω vault chat are different implementations of durable conversation evidence.",
+      "evidence": [
+        {
+          "id": "EV-100054",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210016",
+      "from": "SI-030101",
+      "to": "SI-010101",
+      "type": "SUPERSEDES",
+      "reason": "Standalone Ω establishes the plugin/recipe constitution that BCP carries forward.",
+      "evidence": [
+        {
+          "id": "EV-100056",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210019",
+      "from": "SI-030104",
+      "to": "SI-010105",
+      "type": "SUPERSEDES",
+      "reason": "D-411 is the historical step that hardened canonical intent.",
+      "evidence": [
+        {
+          "id": "EV-100059",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210020",
+      "from": "SI-030105",
+      "to": "SI-010106",
+      "type": "ENABLES",
+      "reason": "The substrate chain supplies runtime/context/governance mechanisms.",
+      "evidence": [
+        {
+          "id": "EV-100060",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210024",
+      "from": "SI-030107",
+      "to": "SI-010103",
+      "type": "GOVERNS",
+      "reason": "Mine provenance remains tied to vault/evidence records.",
+      "evidence": [
+        {
+          "id": "EV-100064",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210009",
+      "from": "SI-020102",
+      "to": "SI-020103",
+      "type": "REQUIRES",
+      "reason": "Legacy ProviderSession resolves against a ProviderAccount.",
+      "evidence": [
+        {
+          "id": "EV-100049",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210010",
+      "from": "SI-020103",
+      "to": "SI-020105",
+      "type": "REQUIRES",
+      "reason": "Legacy profile sessions carry Chrome slave/profile state controlled by browser machinery.",
+      "evidence": [
+        {
+          "id": "EV-100050",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210011",
+      "from": "SI-020103",
+      "to": "SI-020104",
+      "type": "ENABLES",
+      "reason": "ProviderSession is the persistence bridge for provider conversations.",
+      "evidence": [
+        {
+          "id": "EV-100051",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210012",
+      "from": "SI-020105",
+      "to": "SI-020106",
+      "type": "ENABLES",
+      "reason": "Governor plus discovery/healing supplies provider-browser resilience.",
+      "evidence": [
+        {
+          "id": "EV-100052",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210013",
+      "from": "SI-020101",
+      "to": "SI-010105",
+      "type": "VARIANT_OF",
+      "reason": "Legacy capability resolution is an earlier realization of intent-to-capability semantics.",
+      "evidence": [
+        {
+          "id": "EV-100053",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210014",
+      "from": "SI-020104",
+      "to": "SI-010103",
+      "type": "VARIANT_OF",
+      "reason": "Legacy relational conversation persistence and Ω vault chat are different implementations of durable conversation evidence.",
+      "evidence": [
+        {
+          "id": "EV-100054",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210015",
+      "from": "SI-020107",
+      "to": "SI-040102",
+      "type": "ENABLES",
+      "reason": "Legacy product behavior is the main harvest source for world/surface experience.",
+      "evidence": [
+        {
+          "id": "EV-100055",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210023",
+      "from": "SI-030107",
+      "to": "SI-020106",
+      "type": "DERIVES",
+      "reason": "Forge can turn legacy discovery/healing mechanisms into evidence-bearing generalized contributions.",
+      "evidence": [
+        {
+          "id": "EV-100063",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210016",
+      "from": "SI-030101",
+      "to": "SI-010101",
+      "type": "SUPERSEDES",
+      "reason": "Standalone Ω establishes the plugin/recipe constitution that BCP carries forward.",
+      "evidence": [
+        {
+          "id": "EV-100056",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210017",
+      "from": "SI-030102",
+      "to": "SI-030106",
+      "type": "SUPERSEDES",
+      "reason": "BCP adds an explicit live path where upstream remained fixture-first.",
+      "evidence": [
+        {
+          "id": "EV-100057",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210018",
+      "from": "SI-030103",
+      "to": "SI-030106",
+      "type": "GOVERNS",
+      "reason": "Chrome-only v1 constrains the live provider realization class.",
+      "evidence": [
+        {
+          "id": "EV-100058",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210019",
+      "from": "SI-030104",
+      "to": "SI-010105",
+      "type": "SUPERSEDES",
+      "reason": "D-411 is the historical step that hardened canonical intent.",
+      "evidence": [
+        {
+          "id": "EV-100059",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210020",
+      "from": "SI-030105",
+      "to": "SI-010106",
+      "type": "ENABLES",
+      "reason": "The substrate chain supplies runtime/context/governance mechanisms.",
+      "evidence": [
+        {
+          "id": "EV-100060",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210021",
+      "from": "SI-030106",
+      "to": "SI-050103",
+      "type": "REALIZES",
+      "reason": "provider-browser is a concrete browser realization of provider/session execution.",
+      "evidence": [
+        {
+          "id": "EV-100061",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210022",
+      "from": "SI-030106",
+      "to": "SI-050108",
+      "type": "ENABLES",
+      "reason": "Its live path supplies empirical evidence for provider/routing semantics.",
+      "evidence": [
+        {
+          "id": "EV-100062",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210023",
+      "from": "SI-030107",
+      "to": "SI-020106",
+      "type": "DERIVES",
+      "reason": "Forge can turn legacy discovery/healing mechanisms into evidence-bearing generalized contributions.",
+      "evidence": [
+        {
+          "id": "EV-100063",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-210024",
+      "from": "SI-030107",
+      "to": "SI-010103",
+      "type": "GOVERNS",
+      "reason": "Mine provenance remains tied to vault/evidence records.",
+      "evidence": [
+        {
+          "id": "EV-100064",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "docs/destination/system-intelligence/synthesis",
+          "location": "Wave 1 derived graph",
+          "evidence_kind": "documentation",
+          "note": "edge derived from cited atom relationships"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240101",
+      "from": "SI-040101",
+      "to": "SI-010103",
+      "type": "REQUIRES",
+      "reason": "Product Instance needs durable user state.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240101",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240102",
+      "from": "SI-040101",
+      "to": "SI-010101",
+      "type": "REQUIRES",
+      "reason": "Active composition is part of the product environment.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240102",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240103",
+      "from": "SI-040101",
+      "to": "SI-040102",
+      "type": "ENABLES",
+      "reason": "Instance is the container in which world state becomes a user experience.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240103",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240104",
+      "from": "SI-040102",
+      "to": "SI-010107",
+      "type": "DERIVES",
+      "reason": "World projection derives from the Ω evidence-based lens.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240104",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240105",
+      "from": "SI-040102",
+      "to": "SI-020104",
+      "type": "RELATED_TO",
+      "reason": "Legacy conversation/message structures supply harvested product behavior.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240105",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240106",
+      "from": "SI-040103",
+      "to": "SI-040102",
+      "type": "REPRESENTS",
+      "reason": "Workspace/canvas represents world state rather than becoming its authority.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-006",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240106",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240107",
+      "from": "SI-040104",
+      "to": "SI-010105",
+      "type": "REQUIRES",
+      "reason": "Universal interaction requires persisted canonical intent.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-007",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240107",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240108",
+      "from": "SI-040104",
+      "to": "SI-010104",
+      "type": "GATES",
+      "reason": "Effectful interaction remains authority/law governed.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-008",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240108",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240109",
+      "from": "SI-040105",
+      "to": "SI-010106",
+      "type": "REQUIRES",
+      "reason": "Durable work needs execution substrate plus product lifecycle semantics.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-009",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240109",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240110",
+      "from": "SI-040106",
+      "to": "SI-050108",
+      "type": "REQUIRES",
+      "reason": "Provider choice requires explicit routing policy.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-010",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240110",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240111",
+      "from": "SI-040107",
+      "to": "SI-040101",
+      "type": "PROVES",
+      "reason": "Vertical slices are the product integration proof.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-011",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240111",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-240112",
+      "from": "SI-040107",
+      "to": "SI-040105",
+      "type": "PROVES",
+      "reason": "VS4/VS5/VS6 exercise durable work and continuity.",
+      "evidence": [
+        {
+          "id": "EV-04-EDGE-012",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+          "location": "SI-04 edge SIE-240112",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250101",
+      "from": "SI-050101",
+      "to": "SI-050102",
+      "type": "REQUIRES",
+      "reason": "A live provider relationship must select a usable session/browser context.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250101",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250102",
+      "from": "SI-050101",
+      "to": "SI-050108",
+      "type": "ENABLES",
+      "reason": "Account and provider identity are inputs to routing policy.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250102",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250103",
+      "from": "SI-020102",
+      "to": "SI-050101",
+      "type": "REALIZES",
+      "reason": "Legacy ProviderAccount is direct implementation evidence of the boundary.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250103",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250104",
+      "from": "SI-050102",
+      "to": "SI-030106",
+      "type": "REALIZES",
+      "reason": "Current provider-browser supplies a concrete browser realization path.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250104",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250105",
+      "from": "SI-050103",
+      "to": "SI-030106",
+      "type": "GATES",
+      "reason": "Execution requires a realization that can perform the operation.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250105",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250106",
+      "from": "SI-010105",
+      "to": "SI-050104",
+      "type": "ENABLES",
+      "reason": "Intent persistence supplies canonical effect-request semantics.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-006",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250106",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250107",
+      "from": "SI-010104",
+      "to": "SI-050104",
+      "type": "GATES",
+      "reason": "Authority gates the operation after interpretation and resolution.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-007",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250107",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250108",
+      "from": "SI-050104",
+      "to": "SI-050105",
+      "type": "ENABLES",
+      "reason": "An authorized intent needs durable work and outcome evidence.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-008",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250108",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250109",
+      "from": "SI-050105",
+      "to": "SI-010103",
+      "type": "PERSISTS",
+      "reason": "Work/outcome evidence needs durable vault records.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-009",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250109",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250110",
+      "from": "SI-040102",
+      "to": "SI-050106",
+      "type": "ENABLES",
+      "reason": "World entities become useful through surface projections.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-010",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250110",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250111",
+      "from": "SI-010103",
+      "to": "SI-050107",
+      "type": "REQUIRES",
+      "reason": "Product Instance durability depends on persistent authoritative data.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-011",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250111",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250112",
+      "from": "SI-050107",
+      "to": "SI-040101",
+      "type": "ENABLES",
+      "reason": "Persistence is part of the product instance boundary.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-012",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250112",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250113",
+      "from": "SI-050108",
+      "to": "SI-040106",
+      "type": "ENABLES",
+      "reason": "Routing is a product-level provider/account journey.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-013",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250113",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-250114",
+      "from": "SI-050101",
+      "to": "SI-050108",
+      "type": "GATES",
+      "reason": "Routing cannot select an account that is not a valid provider relationship.",
+      "evidence": [
+        {
+          "id": "EV-05-EDGE-014",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+          "location": "SI-05 edge SIE-250114",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-260101",
+      "from": "SI-060101",
+      "to": "SI-060102",
+      "type": "GATES",
+      "reason": "Proof discipline determines how live implementation claims are interpreted.",
+      "evidence": [
+        {
+          "id": "EV-06-EDGE-001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+          "location": "SI-06 edge SIE-260101",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-260102",
+      "from": "SI-060102",
+      "to": "SI-040106",
+      "type": "GATES",
+      "reason": "Provider product claims cannot be externally proven until owner-run evidence exists.",
+      "evidence": [
+        {
+          "id": "EV-06-EDGE-002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+          "location": "SI-06 edge SIE-260102",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-260103",
+      "from": "SI-060103",
+      "to": "SI-040106",
+      "type": "GATES",
+      "reason": "Account/routing remains a product gap despite legacy implementation.",
+      "evidence": [
+        {
+          "id": "EV-06-EDGE-003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+          "location": "SI-06 edge SIE-260103",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-260104",
+      "from": "SI-060104",
+      "to": "SI-040102",
+      "type": "GATES",
+      "reason": "World breadth and identity joins remain uncertain.",
+      "evidence": [
+        {
+          "id": "EV-06-EDGE-004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+          "location": "SI-06 edge SIE-260104",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-260105",
+      "from": "SI-060105",
+      "to": "SI-040101",
+      "type": "GATES",
+      "reason": "Product Instance cannot be destination-complete while lifecycle is uncharacterized.",
+      "evidence": [
+        {
+          "id": "EV-06-EDGE-005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+          "location": "SI-06 edge SIE-260105",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-260106",
+      "from": "SI-060106",
+      "to": "SI-040105",
+      "type": "ENABLES",
+      "reason": "General external-world control would expand durable work and attention reach.",
+      "evidence": [
+        {
+          "id": "EV-06-EDGE-006",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+          "location": "SI-06 edge SIE-260106",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-260107",
+      "from": "SI-060107",
+      "to": "SI-040107",
+      "type": "GATES",
+      "reason": "Continuity/attention is part of return-to-user proof.",
+      "evidence": [
+        {
+          "id": "EV-06-EDGE-007",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+          "location": "SI-06 edge SIE-260107",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    },
+    {
+      "id": "SIE-260108",
+      "from": "SI-060108",
+      "to": "SI-030106",
+      "type": "CONTRADICTS",
+      "reason": "The two lineages specify different CDP authority placements.",
+      "evidence": [
+        {
+          "id": "EV-06-EDGE-008",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+          "location": "SI-06 edge SIE-260108",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "from_exists": true,
+      "to_exists": true
+    }
+  ]
+}
