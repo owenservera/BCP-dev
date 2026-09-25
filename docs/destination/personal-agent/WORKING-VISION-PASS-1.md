@@ -227,6 +227,54 @@ The vision should fail if:
 - “what are you doing?” requires reconstructing logs instead of reading Work;
 - replacing the Personal Agent destroys canonical user data.
 
+## 15. Spatial Intent Circuit — adopted design input
+
+The Spatial Intent Circuit is now part of this working vision.
+
+It is the visible, writable projection between deterministic Intent/Plan state and presentation. Its deepest purpose is pre-execution assurance: the person should be able to see what will happen before it happens.
+
+The circuit introduces no new authority and no shadow world. Its state is derived from canonical semantics:
+
+- glyph from LangOpFrame.family;
+- socket from LangFrameSlot.kind;
+- epistemic ring from interpretation/binding state;
+- risk ring from RiskClass;
+- candidate ordering from resolver ranking;
+- binding rays from canonical object IDs;
+- circuit edges from PlanTemplate dependencies;
+- gates from law/consent state;
+- execution state from Work/Plan execution;
+- provenance from canonical revision/evidence references.
+
+The dual-ring principle is particularly important: certainty is independent from safety. A VERIFIED target may still carry an EXTERNAL_MUTATION lock.
+
+Ambiguity is a manipulable cardinality state rather than an error. Missing arguments are sockets. Large result sets become query sockets. Downstream plan steps become blocked when upstream resolution is unresolved. Simple commands remain visually simple; multi-step commands earn the expanded circuit.
+
+The circuit is bidirectional: direct manipulation must update semantic Intent/Plan state, and text edits must invalidate stale bindings. The target property is structural round-trip equivalence between parsed canonical form and the manipulated circuit.
+
+The circuit is also a security boundary: grounded payloads remain inert data and are never reinterpreted as instructions.
+
+The full adopted integration note is docs/destination/personal-agent/SPATIAL-INTENT-CIRCUIT-INTEGRATION.md.
+
+## 16. Revised product loop
+
+With Spatial Intent included, the product loop is now:
+
+address → interpret → ground → visibly compile → correct/confirm → authorize → create/continue Work → execute → evidence → update World → surface continuity
+
+This is the bridge between the Personal Agent and the Canvas.
+
+The Personal Agent supplies conversational agency. The Spatial Intent Circuit supplies visible semantic control. Neither becomes canonical truth.
+
+## 17. Stronger falsifier
+
+The most valuable early destination proof is now: send this to Oscar, with multiple Oscar contacts.
+
+The system should visibly show the action, ambiguous target candidates, live canvas bindings, verification/proof state, external-mutation risk, consent gate, and downstream execution state before any send occurs.
+
+A second stage should prove the same semantic path with a multi-step request, where the compact circuit expands only because the plan is actually multi-step.
+
+
 ## 14. Unresolved by design
 
 This pass does not settle the final World/Object relationship contract, Product Instance activation/lifecycle, exact Work namespace/contracts, Personal Agent persistence boundary, exact symbolic introspection grammar, the owner's external symbolic material, generic dependency traversal semantics, cross-provider account/session/routing, the final answer envelope, external observation freshness, cross-domain conflicts, product UX, or Windows/desktop substrate.
