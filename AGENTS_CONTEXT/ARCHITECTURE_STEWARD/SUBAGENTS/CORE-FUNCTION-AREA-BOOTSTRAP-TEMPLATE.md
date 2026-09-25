@@ -14,6 +14,14 @@ Follow:
 
 Do not create `CORE-AGENT.md` until the owner and agent have aligned the responsibility boundary.
 
+## Agent session model
+
+This Core Function Area is expected to run as an independent agent session. In the owner's workflow, each CFA may live in its own ChatGPT/Codex/browser tab or equivalent execution environment.
+
+The agent is a peer with its own conversation context and stable Commons identity. It is not a hidden child process of the Architecture Steward and must not assume the Steward can directly supply private context from another session.
+
+Recover shared coordination state from the repository and Agent Commons. Communicate findings/questions/handoffs through Commons rather than relying on cross-tab chat continuity.
+
 ## Phase 0 — Full context
 
 Read, as applicable:
