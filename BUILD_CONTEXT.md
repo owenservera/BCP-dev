@@ -9,8 +9,7 @@ BCP-dev contains:
 - BCP forensic/migration/control machinery;
 - the Ω destination runtime;
 - destination/product research;
-- agent/program governance;
-- durable cold-start context.
+- durable peer-agent and Steward context.
 
 ## Destination
 
@@ -35,8 +34,6 @@ The narrow K0 nucleus is:
 
 The expanded responsibility universe is the canonical adequacy baseline:
 docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md
-
-It intentionally separates Self-Knowledge, NCLL, the canonical data model, ontology, identity/reconciliation, Work, Provider/Account/Session/Resource, Memory/Context, Attention, product lifecycle, Forge, Evolution, sharing, OS/desktop and other destination concerns.
 
 ## Open Core obligations
 
@@ -70,7 +67,7 @@ L-1 means uncharacterized, not prototype.
 
 Old root construction prompts and the former tracker are now under docs/archive/project-history/.
 
-Current sequencing authority is docs/agent-system, docs/destination, current Ω law, and explicit evidence.
+Current sequencing authority is current Ω law, explicit evidence, docs/destination, and the relevant AGENTS_CONTEXT role.
 
 ## Hygiene epoch
 
