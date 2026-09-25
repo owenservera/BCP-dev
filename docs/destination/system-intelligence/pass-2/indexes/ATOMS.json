@@ -1,0 +1,1431 @@
+{
+  "pass": "2",
+  "source_tip": "a7971a0557c4647862cb922cff34ae799e91767",
+  "atom_count": 40,
+  "atoms": [
+    {
+      "id": "SA-010001",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Recipe composition grant boundary"
+      },
+      "claim": "Signed Recipe entries carry manifest/content hashes, grants, contracts, boot phase and config; composition participates directly in runtime authority.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-010001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+            "location": "Recipe / CompositionEntry",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVEN"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVEN"
+    },
+    {
+      "id": "SA-010002",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Port protocol runtime seam"
+      },
+      "claim": "Current Ω plugins invoke neighboring functionality through ctx.port, so imports understate runtime coupling.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-010002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/port.ts",
+            "location": "PortResult / contract",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVEN"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVEN"
+    },
+    {
+      "id": "SA-010003",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Host-mediated runtime state arbitration"
+      },
+      "claim": "HOST_OPS exposes state acquire/release and graph/audit reads; this is runtime coupling hidden from plugin folders.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-010003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/lifecycle.ts",
+            "location": "HOST_OPS / HOST_CAPS",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVEN"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVEN"
+    },
+    {
+      "id": "SA-010004",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Split realization state"
+      },
+      "claim": "ProviderRealization is latest-state data while discovery promotion events remain audit history; consumers cross two representations.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-010004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+            "location": "ProviderRealization",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "BOUNDARY-CRITICAL"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "BOUNDARY-CRITICAL"
+    },
+    {
+      "id": "SA-010005",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Configuration creates hidden runtime edges"
+      },
+      "claim": "Discovery mapping loads blueprints from composition config; provider-browser behavior is also configuration-gated.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-010005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/discovery-mapping/src/index.ts",
+            "location": "loadBlueprint",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "IMPLEMENTED-BUT-STRUCTURALLY-WEAK"
+      },
+      "unknowns": [
+        "complete configuration-driven registration inventory"
+      ],
+      "conflicts": [],
+      "classification": "IMPLEMENTED-BUT-STRUCTURALLY-WEAK"
+    },
+    {
+      "id": "SA-020001",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Revision-addressed Ω storage"
+      },
+      "claim": "Storage is namespace/table/key/revision based and drivers are byte stores; semantic lifecycle belongs above the driver.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-020001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/storage.ts",
+            "location": "StorageOp / StorageDriverContract",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVEN"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVEN"
+    },
+    {
+      "id": "SA-020002",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Small canonical Ω chat vocabulary"
+      },
+      "claim": "Conversation and Message are vault records; order is writer-derived and realization is provenance rather than identity.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-020002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/chat.ts",
+            "location": "ChatConversation / ChatMessage",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVEN"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVEN"
+    },
+    {
+      "id": "SA-020003",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Browser captures and sessions are separate records"
+      },
+      "claim": "Capture bytes are redacted and hashed before storage; SessionRecord references the capture and optional live metadata.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-020003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+            "location": "CaptureRecord / SessionRecord",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVEN"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVEN"
+    },
+    {
+      "id": "SA-020004",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Legacy schema embeds provider protocol detail"
+      },
+      "claim": "ProviderAccount, ProviderParser, ProviderCapability and ProviderStreamConfig are first-class relational structures.",
+      "status": "VERIFIED",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-020004",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+            "location": "provider model sections",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "LEGACY-ONLY"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "LEGACY-ONLY"
+    },
+    {
+      "id": "SA-020005",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "No single product-wide data lifecycle contract"
+      },
+      "claim": "Ω has separate chat/provider/intent/vault vocabularies while Legacy has many models; CREATE→RESTORE semantics are not unified.",
+      "status": "OBSERVED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-020005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/index.ts",
+            "location": "contract exports",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "OBSERVED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "MISSING"
+      },
+      "unknowns": [
+        "universal lifecycle contract",
+        "deletion/retention policy"
+      ],
+      "conflicts": [],
+      "classification": "MISSING"
+    },
+    {
+      "id": "SA-030001",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Explicit provider realization lifecycle"
+      },
+      "claim": "DRAFT→TESTING→PROMOTED, rediscovery, degradation and probation are defined in provider vocabulary.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-030001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+            "location": "RealizationStatus",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVEN"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVEN"
+    },
+    {
+      "id": "SA-030002",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Evidence-bearing discovery candidates"
+      },
+      "claim": "Inference derives candidates from an ApplicationGraph, requires evidence and persists them before promotion.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-030002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/discovery-inference/src/index.ts",
+            "location": "discovery.infer@1",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVEN"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVEN"
+    },
+    {
+      "id": "SA-030003",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Declarative discovery mapping"
+      },
+      "claim": "Mapping consumes manifests/blueprints as data and does not import pack code.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-030003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/discovery-mapping/src/index.ts",
+            "location": "loadBlueprint / solveMapping",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVEN"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVEN"
+    },
+    {
+      "id": "SA-030004",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Distributed provider knowledge"
+      },
+      "claim": "Provider knowledge is spread across manifests, observations, candidates, mappings, parsers and realization rows.",
+      "status": "OBSERVED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-030004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/discovery-inference/src/index.ts",
+            "location": "candidate/evidence graph",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "OBSERVED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "REQUIRES-DESIGN"
+      },
+      "unknowns": [
+        "authoritative provider-knowledge query path"
+      ],
+      "conflicts": [],
+      "classification": "REQUIRES-DESIGN"
+    },
+    {
+      "id": "SA-030005",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "ChatGPT-specific live realization"
+      },
+      "claim": "Live descriptor validates providerId=chatgpt and the session schema hardcodes browser/chatgpt live metadata.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-030005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+            "location": "validateLiveSessionDescriptor",
+            "evidence_kind": "implementation"
+          }
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [],
+        "vertical_slices": [],
+        "keystones": []
+      },
+      "program": {
+        "workstreams": [],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROVIDER-SPECIFIC"
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "classification": "PROVIDER-SPECIFIC"
+    },
+    {
+      "id": "SA-040001",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Legacy ChromeGovernor authority"
+      },
+      "claim": "Legacy explicitly makes ChromeGovernor the sole CDP authority and describes one slave per provider account.",
+      "status": "VERIFIED",
+      "classification": "LEGACY-ONLY",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-040001",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+            "location": "Governor Canon",
+            "evidence_kind": "documentation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-040002",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Ω plugin-local CDP"
+      },
+      "claim": "Current provider-browser contains LocalCdpClient and accepts a local debugPort rather than a shared governor.",
+      "status": "VERIFIED",
+      "classification": "IMPLEMENTED-BUT-STRUCTURALLY-WEAK",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-040002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+            "location": "LocalCdpClient",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-040003",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Session lacks account/profile/process ownership"
+      },
+      "claim": "SessionRecord has browser/archetype/parser/capture/status/live debugPort, but no account, profile, process, tab, lock or lease.",
+      "status": "VERIFIED",
+      "classification": "BOUNDARY-CRITICAL",
+      "unknowns": [
+        "account binding",
+        "profile/process ownership",
+        "expiry/reconnect"
+      ],
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-040003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+            "location": "SessionRecord",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-040004",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Target selection is opportunistic"
+      },
+      "claim": "Live CDP selects an existing ChatGPT page, another page, or creates a target.",
+      "status": "VERIFIED",
+      "classification": "IMPLEMENTED-BUT-STRUCTURALLY-WEAK",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-040004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+            "location": "Target.getTargets / target selection",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-040005",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Resource lifecycle remains experimentally unknown"
+      },
+      "claim": "No examined current Ω path proves master/slave fleet, idle eviction, lock isolation or crash cleanup.",
+      "status": "OBSERVED",
+      "classification": "REQUIRES-EXPERIMENT",
+      "unknowns": [
+        "concurrency",
+        "crash cleanup",
+        "resource release"
+      ],
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-040005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+            "location": "LocalCdpClient lifecycle",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-050001",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Manifest/Recipe composition is declarative"
+      },
+      "claim": "Manifests declare contributions/dependencies/capabilities while signed Recipe grants composition membership.",
+      "status": "VERIFIED",
+      "classification": "PROVEN",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-050001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/plugin.json",
+            "location": "manifest/dependencies",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-050002",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Cross-plugin access is port-governed"
+      },
+      "claim": "Provider-browser and discovery consume vault/law/credential services through ports.",
+      "status": "VERIFIED",
+      "classification": "PROVEN",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-050002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+            "location": "portCall",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-050003",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Existing contract-family variation is composable"
+      },
+      "claim": "A new plugin or realization inside an existing contract family can be composed without host redesign.",
+      "status": "OBSERVED",
+      "classification": "COMPOSABLE",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-050003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+            "location": "CompositionEntry",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-050004",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "New semantic runtime contracts require core contract work"
+      },
+      "claim": "Recipe grants reference contracts; a genuinely new cross-plugin protocol is not created by composition alone.",
+      "status": "OBSERVED",
+      "classification": "REQUIRES-CORE-CHANGE",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-050004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+            "location": "grant.contracts",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-050005",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Forge is constrained reprogrammability"
+      },
+      "claim": "forge-author emits scratch proposals and ledger rows but refuses signing, grants and composition membership.",
+      "status": "VERIFIED",
+      "classification": "PROVEN",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-050005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/forge-author/src/index.ts",
+            "location": "authorInit",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-060001",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Machine-readable self-description exists"
+      },
+      "claim": "Ω contracts expose lifecycle, provider, parser, intent, surface and composition vocabularies.",
+      "status": "VERIFIED",
+      "classification": "PROVEN",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-060001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/index.ts",
+            "location": "exports",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-060002",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Runtime-readable self views exist"
+      },
+      "claim": "Kernel lens exposes graph/audit reads and mind derives a read-only WorldModel.",
+      "status": "VERIFIED",
+      "classification": "PROVEN",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-060002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/lifecycle.ts",
+            "location": "graphSnapshot / auditChain",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-060003",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Self-knowledge is distributed and derived"
+      },
+      "claim": "No single self-description is canonical across manifests, current vault state, audit history, WorldModel and destination docs.",
+      "status": "OBSERVED",
+      "classification": "STRUCTURALLY-WEAK",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-060003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/vivim-mind/plugin.json",
+            "location": "WorldModel",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-060004",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Evidence-backed knowledge is actionable"
+      },
+      "claim": "Discovery evidence, realization promotion, parser pins and Forge proposal rows turn selected knowledge into gated behavior.",
+      "status": "VERIFIED",
+      "classification": "PROVEN",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-060004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/discovery-inference/src/index.ts",
+            "location": "evidence invariant",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-060005",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "General freshness is missing"
+      },
+      "claim": "Provider realization can degrade, but no generalized stale-knowledge protocol spans runtime/product/data.",
+      "status": "OBSERVED",
+      "classification": "MISSING",
+      "unknowns": [
+        "general freshness model"
+      ],
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-060005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+            "location": "RealizationStatus",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-070001",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Legacy capability routing pipeline"
+      },
+      "claim": "Legacy connects natural-language interpretation, capability resolution, provider routing and execution.",
+      "status": "VERIFIED",
+      "classification": "LEGACY-ONLY",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-070001",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+            "location": "Data Flow",
+            "evidence_kind": "documentation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-070002",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Legacy browser operations are broader"
+      },
+      "claim": "Governor resilience, watchdog, setup, CDP discovery, selector healing/refinement/cache and browser automation exist.",
+      "status": "VERIFIED",
+      "classification": "LEGACY-ONLY",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-070002",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "vivim-original-baseline/vivim-final-enhanced/src/engines",
+            "location": "browser machinery inventory",
+            "evidence_kind": "documentation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-070003",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Legacy conversation continuity is broad"
+      },
+      "claim": "Conversation manager, history sync, organizer, stream block store, message identity and provider conversation adapter exist.",
+      "status": "VERIFIED",
+      "classification": "LEGACY-ONLY",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-070003",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "vivim-original-baseline/vivim-final-enhanced/src/engines",
+            "location": "conversation machinery",
+            "evidence_kind": "documentation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-070004",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Legacy surface behavior is richer"
+      },
+      "claim": "Adaptive workspace, workspace presets and canvas-layer mounting provide concrete product behavior.",
+      "status": "VERIFIED",
+      "classification": "LEGACY-ONLY",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-070004",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "vivim-original-baseline/vivim-final-enhanced/src/engines",
+            "location": "workspace/canvas inventory",
+            "evidence_kind": "documentation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-070005",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Legacy background and exit machinery is concrete"
+      },
+      "claim": "Scheduler, workflows, automation, task history, autonomous execution, export, backup and relocation provide behavioral evidence for continuity and exit.",
+      "status": "VERIFIED",
+      "classification": "LEGACY-ONLY",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-070005",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "vivim-original-baseline/vivim-final-enhanced/src/engines",
+            "location": "scheduler/workflow/export inventory",
+            "evidence_kind": "documentation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-080001",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Provider↔Account is incomplete"
+      },
+      "claim": "Legacy has ProviderAccount; current Ω realization/session contracts do not provide an equivalent canonical authenticated relationship.",
+      "status": "OBSERVED",
+      "classification": "MISSING",
+      "lineage": [
+        "LEGACY-VIVIM",
+        "BCP-OMEGA"
+      ],
+      "unknowns": [
+        "canonical account identity",
+        "selection lifecycle"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-080001",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+            "location": "ProviderAccount",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-080002",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Account↔Session identity is absent"
+      },
+      "claim": "Current SessionRecord carries no account reference.",
+      "status": "VERIFIED",
+      "classification": "STRUCTURALLY-WEAK",
+      "unknowns": [
+        "account binding",
+        "expiry/reconnect"
+      ],
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-080002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+            "location": "SessionRecord",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-080003",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Session↔Browser ownership is weak"
+      },
+      "claim": "DebugPort and opportunistic target selection do not prove profile/process/tab ownership.",
+      "status": "VERIFIED",
+      "classification": "BOUNDARY-CRITICAL",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-080003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+            "location": "LocalCdpClient.connect",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-080004",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Work↔Evidence is semantically incomplete"
+      },
+      "claim": "Run/director/watch/liveness and vault evidence exist, but no single durable Work lifecycle defines checkpoint/continuation/attention.",
+      "status": "OBSERVED",
+      "classification": "REQUIRES-DESIGN",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-080004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/vivim-run/plugin.json",
+            "location": "run/exec/watch/budget/context",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SA-080005",
+      "subject": {
+        "kind": "structural-finding",
+        "name": "Vault↔World is a projection boundary with identity gaps"
+      },
+      "claim": "mind is evidence-derived, but relationship authority and domain breadth remain open.",
+      "status": "OBSERVED",
+      "classification": "REQUIRES-DESIGN",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-SA-080005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/vivim-mind/plugin.json",
+            "location": "WorldModel",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    }
+  ]
+}
