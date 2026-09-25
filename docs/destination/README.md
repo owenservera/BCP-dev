@@ -76,5 +76,10 @@ The repository already contains much of the machinery. The remaining challenge i
 
 ## New cross-cutting destination control
 
+## Core / plugin boundary criterion
+
+`CORE-VS-PLUGIN-BOUNDARY-DISTILLATION.md` is the development criterion for deciding what is irreducible Ω Core, what is shared contract vocabulary, and what remains a system or extension plugin. It must be applied before substantive implementation.
+
+
 - `EVOLUTION-RECONCILIATION.md` — initial design for governed semantic evolution, reconciliation, self-maintenance, and self-extension.
 - `evolution/` — dedicated research package to be completed before production implementation of the deeper evolutionary model.
