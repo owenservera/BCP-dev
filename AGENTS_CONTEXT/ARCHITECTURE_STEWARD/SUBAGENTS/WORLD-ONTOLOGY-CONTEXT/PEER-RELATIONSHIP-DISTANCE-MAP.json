@@ -1,0 +1,720 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "cfa01.peer-relationship-distance-map",
+  "title": "CFA-01 World / Ontology / Context — Peer Relationship & Distance Map",
+  "status": "WORKING / SELF-AUTHORED / CFA-01 PERSPECTIVE",
+  "generated_on": "2026-09-25",
+  "perspective": "world-ontology-context",
+  "purpose": "A machine-readable map of how CFA-01 relates to the Architecture Steward and the other registered Core Function Areas: what CFA-01 needs from each peer, what the peer is likely to need from CFA-01, where the semantic/operational seams are close, and where boundary collision is most likely.",
+  "epistemic_notice": {
+    "peer_roles": "Observed from the repository roster and peer bootstrap/identity documents.",
+    "relationship_scores": "CFA-01's own derived assessment, not a peer-authored claim.",
+    "peer_likely_need": "Inference from each peer's documented mission/boundary; must be confirmed through peer dialogue.",
+    "distance": "Analytical aid only; not a maturity, priority, quality, or authority score."
+  },
+  "taxonomy": {
+    "relationship_classes": [
+      [
+        "ARCHITECTURAL-LENS",
+        "The Steward provides the map/reconciliation machinery through which CFA-01's meaning becomes development-legible."
+      ],
+      [
+        "CANONICAL-DATA-SEAM",
+        "Peer owns durable representation/identity mechanics while CFA-01 supplies what the represented thing means."
+      ],
+      [
+        "SEMANTIC-CROSSWALK",
+        "Peer preserves meaning continuity across another semantic chain; CFA-01 supplies World/Thing/Context references that ground it."
+      ],
+      [
+        "AUTHORITY-GUARDRAIL",
+        "Peer decides permission semantics; CFA-01 supplies the world objects/effects that authority acts upon without becoming permission."
+      ],
+      [
+        "CAUSAL-REALIZATION-CHAIN",
+        "Peer turns intent into Work/execution; CFA-01 supplies addressable world targets, context, and semantic effects."
+      ],
+      [
+        "EXTERNALIZATION-REALIZATION",
+        "Peer realizes capabilities against external providers/resources; CFA-01 defines the world-facing semantic targets and their context."
+      ],
+      [
+        "COMPOSITIONAL-CONTEXT",
+        "Peer assembles pieces; CFA-01 defines the world/context in which those pieces are meaningful and connected."
+      ],
+      [
+        "PROJECTION-EXPERIENCE",
+        "Peer renders/manipulates experience; CFA-01 owns the canonical semantics being represented, not the representation."
+      ],
+      [
+        "TEMPORAL-EVOLUTION",
+        "Peer changes the system; CFA-01 identifies which world meanings, identities, relationships, and contexts must survive change."
+      ],
+      [
+        "CONSTITUTIONAL-SUBSTRATE",
+        "Peer enforces irreducible runtime guarantees; CFA-01 supplies semantics but must not smuggle domain ontology into K0."
+      ]
+    ],
+    "scoring": {
+      "scale": "0-10",
+      "definitions": {
+        "semantic_overlap": "0 = largely disjoint concepts; 10 = same conceptual substrate.",
+        "causal_dependency": "0 = CFA-01 can close its work independently; 10 = closure repeatedly depends on peer semantics/contracts.",
+        "handoff_density": "0 = rare reference; 10 = recurring negotiated exchange is expected.",
+        "shared_vocabulary": "0 = little shared terminology; 10 = substantial common vocabulary.",
+        "peer_evidence_value": "0 = peer output is peripheral; 10 = peer output is a critical basis for CFA-01 work.",
+        "peer_likely_need": "0 = peer can normally proceed without CFA-01; 10 = peer likely requires CFA-01 semantic outputs to stay coherent.",
+        "replacement_sensitivity": "0 = peer changes rarely affect World semantics; 10 = peer evolution can materially change World meaning or continuity.",
+        "boundary_collision_risk": "0 = crisp seam; 10 = strong temptation to duplicate ownership."
+      },
+      "distance_formula": {
+        "proximity_index": "weighted average of semantic_overlap, causal_dependency, handoff_density, shared_vocabulary, peer_evidence_value, peer_likely_need, replacement_sensitivity",
+        "weights": {
+          "semantic_overlap": 0.25,
+          "causal_dependency": 0.2,
+          "handoff_density": 0.15,
+          "shared_vocabulary": 0.1,
+          "peer_evidence_value": 0.1,
+          "peer_likely_need": 0.1,
+          "replacement_sensitivity": 0.1
+        },
+        "distance": "(10 - proximity_index) * 10",
+        "bands": {
+          "0-20": "IMMEDIATE — daily/structural neighbor; shared boundary must stay explicit.",
+          "21-35": "NEAR — strong recurring seam; handoffs should be designed, not improvised.",
+          "36-50": "CONNECTED — meaningful dependency, but different core questions.",
+          "51-65": "DISTANT — indirect dependency; coordination mostly through contracts/views.",
+          "66-100": "REMOTE — weak direct coupling; avoid forcing a relationship."
+        }
+      }
+    }
+  },
+  "subject": {
+    "agent_id": "world-ontology-context",
+    "cfa": "CFA-01",
+    "name": "World / Ontology / Context",
+    "status": "BOOTSTRAP / ACTIVE PROVISIONAL",
+    "current_core_spine": [
+      "World",
+      "Thing/Object",
+      "Relationship",
+      "Semantic Identity/Correspondence",
+      "Space",
+      "Addressability",
+      "World Projection",
+      "Context"
+    ],
+    "explicit_non_scope": [
+      "canonical persistence mechanics",
+      "runtime context assembly implementation",
+      "law/consent",
+      "Work execution",
+      "provider/browser realization",
+      "surface rendering",
+      "workspace UI",
+      "Architecture Steward graph ownership"
+    ]
+  },
+  "agents": {
+    "architecture-steward": {
+      "role": "Architectural memory, documentation integrity, reconciliation and coordination",
+      "registry_status": "ratified",
+      "relationship_classes": [
+        "ARCHITECTURAL-LENS"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/AGENT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OWNERSHIP-MAP.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OPERATING-INTERPRETATION.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+      ],
+      "what_i_need_from_peer": [
+        "A current architecture graph and ownership/reconciliation model.",
+        "Explicit status/freshness/lineage machinery so World claims are mapped without becoming graph authority.",
+        "A place to surface cross-agent dependencies, contradictions and boundary changes."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "World/ontology responsibility nodes and semantically meaningful edges.",
+        "Clear distinctions among canonical World meaning, projection, Context, Space, Address and Relationship.",
+        "Material changes in World semantics, ownership or open questions that should trigger graph repull."
+      ],
+      "primary_seam": "world meaning ↔ architecture mapping",
+      "handoff_artifacts": [
+        "responsibility/ownership updates",
+        "traceable world semantic crosswalks",
+        "open-question/boundary-change records"
+      ],
+      "authority_boundary": "Steward owns architecture mapping/reconciliation; CFA-01 owns World-domain meaning within its ratified scope.",
+      "scores": {
+        "semantic_overlap": 7,
+        "causal_dependency": 9,
+        "handoff_density": 9,
+        "shared_vocabulary": 10,
+        "peer_evidence_value": 10,
+        "peer_likely_need": 10,
+        "replacement_sensitivity": 8,
+        "boundary_collision_risk": 5,
+        "proximity_index": 8.7,
+        "distance": 13,
+        "distance_band": "IMMEDIATE"
+      }
+    },
+    "data-model": {
+      "role": "Data / Identity / Persistence",
+      "registry_status": "bootstrap-ready",
+      "relationship_classes": [
+        "CANONICAL-DATA-SEAM"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD/LAUNCH-PROMPT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+      ],
+      "what_i_need_from_peer": [
+        "Canonical record/persistence boundaries for Things, Relationships, identity assertions, lifecycle state and World-relevant data.",
+        "Stable identity/revision semantics that let a World meaning survive storage evolution.",
+        "A strict distinction between semantic object meaning and storage representation."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "Semantic type/relationship definitions that tell persistence what a record means.",
+        "Lifecycle semantics for objects and relationships, including tombstone/history distinctions.",
+        "Rules for which World concepts are canonical records versus projections/context."
+      ],
+      "primary_seam": "semantic object meaning ↔ durable representation/identity",
+      "handoff_artifacts": [
+        "object/relationship semantic definitions",
+        "identity/correspondence cases",
+        "record-vs-projection classification",
+        "World lifecycle rules"
+      ],
+      "authority_boundary": "CFA-02 owns canonical data representation/identity/persistence mechanics; CFA-01 owns meaning of World objects/relationships.",
+      "scores": {
+        "semantic_overlap": 9,
+        "causal_dependency": 10,
+        "handoff_density": 10,
+        "shared_vocabulary": 10,
+        "peer_evidence_value": 10,
+        "peer_likely_need": 10,
+        "replacement_sensitivity": 9,
+        "boundary_collision_risk": 8,
+        "proximity_index": 9.65,
+        "distance": 3,
+        "distance_band": "IMMEDIATE"
+      }
+    },
+    "semantic-continuity": {
+      "role": "Semantic continuity across self-knowledge, language, command, intent, execution meaning, evidence and representation",
+      "registry_status": "ratified",
+      "relationship_classes": [
+        "SEMANTIC-CROSSWALK"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/CORE-AGENT-IDENTITY.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/LAUNCH-PROMPT.md"
+      ],
+      "what_i_need_from_peer": [
+        "Cross-plane semantic tracing so World terms retain meaning as they move into grounding, Intent, Work, Evidence and representation.",
+        "A challenge mechanism for terminology collisions and false equivalence between representation and canonical World meaning.",
+        "A maintained semantic crosswalk rather than a second ontology."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "Canonical World references for grounding natural-language commands.",
+        "Context semantics and addressability so semantic interpretation can point to actual Things/Spaces/Relationships.",
+        "Clear separation between a World fact, a projection of it, and an interpreted command about it."
+      ],
+      "primary_seam": "world semantics ↔ cross-plane semantic continuity",
+      "handoff_artifacts": [
+        "World term definitions",
+        "canonical World reference forms",
+        "Context contracts",
+        "semantic contradiction/ambiguity cases"
+      ],
+      "authority_boundary": "CFA-03 stewards continuity across planes; CFA-01 owns World-domain semantics.",
+      "scores": {
+        "semantic_overlap": 9,
+        "causal_dependency": 9,
+        "handoff_density": 9,
+        "shared_vocabulary": 10,
+        "peer_evidence_value": 9,
+        "peer_likely_need": 10,
+        "replacement_sensitivity": 8,
+        "boundary_collision_risk": 7,
+        "proximity_index": 9.1,
+        "distance": 9,
+        "distance_band": "IMMEDIATE"
+      }
+    },
+    "authority-governance": {
+      "role": "Authority / Governance",
+      "registry_status": "bootstrap-ready",
+      "relationship_classes": [
+        "AUTHORITY-GUARDRAIL"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE/BOOTSTRAP-DESIGN-PROPOSAL.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE/LAUNCH-PROMPT.md"
+      ],
+      "what_i_need_from_peer": [
+        "A hard separation between what exists/is targeted in the World and what is permitted to be done to it.",
+        "Authority-facing semantics for principal, requested effect, scope and risk.",
+        "Rules preventing a World assertion from being mistaken for permission."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "Semantically precise effect targets: which Thing/Relationship/Resource is being acted upon.",
+        "World scope and context needed to interpret authority boundaries.",
+        "Identity/correspondence meaning for resolving the object or principal being referenced without owning identity storage."
+      ],
+      "primary_seam": "world target/effect semantics ↔ permission semantics",
+      "handoff_artifacts": [
+        "addressable effect targets",
+        "World scope/context descriptors",
+        "identity/correspondence references",
+        "world-state observations that do not imply authority"
+      ],
+      "authority_boundary": "CFA-04 owns authorization semantics; CFA-01 must never infer permission from existence, relationship, intent, or evidence.",
+      "scores": {
+        "semantic_overlap": 6,
+        "causal_dependency": 8,
+        "handoff_density": 8,
+        "shared_vocabulary": 8,
+        "peer_evidence_value": 9,
+        "peer_likely_need": 8,
+        "replacement_sensitivity": 7,
+        "boundary_collision_risk": 6,
+        "proximity_index": 7.5,
+        "distance": 25,
+        "distance_band": "NEAR"
+      }
+    },
+    "agency-work-execution": {
+      "role": "Agency / Work / Execution",
+      "registry_status": "bootstrap-ready",
+      "relationship_classes": [
+        "CAUSAL-REALIZATION-CHAIN"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AGENCY-WORK-EXECUTION/LAUNCH-PROMPT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+      ],
+      "what_i_need_from_peer": [
+        "A clear model of how Work/Outcome/execution mutations become changes to World without collapsing Work into World.",
+        "Attribution and recovery semantics that let World reflect what actually happened versus what was intended.",
+        "A durable handoff for unknown external effects and reconciliation."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "Addressable World targets and typed object/relationship semantics.",
+        "Context relevant to a Work instance.",
+        "Rules for distinguishing intended World change, observed change, projection and unresolved state."
+      ],
+      "primary_seam": "World state ↔ Work/execution causal change",
+      "handoff_artifacts": [
+        "World target references",
+        "preconditions/context",
+        "postcondition projections",
+        "reconciliation cases"
+      ],
+      "authority_boundary": "CFA-05 owns Work/execution semantics; CFA-01 owns the meaning of resulting World state.",
+      "scores": {
+        "semantic_overlap": 7,
+        "causal_dependency": 8,
+        "handoff_density": 8,
+        "shared_vocabulary": 8,
+        "peer_evidence_value": 9,
+        "peer_likely_need": 9,
+        "replacement_sensitivity": 8,
+        "boundary_collision_risk": 6,
+        "proximity_index": 7.95,
+        "distance": 21,
+        "distance_band": "NEAR"
+      }
+    },
+    "capability-provider-realization": {
+      "role": "Capability / Provider / Realization",
+      "registry_status": "bootstrap-ready",
+      "relationship_classes": [
+        "EXTERNALIZATION-REALIZATION"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION/LAUNCH-PROMPT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+      ],
+      "what_i_need_from_peer": [
+        "A stable statement of what external capability/realization boundaries are visible to the World.",
+        "Separation among provider, account, session and external resource so World objects are not polluted by realization mechanics.",
+        "Knowledge of which provider-side identities are merely correspondences, not VIVIM identity."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "World entities/resources that a capability is intended to address.",
+        "Context needed to choose the right realization or route.",
+        "Semantic consequences of external actions, independent of browser/provider mechanics."
+      ],
+      "primary_seam": "canonical World target ↔ external realization",
+      "handoff_artifacts": [
+        "external-to-world correspondence cases",
+        "target object contracts",
+        "resource meaning",
+        "context constraints"
+      ],
+      "authority_boundary": "CFA-06 owns capability/provider/realization semantics; CFA-01 owns what those realizations act upon in the World.",
+      "scores": {
+        "semantic_overlap": 6,
+        "causal_dependency": 7,
+        "handoff_density": 7,
+        "shared_vocabulary": 7,
+        "peer_evidence_value": 8,
+        "peer_likely_need": 9,
+        "replacement_sensitivity": 8,
+        "boundary_collision_risk": 6,
+        "proximity_index": 7.15,
+        "distance": 28,
+        "distance_band": "NEAR"
+      }
+    },
+    "composition-plugin-forge": {
+      "role": "Composition / Plugin / Forge",
+      "registry_status": "bootstrap-ready",
+      "relationship_classes": [
+        "COMPOSITIONAL-CONTEXT"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/COMPOSITION-PLUGIN-FORGE/LAUNCH-PROMPT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+      ],
+      "what_i_need_from_peer": [
+        "A way to represent compositions/plugins as meaningful parts of the environment without making the World an implementation registry.",
+        "Clarity on which plugin/composition objects are World things versus runtime mechanics.",
+        "Boundaries that stop compositions from silently becoming ontology or persistence authority."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "World meaning for objects/capabilities a composition assembles.",
+        "Semantic context for where a composition is useful and which Things/Spaces it touches.",
+        "Object/relationship identity semantics that keep first-party and user-created pieces addressable in the same environment."
+      ],
+      "primary_seam": "composed environment ↔ world meaning",
+      "handoff_artifacts": [
+        "composition-facing object types",
+        "semantic relationship cases",
+        "Space/context bindings",
+        "identity/reference rules"
+      ],
+      "authority_boundary": "CFA-07 owns composition/plugin/Forge semantics; CFA-01 owns the World-domain meaning in which compositions participate.",
+      "scores": {
+        "semantic_overlap": 7,
+        "causal_dependency": 7,
+        "handoff_density": 7,
+        "shared_vocabulary": 8,
+        "peer_evidence_value": 8,
+        "peer_likely_need": 9,
+        "replacement_sensitivity": 8,
+        "boundary_collision_risk": 6,
+        "proximity_index": 7.5,
+        "distance": 25,
+        "distance_band": "NEAR"
+      }
+    },
+    "experience-interaction-surfaces": {
+      "role": "Experience / Interaction / Surfaces",
+      "registry_status": "bootstrap-ready",
+      "relationship_classes": [
+        "PROJECTION-EXPERIENCE"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/LAUNCH-PROMPT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+      ],
+      "what_i_need_from_peer": [
+        "A strict projection boundary so surface/canvas/layout never becomes canonical World state.",
+        "Experience semantics for attention, focus, Space, Address and representation that do not rewrite World meaning.",
+        "A way to express uncertainty/unknown/conflict in user-facing representations without fabricating certainty."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "Canonical World objects/relationships/spaces to represent.",
+        "Addressability semantics for direct manipulation and navigation.",
+        "Rules for when a surface change means World mutation versus merely changing presentation."
+      ],
+      "primary_seam": "canonical World ↔ user-facing projection/manipulation",
+      "handoff_artifacts": [
+        "projection contracts",
+        "address forms",
+        "Space/Context semantics",
+        "representation-vs-canonical distinctions"
+      ],
+      "authority_boundary": "CFA-08 owns experience/surface realization; CFA-01 owns canonical World meaning.",
+      "scores": {
+        "semantic_overlap": 8,
+        "causal_dependency": 6,
+        "handoff_density": 7,
+        "shared_vocabulary": 9,
+        "peer_evidence_value": 9,
+        "peer_likely_need": 10,
+        "replacement_sensitivity": 7,
+        "boundary_collision_risk": 7,
+        "proximity_index": 7.75,
+        "distance": 23,
+        "distance_band": "NEAR"
+      }
+    },
+    "evolution-compatibility-self-maintenance": {
+      "role": "Evolution / Compatibility / Self-Maintenance",
+      "registry_status": "bootstrap-ready",
+      "relationship_classes": [
+        "TEMPORAL-EVOLUTION"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE/LAUNCH-PROMPT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+      ],
+      "what_i_need_from_peer": [
+        "Compatibility/evolution semantics for object identity, relationships, context definitions and world projections.",
+        "Migration/replacement rules that preserve World meaning even when implementations change.",
+        "A place to express when an evolution event changes semantics versus only representation/storage."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "A precise statement of what must remain semantically stable through change.",
+        "Identity/correspondence invariants and relationship history that evolution cannot silently break.",
+        "World/Context impact boundaries for migration, replacement, repair and retirement."
+      ],
+      "primary_seam": "semantic continuity of World ↔ system evolution",
+      "handoff_artifacts": [
+        "semantic invariants",
+        "identity/relationship compatibility cases",
+        "World-impact analysis",
+        "Context compatibility rules"
+      ],
+      "authority_boundary": "CFA-09 owns evolution/compatibility/self-maintenance; CFA-01 owns World semantics and survival invariants.",
+      "scores": {
+        "semantic_overlap": 8,
+        "causal_dependency": 8,
+        "handoff_density": 8,
+        "shared_vocabulary": 9,
+        "peer_evidence_value": 9,
+        "peer_likely_need": 9,
+        "replacement_sensitivity": 10,
+        "boundary_collision_risk": 7,
+        "proximity_index": 8.5,
+        "distance": 15,
+        "distance_band": "IMMEDIATE"
+      }
+    },
+    "runtime-constitution-core-substrate": {
+      "role": "Runtime Constitution / Core Substrate",
+      "registry_status": "bootstrap-ready",
+      "relationship_classes": [
+        "CONSTITUTIONAL-SUBSTRATE"
+      ],
+      "primary_basis": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE/LAUNCH-PROMPT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+      ],
+      "what_i_need_from_peer": [
+        "Knowable runtime guarantees and limits: context assembly, identity/revision/event substrate, admission, isolation, activation/recovery, without having to redefine World ontology inside K0.",
+        "Clear seams showing which World semantics are data/contract versus constitutional runtime mechanism."
+      ],
+      "what_peer_likely_needs_from_me": [
+        "Domain-neutral semantic boundaries that tell K0 what it must not assume.",
+        "A clear distinction between World-domain meaning and runtime substrate concepts.",
+        "Context semantics that K0 can treat opaquely except where a contract explicitly requires it."
+      ],
+      "primary_seam": "World semantics ↔ constitutional substrate constraints",
+      "handoff_artifacts": [
+        "domain-neutral semantic contracts",
+        "context boundary requirements",
+        "K0/K1 placement disputes involving World concepts",
+        "falsifiers for ontology leakage"
+      ],
+      "authority_boundary": "CFA-10 owns irreducible runtime guarantees; CFA-01 owns World semantics and must resist ontology leaking into K0.",
+      "scores": {
+        "semantic_overlap": 6,
+        "causal_dependency": 7,
+        "handoff_density": 7,
+        "shared_vocabulary": 8,
+        "peer_evidence_value": 9,
+        "peer_likely_need": 8,
+        "replacement_sensitivity": 9,
+        "boundary_collision_risk": 8,
+        "proximity_index": 7.35,
+        "distance": 27,
+        "distance_band": "NEAR"
+      }
+    }
+  },
+  "relationship_matrix_cfa01_to_peers": {
+    "architecture-steward": {
+      "distance": 13,
+      "semantic_overlap": 7,
+      "causal_dependency": 9,
+      "handoff_density": 9,
+      "shared_vocabulary": 10,
+      "peer_evidence_value": 10,
+      "peer_likely_need": 10,
+      "replacement_sensitivity": 8,
+      "boundary_collision_risk": 5
+    },
+    "data-model": {
+      "distance": 3,
+      "semantic_overlap": 9,
+      "causal_dependency": 10,
+      "handoff_density": 10,
+      "shared_vocabulary": 10,
+      "peer_evidence_value": 10,
+      "peer_likely_need": 10,
+      "replacement_sensitivity": 9,
+      "boundary_collision_risk": 8
+    },
+    "semantic-continuity": {
+      "distance": 9,
+      "semantic_overlap": 9,
+      "causal_dependency": 9,
+      "handoff_density": 9,
+      "shared_vocabulary": 10,
+      "peer_evidence_value": 9,
+      "peer_likely_need": 10,
+      "replacement_sensitivity": 8,
+      "boundary_collision_risk": 7
+    },
+    "authority-governance": {
+      "distance": 25,
+      "semantic_overlap": 6,
+      "causal_dependency": 8,
+      "handoff_density": 8,
+      "shared_vocabulary": 8,
+      "peer_evidence_value": 9,
+      "peer_likely_need": 8,
+      "replacement_sensitivity": 7,
+      "boundary_collision_risk": 6
+    },
+    "agency-work-execution": {
+      "distance": 21,
+      "semantic_overlap": 7,
+      "causal_dependency": 8,
+      "handoff_density": 8,
+      "shared_vocabulary": 8,
+      "peer_evidence_value": 9,
+      "peer_likely_need": 9,
+      "replacement_sensitivity": 8,
+      "boundary_collision_risk": 6
+    },
+    "capability-provider-realization": {
+      "distance": 28,
+      "semantic_overlap": 6,
+      "causal_dependency": 7,
+      "handoff_density": 7,
+      "shared_vocabulary": 7,
+      "peer_evidence_value": 8,
+      "peer_likely_need": 9,
+      "replacement_sensitivity": 8,
+      "boundary_collision_risk": 6
+    },
+    "composition-plugin-forge": {
+      "distance": 25,
+      "semantic_overlap": 7,
+      "causal_dependency": 7,
+      "handoff_density": 7,
+      "shared_vocabulary": 8,
+      "peer_evidence_value": 8,
+      "peer_likely_need": 9,
+      "replacement_sensitivity": 8,
+      "boundary_collision_risk": 6
+    },
+    "experience-interaction-surfaces": {
+      "distance": 23,
+      "semantic_overlap": 8,
+      "causal_dependency": 6,
+      "handoff_density": 7,
+      "shared_vocabulary": 9,
+      "peer_evidence_value": 9,
+      "peer_likely_need": 10,
+      "replacement_sensitivity": 7,
+      "boundary_collision_risk": 7
+    },
+    "evolution-compatibility-self-maintenance": {
+      "distance": 15,
+      "semantic_overlap": 8,
+      "causal_dependency": 8,
+      "handoff_density": 8,
+      "shared_vocabulary": 9,
+      "peer_evidence_value": 9,
+      "peer_likely_need": 9,
+      "replacement_sensitivity": 10,
+      "boundary_collision_risk": 7
+    },
+    "runtime-constitution-core-substrate": {
+      "distance": 27,
+      "semantic_overlap": 6,
+      "causal_dependency": 7,
+      "handoff_density": 7,
+      "shared_vocabulary": 8,
+      "peer_evidence_value": 9,
+      "peer_likely_need": 8,
+      "replacement_sensitivity": 9,
+      "boundary_collision_risk": 8
+    }
+  },
+  "crosscutting_patterns": {
+    "closest_relationships_by_distance": [
+      "data-model",
+      "semantic-continuity",
+      "architecture-steward"
+    ],
+    "strong_connected_relationships": [
+      "evolution-compatibility-self-maintenance",
+      "agency-work-execution",
+      "experience-interaction-surfaces"
+    ],
+    "important_but_more_distinct": [
+      "authority-governance",
+      "capability-provider-realization",
+      "composition-plugin-forge",
+      "runtime-constitution-core-substrate"
+    ],
+    "highest_boundary_collision_risk": [
+      "data-model",
+      "runtime-constitution-core-substrate",
+      "semantic-continuity"
+    ],
+    "highest_peer_need_likelihood": [
+      "architecture-steward",
+      "data-model",
+      "semantic-continuity",
+      "experience-interaction-surfaces",
+      "agency-work-execution"
+    ],
+    "strongest_change_coupling": [
+      "evolution-compatibility-self-maintenance",
+      "data-model",
+      "runtime-constitution-core-substrate"
+    ],
+    "most_important_non_equivalence_rules": [
+      "World ≠ Data Store",
+      "World ≠ Graph",
+      "World ≠ Memory",
+      "World ≠ Attention",
+      "World ≠ Intent",
+      "World ≠ Work",
+      "World ≠ Surface",
+      "World ≠ Authority",
+      "External Resource ≠ VIVIM Identity",
+      "Projection ≠ Canonical Meaning",
+      "Context ≠ Memory",
+      "Context ≠ Attention",
+      "Assertion ≠ Authority",
+      "Evidence ≠ World meaning",
+      "Runtime substrate ≠ domain ontology"
+    ]
+  },
+  "operating_implications": {
+    "default_direction": "CFA-01 should behave as a semantic source/consumer at explicit seams, not as a hub that owns neighboring mechanics.",
+    "preferred_handoff_shape": [
+      "target meaning",
+      "semantic identity/reference",
+      "context scope",
+      "known relationships",
+      "status/uncertainty",
+      "source/evidence lineage",
+      "authority owner",
+      "data owner"
+    ],
+    "anti_pattern": "When a peer asks CFA-01 for a generic registry, store, graph, permission flag, UI model, or runtime singleton, first test whether the request is actually a neighboring concern dressed in World terminology.",
+    "peer_dialogue_priority": "Confirm the inferred peer_need scores through Commons or direct bootstrap dialogue before turning any inference into a durable contract.",
+    "distance_interpretation": "High closeness means more frequent semantic coordination, not shared ownership."
+  }
+}
