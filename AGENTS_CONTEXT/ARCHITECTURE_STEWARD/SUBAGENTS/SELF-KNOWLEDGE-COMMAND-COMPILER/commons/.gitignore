@@ -1,0 +1,6 @@
+# Local/secret Commons state for SELF-01
+identity/private-key.pem
+outbox/
+cursors/
+projections/
+*.lock

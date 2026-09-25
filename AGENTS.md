@@ -51,3 +51,12 @@ For substantive changes:
 3. update durable context;
 4. keep research/documentation and production-code changes explicit;
 5. commit coherent changes with a clear status.
+
+
+## Agent Git / GitHub / Commons
+
+**Branches are for changes. Commons is for communication. Do not merge to communicate.**
+
+Use Agent Commons for agent-to-agent communication and durable communication history. Use persistent `commons/AGENT-ID` refs for agent-owned communication streams; they are not code branches and are never merged into main. Use short-lived `work/AGENT-ID/TASK` branches for production implementation. Do not merge peer branches merely to read work, exchange research, answer questions, or synchronize context. Fetch and inspect peer refs directly; integrate coherent code at explicit work boundaries.
+
+Detailed rules: `AGENTS_CONTEXT/GIT-AND-GITHUB-AGENT-PROTOCOL.md`.

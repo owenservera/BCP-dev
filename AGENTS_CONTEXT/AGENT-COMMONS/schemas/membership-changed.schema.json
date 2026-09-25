@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://vivim.live/schemas/agent-commons/membership-changed.schema.json",
+  "title":"Agent Commons membership.changed payload",
+  "type":"object",
+  "required":["conversation_id","subject_agent_id","change","actor_agent_id"],
+  "properties":{
+    "conversation_id":{"type":"string"},
+    "subject_agent_id":{"type":"string"},
+    "change":{"enum":["INVITED","ACCEPTED","DECLINED","LEFT","REMOVED"]},
+    "actor_agent_id":{"type":"string"},
+    "reason":{"type":"string"}
+  },
+  "additionalProperties":false
+}

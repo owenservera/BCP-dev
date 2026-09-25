@@ -1,0 +1,26 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://vivim.live/schemas/agent-commons/conversation-created.schema.json",
+  "title":"Agent Commons conversation.created payload",
+  "type":"object",
+  "required":["conversation_id","type","created_by","initial_members","visibility"],
+  "properties":{
+    "conversation_id":{"type":"string"},
+    "type":{"enum":["PUBLIC","ROOM","DIRECT","BROADCAST"]},
+    "name":{"type":"string"},
+    "purpose":{"type":"string"},
+    "success_criteria":{"type":"array","items":{"type":"string"}},
+    "created_by":{"type":"string"},
+    "initial_members":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "policy":{"type":"object","properties":{
+      "max_members":{"type":"integer","minimum":1},
+      "creator_policy":{"enum":["ANY_AGENT","AUTHORIZED_AGENTS"]},
+      "auto_archive_after":{"type":"string"},
+      "invite_policy":{"enum":["MEMBERS","CREATOR","AUTHORIZED"]},
+      "visibility":{"enum":["PUBLIC","MEMBERS"]}
+    },"additionalProperties":false},
+    "visibility":{"enum":["PUBLIC","ROOM","DIRECTED"]},
+    "expires_at":{"type":["string","null"],"format":"date-time"}
+  },
+  "additionalProperties":false
+}

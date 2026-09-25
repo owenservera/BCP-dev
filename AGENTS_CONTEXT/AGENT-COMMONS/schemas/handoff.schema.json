@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://vivim.live/schemas/agent-commons/handoff.schema.json",
+  "title":"Agent Commons handoff payload",
+  "type":"object",
+  "required":["handoff_id","from","to","subject","context","known","unknown","conflicts","questions","requested_action","references"],
+  "properties":{
+    "handoff_id":{"type":"string"},
+    "from":{"type":"string"},
+    "to":{"type":"string"},
+    "subject":{"type":"string"},
+    "context":{"type":"string"},
+    "known":{"type":"array","items":{"type":"string"}},
+    "unknown":{"type":"array","items":{"type":"string"}},
+    "conflicts":{"type":"array","items":{"type":"string"}},
+    "questions":{"type":"array","items":{"type":"string"}},
+    "requested_action":{"type":"string"},
+    "references":{"type":"array","items":{"type":"object"}}
+  },
+  "additionalProperties":false
+}

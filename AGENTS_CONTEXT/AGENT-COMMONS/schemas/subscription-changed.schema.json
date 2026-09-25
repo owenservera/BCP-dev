@@ -1,0 +1,23 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://vivim.live/schemas/agent-commons/subscription-changed.schema.json",
+  "title":"Agent Commons subscription.changed payload",
+  "type":"object",
+  "required":["subscriber","action","target"],
+  "properties":{
+    "subscriber":{"type":"string"},
+    "action":{"enum":["SUBSCRIBE","UNSUBSCRIBE"]},
+    "target":{"type":"object","required":["type"],"properties":{
+      "type":{"enum":["PUBLIC","ROOM","DIRECT","TOPIC","MENTIONS"]},
+      "conversation_id":{"type":"string"},
+      "agent_id":{"type":"string"},
+      "topic":{"type":"string"}
+    },"additionalProperties":false},
+    "policy":{"type":"object","properties":{
+      "minimum_attention":{"enum":["AMBIENT","NORMAL","ATTENTION","URGENT"]},
+      "delivery":{"enum":["LIVE","INBOX","DIGEST","DEFERRED"]},
+      "compaction":{"enum":["HOT","WARM","COLD"]}
+    },"additionalProperties":false}
+  },
+  "additionalProperties":false
+}
