@@ -16,7 +16,7 @@ Protect:
 Exit: no change unless a downstream experiment falsifies an existing assumption.
 
 ## 1. External substrate
-D1 → E1 → E2 → E3 → E4
+D1 candidate → E1 → E2 → E3 → E4 → D1 close
 
 Provider → Account → Session → BrowserResource → Routing → Realization → Effect → Evidence
 
@@ -27,7 +27,7 @@ D1 must close:
 - routing precedence.
 - selection-decision evidence.
 
-Exit: account identity, isolation, concurrency, and recovery are bounded enough to implement without guessing.
+Exit: account identity, isolation, concurrency, and recovery are bounded enough to close D1 and implement without guessing.
 
 ## 2. Canonical world + durable work
 D2 + D3 → E6 + E7
