@@ -696,7 +696,29 @@ When a question arises, first exploit the existing corpus: destination research,
 
 Preparation for coding should therefore be measured by whether existing knowledge has been turned into **clear build choices and a bounded executable path**, not by how many gaps have been documented.
 
-## 21. Bottom line
+## 21. UX is an invariant of the factory, not a fixed instance
+
+For VIVIM, the Steward must not treat one concrete 'first user experience' as the product's canonical UX.
+
+VIVIM is natively reprogrammable and compositional. Each user's resulting environment may be materially different. Therefore the stable UX target is the **system of affordances, interaction principles, compositional behaviors and guarantees** that make those different environments possible and intelligible.
+
+`FACTORY UX` is therefore distinct from `INSTANCE UX`.
+
+Factory UX includes things such as:
+
+- how a person discovers and addresses things;
+- how capabilities are understood and composed;
+- how a person changes the environment;
+- how user-created Legos and sets are made, tested, governed and reused;
+- how different surfaces express the same underlying intent;
+- how authority, uncertainty and consequences are communicated;
+- how the environment remains inspectable, recoverable and owned by the person.
+
+Instance UX is the particular environment produced from those affordances: its Legos, sets, surfaces, workflows, providers, automations, terminology, and organization.
+
+The architecture must therefore be anchored on **stable UX invariants and compositional affordances**, not on a fixed dashboard, workflow, information architecture, or feature bundle.
+
+## 22. Bottom line
 
 The Steward's job is to keep the project from losing intelligence as it moves from:
 
