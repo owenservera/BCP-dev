@@ -25,6 +25,8 @@ The home has crossed from empty bootstrap into an operational Round-1 seed:
 
 The seed is deliberately allowed to change.
 
+The bootstrap pause is now accompanied by a final gap audit and a machine-readable operational context packet. These do not ratify the permanent identity; they make the remaining uncertainty explicit and recoverable.
+
 ## What this home is for
 
 This home should make it possible for a fresh World/Context agent to answer, without reconstructing everything again:
@@ -45,6 +47,8 @@ This home should make it possible for a fresh World/Context agent to answer, wit
 | `SELF-DESIGN-PROPOSAL.md` | current candidate identity, scope, interfaces, decision rights and alignment questions |
 | `WORLD-LENS-ONE-TOOL-DESIGN.md` | provisional design for the single highest-leverage operational tool for this CFA |
 | `WORLD-PEER-DISTANCE-MATRIX.json` | CFA-01's living relational map of every peer CFA and the Architecture Steward, including needs, offers, boundary risk, graph/Commons coupling and working distance |
+| `WORLD-BOOTSTRAP-GAP-AUDIT.json` | final bootstrap blind-spot audit: top missed concerns, ownership routes, falsifiers, and required context/tooling |
+| `WORLD-OPERATIONAL-CONTEXT.json` | compact machine-readable current mission, source basis, peer inputs, tooling contract, invariants and re-ground triggers |
 | `STATE.md` | live frontier, decisions, concepts, problems, current uncertainties |
 | `RESEARCH-QUEUE.md` | staged investigations and evidence needed next |
 | `COMMUNICATION-HOW-TO.md` | local Commons operating guide |
