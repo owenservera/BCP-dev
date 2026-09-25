@@ -4,7 +4,7 @@
 > Status: CHARACTERIZATION BASELINE
 > Date: 2026-09-25
 > Repository baseline: `05464e085122a173d1f093612292336750436c7e`
-> Purpose: define the smallest complete boundary of a running VIVIM product instance and map it to current Ω/VIVIM evidence before implementation.
+> Purpose: define the smallest complete boundary of a running VIVIM prototype instance and map it to current Ω/VIVIM evidence before implementation. Product installation and packaging are deliberately deferred.
 >
 > This document is not Ω law. Current code, tests, explicit Ω decisions/contracts, and later owner-ratified product decisions remain authoritative. The legacy VIVIM tree is evidence to harvest, not destination authority.
 
@@ -52,6 +52,14 @@ This boundary should become the **primary characterization seam for VS1 — Run 
 
 ---
 
+## 2.1 Prototype-first scope
+
+For the first functioning prototype, the Product Instance is a logical/runtime boundary, not an installer boundary.
+
+The prototype must prove one identifiable instance, an explicit durable user-data boundary, a bootable composition, an honest initial world, a coherent product surface, a meaningful persistent mutation, shutdown/restart reconstruction, and controlled recovery.
+
+The prototype does **not** need a Windows installer, final AppData/Program Files packaging decisions, signed distribution bundles, an update channel, or uninstall/upgrade UX. Those are later productization concerns.
+
 ## 2. VS1 product outcome
 
 VS1 is not "the application launches."
@@ -59,7 +67,7 @@ VS1 is not "the application launches."
 The minimum meaningful outcome is:
 
 ~~~text
-INSTALL
+RUN THE PROTOTYPE
   ↓
 START
   ↓
@@ -517,9 +525,9 @@ This separation is especially important for migration, backup, restore, multi-ac
 
 VS1 should not be considered complete merely because a binary launches.
 
-### G1 — Installable
+### G1 — Prototype launchable
 
-A normal Windows user can install VIVIM through the intended product path.
+The VIVIM prototype can be launched repeatably from the repository/developer environment through one documented path.
 
 ### G2 — Instance created
 
@@ -557,7 +565,7 @@ A recoverable product-level failure does not silently destroy the user's world.
 
 At minimum, user-controlled product/environment choices that are defined as durable survive restart.
 
-### G10 — Replaceability
+### G10 — Runtime replaceability
 
 Replacing/restarting the executable does not redefine or erase the user's durable world.
 
@@ -645,7 +653,7 @@ Using the destination implementation ladder:
 | World projection | L2–L3 | L5 | needs persistent product integration |
 | Product instance identity | L0–L1 | L5 | not yet explicit |
 | Local durable data boundary | L1–L2 | L5 | Ω dev spine still uses temp-oriented config |
-| Install/update lifecycle | L-1/L0 | L5 | insufficiently characterized |
+| Install/update lifecycle | L-1/L0 | **Later** | deliberately deferred until the prototype is proven |
 | Native Windows shell | L-1/L0 | L5 | not yet characterized |
 | Unified product surface | L1–L2 | L5 | legacy evidence exists; Ω integration missing |
 | Workspace/canvas integration | L1–L2 | L5 | strong mine evidence, weak destination integration |
@@ -664,11 +672,10 @@ The next research/build seam should be narrow enough to remain tractable.
 
 Define the minimum persistent data and identity required for one VIVIM instance.
 
-### VS1-C2 — Data locations
+### VS1-C2 — Prototype data boundary
 
-Determine:
+Determine the smallest explicit prototype separation for:
 
-- program files;
 - durable user data;
 - vault;
 - configuration;
@@ -708,6 +715,10 @@ falsifier.
 ### VS1-C8 — Failure/recovery proof
 
 Break one controlled product dependency and demonstrate recovery without loss of durable user state.
+
+### Later — Productization / installation
+
+After the functioning prototype is proven, characterize and implement installer/package format, Windows installation location, AppData/data placement, signed distribution, update/rollback, uninstall, upgrade migration, and end-user first-run packaging.
 
 ---
 
@@ -774,6 +785,8 @@ This gives us the product-core rule:
 
 The immediate destination slice is therefore:
 
-**VS1 — Run my VIVIM: install → initialize → open durable world → use → close → reopen → reconstruct truthfully.**
+**VS1 — Run my VIVIM prototype: launch from the repository → initialize → open durable world → use → close → reopen → reconstruct truthfully.**
+
+Installation, packaging, distribution, updates, and uninstall are explicitly later productization work. They should not block proving the functioning product loop.
 
 That slice should become the anchor for the next major product effort.
