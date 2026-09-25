@@ -1,0 +1,19 @@
+
+{
+  "schemaVersion": 1,
+  "status": "DERIVED — DESIGN-CANDIDATE",
+  "storageTruth": "existing Ω vault object rows",
+  "identity": "(ns,id) logical; (ns,id,rev) exact revision",
+  "objects": [
+    {"kind":"object","status":"core","meaning":"generic typed canonical record"},
+    {"kind":"conversation","status":"domain","meaning":"durable communication container"},
+    {"kind":"message","status":"domain","meaning":"ordered communication unit"},
+    {"kind":"document","status":"domain","meaning":"durable semantic content"},
+    {"kind":"file","status":"domain","meaning":"storage/resource representation"},
+    {"kind":"project","status":"domain","meaning":"user-meaningful work/organizing object"},
+    {"kind":"space","status":"domain","meaning":"durable semantic environment"},
+    {"kind":"artifact","status":"role-not-storage-kind","meaning":"produced/deliverable role over a canonical object"},
+    {"kind":"revision","status":"substrate-not-storage-kind","meaning":"(ns,id,rev) exact historical state"},
+    {"kind":"world","status":"projection-not-storage-kind","meaning":"derived world view"}
+  ]
+}

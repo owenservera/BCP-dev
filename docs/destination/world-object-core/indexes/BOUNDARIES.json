@@ -1,0 +1,15 @@
+
+{
+  "schemaVersion": 1,
+  "status": "DERIVED — DESIGN-CANDIDATE",
+  "boundaries": [
+    {"left":"canonical_object","right":"source_identity","rule":"source identity maps; it does not replace local identity"},
+    {"left":"canonical_object","right":"relationship","rule":"relationship is separate canonical assertion"},
+    {"left":"canonical_object","right":"projection","rule":"projection is derived and rebuildable"},
+    {"left":"canonical_object","right":"workspace","rule":"workspace organizes representation, not semantic truth"},
+    {"left":"work","right":"canonical_object","rule":"work references/produces canonical objects; it does not duplicate them"},
+    {"left":"content","right":"object_identity","rule":"CID equality never implies object identity"},
+    {"left":"tombstone","right":"physical_delete","rule":"semantic delete is not storage erasure"},
+    {"left":"export","right":"restore","rule":"restore preserves canonical refs in a fresh world; merge is separate semantics"}
+  ]
+}
