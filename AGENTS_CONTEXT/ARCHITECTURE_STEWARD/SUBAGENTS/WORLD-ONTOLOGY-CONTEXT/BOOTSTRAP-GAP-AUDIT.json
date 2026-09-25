@@ -1,0 +1,406 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CFA01-BOOTSTRAP-GAP-AUDIT-2026-09-25",
+  "status": "FINAL-ROUND-BOOTSTRAP-SEED",
+  "generatedAt": "2026-09-25",
+  "purpose": "Identify the most important things CFA-01 failed to characterize during bootstrap and the minimum context/tooling needed to operate those gaps without overengineering.",
+  "basis": {
+    "cfa01Home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/HOME.md",
+    "cfa01Seed": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/BOOTSTRAP-SEED.md",
+    "semanticLens": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/ONE-TOOL-SEMANTIC-LENS.md",
+    "peerMatrix": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/PEER-RELATIONSHIP-MATRIX.json",
+    "architectureGraph": "docs/destination/architecture/graph/",
+    "worldObject": "docs/destination/world-object-core/",
+    "agenticCore": "docs/destination/agentic-core/",
+    "dataMemoryContext": "docs/destination/DATA-MEMORY-CONTEXT-RECONCILIATION.md",
+    "attention": "docs/destination/AGENCY-BACKGROUND-ATTENTION-RECONCILIATION.md",
+    "productVision": "AGENTS_CONTEXT/PRODUCT_VISION/STATE.md"
+  },
+  "methodology": {
+    "perspective": "CFA-01 World / Ontology / Context",
+    "priorityScale": "P0/P1/P2 where P0 = foundational semantic gap; P1 = major operating gap; P2 = important future gap.",
+    "gapType": "MISSING_CONTEXT | MISSING_CONTRACT | MISSING_TOOL_CAPABILITY | MISSING_BOUNDARY | MISSING_TEST",
+    "epistemicStatus": "DERIVED from repository evidence plus bootstrap conversation; not canonical architecture."
+  },
+  "topGaps": [
+    {
+      "id": "GAP-001",
+      "priority": "P0",
+      "type": "MISSING_CONTRACT",
+      "name": "Temporal World semantics",
+      "whatWeMissed": "We repeatedly mentioned events, states, revisions, replay and time, but never characterized the semantic model of time itself.",
+      "whyItMatters": "Without a temporal model, World state, relationship validity, freshness, context, Work deadlines, external observation, history and 'what was true at T' can collapse into timestamps or storage revisions.",
+      "questions": [
+        "What is valid-time versus observation/system-time?",
+        "Is an Event a World object, an observation, a causal record, or several distinct roles?",
+        "How is State derived from events/revisions?",
+        "How are temporal relationship assertions represented?",
+        "What does 'current' mean when sources disagree or arrive late?"
+      ],
+      "neededContext": [
+        "World/Object revision and lifecycle material",
+        "Agentic temporal substrate and wake semantics",
+        "Omega temporal sovereignty / time-travel evidence",
+        "Evolution relationship-temporal requirements"
+      ],
+      "neededTooling": [
+        "Semantic Lens temporal mode: inspect-at(T), timeline, before/after, valid-from/to and observation-time comparison.",
+        "Deterministic temporal fixture set for World reconstruction at multiple times."
+      ],
+      "firstProof": "Take one Project/Task relationship through creation, change, archive and later external observation; reconstruct the World at T1/T2/T3."
+    },
+    {
+      "id": "GAP-002",
+      "priority": "P0",
+      "type": "MISSING_CONTRACT",
+      "name": "Observation → World reconciliation",
+      "whatWeMissed": "We identified external source identity and correspondence, but did not yet define the semantic ladder from observation to assertion to canonical World state.",
+      "whyItMatters": "Productivity tools and providers continuously expose partial, delayed, conflicting or lossy observations. A coherent World requires explicit reconciliation rather than parser output becoming truth.",
+      "questions": [
+        "What exactly is an observation?",
+        "When can an observation support an assertion?",
+        "When does an assertion become canonical World state?",
+        "How are conflicting observations retained?",
+        "How are merge/split/collision decisions represented?",
+        "What does write-back confirmation mean versus external write success?"
+      ],
+      "neededContext": [
+        "CFA-02 data continuity and reconciliation material",
+        "CFA-06 provider/source identity and realization evidence",
+        "Relationship conflict/assertion model",
+        "Evidence/provenance and epistemic classifications"
+      ],
+      "neededTooling": [
+        "Semantic Lens reconcile mode: source observation → correspondence candidate → assertion → canonical object/relationship → evidence.",
+        "Correspondence test harness with positive, ambiguous, conflicting and lossy fixtures."
+      ],
+      "firstProof": "Use a productivity object present in two providers with different names, one stale observation and one contradictory relationship."
+    },
+    {
+      "id": "GAP-003",
+      "priority": "P0",
+      "type": "MISSING_SEMANTIC_MODEL",
+      "name": "Negative space / absence semantics",
+      "whatWeMissed": "We treated unknown as valid, but did not distinguish the kinds of 'not present' that are essential to World reasoning.",
+      "whyItMatters": "Not found, not observed, inaccessible, deleted, archived, never existed and known absent are semantically different. Context and automation cannot safely reason about absence without these distinctions.",
+      "questions": [
+        "Does not-found mean unknown, absent, or query failure?",
+        "How is inaccessible distinguished from nonexistent?",
+        "What is the semantic meaning of deletion versus disappearance from a provider?",
+        "Can absence itself be evidence?",
+        "When may a context omit an object because it is confidently absent?"
+      ],
+      "neededContext": [
+        "Object lifecycle/deletion semantics",
+        "Provider observation/freshness behavior",
+        "Authority/scope visibility rules",
+        "Query/retrieval result semantics"
+      ],
+      "neededTooling": [
+        "Semantic Lens explain-absence mode returning one explicit state: UNKNOWN | NOT_OBSERVED | INACCESSIBLE | ABSENT | DELETED | ARCHIVED | FILTERED | ERROR.",
+        "Negative-space fixtures and falsifiers."
+      ],
+      "firstProof": "Query for an object that is deleted locally, missing from a provider, inaccessible by scope, and simply not observed."
+    },
+    {
+      "id": "GAP-004",
+      "priority": "P1",
+      "type": "MISSING_SEMANTIC_MODEL",
+      "name": "Productivity-domain semantics",
+      "whatWeMissed": "We mapped productivity providers into generic Objects but did not sufficiently characterize the semantics of the things people actually organize around: task, commitment, goal, project, event, document, conversation, person and resource.",
+      "whyItMatters": "A universal object envelope is insufficient if VIVIM cannot tell a Task from Work, an Event from an observation, or a Commitment from a message mentioning one.",
+      "questions": [
+        "What makes something a Task versus Work?",
+        "Is Commitment a first-class World concept or a relationship/role?",
+        "What distinguishes Goal, Project and Space?",
+        "Is Calendar Event a World event or a domain object with event semantics?",
+        "When does a Message create or support a Task/Commitment relationship?"
+      ],
+      "neededContext": [
+        "World Object taxonomy and relationship model",
+        "Agentic Work model",
+        "Attention/standing intent model",
+        "Destination journeys around projects and continuity"
+      ],
+      "neededTooling": [
+        "Semantic Lens type/relationship comparison for productivity concepts.",
+        "Small domain fixture corpus spanning email, task, calendar, document, project and repository."
+      ],
+      "firstProof": "Model one real end-to-end productivity chain: message → commitment → task → Work → result → evidence → project state."
+    },
+    {
+      "id": "GAP-005",
+      "priority": "P1",
+      "type": "MISSING_BOUNDARY",
+      "name": "Attention as a World/context participant",
+      "whatWeMissed": "We noted Attention in the bootstrap prompt but did not actually characterize its relation to World, current Context, Work and standing Intent.",
+      "whyItMatters": "A persistent assistant cannot simply retrieve relevant objects. It needs a semantic notion of salience without turning attention into hidden task state or UI-only focus.",
+      "questions": [
+        "Is Attention a World concept, a projection, or a policy-governed derived state?",
+        "What creates salience: user intent, focus, world change, Work state, time?",
+        "Does attention have identity/history?",
+        "How does attention become Context without becoming authority?",
+        "What is the difference between Focus and Attention?"
+      ],
+      "neededContext": [
+        "Agency/background/attention reconciliation",
+        "Experience focus/selection material",
+        "Context assembly contract",
+        "Standing Intent semantics"
+      ],
+      "neededTooling": [
+        "Semantic Lens salience mode showing why an item is relevant to current context.",
+        "Temporal attention fixtures for changing salience over time."
+      ],
+      "firstProof": "Given the same World at three times, explain why different items are salient without changing canonical object meaning."
+    },
+    {
+      "id": "GAP-006",
+      "priority": "P1",
+      "type": "MISSING_CONTRACT",
+      "name": "World Query / Address contract",
+      "whatWeMissed": "We named semantic addressing and traversal repeatedly, but did not actually characterize the destination query/address language enough to make the Semantic Lens implementable.",
+      "whyItMatters": "This is the bridge from semantic understanding to actual operation. Without it, each caller will invent its own selectors and traversal grammar.",
+      "questions": [
+        "What is the smallest universal query target?",
+        "How are identity, predicate, time and scope expressed?",
+        "How are traversal depth and cardinality bounded?",
+        "How are ambiguous matches represented?",
+        "Can every query explain its basis and result scope?"
+      ],
+      "neededContext": [
+        "World query/addressing research charter",
+        "Semantic Continuity grounding/address material",
+        "Architecture Graph query/projection conventions",
+        "Context assembly constraints"
+      ],
+      "neededTooling": [
+        "Semantic Lens query parser/AST with deterministic execution over a fixed snapshot.",
+        "Query explain output: resolved identities, predicates traversed, scope, bounds and rejected candidates."
+      ],
+      "firstProof": "Resolve one natural-language target into a deterministic structured traversal and show why alternative candidates were rejected."
+    },
+    {
+      "id": "GAP-007",
+      "priority": "P1",
+      "type": "MISSING_CONTRACT",
+      "name": "Semantic change / migration semantics",
+      "whatWeMissed": "We covered identity continuity and evolution, but did not characterize the difference between changing a shape, changing meaning, replacing an object, and reinterpreting a relationship.",
+      "whyItMatters": "Without this distinction, evolution tooling will either over-migrate or silently change World meaning.",
+      "questions": [
+        "What is semantic versioning versus schema versioning?",
+        "When does a changed predicate preserve relation identity?",
+        "How is reinterpretation different from replacement?",
+        "What must happen to existing Context recipes and graph projections?",
+        "What is reversible and what requires explicit owner decision?"
+      ],
+      "neededContext": [
+        "CFA-09 evolution material",
+        "CFA-02 continuity/migration material",
+        "Canonical relationship and object identity",
+        "Projection invalidation/rebuild behavior"
+      ],
+      "neededTooling": [
+        "Semantic Lens impact mode extended with semantic-change classification.",
+        "Small mutation/reinterpretation/replace/retire fixture suite."
+      ],
+      "firstProof": "Apply four different changes to one concept and verify that the tool produces different impact/reconciliation requirements."
+    },
+    {
+      "id": "GAP-008",
+      "priority": "P1",
+      "type": "MISSING_TEST",
+      "name": "Scope / visibility / multi-principal World semantics",
+      "whatWeMissed": "We treated authority as a neighbor, but did not sufficiently define how visibility and ownership scope alter the World projection itself, especially for future shared environments.",
+      "whyItMatters": "The destination includes future multi-sovereign/shared experiences. World membership cannot be assumed global when access, ownership or delegation changes what is visible.",
+      "questions": [
+        "Is visibility a World property, an authority projection, or both?",
+        "How does a World differ across principals while referring to the same external thing?",
+        "Can two projections expose different relationship sets without contradicting each other?",
+        "How should Context explain filtered visibility?"
+      ],
+      "neededContext": [
+        "Authority scope/delegation",
+        "Product Instance and future multi-sovereign material",
+        "World projection rules",
+        "Experience shared-surface research"
+      ],
+      "neededTooling": [
+        "Semantic Lens scoped-view mode: same subject/query under explicit principal/scope snapshots.",
+        "Cross-scope consistency tests."
+      ],
+      "firstProof": "Compare the same Project under owner, delegated agent and limited collaborator scopes."
+    },
+    {
+      "id": "GAP-009",
+      "priority": "P2",
+      "type": "MISSING_TOOL_CAPABILITY",
+      "name": "Semantic Lens source-snapshot discipline",
+      "whatWeMissed": "We designed the Lens conceptually but did not define how one inspection proves exactly which repository/evidence snapshot it read.",
+      "whyItMatters": "Without source snapshot identity, deterministic claims about a Lens result can become unrepeatable as documents and indexes change.",
+      "neededContext": [
+        "Architecture Graph manifest/source lineage",
+        "System Intelligence source lineage",
+        "Repository commit identity",
+        "Evidence basis/version conventions"
+      ],
+      "neededTooling": [
+        "Snapshot manifest automatically attached to every Lens result: repository SHA, source file SHAs, index versions and query/options.",
+        "Replay command that regenerates the same result from the captured snapshot where possible."
+      ],
+      "firstProof": "Run the same Lens query twice against a pinned snapshot and verify equivalent output and source basis."
+    },
+    {
+      "id": "GAP-010",
+      "priority": "P2",
+      "type": "MISSING_TEST",
+      "name": "Context quality without hidden ranking authority",
+      "whatWeMissed": "We described bounded Context but did not test how relevance/ranking can be useful without becoming a hidden semantic or authority system.",
+      "whyItMatters": "Context assembly will eventually need ordering, budgets and optimization. Those mechanisms can silently mutate meaning if not constrained.",
+      "questions": [
+        "What is semantic inclusion versus optimization ranking?",
+        "Can ranking reorder evidence without changing epistemic meaning?",
+        "How are excluded candidates explained?",
+        "What happens when budget forces omission of a high-confidence item?"
+      ],
+      "neededContext": [
+        "Historical DynamicContextBundle behavior",
+        "Deterministic ContextAssembly evidence",
+        "Attention/current-work semantics",
+        "Evidence/provenance requirements"
+      ],
+      "neededTooling": [
+        "Semantic Lens context-dry-run mode that shows included/excluded candidates and the reason each was selected or omitted.",
+        "Budget perturbation test suite."
+      ],
+      "firstProof": "Generate the same Context under multiple budgets and show that semantic truth and provenance remain invariant while only selection changes."
+    }
+  ],
+  "requiredOperatingContext": [
+    {
+      "id": "CTX-01",
+      "name": "Temporal World pack",
+      "contents": [
+        "valid-time/system-time distinction",
+        "event/state roles",
+        "history/replay",
+        "freshness semantics",
+        "temporal relationship assertions"
+      ]
+    },
+    {
+      "id": "CTX-02",
+      "name": "Observation/Reconciliation pack",
+      "contents": [
+        "source observations",
+        "correspondence",
+        "assertion state",
+        "conflict/merge/split",
+        "write-back verification"
+      ]
+    },
+    {
+      "id": "CTX-03",
+      "name": "World Query pack",
+      "contents": [
+        "address model",
+        "query AST",
+        "traversal",
+        "scope",
+        "ambiguity",
+        "bounds",
+        "explainability"
+      ]
+    },
+    {
+      "id": "CTX-04",
+      "name": "Productivity semantics pack",
+      "contents": [
+        "project",
+        "task",
+        "commitment",
+        "goal",
+        "event",
+        "message",
+        "document",
+        "person",
+        "resource and their relationships"
+      ]
+    },
+    {
+      "id": "CTX-05",
+      "name": "Attention/Context pack",
+      "contents": [
+        "focus",
+        "attention",
+        "standing intent",
+        "current work",
+        "salience",
+        "context inclusion/exclusion"
+      ]
+    },
+    {
+      "id": "CTX-06",
+      "name": "Change semantics pack",
+      "contents": [
+        "meaning change",
+        "schema change",
+        "reinterpretation",
+        "replacement",
+        "retirement",
+        "projection invalidation"
+      ]
+    },
+    {
+      "id": "CTX-07",
+      "name": "Scoped World pack",
+      "contents": [
+        "visibility",
+        "principal scope",
+        "delegation-aware projection",
+        "future multi-sovereign intersection"
+      ]
+    },
+    {
+      "id": "CTX-08",
+      "name": "Evidence snapshot pack",
+      "contents": [
+        "repository commit",
+        "source SHA set",
+        "index versions",
+        "query/options",
+        "replay basis"
+      ]
+    }
+  ],
+  "semanticLensEvolution": {
+    "currentRole": "repository-backed semantic interrogation surface",
+    "missingModes": [
+      "temporal",
+      "reconcile",
+      "explain-absence",
+      "productivity-type-comparison",
+      "salience",
+      "query-explain",
+      "semantic-change-impact",
+      "scoped-view",
+      "pinned-snapshot/replay",
+      "context-dry-run"
+    ],
+    "principle": "Extend one Lens rather than create ten specialized tools.",
+    "implementationSequence": [
+      "V0 repository snapshot + source adapters + inspect/trace/explain",
+      "V0.1 deterministic query/address AST",
+      "V0.2 evidence/snapshot manifest",
+      "V0.3 temporal and reconciliation fixtures",
+      "V0.4 context dry-run and salience",
+      "V1 scoped/evolution/impact modes"
+    ]
+  },
+  "bootstrapCloseout": {
+    "whatWasMissing": "CFA-01 had strong structural orientation but insufficiently characterized temporal, observational, negative-space, productivity, attention, query, and semantic-change semantics.",
+    "mostImportantNewInsight": "A World is not merely objects plus edges. It is objects and relationships interpreted across time, observation provenance, scope, and change, with explicit uncertainty and reconstructability.",
+    "smallestUsefulNextStep": "Do not build a full ontology or graph runtime. First build/prove the repository-backed Semantic Lens against the four highest-risk gaps: temporal, observation/reconciliation, negative-space and query/address.",
+    "finalBootstrapStatus": "SEED READY FOR PAUSE; SUBSTANTIVE ARCHITECTURAL IDENTITY REMAINS PROVISIONAL UNTIL OWNER ALIGNMENT."
+  }
+}
