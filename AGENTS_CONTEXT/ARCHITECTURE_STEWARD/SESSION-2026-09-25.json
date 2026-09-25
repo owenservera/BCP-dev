@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.0",
+  "session_date": "2026-09-25",
+  "purpose": "Durable structured extraction of the Architecture Steward session and cold-start handoff.",
+  "source_note": "This is a structured extraction of the conversation's durable decisions, discoveries, process lessons, and repository state; it is not intended to be a verbatim transcript.",
+  "repository": {
+    "name": "BCP-dev",
+    "url": "https://github.com/owenservera/BCP-dev",
+    "access": "The owner has full GitHub account access and agents should use it directly."
+  },
+  "role": {
+    "name": "ARCHITECTURE_STEWARD",
+    "responsibilities": [
+      "Maintain coherent architectural memory and documentation across domains.",
+      "Keep end vision, experience, architecture, evidence, implementation and proof connected without conflating them.",
+      "Own repository-level README/documentation/agent-file coherence.",
+      "Give directions/protocols to peer agents when needed.",
+      "Act as policeman, tutor and hands-on architectural labor when useful.",
+      "Continuously simplify the operating process; overhead is a failure mode."
+    ]
+  },
+  "durable_decisions": [
+    {
+      "id": "D01",
+      "statement": "Do not redo strong destination research or archaeology merely to create a new structure; leverage and connect what already exists."
+    },
+    {
+      "id": "D02",
+      "statement": "Assume roughly 80–90% of consequential design/build knowledge is already in the repository unless evidence shows otherwise. Default loop is FIND → SYNTHESIZE → DECIDE → BUILD → LEARN."
+    },
+    {
+      "id": "D03",
+      "statement": "VIVIM is the Legos, not the Lego box. The product is a compositional factory/ecosystem and each user's resulting VIVIM instance is intentionally unique."
+    },
+    {
+      "id": "D04",
+      "statement": "Ω is the current best real realization of the Lego factory. Earlier VIVIM variants are proven prototypes with mature behavior/UX/implementation intelligence but imperfect and often non-composable architecture."
+    },
+    {
+      "id": "D05",
+      "statement": "Factory UX is the stable product target: discovery, addressing, understanding, composition, configuration, governance, inspection, creation, replacement, evolution and removal. One fixed instance UX is not canonical."
+    },
+    {
+      "id": "D06",
+      "statement": "The factory alone is insufficient. A useful ecosystem also needs core compositional shapes/contracts, reference/first-party building blocks, useful compositions, interoperability standards by example, and ordinary-user creation of pieces and sets."
+    },
+    {
+      "id": "D07",
+      "statement": "The Lego metaphor is conceptual only. Translate it into canonical VIVIM terms such as capability, plugin, composition, contract, object, surface, realization, authority, Work, Forge and evolution."
+    },
+    {
+      "id": "D08",
+      "statement": "Building language does not imply K0. K0 remains narrow and constitutional; K1/shared contracts, system plugins, extension plugins and tooling handle progressively less-constitutional concerns."
+    },
+    {
+      "id": "D09",
+      "statement": "User journeys are views, not the sole architectural spine. Composition is cross-cutting: USER OUTCOME × COMPOSABLE PIECES × GOVERNED COMPOSITION."
+    },
+    {
+      "id": "D10",
+      "statement": "Prototype maturity, factory/core maturity and product-instance maturity are separate axes."
+    },
+    {
+      "id": "D11",
+      "statement": "Subagents are bounded investigation tools, not a second management system. Every handoff must state prompt path, full repository URL, full GitHub access, mission and expected output."
+    },
+    {
+      "id": "D12",
+      "statement": "Prior subagent artifacts are inputs, not automatic completion. A fresh takeover must re-read and challenge prior work before declaring a new round complete."
+    },
+    {
+      "id": "D13",
+      "statement": "Parallelize genuinely independent investigations; use a single convergence pass when questions have become coupled; do not multiply process for ceremony."
+    },
+    {
+      "id": "D14",
+      "statement": "Once coding-readiness is genuinely GO, stop broad architecture preparation. Implementation and falsification become the next information-bearing step."
+    },
+    {
+      "id": "D15",
+      "statement": "The destination architecture graph is documentation-first and is anchored in END VISION → DESTINATION MODEL → HUMAN EXPERIENCE → CONCEPTUAL MODEL → RESPONSIBILITIES → JOURNEYS/REQUIREMENTS/VERTICAL SLICES → SYSTEM INTELLIGENCE/EVIDENCE → CURRENT ARCHITECTURAL MODEL."
+    },
+    {
+      "id": "D16",
+      "statement": "Code is deliberately not in the initial destination architecture graph. Code, legacy implementation and proof are later evidence-bearing projections."
+    }
+  ],
+  "process_lessons": [
+    "A prompt that describes a process is not enough; distinguish task-owner/orchestrator prompts from subagent-role prompts.",
+    "If prior artifacts exist, do not treat them as execution of the fresh task; treat them as evidence/history and require fresh bounded judgment when the task calls for a new round.",
+    "If a subagent execution facility is unavailable, never claim subagents ran; perform the bounded work directly and say so.",
+    "Missing process artifacts should not block useful work when the underlying mission, authority and evidence are sufficient; repair the process record later only if it materially improves future execution.",
+    "Do not build registries, trackers, views or automation merely because they might eventually be useful. Let repeated pain justify tooling.",
+    "The most valuable research pattern so far has been parallel independent lenses followed by hard convergence.",
+    "The main risk is not lack of knowledge; it is fragmentation, stale context, and agents silently reinterpretating the architecture during implementation."
+  ],
+  "readiness_history": [
+    {
+      "work": "Product Experience Archaeology",
+      "output": "docs/destination/product-experience/research/PRODUCT-EXPERIENCE-ARCHAEOLOGY.md",
+      "branch": "research/steward-product-experience",
+      "commit": "d212d917d1bc9fa418ef3eeea60c138ed8d51d71",
+      "status": "completed"
+    },
+    {
+      "work": "Journey → Architecture Mapping",
+      "output": "docs/destination/architecture/research/JOURNEY-ARCHITECTURE-MAPPING.md",
+      "branch": "main",
+      "commit": "dfcb2b891766146b8bb2d5c1937ed9dc870f4d9c",
+      "status": "completed",
+      "note": "Fresh takeover later re-grounded this work; the original dedicated launch prompt was absent, so execution was performed from stated mission plus current contracts rather than invented prompt contents."
+    },
+    {
+      "work": "Current Reality & Proof Audit",
+      "output": "docs/destination/architecture/research/CURRENT-REALITY-AND-PROOF-AUDIT.md",
+      "branch": "research/steward-current-reality-proof",
+      "commit": "ee687ceee0c447147d32b84dff3dd85fe98c0bc1",
+      "status": "completed"
+    },
+    {
+      "work": "Coding Start Readiness fresh convergence",
+      "branch": "research/steward-coding-start-readiness",
+      "commit": "ebc60517e123a3b047b676d81f67111b588b8417",
+      "pr": "#51",
+      "status": "GO",
+      "note": "Final line: CODING STATUS: GO"
+    }
+  ],
+  "fresh_readiness_findings": {
+    "status": "GO",
+    "clarification": "The first composition invokes a research capability, so that capability must be an explicit ordinary first-party plugin rather than implicit infrastructure.",
+    "first_composition": "Research → Evidence → World",
+    "governed_path": "Address → Intent → Context → Capability → Realization → Authority → Work → Execution → Evidence → World → Product Instance continuity",
+    "remaining_items": [
+      "B1 executable-entry confinement",
+      "generic bootstrap / zero-plugin semantics",
+      "minimal State / Graph / Grant / Generation substrate",
+      "first-party / extension symmetry",
+      "active Work continuity across replacement",
+      "Product Instance activation semantics",
+      "live provider/browser proof"
+    ],
+    "interpretation": "These are implementation/proof gates unless a concrete finding shows that one could force redesign of the factory boundary."
+  },
+  "graph": {
+    "branch": "research/steward-destination-architecture-graph",
+    "documentation_first": true,
+    "code_included": false,
+    "schema_version": "0.2",
+    "graph_id": "VIVIM-DESTINATION-ARCHITECTURE",
+    "counts": {
+      "nodes": 354,
+      "edges": 943,
+      "evidence_nodes": 99,
+      "responsibility_nodes": 125,
+      "journeys": 8,
+      "vertical_slices": 9,
+      "requirements": 13,
+      "system_intelligence_atoms": 44,
+      "reference_pieces": 7,
+      "compositions": 1,
+      "invalid_edges": 0
+    },
+    "source_layer_order": [
+      "vision",
+      "destination",
+      "architecture",
+      "experience",
+      "research",
+      "evidence"
+    ],
+    "files": [
+      "docs/destination/architecture/graph/NODES.json",
+      "docs/destination/architecture/graph/EDGES.json",
+      "docs/destination/architecture/graph/SCHEMA.json",
+      "docs/destination/architecture/graph/GRAPH-MANIFEST.json"
+    ],
+    "validation": {
+      "invalidEdges": 0,
+      "allEndpointsPresent": true
+    },
+    "current_interpretation": "One semantic network with projections for responsibilities, dependencies, journeys, evidence, composition, etc.; not a pile of disconnected diagrams.",
+    "next_expected_use": "Finish/validate the graph itself, then use it to connect destination architecture to current Ω implementation, Legacy evidence and proof without making code the graph's source of truth."
+  },
+  "architecture_graph_model": {
+    "root": "END VISION",
+    "chain": "END VISION → DESTINATION MODEL → HUMAN EXPERIENCE → CONCEPTUAL MODEL → RESPONSIBILITIES → JOURNEYS / REQUIREMENTS / VERTICAL SLICES → SYSTEM INTELLIGENCE / EVIDENCE → CURRENT ARCHITECTURAL MODEL",
+    "planned_views": [
+      "Responsibility graph",
+      "Dependency graph",
+      "Journey graph",
+      "Authority graph",
+      "Evidence / provenance graph",
+      "Implementation graph",
+      "Evolution / replacement graph",
+      "Frontier graph",
+      "Build / proof graph"
+    ],
+    "important_principle": "One underlying graph; many views. Do not create multiple competing master documents."
+  },
+  "next_session_focus": [
+    "Start from the fresh-session handoff, not from this chat.",
+    "Verify the graph branch and its four graph files against the destination corpus and current readiness evidence.",
+    "Determine whether the graph is structurally sufficient or needs only targeted repair.",
+    "Connect current Ω implementation, Legacy harvest and proof as evidence-bearing projections only where useful.",
+    "Keep the end vision and factory model as the anchor.",
+    "Do not reopen broad archaeology unless a graph contradiction exposes a genuinely material blind spot.",
+    "When the graph is sufficiently trustworthy, use it as the Steward's primary architecture-to-build map."
+  ],
+  "session_end_state": "Preparation/readiness is GO; the destination architecture graph is now the key architectural instrument immediately before and during coding.",
+  "known_open_process_question": "How much graph machinery is actually necessary? Prefer the smallest useful graph/query/view capability and let implementation needs justify expansion.",
+  "handoff_principle": "The next session should preserve all accumulated intelligence, reduce rediscovery, and move toward real implementation rather than generating another documentation program."
+}
