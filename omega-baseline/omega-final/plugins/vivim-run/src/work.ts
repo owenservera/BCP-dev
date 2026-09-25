@@ -492,12 +492,25 @@ export async function recoverWork(ctx: PluginContext) {
   const recovered: Array<{ workId: string; from: WorkState; to: WorkState; rev: number }> = [];
   for (const row of works) {
     if (row.work.state !== "running") continue;
-    const out = await transitionWork(ctx, row.work.workId, {
-      state: "reconciling",
-      wait: { kind: "external", reason: "process recovery: in-flight attempt requires effect reconciliation" },
-      currentAttemptId: row.work.currentAttemptId ?? null,
-    });
-    recovered.push({ workId: row.work.workId, from: "running", to: "reconciling", rev: out.rev });
+    // A running Work with an active Attempt may have crossed the external
+    // effect boundary and therefore requires reconciliation. A running Work
+    // with no Attempt has not started an effect yet and can safely return to
+    // the queue after process recovery.
+    if (row.work.currentAttemptId) {
+      const out = await transitionWork(ctx, row.work.workId, {
+        state: "reconciling",
+        wait: { kind: "external", reason: "process recovery: in-flight attempt requires effect reconciliation" },
+        currentAttemptId: row.work.currentAttemptId,
+      });
+      recovered.push({ workId: row.work.workId, from: "running", to: "reconciling", rev: out.rev });
+    } else {
+      const out = await transitionWork(ctx, row.work.workId, {
+        state: "queued",
+        currentAttemptId: null,
+        clearWait: true,
+      });
+      recovered.push({ workId: row.work.workId, from: "running", to: "queued", rev: out.rev });
+    }
   }
   return { scanned: works.length, recovered };
 }
