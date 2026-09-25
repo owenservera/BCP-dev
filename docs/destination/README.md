@@ -53,6 +53,7 @@ Start with:
 - V1-DEFAULT-ENVIRONMENT-AND-LIVE-PROOF.md
 - DATA-MEMORY-CONTEXT-RECONCILIATION.md
 - FORGE-COMPOSITION-EVOLUTION-RECONCILIATION.md
+- DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
 
 The sources/ directory contains preserved conversation and research material. Source captures are evidence of design thinking, not law.
 
