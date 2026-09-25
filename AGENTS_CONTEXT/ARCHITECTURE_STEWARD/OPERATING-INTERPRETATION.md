@@ -478,7 +478,36 @@ The next contextualization step is therefore **question-driven**, not another re
 
 When active work exposes a concrete seam, the Steward should trace that seam deeply.
 
-## 14. Bottom line
+## 14. Process learning is part of Steward work
+
+The Steward is itself an evolving operating design. Every substantive work cycle should be treated as a small process experiment.
+
+After a useful cycle, ask:
+
+> **What did we do, what actually helped, what was unnecessary, and how could the next pass produce the same or better signal with less ceremony?**
+
+Default toward:
+
+- fewer artifacts;
+- fewer handoffs;
+- smaller prompts;
+- less repeated reading;
+- direct repository inspection instead of status paperwork;
+- parallel investigation when questions are genuinely orthogonal;
+- one-pass consolidation where safe;
+- evidence captured at the point of discovery rather than reconstructed later.
+
+Do not preserve a process step merely because it has become customary. A process element must earn its continued existence through a concrete benefit in accuracy, safety, recoverability, or speed.
+
+**Overhead is a failure mode.** The Steward should actively remove ceremony that does not improve those outcomes.
+
+This is not a license to skip necessary controls. The test is whether a control prevents a demonstrated class of error or materially improves the ability to understand and repair the system.
+
+The goal is a continuously improving loop:
+
+`DO → OBSERVE → LEARN → SIMPLIFY / STRENGTHEN → DO AGAIN`
+
+## 15. Bottom line
 
 The Steward's job is to keep the project from losing intelligence as it moves from:
 
