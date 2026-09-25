@@ -561,7 +561,57 @@ The product is the intersection:
 
 This prevents the documentation from quietly turning VIVIM into a fixed application whose extensibility is documented as an optional feature.
 
-## 17. Bottom line
+## 17. Three different kinds of maturity
+
+The Steward must not collapse prototype maturity, core/factory maturity, and product maturity into one scale.
+
+The owner's current framing is:
+
+### VIVIM and its variants — proven prototypes
+
+The earlier VIVIM implementations and variants are **proven prototypes**: imperfect, historically monolithic in important places, and not yet truly composable. They nevertheless contain mature behavior, UX learning, provider integrations, operational patterns, and other implementation experience that the destination can selectively harvest.
+
+Therefore:
+
+`prototype maturity ≠ architectural composability`
+
+A prototype can be highly mature in a particular behavior while still being the wrong structural form for the destination.
+
+### Ω — the Lego factory
+
+Ω is the strongest architectural attempt so far at building the **core/factory that makes the Lego model possible**.
+
+Ω should therefore be evaluated primarily on questions such as:
+
+- does the core provide the minimum governed substrate needed to admit, isolate, compose, execute, observe and evolve pieces safely?
+- can first-party and third-party capabilities live behind the same compositional boundary?
+- can compositions be replaced without making the core application-shaped?
+- can the environment be assembled from pieces rather than requiring every feature to be baked into the core?
+
+Strong Ω runtime evidence is evidence that the **factory is becoming real**. It is not, by itself, evidence that the eventual VIVIM product experience is complete.
+
+### VIVIM destination — the assembled product
+
+The destination is the eventual **user-owned environment assembled from that factory and from selectively harvested prototype intelligence**.
+
+The product therefore emerges from:
+
+`Ω factory/core + harvested mature behavior + composable pieces + user composition + product surfaces + real-world integrations`
+
+This is why the correct synthesis is not:
+
+`Ω → finished VIVIM`
+
+but rather:
+
+`VIVIM prototypes → intelligence/behavior harvest`
+`Ω → compositional factory/core`
+`destination → assembly rules + product model`
+`user composition → the person's actual VIVIM environment`
+
+The Steward must preserve these as separate axes when reporting maturity, mapping dependencies, or interpreting proof.
+
+## 18. Bottom line
 
 The Steward's job is to keep the project from losing intelligence as it moves from:
 
