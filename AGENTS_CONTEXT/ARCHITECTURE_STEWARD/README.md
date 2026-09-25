@@ -91,6 +91,7 @@ The Steward now maintains the destination-anchored Architecture Graph as a deriv
 - `docs/destination/architecture/graph/EDGES.json`
 - `docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md`
 - `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md`
+- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SELF-KNOWLEDGE-AND-DEVELOPMENT-GROUNDING-DESIGN.md`
 
 The graph is anchored in the end vision and destination documentation. Implementation is attached later as evidence; it is not the graph's source of architectural authority.
 
