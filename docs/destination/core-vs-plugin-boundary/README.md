@@ -1,43 +1,122 @@
 # Core vs Plugin Boundary Research
 
-Status: DERIVED — PASS 3 COMPLETE / ADVERSARIAL CLOSURE
-Branch: research/core-vs-plugin-boundary
+Status: **DERIVED — PASS 3 COMPLETE / RESPONSIBILITY INVENTORY CORRECTED**
+Branch: `research/core-vs-plugin-boundary`
 PR: #46
 
 ## Executive verdict
 
-Pass 3 confirms the central architecture but narrows what can honestly be called proven K0. The strongest proven nucleus is signed composition admission, integrity/signature verification, compartment/Port enforcement, capability egress, revocation/fencing, atomic activation/recovery and generic lifecycle. Several larger host subsystems are now explicitly underproven or experiment-required.
+Pass 3 confirms the narrow K0/K1/plugin architecture but exposes an important completeness problem in the original responsibility matrix.
 
-Two earlier claims are corrected by direct code evidence:
+The original matrix bundled too many distinct destination responsibilities together. It has now been replaced by:
 
-1. Zero-plugin boot is NOT current. recipe.ts rejects empty composition and verifyCompositionInvariants() hardcodes vivim.law at bootPhase 0.
-2. B1 executable-entry confinement is NOT closed. The manifest entry path is not explicitly proven to remain inside the content tree whose bytes are hashed.
+**`DESTINATION-RESPONSIBILITY-MATRIX.md` — 125 explicit responsibility rows plus cross-cutting concerns.**
+
+This expanded inventory is now the baseline against which Core adequacy must be tested.
+
+The correction does **not** imply that newly separated responsibilities belong in K0. It makes the boundary test honest by ensuring that Self-Knowledge, NCLL, the canonical data model, identity/reconciliation, Work semantics, provider/account/session/resource identity, attention/continuity, product lifecycle, sharing, local intelligence and other destination responsibilities are explicitly represented.
 
 ## Proven boundary
 
 K0: universal non-bypassable runtime mechanisms.
+
 K1: shared protocol/reference vocabulary without product implementation ownership.
+
 System plugins: first-party domain capabilities and semantics.
+
 Extension plugins: third-party/user capabilities through the same governed boundary.
+
 Tooling: authoring, analysis, diagnostics and CI outside runtime authority.
 
-## Pass 3 deepening
+## Pass-3 current findings
 
-The package now contains direct host file-by-file classification, formal K0 proof/reduction matrix, host semantic leakage findings, K1 contract audit, first-party privilege audit, B5 extraction analysis, zero-plugin proof model, active Work replacement boundary, adversarial stress results and eight required diagrams.
+The strongest proven K0 nucleus remains:
 
-## Critical findings
+- signed composition admission;
+- integrity/signature verification;
+- compartment/Port enforcement;
+- capability egress;
+- revocation/fencing;
+- atomic activation/recovery;
+- generic lifecycle;
+- necessary crypto/canonical primitives.
 
-- recipe.ts contains a product-specific bootstrap role check; current rule is ratified but its literal first-party identity is not domain-neutral K0. A generic signed bootstrap-role seam is preferred.
-- compileComposition() and main.ts are tooling/launcher responsibilities, not K0.
-- graph analytics, audit export and worker pooling are not K0; only smaller routing/provenance/lifecycle primitives may remain.
-- StateArbitrator is plausible but UNDERPROVEN and must be reduction-tested.
-- ToolRegistry/generation resolution is not proven K0; call-lifetime pinning is the smaller candidate.
-- current worker isolation is proven as compartment separation, not as a demonstrated hostile OS sandbox.
-- rich contracts such as chat, world, work, provider, control and language are semantic/system APIs even when housed in contracts/src.
+Current implementation contradictions:
 
-## Implementation gate
+1. zero-plugin boot;
+2. B1 executable-entry confinement.
 
-Before any substantive host/runtime work, classify the responsibility here. A K0 proposal requires a protected invariant, concrete bypass, universality argument, domain-neutrality argument, smallest mechanism, removal experiment, impact set and falsifier.
+Current K0 candidates still requiring reduction/experiments:
+
+- State;
+- Graph/Grant provenance;
+- Generation pin;
+- platform seam;
+- generic bootstrap role;
+- hostile OS containment if demanded by the extension threat model.
+
+## Important responsibility correction
+
+The expanded matrix now separates the following that were previously collapsed:
+
+- Self-Knowledge and freshness;
+- NCLL / symbolic command language / grounding / teaching;
+- canonical data model / ontology / identity / relationships / reconciliation;
+- query / retrieval / projection;
+- evidence / provenance / verification / epistemic state;
+- Intent / Plan / Spatial Intent;
+- Authority / Consent / Delegation;
+- Work / Step / Attempt / Scheduler / Recovery;
+- Provider / Account / Session / Resource;
+- Routing / Provider Knowledge / Discovery / Healing;
+- Credentials / secrets;
+- Memory / Context;
+- Attention / Notification / Background / Return continuity;
+- Workspace / Surface / Canvas / direct manipulation;
+- Product Instance / configuration / persistence / continuity;
+- Product shell / OS / desktop / install/update;
+- acquisition / export / restore / sync / sharing;
+- local intelligence/model lifecycle;
+- Forge / distribution / evolution / compatibility / migration / rollback.
+
+## Why the correction matters
+
+A responsibility inventory is upstream of a Core boundary.
+
+The correct chain is:
+
+```
+documented destination
+        ↓
+complete responsibility universe
+        ↓
+required invariants
+        ↓
+K0 / K1 / plugin ownership
+        ↓
+current Ω implementation
+        ↓
+evidence
+        ↓
+gap classification
+```
+
+The previous matrix skipped the second step at sufficient resolution.
+
+This package now fixes that.
+
+## Current implementation gate
+
+Before any substantive host/runtime work, a K0 proposal requires:
+
+- protected invariant;
+- concrete unsafe bypass if externalized;
+- universality;
+- domain neutrality;
+- smallest mechanism;
+- extraction/removal experiment;
+- impact set;
+- falsifier.
 
 ## Blocking experiments
 
@@ -47,7 +126,8 @@ Before any substantive host/runtime work, classify the responsibility here. A K0
 4. Generation-pin continuity proof.
 5. First-party/third-party symmetry test.
 6. Active Work implementation replacement test.
+7. Expanded responsibility adequacy trace across representative vertical slices.
 
 ## Authority
 
-This package is derived research. Ratified Ω law remains authoritative. Any disagreement is recorded explicitly rather than silently normalizing it.
+This package is derived research. Ratified Ω law remains authoritative. Any disagreement is recorded explicitly rather than silently normalized.
