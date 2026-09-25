@@ -6,6 +6,7 @@
 **Candidate workspace:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/`  
 **Access:** Use the repository directly.  
 **Working rule:** This is a bootstrap self-design session first. Do not treat this prompt, the folder name, or any prior provisional artifact as proof of the final agent boundary.
+**Delivery:** Durable bootstrap artifacts are committed directly to `main`. Do not create a branch or pull request merely to stage or communicate bootstrap work.
 
 ---
 
