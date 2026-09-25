@@ -1,16 +1,18 @@
 # Open Frontier
 
-## External symbolic work
-The owner has continued extending the symbolic command paradigm outside this repository. That newer material is not yet durable here and must be imported/reconciled before the next language implementation wave.
+> Current phase: enable the user as creator/composer; do not block factory/product construction on complete self-knowledge.
 
-## Missing self-knowledge scope
-Current vivim.mind is narrower than the desired system-level model. Missing/incomplete areas include generic objects/relationships, Product Instance, Work/runtime state, dependency/impact, plugin configuration schemas, accounts/sessions/resources, freshness, authority/evidence answers, language state, and self-knowledge of the Personal Agent.
+## First-build relevance
 
-## Missing contracts
-A canonical Self-Knowledge Answer envelope does not yet exist.
-A generic self-describing plugin contribution surface is not yet consolidated.
-Exact symbolic forms for system introspection are not yet canonical.
-Personal Agent identity/lifecycle still needs reconciliation with Product Instance, principal identity, vivim.agent, AgentDefinition and Work.
+The Personal Agent should support the user's ability to understand, configure and compose the environment, and where appropriate help create or modify pieces and sets through the ordinary governed path.
 
-## Required next design pass
-Produce a canonical Self-Knowledge ontology; query/answer contract; plugin self-description contract; Personal Agent identity/lifecycle; dependency/impact projections; symbolic introspection grammar; evidence/freshness model; falsifiers; and one minimal vertical slice.
+Full self-knowledge breadth is not a prerequisite for the first compositional product build. Extend the existing mind/self-knowledge mechanisms only as concrete first-build interactions require them.
+
+## Deferred frontier
+
+- external symbolic work remains to be imported/reconciled before a language wave that depends on it;
+- broader self-knowledge of objects, Product Instance, Work, dependencies, accounts/resources and freshness remains open;
+- a canonical Answer envelope and generic plugin self-description contract remain useful targets;
+- Personal Agent identity/lifecycle reconciliation remains open.
+
+Research these when they materially affect a build decision, not merely because they are listed here.
