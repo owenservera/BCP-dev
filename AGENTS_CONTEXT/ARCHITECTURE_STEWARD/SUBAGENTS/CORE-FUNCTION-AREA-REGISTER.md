@@ -26,7 +26,7 @@ Do not create a permanent agent merely because a useful investigation technique 
 |---|---|---|---|
 | CFA-01 | World / Ontology / Context | What exists in VIVIM's world, what does it mean, how is it related, and how does relevant world state become context? | BOOTSTRAP-READY |
 | CFA-02 | Data / Identity / Persistence | How are canonical meanings durably represented, identified, versioned, retained, reconstructed, exported, and evolved? | BOOTSTRAP-READY |
-| CFA-03 | Self-Knowledge / Language / Command | How does VIVIM represent and explain itself, interpret human intent, ground references, and compile deterministic commands? | BOOTSTRAP-IN-PROGRESS |
+| CFA-03 | Self-Knowledge / Language / Command | How does VIVIM maintain semantic continuity from self-knowledge and grounding through command interpretation, canonical Intent/Plan meaning, evidence, and representation? | RATIFIED — FOUNDATION-SEEDED |
 | CFA-04 | Authority / Governance | What may happen, who may authorize it, under what scope, consent, delegation, risk, and revocation rules? | BOOTSTRAP-READY |
 | CFA-05 | Agency / Work / Execution | How does an intent become durable work that can execute, recover, produce outcomes, and leave evidence? | BOOTSTRAP-READY |
 | CFA-06 | Capability / Provider / Realization | What can VIVIM do, and through which valid interchangeable realizations can those capabilities act on the external world? | BOOTSTRAP-READY |
@@ -156,3 +156,8 @@ The recommended next self-design sessions are:
 8. Runtime Constitution / Core Substrate
 
 Data / Identity / Persistence and Self-Knowledge / Language / Command are already in bootstrap/self-design execution and should not be duplicated.
+
+
+### CFA-03 ratification note — 2026-09-25
+
+CFA-03 is ratified as **Semantic Continuity Steward** (machine-safe slug: semantic-continuity). The original SELF-KNOWLEDGE-COMMAND-COMPILER workspace is retained as lineage. Its enduring responsibility is the coherence of meaning across self-knowledge, grounding, command language, interpretation, canonical Intent/Plan semantics, execution meaning, evidence/provenance, representation and bounded terminology. It does not replace the semantic authority of vivim.mind, NCLL, Intent, Work, Data, Authority, Surfaces, or the Architecture Steward graph.
