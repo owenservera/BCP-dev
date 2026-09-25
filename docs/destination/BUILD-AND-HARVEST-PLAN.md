@@ -302,15 +302,17 @@ This is a delivery track, not another architecture layer.
 
 ## 13. Immediate sequence
 
-### Cycle 1 — CURRENT
+### Cycle 1 — COMPLETE
 Provider / Account / Routing reconciliation.
 
 Primary artifact: `PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md`.
 
 Outputs: canonical Account relationship, routing-policy semantics, realization-selection flow, migration/harvest matrix, maturity path, thin falsifier, and live-account proof criteria.
 
-### Cycle 2
+### Cycle 2 — CURRENT
 World / Workspace / Canvas reconciliation.
+
+Primary artifact: `WORLD-WORKSPACE-CANVAS-RECONCILIATION.md`.
 
 Outputs: world projection, space/thing mapping, project/conversation continuity, canvas integration, first-minute experience.
 
