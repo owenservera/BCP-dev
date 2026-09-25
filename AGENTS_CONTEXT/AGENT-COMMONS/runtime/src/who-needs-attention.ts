@@ -43,7 +43,7 @@ function relevant(m:MessagePayload,agent:string,p:Projection):boolean{
     if(s.target.type==="PUBLIC")return true;
     if(s.target.type==="ROOM"&&s.target.conversation_id===m.conversation_id)return true;
     if(s.target.type==="TOPIC"&&m.topics.includes(s.target.topic))return true;
-    if(s.target.type==="DIRECT"&&(m.recipients.includes(agent)||m.agent_id===agent))return true;
+    if(s.target.type==="DIRECT"&&m.conversation_id===`direct:${[agent,s.target.agent_id].sort().join(":")}`)return true;
   }
   return false;
 }
