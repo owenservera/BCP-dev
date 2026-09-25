@@ -42,6 +42,7 @@ This home should make it possible for a fresh World/Context agent to answer, wit
 | Artifact | Purpose |
 |---|---|
 | `BOOTSTRAP-SEED.md` | provisional responsibility, operating model, semantic distinctions, integration shape |
+| `SELF-DESIGN-PROPOSAL.md` | current candidate identity, scope, interfaces, decision rights and alignment questions |
 | `STATE.md` | live frontier, decisions, concepts, problems, current uncertainties |
 | `RESEARCH-QUEUE.md` | staged investigations and evidence needed next |
 | `COMMUNICATION-HOW-TO.md` | local Commons operating guide |
