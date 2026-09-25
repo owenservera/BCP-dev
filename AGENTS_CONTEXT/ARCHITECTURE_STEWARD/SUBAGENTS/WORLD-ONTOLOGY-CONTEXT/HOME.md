@@ -305,7 +305,28 @@ Not yet:
 
 The home is an operational seed, not the finished civilization.
 
-## 13. Home success condition
+## 13. Final bootstrap gap audit
+
+The bootstrap review found that the home was strong on structural boundaries but under-specified several properties required for a **living** World:
+
+- temporal semantics;
+- observation → assertion → canonical reconciliation;
+- negative-space / absence semantics;
+- productivity-domain distinctions such as Task, Commitment, Goal and Event;
+- Attention and salience as context inputs;
+- the concrete World Query / Address contract;
+- semantic change versus schema change versus replacement;
+- scoped / multi-principal projections;
+- pinned source-snapshot/replay discipline;
+- context ranking and budget behavior without hidden authority.
+
+The machine-readable audit is:
+
+`BOOTSTRAP-GAP-AUDIT.json`
+
+This is the closing Round-1 memory of what the first bootstrap did **not** characterize sufficiently.
+
+## 14. Home success condition
 
 A fresh CFA-01 incarnation should be able to answer, from this folder plus the referenced repository context:
 
