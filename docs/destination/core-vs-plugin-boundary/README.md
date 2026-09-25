@@ -1,22 +1,13 @@
-# VIVIM Core vs Plugin Boundary — Research Package
+# Core vs Plugin Boundary Research
 
-> Status: SETUP COMPLETE / RESEARCH OPEN
-> Canonical research context: `AGENTS_CONTEXT/CORE_VS_PLUGIN_BOUNDARY/`
+Status: DERIVED — COMPLETE FOR THIS PASS
 
-## Mission
+This pass concludes that VIVIM should use a small K0 enforcement kernel, a K1 shared protocol layer, replaceable first-party system plugins, third-party extension plugins, and out-of-tree tooling.
 
-Derive the smallest irreducible Ω Core and the correct boundaries for shared contracts, first-party system plugins, extension plugins, and tooling.
+Core enforces admissibility, integrity, isolation, transport, egress and generic lifecycle. Contracts define shared boundary meaning. Plugins own product/domain meaning, implementations, policy content and realizations. Tooling researches and verifies without runtime authority.
 
-## Central thesis
+The default product is therefore a signed plugin composition, not a larger privileged kernel. First-party status, importance, ubiquity, security sensitivity and boot-required status are not sufficient reasons for K0.
 
-> **Ω Core is the minimum non-bypassable trust/runtime mechanism required to make plugins safely exist. VIVIM product meaning and behavior live outside that kernel.**
+Research outputs classify destination responsibilities, map Legacy evidence to Ω, audit false-Core candidates, define contracts and replacement seams, and specify evolution, trust, impact, migration and falsification requirements.
 
-## Package contract
-
-The full output contract is defined by `AGENTS_CONTEXT/CORE_VS_PLUGIN_BOUNDARY/OUTPUT-EXPECTATIONS.md` and the authoritative execution instructions by `AGENTS_CONTEXT/CORE_VS_PLUGIN_BOUNDARY/LAUNCH-PROMPT.md`.
-
-Research is complete only when the destination responsibility matrix, false-Core audit, plugin generality audit, evolution boundary map, dependency/impact model, trust/authority boundary, implementation blueprint, migration sequence, falsifiers, evidence index, and decisions are committed.
-
-## No production implementation
-
-This package is research/design only. Current Ω law, contracts, code, tests, and explicit evidence remain authoritative.
+This package is derived research and does not amend ratified Ω law.
