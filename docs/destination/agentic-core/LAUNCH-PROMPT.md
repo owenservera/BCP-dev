@@ -231,3 +231,25 @@ Label conclusions:
 - PROMOTION-CANDIDATE
 
 No production-code changes until the design synthesis is reviewed.
+
+
+## Mandatory repository landing requirement
+
+**The research package is not complete when it exists only in the agent workspace, chat output, or a downloadable bundle.**
+
+Before declaring the task complete, you MUST:
+
+1. Write all required research/design deliverables into this repository under:
+   `docs/destination/agentic-core/`
+   using the output structure defined by `README-OUTPUTS.md`.
+2. Include the required synthesis, indexes, evidence/source register, experiment results and any supporting artifacts.
+3. Update `STATE.md` with the final research status and exact commit SHA.
+4. Commit the complete research package to your research branch.
+5. Return the commit SHA and the exact repository paths of the key deliverables.
+6. Open/update the PR from that branch so the research is reviewable in GitHub.
+
+A ZIP/downloadable bundle may also be produced, but it is **secondary**. The repository commit is the canonical landing place for this research.
+
+If local cloning is unavailable, use the accessible repository interface/API against the exact pinned commit and still complete the GitHub commit/PR requirement. Do not stop merely because a literal local clone could not be performed.
+
+Do not claim repository completion until the required files are actually committed and visible on the branch.
