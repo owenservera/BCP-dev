@@ -1,6 +1,6 @@
 # Architecture Steward — Subagents
 
-This directory contains **bounded investigation prompts**, not a second agent-management system.
+This directory contains two related but distinct things: **durable Core Function Area bootstrap agents** and **bounded investigation prompts/instruments**. It is not a second coordinator or authority system.
 
 ## Why this exists
 
@@ -56,6 +56,14 @@ CANONICAL VIEWS CHANGE ONLY IF JUSTIFIED
 ```
 
 Subagent findings never become authority merely because an agent produced them.
+
+## Core Function Areas vs investigation instruments
+
+A **Core Function Area** is an enduring architectural responsibility with a durable identity, boundary, interfaces and operating loop. An **investigation instrument** is a reusable method such as discovery, proof audit, archaeology, falsification, journey tracing or convergence synthesis.
+
+Core Function Areas are deliberately self-designed in bootstrap sessions before their durable identities are created. Investigation instruments may be reused across multiple Core Function Areas and must not be promoted into permanent responsibility merely because they are useful.
+
+The approved Core Function Area constellation is recorded in `CORE-FUNCTION-AREA-REGISTER.md`.
 
 ## Type discipline
 
