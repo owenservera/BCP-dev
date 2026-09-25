@@ -82,6 +82,18 @@ The first Steward cycle is tracked by:
 
 These are operating records, not Ω law and not replacements for destination authority.
 
+## Architecture graph
+
+The Steward now maintains the destination-anchored Architecture Graph as a derived network view:
+
+- `docs/destination/architecture/graph/README.md`
+- `docs/destination/architecture/graph/NODES.json`
+- `docs/destination/architecture/graph/EDGES.json`
+- `docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md`
+- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md`
+
+The graph is anchored in the end vision and destination documentation. Implementation is attached later as evidence; it is not the graph's source of architectural authority.
+
 ## Start here
 
 Read:
@@ -100,6 +112,8 @@ Read:
 12. DRIFT-AND-REPULL.md
 13. CHANGE-PROTOCOL.md
 14. LAUNCH-PROMPT.md
+15. docs/destination/architecture/graph/README.md
+16. AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md
 
 
 ## Independent subagents
