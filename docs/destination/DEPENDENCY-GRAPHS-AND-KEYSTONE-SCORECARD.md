@@ -557,3 +557,36 @@ That graph is the thing to watch.
 The key management question becomes:
 
 > **Which dependency, if raised one implementation level, unlocks the most of the destination?**
+
+## 16. Cross-cutting evolution overlay
+
+The keystone graph has an additional **cross-cutting control overlay** rather than a replacement node hierarchy:
+
+```
+                   EVOLUTION / RECONCILIATION
+                    /     |       |       \\
+                   /      |       |        \\
+               WORLD   CAPABILITY  WORK   PRODUCT
+                 |         |        |         |
+                 └─────────┴────────┴─────────┘
+                            |
+                    COMPATIBILITY / IMPACT
+                            |
+                    AUTHORITY / EVIDENCE
+                            |
+                    PROMOTE / ROLLBACK
+```
+
+This overlay exists because the hardest destination failures are increasingly **join failures under change**, not isolated missing engines.
+
+The evolution lane therefore consumes the keystone graph and returns:
+
+- change classes;
+- affected dependency edges;
+- compatibility requirements;
+- continuity obligations;
+- revalidation requirements;
+- safe-automation boundaries;
+- evidence/rollback requirements.
+
+It should not become another project-management hierarchy.

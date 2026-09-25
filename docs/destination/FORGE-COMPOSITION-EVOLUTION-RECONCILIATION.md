@@ -400,3 +400,17 @@ The final destination therefore requires:
 **capabilities that can be used → compositions that can be changed → Forge that can create them → verification that can trust them → user control over promotion and rollback.**
 
 That is the path from a personal computing environment to a personal computing environment that can evolve with its owner.
+
+## 20. Cross-cutting evolution constitution
+
+This D7 design remains the principal Forge/self-extension reconciliation, but its evolution semantics are now governed by the dedicated cross-cutting design at `EVOLUTION-RECONCILIATION.md`.
+
+Therefore:
+
+- Forge proposes or changes capabilities/compositions;
+- Provider Intelligence characterizes external reality;
+- maintenance handles bounded deterministic repair;
+- the shared evolution rules govern impact, compatibility, authority, verification, promotion, rollback, and continuity;
+- constitutional change remains outside ordinary Forge authority.
+
+The dedicated research lane must resolve the remaining hard questions before D7 claims destination-grade self-evolution.

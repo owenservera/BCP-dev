@@ -55,6 +55,8 @@ Start with:
 - V1-DEFAULT-ENVIRONMENT-AND-LIVE-PROOF.md
 - DATA-MEMORY-CONTEXT-RECONCILIATION.md
 - FORGE-COMPOSITION-EVOLUTION-RECONCILIATION.md
+- EVOLUTION-RECONCILIATION.md
+- evolution/README.md
 - DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
 - REQUIREMENT-EVIDENCE-TRACEABILITY.md
 - VERTICAL-SLICE-REGISTRY.md
@@ -70,3 +72,8 @@ The destination program should optimize for:
 **make the world coherent → make capabilities selectable → make work durable → make external reality real → make continuity persistent → make evolution native.**
 
 The repository already contains much of the machinery. The remaining challenge is to reconcile it into one sovereign human experience rather than continue accumulating isolated subsystems.
+
+## New cross-cutting destination control
+
+- `EVOLUTION-RECONCILIATION.md` — initial design for governed semantic evolution, reconciliation, self-maintenance, and self-extension.
+- `evolution/` — dedicated research package to be completed before production implementation of the deeper evolutionary model.

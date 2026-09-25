@@ -382,3 +382,27 @@ When a milestone changes:
 - do not copy detailed evidence into this file.
 
 **The goal is to make the program easier to understand, not to create another layer of paperwork.**
+
+## 11. D5 integration: evolution is now a cross-cutting semantic boundary
+
+D5 — **Self-Knowledge & Evolution** should consume the dedicated destination evolution design rather than treating evolution as a Forge-only concern.
+
+```
+Self-Knowledge
+      ↓
+change detection / explanation
+      ↓
+Evolution / Reconciliation
+      ↓
+Impact + Compatibility
+      ↓
+Authority
+      ↓
+Work / Maintenance
+      ↓
+Evidence
+      ↓
+Self-Knowledge
+```
+
+D5 therefore spans self-description, self-maintenance, governed extension, migration, rollback, provider healing, and continuity under change. Forge remains one execution/authoring mechanism inside that broader model.
