@@ -46,6 +46,7 @@ Start with:
 - RECONCILIATION-MAP.md
 - MATURITY-AND-GAPS.md
 - BUILD-AND-HARVEST-PLAN.md
+- PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md
 
 The sources/ directory contains preserved conversation and research material. Source captures are evidence of design thinking, not law.
 
