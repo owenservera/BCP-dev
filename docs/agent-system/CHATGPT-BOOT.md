@@ -9,7 +9,8 @@ The repository is the durable shared context.
 
 1. `/AGENTS.md` → "Every agent, every session"
 2. `docs/agent-system/context/DIGEST.md`
-3. Your mission `STATE.md` (`missions/<id>/STATE.md`)
+3. `docs/agent-system/PROGRAM-BOARD.md` — current program position, dependencies, blockers, and next actions
+4. Your mission `STATE.md` (`missions/<id>/STATE.md`)
 
 ## Authorities (never invert)
 
