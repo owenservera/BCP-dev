@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "0.1",
+  "graphId": "VIVIM-DESTINATION-ARCHITECTURE",
+  "generatedAt": "2026-09-25",
+  "sourceDocuments": [
+    "docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md",
+    "docs/destination/DESTINATION-MASTER-MAP.md",
+    "docs/destination/REQUIREMENT-EVIDENCE-TRACEABILITY.md",
+    "docs/destination/VERTICAL-SLICE-REGISTRY.md",
+    "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md",
+    "docs/destination/NORTH-STAR.md",
+    "docs/destination/HUMAN-EXPERIENCE.md",
+    "docs/destination/CONCEPTUAL-MODEL.md",
+    "docs/destination/system-intelligence/indexes/ATOMS.json",
+    "docs/destination/system-intelligence/indexes/EDGES.json",
+    "docs/destination/system-intelligence/STATE.md",
+    "docs/destination/architecture/research/CODING-START-READINESS.md"
+  ],
+  "counts": {
+    "nodes": 280,
+    "edges": 591,
+    "document": 12,
+    "vision_anchor": 4,
+    "destination_concept": 25,
+    "responsibility": 125,
+    "journey": 8,
+    "requirement": 13,
+    "si_atom": 44,
+    "evidence": 71,
+    "reference_piece": 7,
+    "composition": 1,
+    "invalidEdges": 0
+  },
+  "validation": {
+    "invalidEdges": 0
+  },
+  "generatedFrom": "documentation-first seed"
+}
