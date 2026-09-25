@@ -10,15 +10,16 @@ BCP-dev is the repository in which VIVIM legacy behavior is mined, Ω is reconci
 | bcp-speed/bcp/ | BCP control substrate and migration/forensic machinery |
 | omega-baseline/omega-final/ | Ω destination runtime and technical architecture |
 | docs/destination/ | Current destination/product model and research |
-| docs/agent-system/ | Cooperative-agent and program governance |
-| AGENTS_CONTEXT/ | Durable cold-start context |
+| AGENTS_CONTEXT/ | Durable peer-agent and Architecture Steward context |
 | ZAI_BUILD_CONTEXT/ | Autonomous build control context |
 | agent-tools/ | Current agent bootstrap/lint/WIP/hook tooling |
 | docs/archive/ | Historical material only |
 
 ## Start here
 
-/AGENTS.md → /BUILD_CONTEXT.md → /docs/CURRENT-CONTEXT.md → /docs/agent-system/CURRENT.md → /AGENTS_CONTEXT/README.md
+/AGENTS.md → /BUILD_CONTEXT.md → /docs/CURRENT-CONTEXT.md → /AGENTS_CONTEXT/README.md → the relevant peer-agent context → current Ω/destination authority.
+
+The Architecture Steward owns repository-wide documentation, README, mapping, lineage, and coherence care.
 
 ## Destination semantic path
 
@@ -33,12 +34,6 @@ admission/integrity, isolation/transport, capability egress/fencing, atomic acti
 
 The complete responsibility universe lives at:
 docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md
-
-The inventory explicitly includes Self-Knowledge, deterministic command language/NCLL, canonical data-model evolution, ontology, reconciliation, Provider/Account/Session/Resource, Work/Agent, Memory/Context, Attention/Continuity, Product Instance, Forge/Evolution, sharing, desktop/OS integration and product lifecycle.
-
-## Current research obligations
-
-B1 executable-entry confinement; generic zero-plugin/bootstrap role; State/Graph/Grant/Generation reduction; first-party/third-party symmetry; active Work replacement.
 
 ## History
 
