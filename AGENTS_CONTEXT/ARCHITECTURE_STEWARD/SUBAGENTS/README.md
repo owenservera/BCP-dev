@@ -75,6 +75,6 @@ Current types:
 
 - **REPOSITORY-DISCOVERY** — independent completeness/contextualization sweep before the Steward treats the architecture corpus as sufficiently sampled.
 - **PRODUCT-EXPERIENCE-ARCHAEOLOGY** — independent recovery and mapping of the user-experience vision, lifecycle, interaction grammar, and architectural corollaries before UX becomes the primary destination organizing lens.
-- **SELF-KNOWLEDGE-COMMAND-COMPILER** — investigates the boundary and integration between runtime self-knowledge, the Ω/NLCL command language and interpreter, execution-plan compilation, and the proposed Unicode/SVG visual compiler; reconciles current Ω implementation with the archived symbolic-communication design and identifies the smallest safe implementation seam.
+- **SELF-KNOWLEDGE-COMMAND-COMPILER** — workspace slug for **CFA-03 Semantic Continuity Steward**; stewards the semantic continuity boundary between runtime self-knowledge, grounding, command language/interpreter, canonical Intent/Plan meaning, execution semantics, evidence/provenance, representation, and bounded terminology/CANON. The slug preserves delegation lineage.
 - **DATA-MODEL-STEWARD** — independently reconstructs the future Ω/VIVIM data model across semantic records, vault persistence, identity/revision, events, provenance/evidence, runtime state, projections, external state, representation, schema evolution, and VIVIM→Ω reconciliation. It prevents the historical Prisma/data-sprawl model from silently becoming the future model.
 
