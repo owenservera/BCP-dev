@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "conversation_context_export",
+  "context_name": "PRODUCT_VISION",
+  "created_at": "2026-09-25",
+  "repository": "owenservera/BCP-dev",
+  "current_main_head": "05464e085122a173d1f093612292336750436c7e",
+  "research_tip": "a7971a0557c464786b0db922cff34ae799e91767",
+  "source_note": "Project-context export of the substantive conversation visible in this session. This is not a platform-generated immutable transcript and excludes hidden chain-of-thought.",
+  "purpose": "Preserve the reasoning needed to resume the Product Vision/System Intelligence work from a fresh chat.",
+  "turns": [
+    {
+      "sequence": 1,
+      "actor": "user",
+      "topic": "parallel work while archaeology runs",
+      "content": "While the System Intelligence archaeology is running, identify useful work that can be done without conflicting with it."
+    },
+    {
+      "sequence": 2,
+      "actor": "assistant",
+      "topic": "parallel product work",
+      "content": "Recommended focusing on the first real VIVIM experience and executable product acceptance while avoiding new internal architecture decisions."
+    },
+    {
+      "sequence": 3,
+      "actor": "user",
+      "topic": "V1 capability floor",
+      "content": "Basically V1 should cover at least what vivim old can do."
+    },
+    {
+      "sequence": 4,
+      "actor": "assistant",
+      "topic": "legacy capability baseline",
+      "content": "Clarified that V1 should preserve the meaningful behavioral capability floor of old VIVIM while allowing the new architecture to replace old mechanisms."
+    },
+    {
+      "sequence": 5,
+      "actor": "user",
+      "topic": "hard architectural concerns",
+      "content": "Raised self-evolving data model including artifacts/documents; provider abstraction for similar-but-not-identical providers; onboarding/maintenance/self-healing/parsing; provider protocol data stores/use; routing; resource-efficient Chrome master/slave; shared vs bespoke; plugin infrastructure for cross-sharing; self-knowledge; and maximum reprogrammability."
+    },
+    {
+      "sequence": 6,
+      "actor": "assistant",
+      "topic": "critical area model",
+      "content": "Organized those concerns as likely high-effort V1 design/engineering areas and said the archaeology should expose them as critical paths, boundary risks, unknowns and open frontier."
+    },
+    {
+      "sequence": 7,
+      "actor": "user",
+      "topic": "Pass 2",
+      "content": "Asked to anticipate what the first archaeology pass will output and design a second pass to cover what was missed structurally."
+    },
+    {
+      "sequence": 8,
+      "actor": "assistant",
+      "topic": "structural falsification",
+      "content": "Defined Pass 2 as an adversarial structural coverage audit aimed at hidden dependencies, runtime/data flows, evolution limits, provider system, browser substrate, plugin graph, self-knowledge, reprogrammability, legacy parity and boundaries."
+    },
+    {
+      "sequence": 9,
+      "actor": "user",
+      "topic": "Wave 1 completed",
+      "content": "Reported 6/6 investigators, 44 atoms, 65 edges, 99 evidence records, 42/42 role artifacts and 11/11 synthesis artifacts. Highlighted the Vault/Evidence → Law/Authority → Recipe/Composition → Intent → Execution/Context spine and Provider → Account → Session → Browser → Realization → Routing → Governed Effect → Evidence chain."
+    },
+    {
+      "sequence": 10,
+      "actor": "assistant",
+      "topic": "Wave 1 assessment",
+      "content": "Inspected Wave 1 outputs and concluded that the major seams are visible, but the model is too coarse to answer the hardest questions about data evolution, provider protocol/healing, browser resources, plugin graph, self-knowledge and reprogrammability. Recommended Pass 2 before deep dives."
+    },
+    {
+      "sequence": 11,
+      "actor": "user",
+      "topic": "agent context continuity",
+      "content": "Requested that AGENTS_CONTEXT/PRODUCT_VISION be updated, with an export of this conversation and a full handoff so a fresh chat can continue from here."
+    }
+  ],
+  "current_decisions": [
+    "Wave 1 is a map, not a complete structural model.",
+    "Pass 2 should falsify Wave 1 before broad implementation or all deep dives.",
+    "V1 must preserve the meaningful capability floor of Legacy VIVIM.",
+    "The hardest V1 risks are data evolution, provider abstraction/protocol/healing, routing, Chrome substrate, shared-vs-bespoke, plugin composability, self-knowledge and reprogrammability."
+  ],
+  "immediate_next_action": "Let Pass 2 finish; then review V1 Critical Areas and select targeted design/experiment/implementation work."
+}
