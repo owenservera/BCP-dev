@@ -1,16 +1,17 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "artifact_id": "cfa01.peer-relationship-distance-map",
   "title": "CFA-01 World / Ontology / Context — Peer Relationship & Distance Map",
-  "status": "WORKING / SELF-AUTHORED / CFA-01 PERSPECTIVE",
-  "generated_on": "2026-09-25",
+  "status": "WORKING / SELF-AUTHORED / CFA-01 PERSPECTIVE / EVIDENCE-REFRESHED",
+  "generated_on": "2026-09-26",
   "perspective": "world-ontology-context",
   "purpose": "A machine-readable map of how CFA-01 relates to the Architecture Steward and the other registered Core Function Areas: what CFA-01 needs from each peer, what the peer is likely to need from CFA-01, where the semantic/operational seams are close, and where boundary collision is most likely.",
   "epistemic_notice": {
     "peer_roles": "Observed from the repository roster and peer bootstrap/identity documents.",
     "relationship_scores": "CFA-01's own derived assessment, not a peer-authored claim.",
-    "peer_likely_need": "Inference from each peer's documented mission/boundary; must be confirmed through peer dialogue.",
-    "distance": "Analytical aid only; not a maturity, priority, quality, or authority score."
+    "peer_likely_need": "Derived inference from current peer mission/boundary documents; not peer agreement and should be confirmed through Commons dialogue.",
+    "distance": "Analytical aid only; not a maturity, priority, quality, or authority score.",
+    "score_model_v2": "Operational distance is CFA-01's own analytical instrument. It is not a maturity, priority, quality, authority, or personnel ranking."
   },
   "taxonomy": {
     "relationship_classes": [
@@ -716,5 +717,659 @@
     "anti_pattern": "When a peer asks CFA-01 for a generic registry, store, graph, permission flag, UI model, or runtime singleton, first test whether the request is actually a neighboring concern dressed in World terminology.",
     "peer_dialogue_priority": "Confirm the inferred peer_need scores through Commons or direct bootstrap dialogue before turning any inference into a durable contract.",
     "distance_interpretation": "High closeness means more frequent semantic coordination, not shared ownership."
-  }
+  },
+  "evidence_refresh": {
+    "inspected_on": "2026-09-26",
+    "architecture_steward": [
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/AGENT.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CANONICAL-MODEL.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OWNERSHIP-MAP.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OPERATING-INTERPRETATION.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+    ],
+    "cfa01": [
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/BOOTSTRAP-SEED.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/STATE.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/RESEARCH-QUEUE.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/COMMONS-BOOTSTRAP-EXECUTION-PROMPT.md"
+    ],
+    "peers": {
+      "data-model": [
+        "README.md",
+        "STATE.md",
+        "BOUNDARY-DESIGN.md",
+        "BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md",
+        "PEER-RELATIONSHIP-ATLAS.md"
+      ],
+      "semantic-continuity": [
+        "AGENT.md",
+        "CANON-DICTIONARY.md"
+      ],
+      "authority-governance": [
+        "README.md",
+        "BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md",
+        "PEER-RELATIONSHIP-ATLAS.md"
+      ],
+      "agency-work-execution": [
+        "README.md",
+        "LAUNCH-PROMPT.md"
+      ],
+      "capability-provider-realization": [
+        "README.md",
+        "LAUNCH-PROMPT.md"
+      ],
+      "composition-plugin-forge": [
+        "README.md",
+        "LAUNCH-PROMPT.md"
+      ],
+      "experience-interaction-surfaces": [
+        "README.md",
+        "LAUNCH-PROMPT.md"
+      ],
+      "evolution-compatibility-self-maintenance": [
+        "README.md",
+        "LAUNCH-PROMPT.md"
+      ],
+      "runtime-constitution-core-substrate": [
+        "README.md",
+        "LAUNCH-PROMPT.md"
+      ]
+    }
+  },
+  "relationship_model_v2": {
+    "intent": "Model the relationship as a multi-axis operating dependency rather than one scalar. The scalar distance is only a navigation aid.",
+    "taxonomy": {
+      "codes": {
+        "MNG": "meaning dependency — peer helps determine or preserve what a World concept means",
+        "IDN": "identity/correspondence dependency",
+        "CTX": "context dependency — peer needs bounded World state/context",
+        "DUR": "durability dependency — peer consumes or produces information that must survive",
+        "EXT": "externalization dependency — peer maps World meaning to external systems",
+        "ACT": "action dependency — peer turns World meaning into authorized/executed change",
+        "PRJ": "projection dependency — peer presents/manipulates World representations",
+        "EVO": "evolution dependency — peer changes/replaces semantics or their carriers",
+        "SUB": "substrate dependency — peer mechanically constrains where World semantics can live",
+        "MAP": "meta-map dependency — Steward maps/reconciles World meaning across the repository"
+      },
+      "dimensions": {
+        "semantic_proximity_0_5": "How close the peer's core semantic subject is to World/Ontology/Context.",
+        "input_dependency_0_5": "How much CFA-01 needs the peer's outputs to complete its own work.",
+        "peer_input_dependency_0_5": "How much the peer needs CFA-01 outputs to complete its own work.",
+        "boundary_collision_0_5": "How easily ownership can be accidentally duplicated or conflated at this seam.",
+        "interaction_frequency_0_5": "Expected operational frequency of meaningful interaction.",
+        "consequence_0_5": "Impact of a wrong seam model on durable meaning, authority, execution, or external truth.",
+        "transform_coupling_0_5": "How often information crosses the seam in semantically consequential transformations.",
+        "evolution_coupling_0_5": "How strongly changes on one side force re-evaluation on the other."
+      },
+      "formula": "strength = 0.20*semantic_proximity + 0.15*input_dependency + 0.15*peer_input_dependency + 0.10*interaction_frequency + 0.15*consequence + 0.15*transform_coupling + 0.10*evolution_coupling; distance = 5 - strength.",
+      "bands": {
+        "0.0-0.5": "Immediate handshake",
+        "0.51-1.0": "Paired",
+        "1.01-1.5": "Strong adjacent",
+        "1.51-2.5": "Constitutional/limited semantic adjacency",
+        "2.51-5.0": "Mediated"
+      }
+    },
+    "peer_cards": {
+      "architecture-steward": {
+        "relationship": "meta-partner",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "reconciliation",
+          "graph/map placement",
+          "impact context",
+          "owner escalation path"
+        ],
+        "they_need_from_us": [
+          "World semantic nodes/edges",
+          "ownership evidence",
+          "boundary drift",
+          "unknowns and contradictions"
+        ],
+        "boundary_subjects": [
+          "World meaning vs architecture mapping",
+          "canonical model vs map"
+        ],
+        "notify": [
+          "material ownership conflict",
+          "graph edge implies unsupported authority/ownership",
+          "new World/context source of truth",
+          "cross-CFA semantic change"
+        ]
+      },
+      "data-model": {
+        "relationship": "closest semantic/data pair",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "canonical record identity",
+          "revision/history",
+          "persistence/reconstruction",
+          "data corridor evidence"
+        ],
+        "they_need_from_us": [
+          "object/relationship meaning",
+          "semantic identity",
+          "lifecycle semantics",
+          "record vs projection/context distinction"
+        ],
+        "boundary_subjects": [
+          "World meaning vs durable representation",
+          "semantic identity vs record ID",
+          "relationship vs provenance"
+        ],
+        "notify": [
+          "storage identity promoted to World identity",
+          "World relation cannot survive/reconstruct",
+          "projection treated as canonical",
+          "identity correspondence unresolved"
+        ]
+      },
+      "semantic-continuity": {
+        "relationship": "closest semantic continuity pair",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "grounding model",
+          "canonical terminology",
+          "representation/round-trip rules",
+          "Intent/Plan semantic handoff"
+        ],
+        "they_need_from_us": [
+          "World targets",
+          "semantic relationships",
+          "context slices",
+          "addressability",
+          "World uncertainty/freshness"
+        ],
+        "boundary_subjects": [
+          "World semantics vs interpretation",
+          "Context vs Intent",
+          "representation vs World meaning"
+        ],
+        "notify": [
+          "command term implies new World concept",
+          "grounding invents World relation",
+          "context change alters interpretation",
+          "representation creates ungrounded meaning"
+        ]
+      },
+      "authority-governance": {
+        "relationship": "high-consequence boundary guardrail",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "permission semantics",
+          "principal/behalf model",
+          "scope/consent/delegation/standing",
+          "visibility/access distinctions"
+        ],
+        "they_need_from_us": [
+          "target/effect meaning",
+          "World scope",
+          "addressability",
+          "existence vs accessibility"
+        ],
+        "boundary_subjects": [
+          "existent vs visible",
+          "addressable vs authorized",
+          "World state vs permission"
+        ],
+        "notify": [
+          "denied/hidden mapped to nonexistent",
+          "context crosses access boundary",
+          "authority attempted on unresolved target",
+          "World semantics used as permission"
+        ]
+      },
+      "agency-work-execution": {
+        "relationship": "causal operational pair",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "Work lifecycle",
+          "attempt/retry/recovery",
+          "outcome semantics",
+          "execution causation"
+        ],
+        "they_need_from_us": [
+          "targets",
+          "effect semantics",
+          "context",
+          "object lifecycle",
+          "observed-vs-intended World change"
+        ],
+        "boundary_subjects": [
+          "Work state vs World state",
+          "execution success vs observed truth",
+          "target continuity across retry"
+        ],
+        "notify": [
+          "execution result promoted without observation",
+          "target ambiguity",
+          "retry against changed meaning",
+          "context basis not reconstructable"
+        ]
+      },
+      "capability-provider-realization": {
+        "relationship": "externalization boundary pair",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "provider/account/session distinctions",
+          "external resource IDs",
+          "realization identity",
+          "provider observations",
+          "routing constraints"
+        ],
+        "they_need_from_us": [
+          "provider-independent target meaning",
+          "World resource semantics",
+          "relationships",
+          "context"
+        ],
+        "boundary_subjects": [
+          "provider identity vs canonical World identity",
+          "external observation vs World truth"
+        ],
+        "notify": [
+          "provider ID becomes canonical identity",
+          "external correspondence ambiguous",
+          "healing changes meaning",
+          "write-back creates semantic change without World reconciliation"
+        ]
+      },
+      "composition-plugin-forge": {
+        "relationship": "composition seam",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "composition/plugin contracts",
+          "assembly/dependency semantics",
+          "Forge promotion/replacement"
+        ],
+        "they_need_from_us": [
+          "World extension semantics",
+          "object/relationship contracts",
+          "semantic context",
+          "identity rules"
+        ],
+        "boundary_subjects": [
+          "composition registry vs World",
+          "plugin contribution vs ontology"
+        ],
+        "notify": [
+          "plugin claims unbounded World ownership",
+          "new World-visible type emerges",
+          "replacement strands World meaning",
+          "composition duplicates context/world authority"
+        ]
+      },
+      "experience-interaction-surfaces": {
+        "relationship": "projection/manipulation seam",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "surface/view model",
+          "interaction grammar",
+          "attention/focus",
+          "spatial/canvas representation",
+          "direct manipulation rules"
+        ],
+        "they_need_from_us": [
+          "World projections",
+          "objects/relationships",
+          "Space semantics",
+          "addressability",
+          "canonical edit targets"
+        ],
+        "boundary_subjects": [
+          "visual layout vs World topology",
+          "surface state vs canonical state"
+        ],
+        "notify": [
+          "gesture creates semantic relation",
+          "layout treated as canonical topology",
+          "surface edit cannot map to World target",
+          "attention changes semantic visibility"
+        ]
+      },
+      "evolution-compatibility-self-maintenance": {
+        "relationship": "closest temporal partner",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "change/compatibility semantics",
+          "migration/replacement lifecycle",
+          "repair/retirement",
+          "promotion/rollback"
+        ],
+        "they_need_from_us": [
+          "semantic invariants",
+          "identity/correspondence",
+          "relationship meaning",
+          "context compatibility"
+        ],
+        "boundary_subjects": [
+          "semantic evolution vs generic migration",
+          "repair vs semantic invention"
+        ],
+        "notify": [
+          "meaning changes without semantic migration/crosswalk",
+          "replacement preserves storage but not meaning",
+          "context contract changes untested",
+          "healing invents ontology"
+        ]
+      },
+      "runtime-constitution-core-substrate": {
+        "relationship": "narrow but high-consequence substrate seam",
+        "supplier_customer": "bidirectional",
+        "needs_from_them": [
+          "admission/isolation/fencing",
+          "recovery/lifecycle guarantees",
+          "mechanical integrity/trust",
+          "K0/K1 boundary evidence"
+        ],
+        "they_need_from_us": [
+          "domain-neutral World references",
+          "semantic/non-K0 boundary",
+          "context requirements that must not leak into substrate"
+        ],
+        "boundary_subjects": [
+          "World semantics vs runtime state",
+          "domain ontology vs K0"
+        ],
+        "notify": [
+          "World concept proposed for K0",
+          "runtime state treated as World state",
+          "K0 requires domain semantics to decide admission",
+          "recovery semantics alter World continuity"
+        ]
+      }
+    },
+    "scores_0_5": {
+      "architecture-steward": {
+        "semantic": 3.5,
+        "input": 4,
+        "peer_input": 5,
+        "collision": 2,
+        "frequency": 4.5,
+        "consequence": 5,
+        "transform": 3.5,
+        "evolution": 4.5,
+        "distance": 0.8
+      },
+      "data-model": {
+        "semantic": 5,
+        "input": 5,
+        "peer_input": 5,
+        "collision": 4.5,
+        "frequency": 5,
+        "consequence": 5,
+        "transform": 5,
+        "evolution": 5,
+        "distance": 0.3
+      },
+      "semantic-continuity": {
+        "semantic": 4.5,
+        "input": 4.5,
+        "peer_input": 4.5,
+        "collision": 4,
+        "frequency": 4.5,
+        "consequence": 5,
+        "transform": 4.5,
+        "evolution": 4.5,
+        "distance": 0.5
+      },
+      "authority-governance": {
+        "semantic": 4,
+        "input": 3.5,
+        "peer_input": 5,
+        "collision": 4,
+        "frequency": 4,
+        "consequence": 5,
+        "transform": 3.5,
+        "evolution": 4.5,
+        "distance": 0.8
+      },
+      "agency-work-execution": {
+        "semantic": 4,
+        "input": 4.5,
+        "peer_input": 4.5,
+        "collision": 3.5,
+        "frequency": 4.5,
+        "consequence": 5,
+        "transform": 4.5,
+        "evolution": 4.5,
+        "distance": 0.5
+      },
+      "capability-provider-realization": {
+        "semantic": 4.5,
+        "input": 5,
+        "peer_input": 5,
+        "collision": 4,
+        "frequency": 5,
+        "consequence": 5,
+        "transform": 5,
+        "evolution": 4.5,
+        "distance": 0.3
+      },
+      "composition-plugin-forge": {
+        "semantic": 3.5,
+        "input": 3.5,
+        "peer_input": 3.5,
+        "collision": 3,
+        "frequency": 3,
+        "consequence": 4,
+        "transform": 3.5,
+        "evolution": 4,
+        "distance": 1.1
+      },
+      "experience-interaction-surfaces": {
+        "semantic": 3.5,
+        "input": 3.5,
+        "peer_input": 5,
+        "collision": 3.5,
+        "frequency": 4,
+        "consequence": 4,
+        "transform": 4,
+        "evolution": 3.5,
+        "distance": 1
+      },
+      "evolution-compatibility-self-maintenance": {
+        "semantic": 4.5,
+        "input": 4.5,
+        "peer_input": 5,
+        "collision": 4,
+        "frequency": 4.5,
+        "consequence": 5,
+        "transform": 4.5,
+        "evolution": 5,
+        "distance": 0.4
+      },
+      "runtime-constitution-core-substrate": {
+        "semantic": 2.5,
+        "input": 2.5,
+        "peer_input": 4,
+        "collision": 2,
+        "frequency": 2.5,
+        "consequence": 5,
+        "transform": 3,
+        "evolution": 4,
+        "distance": 1.6
+      }
+    }
+  },
+  "constellation_distance_matrix_v2": {
+    "note": "0 = same/near semantic territory; larger = more distinct core question. Symmetric analytical estimate, not authority or maturity.",
+    "agents": [
+      "architecture-steward",
+      "data-model",
+      "semantic-continuity",
+      "authority-governance",
+      "agency-work-execution",
+      "capability-provider-realization",
+      "composition-plugin-forge",
+      "experience-interaction-surfaces",
+      "evolution-compatibility-self-maintenance",
+      "runtime-constitution-core-substrate"
+    ],
+    "matrix": [
+      [
+        0,
+        1.3,
+        1.4,
+        1.6,
+        1.5,
+        1.4,
+        1.8,
+        1.8,
+        1.2,
+        2
+      ],
+      [
+        1.3,
+        0,
+        0.9,
+        1.2,
+        1.2,
+        1,
+        1.6,
+        1.5,
+        0.8,
+        1.8
+      ],
+      [
+        1.4,
+        0.9,
+        0,
+        1.4,
+        0.9,
+        1.4,
+        1.7,
+        1,
+        1.2,
+        2
+      ],
+      [
+        1.6,
+        1.2,
+        1.4,
+        0,
+        0.8,
+        0.9,
+        1.7,
+        1.3,
+        0.9,
+        1.1
+      ],
+      [
+        1.5,
+        1.2,
+        0.9,
+        0.8,
+        0,
+        0.7,
+        1.2,
+        1,
+        0.9,
+        1.4
+      ],
+      [
+        1.4,
+        1,
+        1.4,
+        0.9,
+        0.7,
+        0,
+        0.8,
+        1.4,
+        0.9,
+        1.2
+      ],
+      [
+        1.8,
+        1.6,
+        1.7,
+        1.7,
+        1.2,
+        0.8,
+        0,
+        0.9,
+        0.7,
+        1
+      ],
+      [
+        1.8,
+        1.5,
+        1,
+        1.3,
+        1,
+        1.4,
+        0.9,
+        0,
+        1.1,
+        1.3
+      ],
+      [
+        1.2,
+        0.8,
+        1.2,
+        0.9,
+        0.9,
+        0.9,
+        0.7,
+        1.1,
+        0,
+        1.3
+      ],
+      [
+        2,
+        1.8,
+        2,
+        1.1,
+        1.4,
+        1.2,
+        1,
+        1.3,
+        1.3,
+        0
+      ]
+    ]
+  },
+  "notification_matrix_v2": {
+    "P0": [
+      "data-model",
+      "semantic-continuity",
+      "authority-governance",
+      "agency-work-execution",
+      "capability-provider-realization",
+      "evolution-compatibility-self-maintenance",
+      "architecture-steward"
+    ],
+    "P1": [
+      "composition-plugin-forge",
+      "experience-interaction-surfaces",
+      "runtime-constitution-core-substrate"
+    ],
+    "triggers": [
+      "World identity/correspondence ambiguity",
+      "existence/accessibility ambiguity",
+      "Context becomes a hidden source of truth",
+      "external effect treated as World truth without reconciliation",
+      "surface edit creates semantic World state",
+      "plugin claims ontology ownership",
+      "K0 absorbs product/world semantics",
+      "evolution alters World meaning",
+      "graph edge implies unsupported World ownership"
+    ],
+    "default_channels": {
+      "P0": "direct peer + Architecture Steward; Commons DIRECT or focused ROOM when a sustained corridor exists",
+      "P1": "direct peer; Commons PUBLIC when broadly reusable",
+      "P2": "normal Commons/public artifact for contract clarification",
+      "P3": "local unless a boundary/contract changes"
+    }
+  },
+  "decision_rules_v2": [
+    "High proximity does not mean shared ownership.",
+    "High boundary collision means guard the seam more carefully; it does not mean the peer is an inappropriate owner.",
+    "A peer becomes an operational supplier when it provides evidence/contract/state CFA-01 cannot establish itself.",
+    "A peer becomes an operational customer when its correct operation depends on semantic World/Context outputs.",
+    "A notification is warranted by boundary pressure or semantic consequence, not by mere topical similarity.",
+    "World meaning is the default CFA-01 contribution; representation, storage, permission, execution, realization, composition, surface and substrate mechanics remain peer-owned unless explicit evidence changes the boundary.",
+    "When a peer requests a registry/store/graph/cache, first test whether the request is actually asking CFA-01 to absorb a neighboring responsibility.",
+    "When a peer's output changes what a Thing is, what relationship means, or what context contains, re-open the relevant World boundary even if the implementation appears local."
+  ]
 }
