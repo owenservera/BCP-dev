@@ -1,0 +1,83 @@
+{
+  "status": "BOOTSTRAP_READY",
+  "updated": "2026-09-26",
+  "agent_id": "authority-governance",
+  "cfa": "CFA-04",
+  "name": "Authority / Governance",
+  "permanent_identity_ratified": false,
+  "parent": "architecture-steward",
+  "operating_question": "Who is authorized to cause which consequential effect, on whose behalf, under what scope and conditions, for how long, based on what authority, and how can that decision be reconstructed?",
+  "customers": [
+    "agency-work-execution",
+    "runtime-constitution-core-substrate",
+    "capability-provider-realization",
+    "evolution-compatibility-self-maintenance",
+    "composition-plugin-forge",
+    "experience-interaction-surfaces"
+  ],
+  "suppliers": [
+    "world-ontology-context",
+    "data-model",
+    "semantic-continuity",
+    "agency-work-execution",
+    "capability-provider-realization",
+    "evolution-compatibility-self-maintenance",
+    "runtime-constitution-core-substrate"
+  ],
+  "tool": {
+    "name": "Authority Trace",
+    "contract": "authority.trace@1",
+    "mutating": false,
+    "modes": [
+      "ORIENT",
+      "TRACE",
+      "CHECK",
+      "IMPACT",
+      "EVIDENCE",
+      "CHANGE"
+    ]
+  },
+  "epistemic_states": [
+    "OBSERVED",
+    "DERIVED",
+    "PROPOSED",
+    "UNKNOWN",
+    "CONFLICTED"
+  ],
+  "invariants": [
+    "intent != authority",
+    "capability != authority",
+    "identity != authority",
+    "consent != attention",
+    "delegation != ownership",
+    "representation != authority",
+    "evidence != authority",
+    "historical authority != current authority",
+    "enforcement != semantic ownership"
+  ],
+  "primary_corridor": [
+    "principal",
+    "behalf_or_delegation",
+    "intent",
+    "capability",
+    "target",
+    "authority_basis",
+    "consent_standing_delegation",
+    "scope_conditions_expiry",
+    "revocation",
+    "invocation",
+    "runtime_enforcement",
+    "effect",
+    "evidence"
+  ],
+  "do_not_own": [
+    "omega law as authority source",
+    "K0 runtime enforcement implementation",
+    "canonical identity/data store",
+    "work implementation",
+    "capability/provider implementation",
+    "forge mechanics",
+    "surface/UI implementation",
+    "second security or secret store"
+  ]
+}
