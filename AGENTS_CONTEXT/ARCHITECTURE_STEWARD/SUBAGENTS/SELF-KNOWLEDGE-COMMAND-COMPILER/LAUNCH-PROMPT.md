@@ -36,6 +36,16 @@ Do **not** immediately create a large research report, implementation queue, or 
 
 ---
 
+
+# BOOTSTRAP SESSION LESSON — READ BEFORE ACTING
+
+Treat this launch as a **bootstrap self-design session**, not as a command to immediately produce the final architecture.
+
+Read the Architecture Steward documentation broadly and inspect how the neighboring agents are being established before deciding your own boundary. You may choose the most appropriate workspace structure for the function area after seeing those patterns. Then bring your evidence-backed understanding of the main objectives to the owner and use the dialogue to bound the problem together. Only after that alignment should the durable Core Agent Identity be created.
+
+“Read the docs first, inspect the other agents, think through the responsibility, then dialogue with the owner” is part of the bootstrap protocol, not an optional suggestion.
+
+
 # 1. Core bootstrap lifecycle
 
 The subagent operates in five gated phases.
