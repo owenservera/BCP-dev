@@ -6,20 +6,23 @@
 
 ## Why this exists
 
-BCP-dev currently contains strong architectural, governance, Ω, and VIVIM prototype material, but the destination is distributed across those histories.
+BCP-dev contains strong architectural, governance, Ω, and VIVIM prototype material, but the destination is distributed across those histories.
 
-This directory begins a durable destination layer: a small set of documents that describe what we are ultimately building, why, what it should feel like, and the conceptual vocabulary from which later architecture and workstreams should be derived.
+This directory is the durable destination layer: it states what we are ultimately building, what it should feel like, the conceptual vocabulary behind it, where the repository already contains the required machinery, how mature each part is, and how the remaining gaps should be closed.
 
-The source material is being developed interactively before the final end-state blueprint is frozen.
+The final end-state blueprint is deliberately not frozen yet. This package is the working control layer from which that blueprint should eventually be derived.
 
 ## The current conceptual stack
 
 1. North star — what VIVIM is.
-2. Foundational principles — what should remain true even as implementation changes.
-3. Human experience — how the environment should feel and behave for the person.
-4. Conceptual model — the fundamental nouns and verbs from which capabilities and architecture can be derived.
-5. Reconciliation map — where the destination concepts already exist in Ω/VIVIM/BCP and what remains genuinely missing.
-6. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
+2. Foundational principles — what must remain true.
+3. Human experience — how the environment should feel and behave.
+4. Conceptual model — the fundamental nouns and verbs.
+5. Master mapping — destination concepts mapped to existing Ω/VIVIM material.
+6. Reconciliation map — deeper repository findings and the key assembly boundary.
+7. Maturity and gaps — what is actually proven, what is missing, and what “destination-grade” means.
+8. Build and harvest plan — the ordered path from current repository evidence to integrated product journeys.
+9. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
 
 ## Historical relationship
 
@@ -29,12 +32,27 @@ VIVIM V1 is treated as the first real prototype: a source of working behavior, i
 
 BCP is the transition, proof, reconciliation, and harvesting machinery.
 
-None of these historical code/doc structures should automatically become the destination's conceptual authority.
+None of these historical code/doc structures automatically becomes destination authority. They become evidence that must survive the destination principles and maturity gates.
 
 ## Reading order
 
-Start with NORTH-STAR.md, then FOUNDATIONAL-PRINCIPLES.md, HUMAN-EXPERIENCE.md, and CONCEPTUAL-MODEL.md.
+Start with:
 
-The sources/ directory contains conversation and research material preserved for future synthesis. Source captures are evidence of design thinking, not law.
+- NORTH-STAR.md
+- FOUNDATIONAL-PRINCIPLES.md
+- HUMAN-EXPERIENCE.md
+- CONCEPTUAL-MODEL.md
+- DESTINATION-MASTER-MAP.md
+- RECONCILIATION-MAP.md
+- MATURITY-AND-GAPS.md
+- BUILD-AND-HARVEST-PLAN.md
 
-The current reconciliation pass is `RECONCILIATION-MAP.md`; it is a working map, not a replacement for the destination foundation.
+The sources/ directory contains preserved conversation and research material. Source captures are evidence of design thinking, not law.
+
+## Working rule
+
+The destination program should optimize for:
+
+**make the world coherent → make capabilities selectable → make work durable → make external reality real → make continuity persistent → make evolution native.**
+
+The repository already contains much of the machinery. The remaining challenge is to reconcile it into one sovereign human experience rather than continue accumulating isolated subsystems.
