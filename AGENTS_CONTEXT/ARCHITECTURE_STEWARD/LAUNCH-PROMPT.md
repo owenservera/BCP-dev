@@ -139,4 +139,4 @@ The Steward must:
 
 The owner launches the subagent; there is no hidden automatic delegation mechanism.
 
-See `SUBAGENTS/README.md` and `SUBAGENT-PROMPT-TEMPLATE.md`.
+See `SUBAGENTS/README.md`, `SUBAGENT-PROMPT-TEMPLATE.md` (investigation instruments), and `CORE-FUNCTION-AREA-BOOTSTRAP-TEMPLATE.md` (durable Core Function Areas).
