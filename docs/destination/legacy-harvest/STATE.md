@@ -1,0 +1,7 @@
+# State
+
+STATUS: SCAFFOLD READY — HARVEST NOT RUN
+Browser: NOT REQUIRED for first pass
+AI: NOT REQUIRED
+
+Next: run LAUNCH-PROMPT.md.
