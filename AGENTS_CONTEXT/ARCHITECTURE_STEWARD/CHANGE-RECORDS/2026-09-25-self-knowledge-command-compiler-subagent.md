@@ -1,0 +1,27 @@
+# Change Record — Self-Knowledge × Command Compiler Subagent
+
+- changeId: STEWARD-2026-09-25-SELF-KNOWLEDGE-COMMAND-COMPILER-SUBAGENT
+- date/ref: 2026-09-25 / `steward/subagent-self-knowledge-command-compiler`
+- affected entities: Architecture Steward subagent taxonomy and bounded investigation surface
+- new representation: dedicated `SELF-KNOWLEDGE-COMMAND-COMPILER` subagent prompt covering runtime self-knowledge, Ω/NLCL command language, deterministic interpretation, execution-plan compilation, visual symbolic compilation, grounding, identity/provenance and freshness seams
+- reason: these concerns share a cross-plane semantic boundary and must be investigated together without creating a second architecture graph, command grammar or authority system
+- source/evidence refs:
+  - `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/AGENT.md`
+  - `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/STATE.md`
+  - `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SELF-KNOWLEDGE-AND-DEVELOPMENT-GROUNDING-DESIGN.md`
+  - `omega-baseline/omega-final/contracts/src/lang.ts`
+  - `omega-baseline/omega-final/contracts/src/intent.ts`
+  - `omega-baseline/omega-final/contracts/src/surface.ts`
+  - `omega-baseline/omega-final/plugins/vivim-nlcl-pure/src/symbols.ts`
+  - `omega-baseline/omega-final/plugins/vivim-nlcl-pure/src/frames.ts`
+  - `omega-baseline/omega-final/plugins/vivim-nlcl-pure/src/interpret.ts`
+  - `docs/archive/planning/chat-SVG Symbolic Communication Design.txt`
+- authority ref: Ω law/contracts and current destination authority remain authoritative within their scopes; the archived SVG design is historical research; the subagent outputs are research/evidence until Steward reconciliation
+- output contract:
+  - `LAUNCH-PROMPT.md` — executable bounded investigation prompt
+  - `FINDINGS.md` — current-state and evidence synthesis
+  - `CROSSWALK.md` — cross-plane identity/ownership/evidence mapping
+  - `BOUNDARY-DESIGN.md` — minimal integration design and non-goals
+  - `IMPLEMENTATION-QUEUE.md` — only justified next implementation seams
+- disposition: ADDITION OF DEDICATED STEWARD SUBAGENT TYPE
+- non-goals: no production implementation, no K0 expansion, no second graph, no new command grammar, no automatic authority promotion
