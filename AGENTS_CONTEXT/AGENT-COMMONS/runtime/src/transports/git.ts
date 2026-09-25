@@ -27,6 +27,10 @@ function tryRun(cwd: string, args: string[]): string | null {
   return r.status === 0 ? r.stdout.trim() : null;
 }
 
+function isAncestor(cwd: string, older: string, newer: string): boolean {
+  return spawnSync("git", ["merge-base", "--is-ancestor", older, newer], { cwd }).status === 0;
+}
+
 export function initAgentBranch(repoRoot: string, agentId: string, baseRef = "main"): string {
   const branch = agentBranch(agentId);
   tryRun(repoRoot, ["fetch", "--prune", "origin", `+refs/heads/${branch}:refs/remotes/origin/${branch}`]);
