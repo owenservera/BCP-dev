@@ -65,3 +65,47 @@ This loop is repeatable for every new workstream, research pass, implementation 
 ## Deliverable standard
 
 Every substantive Steward action should leave enough durable information for another Steward session to reproduce the reasoning without conversation memory.
+
+
+## Subagent delegation
+
+The Steward may identify work that benefits from independent exploration, but it does not build a second coordinator system to manage those agents.
+
+The operating mechanism is deliberately simple:
+
+1. **Tell the owner that independent exploration is warranted.**
+2. **Provide a complete launch prompt.**
+3. **Store the prompt in a typed subfolder under `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/<TYPE>/`.**
+4. **Have the subagent explore the repository and sources before drawing conclusions.**
+5. **Require the prompt to state exactly what outputs to produce, how they are produced, and where they must be written.**
+6. **Treat the returned artifacts as evidence/research until the Steward reconciles them into the architecture.**
+
+A subagent is not a hidden continuation of the Steward. Its job is bounded investigation with explicit outputs.
+
+### Required prompt contract
+
+Every launch prompt must state:
+
+- **Question / mission** — the exact uncertainty being investigated;
+- **Why delegated** — what independence, breadth, or depth is needed;
+- **Starting context** — the minimum repository paths and authorities to inspect first;
+- **Exploration method** — what the agent must search, compare, trace, test, inspect, or enumerate;
+- **Anti-assumption rule** — explicitly treat the current corpus as incomplete until checked;
+- **Evidence discipline** — distinguish observed evidence, derived findings, proposal, and unknown;
+- **Output contract** — the exact artifacts/tables/findings to return;
+- **Output location** — exact repository path(s) where durable outputs belong;
+- **Lineage** — record sources, commits/paths, and important exclusions;
+- **Completion test** — what makes the exploration complete enough to hand back;
+- **Non-goals** — especially production implementation unless separately authorized.
+
+The prompt should be executable by pointing a fresh agent at the prompt file; it should not depend on the Steward's hidden conversation state.
+
+### Delegation rule
+
+When a new subagent type is needed, create its own folder:
+
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/<TYPE>/`
+
+and keep its launch prompt(s), output contract, and any small durable guidance there. Do not create a new type merely for one-off wording changes.
+
+The owner is the launch mechanism: the Steward prepares the prompt and tells the owner where it lives.
