@@ -8134,21 +8134,6 @@
       "reason": null
     },
     {
-      "id": "SI-040101-undefined",
-      "to": "SI-040101",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-040101-J1",
       "from": "SI-040101",
       "to": "J1",
@@ -8300,21 +8285,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-040102-undefined",
-      "to": "SI-040102",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -8500,21 +8470,6 @@
       "reason": null
     },
     {
-      "id": "SI-040103-undefined",
-      "to": "SI-040103",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-040103-J1",
       "from": "SI-040103",
       "to": "J1",
@@ -8652,21 +8607,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-040104-undefined",
-      "to": "SI-040104",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -8838,21 +8778,6 @@
       "reason": null
     },
     {
-      "id": "SI-040105-undefined",
-      "to": "SI-040105",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-040105-J2",
       "from": "SI-040105",
       "to": "J2",
@@ -9021,21 +8946,6 @@
       "reason": null
     },
     {
-      "id": "SI-040106-undefined",
-      "to": "SI-040106",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-040106-J2",
       "from": "SI-040106",
       "to": "J2",
@@ -9187,21 +9097,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-040107-undefined",
-      "to": "SI-040107",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -9471,21 +9366,6 @@
       "reason": null
     },
     {
-      "id": "SI-050101-undefined",
-      "to": "SI-050101",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-050101-J2",
       "from": "SI-050101",
       "to": "J2",
@@ -9626,21 +9506,6 @@
       "reason": null
     },
     {
-      "id": "SI-050102-undefined",
-      "to": "SI-050102",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-050102-J3",
       "from": "SI-050102",
       "to": "J3",
@@ -9750,21 +9615,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-050103-undefined",
-      "to": "SI-050103",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -9891,21 +9741,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-050104-undefined",
-      "to": "SI-050104",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -10077,21 +9912,6 @@
       "reason": null
     },
     {
-      "id": "SI-050105-undefined",
-      "to": "SI-050105",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-050105-J2",
       "from": "SI-050105",
       "to": "J2",
@@ -10257,21 +10077,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-050106-undefined",
-      "to": "SI-050106",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -10457,21 +10262,6 @@
       "reason": null
     },
     {
-      "id": "SI-050107-undefined",
-      "to": "SI-050107",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-050107-J1",
       "from": "SI-050107",
       "to": "J1",
@@ -10581,21 +10371,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-050108-undefined",
-      "to": "SI-050108",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -10739,21 +10514,6 @@
       "reason": null
     },
     {
-      "id": "SI-060101-undefined",
-      "to": "SI-060101",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-060101-J1",
       "from": "SI-060101",
       "to": "J1",
@@ -10849,21 +10609,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-060102-undefined",
-      "to": "SI-060102",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -10990,21 +10735,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-060103-undefined",
-      "to": "SI-060103",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -11145,21 +10875,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-060104-undefined",
-      "to": "SI-060104",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -11345,21 +11060,6 @@
       "reason": null
     },
     {
-      "id": "SI-060105-undefined",
-      "to": "SI-060105",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
-      "reason": null
-    },
-    {
       "id": "SI-060105-J1",
       "from": "SI-060105",
       "to": "J1",
@@ -11441,21 +11141,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-060106-undefined",
-      "to": "SI-060106",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -11568,21 +11253,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-060107-undefined",
-      "to": "SI-060107",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -11737,21 +11407,6 @@
         "docs/destination/system-intelligence/indexes/ATOMS.json"
       ],
       "evidenceRefs": [],
-      "reason": null
-    },
-    {
-      "id": "SI-060108-undefined",
-      "to": "SI-060108",
-      "relation": "EVIDENCES",
-      "class": "evidence",
-      "status": "current",
-      "basis": "source-text",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "evidenceRefs": [
-        null
-      ],
       "reason": null
     },
     {
@@ -17212,6 +16867,502 @@
       ],
       "evidenceRefs": [],
       "reason": "The current build view identifies this vertical slice as a convergence surface for the first Research → Evidence → World composition."
+    },
+    {
+      "id": "SI-040101-EV-AUTO-SI-040101-01",
+      "from": "EV-AUTO-SI-040101-01",
+      "to": "SI-040101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-040101-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-040102-EV-AUTO-SI-040102-01",
+      "from": "EV-AUTO-SI-040102-01",
+      "to": "SI-040102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-040102-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-040103-EV-AUTO-SI-040103-01",
+      "from": "EV-AUTO-SI-040103-01",
+      "to": "SI-040103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-040103-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-040104-EV-AUTO-SI-040104-01",
+      "from": "EV-AUTO-SI-040104-01",
+      "to": "SI-040104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-040104-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-040105-EV-AUTO-SI-040105-01",
+      "from": "EV-AUTO-SI-040105-01",
+      "to": "SI-040105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-040105-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-040106-EV-AUTO-SI-040106-01",
+      "from": "EV-AUTO-SI-040106-01",
+      "to": "SI-040106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-040106-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-040107-EV-AUTO-SI-040107-01",
+      "from": "EV-AUTO-SI-040107-01",
+      "to": "SI-040107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-040107-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050101-EV-AUTO-SI-050101-01",
+      "from": "EV-AUTO-SI-050101-01",
+      "to": "SI-050101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050101-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050101-EV-AUTO-SI-050101-02",
+      "from": "EV-AUTO-SI-050101-02",
+      "to": "SI-050101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050101-02"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050102-EV-AUTO-SI-050102-01",
+      "from": "EV-AUTO-SI-050102-01",
+      "to": "SI-050102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050102-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050102-EV-AUTO-SI-050102-02",
+      "from": "EV-AUTO-SI-050102-02",
+      "to": "SI-050102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050102-02"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050103-EV-AUTO-SI-050103-01",
+      "from": "EV-AUTO-SI-050103-01",
+      "to": "SI-050103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050103-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050103-EV-AUTO-SI-050103-02",
+      "from": "EV-AUTO-SI-050103-02",
+      "to": "SI-050103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050103-02"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050104-EV-AUTO-SI-050104-01",
+      "from": "EV-AUTO-SI-050104-01",
+      "to": "SI-050104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050104-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050104-EV-AUTO-SI-050104-02",
+      "from": "EV-AUTO-SI-050104-02",
+      "to": "SI-050104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050104-02"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050105-EV-AUTO-SI-050105-01",
+      "from": "EV-AUTO-SI-050105-01",
+      "to": "SI-050105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050105-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050105-EV-AUTO-SI-050105-02",
+      "from": "EV-AUTO-SI-050105-02",
+      "to": "SI-050105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050105-02"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050106-EV-AUTO-SI-050106-01",
+      "from": "EV-AUTO-SI-050106-01",
+      "to": "SI-050106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050106-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050106-EV-AUTO-SI-050106-02",
+      "from": "EV-AUTO-SI-050106-02",
+      "to": "SI-050106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050106-02"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050107-EV-AUTO-SI-050107-01",
+      "from": "EV-AUTO-SI-050107-01",
+      "to": "SI-050107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050107-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050107-EV-AUTO-SI-050107-02",
+      "from": "EV-AUTO-SI-050107-02",
+      "to": "SI-050107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050107-02"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050108-EV-AUTO-SI-050108-01",
+      "from": "EV-AUTO-SI-050108-01",
+      "to": "SI-050108",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050108-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-050108-EV-AUTO-SI-050108-02",
+      "from": "EV-AUTO-SI-050108-02",
+      "to": "SI-050108",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-050108-02"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-060101-EV-AUTO-SI-060101-01",
+      "from": "EV-AUTO-SI-060101-01",
+      "to": "SI-060101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-060101-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-060102-EV-AUTO-SI-060102-01",
+      "from": "EV-AUTO-SI-060102-01",
+      "to": "SI-060102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-060102-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-060103-EV-AUTO-SI-060103-01",
+      "from": "EV-AUTO-SI-060103-01",
+      "to": "SI-060103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-060103-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-060104-EV-AUTO-SI-060104-01",
+      "from": "EV-AUTO-SI-060104-01",
+      "to": "SI-060104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-060104-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-060105-EV-AUTO-SI-060105-01",
+      "from": "EV-AUTO-SI-060105-01",
+      "to": "SI-060105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-060105-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-060106-EV-AUTO-SI-060106-01",
+      "from": "EV-AUTO-SI-060106-01",
+      "to": "SI-060106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-060106-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-060107-EV-AUTO-SI-060107-01",
+      "from": "EV-AUTO-SI-060107-01",
+      "to": "SI-060107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-060107-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
+    },
+    {
+      "id": "SI-060108-EV-AUTO-SI-060108-01",
+      "from": "EV-AUTO-SI-060108-01",
+      "to": "SI-060108",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "evidenceRefs": [
+        "EV-AUTO-SI-060108-01"
+      ],
+      "reason": "Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."
     }
   ]
 }
