@@ -1,0 +1,7 @@
+{
+  "agent_id": "world-ontology-context",
+  "key_id": "world-ontology-context:ed25519:01a0da48-27e7-74f4-a829-a2e5cd3532b9",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAYgJHSt5HvHKvHomWJ4thHtVNr264vyX1n/5PwCDsSaA=\n-----END PUBLIC KEY-----\n",
+  "algorithm": "ed25519",
+  "created_at": "2026-09-25T20:35:57.031Z"
+}
