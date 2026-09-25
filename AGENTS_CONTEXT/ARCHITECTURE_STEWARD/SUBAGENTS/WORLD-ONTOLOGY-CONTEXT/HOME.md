@@ -157,6 +157,18 @@ World
 
 The purpose is not to expose "the whole graph" to every operation. It is to derive the smallest truthful context justified by the operation.
 
+## 6A. Primary operational instrument
+
+The current candidate for CFA-01's one indispensable tool is the **Semantic Lens**:
+
+- design: `ONE-TOOL-SEMANTIC-LENS.md`;
+- purpose: inspect meaning, identity, relationships, evidence, ownership, context and impact through one surface;
+- current substrate: repository Architecture Graph + System Intelligence + World/Object research + CFA/peer context;
+- future substrate: canonical World + live observations + evolution history;
+- rule: the Lens is a read-oriented projection, never a new source of truth.
+
+The tool is deliberately a design seed until a small real investigation proves that it reduces semantic reconstruction work.
+
 ## 7. Peer operating seams
 
 CFA-01 should normally cross boundaries rather than absorb them.
