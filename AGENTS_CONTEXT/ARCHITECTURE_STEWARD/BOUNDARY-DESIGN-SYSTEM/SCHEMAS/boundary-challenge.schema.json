@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vivim://architecture/boundary-challenge/v0",
+  "title": "VIVIM Boundary Challenge v0",
+  "type": "object",
+  "required": ["id","subject","participants","claim_a","claim_b","conflicting_dimension","current_status","falsifier"],
+  "properties": {
+    "id":{"type":"string"},
+    "subject":{"type":"string"},
+    "participants":{"type":"array","items":{"type":"string"}},
+    "claim_a":{"type":"object"},
+    "claim_b":{"type":"object"},
+    "conflicting_dimension":{"type":"string"},
+    "evidence_a":{"type":"array","items":{"type":"string"}},
+    "evidence_b":{"type":"array","items":{"type":"string"}},
+    "current_status":{"enum":["OPEN","INVESTIGATING","RESOLVED","DEFERRED"]},
+    "proposed_resolution":{"type":"string"},
+    "owner_required":{"type":"boolean"},
+    "ratification_required":{"type":"boolean"},
+    "falsifier":{"type":"string"}
+  }
+}
