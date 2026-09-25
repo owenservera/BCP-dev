@@ -66,3 +66,16 @@ When a responsibility is not sufficiently characterized, research it before impl
 ## Archive boundary
 
 The former root construction/project-management documents are archived under docs/archive/project-history/. Current work should use docs/agent-system, docs/destination, current Ω law and explicit evidence.
+
+## Factory / instance framing
+
+Ω should be understood as the current best realization of the Lego factory: the compositional core and governed substrate from which VIVIM environments can be assembled.
+
+Earlier VIVIM and related variants remain proven prototypes. They are imperfect and often not composable, but contain mature behavioral and product intelligence that should be selectively harvested rather than discarded.
+
+The destination is not one fixed VIVIM application. It is the ecosystem and composition model through which each person can create a user-unique VIVIM instance from interoperable pieces.
+
+Stable UX therefore belongs primarily to the factory: discovery, addressing, composition, configuration, governance, inspection, creation, replacement, and evolution. A particular user's workspace, surfaces, compositions and workflows are instance-level outcomes.
+
+The initial product-building problem is consequently:
+Ω factory → building language/interoperability → compelling first-party pieces → compositions → user-created pieces/sets → user-specific VIVIM instance.
