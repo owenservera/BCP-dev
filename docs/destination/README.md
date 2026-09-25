@@ -51,6 +51,7 @@ Start with:
 - INTERACTION-INTENT-WORK-RECONCILIATION.md
 - AGENCY-BACKGROUND-ATTENTION-RECONCILIATION.md
 - V1-DEFAULT-ENVIRONMENT-AND-LIVE-PROOF.md
+- DATA-MEMORY-CONTEXT-RECONCILIATION.md
 
 The sources/ directory contains preserved conversation and research material. Source captures are evidence of design thinking, not law.
 
