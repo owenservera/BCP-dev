@@ -20,6 +20,28 @@
 
 Peer roles own their domain semantics. The Steward connects and reconciles them; it does not replace their semantic authority.
 
+
+## Approved Core Function Areas
+
+The Architecture Steward is progressively establishing enduring Core Function Areas for the destination. The current approved constellation is recorded in:
+
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
+
+Current areas:
+
+- World / Ontology / Context
+- Data / Identity / Persistence
+- Self-Knowledge / Language / Command
+- Authority / Governance
+- Agency / Work / Execution
+- Capability / Provider / Realization
+- Composition / Plugin / Forge
+- Experience / Interaction / Surfaces
+- Evolution / Compatibility / Self-Maintenance
+- Runtime Constitution / Core Substrate
+
+Evidence / provenance / verification / uncertainty remain cross-cutting rather than a separate permanent agent for now.
+
 ## Architecture Steward
 
 Start with:
