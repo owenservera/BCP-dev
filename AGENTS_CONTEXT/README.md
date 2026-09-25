@@ -1,44 +1,25 @@
 # AGENTS_CONTEXT
 
-> Cold-start context for future agents working on BCP-dev.
+> Durable cold-start context for BCP-dev.
 
 ## Loading protocol
 
-1. Read AGENTS_CONTEXT/PRODUCT_VISION/STATE.md first.
-2. Read AGENTS_CONTEXT/PRODUCT_VISION/SESSION-2026-09-25.json when the reasoning behind the state matters.
-3. Read docs/destination/README.md and its linked destination artifacts.
-4. Read docs/agent-system/PROGRAM-COMPLETENESS-AND-CONTROLS.md and the destination dependency, traceability, and vertical-slice artifacts.
-5. Then inspect the current P1/workstream files relevant to the task.
+1. Read AGENTS_CONTEXT/PRODUCT_VISION/STATE.md.
+2. Read docs/destination/README.md.
+3. Read docs/agent-system/PROGRAM-COMPLETENESS-AND-CONTROLS.md.
+4. Read current destination dependency, traceability and vertical-slice artifacts.
+5. Read the mission-specific STATE.md.
+6. Reconcile against current repository evidence.
 
-## Authority hierarchy
+## Specialized packages
 
-- Repository code and explicit current evidence are implementation truth.
-- Explicitly canonical Ω decisions/contracts remain technical authority where applicable.
-- docs/destination is the working destination/product model; it is not automatically Ω law.
-- AGENTS_CONTEXT/PRODUCT_VISION/STATE.md is a session handoff, not architecture law.
-- SESSION-2026-09-25.json is source/rationale, not authority.
+- PRODUCT_VISION — destination vision, journeys, keystone dependencies and frontiers.
+- PERSONAL_AGENT — Personal Agent, Self-Knowledge, deterministic command language and symbolic command system.
+- EVOLUTION — semantic evolution, reconciliation, compatibility, impact, migration, rollback and self-maintenance.
+- CORE_VS_PLUGIN_BOUNDARY — K0/K1/system-plugin/extension-plugin/tooling boundary research and the expanded responsibility inventory.
 
-## Cold-start rule
+## Mainline rule
 
-Do not restart destination design from scratch. Reconcile new work against this package and the linked destination/program artifacts.
+Completed research that is intended to guide implementation belongs in the durable mainline context. Historical prompts and project trackers belong under docs/archive/project-history/.
 
-When current repository state differs from this handoff, prefer current repository evidence and update the handoff through an explicit change.
-
-## Verified baseline
-
-main HEAD at package creation: cd7b9054d04c70dc816986b4ae9abf0e0d89ba6d (2026-09-25).
-
-## Folder convention
-
-Future durable context packages belong under AGENTS_CONTEXT/<CONTEXT_NAME>/.
-Each package should normally contain STATE.md plus source/session material where useful.
-## Specialized context packages
-
-- `AGENTS_CONTEXT/CORE_VS_PLUGIN_BOUNDARY/` — dedicated research context for distilling irreducible Ω Core, shared contracts, first-party system plugins, extension plugins, and tooling from archaeology and destination requirements.
-
-- `AGENTS_CONTEXT/PERSONAL_AGENT/` — Personal Agent, self-describing system, deterministic command language, symbolic command system, and the design frontier connecting them.
-
-## Specialized context packages
-
-- `AGENTS_CONTEXT/PERSONAL_AGENT/` — Personal Agent, self-describing system, deterministic command language, symbolic command system, and the design frontier connecting them.
-- `AGENTS_CONTEXT/EVOLUTION/` — Evolution, reconciliation, self-maintenance, self-extension, dynamic data/ontology evolution, compatibility, impact, temporal continuity, migration, rollback, and constitutional change boundaries.
+AGENTS_CONTEXT is durable context, not automatic law. Ratified Ω decisions and current repository evidence win.

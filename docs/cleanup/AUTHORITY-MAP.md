@@ -40,7 +40,7 @@ BCP migration knowledge      docs/migration/ (13 files, 2026-09-23)
 VIVIM behavior source        vivim-original-baseline/vivim-final-enhanced/
                              (READ-ONLY mine; evidence, never authority)
 ------------------------------------------------------------
-Historical planning          docs/archive/ · setupdocs/ (bannered) ·
+Historical planning          docs/archive/ · docs/archive/project-history/bcp-construction-2026-09-22/setupdocs/ (bannered) ·
                              ORCHESTRATION-REDESIGN.md · TRACKER.md snapshot parts
 Raw research                 docs/archive/sessions/ · docs/archive/conversations/
 Unknown / hands-off          bcp-algos/ · omega-…/docs/architecture/ (untracked) ·
@@ -58,7 +58,7 @@ CURRENT PLAN (EXP-004/005/006 in state/experiments.yaml)
         → evidence (log/*.yaml, discoveries, verification-reports, 40-EVIDENCE/)
           → law (Ω D-records; BCP taxonomy + RECONCILIATION.md)
 
-OLD PLAN (ORCHESTRATION-REDESIGN.md, setupdocs/01–03, lanes first-leases)
+OLD PLAN (ORCHESTRATION-REDESIGN.md, docs/archive/project-history/bcp-construction-2026-09-22/docs/archive/project-history/bcp-construction-2026-09-22/setupdocs/01–03, lanes first-leases)
   → SUPERSEDED BY (workspaces/STATE.json 6×PASS; sweep-merge events;
                    MIG-001/MIG-002 VERIFIED)
     → CURRENT DECISION (CONTEXT-system/product/appendix; CURRENT-CONTEXT.md)

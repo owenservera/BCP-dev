@@ -1,88 +1,87 @@
 # VIVIM Destination — Working Foundation
 
-> Classification: DERIVED — WORKING / DRAFT
-> Purpose: establish the destination-level context that the architecture, product delivery, and implementation program are intended to serve.
-> This package is intentionally not yet the final master blueprint.
+> Classification: DERIVED — CURRENT WORKING DESTINATION MODEL
 
-## Why this exists
-
-BCP-dev contains strong architectural, governance, Ω, and VIVIM prototype material, but the destination is distributed across those histories.
-
-This directory is the durable destination layer: it states what we are ultimately building, what it should feel like, the conceptual vocabulary behind it, where the repository already contains the required machinery, how mature each part is, and how the remaining gaps should be closed.
-
-The final end-state blueprint is deliberately not frozen yet. This package is the working control layer from which that blueprint should eventually be derived.
-
-## The current conceptual stack
-
-1. North star — what VIVIM is.
-2. Foundational principles — what must remain true.
-3. Human experience — how the environment should feel and behave.
-4. Conceptual model — the fundamental nouns and verbs.
-5. Master mapping — destination concepts mapped to existing Ω/VIVIM material.
-6. Reconciliation map — deeper repository findings and the key assembly boundary.
-7. Maturity and gaps — what is actually proven, what is missing, and what “destination-grade” means.
-8. Build and harvest plan — the ordered path from current repository evidence to integrated product journeys.
-9. Agentic Core — deterministic-first automation, durable Work, scheduling, recovery, and AI insertion boundary.
-10. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
-
-## Historical relationship
-
-VIVIM V1 is treated as the first real prototype: a source of working behavior, implementation discoveries, algorithms, fixtures, strengths, and pain signals.
-
-Ω is the strongest existing destination-oriented architectural/design body of work.
-
-BCP is the transition, proof, reconciliation, and harvesting machinery.
-
-None of these historical code/doc structures automatically becomes destination authority. They become evidence that must survive the destination principles and maturity gates.
+This directory is the durable destination/product layer for VIVIM.
 
 ## Reading order
 
-Start with:
+1. NORTH-STAR.md
+2. FOUNDATIONAL-PRINCIPLES.md
+3. HUMAN-EXPERIENCE.md
+4. CONCEPTUAL-MODEL.md
+5. DESTINATION-MASTER-MAP.md
+6. RECONCILIATION-MAP.md
+7. MATURITY-AND-GAPS.md
+8. DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
+9. REQUIREMENT-EVIDENCE-TRACEABILITY.md
+10. VERTICAL-SLICE-REGISTRY.md
+11. PERSONAL-AGENT-SELF-KNOWLEDGE-AND-COMMAND-LANGUAGE.md
+12. DATA-MEMORY-CONTEXT-RECONCILIATION.md
+13. WORLD-WORKSPACE-CANVAS-RECONCILIATION.md
+14. INTERACTION-INTENT-WORK-RECONCILIATION.md
+15. PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md
+16. AGENCY-BACKGROUND-ATTENTION-RECONCILIATION.md
+17. EVOLUTION-RECONCILIATION.md
+18. EVERYTHING-IS-A-PLUGIN-EVOLUTION-CONSTITUTION.md
+19. core-vs-plugin-boundary/README.md
+20. agentic-core/README.md
+21. plugin-ecosystem/README.md
+22. relevant destination research packages
 
-- NORTH-STAR.md
-- FOUNDATIONAL-PRINCIPLES.md
-- HUMAN-EXPERIENCE.md
-- CONCEPTUAL-MODEL.md
-- DESTINATION-MASTER-MAP.md
-- RECONCILIATION-MAP.md
-- MATURITY-AND-GAPS.md
-- BUILD-AND-HARVEST-PLAN.md
-- PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md
-- WORLD-WORKSPACE-CANVAS-RECONCILIATION.md
-- INTERACTION-INTENT-WORK-RECONCILIATION.md
-- PERSONAL-AGENT-SELF-KNOWLEDGE-AND-COMMAND-LANGUAGE.md
-- AGENCY-BACKGROUND-ATTENTION-RECONCILIATION.md
-- V1-DEFAULT-ENVIRONMENT-AND-LIVE-PROOF.md
-- DATA-MEMORY-CONTEXT-RECONCILIATION.md
-- FORGE-COMPOSITION-EVOLUTION-RECONCILIATION.md
-- EVOLUTION-RECONCILIATION.md
-- EVERYTHING-IS-A-PLUGIN-EVOLUTION-CONSTITUTION.md
-- evolution/README.md
-- DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
-- REQUIREMENT-EVIDENCE-TRACEABILITY.md
-- VERTICAL-SLICE-REGISTRY.md
-- agentic-core/README.md
-- agentic-core/LAUNCH-PROMPT.md
+## Destination semantic path
 
-The sources/ directory contains preserved conversation and research material. Source captures are evidence of design thinking, not law.
+Address → Intent → Context → Capability → Choice/Routing → Authority → Work → Execution → Evidence → World/Memory update.
+
+## Responsibility universe
+
+The former coarse Core-vs-Plugin matrix was insufficiently granular.
+
+The canonical adequacy baseline is:
+core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md
+
+It contains 125 explicit responsibilities plus a cross-cutting concern view.
+
+The inventory intentionally separates constitutional runtime mechanisms, shared contracts, system/domain semantics, external realizations, tooling, and cross-cutting concerns.
+
+Fundamental to the VIVIM product does not imply fundamental to K0.
+
+This distinction is particularly important for:
+- Self-Knowledge;
+- NCLL and symbolic command language;
+- the canonical data model;
+- ontology and reconciliation;
+- Intent/Plan/Spatial Intent;
+- Work/Agent;
+- Provider/Account/Session/Resource;
+- Memory/Context;
+- Attention/Continuity;
+- Product Instance/lifecycle;
+- Forge/Evolution.
+
+## Core/plugin boundary
+
+CORE-VS-PLUGIN-BOUNDARY-DISTILLATION.md remains the pre-implementation archaeological criterion.
+
+core-vs-plugin-boundary/ contains the Pass 3 adversarial closure package and corrected responsibility inventory.
+
+Current K0 direction:
+admission/integrity; isolation/transport; capability egress/fencing; activation/recovery; minimum crypto/platform/lifecycle.
+
+## Current Core obligations
+
+1. B1 executable-entry confinement.
+2. Generic empty-composition/bootstrap-role proof.
+3. Minimum State/Graph/Grant/Generation mechanisms.
+4. First-party/third-party runtime symmetry.
+5. Active Work replacement/continuation proof.
+
+## Plugin ecosystem
+
+Current plugin-authoring architecture has moved to plugin-ecosystem/ so cleanup/repository-hygiene documents are not treated as the semantic home of plugin architecture.
 
 ## Working rule
 
-The destination program should optimize for:
+Make the world coherent → make capabilities selectable → make work durable → make external reality real → make continuity persistent → make evolution native.
 
-**make the world coherent → make capabilities selectable → make work durable → make external reality real → make continuity persistent → make evolution native.**
-
-The repository already contains much of the machinery. The remaining challenge is to reconcile it into one sovereign human experience rather than continue accumulating isolated subsystems.
-
-## New cross-cutting destination control
-
-## Core / plugin boundary criterion
-
-- `CORE-VS-PLUGIN-BOUNDARY-DISTILLATION.md` — current archaeological synthesis and pre-implementation boundary criterion.
-- `core-vs-plugin-boundary/` — dedicated research package for the complete Core/Contract/System-Plugin/Extension/Tooling audit.
-
-`CORE-VS-PLUGIN-BOUNDARY-DISTILLATION.md` is the development criterion for deciding what is irreducible Ω Core, what is shared contract vocabulary, and what remains a system or extension plugin. It must be applied before substantive implementation.
-
-
-- `EVOLUTION-RECONCILIATION.md` — initial design for governed semantic evolution, reconciliation, self-maintenance, and self-extension.
-- `evolution/` — dedicated research package to be completed before production implementation of the deeper evolutionary model.
+Research informs this model; Ω law remains technical authority.

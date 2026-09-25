@@ -121,7 +121,7 @@ Its durable artifacts, if the branch remains available, include:
 The pilot found a real authority contradiction involving:
 
 - `README.md`
-- `ORCHESTRATION-REDESIGN.md`
+- `docs/archive/project-history/bcp-construction-2026-09-22/ORCHESTRATION-REDESIGN.md`
 - `AGENTS.md`
 - `docs/CURRENT-CONTEXT.md`
 - `docs/cleanup/AUTHORITY-MAP.md`
@@ -554,7 +554,7 @@ At minimum:
 - `docs/agent-system/WORKSTREAMS.md`
 - `docs/cleanup/AUTHORITY-MAP.md`
 - `docs/cleanup/CONFLICT-REGISTER.md`
-- `ORCHESTRATION-REDESIGN.md`
+- `docs/archive/project-history/bcp-construction-2026-09-22/ORCHESTRATION-REDESIGN.md`
 
 Then expand only when evidence requires it.
 
@@ -568,7 +568,7 @@ The goal is to establish a **small reproducible research surface** and then prov
 
 The prior research identified a concrete contradiction:
 
-`README.md` describes `ORCHESTRATION-REDESIGN.md` as canonical/current automation design while the target document and other governing sources classify it as historical.
+`README.md` describes `docs/archive/project-history/bcp-construction-2026-09-22/ORCHESTRATION-REDESIGN.md` as canonical/current automation design while the target document and other governing sources classify it as historical.
 
 This is a valuable test case because it exercises:
 

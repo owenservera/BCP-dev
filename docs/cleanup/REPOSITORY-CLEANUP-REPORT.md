@@ -19,14 +19,14 @@
 
 ## Files modified (18, prepend-only banners / reference repairs — no history rewritten)
 
-- `ORCHESTRATION-REDESIGN.md` — HISTORICAL banner (plan executed, Tasks 1–6 PASS)
-- `TRACKER.md` — parked-snapshot note (time-bound 2026-09-22 orders expired)
+- `docs/archive/project-history/bcp-construction-2026-09-22/ORCHESTRATION-REDESIGN.md` — HISTORICAL banner (plan executed, Tasks 1–6 PASS)
+- `docs/archive/project-history/bcp-construction-2026-09-22/TRACKER.md` — parked-snapshot note (time-bound 2026-09-22 orders expired)
 - `README.md` — cold-start pointer + archived session-log path repair
 - `docs/CONTEXT-system.md` — session-log path repair (1 line)
 - `bcp-speed/bcp/agents/lanes.md` — universal-rules-current / first-leases-stale banner
 - `bcp-speed/bcp/agents/inbox/W1..W5.md` — per-file STATUS banners (parked/stale/standing)
-- `setupdocs/01,02,03-*.md` — SUPERSEDED CONSTRUCTION PACKET banners
-- `setupdocs/04-AGENTS.md`, `05-BUILD_CONTEXT.md` — HISTORICAL-entry notes
+- `docs/archive/project-history/bcp-construction-2026-09-22/setupdocs/01,02,03-*.md` — SUPERSEDED CONSTRUCTION PACKET banners
+- `docs/archive/project-history/bcp-construction-2026-09-22/setupdocs/04-AGENTS.md`, `05-BUILD_CONTEXT.md` — HISTORICAL-entry notes
 - `bcp-speed/bcp/README.md` — generic-vs-instance (140 vs 49 caps) NOTE
 - `omega-…/docs/forge/OMEGA-FORGE-ARCHITECTURE_plus.md` — SUPERSEDED PACKET banner (Wave 0 landed)
 
@@ -34,7 +34,7 @@
 
 - `/AGENTS.md`, `/BUILD_CONTEXT.md`, `docs/CURRENT-CONTEXT.md` — cold-start path (§12)
 - `docs/archive/README.md`, `docs/archive/sessions/README.md`,
-  `docs/archive/conversations/README.md`, `setupdocs/README.md`
+  `docs/archive/conversations/README.md`, `docs/archive/project-history/bcp-construction-2026-09-22/setupdocs/README.md`
 - `docs/cleanup/AUTHORITY-MAP.md`, `docs/cleanup/CONFLICT-REGISTER.md`, this report
 
 ## Files deleted (0)
