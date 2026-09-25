@@ -22,7 +22,8 @@ The final end-state blueprint is deliberately not frozen yet. This package is th
 6. Reconciliation map — deeper repository findings and the key assembly boundary.
 7. Maturity and gaps — what is actually proven, what is missing, and what “destination-grade” means.
 8. Build and harvest plan — the ordered path from current repository evidence to integrated product journeys.
-9. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
+9. Product Instance & Core — the current VS1 characterization of the smallest complete VIVIM environment.
+10. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
 
 ## Historical relationship
 
@@ -53,6 +54,7 @@ Start with:
 - V1-DEFAULT-ENVIRONMENT-AND-LIVE-PROOF.md
 - DATA-MEMORY-CONTEXT-RECONCILIATION.md
 - FORGE-COMPOSITION-EVOLUTION-RECONCILIATION.md
+- VIVIM-PRODUCT-INSTANCE-CORE.md
 - DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
 - REQUIREMENT-EVIDENCE-TRACEABILITY.md
 - VERTICAL-SLICE-REGISTRY.md
