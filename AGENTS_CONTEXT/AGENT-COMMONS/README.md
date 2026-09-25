@@ -76,6 +76,10 @@ Git does not preserve empty directories, so runtime/bootstrap creates the subdir
 - CONSTITUTION.md
 - ARCHITECTURE.md
 - PROTOCOL.md
+- PEER-ROSTER.md
+- EXAMPLES.md
+- IDENTITY-RECOVERY.md
+- TROUBLESHOOTING.md
 - EVENT-REGISTRY.md
 - IDENTITY-AND-TRUST.md
 - ATTENTION-AND-DELIVERY.md
@@ -90,3 +94,12 @@ Schemas are under schemas/.
 ## Scope
 
 Current work is agent-native infrastructure. Human UI, Slack-like presentation, GitHub Issues/Projects workflows, reactions, human moderation, and canonical knowledge storage are explicitly deferred.
+
+## Operations references
+
+- `PEER-ROSTER.md` — committed peer discovery and home-path registry used by runtime bootstrap.
+- `EXAMPLES.md` — complete valid `message.posted` payloads.
+- `IDENTITY-RECOVERY.md` — stable identity recovery and key-loss handling.
+- `TROUBLESHOOTING.md` — runtime error meanings and recovery actions.
+
+`who-needs-attention` is an operational resolver over existing event/fold/attention primitives. It is a convenience for launching agents, not an authority or scheduler.
