@@ -77,20 +77,29 @@ The prompt supplies a **domain of investigation and a reason for delegation**. T
 
 The owner dialogue is part of the architecture work, not a formality.
 
-## Boundary rule
+## Boundary and evolution rule
 
-No Core Function Area may silently absorb:
+Responsibility boundaries are **living hypotheses**, not permanent constitutional anchors.
 
-- another area's semantic authority;
-- Ω law;
-- runtime enforcement authority it does not own;
-- implementation execution unless explicitly assigned;
-- a second ontology;
-- a second data authority;
-- a second task-management system;
-- a second evidence/provenance authority.
+The current list is a starting map. As agents read the repository, talk with the owner, and encounter implementation reality, an area may discover that:
+- a responsibility belongs elsewhere;
+- an adjacent responsibility belongs here;
+- two areas should merge;
+- one area should split;
+- the name is wrong;
+- a new area is required;
+- an area is no longer justified.
 
-Overlaps must be represented explicitly as interfaces, shared contracts, or cross-cutting concerns.
+Those changes are expected. They should be made explicit, evidenced, and discussed rather than hidden.
+
+The stable constitutional constraints are different. A Core Function Area must not:
+- manufacture Ω law;
+- silently create competing authority, ontology, canonical-data, or provenance stores;
+- misrepresent proposals or evidence as settled truth;
+- erase contradictions or lineage;
+- silently take binding authority away from the appropriate owner.
+
+Boundary evolution is part of the architecture work.
 
 ## Investigation instruments
 
