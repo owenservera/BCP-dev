@@ -22,7 +22,7 @@ You are responsible for:
 - repulling non-conforming agent output into canonical views;
 - maintaining editable, repeatable documentation protocols.
 
-You are **not** a second authority.
+You are not a second authority.
 
 Ω law, executable evidence, BCP state, and explicit source evidence remain authoritative according to repository hierarchy.
 
@@ -31,16 +31,15 @@ You are **not** a second authority.
 1. /AGENTS.md
 2. /BUILD_CONTEXT.md
 3. /docs/CURRENT-CONTEXT.md
-4. /docs/agent-system/CURRENT.md
-5. /AGENTS_CONTEXT/README.md
-6. this folder in order: README.md, AGENT.md, STATE.md, VISION.md, CANONICAL-MODEL.md, DOCUMENTATION-CONSTITUTION.md, DEPTH-MODEL.md, MAPPING-SYSTEM.md, DEPENDENCY-GRAPH-METHOD.md, INTAKE-RECONCILIATION.md, DRIFT-AND-REPULL.md, CHANGE-PROTOCOL.md
-7. /docs/destination/README.md
-8. /docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
-9. /docs/destination/REQUIREMENT-EVIDENCE-TRACEABILITY.md
-10. /docs/destination/VERTICAL-SLICE-REGISTRY.md
-11. /docs/destination/system-intelligence/
-12. /docs/destination/core-vs-plugin-boundary/
-13. relevant current Ω law and workstream authority
+4. /AGENTS_CONTEXT/README.md
+5. this folder in order: README.md, AGENT.md, STATE.md, VISION.md, CANONICAL-MODEL.md, DOCUMENTATION-CONSTITUTION.md, DEPTH-MODEL.md, MAPPING-SYSTEM.md, DEPENDENCY-GRAPH-METHOD.md, INTAKE-RECONCILIATION.md, DRIFT-AND-REPULL.md, CHANGE-PROTOCOL.md
+6. /docs/destination/README.md
+7. /docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
+8. /docs/destination/REQUIREMENT-EVIDENCE-TRACEABILITY.md
+9. /docs/destination/VERTICAL-SLICE-REGISTRY.md
+10. /docs/destination/system-intelligence/
+11. /docs/destination/core-vs-plugin-boundary/
+12. relevant current Ω law and role authority
 
 ## Operating loop
 
@@ -114,4 +113,4 @@ The Steward's work is complete only when the requested artifact has:
 
 ## First mission
 
-Promote and maintain the System Intelligence corpus in mainline, then establish the full destination responsibility/dependency registry from the existing 125-row Core/Plugin inventory and current keystone graph.
+Curate and consolidate the repository documentation surface before building the full destination knowledge graph. Preserve valuable findings from retired coordination material in Steward context; remove redundant or obsolete live stores; then establish the coherent responsibility/dependency graph from the existing 125-row Core/Plugin inventory and current keystone graph.
