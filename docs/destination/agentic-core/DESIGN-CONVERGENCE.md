@@ -1,64 +1,41 @@
-# Design Convergence Target
+# Design Convergence
 
-This document is intentionally empty of final architecture at scaffold time.
+**Status:** DESIGN-CANDIDATE — research package landed; runtime falsifiers remain.
 
-The investigator must converge on a small set of primitives and show why they are sufficient.
+## VIVIM-native graph
 
-## Required final diagram
+`World / User Intent → Trigger/Automation → Work → Plan → Authority → Step/Attempt → Capability → Checkpoint → Verification → Evidence → World Update → Attention/Continuity`
 
-Produce a single VIVIM-native graph similar to:
+AI is an optional participant at bounded proposal/interpretation/diagnostic/realization boundaries.
 
-`World / User Intent`
-→ `Capability`
-→ `Plan`
-→ `Work`
-→ `Scheduler / Trigger`
-→ `Execution Runtime`
-→ `Attempt / Step`
-→ `Verification`
-→ `Evidence`
-→ `World Update`
-→ `Attention / Continuity`
+## Decisions
 
-Add:
+- **Agent:** reusable role/policy, not execution root.
+- **Workflow vs Recipe:** reusable executable structure; Ω Recipe/Composition remains deployment/governance mechanism.
+- **Automation vs Trigger:** Automation is standing declaration; Trigger is individual wake condition.
+- **Work vs Run vs Attempt:** Work is canonical durable subject; Run is rejected as a competing root; Attempt is one Step execution.
+- **Step persistence:** yes, when needed for dependencies, recovery and evidence.
+- **Queue/worker:** durable Work/Step queue; disposable workers.
+- **Temporal:** durable Wake records for time/event/dependency/callback/manual waits.
+- **Resources:** explicit leases and capacity domains.
+- **Idempotency:** mandatory for retryable side effects or explicit reconciliation for unknown effects.
+- **Retry/compensation:** retry by failure class; compensation is a new governed action, not implicit rollback.
+- **HITL:** durable WAITING_HUMAN state with resumable Work.
+- **Budgets:** deterministic deadline/attempt/call/resource constraints.
+- **Verification:** explicit contract, separate from executor success.
+- **Replay:** decision replay only; no live side effects.
+- **Context snapshots:** Work records references/versioned inputs; exact schema remains open.
+- **Sandbox:** local governed capabilities first; hard OS isolation remains experiment/platform-specific.
+- **Artifacts:** canonical World objects referenced by Work.
+- **Attention:** projection, never hidden task store.
+- **Child Work:** explicit parentWorkRef, own authority and lifecycle.
+- **AI boundary:** candidate output enters typed deterministic validation, then authority.
+- **Plugin/runtime:** capabilities remain governed Ω plugins/realizations; no second agent kernel.
 
-`Authority`
+## Anti-bloat test
 
-at the exact boundary where it belongs, and show:
+If removing a proposed primitive does not break durable recovery, governance, scheduling, verification, or continuity, it should not be promoted into the V1 core.
 
-`AI`
+## Final design consequence
 
-as an optional participant rather than a required executor.
-
-## Required decisions
-
-The synthesis must explicitly decide or leave UNKNOWN:
-
-- Agent semantic boundary;
-- Workflow vs Recipe boundary;
-- Automation vs Schedule/Trigger boundary;
-- Work vs Run vs Attempt;
-- Plan vs execution state;
-- Step persistence;
-- queue/worker model;
-- timer/event substrate;
-- resource leasing;
-- idempotency;
-- retry/compensation;
-- HITL;
-- budgets;
-- deterministic verification;
-- replay;
-- context snapshots;
-- sandbox;
-- artifact production;
-- attention/continuity;
-- child Work/subagents;
-- AI insertion boundary;
-- plugin/runtime boundary.
-
-## Anti-bloat rule
-
-The target is not “all features from all frameworks.”
-
-The target is the smallest coherent deterministic substrate that can support VIVIM's product vision and later absorb AI capabilities without architectural replacement.
+VIVIM does not need an "agent operating system." It needs a **durable governed Work substrate** on which Agents, Workflows, Automations and AI capabilities can operate.
