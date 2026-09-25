@@ -1,0 +1,647 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "cfa01.bootstrap-gap-register",
+  "title": "CFA-01 Bootstrap Final Gap Register — Missing Questions, Context and Tooling",
+  "status": "BOOTSTRAP REVIEW / SELF-AUDIT / PROVISIONAL",
+  "date": "2026-09-25",
+  "perspective": "world-ontology-context",
+  "purpose": "Final adversarial pass before temporarily closing the CFA-01 bootstrap seed. Identifies high-value World/Ontology/Context questions that were underexplored, explains why they were missed, and specifies the context and tooling needed to manage them without creating parallel authorities.",
+  "method": {
+    "principle": "Test what would become dangerous or incoherent if CFA-01 stopped now.",
+    "evidence_basis": [
+      "CFA-01 bootstrap seed/state/research queue",
+      "CFA-01 grounded semantic trace design",
+      "Architecture Steward canonical model/operating interpretation",
+      "destination conceptual/world/object/context/experience/evolution material",
+      "peer CFA bootstrap boundaries",
+      "destination responsibility and journey mappings"
+    ],
+    "gap_scoring": {
+      "scale": "0-10",
+      "dimensions": {
+        "closure_criticality": "How much unresolved World meaning blocks downstream architecture/build decisions.",
+        "cross_cfa_propagation": "How many neighboring responsibilities are affected if this meaning is wrong.",
+        "silent_failure_risk": "Likelihood of producing a plausible but false world model if left unresolved.",
+        "tool_leverage": "How strongly a reusable inspection/falsification tool would reduce recurring uncertainty."
+      },
+      "priority_formula": "0.35*closure_criticality + 0.25*cross_cfa_propagation + 0.25*silent_failure_risk + 0.15*tool_leverage"
+    }
+  },
+  "bootstrap_assessment": {
+    "what_was_done_well": [
+      "World was separated from storage, graph, surface, memory, attention and execution.",
+      "Identity layers were explicitly separated.",
+      "Context was bounded from Memory/Attention/Intent/Work and D-443 was treated as existing runtime substrate.",
+      "Peer relationship map made ownership seams visible.",
+      "A reusable Grounded Semantic Trace tool was designed rather than creating a parallel ontology database."
+    ],
+    "what_was_underexplored": [
+      "Temporal and observational semantics inside the World boundary.",
+      "How external reality becomes local World state and how unknown external effects are reconciled.",
+      "The actual semantic contract of query/retrieval as a World capability.",
+      "How Product Instance continuity constrains World reconstruction and portability.",
+      "How Space and Context interact over time without becoming workspace state.",
+      "Whether 'Thing' is too broad and needs a typed subject policy without becoming a universal superclass.",
+      "How peer contracts should be mechanically refreshed so CFA-01 does not operate on stale neighboring assumptions."
+    ]
+  },
+  "top_gaps": [
+    {
+      "id": "GAP-001",
+      "title": "World Observation / Fact / Evidence separation",
+      "class": "EPISTEMIC-WORLD-SEMANTICS",
+      "why_missed": "The bootstrap repeatedly protected Evidence from becoming Authority, but did not fully define the intermediate semantic status of an observation or world-state statement before evidence is interpreted into canonical meaning.",
+      "question": "What is the semantic difference among an external observation, a canonical world assertion/state, evidence supporting that assertion, and an inference about it?",
+      "why_it_matters": "Without this distinction, provider/browser observations can silently become World truth, or Evidence can be mistaken for the thing observed.",
+      "needs_from_peers": [
+        "CFA-02 data/identity",
+        "CFA-03 semantic continuity",
+        "CFA-04 authority",
+        "CFA-06 provider/realization",
+        "cross-cutting evidence/provenance"
+      ],
+      "context_needed": [
+        "D-443 epistemic-kind semantics",
+        "world-object relationship model",
+        "provider/browser observation evidence",
+        "memory kinds and source genealogy",
+        "Ω evidence/provenance contracts"
+      ],
+      "tooling_needed": [
+        "Trace mode: OBSERVATION",
+        "classification fixture: observation -> assertion -> evidence -> inference",
+        "lineage display showing first-observed vs canonically asserted state"
+      ],
+      "scores": {
+        "closure_criticality": 10,
+        "cross_cfa_propagation": 9,
+        "silent_failure_risk": 10,
+        "tool_leverage": 9
+      },
+      "priority_score": 9.55
+    },
+    {
+      "id": "GAP-002",
+      "title": "World projection reconstructability, basis and freshness",
+      "class": "WORLD-PROJECTION",
+      "why_missed": "Projection separation was established conceptually, but the operational contract for when a World view is sufficiently current, reproducible and trustworthy was not yet characterized.",
+      "question": "What minimum basis, version/revision set, scope and freshness information makes a World projection reproducible and explainable?",
+      "why_it_matters": "'One coherent World' is otherwise a visual metaphor that can drift between projections.",
+      "needs_from_peers": [
+        "CFA-02 canonical revisions",
+        "Architecture Steward graph/evidence",
+        "CFA-09 compatibility/evolution",
+        "runtime self-knowledge where used"
+      ],
+      "context_needed": [
+        "WORLD-PROJECTION.md",
+        "Ω vault revision semantics",
+        "Product Instance continuity research",
+        "graph freshness/reconciliation model",
+        "D-443 digest/budget/freshness semantics"
+      ],
+      "tooling_needed": [
+        "Trace mode: PROJECTION",
+        "world:reconstruct fixture runner from canonical records",
+        "projection basis/digest inspector",
+        "drift/freshness check"
+      ],
+      "scores": {
+        "closure_criticality": 10,
+        "cross_cfa_propagation": 9,
+        "silent_failure_risk": 9,
+        "tool_leverage": 10
+      },
+      "priority_score": 9.55
+    },
+    {
+      "id": "GAP-003",
+      "title": "External-world change reconciliation",
+      "class": "REALITY-RECONCILIATION",
+      "why_missed": "Provider/resource identity was mapped, but the harder question—how external change that VIVIM did not author becomes a truthful local world update—was not promoted to a first-class CFA-01 case.",
+      "question": "How does CFA-01 represent externally caused change, stale state, conflict, unknown effect and reconciliation without pretending VIVIM observed more than it did?",
+      "why_it_matters": "This is central to browser/provider use, synchronization, imports, background Work and any real-world side effect.",
+      "needs_from_peers": [
+        "CFA-06 provider realization",
+        "CFA-05 Work/execution",
+        "CFA-09 evolution/reconciliation",
+        "CFA-02 persistence",
+        "evidence/provenance"
+      ],
+      "context_needed": [
+        "Provider/account/routing reconciliation",
+        "Work recovery/reconciliation material",
+        "external state vs canonical state distinctions",
+        "legacy provider capture/state evidence",
+        "VIVIM forensic model"
+      ],
+      "tooling_needed": [
+        "Trace mode: RECONCILIATION",
+        "scenario fixtures: external mutation / missed observation / duplicate observation / conflict",
+        "unknown-effect state visualizer",
+        "source-to-world lineage inspector"
+      ],
+      "scores": {
+        "closure_criticality": 10,
+        "cross_cfa_propagation": 10,
+        "silent_failure_risk": 10,
+        "tool_leverage": 9
+      },
+      "priority_score": 9.85
+    },
+    {
+      "id": "GAP-004",
+      "title": "Identity continuity through merge, split and temporal change",
+      "class": "IDENTITY",
+      "why_missed": "Identity was recognized as a top case, but the bootstrap stopped at terminology and handoff rather than fully modeling identity over time and across conflicting correspondence assertions.",
+      "question": "When does one thing become two, two become one, or one external identity become a different local correspondence across time?",
+      "why_it_matters": "World coherence collapses if object continuity is inferred from matching fields or representation instead of explicit semantic identity rules.",
+      "needs_from_peers": [
+        "CFA-02 canonical identity",
+        "CFA-09 migration/compatibility",
+        "CFA-06 external identities",
+        "CFA-08 representation references"
+      ],
+      "context_needed": [
+        "R-028/R-032/R-033",
+        "object taxonomy identity/correspondence material",
+        "alias/tombstone semantics",
+        "Product Instance continuity",
+        "legacy imported identity cases"
+      ],
+      "tooling_needed": [
+        "Trace mode: IDENTITY",
+        "correspondence case fixture library",
+        "merge/split lineage visualizer",
+        "identity collision/falsifier runner"
+      ],
+      "scores": {
+        "closure_criticality": 10,
+        "cross_cfa_propagation": 10,
+        "silent_failure_risk": 10,
+        "tool_leverage": 10
+      },
+      "priority_score": 10
+    },
+    {
+      "id": "GAP-005",
+      "title": "Context relevance semantics as an explainable function",
+      "class": "CONTEXT",
+      "why_missed": "Inputs to Context were enumerated, but the rule that turns those inputs into relevance was not made sufficiently explicit or testable.",
+      "question": "Given world state, active Space, focus, Work, standing Intent, Memory, recency, explicit references and policy, why is each item included or excluded from Context?",
+      "why_it_matters": "Without an explainable relevance rule, D-443 becomes a deterministic executor of an undefined semantic policy.",
+      "needs_from_peers": [
+        "CFA-03 grounding/semantics",
+        "CFA-05 Work",
+        "CFA-08 Space/interaction",
+        "CFA-04 policy boundaries",
+        "CFA-02 memory/data",
+        "D-443 runtime"
+      ],
+      "context_needed": [
+        "D-443 context contract",
+        "DATA-MEMORY-CONTEXT-RECONCILIATION.md",
+        "WORLD-WORKSPACE-CANVAS-RECONCILIATION.md",
+        "attention/background/continuity material",
+        "standing intent and Work context semantics"
+      ],
+      "tooling_needed": [
+        "Trace mode: CONTEXT",
+        "context inclusion/exclusion explainer",
+        "deterministic context fixture comparator",
+        "privacy/scope audit view"
+      ],
+      "scores": {
+        "closure_criticality": 10,
+        "cross_cfa_propagation": 9,
+        "silent_failure_risk": 10,
+        "tool_leverage": 10
+      },
+      "priority_score": 9.85
+    },
+    {
+      "id": "GAP-006",
+      "title": "Thing / WorldSubject umbrella boundary",
+      "class": "ONTOLOGY",
+      "why_missed": "Thing/Object was treated as the main semantic unit, but the bootstrap did not sufficiently test whether all addressable subjects should share one umbrella concept or whether some should remain distinct role types.",
+      "question": "What deserves to be a Thing/Object, what is merely a reference/role/projection, and where should universal addressability stop?",
+      "why_it_matters": "An overly broad Thing becomes a hidden universal superclass; an overly narrow model fragments addressability.",
+      "needs_from_peers": [
+        "CFA-02 record classification",
+        "CFA-03 terminology",
+        "CFA-08 surface/address",
+        "CFA-06 provider external objects"
+      ],
+      "context_needed": [
+        "OBJECT-TAXONOMY.md",
+        "DESIGN-CONVERGENCE.md",
+        "CONCEPTUAL-MODEL.md",
+        "addressability and query contracts",
+        "AgentDefinition / Composition object boundary research"
+      ],
+      "tooling_needed": [
+        "Ontology trace view",
+        "subject classification matrix",
+        "anti-superclass falsifier"
+      ],
+      "scores": {
+        "closure_criticality": 8,
+        "cross_cfa_propagation": 7,
+        "silent_failure_risk": 8,
+        "tool_leverage": 8
+      },
+      "priority_score": 7.65
+    },
+    {
+      "id": "GAP-007",
+      "title": "Event / State / Time semantics",
+      "class": "TEMPORAL-SEMANTICS",
+      "why_missed": "Event/State was put into the queue as a medium-priority question, but their relationship to Time, revision, Work state and external observation has broader implications than initially recognized.",
+      "question": "Which temporal concepts are domain-neutral primitives, which are implementation/history mechanisms, and how do events, states and revisions compose?",
+      "why_it_matters": "World continuity and reconciliation need time semantics without turning the vault journal, runtime state or Work state into one universal abstraction.",
+      "needs_from_peers": [
+        "CFA-02 revisions/events",
+        "CFA-05 Work state",
+        "CFA-06 provider observations",
+        "CFA-09 evolution",
+        "CFA-10 substrate"
+      ],
+      "context_needed": [
+        "Ω vault/event/revision contracts",
+        "Work state/recovery research",
+        "provider observation lifecycle",
+        "legacy AtomicChatUnit/event/state evidence",
+        "destination Time concept"
+      ],
+      "tooling_needed": [
+        "Trace mode: TIME",
+        "event-vs-revision-vs-state comparison fixtures",
+        "temporal continuity/fork/replay checker"
+      ],
+      "scores": {
+        "closure_criticality": 9,
+        "cross_cfa_propagation": 9,
+        "silent_failure_risk": 8,
+        "tool_leverage": 9
+      },
+      "priority_score": 8.75
+    },
+    {
+      "id": "GAP-008",
+      "title": "World query / retrieval as semantic contract",
+      "class": "ADDRESSABILITY-RETRIEVAL",
+      "why_missed": "Query was noted as a World responsibility and candidates-vs-truth was captured, but the semantic contract of retrieval itself was largely delegated to indexing mechanisms.",
+      "question": "What exactly does it mean to ask the World for relevant things, how are candidate sets scoped, and what semantics must remain invariant across exact, semantic, relationship and recency search?",
+      "why_it_matters": "Universal interaction and Context rely on query semantics; poor definition causes retrieval to quietly become a relevance authority.",
+      "needs_from_peers": [
+        "CFA-03 semantic grounding",
+        "CFA-08 interaction/address",
+        "CFA-02 canonical indexes/data",
+        "CFA-04 scope/privacy"
+      ],
+      "context_needed": [
+        "R-043 query/retrieval",
+        "destination graph retrieval semantics",
+        "memory/search research",
+        "Ω localized retrieval/evidence refs",
+        "addressability material"
+      ],
+      "tooling_needed": [
+        "Trace mode: QUERY",
+        "candidate-vs-authority inspection",
+        "query-scope/provenance display",
+        "retrieval fixture equivalence tests"
+      ],
+      "scores": {
+        "closure_criticality": 8,
+        "cross_cfa_propagation": 8,
+        "silent_failure_risk": 9,
+        "tool_leverage": 9
+      },
+      "priority_score": 8.35
+    },
+    {
+      "id": "GAP-009",
+      "title": "Space ↔ Context ↔ Workspace over time",
+      "class": "SPATIAL-CONTEXT",
+      "why_missed": "Space/workspace was correctly separated, but the temporal and semantic lifecycle of Space membership/defaults versus current Context selection was not deeply exercised.",
+      "question": "What persists as a property of a Space, what is merely current Context, and what is Workspace presentation state?",
+      "why_it_matters": "This boundary is where user-created organization can accidentally become a hidden database or where Context can become sticky world truth.",
+      "needs_from_peers": [
+        "CFA-08 surface/interaction",
+        "CFA-02 persistence",
+        "CFA-03 grounding",
+        "CFA-05 Work",
+        "attention subsystem"
+      ],
+      "context_needed": [
+        "WORLD-WORKSPACE-CANVAS-RECONCILIATION.md",
+        "D6 current-context model",
+        "workspace/preset/adaptive workspace legacy evidence",
+        "attention/focus research"
+      ],
+      "tooling_needed": [
+        "Trace mode: SPACE",
+        "space/context/workspace state comparator",
+        "restart/re-entry continuity fixture"
+      ],
+      "scores": {
+        "closure_criticality": 8,
+        "cross_cfa_propagation": 8,
+        "silent_failure_risk": 9,
+        "tool_leverage": 8
+      },
+      "priority_score": 8.45
+    },
+    {
+      "id": "GAP-010",
+      "title": "World ↔ Product Instance continuity contract",
+      "class": "CONTINUITY",
+      "why_missed": "Product Instance appeared mainly as a downstream continuity concept, while the bootstrap treated World as the center without proving the exact contract that lets an instance reconstruct the same world semantics after restart/export/import/change.",
+      "question": "What minimum durable instance state is required for the same user-owned World to be reconstructed across close/reopen, upgrade, export/import and device change?",
+      "why_it_matters": "A coherent World that cannot be deterministically reconstructed at the Product Instance boundary is only a session-level model.",
+      "needs_from_peers": [
+        "CFA-02 persistence",
+        "CFA-09 evolution",
+        "CFA-08 experience continuity",
+        "CFA-10 runtime substrate"
+      ],
+      "context_needed": [
+        "Product Instance research/INSIGHTS",
+        "exit/reconstruction journey",
+        "vault roundtrip semantics",
+        "evolution continuity research",
+        "workspace/configuration continuity"
+      ],
+      "tooling_needed": [
+        "Trace mode: CONTINUITY",
+        "restart/export/restore reconstruction fixture",
+        "world digest comparison before/after lifecycle events"
+      ],
+      "scores": {
+        "closure_criticality": 9,
+        "cross_cfa_propagation": 9,
+        "silent_failure_risk": 9,
+        "tool_leverage": 9
+      },
+      "priority_score": 9
+    },
+    {
+      "id": "GAP-011",
+      "title": "World semantic contract under authority scope",
+      "class": "SCOPED-WORLD",
+      "why_missed": "The bootstrap emphasized that World is semantic and Authority is separate, but it did not fully resolve whether 'World' means total known local reality, accessible reality, or a principal-scoped projection.",
+      "question": "Is World itself principal-scoped, or is principal scope applied only when projecting/querying/contextualizing World?",
+      "why_it_matters": "This affects privacy, addressability, retrieval, Context, sharing, Agent access and product continuity.",
+      "needs_from_peers": [
+        "CFA-04 authority",
+        "CFA-02 ownership/principal data",
+        "CFA-08 presentation",
+        "CFA-05 agent context"
+      ],
+      "context_needed": [
+        "destination World definition",
+        "authority/ownership scope contracts",
+        "D-443 principal scope",
+        "sharing/cross-machine research",
+        "privacy-aware context research"
+      ],
+      "tooling_needed": [
+        "Trace mode: SCOPE",
+        "same-world/different-principal projection comparator",
+        "authority-vs-visibility falsifier"
+      ],
+      "scores": {
+        "closure_criticality": 10,
+        "cross_cfa_propagation": 10,
+        "silent_failure_risk": 10,
+        "tool_leverage": 9
+      },
+      "priority_score": 9.85
+    },
+    {
+      "id": "GAP-012",
+      "title": "Semantic handoff contracts need executable shapes",
+      "class": "INTERFACE",
+      "why_missed": "The peer matrix identifies seams and expected handoff artifacts, but most remain conceptual rather than expressed as small, testable contracts.",
+      "question": "What is the minimum machine-readable handoff payload that a peer can consume without importing CFA-01's ontology or internal working state?",
+      "why_it_matters": "Without explicit contracts, graph/runtime joins and peer coordination will be inferred from document language.",
+      "needs_from_peers": [
+        "All CFAs, especially CFA-02/03/04/05/06/08/09/10",
+        "Architecture Steward graph"
+      ],
+      "context_needed": [
+        "peer CORE/BOOTSTRAP identity artifacts as they become ratified",
+        "Agent Commons communication contracts",
+        "Architecture Steward canonical model",
+        "existing destination contracts"
+      ],
+      "tooling_needed": [
+        "CFA-01 trace output schema",
+        "typed handoff packet validator",
+        "peer-boundary snapshot/diff",
+        "Commons handoff formatter"
+      ],
+      "scores": {
+        "closure_criticality": 9,
+        "cross_cfa_propagation": 10,
+        "silent_failure_risk": 9,
+        "tool_leverage": 10
+      },
+      "priority_score": 9.55
+    },
+    {
+      "id": "GAP-013",
+      "title": "Peer-context freshness and stale-boundary detection",
+      "class": "OPERATIONS",
+      "why_missed": "The peer distance map captures the current relationship picture, but it is a static snapshot. It does not yet provide a mechanism to detect when a neighbor's identity, boundary or authority source has changed.",
+      "question": "How does CFA-01 know that its relationship map, peer contracts and cited architecture basis are stale?",
+      "why_it_matters": "A semantic boundary that is locally correct can become wrong after a peer ratification or destination decision changes.",
+      "needs_from_peers": [
+        "Architecture Steward",
+        "all ratified/bootstrap-ready peer homes"
+      ],
+      "context_needed": [
+        "peer roster",
+        "identity history",
+        "Architecture Steward change protocol",
+        "graph manifest/reference freshness",
+        "peer Commons announcements"
+      ],
+      "tooling_needed": [
+        "Grounded Semantic Trace freshness view",
+        "peer contract snapshot/diff",
+        "basis invalidation trigger",
+        "stale-reference detector"
+      ],
+      "scores": {
+        "closure_criticality": 8,
+        "cross_cfa_propagation": 10,
+        "silent_failure_risk": 9,
+        "tool_leverage": 10
+      },
+      "priority_score": 9
+    }
+  ],
+  "ranked_priorities": [
+    "GAP-004",
+    "GAP-003",
+    "GAP-005",
+    "GAP-011",
+    "GAP-001",
+    "GAP-002",
+    "GAP-012",
+    "GAP-010",
+    "GAP-013",
+    "GAP-007",
+    "GAP-009",
+    "GAP-008",
+    "GAP-006"
+  ],
+  "context_bundles_needed": [
+    {
+      "id": "CTX-01",
+      "name": "World Reality & Observation Bundle",
+      "contents": [
+        "world-object-core",
+        "relationship model",
+        "Ω evidence/provenance",
+        "provider external-state evidence",
+        "memory epistemic kinds",
+        "external mutation/reconciliation evidence"
+      ],
+      "purpose": "Resolve observation/fact/evidence and external-world reconciliation."
+    },
+    {
+      "id": "CTX-02",
+      "name": "Identity & Temporal Continuity Bundle",
+      "contents": [
+        "R-028/R-032/R-033",
+        "CFA-02 identity/persistence material",
+        "CFA-09 evolution/compatibility",
+        "alias/tombstone semantics",
+        "Ω revision/event evidence"
+      ],
+      "purpose": "Resolve identity merge/split and time semantics."
+    },
+    {
+      "id": "CTX-03",
+      "name": "Context Relevance Bundle",
+      "contents": [
+        "D-443 context contract",
+        "D6 data-memory-context reconciliation",
+        "world/workspace/canvas",
+        "attention/background continuity",
+        "CFA-03 grounding semantics",
+        "privacy/authority scope"
+      ],
+      "purpose": "Make contextual relevance explicit and testable."
+    },
+    {
+      "id": "CTX-04",
+      "name": "Continuity & Exit Bundle",
+      "contents": [
+        "Product Instance research",
+        "vault roundtrip/restore",
+        "configuration/workspace continuity",
+        "evolution continuity",
+        "J1/J8 vertical slices"
+      ],
+      "purpose": "Define the World reconstruction contract across lifecycle."
+    },
+    {
+      "id": "CTX-05",
+      "name": "Peer Boundary Runtime Bundle",
+      "contents": [
+        "Peer Roster",
+        "peer identity files",
+        "Commons capability/transport",
+        "Architecture Steward graph/change protocol",
+        "destination responsibility matrix"
+      ],
+      "purpose": "Keep CFA-01's own operating assumptions fresh."
+    }
+  ],
+  "tooling_strategy": {
+    "principle": "Do not build one tool per gap. Extend the existing Grounded Semantic Trace into a small set of trace modes plus fixture/test packs.",
+    "primary_tool": {
+      "name": "Grounded Semantic Trace",
+      "working_command": "world:trace <target-or-question>",
+      "required_modes": [
+        "ORIENT",
+        "BOUNDARY",
+        "IDENTITY",
+        "OBSERVATION",
+        "CONTEXT",
+        "PROJECTION",
+        "RECONCILIATION",
+        "QUERY",
+        "SPACE",
+        "SCOPE",
+        "CONTINUITY",
+        "TIME",
+        "IMPACT",
+        "EVIDENCE",
+        "RUNTIME",
+        "CHANGE"
+      ],
+      "minimum_result_chain": [
+        "TARGET",
+        "MEANING",
+        "RELATIONSHIPS",
+        "SCOPE",
+        "OWNERSHIP",
+        "AUTHORITY",
+        "EVIDENCE",
+        "RUNTIME",
+        "FRESHNESS",
+        "UNKNOWN/CONFLICT",
+        "IMPACT",
+        "NEXT ACTION"
+      ]
+    },
+    "supporting_infrastructure": [
+      {
+        "name": "World Fixture Lab",
+        "purpose": "Small deterministic scenario corpus for identity, observation, projection, context, temporal and reconciliation falsifiers.",
+        "examples": [
+          "merge/split",
+          "external mutation",
+          "stale projection",
+          "context inclusion/exclusion",
+          "principal-scoped visibility",
+          "restart/export/restore",
+          "event-vs-state-vs-revision"
+        ]
+      },
+      {
+        "name": "Peer Context Snapshot",
+        "purpose": "Machine-readable snapshot of peer identities, boundaries, key source files and basis refs with change/freshness comparison.",
+        "preferred_owner": "Architecture Steward/CFA-01 seam, not a new global registry"
+      },
+      {
+        "name": "Handoff Packet Validator",
+        "purpose": "Validates that a CFA-01 handoff contains semantic meaning, explicit scope, identity/reference, uncertainty, authority/data ownership and lineage without leaking internal case state.",
+        "preferred_owner": "CFA-01 contract tooling, reconciled into Steward conventions when recurring"
+      }
+    ]
+  },
+  "bootstrap_close_recommendation": {
+    "seed_can_close_for_now": true,
+    "reason": "The identified gaps are not evidence that the CFA-01 boundary is wrong; they are the next depth of characterization required once the seed starts operating.",
+    "do_not_do_now": [
+      "Do not create separate permanent agents for the gaps.",
+      "Do not create a second ontology or World database.",
+      "Do not promote the gap register into destination authority.",
+      "Do not implement all trace modes before a real recurring case proves the need.",
+      "Do not reopen repository-wide archaeology."
+    ],
+    "first_live_work_after_bootstrap": [
+      "Identity merge/split/correspondence case.",
+      "External-world reconciliation case.",
+      "Context relevance case using D-443.",
+      "Principal-scoped World visibility case.",
+      "One end-to-end reconstructability fixture from canonical records to World projection to restart/export/restore."
+    ]
+  }
+}
