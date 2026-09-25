@@ -1,10 +1,5 @@
-# Archived conversation exports — RAW-RESEARCH, not authority
+# Archived conversation exports — retired raw source
 
-Exported chat transcripts and notes that fed the end-state vision and the
-experimental-paths design (2026-09-16 – 09-21). Their conclusions were
-distilled into ratified records:
+The former conversation exports were raw research from 2026-09-16 through 2026-09-21. Their durable architectural content was harvested into `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/AGENT-SYSTEM-HARVEST.md`.
 
-- Ω vision → `omega-baseline/omega-final/docs/forge/OMEGA-ENDSTATE-VISION.md` (D-407/D-408)
-- Experimental paths → `docs/EXPERIMENTAL-PATHS.md` + BCP experiments `EXP-2026-004/005/006`
-
-Read the records, not these transcripts, for current truth.
+The raw files are intentionally no longer part of the active repository tree. Their complete contents remain recoverable from Git history.
