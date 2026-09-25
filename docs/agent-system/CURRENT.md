@@ -72,10 +72,12 @@ workstream evidence documents for the exact boundaries and proof states.
   C15; this is a factual baseline, not a PROVEN/live-run status.
 - P1-06 / WS-006 has committed the governance chain
   (`workstreams/WS-006/PHASE-1-GOVERNANCE-CHAIN.md`); M4/M5 NEEDS RUN.
+- P1-03 / WS-003 has completed its ontology/evidence baseline (`188cbcf`).
+- P1-05 / WS-005 has completed its current ratified kernel baseline (`4316c27`);
+  its H-01 follow-on remains proposed/unratified.
 - P1-08 / WS-008 has committed the real `message.send@1` provider-browser
-  implementation (`workstreams/WS-008/PHASE-1-HANDOFF-PACKAGE.md`); M4
-  NEEDS RUN. P1-03, P1-04, P1-05, P1-07, and P1-09 remain research-first
-  and unopened.
+  implementation (`workstreams/WS-008/PHASE-1-HANDOFF-PACKAGE.md`); M4 NEEDS RUN.
+  P1-04, P1-07, and P1-09 remain research-first/unopened.
 - P1-10 / WS-010 is now a separately designed V0 workstream: registered, not proven, not implementation-active. Full blueprint and paired-agent setup live under docs/agent-system/workstreams/WS-010/.
 - Next portfolio action after the WS-001 closers: deep-research and bootstrap P1 workstreams one at a time.
 
