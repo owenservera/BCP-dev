@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "DERIVED — CURRENT",
+  "experiments": [
+    {"id":"E1","label":"EXPERIMENT-FIRST","mode":"EXPERIMENT FIRST","status":"UNRUN","goal":"Prove one Account→Session→BrowserResource→Provider→Realization→effect→evidence chain.","blocks":["Account ambiguity","resource identity"]},
+    {"id":"E2","label":"EXPERIMENT-FIRST","mode":"EXPERIMENT FIRST","status":"UNRUN","goal":"Prove two-account isolation.","blocks":["account substitution","profile/resource ownership"]},
+    {"id":"E3","label":"EXPERIMENT-FIRST","mode":"EXPERIMENT FIRST","status":"UNRUN","goal":"Prove concurrent browser/resource ownership and no cross-target contamination.","blocks":["locking","concurrency semantics"]},
+    {"id":"E4","label":"EXPERIMENT-FIRST","mode":"EXPERIMENT FIRST","status":"UNRUN","goal":"Prove expiry/process restart recovery or explicit refusal.","blocks":["reconnect","recovery"]},
+    {"id":"E5","label":"EXPERIMENT-FIRST","mode":"EXPERIMENT FIRST","status":"UNRUN","goal":"Falsify provider generality with a materially different third provider.","blocks":["provider-agnostic generality"]},
+    {"id":"E6","label":"DESIGN-FIRST","mode":"DESIGN FIRST","status":"UNRUN","goal":"Carry a new durable object through world/surface/work/evidence/export/restore/delete.","blocks":["generic object lifecycle"]},
+    {"id":"E7","label":"DESIGN-FIRST","mode":"DESIGN FIRST","status":"UNRUN","goal":"Recover durable Work after process restart.","blocks":["background continuity","checkpoint semantics"]},
+    {"id":"E8","label":"DESIGN-FIRST","mode":"DESIGN FIRST","status":"UNRUN","goal":"Invalidate/recompute self-knowledge after a canonical basis change.","blocks":["freshness","derived-view honesty"]}
+  ]
+}
