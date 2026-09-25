@@ -1,6 +1,6 @@
-# Architecture Steward — Subagent Prompt Template
+# Architecture Steward — Investigation Instrument Prompt Template
 
-Copy this template into a typed subfolder as `LAUNCH-PROMPT.md`.
+> Use this template for a bounded, reusable investigation instrument. It does not create a permanent agent identity or responsibility owner.
 
 > This is a launch contract, not a project-management template. Keep it bounded.
 
@@ -121,17 +121,17 @@ Do not:
 - create a parallel task/ontology/authority system;
 - rewrite source research merely to make it fit the Steward's preferred format.
 
+
 ## Handoff
 
-Commit the research package on the assigned branch and report:
+Commit durable research artifacts directly to `main` unless the owner explicitly assigns another delivery mechanism. Report:
 
-- branch + commit;
+- commit;
 - outputs and exact paths;
 - strongest findings;
 - contradictions;
 - major blind spots;
 - what the Steward must reconcile next.
-
 
 ---
 
