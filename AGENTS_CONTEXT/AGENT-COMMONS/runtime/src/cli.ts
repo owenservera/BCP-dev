@@ -42,8 +42,6 @@ switch (command) {
   case "flush":
     console.log(JSON.stringify(await commons.flush(), null, 2));
     break;
-  case "who-needs-attention":
-    throw new Error("unreachable");
   default:
     console.error("Commands: inbox | history <conversation> | publish <text> | presence <state> | flush | who-needs-attention [--stale-hours N]");
     process.exit(2);
