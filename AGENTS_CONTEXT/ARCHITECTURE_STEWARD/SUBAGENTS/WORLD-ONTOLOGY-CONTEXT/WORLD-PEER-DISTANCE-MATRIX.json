@@ -1,0 +1,816 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-25",
+  "perspective": "CFA-01 World / Ontology / Context",
+  "status": "PROVISIONAL / LIVING RELATIONAL MODEL",
+  "purpose": "Map how CFA-01 relates to the Architecture Steward and every current peer CFA: what I need, what I provide, boundary risk, information flow, graph/Commons coupling, and working distance.",
+  "authority_note": "This is CFA-01's perspective for coordination. It is not an authority registry, not an agent ranking, and not a replacement for owner-approved boundaries.",
+  "sources": [
+    "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/AGENT.md",
+    "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/STATE.md",
+    "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OWNERSHIP-MAP.md",
+    "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md",
+    "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SELF-KNOWLEDGE-AND-DEVELOPMENT-GROUNDING-DESIGN.md",
+    "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+  ],
+  "taxonomy": {
+    "axes": {
+      "semantic_proximity": "0-5: how directly the peer shares the semantic subject matter of World/Context.",
+      "need_from_peer": "0-5: how much CFA-01 depends on capabilities/knowledge owned by the peer.",
+      "provide_to_peer": "0-5: how much the peer needs World/Context semantics from CFA-01.",
+      "information_exchange": "0-5: expected frequency/depth of meaningful two-way information flow.",
+      "boundary_criticality": "0-5: likelihood that unclear boundaries cause semantic corruption or architectural duplication.",
+      "graph_coupling": "0-5: how strongly the relationship should appear in the Architecture/Intelligence Graph.",
+      "commons_value": "0-5: expected value of direct Commons collaboration.",
+      "temporal_priority": "0-5: urgency/importance for near-term development sequencing.",
+      "world_lens_relevance": "0-5: how directly World Lens can serve or consume this peer."
+    },
+    "distance_model": {
+      "definition": "Working distance is inverse relational closeness, not a quality rating.",
+      "formula": "closeness = weighted_sum(axis/5) * 100; working_distance = 100 - closeness",
+      "weights": {
+        "semantic_proximity": 0.22,
+        "need_from_peer": 0.14,
+        "provide_to_peer": 0.1,
+        "information_exchange": 0.12,
+        "boundary_criticality": 0.12,
+        "graph_coupling": 0.1,
+        "commons_value": 0.05,
+        "temporal_priority": 0.05,
+        "world_lens_relevance": 0.1
+      },
+      "bands": {
+        "0-20": "IMMEDIATE — same working neighborhood; expect frequent direct exchange.",
+        "21-35": "NEAR — strong operational relationship; direct exchange when a seam is active.",
+        "36-50": "ADJACENT — meaningful dependency but usually mediated through explicit contracts.",
+        "51-65": "CONNECTED — relevant system relationship; collaboration tends to be episodic.",
+        "66-100": "OUTER — mostly indirect; interact when a concrete boundary or change creates a need."
+      }
+    },
+    "relationship_taxonomy": {
+      "CORE-NEIGHBOR": "Shared semantic seam with frequent mutual dependency.",
+      "SEMANTIC-BRIDGE": "Connects World meaning to another semantic plane.",
+      "IDENTITY-SEAM": "Repeated negotiation over semantic/canonical/external identity.",
+      "GROUNDING-PARTNER": "Provides or consumes grounding between world and language/intent.",
+      "REPRESENTATION-PROVIDER": "Consumes canonical world meaning to create human/agent-facing representations.",
+      "CONTEXT-CONSUMER": "Needs bounded world context to execute work.",
+      "REALIZATION-NEIGHBOR": "Observes or changes the external world through realizations.",
+      "GOVERNANCE-NEIGHBOR": "Constrains effects that depend on world facts.",
+      "LIFECYCLE-NEIGHBOR": "Preserves meaning across replacement/evolution.",
+      "CONSTITUTIONAL-NEIGHBOR": "Provides hard runtime guarantees while staying semantically lower-level.",
+      "ASSEMBLY-NEIGHBOR": "Assembles capabilities whose semantic consequences live in World.",
+      "PARENT": "Architecture-wide coherence and reconciliation relationship.",
+      "BRIDGE": "Two domains meet here, but neither owns the other's core semantics.",
+      "GUARD": "Peer primarily protects a boundary or invariant.",
+      "CONSUMER": "Primarily needs outputs from CFA-01.",
+      "PROVIDER": "Primarily supplies observations/constraints to CFA-01."
+    }
+  },
+  "agents": [
+    {
+      "id": "ARCH-STEWARD",
+      "name": "Architecture Steward",
+      "kind": "parent",
+      "state": "ACTIVE / architecture-wide coherence role",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/AGENT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/STATE.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OWNERSHIP-MAP.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SELF-KNOWLEDGE-AND-DEVELOPMENT-GROUNDING-DESIGN.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md"
+      ],
+      "taxonomy": [
+        "PARENT",
+        "RECONCILER",
+        "GRAPH-STEWARD",
+        "PRODUCTIVITY-BRIDGE"
+      ],
+      "relationship": {
+        "mode": "PARENT-BRIDGE",
+        "semantic_proximity": 4,
+        "need_from_peer": 5,
+        "provide_to_peer": 5,
+        "information_exchange": 5,
+        "boundary_criticality": 4,
+        "graph_coupling": 5,
+        "commons_value": 4,
+        "temporal_priority": 5,
+        "world_lens_relevance": 5,
+        "closeness_score": 92,
+        "working_distance": 8,
+        "distance_band": "IMMEDIATE"
+      },
+      "needs_from_me": [
+        "World/Context semantic findings",
+        "identity and relationship distinctions",
+        "context boundary evidence",
+        "world-facing graph contributions",
+        "falsifiers",
+        "clear unresolved questions"
+      ],
+      "provides_to_me": [
+        "canonical architecture mapping",
+        "graph reconciliation",
+        "destination/responsibility context",
+        "cross-agent ownership mapping",
+        "grounding/development trace substrate",
+        "architecture-wide contradiction preservation"
+      ],
+      "boundary_risks": [
+        "graph ownership could be confused with World meaning ownership",
+        "local semantic proposal could be mistaken for graph authority"
+      ],
+      "strategic_role": "The Steward is the membrane through which my local semantic discoveries become architecture-wide knowledge."
+    },
+    {
+      "id": "CFA-02",
+      "name": "Data Steward",
+      "kind": "peer",
+      "state": "PROVISIONAL / FOUNDATION-SEEDED / MISSION STARTING",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD/README.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD/STATE.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD/BOUNDARY-DESIGN.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD/CORE-AGENT-SEED.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD/CORE-TOOL-DESIGN.md"
+      ],
+      "taxonomy": [
+        "CORE-NEIGHBOR",
+        "IDENTITY-SEAM",
+        "CONTINUITY-PROVIDER",
+        "LENS-COMPOSITOR"
+      ],
+      "relationship": {
+        "mode": "BIDIRECTIONAL-CORE",
+        "semantic_proximity": 5,
+        "need_from_peer": 5,
+        "provide_to_peer": 5,
+        "information_exchange": 5,
+        "boundary_criticality": 5,
+        "graph_coupling": 5,
+        "commons_value": 4,
+        "temporal_priority": 5,
+        "world_lens_relevance": 5,
+        "closeness_score": 99,
+        "working_distance": 1,
+        "distance_band": "IMMEDIATE"
+      },
+      "needs_from_me": [
+        "semantic meaning of WorldSubject/Thing/Relationship candidates",
+        "identity/correspondence semantics",
+        "world-vs-record distinctions",
+        "context canonicality requirements",
+        "meaning needed to judge data transformations"
+      ],
+      "provides_to_me": [
+        "canonical record identity and revision semantics",
+        "persistence/reconstruction constraints",
+        "data corridor lineage",
+        "continuity payload requirements",
+        "durable/export/migration implications"
+      ],
+      "boundary_risks": [
+        "semantic identity vs record identity",
+        "world observation vs durable data",
+        "Context materialization becoming persisted canon"
+      ],
+      "strategic_role": "Closest data-plane collaborator. I explain what data means; Data explains how that meaning survives."
+    },
+    {
+      "id": "CFA-03",
+      "name": "Semantic Continuity Steward",
+      "kind": "peer",
+      "state": "RATIFIED / FOUNDATION-SEEDED / MISSION NOT STARTED",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/AGENT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/CORE-AGENT-IDENTITY.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/STATE.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/CANON-DICTIONARY.md"
+      ],
+      "taxonomy": [
+        "CORE-NEIGHBOR",
+        "SEMANTIC-BRIDGE",
+        "GROUNDING-PARTNER",
+        "TERMINOLOGY-COUPLER"
+      ],
+      "relationship": {
+        "mode": "BIDIRECTIONAL-BRIDGE",
+        "semantic_proximity": 5,
+        "need_from_peer": 5,
+        "provide_to_peer": 5,
+        "information_exchange": 5,
+        "boundary_criticality": 5,
+        "graph_coupling": 5,
+        "commons_value": 4,
+        "temporal_priority": 5,
+        "world_lens_relevance": 5,
+        "closeness_score": 99,
+        "working_distance": 1,
+        "distance_band": "IMMEDIATE"
+      },
+      "needs_from_me": [
+        "world target semantics",
+        "addressability",
+        "context contract",
+        "identity/correspondence candidates",
+        "world-side grounding evidence"
+      ],
+      "provides_to_me": [
+        "command/Intent semantic requirements",
+        "grounding traces",
+        "semantic continuity constraints",
+        "CANON/terminology crosswalks",
+        "representation/write-back implications"
+      ],
+      "boundary_risks": [
+        "language meaning vs world meaning",
+        "grounding vs ontology",
+        "Context vs Intent context",
+        "CANON vs universal ontology"
+      ],
+      "strategic_role": "The language-facing mirror of my domain. I provide the world half; Semantic Continuity provides the meaning-transfer path."
+    },
+    {
+      "id": "CFA-04",
+      "name": "Authority Governance Steward",
+      "kind": "peer",
+      "state": "PROPOSED / OWNER DIALOGUE REQUIRED",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE/README.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE/BOOTSTRAP-DESIGN-PROPOSAL.md"
+      ],
+      "taxonomy": [
+        "GOVERNANCE-NEIGHBOR",
+        "CONSTRAINT-PROVIDER",
+        "BOUNDARY-GUARD"
+      ],
+      "relationship": {
+        "mode": "BIDIRECTIONAL-GOVERNED",
+        "semantic_proximity": 3.5,
+        "need_from_peer": 4,
+        "provide_to_peer": 4,
+        "information_exchange": 4,
+        "boundary_criticality": 4.5,
+        "graph_coupling": 4,
+        "commons_value": 3.5,
+        "temporal_priority": 4.5,
+        "world_lens_relevance": 4,
+        "closeness_score": 79,
+        "working_distance": 21,
+        "distance_band": "NEAR"
+      },
+      "needs_from_me": [
+        "meaning of target/effect/resource in the world",
+        "context scope semantics",
+        "identity and principal/world relationships",
+        "world facts relevant to authority decisions"
+      ],
+      "provides_to_me": [
+        "authority constraints on context/material",
+        "consent/standing/delegation semantics",
+        "rules for when context may be used in consequential actions",
+        "authority-facing evidence requirements"
+      ],
+      "boundary_risks": [
+        "authority becoming inferred from world membership",
+        "context facts accidentally becoming permission",
+        "world state mistaken for authorization"
+      ],
+      "strategic_role": "I define the world that may be governed; Authority defines what permission means when action crosses the world."
+    },
+    {
+      "id": "CFA-05",
+      "name": "Agency / Work / Execution",
+      "kind": "peer",
+      "state": "BOOTSTRAP-READY / not yet self-designed",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AGENCY-WORK-EXECUTION/README.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AGENCY-WORK-EXECUTION/LAUNCH-PROMPT.md"
+      ],
+      "taxonomy": [
+        "OPERATIONAL-NEIGHBOR",
+        "CONTEXT-CONSUMER",
+        "OUTCOME-FEEDBACK"
+      ],
+      "relationship": {
+        "mode": "BIDIRECTIONAL-OPERATIONAL",
+        "semantic_proximity": 3.5,
+        "need_from_peer": 4.5,
+        "provide_to_peer": 4.5,
+        "information_exchange": 4,
+        "boundary_criticality": 3.5,
+        "graph_coupling": 4,
+        "commons_value": 3,
+        "temporal_priority": 4.5,
+        "world_lens_relevance": 4,
+        "closeness_score": 78,
+        "working_distance": 22,
+        "distance_band": "NEAR"
+      },
+      "needs_from_me": [
+        "work-relevant world context",
+        "target identity",
+        "current state and relationships",
+        "context boundaries",
+        "evidence of what matters before/after execution"
+      ],
+      "provides_to_me": [
+        "outcome/effect observations",
+        "work state transitions",
+        "execution context needs",
+        "causal links from intent to world change",
+        "questions about reconstruction after work"
+      ],
+      "boundary_risks": [
+        "execution context becoming canonical world state without reconciliation",
+        "temporary work state being mistaken for world meaning"
+      ],
+      "strategic_role": "The major consumer and producer of world change: it needs my context to act and gives me outcome evidence to update the world."
+    },
+    {
+      "id": "CFA-06",
+      "name": "Capability / Provider / Realization",
+      "kind": "peer",
+      "state": "BOOTSTRAP-READY / not yet self-designed",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION/README.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION/LAUNCH-PROMPT.md"
+      ],
+      "taxonomy": [
+        "REALIZATION-NEIGHBOR",
+        "EXTERNAL-WORLD-BRIDGE",
+        "OBSERVATION-PROVIDER"
+      ],
+      "relationship": {
+        "mode": "BIDIRECTIONAL-REALIZATION",
+        "semantic_proximity": 3.5,
+        "need_from_peer": 4,
+        "provide_to_peer": 4,
+        "information_exchange": 4,
+        "boundary_criticality": 3.5,
+        "graph_coupling": 4,
+        "commons_value": 3,
+        "temporal_priority": 4,
+        "world_lens_relevance": 4.5,
+        "closeness_score": 77,
+        "working_distance": 23,
+        "distance_band": "NEAR"
+      },
+      "needs_from_me": [
+        "semantic target model",
+        "external entity correspondence",
+        "context needed to perform capability",
+        "world interpretation of provider observations",
+        "what counts as meaningful resulting change"
+      ],
+      "provides_to_me": [
+        "external observations",
+        "provider/account/session identity signals",
+        "realization capabilities",
+        "external-state changes",
+        "observation freshness and limitations"
+      ],
+      "boundary_risks": [
+        "provider representation becoming world truth",
+        "external IDs being treated as canonical identity",
+        "successful realization mistaken for semantic success"
+      ],
+      "strategic_role": "A major observation gateway into the external world. I need its observations; it needs my semantic model to know what those observations mean."
+    },
+    {
+      "id": "CFA-07",
+      "name": "Composition / Plugin / Forge",
+      "kind": "peer",
+      "state": "BOOTSTRAP-READY / not yet self-designed",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/COMPOSITION-PLUGIN-FORGE/README.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/COMPOSITION-PLUGIN-FORGE/LAUNCH-PROMPT.md"
+      ],
+      "taxonomy": [
+        "ASSEMBLY-NEIGHBOR",
+        "CAPABILITY-CONSUMER",
+        "EXTENSIBILITY-PROVIDER"
+      ],
+      "relationship": {
+        "mode": "COMPOSITIONAL",
+        "semantic_proximity": 2.5,
+        "need_from_peer": 3,
+        "provide_to_peer": 3.5,
+        "information_exchange": 3,
+        "boundary_criticality": 3,
+        "graph_coupling": 3.5,
+        "commons_value": 2.5,
+        "temporal_priority": 3,
+        "world_lens_relevance": 3,
+        "closeness_score": 59,
+        "working_distance": 41,
+        "distance_band": "ADJACENT"
+      },
+      "needs_from_me": [
+        "semantic contract of world-facing pieces",
+        "context inputs required by compositions",
+        "replaceable semantic identities",
+        "world-visible consequences of composed capability"
+      ],
+      "provides_to_me": [
+        "composition structure",
+        "plugin capability availability",
+        "forge-created extensions",
+        "component replacement information",
+        "composition lineage"
+      ],
+      "boundary_risks": [
+        "composition structure mistaken for world ontology",
+        "plugin manifests becoming semantic authority",
+        "generated compositions bypassing world/context ownership"
+      ],
+      "strategic_role": "The assembler. I tell it what a composed piece means in the world; it tells me which pieces can exist together and what new world-facing behaviors emerge."
+    },
+    {
+      "id": "CFA-08",
+      "name": "Experience / Interaction / Surfaces",
+      "kind": "peer",
+      "state": "BOOTSTRAP-READY / not yet self-designed",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/README.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/LAUNCH-PROMPT.md"
+      ],
+      "taxonomy": [
+        "CORE-NEIGHBOR",
+        "REPRESENTATION-PROVIDER",
+        "WORLD-PROJECTION-CONSUMER"
+      ],
+      "relationship": {
+        "mode": "BIDIRECTIONAL-REPRESENTATION",
+        "semantic_proximity": 4,
+        "need_from_peer": 4,
+        "provide_to_peer": 4.5,
+        "information_exchange": 4.5,
+        "boundary_criticality": 4,
+        "graph_coupling": 4,
+        "commons_value": 3,
+        "temporal_priority": 4,
+        "world_lens_relevance": 5,
+        "closeness_score": 83,
+        "working_distance": 17,
+        "distance_band": "IMMEDIATE"
+      },
+      "needs_from_me": [
+        "canonical meaning of represented world objects",
+        "context semantics",
+        "identity and relationship semantics",
+        "surface-independent world truth",
+        "which state is meaningful vs presentation-only"
+      ],
+      "provides_to_me": [
+        "user interaction semantics",
+        "representation/editing requirements",
+        "surface feedback",
+        "user focus/context signals",
+        "world-facing write-back needs"
+      ],
+      "boundary_risks": [
+        "surface state becoming canonical world state",
+        "layout/selection mistaken for semantic relationship",
+        "visual representation creating a second world model"
+      ],
+      "strategic_role": "A very close projection partner: I own what the world means; Experience owns how humans encounter and manipulate that meaning."
+    },
+    {
+      "id": "CFA-09",
+      "name": "Evolution / Compatibility / Self-Maintenance",
+      "kind": "peer",
+      "state": "BOOTSTRAP-READY / preexisting peer responsibility",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE/README.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE/LAUNCH-PROMPT.md"
+      ],
+      "taxonomy": [
+        "LIFECYCLE-NEIGHBOR",
+        "CONTINUITY-GUARD",
+        "DRIFT-CONSUMER"
+      ],
+      "relationship": {
+        "mode": "EVOLUTIONARY",
+        "semantic_proximity": 3,
+        "need_from_peer": 4,
+        "provide_to_peer": 4,
+        "information_exchange": 3.5,
+        "boundary_criticality": 3.5,
+        "graph_coupling": 4,
+        "commons_value": 3,
+        "temporal_priority": 4,
+        "world_lens_relevance": 4.5,
+        "closeness_score": 73,
+        "working_distance": 27,
+        "distance_band": "NEAR"
+      },
+      "needs_from_me": [
+        "semantic invariants that must survive change",
+        "identity/correspondence rules",
+        "meaning-preservation tests",
+        "world reconstruction requirements",
+        "world-side falsifiers for migrations/replacements"
+      ],
+      "provides_to_me": [
+        "compatibility constraints",
+        "migration/replacement evidence",
+        "drift and repair mechanisms",
+        "historical continuity expectations",
+        "change-impact information"
+      ],
+      "boundary_risks": [
+        "evolution machinery owning semantic meaning",
+        "migration strategy deciding what a world entity is",
+        "repair silently changing ontology"
+      ],
+      "strategic_role": "The continuity guardian. I tell Evolution what meaning must survive; Evolution tells me how much of that meaning survived change."
+    },
+    {
+      "id": "CFA-10",
+      "name": "Runtime Constitution / Core Substrate",
+      "kind": "peer",
+      "state": "BOOTSTRAP-READY / preexisting peer responsibility",
+      "docs": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE/README.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE/LAUNCH-PROMPT.md"
+      ],
+      "taxonomy": [
+        "CONSTITUTIONAL-NEIGHBOR",
+        "ENFORCEMENT-GUARD",
+        "LOW-LEVEL-CONSTRAINT"
+      ],
+      "relationship": {
+        "mode": "CONSTITUTIONAL-BOUNDARY",
+        "semantic_proximity": 2.5,
+        "need_from_peer": 3.5,
+        "provide_to_peer": 4,
+        "information_exchange": 3,
+        "boundary_criticality": 4.5,
+        "graph_coupling": 3.5,
+        "commons_value": 2.5,
+        "temporal_priority": 3.5,
+        "world_lens_relevance": 3.5,
+        "closeness_score": 67,
+        "working_distance": 33,
+        "distance_band": "NEAR"
+      },
+      "needs_from_me": [
+        "domain-neutral semantic requirements that truly need runtime guarantees",
+        "world/context data that must be isolated/protected",
+        "semantic distinctions whose collapse would create constitutional failure"
+      ],
+      "provides_to_me": [
+        "non-bypassable guarantees",
+        "runtime observation constraints",
+        "isolation/admission/enforcement behavior",
+        "generation/revocation mechanics",
+        "hard limits on what world-facing components may assume"
+      ],
+      "boundary_risks": [
+        "domain semantics leaking into K0",
+        "runtime mechanics being treated as ontology",
+        "constitutional substrate claiming World ownership because it enforces a property"
+      ],
+      "strategic_role": "The floor beneath the system. I should ask very little of it, but I need to know exactly which World/Context invariants are protected there."
+    }
+  ],
+  "distance_matrix_working_distance": {
+    "ARCH-STEWARD": {
+      "ARCH-STEWARD": 0,
+      "CFA-02": 4,
+      "CFA-03": 4,
+      "CFA-04": 14,
+      "CFA-05": 15,
+      "CFA-06": 15,
+      "CFA-07": 24,
+      "CFA-08": 12,
+      "CFA-09": 17,
+      "CFA-10": 20
+    },
+    "CFA-02": {
+      "ARCH-STEWARD": 4,
+      "CFA-02": 0,
+      "CFA-03": 1,
+      "CFA-04": 11,
+      "CFA-05": 11,
+      "CFA-06": 12,
+      "CFA-07": 21,
+      "CFA-08": 9,
+      "CFA-09": 14,
+      "CFA-10": 17
+    },
+    "CFA-03": {
+      "ARCH-STEWARD": 4,
+      "CFA-02": 1,
+      "CFA-03": 0,
+      "CFA-04": 11,
+      "CFA-05": 11,
+      "CFA-06": 12,
+      "CFA-07": 21,
+      "CFA-08": 9,
+      "CFA-09": 14,
+      "CFA-10": 17
+    },
+    "CFA-04": {
+      "ARCH-STEWARD": 14,
+      "CFA-02": 11,
+      "CFA-03": 11,
+      "CFA-04": 0,
+      "CFA-05": 21,
+      "CFA-06": 22,
+      "CFA-07": 31,
+      "CFA-08": 19,
+      "CFA-09": 24,
+      "CFA-10": 27
+    },
+    "CFA-05": {
+      "ARCH-STEWARD": 15,
+      "CFA-02": 11,
+      "CFA-03": 11,
+      "CFA-04": 21,
+      "CFA-05": 0,
+      "CFA-06": 22,
+      "CFA-07": 31,
+      "CFA-08": 19,
+      "CFA-09": 24,
+      "CFA-10": 27
+    },
+    "CFA-06": {
+      "ARCH-STEWARD": 15,
+      "CFA-02": 12,
+      "CFA-03": 12,
+      "CFA-04": 22,
+      "CFA-05": 22,
+      "CFA-06": 0,
+      "CFA-07": 32,
+      "CFA-08": 20,
+      "CFA-09": 25,
+      "CFA-10": 28
+    },
+    "CFA-07": {
+      "ARCH-STEWARD": 24,
+      "CFA-02": 21,
+      "CFA-03": 21,
+      "CFA-04": 31,
+      "CFA-05": 31,
+      "CFA-06": 32,
+      "CFA-07": 0,
+      "CFA-08": 29,
+      "CFA-09": 34,
+      "CFA-10": 37
+    },
+    "CFA-08": {
+      "ARCH-STEWARD": 12,
+      "CFA-02": 9,
+      "CFA-03": 9,
+      "CFA-04": 19,
+      "CFA-05": 19,
+      "CFA-06": 20,
+      "CFA-07": 29,
+      "CFA-08": 0,
+      "CFA-09": 22,
+      "CFA-10": 25
+    },
+    "CFA-09": {
+      "ARCH-STEWARD": 17,
+      "CFA-02": 14,
+      "CFA-03": 14,
+      "CFA-04": 24,
+      "CFA-05": 24,
+      "CFA-06": 25,
+      "CFA-07": 34,
+      "CFA-08": 22,
+      "CFA-09": 0,
+      "CFA-10": 30
+    },
+    "CFA-10": {
+      "ARCH-STEWARD": 20,
+      "CFA-02": 17,
+      "CFA-03": 17,
+      "CFA-04": 27,
+      "CFA-05": 27,
+      "CFA-06": 28,
+      "CFA-07": 37,
+      "CFA-08": 25,
+      "CFA-09": 30,
+      "CFA-10": 0
+    }
+  },
+  "first_order_reading": {
+    "closest": [
+      "CFA-02",
+      "CFA-03",
+      "ARCH-STEWARD",
+      "CFA-08",
+      "CFA-04",
+      "CFA-05"
+    ],
+    "strategic_outer": [
+      "CFA-06",
+      "CFA-09",
+      "CFA-07",
+      "CFA-10"
+    ],
+    "note": "Ordering here is not a ranking of agents. It is a compact view of expected working distance from CFA-01."
+  },
+  "collaboration_principles": [
+    "Use the smallest useful peer audience.",
+    "Ask peers for the meaning/mechanics they own; do not infer their boundary from folder names.",
+    "Return World/Context findings as sourced, epistemically classified material.",
+    "Use Commons for questions, observations, hypotheses, proposals and handoffs; use the Architecture Steward path for canonical graph reconciliation.",
+    "Do not resolve a peer boundary dispute by unilateral graph edits.",
+    "When a peer needs World Lens, return bounded context rather than a giant repository dump.",
+    "When World Lens consumes peer information, preserve source identity, freshness and authority boundaries.",
+    "Treat distance as a planning aid, not an authority hierarchy."
+  ],
+  "use_cases": [
+    {
+      "case": "New target / concept orientation",
+      "primary_path": [
+        "CFA-01",
+        "CFA-02",
+        "CFA-03",
+        "ARCH-STEWARD"
+      ]
+    },
+    {
+      "case": "Data identity ambiguity",
+      "primary_path": [
+        "CFA-01",
+        "CFA-02",
+        "CFA-03"
+      ]
+    },
+    {
+      "case": "Command grounding",
+      "primary_path": [
+        "CFA-03",
+        "CFA-01",
+        "ARCH-STEWARD"
+      ]
+    },
+    {
+      "case": "Consequential action context",
+      "primary_path": [
+        "CFA-01",
+        "CFA-04",
+        "CFA-05",
+        "CFA-06"
+      ]
+    },
+    {
+      "case": "Surface representation/edit",
+      "primary_path": [
+        "CFA-01",
+        "CFA-08",
+        "CFA-03",
+        "CFA-02"
+      ]
+    },
+    {
+      "case": "Provider observation / external change",
+      "primary_path": [
+        "CFA-06",
+        "CFA-01",
+        "CFA-02",
+        "CFA-04"
+      ]
+    },
+    {
+      "case": "Migration / replacement",
+      "primary_path": [
+        "CFA-09",
+        "CFA-01",
+        "CFA-02"
+      ]
+    },
+    {
+      "case": "Composition / new capability",
+      "primary_path": [
+        "CFA-07",
+        "CFA-06",
+        "CFA-01",
+        "CFA-04"
+      ]
+    },
+    {
+      "case": "Runtime guarantee question",
+      "primary_path": [
+        "CFA-10",
+        "CFA-01",
+        "ARCH-STEWARD"
+      ]
+    },
+    {
+      "case": "Developer orientation",
+      "primary_path": [
+        "ARCH-STEWARD",
+        "CFA-01",
+        "relevant_peer",
+        "World Lens"
+      ]
+    }
+  ]
+}
