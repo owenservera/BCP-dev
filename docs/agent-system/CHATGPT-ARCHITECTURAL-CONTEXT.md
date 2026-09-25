@@ -36,7 +36,7 @@ A future fresh session should be able to read this first and understand:
 - what self-knowledge means in this architecture;
 - why the owner wants Ω to become progressively self-describing;
 - why code, comments, contracts, decisions, evidence, history and runtime state should eventually become semantically inspectable;
-- how the nine P1 workstreams divide responsibility;
+- how the ten P1 workstreams divide responsibility;
 - which distinctions must remain hard boundaries;
 - what major unresolved questions remain;
 - and what future work should be researched before it is implemented.
@@ -1523,7 +1523,7 @@ P1-04 should consume P1-03 rather than redefine it.
 
 ---
 
-# 31. The nine P1 workstreams
+# 31. The ten P1 workstreams
 
 The current P1 portfolio is:
 
@@ -1684,6 +1684,29 @@ Owns:
 - final system proof.
 
 P1-09 must challenge the other workstreams early with thin integration proofs.
+
+## P1-10 — Program Observatory / Visual State
+
+Question:
+
+How can the program be represented as a read-only, evidence-traceable living architecture and mission-control view?
+
+Owns:
+
+- visual projection of existing repository/program state;
+- contextual human-readable representation;
+- entity/relationship visualization;
+- semantic zoom;
+- state and attention projection;
+- evidence/provenance presentation.
+
+Boundary:
+
+It does not become a task system, authority registry, decision system, or replacement for Git/GitHub, BCP, Ω law, or the cooperative system.
+
+Current status:
+
+REGISTERED — V0 blueprint established; not proven and not implementation-active.
 
 ---
 

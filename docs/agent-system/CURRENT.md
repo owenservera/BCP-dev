@@ -32,8 +32,8 @@ P1-01 / WS-001 has a proven implementation substrate. P1-02 has completed its
 current Phase-1 repository-truth baseline. P1-06 has committed governance-chain
 code but awaits its M4/M5 real-run proof. P1-08 has committed real
 `message.send@1` provider-browser execution but awaits its M4 owner-run
-(`bun test` + `omega:gate`). P1-03, P1-04, P1-05, P1-07, and P1-09 remain
-research-first/unopened. See `docs/agent-system/WORKSTREAMS.md` and the
+(`bun test` + `omega:gate`). P1-04, P1-07, and P1-09 remain research-first/unopened; P1-03 and P1-05
+have completed their current baseline milestones. See `docs/agent-system/WORKSTREAMS.md` and the
 workstream evidence documents for the exact boundaries and proof states.
 
 ## CURRENT ARCHITECTURAL MODEL
@@ -52,7 +52,7 @@ workstream evidence documents for the exact boundaries and proof states.
 
 - Cooperative substrate: SYSTEM, ROSTER, WORKSTREAMS, CURRENT, CONTEXT-INDEX,
   CHATGPT-BOOT, transcript/packet/handoff/envelope conventions and falsifiers.
-- P1 portfolio charter and nine workstream boundaries.
+- P1 portfolio charter and ten workstream boundaries.
 - WS-001 DIR-001 dogfood evidence is merged: 7 GREEN, 2 PARTIAL, 1 NOT-PROVEN.
 - PKT-002 closes PKT-001's provenance hash gap and preserves explicit reader mappings.
 - D-DOG-01 is fixed at the integration layer: canonical files must preserve/refresh packet and handoff backward links.

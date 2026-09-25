@@ -7,7 +7,7 @@
 
 ## 1. Portfolio purpose
 
-The Ω program is divided into nine Priority-1 workstreams. Each is a durable research/architecture thread with a dedicated ChatGPT conversation and local-agent team.
+The Ω program is divided into ten Priority-1 workstreams. Each is a durable research/architecture thread with a dedicated ChatGPT conversation and local-agent team.
 
 A workstream owns a question, boundary, evidence base, and proof obligation — not an arbitrary directory of code.
 
@@ -28,6 +28,7 @@ ChatGPT conversations, transcripts, packets, and agent opinions are evidence/wor
 | P1-07 | **Provider Intelligence & Autonomous Maintenance** | How does Ω learn external web-app behavior and continue operating as those applications change? |
 | P1-08 | **Forge / VIVIM Harvest & Migration** | How do we systematically extract proven value from VIVIM and convert it into generalized Ω knowledge/mechanisms? |
 | P1-09 | **Ω Integration & End-to-End Proof** | Do all of the above actually compose into the system we claim to be building? |
+| P1-10 | **Program Observatory / Visual State** | How can the program be represented as a read-only, evidence-traceable living architecture and mission-control view? |
 
 ## 3. P1-01 — Cooperative Agent System
 
@@ -115,7 +116,7 @@ ChatGPT conversations, transcripts, packets, and agent opinions are evidence/wor
 
 **Mission:** Continuously test composition between workstreams and ultimately prove the integrated Ω system end-to-end.
 
-**Boundary:** Integration falsifiers, cross-workstream contract tests, end-to-end scenarios, composition gaps, and integrated proof. It does not become a ninth competing implementation team.
+**Boundary:** Integration falsifiers, cross-workstream contract tests, end-to-end scenarios, composition gaps, and integrated proof. It does not become a competing implementation team.
 
 **Dependencies:** All other P1 workstreams.
 
@@ -189,4 +190,4 @@ This is a dependency map, not a mandatory implementation order. P1-09 must run t
 
 ## 14. Conversation rule
 
-The nine dedicated ChatGPT workstream conversations are created one at a time after deep research. This portfolio intentionally contains **no workstream setup prompts**. Each future prompt must reference this portfolio, the cooperative system, current repository authority, and that workstream's proof obligations.
+The ten P1 workstreams are durable portfolio entries. Dedicated workstream conversations and setup prompts are created one at a time after the relevant research boundary is established; this portfolio is the shared program charter, not a substitute for those researched execution contracts. Each future prompt must reference this portfolio, the cooperative system, current repository authority, and that workstream's proof obligations.

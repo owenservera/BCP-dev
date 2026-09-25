@@ -11,7 +11,7 @@
 > or read from here directly. It is the full current state; there is no
 > more-complete snapshot elsewhere (owner-confirmed).
 >
-> **Last synced against `main`:** commit `be4f424` (2026-09-25). If your
+> **Last synced against `main`:** commit `220da519` (2026-09-25). If your
 > clone shows a different HEAD, pull first — this file describes that
 > commit's state, not necessarily right now's.
 
@@ -462,6 +462,10 @@ prevents chat memory from becoming a shadow project-management system.
 ## 8. Prompt log (rolling — most recent 20)
 
 > Every prompt the coordinator hands the owner per §0.1 is logged here, newest first, capped at 20 (drop oldest past that). This logs the deliverable itself, not just its outcome.
+**2026-09-25 — Intent: reconcile canonical portfolio/workstream state after P1-10 registration and P1-03/P1-05 completion.**
+
+> Reconciled the durable state documents against current main: updated the sync tip to `220da519`; aligned P1-01/03/05/06/08/10 status with committed evidence; changed the portfolio count from nine to ten; corrected CURRENT/WORKSTREAMS/portfolio/architectural-context drift; preserved proposed/unratified WS-005-M2 rather than treating it as active work. Commit: pending (this reconciliation commit).
+
 
 **2026-09-25 — Intent: add §3.2 milestone roadmap schema + governance rules; harvest P1-05 roadmap.**
 

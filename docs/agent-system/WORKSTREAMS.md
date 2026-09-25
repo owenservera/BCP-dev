@@ -4,14 +4,14 @@
 > **Maintainer:** COORD-01 · **Updated:** 2026-09-25
 > **Portfolio:** `docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md`
 
-The P1 portfolio is nine durable workstreams. Setup prompts are intentionally not
-created yet; each will be produced after dedicated deep research in its own
-ChatGPT conversation.
+The P1 portfolio is ten durable workstreams. Setup prompts are created only after
+the relevant research boundary exists; some workstreams already have committed
+setup/research artifacts while others remain unopened.
 
 ## P1-01 / WS-001 — Cooperative Agent System
 
 - **Mission:** persistent collaboration between humans, ChatGPT sessions, and local agents.
-- **Status:** ACTIVE — Phase 2 dogfood complete; P1-01 PROVEN (7 GREEN / 1 PARTIAL / 2 PROVEN; residual: COMPACTION formal re-rule owed, cure integrated).
+- **Status:** PROVEN — Phase 2 dogfood complete; P1-01 PROVEN (7 GREEN / 1 PARTIAL / 2 PROVEN; residual: COMPACTION formal re-rule owed, cure integrated).
 - **Owner:** owner / COORD-01.
 - **Current scope:** coordination protocol, transcripts, packets, handoffs, agent roster, context bootstrap.
 - **Evidence:** [PKT-001](packets/PKT-001-cooperative-substrate-charter.md), [PKT-002](packets/PKT-002-p1-01-dogfood-findings.md), [PKT-003](packets/PKT-003-p1-01-closer-apparatus.md), [HANDOFF-001](handoffs/HANDOFF-001.md), [HANDOFF-004](handoffs/HANDOFF-004.md), [HANDOFF-005](handoffs/HANDOFF-005.md), [HANDOFF-006](handoffs/HANDOFF-006.md), [TEST-01 proof table](outbox/TEST-01/ITEM-001-proof-table.md), [DOC-01 QA](outbox/DOC-01/ITEM-001-packet-qa.md), [CROSS-CHATGPT-CLOSER](workstreams/WS-001/CROSS-CHATGPT-CLOSER.md), [PKT-004 (ChatGPT)](packets/PKT-004-cross-chatgpt-closer-findings.md), [HANDOFF-007 (ChatGPT, CLOSED)](handoffs/HANDOFF-007.md), [PKT-005 (IMPL-03 verification; originating ID PKT-004 @ `3867963`)](packets/PKT-005-impl-03-independent-verification.md), [HANDOFF-009 (IMPL-03 verification; originating ID HANDOFF-007 @ `3867963`)](handoffs/HANDOFF-009.md), [IMPL-03 evidence](outbox/IMPL-03/ITEM-001-evidence-independent-verification.md), [HANDOFF-008 reconciliation](handoffs/HANDOFF-008.md).
@@ -32,9 +32,11 @@ ChatGPT conversation.
 ## P1-03 / WS-003 — Ω Ontology, Evidence & Representation
 
 - **Mission:** establish canonical identity, entity, evidence, provenance, lineage, epistemic status, revision, conflict, staleness, and representation semantics.
-- **Status:** P1 REGISTERED — setup prompt not yet created.
-- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Status:** IMPLEMENTED/COMMITTED — M1–M4 ontology/evidence baseline published; M4 verdict PASS.
+- **Owner:** owner / dedicated P1-03 research conversation.
 - **Boundary:** what things/claims/evidence/representations are and how their relationships are represented.
+- **Evidence:** `workstreams/WS-003/PHASE-1-ONTOLOGY-BASELINE.md` @ `188cbcf`.
+- **Proof state:** baseline complete; dormant unless a documented reopening trigger fires.
 - **Dependencies:** Repository Truth; Ω decisions/genome; vault/event/provenance mechanisms.
 
 ## P1-04 / WS-004 — Ω Self-Knowledge & Context
@@ -49,9 +51,11 @@ ChatGPT conversation.
 ## P1-05 / WS-005 — Ω Plugin Kernel & Runtime
 
 - **Mission:** make everything-is-a-plugin composition work through the minimal governed runtime substrate.
-- **Status:** P1 REGISTERED — setup prompt not yet created.
-- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Status:** DONE (verified) — current ratified milestone WS-005-M1 complete; H-01/WS-005-M2 remains proposed and unratified.
+- **Owner:** owner / dedicated P1-05 research conversation.
 - **Boundary:** µHost, contracts, ports, lifecycle, composition, loading/unloading, realization mechanics, authoring substrate.
+- **Evidence:** `workstreams/WS-005/PHASE-1-KERNEL-BASELINE.md` @ `4316c27`.
+- **Proof state:** M1 verified; no H-01 implementation is authorized until WS-005-M2 is ratified.
 - **Hard separation:** runtime mechanics are not authorization policy.
 - **Dependencies:** P1-03; P1-06; B1–B5; Forge.
 
@@ -79,7 +83,7 @@ ChatGPT conversation.
 
 - **Mission:** systematically extract proven value from VIVIM and convert it into generalized Ω knowledge/mechanisms.
 - **Status:** IMPLEMENTED/COMMITTED — `message.send@1` real provider-browser execution implemented; M4 (Bun tests + `omega:gate`) awaiting owner run result.
-- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Owner:** owner / active P1-08 workstream conversation.
 - **Boundary:** assay, characterize, generalize, verify, migrate, and harvest reusable mechanisms.
 - **Hard separation:** Forge extracts proven value; Provider Intelligence determines external reality.
 - **Dependencies:** P1-02, P1-07, Ω workstreams, BCP migration machinery.
@@ -89,8 +93,8 @@ ChatGPT conversation.
 ## P1-09 / WS-009 — Ω Integration & End-to-End Proof
 
 - **Mission:** prove that the other workstreams actually compose into the intended Ω system.
-- **Status:** P1 REGISTERED — setup prompt not yet created.
-- **Owner:** TBD; dedicated ChatGPT research conversation to be opened.
+- **Status:** P1 REGISTERED — not launched; blocked on P1-06 + P1-07 + P1-08 real proof outputs.
+- **Owner:** owner / coordinator.
 - **Boundary:** integration falsifiers, cross-workstream contract tests, end-to-end scenarios, composition gaps, final proof.
 - **Important:** integration proof begins early with thin falsifiers; it does not wait for subsystem completion.
 - **Dependencies:** all other P1 workstreams.
