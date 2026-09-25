@@ -124,18 +124,6 @@
       "properties": {}
     },
     {
-      "id": "DOC-CODING-READINESS",
-      "kind": "document",
-      "name": "Coding Start Readiness (fresh convergence)",
-      "layer": "research",
-      "authority": "document",
-      "status": "historical-input",
-      "sourceRefs": [
-        "docs/destination/architecture/research/CODING-START-READINESS.md"
-      ],
-      "properties": {}
-    },
-    {
       "id": "VISION-SOVEREIGN-ENV",
       "kind": "vision_anchor",
       "name": "Sovereign personal computing environment",
@@ -9786,7 +9774,8 @@
       "authority": "fresh-coding-readiness",
       "status": "candidate",
       "sourceRefs": [
-        "docs/destination/architecture/research/CODING-START-READINESS.md"
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+        "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md"
       ],
       "properties": {
         "classification": "first-party/system plugin"
@@ -9800,7 +9789,8 @@
       "authority": "fresh-coding-readiness",
       "status": "candidate",
       "sourceRefs": [
-        "docs/destination/architecture/research/CODING-START-READINESS.md"
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+        "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md"
       ],
       "properties": {
         "classification": "first-party/system plugin"
@@ -9814,7 +9804,8 @@
       "authority": "fresh-coding-readiness",
       "status": "candidate",
       "sourceRefs": [
-        "docs/destination/architecture/research/CODING-START-READINESS.md"
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+        "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md"
       ],
       "properties": {
         "classification": "first-party/system plugin"
@@ -9828,7 +9819,8 @@
       "authority": "fresh-coding-readiness",
       "status": "candidate",
       "sourceRefs": [
-        "docs/destination/architecture/research/CODING-START-READINESS.md"
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+        "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md"
       ],
       "properties": {
         "classification": "first-party/system plugin"
@@ -9842,7 +9834,8 @@
       "authority": "fresh-coding-readiness",
       "status": "candidate",
       "sourceRefs": [
-        "docs/destination/architecture/research/CODING-START-READINESS.md"
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+        "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md"
       ],
       "properties": {
         "classification": "first-party/system plugin"
@@ -9856,7 +9849,8 @@
       "authority": "fresh-coding-readiness",
       "status": "candidate",
       "sourceRefs": [
-        "docs/destination/architecture/research/CODING-START-READINESS.md"
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+        "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md"
       ],
       "properties": {
         "classification": "first-party/system plugin"
@@ -9870,7 +9864,8 @@
       "authority": "fresh-coding-readiness",
       "status": "candidate",
       "sourceRefs": [
-        "docs/destination/architecture/research/CODING-START-READINESS.md"
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+        "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md"
       ],
       "properties": {
         "classification": "first-party/system plugin"
@@ -9884,10 +9879,223 @@
       "authority": "fresh-coding-readiness",
       "status": "candidate",
       "sourceRefs": [
-        "docs/destination/architecture/research/CODING-START-READINESS.md"
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+        "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md"
       ],
       "properties": {
         "path": "Address → Intent → Context → Capability → Realization → Authority → Work → Execution → Evidence → World → Product Instance continuity"
+      }
+    },
+    {
+      "id": "DOC-JOURNEY-ARCH-MAPPING",
+      "kind": "document",
+      "name": "Journey → Architecture Mapping",
+      "layer": "architecture",
+      "authority": "document",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/architecture/research/JOURNEY-ARCHITECTURE-MAPPING.md"
+      ],
+      "properties": {}
+    },
+    {
+      "id": "KEY-VAULT-EVIDENCE-PROVENANCE",
+      "kind": "keystone",
+      "name": "Vault / Evidence / Provenance",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "1",
+        "currentLevel": "L3–L4",
+        "target": "L6",
+        "gap": "2–3",
+        "fanOut": "10",
+        "complexity": "10",
+        "why": "Underpins trust, memory, reconstruction, authority evidence, exit, and evolution"
+      }
+    },
+    {
+      "id": "KEY-ONTOLOGY-WORLD-IDENTITY",
+      "kind": "keystone",
+      "name": "Ontology / World Identity",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "2",
+        "currentLevel": "L2–L3",
+        "target": "L6",
+        "gap": "3–4",
+        "fanOut": "10",
+        "complexity": "9",
+        "why": "Prevents duplicated/conflicting representations of the user's world"
+      }
+    },
+    {
+      "id": "KEY-RUNTIME-PLUGIN-CAPABILITY-BOUNDARY",
+      "kind": "keystone",
+      "name": "Ω Runtime / Plugin / Capability boundary",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "3",
+        "currentLevel": "L3–L4",
+        "target": "L6",
+        "gap": "2–3",
+        "fanOut": "10",
+        "complexity": "9",
+        "why": "Every capability, composition, extension, and product feature crosses it"
+      }
+    },
+    {
+      "id": "KEY-INTENT-CONTEXT-UNIVERSAL-INTERACTION",
+      "kind": "keystone",
+      "name": "Intent / Context / Universal Interaction",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "4",
+        "currentLevel": "L2–L3",
+        "target": "L6",
+        "gap": "3–4",
+        "fanOut": "9",
+        "complexity": "9",
+        "why": "Converts human requests into one common control path"
+      }
+    },
+    {
+      "id": "KEY-PROVIDER-ACCOUNT-REALIZATION-ROUTING",
+      "kind": "keystone",
+      "name": "Provider / Account / Realization / Routing",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "5",
+        "currentLevel": "L1–L2",
+        "target": "L6",
+        "gap": "4–5",
+        "fanOut": "8",
+        "complexity": "10",
+        "why": "Makes “my internet / my accounts / my intelligence” real and requires live external proof"
+      }
+    },
+    {
+      "id": "KEY-AUTHORITY-LAW-CONSENT",
+      "kind": "keystone",
+      "name": "Authority / Law / Consent",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "6",
+        "currentLevel": "L3–L4",
+        "target": "L6",
+        "gap": "2–3",
+        "fanOut": "9",
+        "complexity": "8",
+        "why": "Prevents mysterious agency and keeps every meaningful effect governed"
+      }
+    },
+    {
+      "id": "KEY-DURABLE-WORK-AGENT-AUTOMATION",
+      "kind": "keystone",
+      "name": "Durable Work / Agent / Automation",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "7",
+        "currentLevel": "L1–L2",
+        "target": "L6",
+        "gap": "4–5",
+        "fanOut": "7",
+        "complexity": "10",
+        "why": "Connects intent to execution, background work, progress, result, and recovery"
+      }
+    },
+    {
+      "id": "KEY-WORLD-WORKSPACE-CANVAS",
+      "kind": "keystone",
+      "name": "World / Workspace / Canvas",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "8",
+        "currentLevel": "L1–L2",
+        "target": "L6",
+        "gap": "4–5",
+        "fanOut": "8",
+        "complexity": "9",
+        "why": "Turns architecture into the persistent spatial environment the user experiences"
+      }
+    },
+    {
+      "id": "KEY-ATTENTION-CONTINUITY",
+      "kind": "keystone",
+      "name": "Attention / Continuity",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "9",
+        "currentLevel": "L1",
+        "target": "L6",
+        "gap": "5",
+        "fanOut": "7",
+        "complexity": "8",
+        "why": "Makes the environment persistent rather than request/response"
+      }
+    },
+    {
+      "id": "KEY-FORGE-COMPOSITION-HEALING",
+      "kind": "keystone",
+      "name": "Forge / Composition / Healing",
+      "layer": "architecture",
+      "authority": "dependency-scorecard",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
+      ],
+      "properties": {
+        "rank": "10",
+        "currentLevel": "L2–L3",
+        "target": "L6",
+        "gap": "3–4",
+        "fanOut": "8",
+        "complexity": "10",
+        "why": "Makes the environment extensible, repairable, and capable of evolving with the owner"
       }
     }
   ]
