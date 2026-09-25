@@ -111,6 +111,8 @@ These are CFA-01 working identifiers only. They are not destination graph node I
 - ISS-003 Workspace/canvas canonicalization risk
 - ISS-004 Identity terminology overload
 - ISS-005 Graph/runtime cross-plane joins may become inferred unless grounding is explicit
+- ISS-006 Temporal, observation, viewpoint and absence semantics are not yet captured as one cross-CFA contract
+- ISS-007 Bootstrap snapshots can become stale unless source basis/observation points are explicit
 
 ### Current decisions / working positions
 
@@ -169,6 +171,17 @@ Objective: test historical and Ω evidence for a universal Event or State primit
 - CFA-01 ↔ CFA-08: Space/world semantics vs workspace/surface presentation
 - CFA-01 ↔ CFA-09: semantic evolution vs migration/compatibility mechanics
 - CFA-01 ↔ CFA-10: semantic model vs constitutional runtime guarantees
+
+## Final bootstrap gap audit
+
+The bootstrap framing pass is now sufficient to pause. The remaining uncertainty is no longer hidden; it is recorded in:
+
+- `WORLD-BOOTSTRAP-GAP-AUDIT.json`
+- `WORLD-OPERATIONAL-CONTEXT.json`
+
+The audit identifies eight material gaps. The highest-leverage missing seams are temporal semantics, observation-to-world correspondence, principal/viewpoint scoping, and explicit absence semantics. It also records that no new permanent CFA is justified by these gaps at bootstrap time.
+
+The operational context packet is the preferred machine-readable cold-start entry point for the next CFA-01 session.
 
 ## Immediate next actions
 
