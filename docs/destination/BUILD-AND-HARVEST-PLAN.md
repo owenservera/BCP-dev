@@ -316,20 +316,24 @@ Primary artifact: `WORLD-WORKSPACE-CANVAS-RECONCILIATION.md`.
 
 Outputs: world projection, space/thing mapping, project/conversation continuity, canvas integration, first-minute experience.
 
-### Cycle 3 — CURRENT
+### Cycle 3 — COMPLETE
 Interaction / Work reconciliation.
 
 Primary artifact: `INTERACTION-INTENT-WORK-RECONCILIATION.md`.
 
 Outputs: universal addressing, durable work envelope, routing integration, authority integration, result/evidence presentation.
 
-### Cycle 4
+### Cycle 4 — CURRENT
 Live Chrome / Accounts.
+
+Preceded by the completed D4 reconciliation and consumed by the agency/background work path.
 
 Outputs: live provider proof, real account/profile/session path, realization promotion, failure/healing path.
 
 ### Cycle 5
 Background / Attention / Evolution.
+
+Primary artifact: `AGENCY-BACKGROUND-ATTENTION-RECONCILIATION.md`.
 
 Outputs: standing intent, background work, return continuity, capability gaps, native Forge journey.
 
