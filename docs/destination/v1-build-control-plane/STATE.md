@@ -45,6 +45,6 @@ After each substantive slice record:
 - next smallest slice.
 
 ## Immediate next actions
-1. Finish D1 as a concise executable contract.
+1. Freeze the D1 candidate contract; do not pretend unresolved physical semantics are settled.
 2. Prepare E1–E4 against the existing provider-browser leg.
-3. Preserve an explicit evidence boundary between locator, resource identity, account identity, and provider identity.
+3. Preserve an explicit evidence boundary between locator, resource identity, account identity, and provider identity; close D1 from experiment results.
