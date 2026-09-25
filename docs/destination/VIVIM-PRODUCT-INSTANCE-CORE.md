@@ -90,7 +90,7 @@ SAME WORLD + SAME CONFIGURATION + SAME IDENTITY
 
 A successful VS1 instance must therefore answer:
 
-1. What is one VIVIM installation?
+1. What is one VIVIM prototype instance?
 2. What belongs to one user?
 3. Where does durable user state live?
 4. What is temporary, cached, or disposable?
@@ -287,12 +287,12 @@ It should not be treated as the architecture to transplant into Ω.
 
 The lifecycle should be treated as a first-class product concern.
 
-### 6.1 Cold start
+### 6.1 Prototype cold start
 
 ~~~text
-PROCESS START
+PROTOTYPE PROCESS START
     ↓
-LOCATE INSTALLATION
+LOCATE INSTANCE STATE
     ↓
 LOCATE INSTANCE STATE
     ↓
@@ -349,7 +349,7 @@ VS1 should extend this principle to the **whole product instance**, including pr
 
 ## 7. Data ownership model
 
-The product core needs an explicit four-zone model.
+The product core needs an explicit four-zone model. For the prototype, the first two zones are conceptual and operational; final installation/package placement is deferred.
 
 ~~~text
 PROGRAM / INSTALLATION
