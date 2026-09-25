@@ -1,0 +1,387 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "CFA01-WORLD-BOOTSTRAP-GAP-AUDIT",
+  "date": "2026-09-25",
+  "status": "BOOTSTRAP-FINAL-SEED / GAPS-IDENTIFIED / NO-NEW-CFA-PROPOSED",
+  "purpose": "Final bootstrap gap audit for CFA-01 after self-design, peer mapping, World Lens design, and repository re-grounding.",
+  "basis": {
+    "repository": "owenservera/BCP-dev",
+    "branch": "main",
+    "authoritative_context": [
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/AGENT.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OWNERSHIP-MAP.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md",
+      "AGENTS_CONTEXT/AGENT-COMMONS/PEER-ROSTER.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/SELF-DESIGN-PROPOSAL.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/STATE.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/RESEARCH-QUEUE.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/WORLD-LENS-ONE-TOOL-DESIGN.md",
+      "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/WORLD-PEER-DISTANCE-MATRIX.json",
+      "docs/destination/world-object-core/OPEN-FRONTIER.md",
+      "docs/destination/world-object-core/SOURCE-IDENTITY.md",
+      "docs/destination/world-object-core/ADDRESSING.md",
+      "docs/destination/world-object-core/RELATIONSHIP-MODEL.md",
+      "docs/destination/world-object-core/REVISION-LIFECYCLE.md",
+      "docs/destination/world-object-core/WORLD-PROJECTION.md",
+      "docs/destination/DATA-MEMORY-CONTEXT-RECONCILIATION.md",
+      "docs/destination/self-knowledge-core/STATE.md",
+      "docs/destination/self-knowledge-core/RESEARCH.md",
+      "docs/destination/RECONCILIATION-MAP.md",
+      "docs/destination/architecture/graph/GRAPH-MANIFEST.json"
+    ]
+  },
+  "reading_rule": "These are CFA-01 findings and operating requirements, not new Ω law. Each item stays owned at the nearest existing semantic boundary; absence of a new CFA is intentional.",
+  "missed_but_material": [
+    {
+      "id": "GAP-01",
+      "name": "Temporal Semantics / Time-as-Meaning",
+      "criticality": "CRITICAL",
+      "why_it_was_missed": "The bootstrap captured history, freshness, validFrom/validTo, revision identity, expiry, and current state in separate domains, but did not make their shared semantic contract explicit.",
+      "what_is_missing": [
+        "event time vs effective time vs observation time vs processing/derivation time",
+        "as-of reconstruction semantics",
+        "temporal scope of relationships and identity correspondence",
+        "time uncertainty and estimated timestamps",
+        "how freshness and validity differ",
+        "how source disappearance/reappearance affects temporal truth"
+      ],
+      "evidence": [
+        "docs/destination/world-object-core/RELATIONSHIP-MODEL.md",
+        "docs/destination/world-object-core/REVISION-LIFECYCLE.md",
+        "docs/destination/world-object-core/OPEN-FRONTIER.md",
+        "docs/destination/self-knowledge-core/RESEARCH.md",
+        "docs/destination/DATA-MEMORY-CONTEXT-RECONCILIATION.md"
+      ],
+      "boundary_route": [
+        "CFA-01",
+        "CFA-02",
+        "CFA-09",
+        "cross-cutting epistemic integrity"
+      ],
+      "context_needed": "A compact temporal crosswalk defining which timestamp means what at each boundary, without creating a universal time ontology.",
+      "tooling_needed": [
+        "World Lens must accept an optional temporal view: now/asOf/timeWindow.",
+        "A read-only temporal trace mode that reconstructs the basis and shows why a relation/state is valid at a chosen time.",
+        "A freshness-vs-validity diagnostic that prevents timestamps from being treated as proof."
+      ],
+      "first_falsifier": "Take one object, one relationship, one external observation, and one derived projection whose timestamps intentionally disagree; verify that the system can answer 'true when?' without conflating the clocks.",
+      "bootstrap_disposition": "FOUNDATION GAP / DEFERRED INVESTIGATION",
+      "new_agent_required": false
+    },
+    {
+      "id": "GAP-02",
+      "name": "Observation Model / Observation-to-World Seam",
+      "criticality": "CRITICAL",
+      "why_it_was_missed": "World was correctly separated from projection and source identity, but 'observation' remained a property of evidence/projection rather than a clearly bounded semantic object describing how reality was encountered.",
+      "what_is_missing": [
+        "what was observed",
+        "observation modality/source",
+        "observed-at time",
+        "observation basis and payload digest",
+        "observation reliability/status",
+        "retraction or supersession of an observation",
+        "distinction between observation and canonical semantic assertion"
+      ],
+      "evidence": [
+        "docs/destination/world-object-core/SOURCE-IDENTITY.md",
+        "docs/destination/world-object-core/REVISION-LIFECYCLE.md",
+        "docs/destination/world-object-core/WORLD-PROJECTION.md",
+        "docs/destination/self-knowledge-core/RESEARCH.md",
+        "docs/destination/system-intelligence/findings/SI-01/CONTRADICTIONS.md"
+      ],
+      "boundary_route": [
+        "CFA-01",
+        "CFA-02",
+        "CFA-06",
+        "cross-cutting evidence/provenance"
+      ],
+      "context_needed": "An observation envelope crosswalk that separates observed fact, source assertion, local semantic interpretation, and derived projection.",
+      "tooling_needed": [
+        "World Lens should expose observations independently from canonical relationships.",
+        "A read-only observation trace that shows source -> observation -> interpretation -> world projection.",
+        "Provider/externally sourced observations should carry explicit freshness/availability status."
+      ],
+      "first_falsifier": "Observe the same external item twice with changed payload and once with source disappearance; verify that observations change without silently rewriting canonical identity or collapsing history.",
+      "bootstrap_disposition": "FOUNDATION GAP / HIGH-VALUE RESEARCH",
+      "new_agent_required": false
+    },
+    {
+      "id": "GAP-03",
+      "name": "Principal/Viewpoint-Scoped World Understanding",
+      "criticality": "CRITICAL",
+      "why_it_was_missed": "The World Lens included scope/audience and the destination world model already references accessible reality, but we did not make the perspective/visibility basis an explicit part of the returned semantic contract.",
+      "what_is_missing": [
+        "which principal/person/agent viewpoint produced the packet",
+        "which visibility basis was applied",
+        "distinction between inaccessible, absent, unknown, and not-observed",
+        "redaction/filter provenance",
+        "authority-facing scope without making World an authority evaluator"
+      ],
+      "evidence": [
+        "docs/destination/world-object-core/WORLD-PROJECTION.md",
+        "docs/destination/DATA-MEMORY-CONTEXT-RECONCILIATION.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE/BOOTSTRAP-DESIGN-PROPOSAL.md",
+        "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md"
+      ],
+      "boundary_route": [
+        "CFA-01",
+        "CFA-04",
+        "CFA-02",
+        "CFA-08"
+      ],
+      "context_needed": "A small ViewSpec contract: principal/reference, requested purpose, visibility scope, authority basis reference, and explicit filtering outcome.",
+      "tooling_needed": [
+        "Extend world.lens options with principal/view/scope/asOf rather than introducing a separate tool.",
+        "Return 'visibilityBasis' and 'filteredBecause' diagnostics.",
+        "Never treat visibility as evidence that a hidden thing does not exist."
+      ],
+      "first_falsifier": "Run the same lens target under two different principals where one lacks access; the packets must differ only where the access boundary requires, and the inaccessible item must not be reported as nonexistent.",
+      "bootstrap_disposition": "FOUNDATION GAP / CROSS-CFA CONTRACT",
+      "new_agent_required": false
+    },
+    {
+      "id": "GAP-04",
+      "name": "Absence / Negative Knowledge Semantics",
+      "criticality": "HIGH",
+      "why_it_was_missed": "The seed strongly distinguishes unknown and conflict, but did not explicitly distinguish 'not observed', 'not found', 'not accessible', 'does not exist', and 'was deleted'.",
+      "what_is_missing": [
+        "absence status vocabulary",
+        "search miss vs world non-existence",
+        "policy-hidden vs genuinely absent",
+        "source-unavailable vs source-empty",
+        "retired/deleted vs never existed",
+        "negative evidence / bounded search statements"
+      ],
+      "evidence": [
+        "docs/destination/world-object-core/ADDRESSING.md",
+        "docs/destination/world-object-core/SOURCE-IDENTITY.md",
+        "docs/destination/world-object-core/REVISION-LIFECYCLE.md",
+        "docs/destination/DATA-MEMORY-CONTEXT-RECONCILIATION.md"
+      ],
+      "boundary_route": [
+        "CFA-01",
+        "CFA-02",
+        "CFA-04",
+        "cross-cutting epistemic integrity"
+      ],
+      "context_needed": "A bounded presence/absence vocabulary with evidence requirements; absence should never be inferred from incomplete retrieval.",
+      "tooling_needed": [
+        "World Lens truth-state section should include presence status.",
+        "Search/lookup results should distinguish candidate miss from semantic absence.",
+        "A 'why not found?' diagnostic should report search scope, access scope, source availability, and unresolved ambiguity."
+      ],
+      "first_falsifier": "Query an item outside the retrieval scope, an inaccessible item, a deleted item, and a genuinely missing item; verify that the system does not collapse them into one 'not found' state.",
+      "bootstrap_disposition": "FOUNDATION GAP / RESEARCH AFTER OBSERVATION",
+      "new_agent_required": false
+    },
+    {
+      "id": "GAP-05",
+      "name": "World Contribution / Extension Contract",
+      "criticality": "HIGH",
+      "why_it_was_missed": "We mapped Capability, Composition, and Provider as peers, but did not define how a new domain/provider contributes world meanings, relationships, observations, and projections without turning World into an integration monolith.",
+      "what_is_missing": [
+        "domain contribution declaration",
+        "supported world object kinds/roles",
+        "relationship predicates contributed",
+        "observation sources contributed",
+        "projection contribution boundaries",
+        "versioning and provenance of domain contributions",
+        "promotion/validation criteria"
+      ],
+      "evidence": [
+        "docs/destination/world-object-core/README.md",
+        "docs/destination/world-object-core/OPEN-FRONTIER.md",
+        "docs/destination/system-intelligence/pass-3/V1-DESIGN-CONVERGENCE.md",
+        "AGENTS_CONTEXT/AGENT-COMMONS/PEER-ROSTER.md"
+      ],
+      "boundary_route": [
+        "CFA-01",
+        "CFA-06",
+        "CFA-07",
+        "CFA-09"
+      ],
+      "context_needed": "One machine-readable crosswalk for domain contributions, not a global ontology registry.",
+      "tooling_needed": [
+        "A read-only 'world contribution inspect' view.",
+        "A manifest-level contract for object/relationship/observation/projection contributions.",
+        "World Lens should expose which contribution declared each returned semantic element."
+      ],
+      "first_falsifier": "Introduce a synthetic new provider domain with one object kind, one relation, and one observation source; add it without modifying the core world semantic engine.",
+      "bootstrap_disposition": "FOUNDATION GAP / REQUIRES PEER INPUT",
+      "new_agent_required": false
+    },
+    {
+      "id": "GAP-06",
+      "name": "Semantic Evolution / Vocabulary Compatibility",
+      "criticality": "HIGH",
+      "why_it_was_missed": "CFA-09 owns change mechanics and CFA-03 owns semantic continuity, but CFA-01 did not explicitly capture how World concepts themselves survive renaming, splitting, merging, deprecation, and cross-version interpretation.",
+      "what_is_missing": [
+        "world concept identity across vocabulary versions",
+        "rename/deprecate semantics",
+        "split/merge correspondence semantics",
+        "concept compatibility and migration notes",
+        "source terminology vs destination terminology",
+        "semantic crosswalk validity interval"
+      ],
+      "evidence": [
+        "docs/destination/world-object-core/OPEN-FRONTIER.md",
+        "docs/destination/world-object-core/SOURCE-IDENTITY.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/CANON-DICTIONARY.md",
+        "docs/destination/RECONCILIATION-MAP.md"
+      ],
+      "boundary_route": [
+        "CFA-01",
+        "CFA-03",
+        "CFA-09",
+        "Architecture Steward"
+      ],
+      "context_needed": "A semantic-evolution crosswalk that records old term, new term, relation type, validity, evidence, and unresolved ambiguity.",
+      "tooling_needed": [
+        "World Lens history should expose semantic vocabulary transitions, not just object revisions.",
+        "A compare mode for concept meaning across versions/branches.",
+        "A drift detector for legacy term -> current term relationships."
+      ],
+      "first_falsifier": "Take a legacy concept that later splits into two destination concepts and verify that identity, terminology, and source genealogy are preserved without false equivalence.",
+      "bootstrap_disposition": "FOUNDATION GAP / JOINT WITH CFA-03/CFA-09",
+      "new_agent_required": false
+    },
+    {
+      "id": "GAP-07",
+      "name": "Context Selection Explanation / Contract Boundary",
+      "criticality": "HIGH",
+      "why_it_was_missed": "The World Lens has context in its output and the repository has D-443 assembly mechanics, but we did not require the lens to explain why each context item was included or excluded.",
+      "what_is_missing": [
+        "inclusion reason",
+        "exclusion reason",
+        "scope source",
+        "purpose relation",
+        "selection basis",
+        "budget/truncation explanation",
+        "context item freshness/epistemic status"
+      ],
+      "evidence": [
+        "docs/destination/DATA-MEMORY-CONTEXT-RECONCILIATION.md",
+        "docs/destination/world-object-core/WORLD-PROJECTION.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/WORLD-LENS-ONE-TOOL-DESIGN.md"
+      ],
+      "boundary_route": [
+        "CFA-01",
+        "CFA-03",
+        "CFA-05",
+        "CFA-08"
+      ],
+      "context_needed": "A ContextSelection explanation schema layered over D-443; this should describe selection without moving assembly ownership.",
+      "tooling_needed": [
+        "World Lens packet should include contextBasis[] with reason, source, freshness, scope, and omission causes.",
+        "A debug mode should answer 'why is this in context?' and 'why is this missing?'",
+        "Respect D-443 as the assembly realization."
+      ],
+      "first_falsifier": "Construct a context budget conflict where two relevant items compete; verify the packet can explain the selection without pretending the choice is universally correct.",
+      "bootstrap_disposition": "FOUNDATION GAP / EXTENSION OF EXISTING LENS",
+      "new_agent_required": false
+    },
+    {
+      "id": "GAP-08",
+      "name": "CFA-01 Operational Grounding and Bootstrap Freshness",
+      "criticality": "HIGH",
+      "why_it_was_missed": "The World seed itself has a lens design, peer distance map, research queue, and state, but we did not create a single machine-readable operating packet tying current repository basis, peer seams, open gaps, available instruments, and freshness checks together.",
+      "what_is_missing": [
+        "one current CFA-01 operating context packet",
+        "known source basis and re-ground triggers",
+        "peer contact map as operational inputs",
+        "gap/tooling registry",
+        "current bootstrap limitations",
+        "stale-record warning policy"
+      ],
+      "evidence": [
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/STATE.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/FRESH-SESSION-PROMPT.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/STATE.md",
+        "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/WORLD-PEER-DISTANCE-MATRIX.json"
+      ],
+      "boundary_route": [
+        "CFA-01",
+        "Architecture Steward",
+        "Agent Commons"
+      ],
+      "context_needed": "A small machine-readable operational context file, deliberately not another ontology/registry/task system.",
+      "tooling_needed": [
+        "world-bootstrap inspect: validate basis refs, peer roster, current gaps, and stale snapshots.",
+        "world-bootstrap lens: invoke the World Lens contract against the current repository corpus.",
+        "world-bootstrap gap-check: report open seam status and missing inputs without changing architecture."
+      ],
+      "first_falsifier": "Start a fresh CFA-01 session using only the operational context packet plus linked source files; it should recover the current mission, basis, open gaps, peer seams, and next investigation without reconstructing the bootstrap conversation.",
+      "bootstrap_disposition": "IMMEDIATE CONTEXT FIX / NO NEW AGENT",
+      "new_agent_required": false
+    }
+  ],
+  "cross_cutting_missed_patterns": [
+    {
+      "pattern": "World Lens is currently stronger as a semantic join than as a complete world debugger.",
+      "implication": "Add time, viewpoint, observation, absence, and context-selection explanations before adding mutation or automation."
+    },
+    {
+      "pattern": "The repository has mature local patterns for freshness and falsification, but CFA-01 has not yet operationalized them.",
+      "implication": "Reuse basisRefs/basisDigest-style freshness and explicit falsifiers rather than inventing new epistemic machinery."
+    },
+    {
+      "pattern": "The biggest boundary risk is not another agent stealing World semantics; it is silent semantic collapse across seams.",
+      "implication": "Prefer crosswalks, envelopes, and diagnostic views over new permanent registries."
+    },
+    {
+      "pattern": "Bootstrap state itself is evidence and can go stale.",
+      "implication": "Every seed artifact carrying counts, statuses, or current refs should identify its observation point or derive from a current manifest where practical."
+    }
+  ],
+  "what_not_to_do_now": [
+    "Do not create a separate Temporal Steward.",
+    "Do not create a separate Observation Steward.",
+    "Do not create a separate Epistemic Steward yet.",
+    "Do not create a universal World ontology registry.",
+    "Do not replace D-443 context assembly.",
+    "Do not turn World Lens into a write API.",
+    "Do not treat the current peer-distance scores as objective measurements.",
+    "Do not turn this gap register into a project-management roadmap."
+  ],
+  "recommended_tooling_shape": {
+    "principle": "One conceptual World Lens instrument plus small inspection/debug modes; avoid tool proliferation.",
+    "core": "world.lens(target, options)",
+    "near_term_modes": [
+      "lens --as-of",
+      "lens --principal/--view",
+      "lens --why-context",
+      "lens --observations",
+      "lens --presence",
+      "lens --compare"
+    ],
+    "bootstrap_support": [
+      "world-bootstrap inspect",
+      "world-bootstrap gap-check"
+    ],
+    "machine_readable_contracts": [
+      "WorldPacket",
+      "ViewSpec",
+      "ObservationRef/ObservationEnvelope",
+      "TemporalView",
+      "PresenceStatus",
+      "ContextSelectionReason",
+      "WorldContribution"
+    ],
+    "design_constraint": "These are contracts/modes, not permission to create new permanent architectural ownership areas."
+  },
+  "bootstrap_exit_statement": {
+    "ready_to_pause": true,
+    "remaining_work": "Characterization and contract research, not additional bootstrap framing.",
+    "next_real_work": [
+      "identity/correspondence seam",
+      "temporal semantics",
+      "observation-to-world seam",
+      "principal/viewpoint scope",
+      "context selection explanation",
+      "event/state characterization"
+    ],
+    "identity_status": "CFA-01 remains provisional until owner alignment is explicitly recorded.",
+    "interpretation": "The bootstrap has enough structure to pause safely. The remaining uncertainty is now named, bounded, and routed rather than hidden."
+  }
+}
