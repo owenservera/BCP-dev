@@ -1,0 +1,4 @@
+{"id":"SAE-070001","from":"SA-070001","to":"SA-070002","type":"ENABLES","reason":"Provider routing culminates in browser execution."}
+{"id":"SAE-070002","from":"SA-070002","to":"SA-070003","type":"ENABLES","reason":"Browser execution and conversation streaming/persistence form one path."}
+{"id":"SAE-070003","from":"SA-070003","to":"SA-070004","type":"RELATED_TO","reason":"Conversation continuity feeds richer workspace/canvas surfaces."}
+{"id":"SAE-070004","from":"SA-070004","to":"SA-070005","type":"ENABLES","reason":"Continuity depends on background and exit behavior."}
