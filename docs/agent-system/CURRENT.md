@@ -9,7 +9,7 @@
 
 - Main currently contains the cooperative agent-system substrate, P1 portfolio baseline, merged WS-001 DIR-001 dogfood evidence, the P1-02 truth baseline/drift sweep, the committed P1-06 governance chain, and the committed P1-08 real `message.send@1` provider-browser implementation.
 - Current substantive P1-02 baseline marker: `537d987` (PR #8 merge; incorporates PR #6 baseline-freeze onto `2373cfd` base + PR #7 roster dedup); prior P1-01 PROVEN reconciliation merge marker `de147d6` retained as history (both closers green; before that `fde4c5b` ChatGPT line, `58bd0d7` MULTI-AGENT line).
-- Untracked surfaces remain another workstream's surface: `bcp-algos/`, `setupdocs.zip`. Do not touch without owner. Ω `docs/architecture/` + `examples/plugin-echo2/` are now tracked on main (`a528ffd` checkpoint) but unratified — see `docs/cleanup/PROMPT-4-CHECKPOINT.md` + C13. `docs/REPO-CLEANUP-PROMPT-V2.md` is untracked with UNKNOWN status; triage pending owner decision.
+- Untracked/local surfaces remain hands-off unless explicitly owned: `bcp-algos/`, `setupdocs.zip`, and any local `docs/REPO-CLEANUP-PROMPT-V2.md`. The archived project-history layer is tracked history. Ω `docs/architecture/` + `examples/plugin-echo2/` remain unratified surfaces governed by the existing checkpoint/conflict register.
 - Board remains parked; BCP state must be written only through `bcp_tool.py`.
 
 ## CURRENT PROGRAM / P1 PORTFOLIO
@@ -35,6 +35,15 @@ code but awaits its M4/M5 real-run proof. P1-08 has committed real
 (`bun test` + `omega:gate`). P1-04, P1-07, and P1-09 remain research-first/unopened; P1-03 and P1-05
 have completed their current baseline milestones. See `docs/agent-system/WORKSTREAMS.md` and the
 workstream evidence documents for the exact boundaries and proof states.
+
+## 2026-09-25 DESTINATION CONVERGENCE
+
+- Core-vs-Plugin Pass 3 is now present in main as durable destination research.
+- The canonical Core adequacy baseline is the expanded 125-responsibility inventory at `docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md`.
+- The responsibility universe explicitly separates Self-Knowledge, NCLL/symbolic language, canonical data model/evolution, ontology/reconciliation, Work, Provider/Account/Session/Resource, Memory/Context, Attention/Continuity, Product Instance, Forge/Evolution, sharing, and native product frontiers.
+- The narrow K0 boundary remains under explicit reduction/experiment for B1 entry confinement, generic bootstrap/zero-plugin state, minimum State/Graph/Grant/Generation mechanisms, first-party/third-party symmetry, and active Work replacement.
+- The old root project-management/construction layer has been moved to `docs/archive/project-history/bcp-construction-2026-09-22/`. Historical prompts and trackers are genealogy only.
+- Current plugin-authoring documentation lives under `docs/destination/plugin-ecosystem/`.
 
 ## CURRENT ARCHITECTURAL MODEL
 

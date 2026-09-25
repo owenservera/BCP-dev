@@ -21,7 +21,7 @@ The P1 portfolio defines P1-02 as the workstream for maintaining a reconciled ma
 
 The same boundary is registered in the active workstream registry, where P1-02 remains research-first and has no implementation substrate or setup prompt yet. (`docs/agent-system/WORKSTREAMS.md` L22-L28; L120-L127)
 
-The repository itself explicitly says it is a migration forge rather than a single product repository, with three deliberately different assets: VIVIM as read-only source mine, BCP as coordination/migration forge, and Ω as gated destination architecture. (`AGENTS.md` L3-L15)
+The repository itself explicitly says it is a migration forge rather than a single product repository, with three deliberately different assets: VIVIM as read-only source mine, BCP as coordination/migration forge, and Ω as gated destination architecture. (`AGENTS.md` current repository model)
 
 ### INDEPENDENTLY ESTABLISHED
 
@@ -196,7 +196,7 @@ BCP's vocabulary/state authority is explicitly `state/*.yaml`, `taxonomy.yaml`, 
 
 A record whose facts may remain valuable but which is no longer the current design/input.
 
-The repository explicitly identifies `ORCHESTRATION-REDESIGN.md`, setup packets, archived material, and several Ω migration-era documents as historical. (`docs/CURRENT-CONTEXT.md` L35-L42)
+The repository explicitly identifies `docs/archive/project-history/bcp-construction-2026-09-22/ORCHESTRATION-REDESIGN.md`, setup packets, archived material, and several Ω migration-era documents as historical. (`docs/CURRENT-CONTEXT.md` L35-L42)
 
 ## Proposed
 

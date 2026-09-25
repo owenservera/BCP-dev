@@ -19,7 +19,7 @@ BCP loop protocol            bcp-speed/bcp/agents/lanes.md §§ universal/LOOP
 BCP directives (live)        bcp-speed/bcp/agents/inbox/WN.md — coordinator
                              re-issues on resume (2026-09-22 entries: PARKED)
 BCP automation               docs/CONTEXT-system.md §6 + workspaces/STATE.json
-                             (Tasks 1–6 PASS; plan ORCHESTRATION-REDESIGN.md:
+                             (Tasks 1–6 PASS; plan in docs/archive/project-history/bcp-construction-2026-09-22/:
                              HISTORICAL)
 BCP migration model          docs/migration/MIGRATION_MODEL.md
                              (PROPOSED-but-exercised; state promotion deferred
@@ -40,12 +40,13 @@ BCP migration knowledge      docs/migration/ (13 files, 2026-09-23)
 VIVIM behavior source        vivim-original-baseline/vivim-final-enhanced/
                              (READ-ONLY mine; evidence, never authority)
 ------------------------------------------------------------
-Historical planning          docs/archive/ · docs/archive/project-history/bcp-construction-2026-09-22/setupdocs/ (bannered) ·
-                             ORCHESTRATION-REDESIGN.md · TRACKER.md snapshot parts
+Historical planning          docs/archive/project-history/bcp-construction-2026-09-22/
+                             (ORCHESTRATION-REDESIGN.md, TRACKER.md, setupdocs/)
+
 Raw research                 docs/archive/sessions/ · docs/archive/conversations/
 Unknown / hands-off          bcp-algos/ · omega-…/docs/architecture/ (untracked) ·
                              omega-…/examples/plugin-echo2/ (untracked) ·
-                             setupdocs.zip (untracked) — see CONFLICT-REGISTER C11
+                             setupdocs.zip (untracked legacy local artifact; do not touch without owner) — see CONFLICT-REGISTER C11
 ```
 
 ## Authority graph (how truth flows)
@@ -58,7 +59,8 @@ CURRENT PLAN (EXP-004/005/006 in state/experiments.yaml)
         → evidence (log/*.yaml, discoveries, verification-reports, 40-EVIDENCE/)
           → law (Ω D-records; BCP taxonomy + RECONCILIATION.md)
 
-OLD PLAN (ORCHESTRATION-REDESIGN.md, docs/archive/project-history/bcp-construction-2026-09-22/docs/archive/project-history/bcp-construction-2026-09-22/setupdocs/01–03, lanes first-leases)
+OLD PLAN (docs/archive/project-history/bcp-construction-2026-09-22/ORCHESTRATION-REDESIGN.md,
+             docs/archive/project-history/bcp-construction-2026-09-22/setupdocs/01–03, lanes first-leases)
   → SUPERSEDED BY (workspaces/STATE.json 6×PASS; sweep-merge events;
                    MIG-001/MIG-002 VERIFIED)
     → CURRENT DECISION (CONTEXT-system/product/appendix; CURRENT-CONTEXT.md)

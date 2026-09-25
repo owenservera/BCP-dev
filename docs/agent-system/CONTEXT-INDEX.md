@@ -19,7 +19,7 @@
 | Where are handoffs? | `docs/agent-system/handoffs/` |
 | Where is architecture authority? | `omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md` → `docs/BUILD-DECISIONS.md` |
 | Where is repository/forge truth? | `/BUILD_CONTEXT.md` → `docs/CURRENT-CONTEXT.md` |
-| What must never be treated as authority? | Transcripts, packets, handoffs, agent opinions, `docs/archive/`, `setupdocs/`, Ω forge annex material, and parked historical orders |
+| What must never be treated as authority? | Transcripts, packets, handoffs, agent opinions, `docs/archive/`, archived project-history material, Ω forge annex material, and parked historical orders |
 
 ## P1 cold-start
 

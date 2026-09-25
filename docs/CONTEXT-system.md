@@ -128,6 +128,7 @@ exist — capability ID is the unit, lease key is the capability (holder-checked
   never modify Omega/Vivim repos from BCP-side work.
 - Predecessor context: `docs/archive/sessions/master-.md` +
   `docs/archive/sessions/session-ses_f371.md` (past-session logs, archived
-  2026-09-23),
-  `TRACKER.md` (owner one-glance view), `ORCHESTRATION-REDESIGN.md` (canonical
-  automation design — wins over the brief on conflict).
+  2026-09-23).
+- Former project-management context: `docs/archive/project-history/bcp-construction-2026-09-22/`
+  (historical tracker, orchestration plan, and setup packets). These documents are
+  preserved for genealogy and are not current sequencing authority.
