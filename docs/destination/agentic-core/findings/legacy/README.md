@@ -1,0 +1,2 @@
+# Legacy Findings
+The Legacy mine contains ActionPlan/compiler/bridge, validation, autonomous execution/replay, workflow compiler/runtime, retry storage, HITL, budgets, idempotency/locks and automation material. See `LEGACY-HARVEST.md`.
