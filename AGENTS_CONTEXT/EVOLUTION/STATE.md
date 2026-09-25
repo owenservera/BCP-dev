@@ -90,3 +90,17 @@ The research must therefore treat plugin boundaries, contribution metadata, cont
 
 New integration artifact:
 `docs/destination/EVERYTHING-IS-A-PLUGIN-EVOLUTION-CONSTITUTION.md`.
+
+## Core/plugin boundary integration
+
+The archaeology-derived development criterion is now recorded at `docs/destination/CORE-VS-PLUGIN-BOUNDARY-DISTILLATION.md`.
+
+Refined model:
+
+- K0 = irreducible Ω kernel / non-bypassable enforcement;
+- K1 = shared plugin-boundary contracts/protocols;
+- System plugins = first-party VIVIM capabilities that may be essential but remain replaceable;
+- Extension plugins = user/third-party capabilities;
+- Tooling = out-of-tree development machinery.
+
+The default classification is not Core. A K0 addition requires an explicit why-not-plugin rationale and falsifier.
