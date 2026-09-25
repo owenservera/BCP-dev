@@ -1,0 +1,77 @@
+{
+  "schema": "vivim.cfa01.boundary-router",
+  "schema_version": "1.0.0",
+  "generated_on": "2026-09-26",
+  "status": "DERIVED / PROVISIONAL",
+  "purpose": "Route questions to CFA-01 when a change touches World meaning, identity/correspondence, relationships, Space, addressability, projection or Context. Route only the World-side semantic portion.",
+  "routes": {
+    "CFA-02": [
+      "semantic object/relationship meaning must be durably represented",
+      "identity/correspondence crosses canonical record identity",
+      "projection/Context basis must survive storage evolution"
+    ],
+    "CFA-03": [
+      "command term needs grounding to World",
+      "Context changes interpretation",
+      "representation needs World semantics",
+      "target ambiguity affects Intent/Plan"
+    ],
+    "CFA-04": [
+      "authorization targets a World subject",
+      "visibility/accessibility differs from existence",
+      "principal-scoped World view is proposed",
+      "Context may cross authority scope"
+    ],
+    "CFA-05": [
+      "Work changes World state",
+      "execution outcome may become World state",
+      "retry/recovery can target changed World meaning"
+    ],
+    "CFA-06": [
+      "provider/resource correspondence affects World identity",
+      "external observation becomes World state",
+      "realization/routing changes target interpretation"
+    ],
+    "CFA-07": [
+      "plugin/composition creates a World-visible concept",
+      "composition claims World semantic ownership",
+      "replacement/removal can strand World meaning"
+    ],
+    "CFA-08": [
+      "surface renders or edits semantic World state",
+      "gesture changes World relation",
+      "Space semantics cross layout/canvas",
+      "attention changes semantic Context"
+    ],
+    "CFA-09": [
+      "migration/replacement may change World meaning",
+      "identity correspondence may merge/split",
+      "Context contract changes",
+      "repair may infer ontology"
+    ],
+    "CFA-10": [
+      "World concept proposed for K0",
+      "runtime state is being treated as World state",
+      "K0 requires domain semantics"
+    ],
+    "ARCHITECTURE-STEWARD": [
+      "ownership conflict",
+      "new canonical store/ontology/authority",
+      "graph edge implies unsupported ownership",
+      "multi-CFA impact needs map repair"
+    ]
+  },
+  "priority": {
+    "P0": "semantic corruption, identity collision, second source of truth, existence versus authority collapse, unverified external effect treated as World truth",
+    "P1": "consequential boundary ambiguity, contract change affecting another CFA, cross-CFA dependency invalidation",
+    "P2": "useful semantic clarification or evidence changing a provisional World model",
+    "P3": "local implementation detail"
+  },
+  "channel_rules": {
+    "P0": "DIRECT peer + Architecture Steward",
+    "P1": "DIRECT peer + durable boundary note",
+    "P2": "Commons PUBLIC or durable artifact",
+    "P3": "local"
+  },
+  "anti_absorption_rule": "Being asked for a registry, store, cache, graph, permission flag, scheduler, provider map, UI model or runtime singleton is not evidence that CFA-01 owns it. First identify the semantic contract and its actual owner."
+}
