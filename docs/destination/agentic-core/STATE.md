@@ -1,44 +1,48 @@
 # Agentic Core Research State
 
-> STATUS: SCAFFOLD READY — RESEARCH NOT YET RUN
+STATUS: **RESEARCH PACKAGE COMMITTED — DESIGN COMPLETE / RUNTIME FALSIFICATION PENDING**
 
-Current task:
-**Deterministic-first VIVIM agentic automation foundation.**
+Canonical branch: `research/agentic-core-foundation`
 
-Browser availability:
-**NOT REQUIRED for this research/build tranche.**
+Research package landing commit before this state closure: `78488b45ce31d11f50ca2d2b21fb146eb3a0e10b`.
 
-AI provider availability:
-**NOT REQUIRED.**
+## Scope completed
 
-Research intent:
-Characterize the core deterministic runtime that modern agentic products require and integrate it into the canonical World/Object + Work model.
+- full synthesis;
+- modern primitive research;
+- Legacy harvest;
+- canonical World/Work model;
+- deterministic runtime design;
+- state/recovery;
+- temporal substrate;
+- resource/concurrency;
+- authority/HITL;
+- AI insertion boundary;
+- World/Work/Attention integration;
+- minimum V1;
+- experiment report;
+- indexes;
+- source/evidence register;
+- open frontier;
+- red-team;
+- design convergence.
 
-Current known Legacy evidence:
-- ActionPlan + compiler/bridge
-- Plan Validation Gate
-- AutonomousTask / Step / Goal
-- HITL gates
-- budgets
-- autonomous execution
-- replay/branching
-- workflow DAG/compiler/runtime
-- retry queue
-- scheduling/automation
-- background execution
-- objective/outcome tracking
+## Proof status
 
-Current known Ω strengths to preserve:
-- Vault
-- Law / Authority
-- Recipe / Composition
-- Canonical Intent
-- Capability / Realization
-- Evidence
-- governed execution
-- Forge authority boundary
+Repository-visible research/design evidence is committed.
 
-Next action:
-Launch `LAUNCH-PROMPT.md`.
+No production runtime implementation was made by this research tranche.
 
-Research should conclude with a minimum VIVIM-native deterministic substrate and a buildable implementation sequence.
+Runtime falsifiers remain EXPERIMENT-REQUIRED, including crash recovery, duplicate side effects, timer dedupe, lease fencing, approval recovery, replay safety, resource fairness and no-AI/no-browser acceptance.
+
+## Canonical conclusion
+
+The minimum VIVIM agentic substrate is a **durable governed Work runtime**:
+
+`Trigger → Work → Plan → Authority → Step/Attempt → Capability → Checkpoint → Verify → Evidence → World Update → Attention/Continuity`
+
+AI is optional and bounded. Agent is not the universal noun. Work is the durable continuity identity; workers are disposable.
+
+## Next
+
+Implement only the thin deterministic harness needed to falsify the design, then promote contracts based on evidence. Do not implement browser/provider or AI dependencies before the deterministic substrate is proven.
