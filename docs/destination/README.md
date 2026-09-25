@@ -78,6 +78,9 @@ The repository already contains much of the machinery. The remaining challenge i
 
 ## Core / plugin boundary criterion
 
+- `CORE-VS-PLUGIN-BOUNDARY-DISTILLATION.md` — current archaeological synthesis and pre-implementation boundary criterion.
+- `core-vs-plugin-boundary/` — dedicated research package for the complete Core/Contract/System-Plugin/Extension/Tooling audit.
+
 `CORE-VS-PLUGIN-BOUNDARY-DISTILLATION.md` is the development criterion for deciding what is irreducible Ω Core, what is shared contract vocabulary, and what remains a system or extension plugin. It must be applied before substantive implementation.
 
 
