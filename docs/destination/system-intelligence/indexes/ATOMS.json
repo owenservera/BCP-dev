@@ -1,0 +1,4736 @@
+{
+  "generated_from_branch": "research/system-intelligence-archaeology",
+  "source_tip": "05464e085122a173d1f093612292336750436c7e",
+  "wave": "Wave 1",
+  "atom_count": 44,
+  "atoms": [
+    {
+      "id": "SI-010101",
+      "subject": {
+        "kind": "authority",
+        "name": "Recipe authority"
+      },
+      "claim": "Current Ω defines the signed Recipe as the only grantor: manifests request capabilities, while the recipe grants capabilities and routed contracts.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+          "location": "Recipe / CompositionEntry",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/contracts/src/manifest.ts",
+          "location": "PluginManifest header and capabilities field",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Composition",
+          "Authority"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J7",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS6",
+          "VS8"
+        ],
+        "keystones": [
+          "Ω Runtime/Plugin/Capability",
+          "Authority/Law/Consent"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-05",
+          "P1-06"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [
+        "SI-010102",
+        "SI-010104"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "VERIFIED",
+        "destination": "CANDIDATE",
+        "complexity": 9
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-01",
+      "metrics": {
+        "id": "SI-010101",
+        "subject": {
+          "kind": "authority",
+          "name": "Recipe authority"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 4,
+        "transitive_dependents": 25,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 7,
+        "proof_dependency_reach": 25,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 9,
+        "proof": "VERIFIED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-010102",
+      "subject": {
+        "kind": "runtime",
+        "name": "µhost / Port Protocol"
+      },
+      "claim": "The current µhost verifies manifests, recipe/content hashes, spawns isolated worker compartments, verifies host-side capability tokens, and refuses invalid compositions.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/host/src/index.ts",
+          "location": "public exports and module header",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+          "location": "Boot-security laws B1–B5",
+          "evidence_kind": "decision"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Ω Runtime",
+          "Capability",
+          "Evidence"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J3",
+          "J4",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS3",
+          "VS4",
+          "VS6"
+        ],
+        "keystones": [
+          "Ω Runtime/Plugin/Capability"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-05",
+          "P1-06"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010101"
+      ],
+      "enables": [
+        "SI-010103",
+        "SI-010106",
+        "SI-050103"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "VERIFIED",
+        "destination": "CANDIDATE",
+        "complexity": 9
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-01",
+      "metrics": {
+        "id": "SI-010102",
+        "subject": {
+          "kind": "runtime",
+          "name": "µhost / Port Protocol"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 1,
+        "transitive_dependents": 5,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 4,
+        "proof_dependency_reach": 6,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 9,
+        "proof": "VERIFIED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-010103",
+      "subject": {
+        "kind": "persistence",
+        "name": "Vault durability and revisioned evidence"
+      },
+      "claim": "vivim.vault is a current Ω plugin with append, revisioned objects, provenance refs, verify, compaction, recovery, migration, export and import contracts; D-432 adds crash/recovery discipline.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100005",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-vault/plugin.json",
+          "location": "vault.object schema and contract contributions",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100006",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+          "location": "Ω-0.5 vault durability / evidence-store rules",
+          "evidence_kind": "decision"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Vault",
+          "Evidence",
+          "Memory",
+          "Product Instance"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J2",
+          "J3",
+          "J4",
+          "J5",
+          "J6",
+          "J7",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS2",
+          "VS3",
+          "VS4",
+          "VS5",
+          "VS6",
+          "VS7",
+          "VS8"
+        ],
+        "keystones": [
+          "Vault/Evidence/Provenance"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-05",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010101"
+      ],
+      "enables": [
+        "SI-010104",
+        "SI-010105",
+        "SI-010107",
+        "SI-040101",
+        "SI-050105",
+        "SI-050107"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "VERIFIED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-01",
+      "metrics": {
+        "id": "SI-010103",
+        "subject": {
+          "kind": "persistence",
+          "name": "Vault durability and revisioned evidence"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 14,
+        "transitive_dependents": 23,
+        "destination_journey_reach": 8,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 8,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 7,
+        "proof_dependency_reach": 23,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "VERIFIED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-010104",
+      "subject": {
+        "kind": "governance",
+        "name": "Law / authority gate"
+      },
+      "claim": "Current Ω law owns consent, forbidden overlays, policy conflict, privacy taint, invocation frames, standing and audit; external mutations are governed through law-side checks rather than host policy.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100007",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-law/plugin.json",
+          "location": "law contract contributions and capability requests",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100008",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+          "location": "architecture laws and D-451–D-455 boundary chain",
+          "evidence_kind": "decision"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Law",
+          "Authority",
+          "Consent",
+          "Evidence"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J4",
+          "J5",
+          "J6",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS0",
+          "VS3",
+          "VS4",
+          "VS6",
+          "VS7"
+        ],
+        "keystones": [
+          "Authority/Law/Consent"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-06"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010103",
+        "SI-010105"
+      ],
+      "enables": [
+        "SI-050104",
+        "SI-010101",
+        "SI-010106"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "VERIFIED",
+        "destination": "CANDIDATE",
+        "complexity": 8
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-01",
+      "metrics": {
+        "id": "SI-010104",
+        "subject": {
+          "kind": "governance",
+          "name": "Law / authority gate"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 7,
+        "transitive_dependents": 22,
+        "destination_journey_reach": 5,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 5,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 7,
+        "proof_dependency_reach": 22,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 8,
+        "proof": "VERIFIED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-010105",
+      "subject": {
+        "kind": "intent",
+        "name": "Canonical intent persistence"
+      },
+      "claim": "Ω has an Intent contract with payloadHash, interpretation, explicit lifecycle states and four-state resolution semantics; D-411 requires one canonical writer path and law decisions may cite intentRef + payloadHash.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100009",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/contracts/src/intent.ts",
+          "location": "Intent / IntentResolution",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100010",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+          "location": "Canonical intent D-411",
+          "evidence_kind": "decision"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Intent",
+          "Capability",
+          "Evidence"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J4",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS0",
+          "VS3",
+          "VS4",
+          "VS6"
+        ],
+        "keystones": [
+          "Intent/Context/Interaction"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-04",
+          "P1-06"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010103",
+        "SI-010104"
+      ],
+      "enables": [
+        "SI-050104",
+        "SI-040104",
+        "SI-040105"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "VERIFIED",
+        "destination": "CANDIDATE",
+        "complexity": 9
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-01",
+      "metrics": {
+        "id": "SI-010105",
+        "subject": {
+          "kind": "intent",
+          "name": "Canonical intent persistence"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 4,
+        "transitive_dependents": 22,
+        "destination_journey_reach": 5,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 7,
+        "proof_dependency_reach": 22,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 9,
+        "proof": "VERIFIED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-010106",
+      "subject": {
+        "kind": "execution",
+        "name": "Execution/context substrate"
+      },
+      "claim": "vivim.run currently contains bounded task execution, health, process brokering, plan inspection/intervention, watches, budgets, context assembly, badges, simulation, trust, analytics, layout, partial evaluation and liveness.",
+      "status": "OBSERVED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100011",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-run/src/index.ts",
+          "location": "registry fields and routed ops",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100012",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-run/plugin.json",
+          "location": "contract contribution catalog",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Work",
+          "Execution",
+          "Context",
+          "Liveness"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J4",
+          "J6",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS4",
+          "VS5",
+          "VS6"
+        ],
+        "keystones": [
+          "Durable Work/Agent/Automation",
+          "Intent/Context/Interaction"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-04",
+          "P1-05",
+          "P1-06"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010102",
+        "SI-010104"
+      ],
+      "enables": [
+        "SI-010107",
+        "SI-040105",
+        "SI-050105"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-01",
+      "metrics": {
+        "id": "SI-010106",
+        "subject": {
+          "kind": "execution",
+          "name": "Execution/context substrate"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 3,
+        "transitive_dependents": 4,
+        "destination_journey_reach": 5,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 4,
+        "proof_dependency_reach": 5,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "CODE",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-010107",
+      "subject": {
+        "kind": "self-knowledge",
+        "name": "Derived self-knowledge lens"
+      },
+      "claim": "vivim.mind derives a read-only WorldModel and control portrait from live law registry plus bounded vault reads; it holds no write capability and fails closed on malformed evidence.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100013",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-mind/plugin.json",
+          "location": "WorldModel description and engine contributions",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100014",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-mind/src/index.ts",
+          "location": "fetchRegistry / buildSnapshot / mind.portrait@1",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "World",
+          "Evidence",
+          "Self-Knowledge"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J2",
+          "J3",
+          "J4",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS3",
+          "VS5",
+          "VS6"
+        ],
+        "keystones": [
+          "Ontology/World Identity",
+          "Intent/Context/Interaction"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-04",
+          "P1-05"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010103",
+        "SI-010104"
+      ],
+      "enables": [
+        "SI-040102",
+        "SI-040104"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE",
+        "destination": "CANDIDATE",
+        "complexity": 9
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-01",
+      "metrics": {
+        "id": "SI-010107",
+        "subject": {
+          "kind": "self-knowledge",
+          "name": "Derived self-knowledge lens"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 6,
+        "transitive_dependents": 9,
+        "destination_journey_reach": 5,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 5,
+        "proof_dependency_reach": 10,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 9,
+        "proof": "CODE",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-020101",
+      "subject": {
+        "kind": "capability",
+        "name": "Legacy capability resolution/execution"
+      },
+      "claim": "Legacy VIVIM models provider interaction as typed capabilities, resolves language to a capability, routes it to a provider and executes through a single capability surface.",
+      "status": "OBSERVED",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100015",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+          "location": "Three Big Concepts / Data Flow",
+          "evidence_kind": "documentation"
+        },
+        {
+          "id": "EV-100016",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/src/engines/capability-resolution.ts",
+          "location": "CapabilityResolutionEngine",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Capability",
+          "Intent",
+          "Provider"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J5"
+        ],
+        "vertical_slices": [
+          "VS3"
+        ],
+        "keystones": [
+          "Ω Runtime/Plugin/Capability",
+          "Intent/Context/Interaction"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-05",
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-020102"
+      ],
+      "enables": [
+        "SI-010105",
+        "SI-040104",
+        "SI-050108"
+      ],
+      "maturity": {
+        "existence": "OBSERVED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "HARVEST-CANDIDATE",
+        "complexity": 9
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": false,
+      "research_role": "SI-02",
+      "metrics": {
+        "id": "SI-020101",
+        "subject": {
+          "kind": "capability",
+          "name": "Legacy capability resolution/execution"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 1,
+        "transitive_dependents": 2,
+        "destination_journey_reach": 2,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 1,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 6,
+        "proof_dependency_reach": 2,
+        "external_reality_exposure": false,
+        "uncertainty_count": 0,
+        "complexity": 9,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "HARVEST-CANDIDATE",
+        "lineage": [
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-020102",
+      "subject": {
+        "kind": "account",
+        "name": "Legacy Provider Account model"
+      },
+      "claim": "Legacy has a concrete ProviderAccount model tying provider identity, email/login state, Chrome profile/debug metadata and provider sessions; it is unique per provider+email.",
+      "status": "OBSERVED",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100017",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+          "location": "model ProviderAccount",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Provider",
+          "Account",
+          "Identity"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J5",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS5",
+          "VS8"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [
+        "SI-020103",
+        "SI-050101",
+        "SI-050108"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE",
+        "destination": "HARVEST-CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-02",
+      "metrics": {
+        "id": "SI-020102",
+        "subject": {
+          "kind": "account",
+          "name": "Legacy Provider Account model"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 5,
+        "transitive_dependents": 15,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 7,
+        "proof_dependency_reach": 15,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "CODE",
+        "destination_maturity": "HARVEST-CANDIDATE",
+        "lineage": [
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-020103",
+      "subject": {
+        "kind": "session",
+        "name": "Legacy ProviderSession/ProfileSession chain"
+      },
+      "claim": "Legacy separates VIVIM session, ProviderSession and ProfileSession, with provider/account relationships and Chrome profile/slave metadata.",
+      "status": "OBSERVED",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100018",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+          "location": "models VivimSession, ProviderSession, ProfileSession",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Session",
+          "Account",
+          "Browser"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J5"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS5"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-020102",
+        "SI-020105"
+      ],
+      "enables": [
+        "SI-020104",
+        "SI-050102"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE",
+        "destination": "HARVEST-CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-02",
+      "metrics": {
+        "id": "SI-020103",
+        "subject": {
+          "kind": "session",
+          "name": "Legacy ProviderSession/ProfileSession chain"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 2,
+        "transitive_dependents": 8,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 5,
+        "proof_dependency_reach": 9,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "CODE",
+        "destination_maturity": "HARVEST-CANDIDATE",
+        "lineage": [
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-020104",
+      "subject": {
+        "kind": "conversation",
+        "name": "Legacy conversation/message persistence"
+      },
+      "claim": "Legacy Conversation and ConversationMessage support live, imported and history-synced conversations, provider/account links, ordering, parentage, provider message ids and identity hashes.",
+      "status": "OBSERVED",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100019",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+          "location": "models Conversation and ConversationMessage",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100020",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/data-model.md",
+          "location": "Database / Node Model / Store Contracts",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Conversation",
+          "Message",
+          "World"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J5",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS2",
+          "VS3",
+          "VS5",
+          "VS8"
+        ],
+        "keystones": [
+          "Ontology/World Identity",
+          "Vault/Evidence/Provenance",
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-07",
+          "P1-08",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-020102",
+        "SI-020103"
+      ],
+      "enables": [
+        "SI-040102",
+        "SI-040106",
+        "SI-050105"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE",
+        "destination": "HARVEST-CANDIDATE",
+        "complexity": 9
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-02",
+      "metrics": {
+        "id": "SI-020104",
+        "subject": {
+          "kind": "conversation",
+          "name": "Legacy conversation/message persistence"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 1,
+        "transitive_dependents": 3,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 5,
+        "proof_dependency_reach": 4,
+        "external_reality_exposure": false,
+        "uncertainty_count": 0,
+        "complexity": 9,
+        "proof": "CODE",
+        "destination_maturity": "HARVEST-CANDIDATE",
+        "lineage": [
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-020105",
+      "subject": {
+        "kind": "browser",
+        "name": "ChromeGovernor as historical browser authority"
+      },
+      "claim": "Legacy places ChromeGovernor at the center of CDP/process lifecycle and states a hard Governor Canon: no other engine touches browser/CDP directly.",
+      "status": "OBSERVED",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100021",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+          "location": "Chrome Governor",
+          "evidence_kind": "documentation"
+        },
+        {
+          "id": "EV-100022",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/backend.md",
+          "location": "Chrome Layer / ChromeGovernor",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Browser",
+          "Provider",
+          "Execution"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS7"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing",
+          "Forge/Composition/Healing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-020103"
+      ],
+      "enables": [
+        "SI-020106",
+        "SI-050102"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "HARVEST-CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-02",
+      "metrics": {
+        "id": "SI-020105",
+        "subject": {
+          "kind": "browser",
+          "name": "ChromeGovernor as historical browser authority"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 3,
+        "transitive_dependents": 8,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 5,
+        "proof_dependency_reach": 9,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "HARVEST-CANDIDATE",
+        "lineage": [
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-020106",
+      "subject": {
+        "kind": "healing",
+        "name": "Discovery/healing/semantic browser machinery"
+      },
+      "claim": "Legacy contains semantic grounding, selector healing, browser discovery/watchdog, provider discovery and streaming alignment machinery intended to survive changing provider UIs.",
+      "status": "OBSERVED",
+      "lineage": [
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100023",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/backend.md",
+          "location": "Browser Automation / Provider engines",
+          "evidence_kind": "documentation"
+        },
+        {
+          "id": "EV-100024",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/docs/runbooks/providers.md",
+          "location": "8-Phase Onboarding Pipeline / Parser System",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Provider",
+          "Healing",
+          "Discovery"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS7"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing",
+          "Forge/Composition/Healing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-020105"
+      ],
+      "enables": [
+        "SI-050108",
+        "SI-030106"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "HARVEST-CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-02",
+      "metrics": {
+        "id": "SI-020106",
+        "subject": {
+          "kind": "healing",
+          "name": "Discovery/healing/semantic browser machinery"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 2,
+        "downstream_journey_reach": 2,
+        "destination_vertical_slice_reach": 1,
+        "downstream_vertical_slice_reach": 1,
+        "downstream_workstream_reach": 2,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "HARVEST-CANDIDATE",
+        "lineage": [
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-020107",
+      "subject": {
+        "kind": "surface",
+        "name": "Legacy canvas/workspace/unified-entry behavior"
+      },
+      "claim": "Destination evidence explicitly cites legacy CanvasEngine, LivingCanvas, UnifiedEntry, SessionStateProvider, workspaces/presets/adaptive behavior and project/conversation organization as high-value behavioral harvest.",
+      "status": "OBSERVED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100025",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "d7db5011d0d99ae73cdb86f35f2d527f5804d37a"
+          },
+          "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md",
+          "location": "§4 Existing VIVIM mine evidence / §17 Harvest matrix",
+          "evidence_kind": "documentation"
+        },
+        {
+          "id": "EV-100026",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md",
+          "location": "§5 Legacy VIVIM evidence to harvest",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "World",
+          "Workspace",
+          "Canvas",
+          "Universal Entry"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J2",
+          "J3",
+          "J5",
+          "J6"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS2",
+          "VS3",
+          "VS5"
+        ],
+        "keystones": [
+          "World/Workspace/Canvas"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-04",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [
+        "SI-040102",
+        "SI-040103",
+        "SI-040104"
+      ],
+      "maturity": {
+        "existence": "OBSERVED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "HARVEST-CANDIDATE",
+        "complexity": 9
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": false,
+      "research_role": "SI-02",
+      "metrics": {
+        "id": "SI-020107",
+        "subject": {
+          "kind": "surface",
+          "name": "Legacy canvas/workspace/unified-entry behavior"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 1,
+        "transitive_dependents": 1,
+        "destination_journey_reach": 5,
+        "downstream_journey_reach": 5,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 4,
+        "downstream_workstream_reach": 2,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 0,
+        "complexity": 9,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "HARVEST-CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-030101",
+      "subject": {
+        "kind": "architecture-lineage",
+        "name": "Standalone Ω all-plugin baseline"
+      },
+      "claim": "Standalone vivim-omega describes the fresh Ω build as one boring loader plus five boot laws, with constitution, storage and runtime moved behind plugin boundaries.",
+      "status": "OBSERVED",
+      "lineage": [
+        "STANDALONE-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100027",
+          "source": {
+            "lineage": "STANDALONE-OMEGA",
+            "repository": "owenservera/vivim-omega",
+            "ref": "main",
+            "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+          },
+          "path": "README.md",
+          "location": "What this is / Ω laws / Layout",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Plugin",
+          "Ω Runtime",
+          "Composition"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J3",
+          "J7",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS3",
+          "VS6",
+          "VS8"
+        ],
+        "keystones": [
+          "Ω Runtime/Plugin/Capability"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-05",
+          "P1-02"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [
+        "SI-010101",
+        "SI-010102"
+      ],
+      "maturity": {
+        "existence": "OBSERVED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "HISTORICAL-REFERENCE",
+        "complexity": 9
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": false,
+      "research_role": "SI-03",
+      "metrics": {
+        "id": "SI-030101",
+        "subject": {
+          "kind": "architecture-lineage",
+          "name": "Standalone Ω all-plugin baseline"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 3,
+        "transitive_dependents": 10,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 8,
+        "proof_dependency_reach": 9,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 9,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "HISTORICAL-REFERENCE",
+        "lineage": [
+          "STANDALONE-OMEGA"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-030102",
+      "subject": {
+        "kind": "realization",
+        "name": "Standalone provider-browser was fixture-first"
+      },
+      "claim": "Standalone Ω provider-browser was explicitly fixture-based, with live CDP described as owner-machine-only future work; this is the direct upstream predecessor of the current BCP live branch.",
+      "status": "OBSERVED",
+      "lineage": [
+        "STANDALONE-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100028",
+          "source": {
+            "lineage": "STANDALONE-OMEGA",
+            "repository": "owenservera/vivim-omega",
+            "ref": "main",
+            "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+          },
+          "path": "plugins/provider-browser/src/index.ts",
+          "location": "module header / Ops exposed",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100029",
+          "source": {
+            "lineage": "STANDALONE-OMEGA",
+            "repository": "owenservera/vivim-omega",
+            "ref": "main",
+            "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+          },
+          "path": "plugins/provider-browser/plugin.json",
+          "location": "provider.browser manifest",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Provider",
+          "Session",
+          "Realization"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS7"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [
+        "SI-030106"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE",
+        "destination": "HISTORICAL-REFERENCE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-03",
+      "metrics": {
+        "id": "SI-030102",
+        "subject": {
+          "kind": "realization",
+          "name": "Standalone provider-browser was fixture-first"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 1,
+        "transitive_dependents": 6,
+        "destination_journey_reach": 2,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 7,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "CODE",
+        "destination_maturity": "HISTORICAL-REFERENCE",
+        "lineage": [
+          "STANDALONE-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-030103",
+      "subject": {
+        "kind": "decision-lineage",
+        "name": "D-418 / D-456 Chrome-only v1 sequencing"
+      },
+      "claim": "Ω decisions deliberately superseded AI-API/local-model sequencing with Chrome master/slave as the shippable v1 substrate; historical API paths remain lineage evidence, not current v1 target.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA",
+        "STANDALONE-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100030",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+          "location": "Architecture laws / D-418 and D-456 v1 substrate",
+          "evidence_kind": "decision"
+        },
+        {
+          "id": "EV-100031",
+          "source": {
+            "lineage": "STANDALONE-OMEGA",
+            "repository": "owenservera/vivim-omega",
+            "ref": "main",
+            "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+          },
+          "path": "docs/decisions/CURRENT-INVARIANTS.md",
+          "location": "Shippable-v1 fence and Chrome-only decision",
+          "evidence_kind": "decision"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Provider",
+          "Realization",
+          "Routing"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS7"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-030101"
+      ],
+      "enables": [
+        "SI-030106",
+        "SI-050108"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "VERIFIED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-03",
+      "metrics": {
+        "id": "SI-030103",
+        "subject": {
+          "kind": "decision-lineage",
+          "name": "D-418 / D-456 Chrome-only v1 sequencing"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 1,
+        "transitive_dependents": 6,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 7,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "VERIFIED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA",
+          "STANDALONE-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-030104",
+      "subject": {
+        "kind": "intent-lineage",
+        "name": "D-411 intent evolution"
+      },
+      "claim": "Ω moved canonical intent from proposed contract vocabulary into a current law-backed persistence seam with payload hash and explicit resolution rows.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100032",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+          "location": "Core Phase seam laws — Canonical intent D-411",
+          "evidence_kind": "decision"
+        },
+        {
+          "id": "EV-100033",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/contracts/src/intent.ts",
+          "location": "Intent contract",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Intent",
+          "Evidence"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J4",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS0",
+          "VS3",
+          "VS4",
+          "VS6"
+        ],
+        "keystones": [
+          "Intent/Context/Interaction"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-04",
+          "P1-06"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-030101"
+      ],
+      "enables": [
+        "SI-010105"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "VERIFIED",
+        "destination": "CANDIDATE",
+        "complexity": 9
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-03",
+      "metrics": {
+        "id": "SI-030104",
+        "subject": {
+          "kind": "intent-lineage",
+          "name": "D-411 intent evolution"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 4,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 4,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 0,
+        "complexity": 9,
+        "proof": "VERIFIED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-030105",
+      "subject": {
+        "kind": "evolution",
+        "name": "Ω evolution from core seam laws to substrate chain"
+      },
+      "claim": "Recent Ω history shows a deliberate progression from core intent/identity through vault durability, policy, context, privacy, invocation, standing, liveness, delegation and adaptation governance.",
+      "status": "OBSERVED",
+      "lineage": [
+        "STANDALONE-OMEGA",
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100034",
+          "source": {
+            "lineage": "STANDALONE-OMEGA",
+            "repository": "owenservera/vivim-omega",
+            "ref": "main",
+            "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+          },
+          "path": "docs/decisions/CURRENT-INVARIANTS.md",
+          "location": "Core Phase / Omega Forge / Ω-DEV / program law sections",
+          "evidence_kind": "decision"
+        },
+        {
+          "id": "EV-100035",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/genome/layers.json",
+          "location": "layers array and lineage metadata",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Evolution",
+          "Law",
+          "Evidence",
+          "Plugin"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J4",
+          "J7",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS4",
+          "VS6",
+          "VS8"
+        ],
+        "keystones": [
+          "Authority/Law/Consent",
+          "Forge/Composition/Healing",
+          "Vault/Evidence/Provenance"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-05",
+          "P1-06",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-030101",
+        "SI-010103",
+        "SI-010104"
+      ],
+      "enables": [
+        "SI-010106",
+        "SI-010107",
+        "SI-040105"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 8
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": false,
+      "research_role": "SI-03",
+      "metrics": {
+        "id": "SI-030105",
+        "subject": {
+          "kind": "evolution",
+          "name": "Ω evolution from core seam laws to substrate chain"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 1,
+        "transitive_dependents": 1,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 4,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 5,
+        "downstream_workstream_reach": 4,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 0,
+        "complexity": 8,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "STANDALONE-OMEGA",
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-030106",
+      "subject": {
+        "kind": "realization",
+        "name": "BCP provider-browser live divergence"
+      },
+      "claim": "BCP provider-browser now contains an explicit live ChatGPT mode using localhost CDP, exact composer read-back, one click, response capture, pinned parsing and existing message.send@1 output; the handoff still marks owner-side M4 live proof as pending.",
+      "status": "OBSERVED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100036",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "599a0ddbce7597ecb6ed61217914b9fa794f5971"
+          },
+          "path": "omega-baseline/omega-final/plugins/provider-browser/plugin.json",
+          "location": "description — explicit fixture and live ChatGPT modes",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100037",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "6dc53b2e39a2f47c35761d590ba247eca339a934"
+          },
+          "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+          "location": "module header and browser.attach@1 live descriptor",
+          "evidence_kind": "implementation"
+        },
+        {
+          "id": "EV-100038",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "4163194e7573fa2b1339bcb440b08819404cb068"
+          },
+          "path": "P1-08 / WS-008 — PHASE-1-HANDOFF-PACKAGE",
+          "location": "§1 Executive result; §7 invariant checklist",
+          "evidence_kind": "documentation",
+          "note": "M4 owner-side run is explicitly pending"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Provider",
+          "Session",
+          "Realization",
+          "Evidence"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS7"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing",
+          "Forge/Composition/Healing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-030102",
+        "SI-030103"
+      ],
+      "enables": [
+        "SI-050102",
+        "SI-050103",
+        "SI-050108"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE+TEST;NO-LIVE-RUN",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "authenticated Chrome owner-run result",
+        "full runtime gate on owner machine"
+      ],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-03",
+      "metrics": {
+        "id": "SI-030106",
+        "subject": {
+          "kind": "realization",
+          "name": "BCP provider-browser live divergence"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 4,
+        "transitive_dependents": 5,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 6,
+        "external_reality_exposure": true,
+        "uncertainty_count": 2,
+        "complexity": 10,
+        "proof": "CODE+TEST;NO-LIVE-RUN",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 3
+      }
+    },
+    {
+      "id": "SI-030107",
+      "subject": {
+        "kind": "forge",
+        "name": "Ω Forge mine/harvest boundary"
+      },
+      "claim": "Ω explicitly separates Forge/mining from product implementation: source material is hash-pinned and generalized artifacts retain provenance and generality rather than becoming invisible copied code.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "id": "EV-100039",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+          "location": "Omega Forge constitution D-404–D-406",
+          "evidence_kind": "decision"
+        },
+        {
+          "id": "EV-100040",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "main",
+            "commit": "05464e085122a173d1f093612292336750436c7e"
+          },
+          "path": "omega-baseline/omega-final/genome/layers.json",
+          "location": "GeneralityStamp / layer registry metadata",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [
+          "Forge",
+          "Evidence",
+          "Evolution"
+        ],
+        "requirements": [],
+        "journeys": [
+          "J7",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS6",
+          "VS7",
+          "VS8"
+        ],
+        "keystones": [
+          "Forge/Composition/Healing",
+          "Vault/Evidence/Provenance"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-030105",
+        "SI-010103"
+      ],
+      "enables": [
+        "SI-020106"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "VERIFIED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-03",
+      "metrics": {
+        "id": "SI-030107",
+        "subject": {
+          "kind": "forge",
+          "name": "Ω Forge mine/harvest boundary"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 2,
+        "downstream_journey_reach": 2,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 3,
+        "downstream_workstream_reach": 1,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "VERIFIED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-040101",
+      "subject": {
+        "kind": "product",
+        "name": "VIVIM Product Instance"
+      },
+      "claim": "Destination characterization defines a persistent single-user environment boundary joining installation lifecycle, durable world, active Ω composition and product surface; this is not yet assembled in code.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md §1–4",
+          "location": "VIVIM-PRODUCT-INSTANCE-CORE.md §1–4",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J2",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS5",
+          "VS8"
+        ],
+        "keystones": [
+          "Vault/Evidence/Provenance",
+          "Ω Runtime/Plugin/Capability"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-04",
+          "P1-05",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010103",
+        "SI-010101",
+        "SI-010107"
+      ],
+      "enables": [
+        "SI-040102",
+        "SI-040103",
+        "SI-040105",
+        "SI-040106"
+      ],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROPOSED",
+        "complexity": null
+      },
+      "unknowns": [
+        "instance identity and product-owned durable-data contract"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-04",
+      "metrics": {
+        "id": "SI-040101",
+        "subject": {
+          "kind": "product",
+          "name": "VIVIM Product Instance"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 3,
+        "transitive_dependents": 3,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 4,
+        "proof_dependency_reach": 4,
+        "external_reality_exposure": true,
+        "uncertainty_count": 1,
+        "complexity": null,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "PROPOSED",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-040102",
+      "subject": {
+        "kind": "world",
+        "name": "World projection"
+      },
+      "claim": "Destination world reconciliation requires canonical things/relationships projected from evidence into spaces and surfaces; legacy and Ω provide ingredients but not one complete product projection.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2–5, §11",
+          "location": "WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2–5, §11",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J2",
+          "J3",
+          "J5",
+          "J6"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS2",
+          "VS3",
+          "VS5"
+        ],
+        "keystones": [
+          "Ontology/World Identity",
+          "World/Workspace/Canvas"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-04",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010103",
+        "SI-010107",
+        "SI-020104"
+      ],
+      "enables": [
+        "SI-040103",
+        "SI-040105",
+        "SI-040106"
+      ],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": null
+      },
+      "unknowns": [
+        "breadth of supported product domains",
+        "canonical relationship mechanism"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-04",
+      "metrics": {
+        "id": "SI-040102",
+        "subject": {
+          "kind": "world",
+          "name": "World projection"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 2,
+        "transitive_dependents": 2,
+        "destination_journey_reach": 5,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 3,
+        "external_reality_exposure": false,
+        "uncertainty_count": 2,
+        "complexity": null,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-040103",
+      "subject": {
+        "kind": "surface",
+        "name": "Space / workspace / canvas projection"
+      },
+      "claim": "The destination explicitly separates world truth from space/workspace/canvas representation; legacy provides rich behavioral evidence while Ω provides projection-oriented layout/surface primitives.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2, §7–8, §17",
+          "location": "WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2, §7–8, §17",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J2",
+          "J3",
+          "J6"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS3",
+          "VS5"
+        ],
+        "keystones": [
+          "World/Workspace/Canvas"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-04",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-040102",
+        "SI-010107",
+        "SI-020107"
+      ],
+      "enables": [
+        "SI-040106"
+      ],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": null
+      },
+      "unknowns": [
+        "exact durable mapping between canonical thing and spatial instance"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-04",
+      "metrics": {
+        "id": "SI-040103",
+        "subject": {
+          "kind": "surface",
+          "name": "Space / workspace / canvas projection"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 4,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 3,
+        "downstream_workstream_reach": 2,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 1,
+        "complexity": null,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-040104",
+      "subject": {
+        "kind": "interaction",
+        "name": "Universal interaction surface"
+      },
+      "claim": "Ω provides deterministic NLCL/intent contracts while the destination requires one human-facing entry that operates on world context, capabilities and authority without exposing architecture.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md §9 / destination interaction docs",
+          "location": "VIVIM-PRODUCT-INSTANCE-CORE.md §9 / destination interaction docs",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J4",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS4",
+          "VS6"
+        ],
+        "keystones": [
+          "Intent/Context/Interaction"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-04",
+          "P1-05",
+          "P1-06"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010105",
+        "SI-010107",
+        "SI-020101"
+      ],
+      "enables": [
+        "SI-050104"
+      ],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": null
+      },
+      "unknowns": [
+        "whole-world addressing and ordinary-user error/approval UX"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-04",
+      "metrics": {
+        "id": "SI-040104",
+        "subject": {
+          "kind": "interaction",
+          "name": "Universal interaction surface"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 1,
+        "transitive_dependents": 1,
+        "destination_journey_reach": 5,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 4,
+        "proof_dependency_reach": 2,
+        "external_reality_exposure": false,
+        "uncertainty_count": 1,
+        "complexity": null,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-040105",
+      "subject": {
+        "kind": "work",
+        "name": "Durable work and continuity"
+      },
+      "claim": "Destination requires requested→planned→running→waiting→outcome→remembered work semantics and a return-to-user experience; current run/director substrates do not constitute the full product loop.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/MATURITY-AND-GAPS.md §4 G6–G8; VIVIM-PRODUCT-INSTANCE-CORE.md §6, §11",
+          "location": "MATURITY-AND-GAPS.md §4 G6–G8; VIVIM-PRODUCT-INSTANCE-CORE.md §6, §11",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J4",
+          "J6",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS4",
+          "VS5",
+          "VS6",
+          "VS7"
+        ],
+        "keystones": [
+          "Durable Work/Agent/Automation",
+          "Attention/Continuity"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-04",
+          "P1-06",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010106",
+        "SI-010103",
+        "SI-010105"
+      ],
+      "enables": [
+        "SI-040106"
+      ],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "PROPOSED",
+        "complexity": null
+      },
+      "unknowns": [
+        "canonical work identity and durable checkpoint/attention semantics"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-04",
+      "metrics": {
+        "id": "SI-040105",
+        "subject": {
+          "kind": "work",
+          "name": "Durable work and continuity"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 2,
+        "transitive_dependents": 2,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 3,
+        "external_reality_exposure": true,
+        "uncertainty_count": 1,
+        "complexity": null,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "PROPOSED",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-040106",
+      "subject": {
+        "kind": "provider",
+        "name": "Provider/account user journey"
+      },
+      "claim": "Destination provider/account reconciliation requires capability→realizations→account/model/session→routing policy→authorized work→realization evidence; legacy covers much of the middle but Ω lacks a complete user-owned account experience.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md §1–3; VIVIM-PRODUCT-INSTANCE-CORE.md §10",
+          "location": "PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md §1–3; VIVIM-PRODUCT-INSTANCE-CORE.md §10",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J5",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS5",
+          "VS8"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-050101",
+        "SI-050108",
+        "SI-030106"
+      ],
+      "enables": [
+        "SI-040105"
+      ],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": null
+      },
+      "unknowns": [
+        "canonical Account object and durable routing policy"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-04",
+      "metrics": {
+        "id": "SI-040106",
+        "subject": {
+          "kind": "provider",
+          "name": "Provider/account user journey"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 1,
+        "transitive_dependents": 1,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 2,
+        "external_reality_exposure": false,
+        "uncertainty_count": 1,
+        "complexity": null,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-040107",
+      "subject": {
+        "kind": "program",
+        "name": "Vertical-slice convergence bridge"
+      },
+      "claim": "The destination registry defines VS0–VS8 around intent→world/context→capability→routing/authority→work→evidence→user result; these slices are the primary integration test of the reconstructed system.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/VERTICAL-SLICE-REGISTRY.md §2–4",
+          "location": "VERTICAL-SLICE-REGISTRY.md §2–4",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J2",
+          "J3",
+          "J4",
+          "J5",
+          "J6",
+          "J7",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS0",
+          "VS1",
+          "VS2",
+          "VS3",
+          "VS4",
+          "VS5",
+          "VS6",
+          "VS7",
+          "VS8"
+        ],
+        "keystones": [
+          "Vault/Evidence/Provenance",
+          "Ontology/World Identity",
+          "Ω Runtime/Plugin/Capability",
+          "Provider/Account/Realization/Routing",
+          "Durable Work/Agent/Automation",
+          "World/Workspace/Canvas"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-040101",
+        "SI-040102",
+        "SI-040104",
+        "SI-040105",
+        "SI-040106"
+      ],
+      "enables": [],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": null
+      },
+      "unknowns": [
+        "exact acceptance/proof for each slice"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-04",
+      "metrics": {
+        "id": "SI-040107",
+        "subject": {
+          "kind": "program",
+          "name": "Vertical-slice convergence bridge"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 8,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 9,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 1,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 1,
+        "complexity": null,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-050101",
+      "subject": {
+        "kind": "boundary",
+        "name": "Provider ↔ Account"
+      },
+      "claim": "A Provider identifies an external service class while Account identifies a user's relationship within that provider; Legacy has the concrete relationship but Ω destination still needs a first-class account model.",
+      "status": "OBSERVED",
+      "lineage": [
+        "LEGACY-VIVIM",
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+          "location": "ProviderAccount",
+          "evidence_kind": "implementation"
+        },
+        {
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md",
+          "location": "§1–3",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J5",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS5",
+          "VS8"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-020102"
+      ],
+      "enables": [
+        "SI-050102",
+        "SI-050108"
+      ],
+      "maturity": {
+        "existence": "PARTIAL",
+        "product": "PARTIAL",
+        "proof": "CODE+DOCUMENTED",
+        "destination": "UNSCOPED",
+        "complexity": 10
+      },
+      "unknowns": [
+        "canonical Omega Account object",
+        "durable authentication/profile semantics"
+      ],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-05",
+      "metrics": {
+        "id": "SI-050101",
+        "subject": {
+          "kind": "boundary",
+          "name": "Provider ↔ Account"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 4,
+        "transitive_dependents": 5,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 6,
+        "external_reality_exposure": true,
+        "uncertainty_count": 2,
+        "complexity": 10,
+        "proof": "CODE+DOCUMENTED",
+        "destination_maturity": "UNSCOPED",
+        "lineage": [
+          "LEGACY-VIVIM",
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-050102",
+      "subject": {
+        "kind": "boundary",
+        "name": "Account ↔ Session ↔ Browser"
+      },
+      "claim": "Legacy separates ProviderSession and ProfileSession; current provider-browser has an explicit live browser session mode. No evidence yet establishes one canonical Ω lifecycle for authentication, expiry, reconnect and account choice.",
+      "status": "OBSERVED",
+      "lineage": [
+        "LEGACY-VIVIM",
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+          "location": "ProviderSession/ProfileSession",
+          "evidence_kind": "implementation"
+        },
+        {
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+          "location": "live session descriptor",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS7"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-050101",
+        "SI-030106"
+      ],
+      "enables": [
+        "SI-050103"
+      ],
+      "maturity": {
+        "existence": "PARTIAL",
+        "product": "PARTIAL",
+        "proof": "CODE+DOCUMENTED",
+        "destination": "UNSCOPED",
+        "complexity": 10
+      },
+      "unknowns": [
+        "authentication ownership",
+        "session expiry/reconnect",
+        "account selection"
+      ],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-05",
+      "metrics": {
+        "id": "SI-050102",
+        "subject": {
+          "kind": "boundary",
+          "name": "Account ↔ Session ↔ Browser"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 3,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 2,
+        "downstream_workstream_reach": 2,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": true,
+        "uncertainty_count": 3,
+        "complexity": 10,
+        "proof": "CODE+DOCUMENTED",
+        "destination_maturity": "UNSCOPED",
+        "lineage": [
+          "LEGACY-VIVIM",
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-050103",
+      "subject": {
+        "kind": "boundary",
+        "name": "Capability ↔ Realization"
+      },
+      "claim": "Current Ω separates routable capability contracts from ProviderRealization records; provider-browser verifies a PROMOTED realization and parser pin before message.send execution.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+          "location": "ProviderRealization",
+          "evidence_kind": "implementation"
+        },
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+          "location": "message.send bars 2–4",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS7"
+        ],
+        "keystones": [
+          "Ω Runtime/Plugin/Capability",
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-05",
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010101",
+        "SI-010104"
+      ],
+      "enables": [
+        "SI-030106",
+        "SI-050104"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE",
+        "destination": "UNSCOPED",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-05",
+      "metrics": {
+        "id": "SI-050103",
+        "subject": {
+          "kind": "boundary",
+          "name": "Capability ↔ Realization"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 1,
+        "transitive_dependents": 3,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 4,
+        "proof_dependency_reach": 4,
+        "external_reality_exposure": true,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "CODE",
+        "destination_maturity": "UNSCOPED",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-050104",
+      "subject": {
+        "kind": "boundary",
+        "name": "Intent ↔ Capability ↔ Authority"
+      },
+      "claim": "Canonical intent persistence, capability resolution and law/consent are separate seams; a root request is not equivalent to permission or execution.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "omega-baseline/omega-final/contracts/src/intent.ts",
+          "location": "Intent/IntentResolution",
+          "evidence_kind": "implementation"
+        },
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-law/plugin.json",
+          "location": "law.check and invoke.check",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J4",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS0",
+          "VS3",
+          "VS4",
+          "VS6"
+        ],
+        "keystones": [
+          "Intent/Context/Interaction",
+          "Authority/Law/Consent"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-04",
+          "P1-06"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010105",
+        "SI-010104"
+      ],
+      "enables": [
+        "SI-050105"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE",
+        "destination": "UNSCOPED",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-05",
+      "metrics": {
+        "id": "SI-050104",
+        "subject": {
+          "kind": "boundary",
+          "name": "Intent ↔ Capability ↔ Authority"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 4,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 4,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "CODE",
+        "destination_maturity": "UNSCOPED",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-050105",
+      "subject": {
+        "kind": "boundary",
+        "name": "Work ↔ Evidence"
+      },
+      "claim": "Current run/work mechanisms and vault revisions can persist execution evidence, but the product needs a single work lifecycle linking request, progress, waiting, outcome and durable history.",
+      "status": "OBSERVED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-run/plugin.json",
+          "location": "run/exec/watch/budget/context",
+          "evidence_kind": "implementation"
+        },
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-vault/plugin.json",
+          "location": "vault append/get/verify",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J4",
+          "J6",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS4",
+          "VS5",
+          "VS6",
+          "VS7"
+        ],
+        "keystones": [
+          "Durable Work/Agent/Automation",
+          "Vault/Evidence/Provenance"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-04",
+          "P1-06",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010103",
+        "SI-010106"
+      ],
+      "enables": [
+        "SI-040105"
+      ],
+      "maturity": {
+        "existence": "PARTIAL",
+        "product": "PARTIAL",
+        "proof": "CODE+DOCUMENTED",
+        "destination": "UNSCOPED",
+        "complexity": 10
+      },
+      "unknowns": [
+        "canonical product Work object",
+        "human review/continuation semantics"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-05",
+      "metrics": {
+        "id": "SI-050105",
+        "subject": {
+          "kind": "boundary",
+          "name": "Work ↔ Evidence"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 4,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 4,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 2,
+        "complexity": 10,
+        "proof": "CODE+DOCUMENTED",
+        "destination_maturity": "UNSCOPED",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-050106",
+      "subject": {
+        "kind": "boundary",
+        "name": "World ↔ Surface"
+      },
+      "claim": "Destination world/canvas reconciliation makes surface a projection of canonical world/evidence; current mind is a bounded derived lens rather than the authoritative world.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-mind/plugin.json",
+          "location": "WorldModel/read-only lens",
+          "evidence_kind": "implementation"
+        },
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md",
+          "location": "§2",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J2",
+          "J3",
+          "J5",
+          "J6"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS2",
+          "VS3",
+          "VS5"
+        ],
+        "keystones": [
+          "Ontology/World Identity",
+          "World/Workspace/Canvas"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-04",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010103",
+        "SI-010107"
+      ],
+      "enables": [
+        "SI-040103"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE+DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "world relationship authority",
+        "spatial identity and hydration"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-05",
+      "metrics": {
+        "id": "SI-050106",
+        "subject": {
+          "kind": "boundary",
+          "name": "World ↔ Surface"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 5,
+        "downstream_journey_reach": 5,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 4,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 2,
+        "complexity": 10,
+        "proof": "CODE+DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-050107",
+      "subject": {
+        "kind": "boundary",
+        "name": "Product Instance ↔ Persistence"
+      },
+      "claim": "Product Instance characterization requires a durable boundary distinct from replaceable binaries and temporary runtime state; current Ω vault is strong but the product wrapper is not assembled.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md",
+          "location": "§2–4,§7,§10",
+          "evidence_kind": "implementation"
+        },
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "omega-baseline/omega-final/plugins/vivim-vault/plugin.json",
+          "location": "data ownership",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS8"
+        ],
+        "keystones": [
+          "Vault/Evidence/Provenance"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-05",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010103"
+      ],
+      "enables": [
+        "SI-040101"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "CODE+DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "instance identity",
+        "config boundary",
+        "replacement/update semantics"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-05",
+      "metrics": {
+        "id": "SI-050107",
+        "subject": {
+          "kind": "boundary",
+          "name": "Product Instance ↔ Persistence"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 2,
+        "downstream_journey_reach": 2,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 2,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 3,
+        "complexity": 10,
+        "proof": "CODE+DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-050108",
+      "subject": {
+        "kind": "boundary",
+        "name": "Provider ↔ Routing"
+      },
+      "claim": "Destination provider reconciliation separates available realizations from user routing policy; Legacy has preference/routing behavior, but current Ω evidence does not prove a complete durable policy object.",
+      "status": "OBSERVED",
+      "lineage": [
+        "LEGACY-VIVIM",
+        "BCP-OMEGA"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+          "location": "Capability resolution → Provider Routing → Execution",
+          "evidence_kind": "implementation"
+        },
+        {
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md",
+          "location": "§1–4",
+          "evidence_kind": "implementation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J5",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS5",
+          "VS8"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-050101",
+        "SI-050103"
+      ],
+      "enables": [
+        "SI-040106"
+      ],
+      "maturity": {
+        "existence": "PARTIAL",
+        "product": "PARTIAL",
+        "proof": "CODE+DOCUMENTED",
+        "destination": "UNSCOPED",
+        "complexity": 10
+      },
+      "unknowns": [
+        "policy shape",
+        "fallback semantics",
+        "user-visible route explanation"
+      ],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-05",
+      "metrics": {
+        "id": "SI-050108",
+        "subject": {
+          "kind": "boundary",
+          "name": "Provider ↔ Routing"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 1,
+        "transitive_dependents": 2,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 8,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 9,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 3,
+        "external_reality_exposure": true,
+        "uncertainty_count": 3,
+        "complexity": 10,
+        "proof": "CODE+DOCUMENTED",
+        "destination_maturity": "UNSCOPED",
+        "lineage": [
+          "LEGACY-VIVIM",
+          "BCP-OMEGA"
+        ],
+        "source_evidence_count": 2
+      }
+    },
+    {
+      "id": "SI-060101",
+      "subject": {
+        "kind": "epistemic",
+        "name": "Implementation is not product proof"
+      },
+      "claim": "Current Ω has strong implemented and tested substrate layers, but destination documents separately classify product maturity, human usability and sovereignty; code existence must not be promoted into product completeness.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA",
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence",
+          "location": "SI-06 evidence synthesis",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS8"
+        ],
+        "keystones": [
+          "Vault/Evidence/Provenance"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-02",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [],
+      "enables": [
+        "SI-060102"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-06",
+      "metrics": {
+        "id": "SI-060101",
+        "subject": {
+          "kind": "epistemic",
+          "name": "Implementation is not product proof"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 2,
+        "downstream_journey_reach": 2,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 2,
+        "downstream_workstream_reach": 2,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 0,
+        "complexity": 10,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA",
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-060102",
+      "subject": {
+        "kind": "proof",
+        "name": "Provider live code still needs live proof"
+      },
+      "claim": "Current BCP provider-browser has an explicit live ChatGPT path, while the P1-08 handoff records owner-side live execution as pending.",
+      "status": "VERIFIED",
+      "lineage": [
+        "BCP-OMEGA",
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence",
+          "location": "SI-06 evidence synthesis",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS7"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-030106"
+      ],
+      "enables": [
+        "SI-050101"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "NO-LIVE-RUN",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "owner-machine Chrome run",
+        "full gate result on owner machine"
+      ],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-06",
+      "metrics": {
+        "id": "SI-060102",
+        "subject": {
+          "kind": "proof",
+          "name": "Provider live code still needs live proof"
+        },
+        "status": "VERIFIED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 3,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 2,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": true,
+        "uncertainty_count": 2,
+        "complexity": 10,
+        "proof": "NO-LIVE-RUN",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA",
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-060103",
+      "subject": {
+        "kind": "gap",
+        "name": "Account/routing canonical gap"
+      },
+      "claim": "Legacy has concrete ProviderAccount and routing behavior, while destination reconciliation names a missing canonical Ω Account/routing bridge; no current evidence proves a complete destination-grade policy object.",
+      "status": "OBSERVED",
+      "lineage": [
+        "BCP-OMEGA",
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence",
+          "location": "SI-06 evidence synthesis",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J3",
+          "J5",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS5",
+          "VS8"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-020102",
+        "SI-050101"
+      ],
+      "enables": [
+        "SI-040106"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "routing policy shape",
+        "account lifecycle",
+        "model selection semantics"
+      ],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-06",
+      "metrics": {
+        "id": "SI-060103",
+        "subject": {
+          "kind": "gap",
+          "name": "Account/routing canonical gap"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 4,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 3,
+        "downstream_workstream_reach": 2,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": true,
+        "uncertainty_count": 3,
+        "complexity": 10,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA",
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-060104",
+      "subject": {
+        "kind": "gap",
+        "name": "World projection breadth"
+      },
+      "claim": "Ω mind is a bounded evidence-derived lens, while destination world reconciliation expects a broader cross-domain world experience; breadth and identity-join rules are not yet proven as one product system.",
+      "status": "OBSERVED",
+      "lineage": [
+        "BCP-OMEGA",
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence",
+          "location": "SI-06 evidence synthesis",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J2",
+          "J3",
+          "J5",
+          "J6"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS2",
+          "VS3",
+          "VS5"
+        ],
+        "keystones": [
+          "Ontology/World Identity",
+          "World/Workspace/Canvas"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-03",
+          "P1-04",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010103",
+        "SI-010107"
+      ],
+      "enables": [
+        "SI-040102"
+      ],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "domain breadth",
+        "identity reconciliation",
+        "projection bounds"
+      ],
+      "conflicts": [],
+      "external_reality": false,
+      "proof_critical": true,
+      "research_role": "SI-06",
+      "metrics": {
+        "id": "SI-060104",
+        "subject": {
+          "kind": "gap",
+          "name": "World projection breadth"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 5,
+        "downstream_journey_reach": 5,
+        "destination_vertical_slice_reach": 4,
+        "downstream_vertical_slice_reach": 4,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": false,
+        "uncertainty_count": 3,
+        "complexity": 10,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA",
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-060105",
+      "subject": {
+        "kind": "frontier",
+        "name": "Product shell / lifecycle"
+      },
+      "claim": "Product Instance characterization identifies native product lifecycle, durable environment, installation/replacement, recovery and coherent surface as work not supplied by Ω runtime alone.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA",
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence",
+          "location": "SI-06 evidence synthesis",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J1",
+          "J8"
+        ],
+        "vertical_slices": [
+          "VS1",
+          "VS8"
+        ],
+        "keystones": [
+          "World/Workspace/Canvas",
+          "Vault/Evidence/Provenance"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-040101",
+        "SI-010103"
+      ],
+      "enables": [
+        "SI-040107"
+      ],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "native shell boundary",
+        "install/update semantics",
+        "OS integration scope"
+      ],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-06",
+      "metrics": {
+        "id": "SI-060105",
+        "subject": {
+          "kind": "frontier",
+          "name": "Product shell / lifecycle"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 2,
+        "downstream_journey_reach": 2,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 2,
+        "downstream_workstream_reach": 1,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": true,
+        "uncertainty_count": 3,
+        "complexity": 10,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA",
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-060106",
+      "subject": {
+        "kind": "frontier",
+        "name": "Desktop and external-world substrate"
+      },
+      "claim": "Browser-mediated external reality is developed, but a general destination model for desktop input, filesystem, native applications, notifications and local-network resources is not yet characterized as one governed substrate.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA",
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence",
+          "location": "SI-06 evidence synthesis",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J4",
+          "J6",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS4",
+          "VS7"
+        ],
+        "keystones": [
+          "Durable Work/Agent/Automation",
+          "Attention/Continuity"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-040101",
+        "SI-010104"
+      ],
+      "enables": [
+        "SI-040105"
+      ],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "desktop control boundary",
+        "resource identity",
+        "secret integration",
+        "notification semantics"
+      ],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-06",
+      "metrics": {
+        "id": "SI-060106",
+        "subject": {
+          "kind": "frontier",
+          "name": "Desktop and external-world substrate"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 4,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 2,
+        "downstream_workstream_reach": 1,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": true,
+        "uncertainty_count": 4,
+        "complexity": 10,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA",
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-060107",
+      "subject": {
+        "kind": "frontier",
+        "name": "Continuity / attention"
+      },
+      "claim": "Destination requires a coherent return-to-user loop for unfinished work, attention, standing intent and recent changes; current Ω run/director/liveness primitives do not establish a product-grade attention model.",
+      "status": "PROPOSED",
+      "lineage": [
+        "BCP-OMEGA",
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence",
+          "location": "SI-06 evidence synthesis",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J2",
+          "J4",
+          "J6",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS4",
+          "VS5",
+          "VS7"
+        ],
+        "keystones": [
+          "Durable Work/Agent/Automation",
+          "Attention/Continuity"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-04",
+          "P1-06",
+          "P1-09"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-010106",
+        "SI-010103",
+        "SI-040105"
+      ],
+      "enables": [
+        "SI-040107"
+      ],
+      "maturity": {
+        "existence": "DOCUMENTED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "attention identity",
+        "interruptions",
+        "notification substrate",
+        "standing-intent interaction"
+      ],
+      "conflicts": [],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-06",
+      "metrics": {
+        "id": "SI-060107",
+        "subject": {
+          "kind": "frontier",
+          "name": "Continuity / attention"
+        },
+        "status": "PROPOSED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 4,
+        "downstream_journey_reach": 4,
+        "destination_vertical_slice_reach": 3,
+        "downstream_vertical_slice_reach": 3,
+        "downstream_workstream_reach": 3,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": true,
+        "uncertainty_count": 4,
+        "complexity": 10,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA",
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    },
+    {
+      "id": "SI-060108",
+      "subject": {
+        "kind": "lineage-conflict",
+        "name": "Governor vs plugin-local CDP"
+      },
+      "claim": "Legacy VIVIM makes ChromeGovernor the sole browser/CDP authority, while current Ω provider-browser uses a plugin-local localhost CDP adapter; this is a deliberate architectural divergence between lineages.",
+      "status": "OBSERVED",
+      "lineage": [
+        "BCP-OMEGA",
+        "LEGACY-VIVIM"
+      ],
+      "evidence": [
+        {
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-archaeology",
+            "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+          },
+          "path": "docs/destination/system-intelligence",
+          "location": "SI-06 evidence synthesis",
+          "evidence_kind": "documentation"
+        }
+      ],
+      "product": {
+        "concepts": [],
+        "requirements": [],
+        "journeys": [
+          "J3",
+          "J5",
+          "J7"
+        ],
+        "vertical_slices": [
+          "VS3",
+          "VS7"
+        ],
+        "keystones": [
+          "Provider/Account/Realization/Routing",
+          "Forge/Composition/Healing"
+        ]
+      },
+      "program": {
+        "workstreams": [
+          "P1-07",
+          "P1-08"
+        ],
+        "delivery_tracks": []
+      },
+      "depends_on": [
+        "SI-020105",
+        "SI-030106"
+      ],
+      "enables": [],
+      "maturity": {
+        "existence": "VERIFIED",
+        "product": "PARTIAL",
+        "proof": "DOCUMENTED",
+        "destination": "CANDIDATE",
+        "complexity": 10
+      },
+      "unknowns": [
+        "future generalized browser authority boundary"
+      ],
+      "conflicts": [
+        "legacy-governor-canon",
+        "current-provider-browser-local-cdp"
+      ],
+      "external_reality": true,
+      "proof_critical": true,
+      "research_role": "SI-06",
+      "metrics": {
+        "id": "SI-060108",
+        "subject": {
+          "kind": "lineage-conflict",
+          "name": "Governor vs plugin-local CDP"
+        },
+        "status": "OBSERVED",
+        "direct_dependents": 0,
+        "transitive_dependents": 0,
+        "destination_journey_reach": 3,
+        "downstream_journey_reach": 3,
+        "destination_vertical_slice_reach": 2,
+        "downstream_vertical_slice_reach": 2,
+        "downstream_workstream_reach": 2,
+        "proof_dependency_reach": 1,
+        "external_reality_exposure": true,
+        "uncertainty_count": 1,
+        "complexity": 10,
+        "proof": "DOCUMENTED",
+        "destination_maturity": "CANDIDATE",
+        "lineage": [
+          "BCP-OMEGA",
+          "LEGACY-VIVIM"
+        ],
+        "source_evidence_count": 1
+      }
+    }
+  ]
+}
