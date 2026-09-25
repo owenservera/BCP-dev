@@ -1,0 +1,1 @@
+{"status":"DESIGN-CANDIDATE","primitives":["Work","Plan","Step","Attempt","Trigger","Automation","Wake","Capability","Evidence","Verification","ResourceLease","HumanGate","AgentDefinition","Artifact","AttentionProjection"],"rejectedRoots":["Agent","Run","Scheduler","Surface"]}

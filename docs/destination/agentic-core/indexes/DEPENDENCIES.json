@@ -1,0 +1,1 @@
+{"edges":[["Trigger","Work"],["Work","Plan"],["Plan","Step"],["Step","Capability"],["Capability","Authority"],["Attempt","Checkpoint"],["Checkpoint","Evidence"],["Evidence","World"],["World","Attention"],["Work","Attention"],["Work","ResourceLease"],["Work","Wake"],["Work","HumanGate"]],"keystone":["Work","Capability","Authority","Evidence","Temporal/Wake","World","Attention"]}

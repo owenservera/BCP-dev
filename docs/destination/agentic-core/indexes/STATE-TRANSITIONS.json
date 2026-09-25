@@ -1,0 +1,1 @@
+{"workStates":["DRAFT","VALIDATING","WAITING_AUTHORITY","QUEUED","RUNNING","WAITING_RESOURCE","WAITING_EXTERNAL","WAITING_HUMAN","VERIFYING","RETRY_WAIT","RECONCILING","SUCCEEDED","FAILED","REFUSED","CANCEL_REQUESTED","CANCELLED"],"invariant":"every transition has fromState,event,guard,toState and evidence/effect requirements"}
