@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { openGitCommons } from "./bootstrap.js";
 import { whoNeedsAttention } from "./who-needs-attention.js";
+import { detectLocalSessionCapabilities } from "./session-capabilities.js";
 
 const [command, ...args] = process.argv.slice(2);
 const repoRoot = process.env.COMMONS_REPO_ROOT ?? process.cwd();
@@ -16,6 +17,11 @@ if (command === "who-needs-attention") {
     process.exit(2);
   }
   console.log(JSON.stringify(await whoNeedsAttention({repoRoot, staleAfterMs: staleHours * 60 * 60 * 1000}), null, 2));
+  process.exit(0);
+}
+
+if (command === "capabilities") {
+  console.log(JSON.stringify(await detectLocalSessionCapabilities(repoRoot, agentHome), null, 2));
   process.exit(0);
 }
 
@@ -43,6 +49,6 @@ switch (command) {
     console.log(JSON.stringify(await commons.flush(), null, 2));
     break;
   default:
-    console.error("Commands: inbox | history <conversation> | publish <text> | presence <state> | flush | who-needs-attention [--stale-hours N]");
+    console.error("Commands: capabilities | inbox | history <conversation> | publish <text> | presence <state> | flush | who-needs-attention [--stale-hours N]");
     process.exit(2);
 }
