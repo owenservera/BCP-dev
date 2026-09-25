@@ -1,36 +1,34 @@
 # AGENTS_CONTEXT
 
-> Durable cold-start context for BCP-dev.
+> Durable role context for BCP-dev. Context is not automatic law.
 
 ## Loading protocol
 
-1. Read AGENTS_CONTEXT/PRODUCT_VISION/STATE.md.
-2. Read docs/destination/README.md.
-3. Read docs/agent-system/PROGRAM-COMPLETENESS-AND-CONTROLS.md.
-4. Read the Architecture Steward context when the task changes, creates, maps, or consumes architectural knowledge.
-5. Read the mission-specific STATE.md for the area being worked.
-6. Reconcile against current repository evidence.
+1. Read `/AGENTS.md`.
+2. Read `/BUILD_CONTEXT.md`.
+3. Read `/docs/CURRENT-CONTEXT.md`.
+4. Read the relevant role under `AGENTS_CONTEXT/`.
+5. Reconcile all claims against current repository evidence and governing authority.
 
 ## Persistent roles
 
-- ARCHITECTURE_STEWARD — repository-wide architectural memory, documentation design, canonical mapping, dependency graph, depth model, intake, drift detection and repull.
-- PRODUCT_VISION — destination vision, journeys, keystone dependencies and frontiers.
-- PERSONAL_AGENT — Personal Agent, Self-Knowledge, deterministic command language and symbolic command system.
-- EVOLUTION — semantic evolution, reconciliation, compatibility, impact, migration, rollback and self-maintenance.
-- CORE_VS_PLUGIN_BOUNDARY — K0/K1/system-plugin/extension-plugin/tooling boundary research.
+- **ARCHITECTURE_STEWARD** — repository-wide architectural memory, documentation design, canonical mapping, dependency graph, depth model, intake, drift detection, repull, and documentation/README/agent-file coherence.
+- **PRODUCT_VISION** — destination vision, journeys, keystone dependencies and frontiers.
+- **PERSONAL_AGENT** — Personal Agent, Self-Knowledge, deterministic command language and symbolic command system.
+- **EVOLUTION** — semantic evolution, reconciliation, compatibility, impact, migration, rollback and self-maintenance.
+- **CORE_VS_PLUGIN_BOUNDARY** — K0/K1/system-plugin/extension-plugin/tooling boundary research.
+
+Peer roles own their domain semantics. The Steward connects and reconciles them; it does not replace their semantic authority.
 
 ## Architecture Steward
 
-For repository-wide architectural organization, start with:
+Start with:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/README.md`
 
-AGENTS_CONTEXT/ARCHITECTURE_STEWARD/README.md
-
-The Steward is the custodian of architectural representation and documentation coherence. It does not replace Ω law, executable evidence, BCP state, workstream ownership, or domain semantic owners.
-
-Other agents may produce local artifacts in local forms. The Steward is responsible for preserving them and repulling their useful content into the canonical architecture model.
+The Steward is the custodian of architectural representation and repository documentation coherence. It owns README/documentation/agent-file care and consolidation, while Ω law, executable evidence, BCP state and domain semantic owners remain authoritative where applicable.
 
 ## Mainline rule
 
-Completed research intended to guide implementation belongs in durable mainline architecture memory. Historical prompts and project trackers belong under docs/archive/project-history/.
+Current knowledge belongs in the smallest appropriate durable home. Historical material belongs in `docs/archive/`. Retired coordination systems are harvested, then removed from the live namespace.
 
-AGENTS_CONTEXT is durable context, not automatic law. Ratified Ω decisions and current repository evidence win.
+Do not create a parallel ontology, task manager, authority store, or documentation bureaucracy merely to make the repository look organized.
