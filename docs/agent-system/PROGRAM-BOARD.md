@@ -373,6 +373,44 @@ The destination is now tracked with a separate dependency/complexity lens in:
 
 **Program rule:** a high-centrality dependency with low maturity is active BUILD work; a high-centrality dependency with high maturity is PROTECT/COMPOSE work. L-1 frontiers require characterization before implementation.
 
+### Program completeness controls
+
+The program architecture is now mapped, but the management loop still has explicit gaps. The canonical control model is documented in:
+
+`docs/agent-system/PROGRAM-COMPLETENESS-AND-CONTROLS.md`
+
+The seven controls that matter most are:
+
+| Control | Current state | Priority |
+|---|---|---:|
+| **Requirements → evidence traceability** | Missing | 1 |
+| **Dependency-level maturity acceptance criteria** | Partial | 2 |
+| **Vertical-slice registry** | Missing | 3 |
+| **Single ownership for D1/D2 product outcomes** | Missing | 4 |
+| **L-1 research-frontier intake** | Newly identified | 5 |
+| **Product-readiness gate separate from omega:gate** | Missing | 6 |
+| **Dependency-change impact/revalidation rule** | Missing | 7 |
+
+Two critical paths must remain visible:
+
+```
+PROOF PATH
+P1-08 → P1-06 → P1-07 → P1-09
+
+DESTINATION PATH
+product environment
+→ world
+→ interaction
+→ provider/account
+→ work
+→ continuity
+→ evolution
+```
+
+Do not treat the first as proof that the second is complete.
+
+**Immediate program move:** close V0 live proof while preparing the minimum vertical-slice/traceability controls for the first post-V0 product outcome.
+
 ### Current destination state
 
 **Completed:** destination foundation; provider/account/routing mapping; world/workspace/canvas mapping; interaction/intent/work mapping; agency/background/attention mapping; data/memory/context mapping; Forge/composition/evolution mapping.
