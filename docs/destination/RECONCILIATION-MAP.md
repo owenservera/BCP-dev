@@ -567,3 +567,26 @@ The evidence now supports a mapping/build sequence:
 5. only then write the final end-state blueprint from the mapped system.
 
 The final blueprint should therefore be a **synthesis of existing evidence plus explicit gaps**, not a new architecture invented after reading the repository.
+
+## 14. Cross-cutting evolution and self-maintenance boundary
+
+The current reconciliation map should now be read with one additional invariant:
+
+> A destination component is not fully reconciled until its behavior under **change** is understood.
+
+For each major concept, the program must eventually answer:
+
+```
+what is its identity?
+what can change?
+what may change automatically?
+what requires authority?
+what remains compatible?
+what becomes stale?
+what happens to active Work?
+what happens to evidence?
+how is rollback/reconstruction performed?
+what does the user need to know?
+```
+
+The dedicated evolution design at `EVOLUTION-RECONCILIATION.md` supplies the cross-cutting vocabulary. Its deeper research package must consume the existing World/Object, Work, Product Instance, Forge, Provider Intelligence, Self-Knowledge, vault, evidence, and destination dependency artifacts rather than inventing parallel subsystems.
