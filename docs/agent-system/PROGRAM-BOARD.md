@@ -44,7 +44,34 @@ Complexity can change after research. Never convert it into a schedule estimate 
 
 ---
 
-## 2. Current program state
+## 3. Current program state
+
+## 2. Practical product view
+
+The architectural P1 list is intentionally retained. It is the **architecture/proof lens**.
+
+For product management, read:
+`docs/agent-system/PRODUCT-DELIVERY-MAP.md`
+
+That file provides the orthogonal **delivery lens**:
+
+- D1 Sovereign Product Foundation
+- D2 AI Data & Workspace
+- D3 Governed AI Action
+- D4 Provider Network & Healing
+- D5 Self-Knowledge & Evolution
+- D6 Trust, Proof & Delivery Control
+
+The important missing ownership exposed by this lens is the actual **user product surface and user-data lifecycle**. P1-10 is the program observatory, not the VIVIM product UI. P1-08's current `message.send@1` implementation is a Phase-1 vehicle, not a declaration that Forge owns long-term product execution.
+
+### Phase distinction
+
+**V0 / Phase-1:** prove that the governed system can perform one real action honestly.
+
+**Post-V0:** move from architecture/proof convergence into explicit product outcomes: install/use locally → bring in AI history → work in a unified workspace → act across providers → survive provider change → become self-describing/extensible.
+
+Do not create implementation work for these post-V0 outcomes until their minimum vertical slices have been researched and given an owner.
+
 
 ### The immediate critical path
 
@@ -78,7 +105,7 @@ Do not create new portfolio work merely because another workstream has interesti
 
 ---
 
-## 3. Master workstream board
+## 4. Master workstream board
 
 | WS | Workstream | Current state | Current milestone | Complexity | Key dependencies | Next action |
 |---|---|---|---|---|---|---|
@@ -95,7 +122,7 @@ Do not create new portfolio work merely because another workstream has interesti
 
 ---
 
-## 4. Milestone map
+## 5. Milestone map
 
 Milestones here are **management milestones**. Detailed evidence and acceptance criteria remain in the workstream files.
 
@@ -216,7 +243,7 @@ Milestones here are **management milestones**. Detailed evidence and acceptance 
 
 ---
 
-## 5. Dependency map
+## 6. Dependency map
 
 ### Hard dependency chain for current Phase-1 proof
 
@@ -252,7 +279,7 @@ More precisely:
 
 ---
 
-## 6. Program health
+## 7. Program health
 
 | Area | Current read |
 |---|---|
@@ -266,7 +293,7 @@ More precisely:
 
 ---
 
-## 7. Lightweight operating rule
+## 8. Lightweight operating rule
 
 A management state change should update **this board + the affected workstream row**.
 
@@ -294,7 +321,7 @@ Future milestones can remain visible without becoming simultaneous work.
 
 ---
 
-## 8. Update history
+## 9. Update history
 
 | Date | Change |
 |---|---|
