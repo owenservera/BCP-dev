@@ -9,6 +9,7 @@ Runtime/bootstrap reads this file instead of requiring each session to hand-type
 
 | agent_id | home path | role | status |
 |---|---|---|---|
+| `architecture-steward` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD` | Architecture Steward — architectural memory, documentation integrity, reconciliation and coordination | ratified |
 | `world-ontology-context` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT` | World / Ontology / Context | bootstrap-ready |
 | `data-model` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD` | Data / Identity / Persistence | bootstrap-ready |
 | `semantic-continuity` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER` | Semantic continuity across self-knowledge, language, command, intent, execution meaning, evidence and representation | ratified |
@@ -22,7 +23,7 @@ Runtime/bootstrap reads this file instead of requiring each session to hand-type
 
 ## Registry rules
 
-- One row identifies one Commons stream owner.
+- One row identifies one Commons stream owner. The Architecture Steward is included as the lead peer; this does not make Commons itself a governance authority.
 - `home path` is the repository-relative agent home used by the Git transport.
 - `bootstrap-ready` is provisional; `ratified` means the Core Agent identity has been aligned and established.
 - A renamed agent updates its row rather than silently creating a second identity.
