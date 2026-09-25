@@ -349,6 +349,30 @@ The destination package is now the product-level synthesis above the P1 architec
 - docs/destination/FORGE-COMPOSITION-EVOLUTION-RECONCILIATION.md — evolution seam.
 - docs/destination/V1-DEFAULT-ENVIRONMENT-AND-LIVE-PROOF.md — V1 product and live-proof boundary.
 
+### Keystone dependency view
+
+The destination is now tracked with a separate dependency/complexity lens in:
+`docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md`
+
+**Top cross-cutting dependencies:**
+
+| Dependency | Current | Target | Gap | Complexity |
+|---|---:|---:|---:|---:|
+| Vault / Evidence / Provenance | L3–L4 | L6 | 2–3 | 10 |
+| Ontology / World Identity | L2–L3 | L6 | 3–4 | 9 |
+| Runtime / Plugin / Capability | L3–L4 | L6 | 2–3 | 9 |
+| Intent / Context / Interaction | L2–L3 | L6 | 3–4 | 9 |
+| Provider / Account / Realization / Routing | L1–L2 | L6 | 4–5 | 10 |
+| Authority / Law / Consent | L3–L4 | L6 | 2–3 | 8 |
+| Durable Work / Agent / Automation | L1–L2 | L6 | 4–5 | 10 |
+| World / Workspace / Canvas | L1–L2 | L6 | 4–5 | 9 |
+| Attention / Continuity | L1 | L6 | 5 | 8 |
+| Forge / Composition / Healing | L2–L3 | L6 | 3–4 | 10 |
+
+**Unscoped frontier:** areas marked **L-1 / Uncharacterized** are not counted as implemented merely because adjacent legacy code exists. Current frontier inventory includes native Windows shell/lifecycle, OS/filesystem/app integration, desktop interaction, notification delivery, multi-device continuity, cross-machine sharing, resource lifecycle, security/secret integration, extension distribution, richer spatial/application layer, universal acquisition, local/network discovery, product diagnostics/recovery, generic web resources, and local intelligence/model execution.
+
+**Program rule:** a high-centrality dependency with low maturity is active BUILD work; a high-centrality dependency with high maturity is PROTECT/COMPOSE work. L-1 frontiers require characterization before implementation.
+
 ### Current destination state
 
 **Completed:** destination foundation; provider/account/routing mapping; world/workspace/canvas mapping; interaction/intent/work mapping; agency/background/attention mapping; data/memory/context mapping; Forge/composition/evolution mapping.
