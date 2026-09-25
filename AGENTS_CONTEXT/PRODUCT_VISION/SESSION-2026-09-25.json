@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0",
+  "context_name": "PRODUCT_VISION",
+  "artifact_type": "session_context_export",
+  "created_at": "2026-09-25T03:29:00+02:00",
+  "repository": "owenservera/BCP-dev",
+  "verified_main_head_at_creation": "cd7b9054d04c70dc816986b4ae9abf0e0d89ba6d",
+  "classification": "SOURCE_MATERIAL / HANDOFF",
+  "authority": "Non-canonical. Use STATE.md for the compact working state and docs/destination plus program-control docs for repository authority.",
+  "transcript_note": "This JSON is a project-context capture of the substantive Product Vision conversation available in this session. It is not a platform-generated immutable ChatGPT export and excludes hidden chain-of-thought.",
+  "canonical_sources": [
+    "docs/destination/",
+    "docs/agent-system/PROGRAM-COMPLETENESS-AND-CONTROLS.md",
+    "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md",
+    "docs/destination/REQUIREMENT-EVIDENCE-TRACEABILITY.md",
+    "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+  ],
+  "session_summary": "This fork moved VIVIM from scattered architecture/product ideas toward an explicit destination layer, repository reconciliation model, vertical-slice program, dependency/complexity scorecard, and cold-start handoff package.",
+  "major_decisions": [
+    "VIVIM is a sovereign personal computing environment centered on my machine, my internet, my accounts, my apps, my data, my intelligence, my rules, and my interaction.",
+    "VIVIM V1 is the first real prototype and mine of working behavior; Ω is the strongest destination-oriented architecture; BCP is the reconciliation/proof/harvest program.",
+    "VIVIM opens into a persistent world, potentially rendered as an intelligent infinite spatial/3D canvas, with workspaces, projects, conversations, application-like surfaces, and direct manipulation.",
+    "The universal prompt is a native control surface that can address VIVIM, a thing, space, provider, account, agent, external person, or AI provider.",
+    "Everything is plugin/capability based; plugin boundaries and configuration are user-visible; there is no privileged admin/developer class in the product mental model.",
+    "V1 ships with a useful default free provider/capability set, but default providers are not a special architectural class.",
+    "Provider, Account, Realization, Session, Capability, Routing, Authority, and Work must stay distinct.",
+    "User-owned routing controls provider/account/model selection. Learned ranking cannot silently override explicit user policy or grant authority.",
+    "Delegation feels like talking to an AI agent. Durable Work is the key missing product integration primitive connecting intent, context, routing, authority, execution, evidence, and continuity.",
+    "Automation and background execution are normal work continuing while the user is away; the return experience summarizes what changed, what was done, what failed, what needs the user, and what comes next.",
+    "The second brain is user-owned data plus relationships, memory semantics, deterministic context assembly, and history, not a detached notes product.",
+    "Canvas is a projection of the world and never its canonical authority.",
+    "Forge/evolution is native: request -> capability gap -> compose/generate -> test -> evidence -> user-controlled promotion.",
+    "The program should be managed by destination dependencies, implementation level, vertical slices, evidence, and user outcomes rather than workstream completion alone."
+  ],
+  "vertical_slices": [
+    "VS0 governed action",
+    "VS1 run my VIVIM",
+    "VS2 bring my AI history into my world",
+    "VS3 choose provider/account/model and act",
+    "VS4 delegate durable work",
+    "VS5 leave and return to continuity",
+    "VS6 create/modify capability",
+    "VS7 survive provider drift",
+    "VS8 exit/restore/reconstruct"
+  ],
+  "keystone_dependencies": [
+    {
+      "name": "Vault / Evidence / Provenance",
+      "current": "L3-L4",
+      "target": "L6",
+      "complexity": 10
+    },
+    {
+      "name": "Ontology / World Identity",
+      "current": "L2-L3",
+      "target": "L6",
+      "complexity": 9
+    },
+    {
+      "name": "Ω Runtime / Plugin / Capability",
+      "current": "L3-L4",
+      "target": "L6",
+      "complexity": 9
+    },
+    {
+      "name": "Intent / Context / Interaction",
+      "current": "L2-L3",
+      "target": "L6",
+      "complexity": 9
+    },
+    {
+      "name": "Provider / Account / Realization / Routing",
+      "current": "L1-L2",
+      "target": "L6",
+      "complexity": 10
+    },
+    {
+      "name": "Authority / Law / Consent",
+      "current": "L3-L4",
+      "target": "L6",
+      "complexity": 8
+    },
+    {
+      "name": "Durable Work / Agent / Automation",
+      "current": "L1-L2",
+      "target": "L6",
+      "complexity": 10
+    },
+    {
+      "name": "World / Workspace / Canvas",
+      "current": "L1-L2",
+      "target": "L6",
+      "complexity": 9
+    },
+    {
+      "name": "Attention / Continuity",
+      "current": "L1",
+      "target": "L6",
+      "complexity": 8
+    },
+    {
+      "name": "Forge / Composition / Healing",
+      "current": "L2-L3",
+      "target": "L6",
+      "complexity": 10
+    }
+  ],
+  "dark_matter": [
+    "F1 native Windows product shell",
+    "F2 install/update/rollback lifecycle",
+    "F3 OS/filesystem/application integration",
+    "F4 desktop interaction substrate",
+    "F5 notification/attention delivery",
+    "F6 multi-device/sync/machine continuity",
+    "F7 sharing/collaboration/cross-machine delegation",
+    "F8 resource lifecycle/hydration",
+    "F9 local security/secret integration",
+    "F10 extension distribution/ecosystem",
+    "F11 richer spatial/application-like/3D layer",
+    "F12 universal digital-world acquisition",
+    "F13 local/network discovery",
+    "F14 product diagnostics/recovery/repair",
+    "F15 generic web/resource substrate",
+    "F16 local intelligence/model execution lifecycle"
+  ],
+  "program_controls": [
+    "Requirement -> evidence traceability",
+    "Maturity acceptance criteria",
+    "Vertical-slice registry",
+    "Explicit product ownership",
+    "L-1 frontier intake",
+    "Product-readiness gates",
+    "Dependency change/revalidation"
+  ],
+  "program_paths": {
+    "proof_path": "P1-08 -> P1-06 -> P1-07 -> P1-09",
+    "destination_path": "VS0 -> VS1 -> VS2 -> VS3 -> VS4 -> VS5 -> VS6 -> VS7 -> VS8"
+  },
+  "conversation_index": [
+    {
+      "sequence": 1,
+      "actor": "user",
+      "topic": "sovereign foundation",
+      "exact_content": "The idea is it's my machine, my internet, my accounts, my data, my apps. I should have sovereignty of all the data and intuitive tools to interact with my internet and accounts. Everything is a plugin, highly composable, there is no advanced/admin user, and the interaction layer is something the user owns."
+    },
+    {
+      "sequence": 2,
+      "actor": "user",
+      "topic": "first minute / persistent world",
+      "exact_content": "When I open VIVIM it knows what I've been working on because it has access to my stuff, auto-organizes AI conversations and emails, shows a project visually and what's next, and the experience changes based on why I opened it. It should be like a second brain connected to my stuff natively."
+    },
+    {
+      "sequence": 3,
+      "actor": "user",
+      "topic": "proactivity / automation",
+      "exact_content": "It would know what I'm interested in, provide configured notifications or reports, show what I'm working on and next steps, and run automated tasks in the background. Some are deterministic and some use my own AI web-app accounts. It should tell me what is going on, what it did while I was gone, and what I need to do next."
+    },
+    {
+      "sequence": 4,
+      "actor": "user",
+      "topic": "delegation",
+      "exact_content": "Delegating should feel like talking to an AI agent. For example: send an update on Project X to person Y, do research, compile a report locally, and have the agent orchestrate LLMs with local deterministic tools."
+    },
+    {
+      "sequence": 5,
+      "actor": "user",
+      "topic": "plugins/capabilities",
+      "exact_content": "Anything automated would be registered as a feature per plugin. Plugins have capabilities and the user should know that plugin X gives them that ability."
+    },
+    {
+      "sequence": 6,
+      "actor": "user",
+      "topic": "hyper-configurability",
+      "exact_content": "Everything is hyper-configurable by the user. Every plugin has boundaries and configurations, and those need to be available to the user to decide how to set them up."
+    },
+    {
+      "sequence": 7,
+      "actor": "user",
+      "topic": "canvas and prompt",
+      "exact_content": "An intelligent infinite 3D canvas can be compartmentalized into workspaces, projects, conversations, or specific apps with their own UI. It is atomically configurable, and configuration is done through natural language. The chat box can talk to the system, an email, ChatGPT, or another provider, and the single pane of glass flips based on what the user is trying to do."
+    },
+    {
+      "sequence": 8,
+      "actor": "user",
+      "topic": "V1 defaults",
+      "exact_content": "We publish V1 with default free providers."
+    },
+    {
+      "sequence": 9,
+      "actor": "user",
+      "topic": "routing choice",
+      "exact_content": "The user will want decision-making control, what to use when."
+    },
+    {
+      "sequence": 10,
+      "actor": "user",
+      "topic": "mapping rather than invention",
+      "exact_content": "I don't think we need to continue inventing. I think we need to start mapping into what we have."
+    },
+    {
+      "sequence": 11,
+      "actor": "user",
+      "topic": "dependency management",
+      "exact_content": "What should be tracked are dependency graphs, the 5 to 10 top dependencies that touch the most of the end state, and a complexity score based on levels of implementation, from prototype to working to full vision."
+    },
+    {
+      "sequence": 12,
+      "actor": "user",
+      "topic": "unscoped frontier",
+      "exact_content": "Add the open or pending areas that we have not properly scoped yet and are not in our current omega or Vivim."
+    },
+    {
+      "sequence": 13,
+      "actor": "user",
+      "topic": "program management",
+      "exact_content": "We were missing a layer above architecture and below roadmap: requirement-to-evidence traceability, maturity acceptance criteria, vertical-slice registry, explicit product ownership, L-1 frontier intake, product-readiness gates, dependency change/revalidation, and the destination sequence VS0 through VS8."
+    }
+  ],
+  "source_transcript_file": "docs/destination/sources/2026-09-25-destination-discovery-conversation.md",
+  "current_instruction": "A fresh agent should read STATE.md first, then this JSON when rationale is needed, then the linked destination and program-control documents. It should reconcile all changes against current repository evidence before editing."
+}
