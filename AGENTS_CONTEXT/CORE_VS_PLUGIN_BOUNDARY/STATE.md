@@ -99,3 +99,13 @@ Required trace:
 `responsibility → invariant → minimum generic enforcement → current Ω → evidence → gap → K0/K1/plugin/tooling`
 
 Ratified Ω law remains authoritative.
+
+## Factory implication
+
+The purpose of the Core/Plugin boundary is not to define a finished feature set. It is to protect the factory while allowing the product ecosystem to grow around it.
+
+The key implementation question after research is therefore:
+
+> Can the current Ω core safely host, replace and compose a growing set of first-party, third-party and user-created pieces without pulling their product semantics into K0?
+
+The building language is broader than K0. Shared interoperability contracts may live in K1, while useful product pieces remain system or extension plugins. Fundamental to making a useful ecosystem is not by itself a reason for K0 placement.
