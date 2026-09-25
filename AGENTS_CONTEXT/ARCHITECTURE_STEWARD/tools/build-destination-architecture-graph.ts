@@ -43,6 +43,9 @@ const SOURCES = {
   conceptual: "docs/destination/CONCEPTUAL-MODEL.md",
   siAtoms: "docs/destination/system-intelligence/indexes/ATOMS.json",
   siEdges: "docs/destination/system-intelligence/indexes/EDGES.json",
+  journeyMap: "docs/destination/architecture/research/JOURNEY-ARCHITECTURE-MAPPING.md",
+  handoff: "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+  currentBuild: "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md",
 };
 
 const OUT = "docs/destination/architecture/graph";
@@ -72,12 +75,13 @@ function concept(name: string): GraphNode | undefined {
   );
 }
 
-const [matrix, master, trace, slices, dep, siAtomsText, siEdgesText] = await Promise.all([
+const [matrix, master, trace, slices, dep, journeyMap, siAtomsText, siEdgesText] = await Promise.all([
   readFile(SOURCES.matrix, "utf8"),
   readFile(SOURCES.master, "utf8"),
   readFile(SOURCES.trace, "utf8"),
   readFile(SOURCES.slices, "utf8"),
   readFile(SOURCES.dep, "utf8"),
+  readFile(SOURCES.journeyMap, "utf8"),
   readFile(SOURCES.siAtoms, "utf8"),
   readFile(SOURCES.siEdges, "utf8"),
 ]);
@@ -93,6 +97,7 @@ const docs: Array<[string,string,string,string,string]> = [
   ["DOC-DEPENDENCY-GRAPH","Dependency Graphs & Keystone Scorecard",SOURCES.dep,"architecture","current"],
   ["DOC-SI-ATOMS","System Intelligence Atoms Index",SOURCES.siAtoms,"research","research-input"],
   ["DOC-SI-EDGES","System Intelligence Edges Index",SOURCES.siEdges,"research","research-input"],
+  ["DOC-JOURNEY-ARCH-MAPPING","Journey → Architecture Mapping",SOURCES.journeyMap,"architecture","current"],
 ];
 for (const [id,name,path,layer,status] of docs) {
   addNode({id,kind:"document",name,layer,authority:"document",status,sourceRefs:[path],properties:{}});
@@ -165,9 +170,27 @@ for (const line of slices.split(/\r?\n/)) {
   for(const dep of c[2].split(",").map(s=>s.trim()).filter(Boolean)){const t=concept(dep);if(t)addEdge({id:id+"-"+t.id,from:id,to:t.id,relation:"DEPENDS_ON",class:"product",status:"current",basis:"source-text",sourceRefs:[SOURCES.slices],evidenceRefs:[],reason:null});}
 }
 
+// Journey → architecture mapping. This is explicit product mapping, not inferred runtime structure.
+for (const section of journeyMap.split(/(?=^## J[1-8] —)/m)) {
+  const header = section.match(/^## (J[1-8]) —/m);
+  if (!header) continue;
+  const jid = header[1];
+  if (!nodes.has(jid)) continue;
+  addEdge({id:"MAP-DOC-"+jid,from:"DOC-JOURNEY-ARCH-MAPPING",to:jid,relation:"DESCRIBES",class:"descriptive",status:"current",basis:"journey-architecture-mapping",sourceRefs:[SOURCES.journeyMap],evidenceRefs:[],reason:"Journey → Architecture Mapping explicitly characterizes this journey."});
+  for (const rid of [...new Set(section.match(/\bR-\d{3}\b/g) || [])]) {
+    if (!nodes.has(rid)) continue;
+    addEdge({id:jid+"-"+rid+"-MAP",from:jid,to:rid,relation:"DEPENDS_ON",class:"product",status:"current",basis:"journey-architecture-mapping",sourceRefs:[SOURCES.journeyMap],evidenceRefs:[],reason:"The journey mapping explicitly identifies this responsibility as exercised by the journey; this is a product dependency, not an automatic hard runtime prerequisite."});
+  }
+  for (const vs of [...new Set(section.match(/\bVS\d+\b/g) || [])]) {
+    const vid = vs.replace(/^VS(\d+)$/,"VS-$1");
+    if (!nodes.has(vid)) continue;
+    addEdge({id:vid+"-"+jid+"-TESTS",from:vid,to:jid,relation:"TESTS",class:"product",status:"current",basis:"journey-architecture-mapping",sourceRefs:[SOURCES.journeyMap],evidenceRefs:[],reason:"The journey mapping identifies this vertical slice as a primary, supporting or adjacent convergence test for the journey."});
+  }
+}
+
 // Ranked keystones.
 for (const line of dep.split(/\r?\n/)) {
-  if (!/^\| (?:\*\*)?\d+(?:\*\*)? \| \*\*/.test(line)) continue;
+  if (!/^\| \d+ \| \*\*[^|]+\*\* \|/.test(line)) continue;
   const c=row(line); if(c.length<9)continue;
   const name=clean(c[1]), id=slug(name,"KEY-");
   addNode({id,kind:"keystone",name,layer:"architecture",authority:"dependency-scorecard",status:"current",sourceRefs:[SOURCES.dep],properties:{rank:clean(c[0]),currentLevel:c[2],target:c[3],gap:c[4],fanOut:c[5],complexity:c[6],why:c[7]}});
@@ -200,9 +223,17 @@ for(const [id,name] of [
  ["PIECE-VIVIM-RUN","vivim.run"],["PIECE-VIVIM-MIND","vivim.mind"],
  ["PIECE-INTENT-NLCL","intent / NLCL"],["PIECE-PROVIDER-BROWSER","provider.browser"],
  ["PIECE-RESEARCH-CAPABILITY","thin research capability"],
-] as const) addNode({id,kind:"reference_piece",name,layer:"composition",authority:"fresh-coding-readiness",status:"candidate",sourceRefs:["docs/destination/architecture/research/CODING-START-READINESS.md"],properties:{classification:"first-party/system plugin"}});
-addNode({id:"COMP-FIRST-RESEARCH-EVIDENCE-WORLD",kind:"composition",name:"Research → Evidence → World",layer:"composition",authority:"fresh-coding-readiness",status:"candidate",sourceRefs:["docs/destination/architecture/research/CODING-START-READINESS.md"],properties:{path:"Address → Intent → Context → Capability → Realization → Authority → Work → Execution → Evidence → World → Product Instance continuity"}});
-for(const n of ["PIECE-VIVIM-LAW","PIECE-VIVIM-VAULT","PIECE-VIVIM-RUN","PIECE-VIVIM-MIND","PIECE-INTENT-NLCL","PIECE-PROVIDER-BROWSER","PIECE-RESEARCH-CAPABILITY"])addEdge({id:"COMP-"+n,from:n,to:"COMP-FIRST-RESEARCH-EVIDENCE-WORLD",relation:"PARTICIPATES_IN",class:"product",status:"candidate",basis:"fresh-coding-readiness",sourceRefs:["docs/destination/architecture/research/CODING-START-READINESS.md"],evidenceRefs:[],reason:null});
+] as const) addNode({id,kind:"reference_piece",name,layer:"composition",authority:"fresh-coding-readiness",status:"candidate",sourceRefs:[SOURCES.handoff,SOURCES.currentBuild],properties:{classification:"first-party/system plugin"}});
+addNode({id:"COMP-FIRST-RESEARCH-EVIDENCE-WORLD",kind:"composition",name:"Research → Evidence → World",layer:"composition",authority:"fresh-coding-readiness",status:"candidate",sourceRefs:[SOURCES.handoff,SOURCES.currentBuild],properties:{path:"Address → Intent → Context → Capability → Realization → Authority → Work → Execution → Evidence → World → Product Instance continuity"}});
+const readinessRefs = [SOURCES.handoff, SOURCES.currentBuild];
+for(const n of ["PIECE-VIVIM-LAW","PIECE-VIVIM-VAULT","PIECE-VIVIM-RUN","PIECE-VIVIM-MIND","PIECE-INTENT-NLCL","PIECE-PROVIDER-BROWSER","PIECE-RESEARCH-CAPABILITY"])addEdge({id:"COMP-"+n,from:n,to:"COMP-FIRST-RESEARCH-EVIDENCE-WORLD",relation:"PARTICIPATES_IN",class:"product",status:"candidate",basis:"fresh-coding-readiness",sourceRefs:[SOURCES.handoff,SOURCES.currentBuild],evidenceRefs:[],reason:"First reference piece is explicitly selected by the fresh readiness handoff and current build view."});
+
+for(const jid of ["J1","J2","J3","J4","J5","J6"])addEdge({id:"COMP-J-"+jid,from:"COMP-FIRST-RESEARCH-EVIDENCE-WORLD",to:jid,relation:"TESTS",class:"product",status:"candidate",basis:"current-build-view",sourceRefs:[SOURCES.currentBuild,SOURCES.handoff],evidenceRefs:[],reason:"The current build view identifies this journey as exercised by the first Research → Evidence → World composition."});
+for(const vid of ["VS-0","VS-3","VS-4","VS-5","VS-8"])addEdge({id:"COMP-"+vid,from:"COMP-FIRST-RESEARCH-EVIDENCE-WORLD",to:vid,relation:"TESTS",class:"product",status:"candidate",basis:"current-build-view",sourceRefs:[SOURCES.currentBuild,SOURCES.handoff],evidenceRefs:[],reason:"The current build view identifies this vertical slice as a convergence surface for the first Research → Evidence → World composition."});
+
+// Deterministic lineage repair: descriptive/generated edges inherit their source from the originating node when no explicit source was supplied.
+for (const e of edges) if (!e.sourceRefs.length && nodes.has(e.from)) e.sourceRefs = [...(nodes.get(e.from)!.sourceRefs)];
+for(const n of nodes.values()) if(n.id==="DOC-CODING-READINESS") nodes.delete(n.id);
 
 const nodeArray=[...nodes.values()];
 const dedup=new Map<string,GraphEdge>();
@@ -211,11 +242,17 @@ const edgeArray=[...dedup.values()];
 const ids=new Set(nodeArray.map(n=>n.id));
 const invalid=edgeArray.filter(e=>!ids.has(e.from)||!ids.has(e.to));
 const counts:any={nodes:nodeArray.length,edges:edgeArray.length,invalidEdges:invalid.length};
+const relationCounts: Record<string,number> = {};
+for (const e of edgeArray) relationCounts[e.relation]=(relationCounts[e.relation]||0)+1;
+const sourceDocuments=[...new Set(Object.values(SOURCES))].sort();
 for(const n of nodeArray)counts[n.kind]=(counts[n.kind]||0)+1;
 const evidenceNodes=nodeArray.filter(n=>n.kind==="evidence").length;
 counts.evidenceNodes=evidenceNodes;
 
 if(counts.responsibility!==125)throw new Error(`Expected 125 responsibilities, got ${counts.responsibility}`);
+if(counts.keystone!==10)throw new Error(`Expected 10 keystone projections, got ${counts.keystone}`);
+if(counts.journey!==8)throw new Error(`Expected 8 journeys, got ${counts.journey}`);
+if(!nodeArray.some(n=>n.id==="DOC-JOURNEY-ARCH-MAPPING"))throw new Error("Journey mapping document node missing");
 if(counts.si_atom!==44)throw new Error(`Expected 44 SI atoms, got ${counts.si_atom}`);
 if((JSON.parse(siEdgesText).edges||[]).length!==65)throw new Error(`Expected 65 SI edges`);
 if(evidenceNodes!==99)throw new Error(`Expected 99 unique evidence records, got ${evidenceNodes}`);
@@ -224,5 +261,5 @@ if(invalid.length)throw new Error(`Invalid graph endpoints: ${invalid.map(e=>e.i
 await mkdir(OUT,{recursive:true});
 await writeFile(OUT+"/NODES.json",JSON.stringify({schemaVersion:"0.2",generatedAt:new Date().toISOString().slice(0,10),repository:"owenservera/BCP-dev",nodes:nodeArray},null,2)+"\n");
 await writeFile(OUT+"/EDGES.json",JSON.stringify({schemaVersion:"0.2",generatedAt:new Date().toISOString().slice(0,10),repository:"owenservera/BCP-dev",edges:edgeArray},null,2)+"\n");
-await writeFile(OUT+"/GRAPH-MANIFEST.json",JSON.stringify({schemaVersion:"0.2",graphId:"VIVIM-DESTINATION-ARCHITECTURE",generatedAt:new Date().toISOString().slice(0,10),sourceDocuments:Object.values(SOURCES),documentationFirst:true,codeIncluded:false,counts,validation:{allEndpointsPresent:invalid.length===0}},null,2)+"\n");
+await writeFile(OUT+"/GRAPH-MANIFEST.json",JSON.stringify({schemaVersion:"0.2",graphId:"VIVIM-DESTINATION-ARCHITECTURE",generatedAt:new Date().toISOString().slice(0,10),sourceDocuments,documentationFirst:true,codeIncluded:false,counts,relationCounts,validation:{allEndpointsPresent:invalid.length===0}},null,2)+"\n");
 console.log(JSON.stringify(counts,null,2));
