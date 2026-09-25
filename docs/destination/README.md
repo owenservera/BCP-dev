@@ -54,6 +54,8 @@ Start with:
 - DATA-MEMORY-CONTEXT-RECONCILIATION.md
 - FORGE-COMPOSITION-EVOLUTION-RECONCILIATION.md
 - DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
+- REQUIREMENT-EVIDENCE-TRACEABILITY.md
+- VERTICAL-SLICE-REGISTRY.md
 
 The sources/ directory contains preserved conversation and research material. Source captures are evidence of design thinking, not law.
 
