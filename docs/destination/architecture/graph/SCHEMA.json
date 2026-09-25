@@ -72,5 +72,32 @@
     "Current and target dependencies are separate; unknown is represented explicitly rather than inferred.",
     "Legacy is evidence/history, not destination authority.",
     "One semantic node may have many source/evidence/view references."
-  ]
+  ],
+  "statusField": {
+    "type": "string",
+    "model": "open-with-known-epistemic-values",
+    "description": "Status preserves the source-native state/maturity vocabulary where a node originates in a canonical inventory (notably responsibility status). The epistemicStatuses list is the graph-level subset and must not be used as a closed enum for every node kind.",
+    "graphEpistemicValues": [
+      "current",
+      "research-input",
+      "historical-input",
+      "research",
+      "evidence",
+      "candidate"
+    ]
+  },
+  "statusRules": [
+    "document, vision_anchor, destination_concept, journey, requirement, vertical_slice, si_atom, evidence, workstream, reference_piece and composition use graph-epistemic statuses where applicable.",
+    "responsibility nodes preserve the canonical responsibility-matrix current-status vocabulary verbatim; that vocabulary is evidence about maturity/placement, not a new graph epistemic class.",
+    "Validators must reject missing/non-string status, not unfamiliar source-native status values."
+  ],
+  "relationTypes": [
+    "PROJECTS"
+  ],
+  "relationSemantics": {
+    "DEPENDS_ON": "A destination/product dependency. In journey mapping this means the journey exercises the responsibility; it is not automatically a hard runtime prerequisite.",
+    "TESTS": "A proof/build relation: a candidate composition or vertical slice exercises/tests the connected journey or outcome boundary.",
+    "PROJECTS": "A derived projection from the dependency scorecard into the graph; not itself authority over the projected dependency.",
+    "EVIDENCES": "Evidence node materially supports the target System Intelligence claim or graph assertion."
+  }
 }
