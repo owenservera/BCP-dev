@@ -6,6 +6,14 @@ The transport adapter moves Commons events between agent homes/runtimes and the 
 
 The runtime must never import Git concepts.
 
+## Independent agent sessions
+
+Multiple independent runtime sessions may participate in the same Commons universe. They may be separate browser tabs, separate Codex sessions, separate local processes, or other supported execution surfaces.
+
+A session's conversational context is not transport state. Commons communication must remain recoverable from durable events.
+
+The transport therefore connects peers through their authored streams; it does not require a shared live process or parent/child relationship between agents.
+
 ## Interface
 
     interface CommonsTransport {
