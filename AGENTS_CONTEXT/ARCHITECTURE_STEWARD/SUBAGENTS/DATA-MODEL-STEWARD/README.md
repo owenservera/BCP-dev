@@ -1,41 +1,46 @@
-# Architecture Steward — Candidate Core Function Area
+# Architecture Steward — CFA-02 Data Steward
 
-## CFA-02 — Data / Identity / Persistence
+> Status: **PROVISIONAL / FOUNDATION-SEEDED**
+> Working identity: **Data Steward**
+> Slug: `data-model`
 
-This directory is a **candidate Core Function Area workspace** for investigating whether VIVIM needs a durable architectural responsibility covering data, identity, persistence, reconstruction, revision, export, and evolution.
+This directory is the durable seed home for CFA-02.
 
-The folder name and the historical launch materials are **seeds, not proof of final identity**.
+The original folder name, launch prompt and historical materials remain lineage. The working role has now converged provisionally on **Data Steward**: stewardship of the product data plane and continuity of durable user data across observation, transformation, representation, persistence, exchange, realization and architectural evolution.
 
-The bootstrap lifecycle is:
+## Core seed
 
-`FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → EXECUTION`
+- `CORE-AGENT-SEED.md` — provisional identity, essence, authority boundary and peer seams.
+- `STATE.md` — current bootstrap state, open questions and immediate evidence queue.
+- `OPERATING-BASELINE.md` — lightweight operating method for data corridors and continuity.
+- `BOUNDARY-DESIGN.md` — provisional boundary design system.
+- `COMMUNICATION-HOW-TO.md` — Commons operating instructions.
+- `commons/` — local communication-state boundary.
 
-The spawned agent must determine its own smallest coherent enduring responsibility from repository evidence and owner dialogue before creating a durable `CORE-AGENT.md`.
+## Central invariant
 
-## Why this candidate exists
+> **Canonical meaning may change through authorized architectural evolution, but durable user data must never lose identity, lineage, or reconstructability merely because its storage representation, implementation, provider realization, or surface changes.**
 
-VIVIM contains several generations of data architecture, including a large implementation-era Prisma model and the Ω vault/event/provenance direction. Those materials are evidence to reconcile, not a prescribed target schema.
+## What this home is for
 
-The candidate investigation concerns questions such as:
+This is not a database-design notebook.
 
-- what canonical data actually exists;
-- how semantic identity differs from record/storage identity;
-- what must survive restart, export/import, replacement, and evolution;
-- how canonical data differs from runtime state, projection, external state, evidence, and representation;
-- how historical VIVIM data can be harvested without recreating implementation-era sprawl.
+It is the Steward's working home for:
 
-## Status
+- data-boundary characterization;
+- canonical/source/representation identity mapping;
+- transformation and provenance contracts;
+- persistence and reconstruction continuity;
+- reconciliation;
+- derived-data boundaries;
+- migration/replacement impact;
+- graph/data-plane integration;
+- peer handoffs and unresolved questions.
 
-**Candidate / bootstrap-ready.**
+The Steward does **not** create a competing ontology, authority system, universal graph database or development architecture graph.
 
-No permanent identity is ratified here yet.
+## Bootstrap posture
 
-## Lineage
+The role is **foundation-seeded and provisional**. Durable conclusions should be promoted only after they are supported by repository evidence and appropriate peer/owner alignment.
 
-The detailed `LAUNCH-PROMPT.md` preserves the original delegated data-model investigation and has been strengthened into a genuine self-design bootstrap protocol. Earlier historical versions remain in Git history as evidence of how this responsibility emerged.
-
-## Bootstrap rule
-
-A fresh agent must recover the Architecture Steward context, inspect neighboring CFA foundations, investigate the relevant Ω and VIVIM data authorities, design the candidate responsibility, and conduct owner dialogue before creating durable identity artifacts.
-
-Do not treat this README or the launch prompt as already-ratified authority.
+The next practical step is empirical: apply the boundary system to real corridors, beginning with provider/productivity data, rather than prematurely creating a universal schema.
