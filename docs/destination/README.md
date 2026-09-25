@@ -21,7 +21,8 @@ The final end-state blueprint is deliberately not frozen yet. This package is th
 5. Master mapping — destination concepts mapped to existing Ω/VIVIM material.
 6. Reconciliation map — deeper repository findings and the key assembly boundary.
 7. Maturity and gaps — what is actually proven, what is missing, and what “destination-grade” means.
-8. Build and harvest plan — the ordered path from current repository evidence to integrated product journeys.
+8. System Intelligence — atomic evidence/dependency reconstruction linking Ω, Legacy VIVIM, destination requirements, journeys, workstreams, and proof.
+9. Build and harvest plan — the ordered path from current repository evidence to integrated product journeys.
 9. Product Instance & Core — the current VS1 characterization of the smallest complete VIVIM environment.
 10. V1 Build & Learning Sprint — the control method for the first functioning prototype and first-provider design laboratory.
 11. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
