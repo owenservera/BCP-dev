@@ -1,0 +1,7434 @@
+{
+  "schemaVersion": "0.1",
+  "generatedAt": "2026-09-25",
+  "repository": "owenservera/BCP-dev",
+  "edges": [
+    {
+      "id": "V-001",
+      "from": "DOC-NORTH-STAR",
+      "to": "VISION-SOVEREIGN-ENV",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "V-002",
+      "from": "DOC-HUMAN-EXPERIENCE",
+      "to": "VISION-PERSISTENT-WORLD",
+      "relation": "ELABORATES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "V-003",
+      "from": "DOC-NORTH-STAR",
+      "to": "VISION-SIMPLE-MENTAL-MODEL",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "V-004",
+      "from": "DOC-NORTH-STAR",
+      "to": "VISION-INTERACTION-LOOP",
+      "relation": "FRAMES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-WORLD",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-WORLD",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-THING",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-THING",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-SPACE",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-SPACE",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-SURFACE",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-SURFACE",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-CONTEXT",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-CONTEXT",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-ATTENTION",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-ATTENTION",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-ADDRESS",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-ADDRESS",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-INTENT",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-INTENT",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-CAPABILITY",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-CAPABILITY",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-PLUGIN",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-PLUGIN",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-REALIZATION",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-REALIZATION",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-PROVIDER",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-PROVIDER",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-ACCOUNT",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-ACCOUNT",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-MODEL",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-MODEL",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-ROUTING",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-ROUTING",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-WORK",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-WORK",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-AGENT",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-AGENT",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-AUTHORITY",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-AUTHORITY",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-EVIDENCE",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-EVIDENCE",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-MEMORY",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-MEMORY",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-TIME",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-TIME",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-CONFIGURATION",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-CONFIGURATION",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-COMPOSITION",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-COMPOSITION",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-FORGE",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-FORGE",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-CON-EXIT",
+      "from": "DOC-DESTINATION-MASTER-MAP",
+      "to": "CON-EXIT",
+      "relation": "DEFINES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-001",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-001",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-002",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-002",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-003",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-003",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-004",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-004",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-005",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-005",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-006",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-006",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-007",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-007",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-008",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-008",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-009",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-009",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-010",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-010",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-011",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-011",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-012",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-012",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-013",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-013",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-014",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-014",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-015",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-015",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-016",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-016",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-017",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-017",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-018",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-018",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-019",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-019",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-020",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-020",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-021",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-021",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-022",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-022",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-023",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-023",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-024",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-024",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-025",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-025",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-026",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-026",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-027",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-027",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-028",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-028",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-029",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-029",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-030",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-030",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-031",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-031",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-032",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-032",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-033",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-033",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-034",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-034",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-035",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-035",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-036",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-036",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-037",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-037",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-038",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-038",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-039",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-039",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-040",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-040",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-041",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-041",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-042",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-042",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-043",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-043",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-044",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-044",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-045",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-045",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-046",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-046",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-047",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-047",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-048",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-048",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-049",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-049",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-050",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-050",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-051",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-051",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-052",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-052",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-053",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-053",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-054",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-054",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-055",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-055",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-056",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-056",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-057",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-057",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-058",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-058",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-059",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-059",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-060",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-060",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-061",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-061",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-062",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-062",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-063",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-063",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-064",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-064",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-065",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-065",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-066",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-066",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-067",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-067",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-068",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-068",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-069",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-069",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-070",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-070",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-071",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-071",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-072",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-072",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-073",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-073",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-074",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-074",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-075",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-075",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-076",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-076",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-077",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-077",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-078",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-078",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-079",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-079",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-080",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-080",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-081",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-081",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-082",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-082",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-083",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-083",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-084",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-084",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-085",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-085",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-086",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-086",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-087",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-087",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-088",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-088",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-089",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-089",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-090",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-090",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-091",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-091",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-092",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-092",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-093",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-093",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-094",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-094",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-095",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-095",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-096",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-096",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-097",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-097",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-098",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-098",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-099",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-099",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-100",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-100",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-101",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-101",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-102",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-102",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-103",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-103",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-104",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-104",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-105",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-105",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-106",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-106",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-107",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-107",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-108",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-108",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-109",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-109",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-110",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-110",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-111",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-111",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-112",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-112",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-113",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-113",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-114",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-114",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-115",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-115",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-116",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-116",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-117",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-117",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-118",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-118",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-119",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-119",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-120",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-120",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-121",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-121",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-122",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-122",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-123",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-123",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-124",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-124",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-RESP-R-125",
+      "from": "DOC-RESPONSIBILITY-MATRIX",
+      "to": "R-125",
+      "relation": "INVENTORIES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-J-1",
+      "from": "DOC-REQ-TRACE",
+      "to": "J-1",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-J-2",
+      "from": "DOC-REQ-TRACE",
+      "to": "J-2",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-J-3",
+      "from": "DOC-REQ-TRACE",
+      "to": "J-3",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-J-4",
+      "from": "DOC-REQ-TRACE",
+      "to": "J-4",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-J-5",
+      "from": "DOC-REQ-TRACE",
+      "to": "J-5",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-J-6",
+      "from": "DOC-REQ-TRACE",
+      "to": "J-6",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-J-7",
+      "from": "DOC-REQ-TRACE",
+      "to": "J-7",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-J-8",
+      "from": "DOC-REQ-TRACE",
+      "to": "J-8",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-USER-OWNED-LOCAL-DATA",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-USER-OWNED-LOCAL-DATA",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-USER-OWNED-LOCAL-DATA-J1",
+      "from": "REQ-USER-OWNED-LOCAL-DATA",
+      "to": "J-1",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-USER-OWNED-LOCAL-DATA-J8",
+      "from": "REQ-USER-OWNED-LOCAL-DATA",
+      "to": "J-8",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-ONE-COHERENT-WORLD",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-ONE-COHERENT-WORLD",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-ONE-COHERENT-WORLD-J1",
+      "from": "REQ-ONE-COHERENT-WORLD",
+      "to": "J-1",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-ONE-COHERENT-WORLD-J2",
+      "from": "REQ-ONE-COHERENT-WORLD",
+      "to": "J-2",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-UNIVERSAL-INTERACTION",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-UNIVERSAL-INTERACTION",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-UNIVERSAL-INTERACTION-J2",
+      "from": "REQ-UNIVERSAL-INTERACTION",
+      "to": "J-2",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-UNIVERSAL-INTERACTION-J3",
+      "from": "REQ-UNIVERSAL-INTERACTION",
+      "to": "J-3",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-UNIVERSAL-INTERACTION-J4",
+      "from": "REQ-UNIVERSAL-INTERACTION",
+      "to": "J-4",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-UNIVERSAL-INTERACTION-J5",
+      "from": "REQ-UNIVERSAL-INTERACTION",
+      "to": "J-5",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-USER-CONTROLLED-INTELLIGENCE-CHOICE",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-USER-CONTROLLED-INTELLIGENCE-CHOICE",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-USER-CONTROLLED-INTELLIGENCE-CHOICE-J3",
+      "from": "REQ-USER-CONTROLLED-INTELLIGENCE-CHOICE",
+      "to": "J-3",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-USER-CONTROLLED-INTELLIGENCE-CHOICE-J5",
+      "from": "REQ-USER-CONTROLLED-INTELLIGENCE-CHOICE",
+      "to": "J-5",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-GOVERNED-ACTION",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-GOVERNED-ACTION",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-GOVERNED-ACTION-J3",
+      "from": "REQ-GOVERNED-ACTION",
+      "to": "J-3",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-GOVERNED-ACTION-J4",
+      "from": "REQ-GOVERNED-ACTION",
+      "to": "J-4",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-GOVERNED-ACTION-J5",
+      "from": "REQ-GOVERNED-ACTION",
+      "to": "J-5",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-PERSISTENT-WORK",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-PERSISTENT-WORK",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-PERSISTENT-WORK-J2",
+      "from": "REQ-PERSISTENT-WORK",
+      "to": "J-2",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-PERSISTENT-WORK-J4",
+      "from": "REQ-PERSISTENT-WORK",
+      "to": "J-4",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-PERSISTENT-WORK-J6",
+      "from": "REQ-PERSISTENT-WORK",
+      "to": "J-6",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-BACKGROUND-CONTINUITY",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-BACKGROUND-CONTINUITY",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-BACKGROUND-CONTINUITY-J4",
+      "from": "REQ-BACKGROUND-CONTINUITY",
+      "to": "J-4",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-BACKGROUND-CONTINUITY-J6",
+      "from": "REQ-BACKGROUND-CONTINUITY",
+      "to": "J-6",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-MEMORY-SECOND-BRAIN",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-MEMORY-SECOND-BRAIN",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-MEMORY-SECOND-BRAIN-J1",
+      "from": "REQ-MEMORY-SECOND-BRAIN",
+      "to": "J-1",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-MEMORY-SECOND-BRAIN-J2",
+      "from": "REQ-MEMORY-SECOND-BRAIN",
+      "to": "J-2",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-MEMORY-SECOND-BRAIN-J3",
+      "from": "REQ-MEMORY-SECOND-BRAIN",
+      "to": "J-3",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-MEMORY-SECOND-BRAIN-J8",
+      "from": "REQ-MEMORY-SECOND-BRAIN",
+      "to": "J-8",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-CANVAS-SPATIAL-ENVIRONMENT",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-CANVAS-SPATIAL-ENVIRONMENT",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-CANVAS-SPATIAL-ENVIRONMENT-J1",
+      "from": "REQ-CANVAS-SPATIAL-ENVIRONMENT",
+      "to": "J-1",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-CANVAS-SPATIAL-ENVIRONMENT-J2",
+      "from": "REQ-CANVAS-SPATIAL-ENVIRONMENT",
+      "to": "J-2",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-CANVAS-SPATIAL-ENVIRONMENT-J3",
+      "from": "REQ-CANVAS-SPATIAL-ENVIRONMENT",
+      "to": "J-3",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-SELF-EXTENSION",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-SELF-EXTENSION",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-SELF-EXTENSION-J3",
+      "from": "REQ-SELF-EXTENSION",
+      "to": "J-3",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-SELF-EXTENSION-J7",
+      "from": "REQ-SELF-EXTENSION",
+      "to": "J-7",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-PROVIDER-HEALING",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-PROVIDER-HEALING",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-PROVIDER-HEALING-J5",
+      "from": "REQ-PROVIDER-HEALING",
+      "to": "J-5",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-PROVIDER-HEALING-J7",
+      "from": "REQ-PROVIDER-HEALING",
+      "to": "J-7",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-EXIT-RECOVERY",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-EXIT-RECOVERY",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-EXIT-RECOVERY-J1",
+      "from": "REQ-EXIT-RECOVERY",
+      "to": "J-1",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-EXIT-RECOVERY-J8",
+      "from": "REQ-EXIT-RECOVERY",
+      "to": "J-8",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-REQ-SOVEREIGN-EVOLUTION",
+      "from": "DOC-REQ-TRACE",
+      "to": "REQ-SOVEREIGN-EVOLUTION",
+      "relation": "REGISTERS",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-SOVEREIGN-EVOLUTION-J7",
+      "from": "REQ-SOVEREIGN-EVOLUTION",
+      "to": "J-7",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "REQ-SOVEREIGN-EVOLUTION-J8",
+      "from": "REQ-SOVEREIGN-EVOLUTION",
+      "to": "J-8",
+      "relation": "SERVES",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-010101",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-010101",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010101-EV-100001",
+      "from": "EV-100001",
+      "to": "SI-010101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100001"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010101-EV-100002",
+      "from": "EV-100002",
+      "to": "SI-010101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100002"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010101-J-J1",
+      "from": "SI-010101",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010101-J-J7",
+      "from": "SI-010101",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010101-J-J8",
+      "from": "SI-010101",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010101-C-CON-COMPOSITION",
+      "from": "SI-010101",
+      "to": "CON-COMPOSITION",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010101-C-CON-AUTHORITY",
+      "from": "SI-010101",
+      "to": "CON-AUTHORITY",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-010102",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-010102",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010102-EV-100003",
+      "from": "EV-100003",
+      "to": "SI-010102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100003"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010102-EV-100004",
+      "from": "EV-100004",
+      "to": "SI-010102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100004"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010102-J-J1",
+      "from": "SI-010102",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010102-J-J3",
+      "from": "SI-010102",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010102-J-J4",
+      "from": "SI-010102",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010102-J-J7",
+      "from": "SI-010102",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010102-C-CON-CAPABILITY",
+      "from": "SI-010102",
+      "to": "CON-CAPABILITY",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010102-C-CON-EVIDENCE",
+      "from": "SI-010102",
+      "to": "CON-EVIDENCE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-010103",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-010103",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-EV-100005",
+      "from": "EV-100005",
+      "to": "SI-010103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100005"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-EV-100006",
+      "from": "EV-100006",
+      "to": "SI-010103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100006"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-J-J1",
+      "from": "SI-010103",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-J-J2",
+      "from": "SI-010103",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-J-J3",
+      "from": "SI-010103",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-J-J4",
+      "from": "SI-010103",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-J-J5",
+      "from": "SI-010103",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-J-J6",
+      "from": "SI-010103",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-J-J7",
+      "from": "SI-010103",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-J-J8",
+      "from": "SI-010103",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-C-CON-EVIDENCE",
+      "from": "SI-010103",
+      "to": "CON-EVIDENCE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010103-C-CON-MEMORY",
+      "from": "SI-010103",
+      "to": "CON-MEMORY",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-010104",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-010104",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010104-EV-100007",
+      "from": "EV-100007",
+      "to": "SI-010104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100007"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010104-EV-100008",
+      "from": "EV-100008",
+      "to": "SI-010104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100008"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010104-J-J3",
+      "from": "SI-010104",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010104-J-J4",
+      "from": "SI-010104",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010104-J-J5",
+      "from": "SI-010104",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010104-J-J6",
+      "from": "SI-010104",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010104-J-J7",
+      "from": "SI-010104",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010104-C-CON-AUTHORITY",
+      "from": "SI-010104",
+      "to": "CON-AUTHORITY",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010104-C-CON-EVIDENCE",
+      "from": "SI-010104",
+      "to": "CON-EVIDENCE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-010105",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-010105",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-EV-100009",
+      "from": "EV-100009",
+      "to": "SI-010105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100009"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-EV-100010",
+      "from": "EV-100010",
+      "to": "SI-010105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100010"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-J-J2",
+      "from": "SI-010105",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-J-J3",
+      "from": "SI-010105",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-J-J4",
+      "from": "SI-010105",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-J-J5",
+      "from": "SI-010105",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-J-J7",
+      "from": "SI-010105",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-C-CON-INTENT",
+      "from": "SI-010105",
+      "to": "CON-INTENT",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-C-CON-CAPABILITY",
+      "from": "SI-010105",
+      "to": "CON-CAPABILITY",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010105-C-CON-EVIDENCE",
+      "from": "SI-010105",
+      "to": "CON-EVIDENCE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-010106",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-010106",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010106-EV-100011",
+      "from": "EV-100011",
+      "to": "SI-010106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100011"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010106-EV-100012",
+      "from": "EV-100012",
+      "to": "SI-010106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100012"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010106-J-J2",
+      "from": "SI-010106",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010106-J-J3",
+      "from": "SI-010106",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010106-J-J4",
+      "from": "SI-010106",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010106-J-J6",
+      "from": "SI-010106",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010106-J-J7",
+      "from": "SI-010106",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010106-C-CON-WORK",
+      "from": "SI-010106",
+      "to": "CON-WORK",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010106-C-CON-CONTEXT",
+      "from": "SI-010106",
+      "to": "CON-CONTEXT",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-010107",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-010107",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010107-EV-100013",
+      "from": "EV-100013",
+      "to": "SI-010107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100013"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010107-EV-100014",
+      "from": "EV-100014",
+      "to": "SI-010107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100014"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-010107-J-J1",
+      "from": "SI-010107",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010107-J-J2",
+      "from": "SI-010107",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010107-J-J3",
+      "from": "SI-010107",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010107-J-J4",
+      "from": "SI-010107",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010107-J-J7",
+      "from": "SI-010107",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010107-C-CON-WORLD",
+      "from": "SI-010107",
+      "to": "CON-WORLD",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-010107-C-CON-EVIDENCE",
+      "from": "SI-010107",
+      "to": "CON-EVIDENCE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-020101",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-020101",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020101-EV-100015",
+      "from": "EV-100015",
+      "to": "SI-020101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100015"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020101-EV-100016",
+      "from": "EV-100016",
+      "to": "SI-020101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100016"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020101-J-J3",
+      "from": "SI-020101",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020101-J-J5",
+      "from": "SI-020101",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020101-C-CON-CAPABILITY",
+      "from": "SI-020101",
+      "to": "CON-CAPABILITY",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020101-C-CON-INTENT",
+      "from": "SI-020101",
+      "to": "CON-INTENT",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020101-C-CON-PROVIDER",
+      "from": "SI-020101",
+      "to": "CON-PROVIDER",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-020102",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-020102",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020102-EV-100017",
+      "from": "EV-100017",
+      "to": "SI-020102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100017"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020102-J-J2",
+      "from": "SI-020102",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020102-J-J3",
+      "from": "SI-020102",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020102-J-J5",
+      "from": "SI-020102",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020102-J-J8",
+      "from": "SI-020102",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020102-C-CON-PROVIDER",
+      "from": "SI-020102",
+      "to": "CON-PROVIDER",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020102-C-CON-ACCOUNT",
+      "from": "SI-020102",
+      "to": "CON-ACCOUNT",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-020103",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-020103",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020103-EV-100018",
+      "from": "EV-100018",
+      "to": "SI-020103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100018"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020103-J-J2",
+      "from": "SI-020103",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020103-J-J3",
+      "from": "SI-020103",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020103-J-J5",
+      "from": "SI-020103",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020103-C-CON-ACCOUNT",
+      "from": "SI-020103",
+      "to": "CON-ACCOUNT",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-020104",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-020104",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020104-EV-100019",
+      "from": "EV-100019",
+      "to": "SI-020104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100019"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020104-EV-100020",
+      "from": "EV-100020",
+      "to": "SI-020104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100020"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020104-J-J2",
+      "from": "SI-020104",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020104-J-J3",
+      "from": "SI-020104",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020104-J-J5",
+      "from": "SI-020104",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020104-J-J8",
+      "from": "SI-020104",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020104-C-CON-WORLD",
+      "from": "SI-020104",
+      "to": "CON-WORLD",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-020105",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-020105",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020105-EV-100021",
+      "from": "EV-100021",
+      "to": "SI-020105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100021"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020105-EV-100022",
+      "from": "EV-100022",
+      "to": "SI-020105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100022"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020105-J-J3",
+      "from": "SI-020105",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020105-J-J5",
+      "from": "SI-020105",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020105-J-J7",
+      "from": "SI-020105",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020105-C-CON-PROVIDER",
+      "from": "SI-020105",
+      "to": "CON-PROVIDER",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-020106",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-020106",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020106-EV-100023",
+      "from": "EV-100023",
+      "to": "SI-020106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100023"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020106-EV-100024",
+      "from": "EV-100024",
+      "to": "SI-020106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100024"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020106-J-J5",
+      "from": "SI-020106",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020106-J-J7",
+      "from": "SI-020106",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020106-C-CON-PROVIDER",
+      "from": "SI-020106",
+      "to": "CON-PROVIDER",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-020107",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-020107",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020107-EV-100025",
+      "from": "EV-100025",
+      "to": "SI-020107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100025"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020107-EV-100026",
+      "from": "EV-100026",
+      "to": "SI-020107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100026"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-020107-J-J1",
+      "from": "SI-020107",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020107-J-J2",
+      "from": "SI-020107",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020107-J-J3",
+      "from": "SI-020107",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020107-J-J5",
+      "from": "SI-020107",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020107-J-J6",
+      "from": "SI-020107",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-020107-C-CON-WORLD",
+      "from": "SI-020107",
+      "to": "CON-WORLD",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-030101",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-030101",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030101-EV-100027",
+      "from": "EV-100027",
+      "to": "SI-030101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100027"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030101-J-J1",
+      "from": "SI-030101",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030101-J-J3",
+      "from": "SI-030101",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030101-J-J7",
+      "from": "SI-030101",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030101-J-J8",
+      "from": "SI-030101",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030101-C-CON-PLUGIN",
+      "from": "SI-030101",
+      "to": "CON-PLUGIN",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030101-C-CON-COMPOSITION",
+      "from": "SI-030101",
+      "to": "CON-COMPOSITION",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-030102",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-030102",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030102-EV-100028",
+      "from": "EV-100028",
+      "to": "SI-030102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100028"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030102-EV-100029",
+      "from": "EV-100029",
+      "to": "SI-030102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100029"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030102-J-J5",
+      "from": "SI-030102",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030102-J-J7",
+      "from": "SI-030102",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030102-C-CON-PROVIDER",
+      "from": "SI-030102",
+      "to": "CON-PROVIDER",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030102-C-CON-REALIZATION",
+      "from": "SI-030102",
+      "to": "CON-REALIZATION",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-030103",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-030103",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030103-EV-100030",
+      "from": "EV-100030",
+      "to": "SI-030103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100030"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030103-EV-100031",
+      "from": "EV-100031",
+      "to": "SI-030103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100031"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030103-J-J3",
+      "from": "SI-030103",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030103-J-J5",
+      "from": "SI-030103",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030103-J-J7",
+      "from": "SI-030103",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030103-C-CON-PROVIDER",
+      "from": "SI-030103",
+      "to": "CON-PROVIDER",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030103-C-CON-REALIZATION",
+      "from": "SI-030103",
+      "to": "CON-REALIZATION",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030103-C-CON-ROUTING",
+      "from": "SI-030103",
+      "to": "CON-ROUTING",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-030104",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-030104",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030104-EV-100032",
+      "from": "EV-100032",
+      "to": "SI-030104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100032"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030104-EV-100033",
+      "from": "EV-100033",
+      "to": "SI-030104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100033"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030104-J-J2",
+      "from": "SI-030104",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030104-J-J3",
+      "from": "SI-030104",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030104-J-J4",
+      "from": "SI-030104",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030104-J-J7",
+      "from": "SI-030104",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030104-C-CON-INTENT",
+      "from": "SI-030104",
+      "to": "CON-INTENT",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030104-C-CON-EVIDENCE",
+      "from": "SI-030104",
+      "to": "CON-EVIDENCE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-030105",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-030105",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030105-EV-100034",
+      "from": "EV-100034",
+      "to": "SI-030105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100034"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030105-EV-100035",
+      "from": "EV-100035",
+      "to": "SI-030105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100035"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030105-J-J1",
+      "from": "SI-030105",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030105-J-J4",
+      "from": "SI-030105",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030105-J-J7",
+      "from": "SI-030105",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030105-J-J8",
+      "from": "SI-030105",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030105-C-CON-EVIDENCE",
+      "from": "SI-030105",
+      "to": "CON-EVIDENCE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030105-C-CON-PLUGIN",
+      "from": "SI-030105",
+      "to": "CON-PLUGIN",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-030106",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-030106",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030106-EV-100036",
+      "from": "EV-100036",
+      "to": "SI-030106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100036"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030106-EV-100037",
+      "from": "EV-100037",
+      "to": "SI-030106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100037"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030106-EV-100038",
+      "from": "EV-100038",
+      "to": "SI-030106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100038"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030106-J-J3",
+      "from": "SI-030106",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030106-J-J5",
+      "from": "SI-030106",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030106-J-J7",
+      "from": "SI-030106",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030106-C-CON-PROVIDER",
+      "from": "SI-030106",
+      "to": "CON-PROVIDER",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030106-C-CON-REALIZATION",
+      "from": "SI-030106",
+      "to": "CON-REALIZATION",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030106-C-CON-EVIDENCE",
+      "from": "SI-030106",
+      "to": "CON-EVIDENCE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-030107",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-030107",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030107-EV-100039",
+      "from": "EV-100039",
+      "to": "SI-030107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100039"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030107-EV-100040",
+      "from": "EV-100040",
+      "to": "SI-030107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        "EV-100040"
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-030107-J-J7",
+      "from": "SI-030107",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030107-J-J8",
+      "from": "SI-030107",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030107-C-CON-FORGE",
+      "from": "SI-030107",
+      "to": "CON-FORGE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-030107-C-CON-EVIDENCE",
+      "from": "SI-030107",
+      "to": "CON-EVIDENCE",
+      "relation": "DESCRIBES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-040101",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-040101",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040101-undefined",
+      "to": "SI-040101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-040101-J-J1",
+      "from": "SI-040101",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040101-J-J2",
+      "from": "SI-040101",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040101-J-J8",
+      "from": "SI-040101",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-040102",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-040102",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040102-undefined",
+      "to": "SI-040102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-040102-J-J1",
+      "from": "SI-040102",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040102-J-J2",
+      "from": "SI-040102",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040102-J-J3",
+      "from": "SI-040102",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040102-J-J5",
+      "from": "SI-040102",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040102-J-J6",
+      "from": "SI-040102",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-040103",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-040103",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040103-undefined",
+      "to": "SI-040103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-040103-J-J1",
+      "from": "SI-040103",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040103-J-J2",
+      "from": "SI-040103",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040103-J-J3",
+      "from": "SI-040103",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040103-J-J6",
+      "from": "SI-040103",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-040104",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-040104",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040104-undefined",
+      "to": "SI-040104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-040104-J-J2",
+      "from": "SI-040104",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040104-J-J3",
+      "from": "SI-040104",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040104-J-J4",
+      "from": "SI-040104",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040104-J-J5",
+      "from": "SI-040104",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040104-J-J7",
+      "from": "SI-040104",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-040105",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-040105",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040105-undefined",
+      "to": "SI-040105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-040105-J-J2",
+      "from": "SI-040105",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040105-J-J4",
+      "from": "SI-040105",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040105-J-J6",
+      "from": "SI-040105",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040105-J-J7",
+      "from": "SI-040105",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-040106",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-040106",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040106-undefined",
+      "to": "SI-040106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-040106-J-J2",
+      "from": "SI-040106",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040106-J-J3",
+      "from": "SI-040106",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040106-J-J5",
+      "from": "SI-040106",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040106-J-J8",
+      "from": "SI-040106",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-040107",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-040107",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040107-undefined",
+      "to": "SI-040107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-040107-J-J1",
+      "from": "SI-040107",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040107-J-J2",
+      "from": "SI-040107",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040107-J-J3",
+      "from": "SI-040107",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040107-J-J4",
+      "from": "SI-040107",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040107-J-J5",
+      "from": "SI-040107",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040107-J-J6",
+      "from": "SI-040107",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040107-J-J7",
+      "from": "SI-040107",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-040107-J-J8",
+      "from": "SI-040107",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-050101",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-050101",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050101-undefined",
+      "to": "SI-050101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-050101-J-J2",
+      "from": "SI-050101",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050101-J-J3",
+      "from": "SI-050101",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050101-J-J5",
+      "from": "SI-050101",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050101-J-J8",
+      "from": "SI-050101",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-050102",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-050102",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050102-undefined",
+      "to": "SI-050102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-050102-J-J3",
+      "from": "SI-050102",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050102-J-J5",
+      "from": "SI-050102",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050102-J-J7",
+      "from": "SI-050102",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-050103",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-050103",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050103-undefined",
+      "to": "SI-050103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-050103-J-J3",
+      "from": "SI-050103",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050103-J-J5",
+      "from": "SI-050103",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050103-J-J7",
+      "from": "SI-050103",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-050104",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-050104",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050104-undefined",
+      "to": "SI-050104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-050104-J-J3",
+      "from": "SI-050104",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050104-J-J4",
+      "from": "SI-050104",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050104-J-J5",
+      "from": "SI-050104",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050104-J-J7",
+      "from": "SI-050104",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-050105",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-050105",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050105-undefined",
+      "to": "SI-050105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-050105-J-J2",
+      "from": "SI-050105",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050105-J-J4",
+      "from": "SI-050105",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050105-J-J6",
+      "from": "SI-050105",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050105-J-J7",
+      "from": "SI-050105",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-050106",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-050106",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050106-undefined",
+      "to": "SI-050106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-050106-J-J1",
+      "from": "SI-050106",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050106-J-J2",
+      "from": "SI-050106",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050106-J-J3",
+      "from": "SI-050106",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050106-J-J5",
+      "from": "SI-050106",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050106-J-J6",
+      "from": "SI-050106",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-050107",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-050107",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050107-undefined",
+      "to": "SI-050107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-050107-J-J1",
+      "from": "SI-050107",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050107-J-J8",
+      "from": "SI-050107",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-050108",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-050108",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050108-undefined",
+      "to": "SI-050108",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-050108-J-J2",
+      "from": "SI-050108",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050108-J-J3",
+      "from": "SI-050108",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050108-J-J5",
+      "from": "SI-050108",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-050108-J-J8",
+      "from": "SI-050108",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-060101",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-060101",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060101-undefined",
+      "to": "SI-060101",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-060101-J-J1",
+      "from": "SI-060101",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060101-J-J8",
+      "from": "SI-060101",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-060102",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-060102",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060102-undefined",
+      "to": "SI-060102",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-060102-J-J3",
+      "from": "SI-060102",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060102-J-J5",
+      "from": "SI-060102",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060102-J-J7",
+      "from": "SI-060102",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-060103",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-060103",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060103-undefined",
+      "to": "SI-060103",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-060103-J-J2",
+      "from": "SI-060103",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060103-J-J3",
+      "from": "SI-060103",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060103-J-J5",
+      "from": "SI-060103",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060103-J-J8",
+      "from": "SI-060103",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-060104",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-060104",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060104-undefined",
+      "to": "SI-060104",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-060104-J-J1",
+      "from": "SI-060104",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060104-J-J2",
+      "from": "SI-060104",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060104-J-J3",
+      "from": "SI-060104",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060104-J-J5",
+      "from": "SI-060104",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060104-J-J6",
+      "from": "SI-060104",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-060105",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-060105",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060105-undefined",
+      "to": "SI-060105",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-060105-J-J1",
+      "from": "SI-060105",
+      "to": "J-1",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060105-J-J8",
+      "from": "SI-060105",
+      "to": "J-8",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-060106",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-060106",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060106-undefined",
+      "to": "SI-060106",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-060106-J-J3",
+      "from": "SI-060106",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060106-J-J4",
+      "from": "SI-060106",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060106-J-J6",
+      "from": "SI-060106",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060106-J-J7",
+      "from": "SI-060106",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-060107",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-060107",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060107-undefined",
+      "to": "SI-060107",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-060107-J-J2",
+      "from": "SI-060107",
+      "to": "J-2",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060107-J-J4",
+      "from": "SI-060107",
+      "to": "J-4",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060107-J-J6",
+      "from": "SI-060107",
+      "to": "J-6",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060107-J-J7",
+      "from": "SI-060107",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "DOC-SI-060108",
+      "from": "DOC-SI-ATOMS",
+      "to": "SI-060108",
+      "relation": "INDEXES",
+      "class": "descriptive",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060108-undefined",
+      "to": "SI-060108",
+      "relation": "EVIDENCES",
+      "class": "evidence",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [
+        null
+      ],
+      "reason": null
+    },
+    {
+      "id": "SI-060108-J-J3",
+      "from": "SI-060108",
+      "to": "J-3",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060108-J-J5",
+      "from": "SI-060108",
+      "to": "J-5",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SI-060108-J-J7",
+      "from": "SI-060108",
+      "to": "J-7",
+      "relation": "INFORMS",
+      "class": "product",
+      "status": "current",
+      "basis": "source-text",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "SIE-210001",
+      "from": "SI-010101",
+      "to": "SI-010102",
+      "relation": "AUTHORIZES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100041"
+      ],
+      "reason": "The recipe supplies the grants and routed contracts enforced by the µhost."
+    },
+    {
+      "id": "SIE-210002",
+      "from": "SI-010102",
+      "to": "SI-010106",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100042"
+      ],
+      "reason": "Runtime calls traverse the host port/token boundary."
+    },
+    {
+      "id": "SIE-210003",
+      "from": "SI-010103",
+      "to": "SI-010104",
+      "relation": "PERSISTS",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100043"
+      ],
+      "reason": "Law journal/forbidden/policy rows can ride the vault when granted."
+    },
+    {
+      "id": "SIE-210004",
+      "from": "SI-010103",
+      "to": "SI-010105",
+      "relation": "PERSISTS",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100044"
+      ],
+      "reason": "Intent is designed as durable vault evidence."
+    },
+    {
+      "id": "SIE-210005",
+      "from": "SI-010103",
+      "to": "SI-010107",
+      "relation": "OBSERVES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100045"
+      ],
+      "reason": "Mind reads live vault evidence to derive its model."
+    },
+    {
+      "id": "SIE-210006",
+      "from": "SI-010104",
+      "to": "SI-010105",
+      "relation": "GOVERNS",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100046"
+      ],
+      "reason": "Canonical intent is downstream of law/consent semantics."
+    },
+    {
+      "id": "SIE-210007",
+      "from": "SI-010105",
+      "to": "SI-010106",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100047"
+      ],
+      "reason": "Resolved intent supplies the execution substrate with structured steps."
+    },
+    {
+      "id": "SIE-210008",
+      "from": "SI-010107",
+      "to": "SI-010105",
+      "relation": "REPRESENTS",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100048"
+      ],
+      "reason": "Mind provides the evidence context against which intent grounds."
+    },
+    {
+      "id": "SIE-210013",
+      "from": "SI-020101",
+      "to": "SI-010105",
+      "relation": "VARIANT_OF",
+      "class": "lifecycle",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100053"
+      ],
+      "reason": "Legacy capability resolution is an earlier realization of intent-to-capability semantics."
+    },
+    {
+      "id": "SIE-210014",
+      "from": "SI-020104",
+      "to": "SI-010103",
+      "relation": "VARIANT_OF",
+      "class": "lifecycle",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100054"
+      ],
+      "reason": "Legacy relational conversation persistence and Ω vault chat are different implementations of durable conversation evidence."
+    },
+    {
+      "id": "SIE-210016",
+      "from": "SI-030101",
+      "to": "SI-010101",
+      "relation": "SUPERSEDES",
+      "class": "lifecycle",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100056"
+      ],
+      "reason": "Standalone Ω establishes the plugin/recipe constitution that BCP carries forward."
+    },
+    {
+      "id": "SIE-210019",
+      "from": "SI-030104",
+      "to": "SI-010105",
+      "relation": "SUPERSEDES",
+      "class": "lifecycle",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100059"
+      ],
+      "reason": "D-411 is the historical step that hardened canonical intent."
+    },
+    {
+      "id": "SIE-210020",
+      "from": "SI-030105",
+      "to": "SI-010106",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100060"
+      ],
+      "reason": "The substrate chain supplies runtime/context/governance mechanisms."
+    },
+    {
+      "id": "SIE-210024",
+      "from": "SI-030107",
+      "to": "SI-010103",
+      "relation": "GOVERNS",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100064"
+      ],
+      "reason": "Mine provenance remains tied to vault/evidence records."
+    },
+    {
+      "id": "SIE-210009",
+      "from": "SI-020102",
+      "to": "SI-020103",
+      "relation": "REQUIRES",
+      "class": "runtime",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100049"
+      ],
+      "reason": "Legacy ProviderSession resolves against a ProviderAccount."
+    },
+    {
+      "id": "SIE-210010",
+      "from": "SI-020103",
+      "to": "SI-020105",
+      "relation": "REQUIRES",
+      "class": "runtime",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100050"
+      ],
+      "reason": "Legacy profile sessions carry Chrome slave/profile state controlled by browser machinery."
+    },
+    {
+      "id": "SIE-210011",
+      "from": "SI-020103",
+      "to": "SI-020104",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100051"
+      ],
+      "reason": "ProviderSession is the persistence bridge for provider conversations."
+    },
+    {
+      "id": "SIE-210012",
+      "from": "SI-020105",
+      "to": "SI-020106",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100052"
+      ],
+      "reason": "Governor plus discovery/healing supplies provider-browser resilience."
+    },
+    {
+      "id": "SIE-210015",
+      "from": "SI-020107",
+      "to": "SI-040102",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100055"
+      ],
+      "reason": "Legacy product behavior is the main harvest source for world/surface experience."
+    },
+    {
+      "id": "SIE-210023",
+      "from": "SI-030107",
+      "to": "SI-020106",
+      "relation": "DERIVES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100063"
+      ],
+      "reason": "Forge can turn legacy discovery/healing mechanisms into evidence-bearing generalized contributions."
+    },
+    {
+      "id": "SIE-210017",
+      "from": "SI-030102",
+      "to": "SI-030106",
+      "relation": "SUPERSEDES",
+      "class": "lifecycle",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100057"
+      ],
+      "reason": "BCP adds an explicit live path where upstream remained fixture-first."
+    },
+    {
+      "id": "SIE-210018",
+      "from": "SI-030103",
+      "to": "SI-030106",
+      "relation": "GOVERNS",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100058"
+      ],
+      "reason": "Chrome-only v1 constrains the live provider realization class."
+    },
+    {
+      "id": "SIE-210021",
+      "from": "SI-030106",
+      "to": "SI-050103",
+      "relation": "REALIZES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100061"
+      ],
+      "reason": "provider-browser is a concrete browser realization of provider/session execution."
+    },
+    {
+      "id": "SIE-210022",
+      "from": "SI-030106",
+      "to": "SI-050108",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-100062"
+      ],
+      "reason": "Its live path supplies empirical evidence for provider/routing semantics."
+    },
+    {
+      "id": "SIE-240101",
+      "from": "SI-040101",
+      "to": "SI-010103",
+      "relation": "REQUIRES",
+      "class": "runtime",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-001"
+      ],
+      "reason": "Product Instance needs durable user state."
+    },
+    {
+      "id": "SIE-240102",
+      "from": "SI-040101",
+      "to": "SI-010101",
+      "relation": "REQUIRES",
+      "class": "runtime",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-002"
+      ],
+      "reason": "Active composition is part of the product environment."
+    },
+    {
+      "id": "SIE-240103",
+      "from": "SI-040101",
+      "to": "SI-040102",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-003"
+      ],
+      "reason": "Instance is the container in which world state becomes a user experience."
+    },
+    {
+      "id": "SIE-240104",
+      "from": "SI-040102",
+      "to": "SI-010107",
+      "relation": "DERIVES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-004"
+      ],
+      "reason": "World projection derives from the Ω evidence-based lens."
+    },
+    {
+      "id": "SIE-240105",
+      "from": "SI-040102",
+      "to": "SI-020104",
+      "relation": "RELATED_TO",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-005"
+      ],
+      "reason": "Legacy conversation/message structures supply harvested product behavior."
+    },
+    {
+      "id": "SIE-240106",
+      "from": "SI-040103",
+      "to": "SI-040102",
+      "relation": "REPRESENTS",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-006"
+      ],
+      "reason": "Workspace/canvas represents world state rather than becoming its authority."
+    },
+    {
+      "id": "SIE-240107",
+      "from": "SI-040104",
+      "to": "SI-010105",
+      "relation": "REQUIRES",
+      "class": "runtime",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-007"
+      ],
+      "reason": "Universal interaction requires persisted canonical intent."
+    },
+    {
+      "id": "SIE-240108",
+      "from": "SI-040104",
+      "to": "SI-010104",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-008"
+      ],
+      "reason": "Effectful interaction remains authority/law governed."
+    },
+    {
+      "id": "SIE-240109",
+      "from": "SI-040105",
+      "to": "SI-010106",
+      "relation": "REQUIRES",
+      "class": "runtime",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-009"
+      ],
+      "reason": "Durable work needs execution substrate plus product lifecycle semantics."
+    },
+    {
+      "id": "SIE-240110",
+      "from": "SI-040106",
+      "to": "SI-050108",
+      "relation": "REQUIRES",
+      "class": "runtime",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-010"
+      ],
+      "reason": "Provider choice requires explicit routing policy."
+    },
+    {
+      "id": "SIE-240111",
+      "from": "SI-040107",
+      "to": "SI-040101",
+      "relation": "PROVES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-011"
+      ],
+      "reason": "Vertical slices are the product integration proof."
+    },
+    {
+      "id": "SIE-240112",
+      "from": "SI-040107",
+      "to": "SI-040105",
+      "relation": "PROVES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-04-EDGE-012"
+      ],
+      "reason": "VS4/VS5/VS6 exercise durable work and continuity."
+    },
+    {
+      "id": "SIE-250101",
+      "from": "SI-050101",
+      "to": "SI-050102",
+      "relation": "REQUIRES",
+      "class": "runtime",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-001"
+      ],
+      "reason": "A live provider relationship must select a usable session/browser context."
+    },
+    {
+      "id": "SIE-250102",
+      "from": "SI-050101",
+      "to": "SI-050108",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-002"
+      ],
+      "reason": "Account and provider identity are inputs to routing policy."
+    },
+    {
+      "id": "SIE-250103",
+      "from": "SI-020102",
+      "to": "SI-050101",
+      "relation": "REALIZES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-003"
+      ],
+      "reason": "Legacy ProviderAccount is direct implementation evidence of the boundary."
+    },
+    {
+      "id": "SIE-250104",
+      "from": "SI-050102",
+      "to": "SI-030106",
+      "relation": "REALIZES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-004"
+      ],
+      "reason": "Current provider-browser supplies a concrete browser realization path."
+    },
+    {
+      "id": "SIE-250105",
+      "from": "SI-050103",
+      "to": "SI-030106",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-005"
+      ],
+      "reason": "Execution requires a realization that can perform the operation."
+    },
+    {
+      "id": "SIE-250106",
+      "from": "SI-010105",
+      "to": "SI-050104",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-006"
+      ],
+      "reason": "Intent persistence supplies canonical effect-request semantics."
+    },
+    {
+      "id": "SIE-250107",
+      "from": "SI-010104",
+      "to": "SI-050104",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-007"
+      ],
+      "reason": "Authority gates the operation after interpretation and resolution."
+    },
+    {
+      "id": "SIE-250108",
+      "from": "SI-050104",
+      "to": "SI-050105",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-008"
+      ],
+      "reason": "An authorized intent needs durable work and outcome evidence."
+    },
+    {
+      "id": "SIE-250109",
+      "from": "SI-050105",
+      "to": "SI-010103",
+      "relation": "PERSISTS",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-009"
+      ],
+      "reason": "Work/outcome evidence needs durable vault records."
+    },
+    {
+      "id": "SIE-250110",
+      "from": "SI-040102",
+      "to": "SI-050106",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-010"
+      ],
+      "reason": "World entities become useful through surface projections."
+    },
+    {
+      "id": "SIE-250111",
+      "from": "SI-010103",
+      "to": "SI-050107",
+      "relation": "REQUIRES",
+      "class": "runtime",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-011"
+      ],
+      "reason": "Product Instance durability depends on persistent authoritative data."
+    },
+    {
+      "id": "SIE-250112",
+      "from": "SI-050107",
+      "to": "SI-040101",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-012"
+      ],
+      "reason": "Persistence is part of the product instance boundary."
+    },
+    {
+      "id": "SIE-250113",
+      "from": "SI-050108",
+      "to": "SI-040106",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-013"
+      ],
+      "reason": "Routing is a product-level provider/account journey."
+    },
+    {
+      "id": "SIE-250114",
+      "from": "SI-050101",
+      "to": "SI-050108",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-05-EDGE-014"
+      ],
+      "reason": "Routing cannot select an account that is not a valid provider relationship."
+    },
+    {
+      "id": "SIE-260101",
+      "from": "SI-060101",
+      "to": "SI-060102",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-06-EDGE-001"
+      ],
+      "reason": "Proof discipline determines how live implementation claims are interpreted."
+    },
+    {
+      "id": "SIE-260102",
+      "from": "SI-060102",
+      "to": "SI-040106",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-06-EDGE-002"
+      ],
+      "reason": "Provider product claims cannot be externally proven until owner-run evidence exists."
+    },
+    {
+      "id": "SIE-260103",
+      "from": "SI-060103",
+      "to": "SI-040106",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-06-EDGE-003"
+      ],
+      "reason": "Account/routing remains a product gap despite legacy implementation."
+    },
+    {
+      "id": "SIE-260104",
+      "from": "SI-060104",
+      "to": "SI-040102",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-06-EDGE-004"
+      ],
+      "reason": "World breadth and identity joins remain uncertain."
+    },
+    {
+      "id": "SIE-260105",
+      "from": "SI-060105",
+      "to": "SI-040101",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-06-EDGE-005"
+      ],
+      "reason": "Product Instance cannot be destination-complete while lifecycle is uncharacterized."
+    },
+    {
+      "id": "SIE-260106",
+      "from": "SI-060106",
+      "to": "SI-040105",
+      "relation": "ENABLES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-06-EDGE-006"
+      ],
+      "reason": "General external-world control would expand durable work and attention reach."
+    },
+    {
+      "id": "SIE-260107",
+      "from": "SI-060107",
+      "to": "SI-040107",
+      "relation": "GATES",
+      "class": "semantic",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-06-EDGE-007"
+      ],
+      "reason": "Continuity/attention is part of return-to-user proof."
+    },
+    {
+      "id": "SIE-260108",
+      "from": "SI-060108",
+      "to": "SI-030106",
+      "relation": "CONTRADICTS",
+      "class": "evidence",
+      "status": "current",
+      "basis": "system-intelligence-index",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "evidenceRefs": [
+        "EV-06-EDGE-008"
+      ],
+      "reason": "The two lineages specify different CDP authority placements."
+    },
+    {
+      "id": "COMP-PIECE-VIVIM-LAW",
+      "from": "PIECE-VIVIM-LAW",
+      "to": "COMP-FIRST-RESEARCH-EVIDENCE-WORLD",
+      "relation": "PARTICIPATES_IN",
+      "class": "product",
+      "status": "current",
+      "basis": "fresh-coding-readiness",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "COMP-PIECE-VIVIM-VAULT",
+      "from": "PIECE-VIVIM-VAULT",
+      "to": "COMP-FIRST-RESEARCH-EVIDENCE-WORLD",
+      "relation": "PARTICIPATES_IN",
+      "class": "product",
+      "status": "current",
+      "basis": "fresh-coding-readiness",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "COMP-PIECE-VIVIM-RUN",
+      "from": "PIECE-VIVIM-RUN",
+      "to": "COMP-FIRST-RESEARCH-EVIDENCE-WORLD",
+      "relation": "PARTICIPATES_IN",
+      "class": "product",
+      "status": "current",
+      "basis": "fresh-coding-readiness",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "COMP-PIECE-VIVIM-MIND",
+      "from": "PIECE-VIVIM-MIND",
+      "to": "COMP-FIRST-RESEARCH-EVIDENCE-WORLD",
+      "relation": "PARTICIPATES_IN",
+      "class": "product",
+      "status": "current",
+      "basis": "fresh-coding-readiness",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "COMP-PIECE-INTENT-NLCL",
+      "from": "PIECE-INTENT-NLCL",
+      "to": "COMP-FIRST-RESEARCH-EVIDENCE-WORLD",
+      "relation": "PARTICIPATES_IN",
+      "class": "product",
+      "status": "current",
+      "basis": "fresh-coding-readiness",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "COMP-PIECE-PROVIDER-BROWSER",
+      "from": "PIECE-PROVIDER-BROWSER",
+      "to": "COMP-FIRST-RESEARCH-EVIDENCE-WORLD",
+      "relation": "PARTICIPATES_IN",
+      "class": "product",
+      "status": "current",
+      "basis": "fresh-coding-readiness",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "COMP-PIECE-RESEARCH-CAPABILITY",
+      "from": "PIECE-RESEARCH-CAPABILITY",
+      "to": "COMP-FIRST-RESEARCH-EVIDENCE-WORLD",
+      "relation": "PARTICIPATES_IN",
+      "class": "product",
+      "status": "current",
+      "basis": "fresh-coding-readiness",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    },
+    {
+      "id": "VISION-COMP",
+      "from": "VISION-SOVEREIGN-ENV",
+      "to": "COMP-FIRST-RESEARCH-EVIDENCE-WORLD",
+      "relation": "TESTS",
+      "class": "product",
+      "status": "current",
+      "basis": "fresh-coding-readiness",
+      "sourceRefs": [],
+      "evidenceRefs": [],
+      "reason": null
+    }
+  ]
+}
