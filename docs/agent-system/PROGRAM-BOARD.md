@@ -329,17 +329,36 @@ Future milestones can remain visible without becoming simultaneous work.
 
 ## 10. Destination product assembly
 
-The destination package now provides the product-level synthesis above the P1 architecture portfolio:
+The destination package is now the product-level synthesis above the P1 architecture portfolio.
+
+### Durable destination package
 
 - docs/destination/NORTH-STAR.md — destination promise.
+- docs/destination/FOUNDATIONAL-PRINCIPLES.md — non-negotiable principles.
+- docs/destination/HUMAN-EXPERIENCE.md — target user experience.
 - docs/destination/CONCEPTUAL-MODEL.md — human-level vocabulary.
-- docs/destination/DESTINATION-MASTER-MAP.md — destination-to-repository mapping and canonical journeys.
-- docs/destination/MATURITY-AND-GAPS.md — maturity levels, current state, and gap register.
-- docs/destination/BUILD-AND-HARVEST-PLAN.md — sequenced product assembly and harvest plan.
+- docs/destination/DESTINATION-MASTER-MAP.md — destination concepts mapped to repository evidence and canonical journeys.
+- docs/destination/RECONCILIATION-MAP.md — deeper repository reconciliation.
+- docs/destination/MATURITY-AND-GAPS.md — maturity model and gap register.
+- docs/destination/BUILD-AND-HARVEST-PLAN.md — sequencing and harvest strategy.
+- docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md — completed D4 seam.
+- docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md — completed D2 seam.
+- docs/destination/INTERACTION-INTENT-WORK-RECONCILIATION.md — completed D3 seam.
+- docs/destination/AGENCY-BACKGROUND-ATTENTION-RECONCILIATION.md — completed D5 seam.
+- docs/destination/DATA-MEMORY-CONTEXT-RECONCILIATION.md — cross-cutting data/context seam.
+- docs/destination/FORGE-COMPOSITION-EVOLUTION-RECONCILIATION.md — evolution seam.
+- docs/destination/V1-DEFAULT-ENVIRONMENT-AND-LIVE-PROOF.md — V1 product and live-proof boundary.
+
+### Current destination state
+
+**Completed:** destination foundation; provider/account/routing mapping; world/workspace/canvas mapping; interaction/intent/work mapping; agency/background/attention mapping; data/memory/context mapping; Forge/composition/evolution mapping.
+
+**Current execution frontier:** V1 live Chrome/account proof. The repository-side design is prepared; the remaining evidence requiring the owner's machine is an authenticated Chrome session and the real provider execution path.
+
+**After live proof:** compose the mapped seams into the first destination-grade cross-domain journey, then productize background continuity, attention, native evolution, and the full lifecycle.
 
 The delivery lens is now:
 
 **world coherence → capability choice → durable work → live external reality → persistent continuity → native evolution.**
 
-P1 remains the architecture/proof decomposition. D1–D6 in the destination build plan are the user-visible product assembly tracks feeding that portfolio. Do not create a second P1 portfolio merely to represent product assembly.
-
+P1 remains the architecture/proof decomposition. D1–D6 are the user-visible product assembly tracks feeding that portfolio. Do not create a second P1 portfolio merely to represent product assembly.
