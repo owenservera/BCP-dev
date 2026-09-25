@@ -35,3 +35,4 @@ Each package should normally contain STATE.md plus source/session material where
 ## Specialized context packages
 
 - `AGENTS_CONTEXT/PERSONAL_AGENT/` — Personal Agent, self-describing system, deterministic command language, symbolic command system, and the design frontier connecting them.
+- `AGENTS_CONTEXT/PRODUCT_ENVIRONMENT/` — Native Windows product environment, OS/resource integration, desktop interaction, lifecycle, recovery, and machine sovereignty boundary.
