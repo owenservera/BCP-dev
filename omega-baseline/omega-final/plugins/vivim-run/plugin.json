@@ -2,7 +2,7 @@
   "manifestVersion": "1",
   "id": "vivim.run",
   "version": "0.1.0",
-  "description": "Ω3 spine: bounded task pool with a priority queue, per-task budgets and the freshness contract, plus compartment crash-loop quarantine. Scheduling POLICY only — transport (spawn/terminate/stats) stays with the µhost, administered through capability-gated host ops.",
+  "description": "Ω3 spine: bounded task pool with a priority queue, per-task budgets and the freshness contract, plus compartment crash-loop quarantine. Scheduling POLICY only — transport (spawn/terminate/stats) stays with the µhost, administered through capability-gated host ops. V1 durable Work core: canonical Work/Plan/Attempt lifecycle persists through the existing vault; the worker pool remains disposable.",
   "entry": "src/index.ts",
   "publisher": {
     "keyId": "",
@@ -286,6 +286,76 @@
         "version": "1",
         "risk": "READ",
         "doc": "D-450: the headless liveness view — states, transition history, dormancy proofs (stale proofs refuse LIVENESS_PROOF_STALE), and the badge sentences the renderer would print; a ghost's write attempt refuses LIVENESS_GHOST_WRITE at the door."
+      },
+      {
+        "kind": "contract",
+        "id": "work.create",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "Durably creates an immutable Plan snapshot plus Work record in vault ns work."
+      },
+      {
+        "kind": "contract",
+        "id": "work.get",
+        "version": "1",
+        "risk": "READ",
+        "doc": "Reads canonical Work plus its pinned Plan revision."
+      },
+      {
+        "kind": "contract",
+        "id": "work.list",
+        "version": "1",
+        "risk": "READ",
+        "doc": "Lists latest canonical Work records; execution truth comes from vault, not memory."
+      },
+      {
+        "kind": "contract",
+        "id": "work.transition",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "Applies only an allowed Work state transition; Plan pin is immutable."
+      },
+      {
+        "kind": "contract",
+        "id": "work.attempt.start",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "Starts one actual Step attempt, enforcing dependency readiness and stable effect identity for side effects."
+      },
+      {
+        "kind": "contract",
+        "id": "work.attempt.finish",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "Settles an attempt and advances/retries/reconciles durable Work."
+      },
+      {
+        "kind": "contract",
+        "id": "work.reconcile",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "Resolves an UNKNOWN_EFFECT/reconciling attempt without pretending a side effect did or did not occur."
+      },
+      {
+        "kind": "contract",
+        "id": "work.verify",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "Closes a verifying Work only when every planned Step has a succeeded Attempt."
+      },
+      {
+        "kind": "contract",
+        "id": "work.cancel",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "Cancels only safely non-running Work; running/reconciling Work requires resolution first."
+      },
+      {
+        "kind": "contract",
+        "id": "work.recover",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "On runtime recovery, moves in-flight Work to reconciliation rather than auto-replaying unknown effects."
       }
     ]
   },
