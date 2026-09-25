@@ -96,6 +96,10 @@ This is deliberately a process gate, not a second task system.
 
 ---
 
+## 0.5 Cold-start context
+
+For persistent conversation/product context, read `AGENTS_CONTEXT/README.md` first, then the relevant package under `AGENTS_CONTEXT/`. The current Product Vision handoff is `AGENTS_CONTEXT/PRODUCT_VISION/STATE.md`; its JSON source capture is `AGENTS_CONTEXT/PRODUCT_VISION/SESSION-2026-09-25.json`.
+
 ## 1. Conceptual vision — the mental model
 
 **Destination foundation:** the current destination/product/UX discovery is being reconstructed in `docs/destination/`. Start with `docs/destination/README.md`. These documents are **DERIVED — WORKING / DRAFT** until explicitly ratified; they do not override Ω law, current code/evidence, or the program's proof gates.
