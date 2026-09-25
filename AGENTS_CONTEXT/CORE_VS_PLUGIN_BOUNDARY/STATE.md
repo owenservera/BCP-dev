@@ -2,7 +2,7 @@
 
 Updated: 2026-09-25
 
-Status: **RESEARCH PASS COMPLETE / DERIVED PACKAGE COMMITTED**
+Status: RESEARCH PASS COMPLETE / DEEPENED PACKAGE COMMITTED
 
 ## Result
 
@@ -12,25 +12,46 @@ K0 is limited to non-bypassable, domain-neutral runtime mechanisms: admission/in
 
 K1 contains shared boundary vocabulary such as Manifest/Recipe, Port, Capability, Outcome/Refusal, Object/Revision, Evidence, Intent, Work, Authority and Change references. Product meaning remains outside K0.
 
-System plugins include law/policy, vault, Work, mind/context, NLCL, agent, providers/realizations, credentials, chat, discovery/healing, Forge, surfaces, memory/attention and Product Instance. Their being essential or bundled does not make them Core.
+## Deepened evidence pass
+
+The package is grounded in concrete current Ω source, not only design prose:
+
+- host/src/genesis.ts → minimal closed bootstrap and generic kernel structures
+- host/src/canon.ts → canonical encoding, hashes, signatures and atomic-write boundary
+- host/src/worker.ts → compartment/transport mechanics with explicitly documented resource limits
+- host/src/ports.ts → host-side capability token ownership, revocation, generation and scope checks
+- contracts/src/lifecycle.ts → host operation/capability vocabulary
+- contracts/src/manifest.ts → plugin declaration, dependency, runtime, risk and generality vocabulary
+- plugins/vivim-law/* → invocation, standing and privacy semantics outside K0
+- plugins/vivim-agent/* → delegation and adaptation governance outside K0
+- plugins/vivim-run/* → Work/liveness semantics outside K0
 
 ## Canonical package
 
-`docs/destination/core-vs-plugin-boundary/`
+docs/destination/core-vs-plugin-boundary/
 
-The package contains the 19 required outputs plus `DIAGRAMS.md`.
+The package contains the 19 required outputs plus diagrams and a deeper evidence/control layer covering archaeology, current implementation mapping, boundary anatomy, stress cases, K0 proof obligations, lifecycle/trust, contract evolution, responsibility decision ledger, review checklist and zero-plugin bootstrap.
 
-## Key unresolved questions
+## Strongest findings
 
-- exact zero-plugin bootstrap composition;
-- complete symmetry audit of every existing Ω plugin versus external plugins;
-- exact Work continuity semantics under replacement;
-- contract compatibility algebra;
-- OS/product shell boundary;
-- unified evolution admission across Forge, healing and installation;
-- whether any additional generic object/vault primitive is truly K0.
+1. Current Ω source already provides unusually strong evidence for a narrow host.
+2. The remaining risk is semantic leakage into K0, not insufficient host authority.
+3. Security sensitivity does not imply Core; authority enforcement and policy meaning remain separate.
+4. First-party/system and third-party/extension symmetry is the key generality test.
+5. Active Work replacement is the hardest boundary experiment because it exercises identity, contracts, evidence, authority, persistence and evolution simultaneously.
+6. Zero-plugin bootstrap is a powerful falsifier for hidden product semantics in the host.
 
-These remain experiments/design work, not reasons to enlarge Core now.
+## Key unresolved experiments
+
+- exact zero-plugin bootstrap composition and installation UX
+- complete symmetry audit of every current Ω plugin versus a legitimate external plugin
+- exact Work continuity semantics under implementation replacement
+- semantic contract compatibility algebra
+- OS/product shell boundary
+- unified evolution admission for Forge, provider healing and installation
+- whether any generic object/vault primitive truly cannot live outside K0
+
+These are research/experiment items, not reasons to enlarge Core now.
 
 ## Authority
 
@@ -38,4 +59,4 @@ This STATE is a derived research handoff. It does not amend ratified Ω decision
 
 ## Next action
 
-Use the package as the mandatory classification gate before substantive implementation. Any proposed K0 addition must include a why-not-plugin rationale, impact analysis, replacement seam and falsifier.
+Use the package as the mandatory classification gate before substantive implementation. Any proposed K0 addition must include a protected invariant, concrete bypass, universality argument, domain-neutrality argument, smallest mechanism, removal experiment, impact analysis and falsifier.
