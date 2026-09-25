@@ -43,3 +43,37 @@ Important findings carried forward:
 - the former authority-pointer pilot cited by WS-002 was not recoverable on current main and must not be treated as evidence unless a repository object is later recovered.
 
 The former cleanup report's strongest reusable rule is: preserve evidence and lineage, repair references, classify conflicts explicitly, and avoid deletion or promotion based only on appearance of cleanliness.
+
+
+## Former build-day context and experimental-path harvest
+
+The retired `docs/CONTEXT-*.md` and `docs/EXPERIMENTAL-PATHS.md` were build-day coordination snapshots, not current architecture authority. Their durable lessons are now represented by current BCP state, destination research, Ω law, and the Steward model.
+
+Retained from the build-day material:
+- BCP is a tracking/control substrate; Ω remains the product/destination authority.
+- Fixture-proven work must not be described as live-proven; "merging" is not equivalent to integrated or proven.
+- External verification is stronger than builder-local claims.
+- The original experimental framing separated three useful patterns: a thin Chrome vertical slice, a deterministic intent/control plane, and a bounded legacy airlock. These are historical design lineage, not current sequencing authority.
+- The thin-slice rule was valuable: get an honest smallest executable path and measure real cost before expanding scope.
+- Deterministic intent work established a durable principle: probabilistic perception may assist at the ambiguous tail, but canonical intent, policy/law, consent, and execution meaning should remain deterministic and inspectable.
+- Legacy migration should preserve behavior/data where useful without turning the adapter into the destination; import/search can precede bidirectional synchronization.
+- The historical build-day board contained stale maturity claims and count discrepancies. Those claims are deliberately not carried forward as current proof. Current BCP state and current repository evidence must be checked instead.
+
+## Early conversation/archive harvest
+
+The retired raw conversation exports contained several ideas that remain useful as historical lineage:
+- unified typed capabilities as a shared semantic operation across surfaces;
+- a canonical graph/object model with provenance and evolution;
+- natural-language command concepts constrained by a closed mutation grammar;
+- Chrome Governor as a quarantined provider-realization mechanism rather than canonical truth;
+- separation of system configuration from user-owned data;
+- ActionPlan/Work-like orchestration concepts, later reframed under the destination Work research;
+- self-description/auto-librarian concepts, later reframed as evidence-backed Self-Knowledge;
+- the warning that planning ceremony can expand faster than executable evidence;
+- walking-skeleton / characterization-test / strangler patterns as useful engineering patterns, not architectural authority.
+
+The raw exports are now redundant as active repository knowledge. Their complete contents remain recoverable from Git history.
+
+## Retired raw-session evidence
+
+The old build-day session transcripts contained useful empirical lessons: live-state sweeps exposed stale leases and test isolation problems; re-running tests from outside the builder process mattered; and concurrency/torn-state failures were evidence about the control-plane implementation rather than proof of product behavior. These remain historical evidence only.
