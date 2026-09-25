@@ -1,14 +1,25 @@
 # Architecture Steward — Open Frontier
 
-1. Define the machine-readable architecture registry without creating a second ontology.
-2. Determine which node/edge fields can be derived automatically from code/docs.
-3. Establish a repeatable repository-wide drift sweep.
-4. Build the complete responsibility registry from the current 125-row destination inventory.
-5. Expand the current keystone scorecard into a complete dependency graph.
-6. Connect System Intelligence atoms/edges to canonical destination responsibilities.
-7. Connect workstream evidence to the dependency graph.
-8. Add implementation-level dependency evidence without treating imports alone as semantic dependencies.
-9. Create generated architecture views from canonical registries.
-10. Define a stable architecture versioning scheme.
-11. Define how branch-local research is promoted or archived.
-12. Determine which documentation changes should automatically trigger program/workstream revalidation.
+> Current phase: compress existing intelligence into a coding-ready factory/product baseline.
+
+**Do not pursue Steward infrastructure for its own sake.** The machine-readable registry, generated views, automated drift system, and deeper graph machinery are later optimizations unless a current build decision actually requires them.
+
+## Immediate Steward work
+
+1. Synthesize Product Experience, Journey → Architecture, and Current Reality → Proof into the smallest useful coding map.
+2. Identify the first compositional building language and reference pieces from existing evidence.
+3. Trace the first executable composition through Ω responsibilities, contracts, implementations, and proof.
+4. Flag only uncertainties capable of forcing factory redesign.
+5. Stop preparing when that path is sufficiently clear and start coding.
+
+## Later, evidence-driven Steward work
+
+- machine-readable architecture registry;
+- derived/generated views;
+- broad drift sweeps;
+- complete responsibility/dependency graph automation;
+- architecture versioning;
+- automatic revalidation triggers;
+- branch-local promotion machinery.
+
+These are not current goals merely because they are useful eventually.
