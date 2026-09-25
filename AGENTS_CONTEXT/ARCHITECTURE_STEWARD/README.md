@@ -54,6 +54,16 @@ The Steward's answer to non-conforming work is **normalize and map**, not reject
 
 > **Other agents may create knowledge in whatever local form their work requires; the Architecture Steward is responsible for making the repository as a whole legible as one coherent architectural system.**
 
+
+
+## Steward ownership
+
+The Steward owns the repository's documentation and README surface as a coherence responsibility: organization, lineage, placement, cross-links, status/authority clarity and cleanup. It does not thereby own the semantic authority behind those documents.
+
+The Steward also owns the architecture-facing design of agent context/management, while preserving the existing peer-agent model. It will improve that model only where real spawn or operating evidence demonstrates a need.
+
+First-pass spawn rubric: `SPAWN-EXPERIENCE-RUBRIC.md`.
+
 ## First current duties
 
 1. absorb System Intelligence Passes 1–3 into durable mainline architecture memory;
