@@ -112,6 +112,10 @@ It composes existing read authorities rather than creating another data store or
 
 See `CORE-TOOL-DESIGN.md`.
 
+## Peer relationship map
+
+`PEER-RELATIONSHIP-ATLAS.md` records CFA-02's own taxonomy, distance/proximity scoring, peer-by-peer interfaces, identity and transformation matrices, boundary pressure map, communication priorities, and staged collaboration strategy across CFA-01..CFA-10 and the Architecture Steward.
+
 ## Next evidence target
 
 Use one real provider/productivity corridor as a living test of the boundary design and the Core Tool.
