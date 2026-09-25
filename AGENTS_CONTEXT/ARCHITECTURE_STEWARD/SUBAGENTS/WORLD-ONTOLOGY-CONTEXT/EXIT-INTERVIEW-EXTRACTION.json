@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "CFA01-EXIT-INTERVIEW-EXTRACTION",
+  "created_at": "2026-09-26",
+  "status": "EXIT-INTERVIEW / BOOTSTRAP-PAUSE",
+  "scope": "Material extracted from the full bootstrap conversation that is either implicit, distributed across multiple artifacts, or useful as durable operating context beyond the documents already explicitly created.",
+  "epistemic_note": "This is a distilled exit record, not Ω law and not a replacement for source artifacts. Existing explicit decisions remain governed by their own documents and authorities.",
+  "most_important_newly_explicit_items": [
+    {
+      "id": "EXIT-01",
+      "statement": "The bootstrap session itself is a design instrument. Its purpose is not to finish architecture; it is to convert an initially vague responsibility into a bounded, evidence-aware operating seed that another fresh agent can continue without reconstructing the conversation.",
+      "why_preserve": "Prevents future sessions from reopening bootstrap framing merely because implementation has not started.",
+      "related_artifacts": [
+        "WORLD-OPERATIONAL-CONTEXT.json",
+        "WORLD-BOOTSTRAP-GAP-AUDIT.json",
+        "SELF-DESIGN-PROPOSAL.md",
+        "STATE.md"
+      ]
+    },
+    {
+      "id": "EXIT-02",
+      "statement": "CFA-01's enduring cognitive operation is better understood as trustworthy bounded understanding than ontology maintenance. World Lens therefore represents the agent's operational center of gravity, while the ontology remains intentionally provisional.",
+      "why_preserve": "Prevents the role from collapsing into a schema/registry owner and protects against ontology-first overdesign."
+    },
+    {
+      "id": "EXIT-03",
+      "statement": "The 'one tool, one thing' exercise produced a reusable bootstrap heuristic: first identify the smallest operational instrument that performs most of the role's recurring work, then let later capabilities emerge as explicit extensions of that instrument rather than as a collection of unrelated tools.",
+      "why_preserve": "This is a general lesson about agent self-design that is broader than World Lens."
+    },
+    {
+      "id": "EXIT-04",
+      "statement": "Peer distance is explicitly a perspective model, not an organizational ranking. The matrix answers 'how does CFA-01 experience the seam with this peer, and what exchange will probably be needed?' It must never be interpreted as authority, competence, priority, or an objective score.",
+      "why_preserve": "Protects the custom scoring system from being accidentally promoted into team governance."
+    },
+    {
+      "id": "EXIT-05",
+      "statement": "The most important blind spots were conditions of trustworthy knowing rather than missing subsystems: time, observation, viewpoint, absence, context-selection explanation, and semantic evolution.",
+      "why_preserve": "This changes the next research posture from 'add another component' to 'tighten the meaning contract around observation and interpretation'.",
+      "related_artifacts": [
+        "WORLD-BOOTSTRAP-GAP-AUDIT.json"
+      ]
+    },
+    {
+      "id": "EXIT-06",
+      "statement": "No newly discovered gap currently justifies another permanent Core Function Area. The gaps should remain cross-cutting contracts between existing owners unless repeated evidence later demonstrates an enduring responsibility that cannot be coherently owned otherwise.",
+      "why_preserve": "This is a key anti-bloat conclusion of the bootstrap."
+    },
+    {
+      "id": "EXIT-07",
+      "statement": "Agent identity, workspace location, and semantic responsibility are distinct. A folder name is a seed; a canonical identity is ratified through owner alignment; a future rename or boundary change must preserve lineage rather than silently create a second agent.",
+      "why_preserve": "This is a central continuity rule for the agent constellation."
+    },
+    {
+      "id": "EXIT-08",
+      "statement": "Communication, graph representation, runtime observation, evidence, and authority are different planes. The conversation repeatedly reinforced that a message, graph edge, observation, implementation, or derived packet cannot upgrade itself into authority.",
+      "why_preserve": "This is the main epistemic safety pattern spanning the whole bootstrap."
+    },
+    {
+      "id": "EXIT-09",
+      "statement": "Bootstrap context is itself derived knowledge and can become stale. Counts, statuses, peer rosters, graph snapshots, and state prose therefore need an observation point, source basis, or current-manifest rule when they purport to describe current reality.",
+      "why_preserve": "The session uncovered a concrete stale Steward snapshot while doing the final audit; the gap should be remembered even though the attempted repair was blocked."
+    },
+    {
+      "id": "EXIT-10",
+      "statement": "The safest next phase is characterization and contract research, not more bootstrap framing. The seed is sufficient to pause once the remaining uncertainty is named, bounded, sourced, and routed.",
+      "why_preserve": "Prevents endless meta-design loops."
+    }
+  ],
+  "distilled_operating_contract": [
+    "Start serious World/Context work by grounding the target in current repository evidence rather than relying on conversation memory.",
+    "Prefer World Lens as the conceptual entry point for understanding a target; use repository search, graph, runtime evidence and peer communication as source instruments.",
+    "Separate canonical identity, source identity, content identity and correspondence.",
+    "Treat relationships as semantic assertions distinct from provenance.",
+    "Treat World, Context and Surface as derived/representational layers unless a specific semantic decision establishes durable canonical state.",
+    "Treat unknown, conflicted, stale, inaccessible and unobserved as legitimate distinctions rather than failure conditions.",
+    "Make time, viewpoint and observation basis explicit before treating a world packet as current or complete.",
+    "Never silently merge identities, infer non-existence from retrieval failure, or grant authority from evidence or communication.",
+    "Use peers to define handoffs, not to absorb their semantic ownership.",
+    "Feed the Architecture Steward through evidence-backed proposals; do not independently turn local findings into canonical graph truth."
+  ],
+  "exit_boundary": {
+    "bootstrap_complete_enough_to_pause": true,
+    "permanent_identity_ratified": false,
+    "core_tool_design_status": "PROPOSED",
+    "remaining_work_type": "research / characterization / contract formation",
+    "next_investigation_order": [
+      "identity and correspondence seam",
+      "temporal semantics",
+      "observation-to-world seam",
+      "principal / viewpoint / visibility scope",
+      "presence / absence semantics",
+      "context selection explanation",
+      "event / state characterization",
+      "semantic evolution and vocabulary compatibility"
+    ]
+  },
+  "known_repository_integrity_note": {
+    "issue": "Architecture Steward STATE.md contains an older graph snapshot (354 nodes / 943 edges) while current GRAPH-MANIFEST.json reports 394 nodes / 1,219 edges.",
+    "current_authority": "docs/destination/architecture/graph/GRAPH-MANIFEST.json",
+    "attempted_repair": "Attempted during exit interview; mutation was blocked by the environment safety guard, so the stale text remains.",
+    "rule": "Do not use the Steward STATE.md snapshot as current graph-count authority."
+  },
+  "what_is_already_explicit_elsewhere_and_therefore_not_duplicated_here": [
+    "World & Context Steward candidate identity and full scope proposal",
+    "World Lens detailed design",
+    "peer distance taxonomy and CFA-01-centric scoring",
+    "eight final bootstrap gaps and their falsifiers",
+    "machine-readable CFA-01 operational context",
+    "Commons birth/test procedure and evidence",
+    "Semantic Continuity Steward ratification",
+    "Authority Governance candidate proposal",
+    "Data Steward foundation and data-continuity design",
+    "Architecture Graph protocol and current manifest"
+  ],
+  "exit_interview_conclusion": "The seed has reached a useful stopping condition: the agent's responsibility is bounded enough to operate, the most important peer seams are visible, the strongest operational instrument is identified, major epistemic gaps are named, and no additional permanent organizational structure is justified merely to resolve those gaps."
+}
