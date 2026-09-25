@@ -63,7 +63,8 @@ Create a new subagent type only when the investigation method is meaningfully di
 
 Do not create a new folder for a one-off wording variation.
 
-Current type:
+Current types:
 
 - **REPOSITORY-DISCOVERY** — independent completeness/contextualization sweep before the Steward treats the architecture corpus as sufficiently sampled.
 - **PRODUCT-EXPERIENCE-ARCHAEOLOGY** — independent recovery and mapping of the user-experience vision, lifecycle, interaction grammar, and architectural corollaries before UX becomes the primary destination organizing lens.
+- **SELF-KNOWLEDGE-COMMAND-COMPILER** — investigates the boundary and integration between runtime self-knowledge, the Ω/NLCL command language and interpreter, execution-plan compilation, and the proposed Unicode/SVG visual compiler; reconciles current Ω implementation with the archived symbolic-communication design and identifies the smallest safe implementation seam.
