@@ -1,3 +1,22 @@
+## System Intelligence preflight
+
+Before substantial V1 implementation or provider archaeology begins, use the prepared research apparatus at:
+
+docs/destination/system-intelligence/
+
+The first research pass is intended to establish atomic dependencies across Legacy VIVIM, standalone VIVIM-Ω, and current BCP Ω and connect them to the existing destination/program model. The V1 build-learning sprint consumes that output; it does not recreate the research apparatus.
+
+Minimum pre-build handoff:
+
+- investigator findings exist for the six initial roles;
+- normalized atoms, edges, and evidence are synthesized;
+- critical-path dependencies and high-impact unknowns are identified;
+- major boundary questions are explicit;
+- product traces exist for the initial V1 journeys/slices;
+- unresolved frontier items are separated from implementation-ready work.
+
+No finding in this research layer becomes Ω law merely by appearing in the synthesis.
+
 # V1 Build & Learning Sprint — Product, Plugin & Provider Discovery Control
 
 > Classification: DERIVED — PRODUCT RESEARCH / SPRINT CONTROL
