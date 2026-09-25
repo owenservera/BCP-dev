@@ -44,3 +44,16 @@ A change to:
 If a material conclusion changes, record it as a change.
 
 The old state may remain visible in history where useful.
+
+
+## Subagent launch handoff requirement
+
+Whenever the Steward asks the owner to launch a subagent, the handoff MUST always include all three of these items explicitly:
+
+1. **Prompt location** — the exact repository path to the launch prompt.
+2. **Full repository URL** — `https://github.com/owenservera/BCP-dev`.
+3. **Access context** — state that the subagent has full GitHub access to the owner's account and should use that access directly.
+
+The handoff should also briefly state what the subagent is being asked to investigate and what output it is expected to produce.
+
+Do not rely on the owner remembering these details from a previous handoff. Repeat them every time a subagent is launched or requested.
