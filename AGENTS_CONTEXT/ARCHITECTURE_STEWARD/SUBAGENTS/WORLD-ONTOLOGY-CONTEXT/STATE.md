@@ -69,6 +69,22 @@ This is a provisional interpretation pending deeper archaeology and owner alignm
 
 **Status:** ACCEPTED FOR BOOTSTRAP ROUND 1.
 
+### DEC-004 — Treat the CFA folder as an operational home
+
+**Decision:** Establish a minimal `HOME.md` as the fresh-session front door, while keeping seed, state, research queue and Commons as distinct memory roles.
+
+**Reason:** The CFA needs continuity infrastructure before it needs a larger ontology artifact. The home should let a fresh incarnation recover identity, current understanding, uncertainty, peer seams, graph role and next work without becoming another architecture authority.
+
+**Status:** ACCEPTED FOR BOOTSTRAP ROUND 1.
+
+### DEC-005 — Participate in the architecture graph; do not create a second graph
+
+**Decision:** CFA-01 contributes semantic World/Context nodes, relationships and boundary knowledge to the repository Architecture Graph and later to the product World projection, but does not create an independent intelligence graph.
+
+**Reason:** The destination architecture already defines one network with multiple projections, while the World/Object research defines World as reconstructable from canonical objects and relationships. A second graph would create competing sources of meaning.
+
+**Status:** ACCEPTED FOR BOOTSTRAP ROUND 1.
+
 ### DEC-003 — Treat ACU/DCB as archaeological evidence
 
 **Decision:** Add ACU/DCB lineage tracing to the research queue.
