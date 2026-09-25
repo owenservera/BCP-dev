@@ -344,6 +344,23 @@ Outputs: first-run, default environment, recovery, export, end-to-end journey su
 
 ## 14. Current execution rule
 
+## 14A. Core-vs-plugin boundary gate
+
+Before a new implementation is started, classify its responsibility using `docs/destination/CORE-VS-PLUGIN-BOUNDARY-DISTILLATION.md`.
+
+Do not move functionality into Ω Core merely because it is:
+
+- essential to VIVIM;
+- first-party;
+- security-sensitive in its policy/content;
+- used by many plugins;
+- always enabled in the default composition.
+
+Only non-bypassable, domain-neutral runtime mechanism belongs in K0. Shared semantics belong in K1 contracts; product/domain behavior belongs in plugins. Policy **enforcement** may be K0 while policy **content** remains plugin-owned.
+
+A new K0 proposal requires an explicit boundary rationale and falsifier before code lands.
+
+
 Do not open a new architectural workstream for this slice. D4 owns the product synthesis; P1-05/P1-06/P1-07/P1-08 contribute the runtime, authority, provider-reality, and harvest evidence. The first implementation request comes only after RA-1 through RA-3 are reconciled and the thin falsifier is specified.
 
 ## 15. Explicit non-goals
