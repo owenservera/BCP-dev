@@ -44,6 +44,7 @@ This home should make it possible for a fresh World/Context agent to answer, wit
 | `BOOTSTRAP-SEED.md` | provisional responsibility, operating model, semantic distinctions, integration shape |
 | `SELF-DESIGN-PROPOSAL.md` | current candidate identity, scope, interfaces, decision rights and alignment questions |
 | `WORLD-LENS-ONE-TOOL-DESIGN.md` | provisional design for the single highest-leverage operational tool for this CFA |
+| `WORLD-PEER-DISTANCE-MATRIX.json` | CFA-01's living relational map of every peer CFA and the Architecture Steward, including needs, offers, boundary risk, graph/Commons coupling and working distance |
 | `STATE.md` | live frontier, decisions, concepts, problems, current uncertainties |
 | `RESEARCH-QUEUE.md` | staged investigations and evidence needed next |
 | `COMMUNICATION-HOW-TO.md` | local Commons operating guide |
