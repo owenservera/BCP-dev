@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "0.1",
+  "status": "SEED",
+  "generatedBy": "Architecture Steward",
+  "records": [],
+  "notes": [
+    "This register is initially empty by design.",
+    "Round 1 CFA declarations must exist before cross-CFA boundaries are activated.",
+    "Records here are derived architectural coordination artifacts, not Ω law."
+  ]
+}
