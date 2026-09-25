@@ -15,8 +15,7 @@ The Core-vs-Plugin work is documentation/research only. No production runtime co
 | Ω law | omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md + D-records |
 | BCP control state | bcp-speed/bcp/state and log through prescribed BCP tooling |
 | Destination | docs/destination/ |
-| Program governance | docs/agent-system/ |
-| Cold-start context | AGENTS_CONTEXT/ |
+| Role/cold-start context | AGENTS_CONTEXT/ |
 | History | docs/archive/ |
 
 ## Core boundary status
@@ -58,4 +57,4 @@ Former root construction/project-management documents are archived under docs/ar
 
 ## Next read
 
-/AGENTS.md → /BUILD_CONTEXT.md → this file → docs/agent-system/CURRENT.md → AGENTS_CONTEXT/README.md → mission authority.
+/AGENTS.md → /BUILD_CONTEXT.md → this file → /AGENTS_CONTEXT/README.md → the relevant role context → current Ω/destination authority.
