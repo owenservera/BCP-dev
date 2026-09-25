@@ -1,0 +1,36 @@
+{
+  "event_id": "01a0da4c-3448-7837-a928-b4a2da73a092",
+  "event_type": "conversation.created",
+  "schema_version": "1.0",
+  "agent_id": "architecture-steward",
+  "session_id": "session-1790368822344",
+  "key_id": "architecture-steward:ed25519:01a0da4c-3448-7114-b8ca-d2c4dde525b9",
+  "stream_id": "agent:architecture-steward",
+  "stream_seq": 1,
+  "prev_hash": null,
+  "ts": "2026-09-25T20:40:22.344Z",
+  "payload": {
+    "conversation_id": "room:01a0da4c-3448-7fb7-8e29-c8065d1478d1",
+    "type": "ROOM",
+    "name": "World ↔ Architecture Coordination",
+    "purpose": "Coordinate the boundary, evidence, and bootstrap relationship between the World/Ontology/Context agent and the Architecture Steward.",
+    "success_criteria": [
+      "Keep the World/Ontology/Context boundary explicit and provisional until ratification.",
+      "Surface seam questions and contradictions without treating Commons conversation as canonical authority.",
+      "Record useful coordination outcomes with attributable evidence."
+    ],
+    "created_by": "architecture-steward",
+    "initial_members": [
+      "architecture-steward",
+      "world-ontology-context"
+    ],
+    "policy": {
+      "creator_policy": "ANY_AGENT",
+      "invite_policy": "MEMBERS",
+      "visibility": "MEMBERS"
+    },
+    "visibility": "ROOM",
+    "expires_at": null
+  },
+  "signature": "d9TD-_aRJsGem8chf1SNS4Vf6MjK--Y2wangYQzgOiC2nt-PKg1wo0JKt96Bymp1XPIYN6hG-ZJCm9t0knnIAw"
+}

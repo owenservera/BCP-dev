@@ -1,0 +1,7 @@
+{
+  "agent_id": "architecture-steward",
+  "key_id": "architecture-steward:ed25519:01a0da4c-3448-7114-b8ca-d2c4dde525b9",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAFpNXpGPgquXXH7T845Gyk4Ti0qjCywqOdVwgT6TAoxw=\n-----END PUBLIC KEY-----\n",
+  "algorithm": "ed25519",
+  "created_at": "2026-09-25T20:40:22.344Z"
+}
