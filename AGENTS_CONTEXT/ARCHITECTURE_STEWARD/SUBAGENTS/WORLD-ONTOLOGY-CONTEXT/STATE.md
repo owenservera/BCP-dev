@@ -204,3 +204,23 @@ Create one only when:
 ## Bootstrap gate
 
 Do not create CORE-AGENT.md until the owner and CFA-01 have explicitly aligned on the enduring responsibility.
+
+## Seed-home construction — 2026-09-26
+
+The CFA-01 home now has an explicit operational entrypoint and lightweight control/routing layer:
+
+- SEED-HOME.md — cold-start entrypoint and home architecture.
+- OPERATING-BASELINE.md — daily operating method and completion criterion.
+- SEED-HOME-MANIFEST.json — machine-readable home index.
+- BOUNDARY-ROUTER.json — machine-readable seam-routing and notification rules.
+
+Decision:
+
+- DEC-004: keep the seed home to a small control plane plus boundary/routing plane; leave detailed research and proposals in their existing artifacts rather than creating another summary hierarchy.
+
+Current operating rule:
+
+- A fresh session should recover from SEED-HOME.md first.
+- Peer-distance and boundary-router artifacts guide interaction but do not grant authority.
+- CORE-AGENT.md remains deferred until owner alignment ratifies the enduring identity.
+
