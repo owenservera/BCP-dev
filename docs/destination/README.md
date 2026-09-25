@@ -23,7 +23,8 @@ The final end-state blueprint is deliberately not frozen yet. This package is th
 7. Maturity and gaps — what is actually proven, what is missing, and what “destination-grade” means.
 8. Build and harvest plan — the ordered path from current repository evidence to integrated product journeys.
 9. Product Instance & Core — the current VS1 characterization of the smallest complete VIVIM environment.
-10. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
+10. V1 Build & Learning Sprint — the control method for the first functioning prototype and first-provider design laboratory.
+11. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
 
 ## Historical relationship
 
@@ -55,6 +56,7 @@ Start with:
 - DATA-MEMORY-CONTEXT-RECONCILIATION.md
 - FORGE-COMPOSITION-EVOLUTION-RECONCILIATION.md
 - VIVIM-PRODUCT-INSTANCE-CORE.md
+- V1-BUILD-AND-LEARNING-SPRINT.md
 - DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
 - REQUIREMENT-EVIDENCE-TRACEABILITY.md
 - VERTICAL-SLICE-REGISTRY.md
