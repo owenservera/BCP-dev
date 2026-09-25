@@ -1,0 +1,841 @@
+{
+  "schemaVersion": "1.0",
+  "datasetId": "CFA01-PEER-RELATIONSHIP-MATRIX-2026-09-25",
+  "generatedAt": "2026-09-25",
+  "repository": "owenservera/BCP-dev",
+  "basis": {
+    "mainCommit": "881d99f7ef28f9078c71fe450f967fe7f38705d0",
+    "peerRoster": "AGENTS_CONTEXT/AGENT-COMMONS/PEER-ROSTER.md",
+    "architectureSteward": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/",
+    "cfaRegister": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md",
+    "cfa01Home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/HOME.md",
+    "cfa01ToolDesign": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/ONE-TOOL-SEMANTIC-LENS.md",
+    "inspectedPeerFoundations": [
+      "peer roster + Architecture Steward README/AGENT",
+      "CFA-02 Data Steward README/STATE/CORE-AGENT-SEED/CORE-TOOL-DESIGN",
+      "CFA-03 Semantic Continuity README/STATE/CORE-AGENT-IDENTITY",
+      "CFA-04 Authority/Governance BOOTSTRAP-DESIGN-PROPOSAL",
+      "CFA-05 Agency/Work/Execution LAUNCH-PROMPT",
+      "CFA-06 Capability/Provider/Realization LAUNCH-PROMPT",
+      "CFA-07 Composition/Plugin/Forge LAUNCH-PROMPT",
+      "CFA-08 Experience/Interaction/Surfaces LAUNCH-PROMPT",
+      "CFA-09 Evolution/Compatibility/Self-Maintenance LAUNCH-PROMPT",
+      "CFA-10 Runtime Constitution/Core Substrate LAUNCH-PROMPT"
+    ]
+  },
+  "method": {
+    "perspective": "CFA-01 World / Ontology / Context",
+    "scope": "Structural relationship of CFA-01 to every registered peer and the Architecture Steward.",
+    "nonGoal": "This dataset does not rank agents, assess their quality, or assign architectural authority.",
+    "scoring": {
+      "scale": "0-5 per dimension; 0 = absent, 5 = direct/continuous.",
+      "dimensions": {
+        "semanticProximity": "How directly the peer shares semantic subject matter with World/Ontology/Context.",
+        "mutualNeed": "How strongly each side depends on the other to perform its enduring responsibility.",
+        "boundaryCoupling": "How much ambiguity or contract surface exists at the ownership boundary.",
+        "worldGraphCoupling": "How directly the peer consumes, produces, or transforms World/graph meaning.",
+        "contextInteractionCoupling": "How directly the peer consumes or shapes bounded context.",
+        "handoffCoupling": "Expected frequency of substantive evidence/contract handoffs.",
+        "externalRealityCoupling": "How strongly the peer mediates external-world reality."
+      },
+      "distanceFormula": "distance = 100 - round(100 * weightedCloseness / 5)",
+      "weights": {
+        "semanticProximity": 0.25,
+        "mutualNeed": 0.2,
+        "boundaryCoupling": 0.15,
+        "worldGraphCoupling": 0.15,
+        "contextInteractionCoupling": 0.1,
+        "handoffCoupling": 0.1,
+        "externalRealityCoupling": 0.05
+      },
+      "note": "Distance is a structural coupling heuristic from CFA-01's perspective. It is not an importance, quality, maturity, or performance score."
+    },
+    "epistemicStatus": "DERIVED from inspected repository foundations; scores are CFA-01 working judgments and should be revisited as peer identities mature.",
+    "uncertaintyRule": "Where a peer lacks a ratified identity or durable state, the relationship is scored from its current bootstrap contract and explicitly marked provisional."
+  },
+  "self": {
+    "agentId": "world-ontology-context",
+    "name": "CFA-01 World / Ontology / Context",
+    "workingIdentity": "World & Context Steward",
+    "centralQuestion": "What is semantically present in the user's world, how is it related, and how can a bounded purpose-specific slice become Context without becoming a second source of truth?",
+    "indispensableTool": "Semantic Lens",
+    "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT",
+    "currentStatus": "bootstrap-ready / provisional"
+  },
+  "taxonomy": {
+    "relationshipClasses": {
+      "META_STEWARD": "Parent/meta-layer that maps and reconciles my semantic work into repository-wide architecture.",
+      "SEMANTIC_BRIDGE": "Peer that translates or preserves meaning across semantic planes directly adjacent to World/Context.",
+      "CANONICAL_DATA_PARTNER": "Peer that keeps durable identity, lineage, persistence and data continuity around my semantic objects.",
+      "GOVERNANCE_GUARDIAN": "Peer that constrains what may be done with World meaning without owning what the meaning is.",
+      "EXECUTION_CONSUMER": "Peer that turns World/Context into durable work and returns outcomes/evidence back toward World.",
+      "REALIZATION_BRIDGE": "Peer that connects canonical semantic capability/world objects to external providers and realizations.",
+      "ASSEMBLY_COMPOSER": "Peer that assembles replaceable pieces which consume World semantics but does not define those semantics.",
+      "EXPERIENCE_PROJECTION": "Peer that turns World meaning into human-facing spaces, surfaces and interaction.",
+      "CHANGE_CUSTODIAN": "Peer that preserves semantic/data/identity continuity when the architecture or product evolves.",
+      "RUNTIME_SUBSTRATE": "Peer providing generic runtime guarantees underneath semantic systems rather than defining their meaning."
+    },
+    "distanceBands": [
+      {
+        "name": "INNER_RING",
+        "min": 0,
+        "max": 15,
+        "meaning": "Direct semantic dependency or frequent bidirectional boundary traffic."
+      },
+      {
+        "name": "NEAR_RING",
+        "min": 16,
+        "max": 30,
+        "meaning": "Strong recurring dependency, usually through a stable seam or lifecycle."
+      },
+      {
+        "name": "MIDDLE_RING",
+        "min": 31,
+        "max": 50,
+        "meaning": "Important integration partner, but primarily through another responsibility."
+      },
+      {
+        "name": "OUTER_RING",
+        "min": 51,
+        "max": 70,
+        "meaning": "Important enabling substrate or occasional boundary interaction."
+      },
+      {
+        "name": "REMOTE_RING",
+        "min": 71,
+        "max": 100,
+        "meaning": "Weak direct coupling; interaction is primarily mediated by other CFAs."
+      }
+    ],
+    "scoring": {
+      "scale": "0-5 per dimension; 0 = absent, 5 = direct/continuous.",
+      "dimensions": {
+        "semanticProximity": "How directly the peer shares semantic subject matter with World/Ontology/Context.",
+        "mutualNeed": "How strongly each side depends on the other to perform its enduring responsibility.",
+        "boundaryCoupling": "How much ambiguity or contract surface exists at the ownership boundary.",
+        "worldGraphCoupling": "How directly the peer consumes, produces, or transforms World/graph meaning.",
+        "contextInteractionCoupling": "How directly the peer consumes or shapes bounded context.",
+        "handoffCoupling": "Expected frequency of substantive evidence/contract handoffs.",
+        "externalRealityCoupling": "How strongly the peer mediates external-world reality."
+      },
+      "distanceFormula": "distance = 100 - round(100 * weightedCloseness / 5)",
+      "weights": {
+        "semanticProximity": 0.25,
+        "mutualNeed": 0.2,
+        "boundaryCoupling": 0.15,
+        "worldGraphCoupling": 0.15,
+        "contextInteractionCoupling": 0.1,
+        "handoffCoupling": 0.1,
+        "externalRealityCoupling": 0.05
+      },
+      "note": "Distance is a structural coupling heuristic from CFA-01's perspective. It is not an importance, quality, maturity, or performance score."
+    },
+    "operationalInterpretations": {
+      "needFromPeer": "What CFA-01 needs from this peer as an operating dependency.",
+      "needFromMe": "What this peer is likely to need from CFA-01 to maintain its own boundary.",
+      "evidenceMaturity": "0-5 estimate of how much durable foundation is currently visible in the inspected repository corpus; not a quality ranking."
+    }
+  },
+  "radialMap": [
+    {
+      "agentId": "semantic-continuity",
+      "name": "Semantic Continuity Steward",
+      "primaryClass": "SEMANTIC_BRIDGE",
+      "distanceScore": 3,
+      "distanceBand": "INNER_RING",
+      "needFromPeerStrength": 5,
+      "peerNeedForCfa01": 5
+    },
+    {
+      "agentId": "data-model",
+      "name": "Data Steward",
+      "primaryClass": "CANONICAL_DATA_PARTNER",
+      "distanceScore": 9,
+      "distanceBand": "INNER_RING",
+      "needFromPeerStrength": 5,
+      "peerNeedForCfa01": 5
+    },
+    {
+      "agentId": "experience-interaction-surfaces",
+      "name": "Experience / Interaction / Surfaces",
+      "primaryClass": "EXPERIENCE_PROJECTION",
+      "distanceScore": 11,
+      "distanceBand": "INNER_RING",
+      "needFromPeerStrength": 5,
+      "peerNeedForCfa01": 5
+    },
+    {
+      "agentId": "evolution-compatibility-self-maintenance",
+      "name": "Evolution / Compatibility / Self-Maintenance",
+      "primaryClass": "CHANGE_CUSTODIAN",
+      "distanceScore": 19,
+      "distanceBand": "NEAR_RING",
+      "needFromPeerStrength": 5,
+      "peerNeedForCfa01": 5
+    },
+    {
+      "agentId": "architecture-steward",
+      "name": "Architecture Steward",
+      "primaryClass": "META_STEWARD",
+      "distanceScore": 25,
+      "distanceBand": "NEAR_RING",
+      "needFromPeerStrength": 4,
+      "peerNeedForCfa01": 4
+    },
+    {
+      "agentId": "authority-governance",
+      "name": "Authority / Governance",
+      "primaryClass": "GOVERNANCE_GUARDIAN",
+      "distanceScore": 28,
+      "distanceBand": "NEAR_RING",
+      "needFromPeerStrength": 4,
+      "peerNeedForCfa01": 4
+    },
+    {
+      "agentId": "agency-work-execution",
+      "name": "Agency / Work / Execution",
+      "primaryClass": "EXECUTION_CONSUMER",
+      "distanceScore": 30,
+      "distanceBand": "NEAR_RING",
+      "needFromPeerStrength": 4,
+      "peerNeedForCfa01": 4
+    },
+    {
+      "agentId": "capability-provider-realization",
+      "name": "Capability / Provider / Realization",
+      "primaryClass": "REALIZATION_BRIDGE",
+      "distanceScore": 37,
+      "distanceBand": "MIDDLE_RING",
+      "needFromPeerStrength": 3,
+      "peerNeedForCfa01": 3
+    },
+    {
+      "agentId": "composition-plugin-forge",
+      "name": "Composition / Plugin / Forge",
+      "primaryClass": "ASSEMBLY_COMPOSER",
+      "distanceScore": 48,
+      "distanceBand": "MIDDLE_RING",
+      "needFromPeerStrength": 3,
+      "peerNeedForCfa01": 3
+    },
+    {
+      "agentId": "runtime-constitution-core-substrate",
+      "name": "Runtime Constitution / Core Substrate",
+      "primaryClass": "RUNTIME_SUBSTRATE",
+      "distanceScore": 59,
+      "distanceBand": "OUTER_RING",
+      "needFromPeerStrength": 2,
+      "peerNeedForCfa01": 2
+    }
+  ],
+  "matrixColumns": [
+    "agentId",
+    "name",
+    "cfa",
+    "status",
+    "primaryClass",
+    "secondaryClasses",
+    "semanticProximity",
+    "mutualNeed",
+    "boundaryCoupling",
+    "worldGraphCoupling",
+    "contextInteractionCoupling",
+    "handoffCoupling",
+    "externalRealityCoupling",
+    "evidenceMaturity",
+    "distanceScore",
+    "distanceBand",
+    "myRelationship",
+    "needFromPeer",
+    "needFromMe",
+    "sharedArtifacts",
+    "openQuestions"
+  ],
+  "relationships": [
+    {
+      "agentId": "architecture-steward",
+      "name": "Architecture Steward",
+      "cfa": null,
+      "status": "ratified",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD",
+      "primaryClass": "META_STEWARD",
+      "secondaryClasses": [
+        "SEMANTIC_BRIDGE"
+      ],
+      "scores": {
+        "semanticProximity": 3,
+        "mutualNeed": 4,
+        "boundaryCoupling": 5,
+        "worldGraphCoupling": 5,
+        "contextInteractionCoupling": 3,
+        "handoffCoupling": 4,
+        "externalRealityCoupling": 0
+      },
+      "evidenceMaturity": 5,
+      "myRelationship": "Parent/meta-steward: it owns repository-wide architectural memory, the documentation model, graph machinery, reconciliation and coordination; I supply semantic World/Context meaning into that system.",
+      "needFromPeer": [
+        "Current responsibility and dependency graph views.",
+        "Cross-CFA ownership reconciliation when a semantic seam crosses multiple areas.",
+        "Lineage and status discipline for promoting my findings into repository architecture.",
+        "Protection against my local model accidentally becoming a second ontology or graph."
+      ],
+      "needFromMe": [
+        "Explicit World/Context semantic claims with evidence and epistemic status.",
+        "Typed semantic relationships and ownership seams suitable for graph projection.",
+        "Early warning when a concept is drifting across CFA boundaries.",
+        "Research findings that distinguish canonical meaning from historical/derived implementation."
+      ],
+      "sharedArtifacts": [
+        "Architecture Graph",
+        "Destination Responsibility Matrix",
+        "Change Records",
+        "CFA Register",
+        "System Intelligence indexes"
+      ],
+      "openQuestions": [
+        "Exactly how much semantic detail should the Architecture Graph carry before it becomes a second ontology.",
+        "What graph projections should consume runtime World semantics once the product graph exists."
+      ],
+      "weightedCloseness": 3.75,
+      "closenessPercent": 75,
+      "distanceScore": 25,
+      "distanceBand": "NEAR_RING"
+    },
+    {
+      "agentId": "data-model",
+      "name": "Data Steward",
+      "cfa": "CFA-02",
+      "status": "bootstrap-ready / foundation-seeded",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD",
+      "primaryClass": "CANONICAL_DATA_PARTNER",
+      "secondaryClasses": [
+        "SEMANTIC_BRIDGE",
+        "CHANGE_CUSTODIAN"
+      ],
+      "scores": {
+        "semanticProximity": 4,
+        "mutualNeed": 5,
+        "boundaryCoupling": 5,
+        "worldGraphCoupling": 5,
+        "contextInteractionCoupling": 4,
+        "handoffCoupling": 5,
+        "externalRealityCoupling": 3
+      },
+      "evidenceMaturity": 4,
+      "myRelationship": "Closest durable data-plane neighbor. I define what a World object/relationship means; Data Steward protects the continuity of that meaning across records, revisions, transformations, persistence and export/restore.",
+      "needFromPeer": [
+        "Clear distinction between semantic identity and record/revision/event identity.",
+        "Durable persistence and reconstruction contracts for World objects and relationships.",
+        "Lineage-preserving transformations across import, normalization, projection and write-back.",
+        "Freshness/revision bases so Context does not silently consume stale canonical state."
+      ],
+      "needFromMe": [
+        "Stable semantic definitions for object kinds, relationships, Space and Context references.",
+        "Correspondence rules explaining when two source records represent the same World thing.",
+        "Semantic lifecycle distinctions that storage must preserve without inventing them.",
+        "Clarification of which fields are meaning versus transport/storage metadata."
+      ],
+      "sharedArtifacts": [
+        "Canonical World/Object model",
+        "Relationship model",
+        "Data Continuity Lens",
+        "Source identity mappings",
+        "Projection basis contracts"
+      ],
+      "openQuestions": [
+        "Exact ownership of semantic identity versus durable record identity.",
+        "Minimum continuity payload for Context and graph projections.",
+        "Where semantic reconciliation ends and persistence reconciliation begins."
+      ],
+      "weightedCloseness": 4.55,
+      "closenessPercent": 91,
+      "distanceScore": 9,
+      "distanceBand": "INNER_RING"
+    },
+    {
+      "agentId": "semantic-continuity",
+      "name": "Semantic Continuity Steward",
+      "cfa": "CFA-03",
+      "status": "ratified / foundation-seeded",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER",
+      "primaryClass": "SEMANTIC_BRIDGE",
+      "secondaryClasses": [
+        "EXPERIENCE_PROJECTION",
+        "EXECUTION_CONSUMER"
+      ],
+      "scores": {
+        "semanticProximity": 5,
+        "mutualNeed": 5,
+        "boundaryCoupling": 5,
+        "worldGraphCoupling": 5,
+        "contextInteractionCoupling": 5,
+        "handoffCoupling": 5,
+        "externalRealityCoupling": 2
+      },
+      "evidenceMaturity": 5,
+      "myRelationship": "My strongest semantic peer. It carries meaning from self-knowledge through grounding, command interpretation, canonical Intent/Plan, execution meaning, evidence and representation; I provide the World concepts and relationships onto which those semantic transformations ground.",
+      "needFromPeer": [
+        "A stable understanding of how semantic addresses/phrases map onto World objects and Context.",
+        "Cross-plane terminology and CANON discipline so the same World concept is not renamed at each stage.",
+        "Grounding/Intent contracts that make clear where World meaning ends and interpretation begins.",
+        "Feedback on which World distinctions are actually necessary for deterministic command continuity."
+      ],
+      "needFromMe": [
+        "Canonical World nouns, object identities, relation meanings and addressable semantics.",
+        "Context semantics that can be referenced by grounding rather than reproduced as prompt prose.",
+        "Explicit distinction between World truth, interpretation, representation and authority.",
+        "Semantic evolution signals when a World concept changes meaning."
+      ],
+      "sharedArtifacts": [
+        "CANON dictionary",
+        "Semantic crosswalks",
+        "Address/World model",
+        "Context contract",
+        "Intent grounding seam",
+        "Semantic Lens"
+      ],
+      "openQuestions": [
+        "Exact boundary between World address resolution and command interpretation.",
+        "How Context candidates become grounded Intent inputs without creating a second ontology.",
+        "Shared identity model across World → Intent → Work → Evidence."
+      ],
+      "weightedCloseness": 4.85,
+      "closenessPercent": 97,
+      "distanceScore": 3,
+      "distanceBand": "INNER_RING"
+    },
+    {
+      "agentId": "authority-governance",
+      "name": "Authority / Governance",
+      "cfa": "CFA-04",
+      "status": "bootstrap-ready / bootstrap proposal present",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE",
+      "primaryClass": "GOVERNANCE_GUARDIAN",
+      "secondaryClasses": [
+        "SEMANTIC_BRIDGE"
+      ],
+      "scores": {
+        "semanticProximity": 3,
+        "mutualNeed": 4,
+        "boundaryCoupling": 5,
+        "worldGraphCoupling": 3,
+        "contextInteractionCoupling": 4,
+        "handoffCoupling": 4,
+        "externalRealityCoupling": 1
+      },
+      "evidenceMaturity": 3,
+      "myRelationship": "Guardian at the meaning-to-permission boundary. I describe what the user/world contains and what relationships are asserted; Authority determines whether an actor may cause a consequential effect involving those things.",
+      "needFromPeer": [
+        "Authority constraints that can be represented as inputs to Context without becoming semantic facts.",
+        "Clear scope/principal/delegation semantics so World queries do not accidentally imply permission.",
+        "Live authority re-resolution rules for consequential actions.",
+        "A clean distinction between world facts and authorization decisions."
+      ],
+      "needFromMe": [
+        "Stable identities for the subjects/targets to which authority applies.",
+        "Semantic effect descriptions and object relationships needed to understand scope.",
+        "Context semantics that identify relevant objects without granting authority.",
+        "Warnings when a representation or graph projection is being mistaken for permission."
+      ],
+      "sharedArtifacts": [
+        "World address/reference semantics",
+        "Authority-facing effect targets",
+        "Context authority constraints",
+        "Boundary tests"
+      ],
+      "openQuestions": [
+        "Principal identity ownership between CFA-02 and CFA-04.",
+        "How much risk meaning belongs to Authority versus Capability.",
+        "How authority constraints should appear inside candidate Context while remaining non-authoritative."
+      ],
+      "weightedCloseness": 3.6,
+      "closenessPercent": 72,
+      "distanceScore": 28,
+      "distanceBand": "NEAR_RING"
+    },
+    {
+      "agentId": "agency-work-execution",
+      "name": "Agency / Work / Execution",
+      "cfa": "CFA-05",
+      "status": "bootstrap-ready",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AGENCY-WORK-EXECUTION",
+      "primaryClass": "EXECUTION_CONSUMER",
+      "secondaryClasses": [
+        "SEMANTIC_BRIDGE"
+      ],
+      "scores": {
+        "semanticProximity": 3,
+        "mutualNeed": 4,
+        "boundaryCoupling": 3,
+        "worldGraphCoupling": 4,
+        "contextInteractionCoupling": 4,
+        "handoffCoupling": 4,
+        "externalRealityCoupling": 2
+      },
+      "evidenceMaturity": 2,
+      "myRelationship": "Downstream execution peer: it turns Intent/Context into durable Work and outcomes; I provide the semantic World substrate needed to know what the work concerns and how resulting changes become World state.",
+      "needFromPeer": [
+        "A durable distinction between Work itself and the World objects Work acts upon.",
+        "Outcome/effect records that can be projected back into World meaning without conflating them with execution history.",
+        "Work lifecycle and recovery information relevant to current Context.",
+        "Evidence linkage from Work outcomes back to changed World objects."
+      ],
+      "needFromMe": [
+        "Addressable World targets and relationship semantics.",
+        "Context semantics that identify the relevant current state for a Work item.",
+        "World-side interpretation of produced artifacts and changed relationships.",
+        "Semantic definitions for what counts as a meaningful world update."
+      ],
+      "sharedArtifacts": [
+        "World → Context → Intent → Work path",
+        "Outcome-to-World projection",
+        "Current-work context",
+        "Evidence-linked world updates"
+      ],
+      "openQuestions": [
+        "When an Outcome becomes a canonical World event/object.",
+        "How current Work participates in Context without Context becoming Work state.",
+        "Where Work-owned execution events stop and World-owned semantic events begin."
+      ],
+      "weightedCloseness": 3.5,
+      "closenessPercent": 70,
+      "distanceScore": 30,
+      "distanceBand": "NEAR_RING"
+    },
+    {
+      "agentId": "capability-provider-realization",
+      "name": "Capability / Provider / Realization",
+      "cfa": "CFA-06",
+      "status": "bootstrap-ready",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION",
+      "primaryClass": "REALIZATION_BRIDGE",
+      "secondaryClasses": [
+        "SEMANTIC_BRIDGE"
+      ],
+      "scores": {
+        "semanticProximity": 2,
+        "mutualNeed": 3,
+        "boundaryCoupling": 4,
+        "worldGraphCoupling": 4,
+        "contextInteractionCoupling": 3,
+        "handoffCoupling": 3,
+        "externalRealityCoupling": 5
+      },
+      "evidenceMaturity": 2,
+      "myRelationship": "Bridge between canonical semantic needs and external reality. Provider/Account/Session/Realization are not World semantics, but their observations and effects become important World evidence and relationships.",
+      "needFromPeer": [
+        "Reliable distinctions between provider, account, session, resource and realization.",
+        "External observation records that identify what was actually seen or changed.",
+        "Realization identity/version information for interpreting provenance and freshness.",
+        "Provider knowledge that helps explain whether a World projection reflects current external reality."
+      ],
+      "needFromMe": [
+        "Semantic object types and world references that external observations are about.",
+        "Source-identity correspondence rules connecting provider identities to canonical World identities.",
+        "Context requirements describing which external facts are relevant to a task.",
+        "Clear boundary between external observation and canonical World assertion."
+      ],
+      "sharedArtifacts": [
+        "Source identity model",
+        "Provider/account/realization mapping",
+        "External observation → World reconciliation",
+        "Semantic Lens live-world mode"
+      ],
+      "openQuestions": [
+        "How provider observations should enter the World without becoming automatic canonical truth.",
+        "Exact boundary between Provider Knowledge and World knowledge.",
+        "How external drift is surfaced as a World contradiction or freshness state."
+      ],
+      "weightedCloseness": 3.15,
+      "closenessPercent": 63,
+      "distanceScore": 37,
+      "distanceBand": "MIDDLE_RING"
+    },
+    {
+      "agentId": "composition-plugin-forge",
+      "name": "Composition / Plugin / Forge",
+      "cfa": "CFA-07",
+      "status": "bootstrap-ready",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/COMPOSITION-PLUGIN-FORGE",
+      "primaryClass": "ASSEMBLY_COMPOSER",
+      "secondaryClasses": [
+        "CHANGE_CUSTODIAN"
+      ],
+      "scores": {
+        "semanticProximity": 2,
+        "mutualNeed": 3,
+        "boundaryCoupling": 3,
+        "worldGraphCoupling": 3,
+        "contextInteractionCoupling": 2,
+        "handoffCoupling": 3,
+        "externalRealityCoupling": 2
+      },
+      "evidenceMaturity": 2,
+      "myRelationship": "Assembly peer. It composes replaceable plugins and capabilities that consume or affect World semantics; it should not become the owner of those semantics.",
+      "needFromPeer": [
+        "A way to declare which World/Context contracts a plugin consumes or contributes.",
+        "Composition identity/versioning that can be related to the semantic model it realizes.",
+        "Forge/proposal metadata for changes that may alter World-facing behavior.",
+        "Symmetry between first-party and third-party pieces so World contracts are not secretly privileged."
+      ],
+      "needFromMe": [
+        "Stable semantic contracts that plugins can consume without importing a hidden ontology implementation.",
+        "World capability/reference semantics for contributed views or transformations.",
+        "Clear distinction between composition metadata and World meaning.",
+        "Semantic impact descriptions when a plugin proposes a new object/relationship."
+      ],
+      "sharedArtifacts": [
+        "Plugin contribution contracts",
+        "Composition semantic dependencies",
+        "Forge promotion records",
+        "World-facing capability/object contracts"
+      ],
+      "openQuestions": [
+        "What minimum semantic contract a plugin must declare to participate in World projections.",
+        "Where plugin-provided ontology extensions stop and canonical World vocabulary begins.",
+        "How composition replacement affects World identity continuity."
+      ],
+      "weightedCloseness": 2.6,
+      "closenessPercent": 52,
+      "distanceScore": 48,
+      "distanceBand": "MIDDLE_RING"
+    },
+    {
+      "agentId": "experience-interaction-surfaces",
+      "name": "Experience / Interaction / Surfaces",
+      "cfa": "CFA-08",
+      "status": "bootstrap-ready",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES",
+      "primaryClass": "EXPERIENCE_PROJECTION",
+      "secondaryClasses": [
+        "SEMANTIC_BRIDGE"
+      ],
+      "scores": {
+        "semanticProximity": 4,
+        "mutualNeed": 5,
+        "boundaryCoupling": 5,
+        "worldGraphCoupling": 5,
+        "contextInteractionCoupling": 5,
+        "handoffCoupling": 4,
+        "externalRealityCoupling": 1
+      },
+      "evidenceMaturity": 2,
+      "myRelationship": "Immediate projection neighbor. It turns World meaning into Spaces, Surfaces, Canvas, focus and interaction; I provide the semantic objects and relationships that those surfaces represent.",
+      "needFromPeer": [
+        "Real interaction requirements that expose which World concepts must be addressable.",
+        "Evidence from surface experiments about where users need Space, focus, selection and Context distinctions.",
+        "Clear boundary between durable Space semantics and transient Workspace/layout state.",
+        "Feedback on whether visual manipulation exposes missing World primitives."
+      ],
+      "needFromMe": [
+        "Stable World objects, relationships, Space meaning and addressability.",
+        "Projection rules that distinguish canonical state from surface-local layout.",
+        "Context semantics that can be seeded from focus/selection without becoming UI truth.",
+        "Semantic continuity for direct manipulation and visual intent."
+      ],
+      "sharedArtifacts": [
+        "World/Workspace/Canvas reconciliation",
+        "World projection",
+        "Space semantics",
+        "Context from focus/selection",
+        "Semantic Lens"
+      ],
+      "openQuestions": [
+        "Exact Space versus Workspace boundary.",
+        "How surface-generated changes become canonical Intent without bypassing World semantics.",
+        "How much Attention belongs to World versus Experience."
+      ],
+      "weightedCloseness": 4.45,
+      "closenessPercent": 89,
+      "distanceScore": 11,
+      "distanceBand": "INNER_RING"
+    },
+    {
+      "agentId": "evolution-compatibility-self-maintenance",
+      "name": "Evolution / Compatibility / Self-Maintenance",
+      "cfa": "CFA-09",
+      "status": "bootstrap-ready",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE",
+      "primaryClass": "CHANGE_CUSTODIAN",
+      "secondaryClasses": [
+        "CANONICAL_DATA_PARTNER",
+        "SEMANTIC_BRIDGE"
+      ],
+      "scores": {
+        "semanticProximity": 4,
+        "mutualNeed": 5,
+        "boundaryCoupling": 4,
+        "worldGraphCoupling": 4,
+        "contextInteractionCoupling": 3,
+        "handoffCoupling": 4,
+        "externalRealityCoupling": 3
+      },
+      "evidenceMaturity": 2,
+      "myRelationship": "Temporal caretaker. I define the semantic identity/relationship continuity that must survive change; Evolution manages the broader change, migration, rollback, quarantine and self-maintenance lifecycle.",
+      "needFromPeer": [
+        "Impact/migration mechanisms that preserve World identity and relationship meaning.",
+        "Compatibility analysis for World/Context contract changes.",
+        "Detection of stale projections after semantic evolution.",
+        "Rollback/recovery paths that do not silently rewrite World history."
+      ],
+      "needFromMe": [
+        "Explicit semantic change definitions: shape versus meaning versus identity versus relationship versus projection.",
+        "Canonical World/Context contracts that can be versioned and migrated.",
+        "Rules identifying which relationships must survive or be reinterpreted.",
+        "Semantic falsifiers for proposed self-maintenance changes."
+      ],
+      "sharedArtifacts": [
+        "Evolution reconciliation scope",
+        "Identity/relationship migration",
+        "Projection invalidation",
+        "Semantic impact reports",
+        "Semantic Lens impact mode"
+      ],
+      "openQuestions": [
+        "When a changed World concept is migration versus replacement.",
+        "How semantic versioning should interact with Data revisions.",
+        "How Provider healing/Forge promotion intersects with World semantic evolution."
+      ],
+      "weightedCloseness": 4.05,
+      "closenessPercent": 81,
+      "distanceScore": 19,
+      "distanceBand": "NEAR_RING"
+    },
+    {
+      "agentId": "runtime-constitution-core-substrate",
+      "name": "Runtime Constitution / Core Substrate",
+      "cfa": "CFA-10",
+      "status": "bootstrap-ready",
+      "home": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE",
+      "primaryClass": "RUNTIME_SUBSTRATE",
+      "secondaryClasses": [
+        "GOVERNANCE_GUARDIAN"
+      ],
+      "scores": {
+        "semanticProximity": 1,
+        "mutualNeed": 2,
+        "boundaryCoupling": 4,
+        "worldGraphCoupling": 2,
+        "contextInteractionCoupling": 1,
+        "handoffCoupling": 2,
+        "externalRealityCoupling": 4
+      },
+      "evidenceMaturity": 2,
+      "myRelationship": "Deep substrate, low semantic proximity. Runtime guarantees admission, isolation, transport, egress, fencing, lifecycle and recovery; I depend on those guarantees but must never let runtime mechanisms define World meaning.",
+      "needFromPeer": [
+        "Stable K0/K1 seams for referring to semantic objects without pulling ontology into K0.",
+        "Integrity and isolation guarantees for Lens/context reads.",
+        "Recovery/atomicity semantics needed to know when a derived World projection is incomplete.",
+        "Clear boundaries so graph/query capabilities remain above substrate guarantees."
+      ],
+      "needFromMe": [
+        "Requirements expressed as semantic rather than product-specific runtime needs.",
+        "Explicit distinctions between canonical World state and derived/runtime state.",
+        "Semantic impact when a substrate guarantee changes observable World continuity.",
+        "Falsifiers showing when a runtime mechanism accidentally assumes domain meaning."
+      ],
+      "sharedArtifacts": [
+        "K0/K1 boundary",
+        "Projection/source separation",
+        "Recovery semantics",
+        "Semantic Lens substrate adapter"
+      ],
+      "openQuestions": [
+        "Which graph/query operations belong in generic K1 contracts versus plugins.",
+        "What runtime guarantees are actually necessary for deterministic Context assembly.",
+        "How recovery status should be exposed without becoming World semantics."
+      ],
+      "weightedCloseness": 2.05,
+      "closenessPercent": 41,
+      "distanceScore": 59,
+      "distanceBand": "OUTER_RING"
+    }
+  ],
+  "ringInterpretation": {
+    "inner": "Data, Semantic Continuity, Experience",
+    "near": "Evolution, Authority, Agency, Architecture Steward",
+    "middle": "Capability/Provider, Composition/Forge",
+    "outer": "Runtime Substrate",
+    "interpretation": "The rings describe semantic/operational coupling to CFA-01, not importance or maturity. A distant peer can still be a hard dependency for particular operations."
+  },
+  "majorCrossPeerPatterns": [
+    {
+      "patternId": "P01",
+      "name": "World-to-durable-data seam",
+      "peers": [
+        "data-model",
+        "architecture-steward",
+        "evolution-compatibility-self-maintenance"
+      ],
+      "cfa01Need": "semantic identity, relationships, lifecycle meaning and projections must survive persistence and evolution",
+      "peerNeed": "stable semantic contracts and explicit distinction from storage/runtime state"
+    },
+    {
+      "patternId": "P02",
+      "name": "World-to-intent continuity seam",
+      "peers": [
+        "semantic-continuity",
+        "agency-work-execution",
+        "authority-governance"
+      ],
+      "cfa01Need": "grounding, intent, authority and work must consume World meaning without redefining it",
+      "peerNeed": "addressable World objects, Context semantics and canonical relationship meaning"
+    },
+    {
+      "patternId": "P03",
+      "name": "World-to-human surface seam",
+      "peers": [
+        "experience-interaction-surfaces",
+        "semantic-continuity"
+      ],
+      "cfa01Need": "surface experiments expose missing semantic primitives and Context requirements",
+      "peerNeed": "stable canonical meaning and projection boundaries"
+    },
+    {
+      "patternId": "P04",
+      "name": "World-to-external-reality seam",
+      "peers": [
+        "capability-provider-realization",
+        "authority-governance",
+        "agency-work-execution"
+      ],
+      "cfa01Need": "observations/effects from external systems become attributable World evidence",
+      "peerNeed": "canonical targets, source correspondence, Context requirements and world-side meaning"
+    },
+    {
+      "patternId": "P05",
+      "name": "World-to-evolution seam",
+      "peers": [
+        "evolution-compatibility-self-maintenance",
+        "data-model",
+        "composition-plugin-forge"
+      ],
+      "cfa01Need": "semantic changes must be classified before migration/replacement",
+      "peerNeed": "stable concepts, identity rules and semantic impact descriptions"
+    },
+    {
+      "patternId": "P06",
+      "name": "World-to-architecture-memory seam",
+      "peers": [
+        "architecture-steward"
+      ],
+      "cfa01Need": "repository graph and documentation must preserve the evolving semantic map",
+      "peerNeed": "explicit, evidence-backed World/Context concepts and boundaries"
+    }
+  ],
+  "immediateOperationalImplications": [
+    "Treat Data Steward and Semantic Continuity as the two highest-frequency semantic exchange partners.",
+    "Treat Experience as a discovery partner: surface behavior can reveal missing World primitives even though Experience does not own them.",
+    "Treat Evolution as a standing downstream consumer of World semantic identity and relationship change.",
+    "Use Authority, Agency and Capability as distinct boundary consumers rather than collapsing them into World semantics.",
+    "Use the Architecture Steward as the repository-level reconciliation layer, never as a semantic substitute.",
+    "Use Runtime primarily as a substrate contract; do not ask it to resolve World meaning."
+  ],
+  "nextRevisionTriggers": [
+    "A peer receives a ratified Core Agent identity.",
+    "A peer publishes a durable core tool/contract.",
+    "A cross-CFA boundary is changed by an explicit decision.",
+    "The Semantic Lens proof exposes a different coupling pattern.",
+    "The product World graph introduces live runtime semantics not represented by the current destination documentation."
+  ]
+}
