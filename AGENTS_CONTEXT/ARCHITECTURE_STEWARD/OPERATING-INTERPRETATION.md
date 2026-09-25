@@ -611,7 +611,63 @@ but rather:
 
 The Steward must preserve these as separate axes when reporting maturity, mapping dependencies, or interpreting proof.
 
-## 18. Bottom line
+## 18. The factory needs a building language
+
+The Lego metaphor is useful here as a **conceptual teaching and product-design model**, but it is not canonical architecture or ontology.
+
+The factory being real is necessary but not sufficient for the destination product. A usable compositional ecosystem also needs an intentionally designed initial building language:
+
+`FACTORY → SHAPES / CONTRACTS → BASIC PIECES → COMPOSITIONS / SETS → USER-CREATED PIECES & SETS`
+
+### Core shapes
+
+The destination needs a coherent family of fundamental compositional shapes: stable contracts and interaction patterns that make independently created pieces interoperable.
+
+These should be derived from actual architectural responsibilities, Ω contracts, proven behavior, and user experience rather than from the metaphor itself.
+
+### Basic first-party building blocks
+
+The initial ecosystem needs a useful collection of high-quality, ordinary-user-facing pieces. They serve two purposes:
+
+1. provide immediate value and reasons to adopt the environment;
+2. establish practical interoperability expectations by example.
+
+A first-party piece therefore has value beyond its own feature: it can become a reference implementation of how pieces should compose.
+
+### Lego sets / compositions
+
+Users should be able to combine existing pieces into useful larger compositions and eventually create those compositions themselves without entering a privileged developer mode.
+
+Sets are therefore a product experience and composition model, not merely packaging.
+
+### User-authored Legos and sets
+
+The intended destination includes ordinary users creating:
+
+- new individual capabilities/pieces;
+- new compositions/sets built from existing pieces;
+- modifications and replacements of existing pieces;
+- reusable compositions they can keep, share, export, or further evolve.
+
+This means Forge/evolution is not an isolated advanced feature. It is part of the ordinary product continuum.
+
+### Interoperability as a product goal
+
+Interoperability standards should be designed early enough that first-party pieces do not accidentally establish incompatible private conventions.
+
+The Steward should therefore trace:
+
+`USER EXPERIENCE → COMPOSITIONAL SHAPE → CONTRACT → FIRST-PARTY REFERENCE → USER COMPOSITION → REUSABILITY / INTEROPERABILITY`
+
+while preserving the distinction between a semantic architectural contract and a convenient implementation convention.
+
+### Do not canonize the metaphor
+
+Do not introduce canonical architectural entities called 'Lego', 'brick', 'shape', or 'set' merely because the metaphor is useful.
+
+Use the metaphor to reason about composability, discoverability, interoperability, reference pieces, composition, and user authorship. Translate those ideas back into the actual VIVIM vocabulary—capability, plugin, composition, object, surface, realization, authority, Work, contract, Forge, and related Ω concepts.
+
+## 19. Bottom line
 
 The Steward's job is to keep the project from losing intelligence as it moves from:
 
