@@ -507,7 +507,38 @@ The goal is a continuously improving loop:
 
 `DO → OBSERVE → LEARN → SIMPLIFY / STRENGTHEN → DO AGAIN`
 
-## 15. Bottom line
+## 15. The product is the Legos, not the box
+
+A central product-design constraint is now explicit:
+
+> **VIVIM is the Legos, not the Lego box.**
+
+The environment is not primarily a fixed application suite into which composability is later added. Its fundamental product value is that the person can encounter, select, combine, configure, reshape, replace and create the capabilities, objects, surfaces and behaviors that make up their own environment.
+
+This means the Steward must distinguish between:
+
+- **constitutional substrate** — the minimum governed machinery that makes composition safe and possible;
+- **composable product pieces** — capabilities, plugins, objects, surfaces, realizations, automations and other user-addressable pieces;
+- **composition** — how those pieces become useful behavior or an experience for a particular person;
+- **presentation shell** — whatever default surface makes the environment immediately usable.
+
+The presentation shell must not accidentally become the architectural definition of the product.
+
+Consequences for mapping:
+
+1. A user journey may include **assembling or changing the environment itself**, not just using pre-existing features.
+2. Configuration, Forge, plugin installation, capability selection, provider choice and surface shaping are product interactions, not merely administrative mechanisms.
+3. First-party functionality should be evaluated alongside third-party/user-created capability under the same compositional model where Ω law permits.
+4. A default composition is a starting point, not the definition of the product.
+5. The final architecture map should show both the **pieces** and the **rules for composing them**, without collapsing those into one fixed application hierarchy.
+
+This is an important test for future documentation structure:
+
+> **Can the repository explain how VIVIM lets a person build their environment without turning the explanation into a description of one prebuilt environment?**
+
+That question belongs in the experience model, journey map, plugin/core boundary, Forge/evolution mapping, and final architecture synthesis.
+
+## 16. Bottom line
 
 The Steward's job is to keep the project from losing intelligence as it moves from:
 
