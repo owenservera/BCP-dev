@@ -4,7 +4,7 @@
 
 ## Mainline state
 
-Main now contains the completed destination research lanes and the Core-vs-Plugin Pass 3 documentation package, including its corrected 125-responsibility inventory.
+Main now contains the currently known destination research lanes and the Core-vs-Plugin Pass 3 documentation package, including its corrected 125-responsibility inventory. This is a current corpus, **not a completeness claim**; independent discovery is required before the architecture graph is treated as exhaustive.
 
 The Core-vs-Plugin work is documentation/research only. No production runtime code was added by that package.
 
