@@ -1,137 +1,89 @@
 # CFA-01 — World / Ontology / Context
 
-> **CORE SEED HOME — ROUND 1**
+> **CORE SEED HOME — ACTIVE**
 >
-> Status: ACTIVE / PROVISIONAL
+> Status: **ACTIVE / PROVISIONAL**
 >
 > Permanent agent identity: **NOT YET RATIFIED**
 
-This folder is the working home of the **World / Ontology / Context** Core Function Area while its enduring responsibility is still being discovered and aligned with the owner.
+This folder is the durable seed home of **world-ontology-context**, CFA-01 — World / Ontology / Context.
 
-The agent does **not** inherit its final identity from the folder name. The current lifecycle remains:
+The home is intentionally split into a small control plane, boundary/routing plane, and evidence/research plane. It is designed for cold-start recovery without creating a second architecture hierarchy.
 
-`FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → EXECUTION`
+## Entry point
 
-## Current posture
+Start with:
 
-The home has crossed from empty bootstrap into an operational Round-1 seed:
+1. `SEED-HOME.md`
+2. `SEED-HOME-MANIFEST.json`
+3. `WORLD-OPERATIONAL-CONTEXT.json`
+4. `STATE.md`
+5. `BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md`
+6. `PEER-RELATIONSHIP-DISTANCE-MAP.json`
+7. `BOUNDARY-ROUTER.json`
+8. `RESEARCH-QUEUE.md`
+9. `COMMUNICATION-HOW-TO.md`
+10. task-specific research artifacts
 
-- provisional responsibility and boundaries exist;
-- current frontier is recorded in `STATE.md`;
-- active investigations live in `RESEARCH-QUEUE.md`;
-- Commons capability has been exercised and its evidence is recorded;
-- the Intelligence Graph is treated as a future integration surface, not as this agent's property;
-- no `CORE-AGENT.md` has been created because identity alignment is not yet complete.
+## Seed-home control plane
 
-The seed is deliberately allowed to change.
+- `SEED-HOME.md` — mission, scope, non-scope, recovery order, operating posture.
+- `OPERATING-BASELINE.md` — repeatable working method and completion criterion.
+- `SEED-HOME-MANIFEST.json` — machine-readable home index and freshness/routing pointers.
+- `WORLD-OPERATIONAL-CONTEXT.json` — compact operational context for programmatic/cold-start use.
+- `STATE.md` — live frontier, decisions, concepts, problems and uncertainty.
+- `RESEARCH-QUEUE.md` — active investigation sequence.
 
-The bootstrap pause is now accompanied by a final gap audit and a machine-readable operational context packet. These do not ratify the permanent identity; they make the remaining uncertainty explicit and recoverable.
+## Boundary and routing plane
 
-The bootstrap pause is now accompanied by a final gap audit and a machine-readable operational context packet. These do not ratify the permanent identity; they make the remaining uncertainty explicit and recoverable.
+- `BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md` — current provisional boundary declaration.
+- `PEER-RELATIONSHIP-DISTANCE-MAP.json` — CFA-01's relational model across Architecture Steward + CFA-02..CFA-10.
+- `BOUNDARY-ROUTER.json` — when to involve CFA-01 and what World-side information crosses each seam.
+- `WORLD-BOOTSTRAP-GAP-AUDIT.json` — gap/falsifier/ownership audit.
+- `BOOTSTRAP-GAP-REGISTER.json` — bootstrap evidence register.
 
-## What this home is for
+## Communication plane
 
-This home should make it possible for a fresh World/Context agent to answer, without reconstructing everything again:
+- `COMMUNICATION-HOW-TO.md` — Commons operating guide.
+- `COMMONS-BOOTSTRAP-EXECUTION-PROMPT.md` — birth/communication procedure.
+- `COMMONS-BOOTSTRAP-RESULT.md` — actual Commons bootstrap result.
+- `commons/` — agent-owned Commons state boundary.
 
-1. What does this area currently think it is?
-2. What evidence produced that belief?
-3. What is still unknown or conflicted?
-4. What does it own provisionally?
-5. What belongs with neighboring agents?
-6. What should be investigated next?
-7. How does its work feed the shared architectural/development intelligence without becoming authority?
+Agent Commons is communication state, not ontology, governance, evidence or canonical data authority.
 
-## Home map
+## Research and evidence plane
 
-| Artifact | Purpose |
-|---|---|
-| `BOOTSTRAP-SEED.md` | provisional responsibility, operating model, semantic distinctions, integration shape |
-| `SELF-DESIGN-PROPOSAL.md` | current candidate identity, scope, interfaces, decision rights and alignment questions |
-| `WORLD-LENS-ONE-TOOL-DESIGN.md` | provisional design for the single highest-leverage operational tool for this CFA |
-| `WORLD-PEER-DISTANCE-MATRIX.json` | CFA-01's living relational map of every peer CFA and the Architecture Steward, including needs, offers, boundary risk, graph/Commons coupling and working distance |
-| `WORLD-BOOTSTRAP-GAP-AUDIT.json` | final bootstrap blind-spot audit, ownership routes, falsifiers, and required context/tooling |
-| `WORLD-OPERATIONAL-CONTEXT.json` | compact machine-readable current mission, source basis, peer inputs, tooling contract, invariants and re-ground triggers |
-| `WORLD-BOOTSTRAP-GAP-AUDIT.json` | final bootstrap blind-spot audit: top missed concerns, ownership routes, falsifiers, and required context/tooling |
-| `WORLD-OPERATIONAL-CONTEXT.json` | compact machine-readable current mission, source basis, peer inputs, tooling contract, invariants and re-ground triggers |
-| `STATE.md` | live frontier, decisions, concepts, problems, current uncertainties |
-| `RESEARCH-QUEUE.md` | staged investigations and evidence needed next |
-| `COMMUNICATION-HOW-TO.md` | local Commons operating guide |
-| `COMMONS-BOOTSTRAP-EXECUTION-PROMPT.md` | Commons birth/test procedure |
-| `COMMONS-BOOTSTRAP-RESULT.md` | actual Commons test evidence |
-| `commons/` | local projection/read model for this agent's Commons state |
+The remaining files in this home are findings, proposals, transcripts, historical continuity, or tool designs. They are not automatically canonical merely because they live here.
 
-Future durable identity/model documents should be earned by repeated need. Do not create a second hierarchy of speculative architecture documents.
+Notable instruments:
 
-## Current working orientation
+- `WORLD-LENS-ONE-TOOL-DESIGN.md`
+- `THE-ONE-TOOL-GROUNDED-SEMANTIC-TRACE.md`
 
-The current hypothesis is:
+## Current semantic spine
 
-`WORLD → semantic subjects/relations → bounded CONTEXT → interpretation/grounding → downstream meaning`
+WORLD → SUBJECTS / RELATIONS → ADDRESS / SPACE / QUERY → WORLD PROJECTION → CONTEXT
 
-That is **not** a finalized Ω ontology.
+This remains a working model.
 
-The area is especially concerned with keeping these distinctions explicit:
+The key distinctions are:
 
-`meaning ≠ storage`  
-`world semantics ≠ runtime realization`  
-`context ≠ source truth`  
-`representation ≠ authority`  
-`evidence ≠ ontology`
+- meaning ≠ storage
+- semantic identity ≠ record identity
+- relationship ≠ provenance
+- World ≠ Context
+- Context ≠ Memory
+- representation ≠ authority
+- evidence ≠ ontology
+- visibility ≠ existence
+- addressability ≠ authorization
+- execution success ≠ observed World truth
+- unknown ≠ failure
 
-## Core operational tool
+## Identity gate
 
-The current highest-leverage tool hypothesis is **World Lens**: a read-oriented semantic inspection operation that turns any target plus purpose into a bounded World Packet containing meaning, identity/correspondence, neighborhood, context, evidence, freshness, ownership, unknowns and falsifiers.
+The folder name and provisional seed do not constitute the permanent Core Agent identity.
 
-See `WORLD-LENS-ONE-TOOL-DESIGN.md`. It is a design proposal only; it does not create a canonical ontology or implementation obligation.
+Do not create or claim `CORE-AGENT.md` until owner alignment establishes the enduring responsibility and boundary.
 
-## Intelligence Graph relationship
-
-The Architecture Steward's graph is a shared, derived development view. This CFA contributes:
-
-- evidence-backed semantic concepts and relationships;
-- destination/responsibility interpretations;
-- context/world boundary findings;
-- explicit ownership and dependency seam proposals;
-- falsifiers and unresolved questions.
-
-It does **not** independently edit the graph into truth.
-
-The intended loop is:
-
-`observe → investigate → record evidence → reconcile with peers → Steward graph projection → use graph for grounding/productivity`
-
-The graph can then connect this area's findings to:
-
-- destination concepts;
-- responsibilities;
-- journeys and vertical slices;
-- evidence;
-- implementation/runtime observations;
-- authority and data seams.
-
-## Productivity relationship
-
-As the grounding/development tooling matures, this home should be able to consume compact traces such as:
-
-`graph:trace <target>`  
-`grounding.trace(target)`
-
-and answer the World/Context portions of:
-
-- what this means;
-- which world concept or contextual contract is involved;
-- who owns the meaning;
-- what is canonical versus derived;
-- what evidence supports the mapping;
-- what remains unknown;
-- what would falsify the current model.
-
-The home should remain useful even before those commands exist: the durable source remains repository evidence plus this home's state.
-
-## Boundary rule
-
-A useful boundary is one that helps neighboring work proceed without hidden overlap.
-
-When repeated evidence shows the boundary should move, record the change rather than protecting the current folder shape.
-
-See `BOOTSTRAP-SEED.md` for the seed contract and `STATE.md` for current evidence and uncertainty.
+When the boundary changes materially, update the seed home rather than hiding the change in a new parallel hierarchy.
