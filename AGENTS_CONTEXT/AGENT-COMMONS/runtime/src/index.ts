@@ -1,1 +1,3 @@
 export * from"./types.js";export * from"./canonical-json.js";export * from"./crypto.js";export * from"./events.js";export * from"./validation.js";export * from"./fold.js";export * from"./store.js";export * from"./attention.js";export * from"./compaction.js";export * from"./commons.js";export * from"./bootstrap.js";export * from"./transports/memory.js";export * from"./transports/git.js";
+export * from "./session-capabilities.js";
+export * from "./transports/github-api.js";
