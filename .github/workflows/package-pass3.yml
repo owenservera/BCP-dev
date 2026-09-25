@@ -1,0 +1,58 @@
+name: Package VIVIM System Intelligence Pass 3
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build exact Pass 3 pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/vivim-pass3-pack
+          mkdir -p /tmp/vivim-pass3-pack/pass-3
+          cp -R docs/destination/system-intelligence/pass-3/. /tmp/vivim-pass3-pack/pass-3/
+          cat > /tmp/vivim-pass3-pack/PACK-README.md <<'EOF'
+# VIVIM System Intelligence — Pass 3 Full Pack
+
+Source repository: owenservera/BCP-dev
+Source branch: research/system-intelligence-pass3
+Pass 2 base: bc07a9434728dad768ef6bc946bea1264e10b48b
+Pass 3 tip: 0121570c005112eb8875e9b8a6f484cc732d4e62
+
+This archive contains the complete Pass 3 characterization/design artifacts and five machine-readable indexes.
+No production code or Ω-law changes are part of the Pass 3 artifact set.
+
+Mandatory experiments E1–E8 are specified with falsifiers and acceptance criteria. They are not considered executed merely because they are documented.
+
+Recommended reading order:
+1. pass-3/V1-DESIGN-CONVERGENCE.md
+2. pass-3/EXPERIMENT-MATRIX.md
+3. pass-3/BUILD-ORDER-IMPLICATIONS.md
+EOF
+          cat > /tmp/vivim-pass3-pack/REPOSITORY-METADATA.json <<'EOF'
+{
+  "repository": "owenservera/BCP-dev",
+  "sourceBranch": "research/system-intelligence-pass3",
+  "pass2Base": "bc07a9434728dad768ef6bc946bea1264e10b48b",
+  "pass3Tip": "0121570c005112eb8875e9b8a6f484cc732d4e62",
+  "artifactCount": 20,
+  "productionCodeChanged": false,
+  "omegaLawChanged": false,
+  "pass1OrPass2Modified": false,
+  "mandatoryExperiments": ["E1","E2","E3","E4","E5","E6","E7","E8"]
+}
+EOF
+          cd /tmp/vivim-pass3-pack
+          zip -qr "$GITHUB_WORKSPACE/vivim-system-intelligence-pass3-full.zip" .
+      - name: Upload Pass 3 ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: vivim-system-intelligence-pass3-full
+          path: vivim-system-intelligence-pass3-full.zip
