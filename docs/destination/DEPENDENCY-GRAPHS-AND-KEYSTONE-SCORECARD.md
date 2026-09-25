@@ -186,6 +186,113 @@ The following are the **top 10 high-centrality dependencies** for the destinatio
 
 ---
 
+## 5A. Unscoped / under-modelled destination frontier
+
+The keystone graph must not imply that every important destination capability already exists somewhere in Ω or the VIVIM mine.
+
+There is a second class of dependency:
+
+> **DESTINATION FRONTIER — important to the end state, but absent, thin, or not yet scoped well enough to inherit an implementation from current code.**
+
+These are not ordinary “gaps” in an existing subsystem. They require fresh product/architecture characterization before implementation.
+
+| Frontier area | Current Ω/VIVIM state | Current treatment | Destination role | Preliminary complexity |
+|---|---|---|---|---:|
+| **F1 Product shell / native Windows environment** | No complete destination-grade shell | **Unscoped** | The actual sovereign environment the user launches and inhabits | **10** |
+| **F2 Install / update / rollback lifecycle** | Packaging ideas and repo tooling exist; no complete product lifecycle | **Under-modelled** | Install, update, migrate, recover, downgrade safely | **8** |
+| **F3 Local OS / filesystem / application integration** | Some historical/local mechanisms, but no unified Ω product boundary | **Under-modelled** | Make “my machine / my apps / my files” real | **10** |
+| **F4 Desktop interaction substrate** | Browser/CDP is developed; general desktop input/control is not a destination-level model | **Mostly absent** | Keyboard, mouse, clipboard, windows, native app interaction where authorized | **10** |
+| **F5 Notification / attention delivery** | Attention is conceptually mapped; no unified product notification model | **Unscoped** | Bring important world/work state to the user at the right time | **8** |
+| **F6 Multi-device / sync / machine continuity** | Local-first and export principles exist; no complete multi-device model | **Mostly absent** | Continue the same sovereign world across owned machines | **10** |
+| **F7 Sharing / collaboration / delegation across machines** | Sharing principles exist; no complete product treaty model | **Under-modelled** | Share capabilities/work/world slices without centralizing ownership | **10** |
+| **F8 Resource lifecycle / external-world hydration** | Ghost/dormant/hydrated/suspended concepts exist, but broad product scope is unfinished | **Under-modelled** | Represent machines, apps, services, accounts, and unavailable resources safely | **9** |
+| **F9 Security boundary / local secret integration** | Credential reference law exists; full owner-machine secret store integration is not a productized path | **Partial** | Safely bridge VIVIM to real credentials without leaking them into normal data flows | **9** |
+| **F10 Extension distribution / plugin ecosystem** | Plugin runtime + Forge exist; discovery/marketplace/distribution model is not fully scoped | **Under-modelled** | Let users acquire, inspect, trust, update, disable, and share extensions | **8** |
+| **F11 User-created application surfaces / 3D spatial layer** | Canvas evidence exists; full application-like/3D environment is not a defined product substrate | **Mostly absent** | Make the infinite environment more than a 2D dashboard/canvas | **9** |
+| **F12 Universal data acquisition** | Imports exist for selected domains; no general “bring my digital world in” onboarding | **Partial / fragmented** | Acquire files, conversations, contacts, projects, services, and other user-owned history | **9** |
+| **F13 Resource discovery / local network reality** | Provider discovery exists; general local-device/network discovery is not a destination model | **Mostly absent** | Discover printers, machines, services, devices, local endpoints, etc. | **9** |
+| **F14 User-facing diagnostics / recovery / repair** | Engine-level refusal, health, healing, evidence exist; whole-product repair UX is not scoped | **Under-modelled** | Explain, repair, restore, quarantine, and recover the environment | **8** |
+
+### Why this matters
+
+These areas are easy to accidentally hide inside existing terms:
+
+- “runtime” can hide OS integration;
+- “provider” can hide local applications and devices;
+- “surface” can hide the entire desktop shell;
+- “attention” can hide notifications and interruption policy;
+- “sharing” can hide a full trust/treaty system;
+- “export” can hide multi-device continuity;
+- “Forge” can hide extension acquisition/distribution.
+
+That would create false maturity.
+
+### Frontier maturity rule
+
+For an unscoped frontier, the implementation ladder starts at:
+
+```
+L-1 — UNCHARACTERIZED
+   ↓
+L0 — VISION
+   ↓
+L1 — PROTOTYPE
+   ↓
+...
+```
+
+**L-1 means we know the destination wants it, but we do not yet have a sufficiently bounded repository-backed design or reliable evidence source.**
+
+Do not assign L1 merely because a vaguely related legacy feature exists.
+
+### Frontier dependency graph
+
+~~~text
+                 ┌──────── F1 Product Shell ────────┐
+                 │                                   │
+                 ▼                                   ▼
+        F2 Install/Lifecycle                  F3 OS/Filesystem
+                 │                                   │
+                 └──────────────┬────────────────────┘
+                                ▼
+                         F4 Desktop Reality
+                                │
+             ┌──────────────────┼──────────────────┐
+             ▼                  ▼                  ▼
+       F5 Attention       F6 Multi-device      F7 Sharing
+             │                  │                  │
+             └──────────────┬───┴───────┬──────────┘
+                            ▼           ▼
+                    F8 Resource     F9 Security
+                    lifecycle      boundary
+                            │           │
+                            └─────┬─────┘
+                                  ▼
+                         F10 Extension ecosystem
+                                  │
+                                  ▼
+                         F11 Rich spatial/app layer
+
+Cross-cutting:
+F12 Universal acquisition
+F13 Local/network discovery
+F14 Recovery/repair
+~~~
+
+### The five highest-risk unscoped frontiers
+
+By combination of centrality, novelty, and uncertainty:
+
+1. **F1 Product shell / native Windows environment**
+2. **F3 Local OS / filesystem / application integration**
+3. **F4 Desktop interaction substrate**
+4. **F6 Multi-device / machine continuity**
+5. **F7 Sharing / collaboration / cross-machine delegation**
+
+These should not immediately become five implementation projects.
+
+They first need **characterization slices** proving their boundaries and relationship to the existing Ω substrate.
+
 ## 6. Why these ten are different from the P1 list
 
 P1 is organized around **architecture and proof obligations**.
