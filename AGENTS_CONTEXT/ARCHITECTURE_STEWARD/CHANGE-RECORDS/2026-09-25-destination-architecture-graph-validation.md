@@ -34,3 +34,7 @@
   - regenerate the graph with the repaired builder and confirm the same structural counts/endpoints/lineage;
   - during the first coding slice, attach implementation → responsibility / contract → proof projections and verify replacement/evolution traversal.
 - disposition: REFINEMENT / VALIDATION REPAIR
+
+## Follow-on evidence identity repair
+
+The final validation pass found 31 source evidence records in `ATOMS.json` without an `id` field. The previous builder collapsed them into a shared `undefined` identity. The builder and generated graph now assign deterministic graph-local IDs `EV-AUTO-<atom>-<position>`, preserving each source record separately. The repaired graph contains 394 nodes and 1,219 edges, with 129 evidence nodes and 71 atom→evidence relationships. Malformed `undefined`/null evidence relations were removed rather than preserved.
