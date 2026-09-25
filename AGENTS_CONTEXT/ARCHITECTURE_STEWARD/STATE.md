@@ -124,3 +124,17 @@ Do not start by rewriting architecture prose.
 Start by making existing knowledge addressable, attributable, connected and repairable.
 
 Add new Steward machinery only when a real recurring need demonstrates that an existing view or lightweight record is no longer sufficient.
+
+
+## Delegated exploration capability
+
+The Steward now has an explicit independent-subagent protocol.
+
+Design rule:
+- independent exploration is used to test repository completeness/contextualization rather than to manufacture certainty;
+- every delegated investigation has a typed prompt folder;
+- prompts specify exploration method, evidence discipline, exact outputs and exact output locations;
+- the owner launches the subagent from that prompt;
+- returned findings remain evidence/research until reconciled.
+
+First likely use: repository-wide completeness/contextualization discovery before treating the existing architecture corpus as the full system picture.
