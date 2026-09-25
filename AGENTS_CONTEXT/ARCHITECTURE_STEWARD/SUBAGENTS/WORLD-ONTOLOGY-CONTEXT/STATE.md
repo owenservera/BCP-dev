@@ -1,174 +1,173 @@
-# CFA-01 World / Ontology / Context — State
+# CFA-01 — State
 
-> Status: BOOTSTRAP ROUND 1 / ACTIVE / PROVISIONAL
-> Updated: 2026-09-25
-> Permanent core identity: NOT YET RATIFIED
+> Status: BOOTSTRAP / ACTIVE PROVISIONAL
+> Date: 2026-09-25
+> Identity: world-ontology-context
+> No permanent Core Agent identity is ratified in this state.
 
 ## Current position
 
-Bootstrap context recovery is substantially complete for the first self-design pass.
-
-The current working hypothesis is that CFA-01 stewards the semantic model of the user's world and the semantic contract by which bounded context is derived from that world.
-
-This is a provisional interpretation pending deeper archaeology and owner alignment.
-
-## What is understood
-
-### OBSERVED
-
-- The destination responsibility baseline separately identifies ontology, world projection, query/retrieval and context assembly responsibilities.
-- Historical VIVIM contains an AtomicChatUnit shape with rich identity, provenance, conversation linkage, quality, state and sharing metadata.
-- Historical VIVIM contains a DynamicContextBundle that composes layered context items and projects them into multiple textual surfaces.
-- The Architecture Steward documentation constitution requires lineage, explicit uncertainty, canonical views over document sprawl, and no false completion.
-- Peer CFA practice uses a small durable identity/state foundation followed by mission-specific research artifacts rather than forcing every candidate concern into a large fixed document tree.
-
-### DERIVED
-
-- Context should be treated as structured composition, not merely as prompt text.
-- Historical ACU is evidence for a class of independently addressable semantic/content units, but ACU is not automatically equivalent to a canonical World Entity.
-- Context Items should normally reference or represent existing meaning rather than become a second source of truth.
-- World meaning and persistence mechanics need a deliberate seam.
-- Semantic ownership and runtime realization should remain separate.
-- Round 1 should remain deliberately small.
-
-### PROPOSED
-
-- Provisional role: **World & Context Steward**.
-- Provisional model: WORLD -> CONTEXT CONTRACT -> DYNAMIC CONTEXT -> REPRESENTATION.
-- Provisional workspace: BOOTSTRAP-SEED.md, STATE.md, RESEARCH-QUEUE.md.
-- A dedicated canonical world model should be created only after the current semantic primitives are characterized enough to justify it.
-
-### UNKNOWN / UNRESOLVED
-
-- Exact minimum taxonomy of World Entities.
-- Exact status and scope of Atomic Units in Ω.
-- Whether Event and State are world entities, orthogonal primitives, or both in different senses.
-- Exact definition of Space and its relationship to Workspace.
-- Exact boundary between world-level identity/correspondence semantics and data-layer identity mechanics.
-- Exact meaning of a Context Item versus a reference/projection/derived claim.
-- Whether DynamicContextBundle should survive as a concept, be renamed, or be replaced by a more self-descriptive Ω term.
-- Exact ownership of Context assembly runtime versus Context semantic contract.
-- Complete continuity path from Context -> Intent -> Work -> Evidence.
-- Which context properties are canonical, derived, authority-gated, or purely optimization metadata.
-
-## Initial decision log
-
-### DEC-001 — Stay provisional in Round 1
-
-**Decision:** Do not create a ratified CORE-AGENT identity yet.
-
-**Reason:** The launch protocol calls for self-design followed by owner alignment; the current baseline is sufficient for a seed but not yet for a final responsibility constitution.
-
-**Status:** ACCEPTED FOR BOOTSTRAP ROUND 1.
-
-### DEC-002 — Keep Round 1 intentionally small
-
-**Decision:** Start with the minimum durable documentation needed to operate methodically and defer speculative artifact design.
-
-**Reason:** The repository already contains substantial architecture machinery; this CFA should earn additional structure through repeated work.
-
-**Status:** ACCEPTED FOR BOOTSTRAP ROUND 1.
-
-### DEC-003 — Treat ACU/DCB as archaeological evidence
-
-**Decision:** Add ACU/DCB lineage tracing to the research queue.
-
-**Reason:** The concepts provide unusually concrete historical evidence about atomic content and dynamic context composition, but historical implementation is not automatically Ω authority.
-
-**Status:** ACCEPTED FOR BOOTSTRAP ROUND 1.
-
-## Concept register
-
-### CON-001 — World Entity
-
-Meaning: provisional term for a semantically meaningful thing that VIVIM can recognize as part of the user's world.
-
-Boundary: not yet finalized.
-
-### CON-002 — Atomic Unit
-
-Meaning: provisional term for an independently addressable semantic/content unit that can carry identity, lineage or provenance and participate in context composition.
-
-Boundary: not yet established whether this is a universal Ω primitive or a family of domain-specific units.
-
-### CON-003 — Context
-
-Meaning: a bounded, purpose-specific composition of references/representations derived from world knowledge and possibly other governed knowledge sources.
-
-Boundary: must not become a second source of truth.
-
-### CON-004 — Dynamic Context Bundle
-
-Meaning: historical VIVIM implementation concept for a structured context composition with layered items and a later projection step.
-
-Status: historical concept under investigation; not current Ω canon.
-
-## Problem register
-
-### ISS-001 — Terminology / model inheritance risk
-
-Problem: historical VIVIM concepts are rich but can accidentally become current Ω ontology through familiar naming.
-
-Action: preserve lineage and explicitly classify harvested concepts before adoption.
-
-Status: OPEN.
-
-### ISS-002 — Context ownership seam
-
-Problem: the responsibility matrix names Context Assembly, but the semantic ownership of Context versus the runtime mechanism for assembling it still needs sharper definition.
-
-Action: characterize semantic contract separately from execution/assembly implementation.
-
-Status: OPEN.
-
-### ISS-003 — World / Data identity seam
-
-Problem: semantic identity/correspondence and persistence/record identity are related but not identical responsibilities.
-
-Action: perform explicit cross-CFA identity seam research.
-
-Status: OPEN.
-
-## Immediate operating rule
-
-For each new question, append the smallest useful durable state change:
-
-```
-question -> evidence -> status -> decision / open question -> next action
-```
-
-Do not create a new document merely to hold one unresolved thought.
-
-## Current operational seed
-
-### OBSERVED
-
-- The Architecture Graph is currently documentation-first and separately distinguishes destination architecture from later runtime/implementation evidence.
-- The grounding design expects a development graph bundle to be consumed by runtime/development tooling rather than duplicated into a competing graph.
-- The four current CFA homes are at different bootstrap stages; this area is still provisional while peers are independently discovering their boundaries.
-
-### DERIVED
-
-- This home should function as the semantic source of World/Context **working knowledge**, while the Architecture Steward remains responsible for the shared graph projection.
-- A useful World/Context agent needs an internal model that separates canonical meaning, observations, derived Context, representation, authority and storage rather than collapsing them into a single "entity" abstraction.
-- Productivity integration is most useful as progressive, evidence-backed orientation and impact tracing rather than as automatic ontology generation.
-
-### PROPOSED
-
-- Treat `WorldSubject`, `Identity/Correspondence`, `Relationship`, `WorldObservation`, `ContextDefinition`, and `ContextMaterialization` as provisional reasoning categories.
-- Treat graph contributions as sourced findings requiring Steward reconciliation.
-- Treat `graph:trace` / `grounding.trace` style queries as the eventual developer-facing bridge from this CFA into implementation work.
-
-### New open questions
-
-- OQ-004 — Is "WorldSubject" the right umbrella term, or does it prematurely collapse Things, Events, States, Resources and other candidate primitives?
-- OQ-005 — Should ContextDefinition be a durable semantic object, a reusable recipe, or simply a derived contract at first?
-- OQ-006 — Where exactly does WorldObservation end and Evidence begin for this architecture?
-- OQ-007 — Which World/Context relationships deserve first-class graph edges versus remaining local findings until corroborated?
-- OQ-008 — How much World/Context grounding should be computed by the runtime versus the Architecture Steward/development tooling?
-
-## Seed-home next step
-
-The next substantive work is **not another document tree**. It is to execute the first three semantic investigations (minimum World primitives, Context characterization, and ACU/DCB archaeology), then bring the resulting boundary and contradictions back into owner dialogue.
-
-No durable identity change is implied by this state update.
+Phase 0 context recovery: **SUBSTANTIALLY COMPLETE**
+
+Phase 1 self-design: **IN PROGRESS**
+
+Owner alignment: **NOT YET FORMALLY RECORDED FOR FINAL IDENTITY**
+
+Current operating hypothesis:
+
+> CFA-01 is the semantic steward for World, Objects/Things, Relationships, semantic Identity/Correspondence, Space, Addressability, World Projection and Context semantics, while neighboring CFAs own durable representation, language continuity, authority, execution, realization, surfaces, evolution and runtime substrate.
+
+## Repository and authority basis
+
+- repository: owenservera/BCP-dev
+- destination Architecture Graph: documentation-first shared network
+- current graph manifest: 394 nodes / 1,219 edges / 0 invalid edges
+- graph schema: docs/destination/architecture/graph/SCHEMA.json
+- graph protocol: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md
+- context assembly authority: D-443 / plugins/vivim-run/src/context.ts
+- runtime self-knowledge: vivim.mind
+- destination object research: docs/destination/world-object-core/
+- destination conceptual vocabulary: docs/destination/CONCEPTUAL-MODEL.md
+- destination responsibility baseline: R-028 through R-050 and related world/context responsibilities
+- peer coordination: Agent Commons / Peer Roster
+
+These observations are basis metadata, not architectural authority.
+
+## Stable working distinctions
+
+1. World is a derived coherent view, not a second canonical database.
+2. Canonical objects use the existing durable vault identity substrate.
+3. Relationship records are semantic assertions distinct from structural provenance.
+4. Source identity is not local identity.
+5. Correspondence is not proof of equivalence.
+6. Workspace/canvas is a projection/arrangement, not canonical object storage.
+7. Context is purpose-scoped selection of world information.
+8. Context is not Memory, Attention, Intent, Work, or a prompt.
+9. D-443 supplies context assembly mechanics already.
+10. vivim.mind is a read-only self-knowledge lens, not ontology authority.
+11. Address is a shared semantic seam with CFA-03 rather than an independent store.
+12. Query/retrieval semantics belong to World; indexing/retrieval mechanisms may live elsewhere.
+13. Evidence constrains claims but does not itself grant authority.
+14. Runtime observations can falsify architecture assumptions without becoming architecture authority.
+
+## Current working records
+
+### Concepts under active characterization
+
+- CON-001 World
+- CON-002 Thing / Object
+- CON-003 Relationship
+- CON-004 Semantic Identity
+- CON-005 Source Identity
+- CON-006 Correspondence
+- CON-007 Space
+- CON-008 Workspace
+- CON-009 Context
+- CON-010 Address
+- CON-011 Projection
+- CON-012 Memory
+- CON-013 Attention
+- CON-014 Focus
+- CON-015 Query
+- CON-016 Event
+- CON-017 State
+- CON-018 World Lens
+- CON-019 Context Scope
+- CON-020 Semantic Handoff
+
+These are CFA-01 working identifiers only. They are not destination graph node IDs unless explicitly reconciled into the shared graph.
+
+### Open questions
+
+- OQ-001 Identity reconciliation boundary
+- OQ-002 Context semantic contract
+- OQ-003 Event / State universal status
+- OQ-004 World projection scale
+
+### Current issues
+
+- ISS-001 Ontology authority collision risk
+- ISS-002 Context absorbing adjacent semantics
+- ISS-003 Workspace/canvas canonicalization risk
+- ISS-004 Identity terminology overload
+- ISS-005 Graph/runtime cross-plane joins may become inferred unless grounding is explicit
+
+### Current decisions / working positions
+
+- DEC-001 World is derived, not canonical storage authority.
+- DEC-002 Canonical objects remain durable; World/Surface/Workspace are derived arrangements/views.
+- DEC-003 Relationships are semantic records/assertions, not merely provenance links.
+- DEC-004 External/source identity never silently replaces local canonical identity.
+- DEC-005 Content identity (CID) does not merge object identity.
+- DEC-006 Context is not a second database.
+- DEC-007 D-443 context assembly is an existing runtime realization.
+- DEC-008 Attention is adjacent to Context, not owned by Context.
+- DEC-009 vivim.mind is a lens/projection and self-knowledge mechanism.
+- DEC-010 CFA-03 owns bounded terminology/semantic continuity; CFA-01 does not create a parallel CANON.
+
+## Cases
+
+### CASE-001 — Identity / Correspondence Boundary
+State: OPEN
+Objective: define the smallest clean semantic handoff among CFA-01, CFA-02 and CFA-09.
+Primary concerns:
+- correspondence vs equivalence;
+- source identity vs canonical identity;
+- merge/split semantics;
+- preservation of lineage;
+- temporal identity change.
+
+### CASE-002 — Context Semantic Contract
+State: OPEN
+Objective: characterize what makes information relevant to Context without redesigning D-443.
+Primary concerns:
+- active Space;
+- focused Things;
+- standing Intent;
+- current Work;
+- explicit references;
+- recent events;
+- relevant Memory;
+- policy constraints;
+- evidence/freshness.
+
+### CASE-003 — World Projection Shape
+State: QUEUED
+Objective: characterize “one coherent world” as semantic coherence across bounded projections rather than one giant materialized snapshot.
+
+### CASE-004 — Event / State Semantics
+State: QUEUED
+Objective: test historical and Ω evidence for a universal Event or State primitive.
+
+## Boundaries to monitor
+
+- CFA-01 ↔ CFA-02: semantic object meaning vs durable record/identity mechanics
+- CFA-01 ↔ CFA-03: world grounding/addressability vs semantic continuity/terminology
+- CFA-01 ↔ CFA-04: describing actors/relationships vs authorizing effects
+- CFA-01 ↔ CFA-05: contextual Work vs execution semantics
+- CFA-01 ↔ CFA-06: imported/external world objects vs provider realization
+- CFA-01 ↔ CFA-08: Space/world semantics vs workspace/surface presentation
+- CFA-01 ↔ CFA-09: semantic evolution vs migration/compatibility mechanics
+- CFA-01 ↔ CFA-10: semantic model vs constitutional runtime guarantees
+
+## Immediate next actions
+
+1. Characterize the identity/correspondence seam.
+2. Characterize Context semantics using D-443 as an existing substrate.
+3. Test Event/State against actual Ω and legacy evidence.
+4. Define the smallest useful World Projection contract.
+5. Use the results to determine whether any boundary or identity change is actually required.
+
+## Anti-bloat rule
+
+Do not create a new durable file or system solely because a useful concept was named.
+
+Create one only when:
+- the work recurs;
+- the information needs an independent lifecycle;
+- another agent needs to consume it;
+- a current artifact cannot carry it cleanly.
+
+## Bootstrap gate
+
+Do not create CORE-AGENT.md until the owner and CFA-01 have explicitly aligned on the enduring responsibility.
