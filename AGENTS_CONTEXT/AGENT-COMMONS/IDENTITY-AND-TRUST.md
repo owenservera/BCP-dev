@@ -63,3 +63,16 @@ Commons should distinguish:
 - acknowledged — consumer confirms handling;
 - agreed — outside Commons authority;
 - true — outside Commons authority.
+
+
+## Stream ownership and sessions
+
+The stable agent identity is the owner of its Commons authored stream.
+
+A session_id identifies a runtime instance; it does not create a separate authored stream.
+
+By default, one active publishing session should allocate the next stream sequence for an agent at a time. Multiple sessions may read concurrently.
+
+If an implementation permits multiple publishing sessions, it must coordinate sequence allocation and preserve the single unbroken agent stream. A session race must fail visibly rather than create two valid events with the same stream_seq.
+
+This is an integrity constraint, not a communication-style preference.
