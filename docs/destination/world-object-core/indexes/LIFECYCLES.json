@@ -1,0 +1,13 @@
+
+{
+  "schemaVersion": 1,
+  "status": "DERIVED — DESIGN-CANDIDATE",
+  "objectLifecycle": ["active","archived","deleted"],
+  "actions": ["create","modify","version","archive","tombstone","restore"],
+  "invariants": [
+    "historical revisions remain addressable",
+    "delete is semantic state, not physical erasure",
+    "restore creates a new revision",
+    "provider health and epistemic status are separate axes"
+  ]
+}

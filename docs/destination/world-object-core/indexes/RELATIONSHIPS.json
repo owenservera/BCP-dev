@@ -1,0 +1,10 @@
+
+{
+  "schemaVersion": 1,
+  "status": "DERIVED — DESIGN-CANDIDATE",
+  "storageTruth": "ordinary canonical records in the same vault substrate",
+  "requiredFields": ["subjectRef","predicate","objectRef","assertionState","provenanceRefs","evidenceRefs"],
+  "assertionStates": ["asserted","retracted","contested"],
+  "authorityRule": "relationship existence is assertion; authority remains external to the relationship record",
+  "provenanceRule": "vault refs are structural provenance, not semantic relationship edges"
+}
