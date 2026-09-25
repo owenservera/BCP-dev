@@ -97,14 +97,23 @@ export class GitBranchTransport implements CommonsTransport {
     const fetched = spawnSync("git", ["fetch", "--prune", this.remote, `+refs/heads/${this.branch}:refs/remotes/${this.remote}/${this.branch}`], { cwd: this.o.repoRoot, encoding: "utf8" });
     if (fetched.status !== 0 && fetched.stderr && !fetched.stderr.includes("couldn't find remote ref")) throw new Error(fetched.stderr);
 
-    const parent = tryRun(this.o.repoRoot, ["rev-parse", `refs/remotes/${this.remote}/${this.branch}`])
-      ?? tryRun(this.o.repoRoot, ["rev-parse", `refs/heads/${this.branch}`])
-      ?? run(this.o.repoRoot, ["rev-parse", "main"]);
+    const remoteHead = tryRun(this.o.repoRoot, ["rev-parse", `refs/remotes/${this.remote}/${this.branch}`]);
+    const localHead = tryRun(this.o.repoRoot, ["rev-parse", `refs/heads/${this.branch}`]);
 
-    const localLast = tryRun(this.o.repoRoot, ["rev-parse", `refs/heads/${this.branch}`]);
-    if (localLast && localLast !== parent && !tryRun(this.o.repoRoot, ["merge-base", "--is-ancestor", localLast, parent])) {
+    if (localHead && remoteHead && isAncestor(this.o.repoRoot, remoteHead, localHead) && localHead !== remoteHead) {
+      const pushExisting = spawnSync("git", ["push", this.remote, `refs/heads/${this.branch}:refs/heads/${this.branch}`], { cwd: this.o.repoRoot, encoding: "utf8" });
+      if (pushExisting.status === 0) {
+        const first = events[0];
+        return { event_ids: events.map(e => e.event_id), stream_seq_from: first.stream_seq, stream_seq_to: events.at(-1)!.stream_seq };
+      }
+      throw new Error(`COMMONS_PUSH_RETRY_FAILED:${pushExisting.stderr || pushExisting.stdout}`);
+    }
+
+    if (localHead && remoteHead && localHead !== remoteHead && !isAncestor(this.o.repoRoot, localHead, remoteHead)) {
       throw new Error("COMMONS_LOCAL_BRANCH_DIVERGED");
     }
+
+    const parent = remoteHead ?? localHead ?? run(this.o.repoRoot, ["rev-parse", "main"]);
 
     const pathEntries = [
       ...events.map(e => ({
