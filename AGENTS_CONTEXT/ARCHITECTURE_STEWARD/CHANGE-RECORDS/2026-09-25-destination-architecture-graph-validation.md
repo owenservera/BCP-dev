@@ -1,0 +1,40 @@
+# Change Record — Destination Architecture Graph Validation Repair
+
+- changeId: STEWARD-2026-09-25-ARCH-GRAPH-VALIDATION
+- date/ref: 2026-09-25 / `research/steward-destination-architecture-graph`
+- affected entities: destination architecture graph schema, graph builder, generated nodes/edges/manifest, graph README
+- previous representation: the seeded graph had internally matching 354-node / 943-edge counts and zero invalid endpoints, but its schema treated the 125 source-native responsibility statuses as invalid; the generated graph lacked the 10 keystone projections claimed by its README; responsibility nodes were isolated inventory leaves; the first composition referenced a readiness document absent from the graph branch and had no outgoing journey/slice links; most generated edges lacked stored source lineage.
+- new representation: the graph preserves source-native responsibility statuses, restores the 10 scorecard keystones, registers the current Journey → Architecture Mapping as a source document, adds explicit source-backed journey → responsibility product mappings and vertical-slice test links, binds the first composition to its documented journeys and slices, and carries deterministic source lineage on every edge.
+- reason: make the graph answer practical builder questions without inventing architecture, while preserving the existing destination model and documentation-first boundary.
+- source/evidence refs:
+  - AGENTS_CONTEXT/ARCHITECTURE_STEWARD/FRESH-SESSION-PROMPT.md
+  - AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md
+  - AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CHANGE-PROTOCOL.md
+  - AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md
+  - docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
+  - docs/destination/architecture/research/JOURNEY-ARCHITECTURE-MAPPING.md
+  - docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md
+  - docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md
+  - docs/destination/system-intelligence/indexes/ATOMS.json
+  - docs/destination/system-intelligence/indexes/EDGES.json
+- authority ref: existing North Star, destination model, responsibility matrix, journey/requirement/slice registries and ratified architecture contracts remain authoritative within their scopes; the graph remains derived.
+- affected dependencies:
+  - journey → responsibility traceability;
+  - keystone dependency projection;
+  - first composition build view;
+  - future implementation/evidence graph attachment.
+- stale views:
+  - the prior seeded graph artifacts were superseded by the repaired generated representation on this branch;
+  - no destination authority document is superseded by this change.
+- unresolved questions:
+  - 44 responsibility nodes are intentionally not mapped to J1–J8 because the current Journey → Architecture Mapping does not explicitly include them;
+  - 58 evidence nodes remain metadata-referenced rather than explicit graph traversal endpoints where the source index does not assert an independent edge;
+  - code implementation nodes remain intentionally outside the documentation-first graph until implementation/proof begins.
+- required revalidation:
+  - regenerate the graph with the repaired builder and confirm the same structural counts/endpoints/lineage;
+  - during the first coding slice, attach implementation → responsibility / contract → proof projections and verify replacement/evolution traversal.
+- disposition: REFINEMENT / VALIDATION REPAIR
+
+## Follow-on evidence identity repair
+
+The final validation pass found 31 source evidence records in `ATOMS.json` without an `id` field. The previous builder collapsed them into a shared `undefined` identity. The builder and generated graph now assign deterministic graph-local IDs `EV-AUTO-<atom>-<position>`, preserving each source record separately. The repaired graph contains 394 nodes and 1,219 edges, with 129 evidence nodes and 71 atom→evidence relationships. 23 malformed `undefined`/null evidence relations were removed rather than preserved.

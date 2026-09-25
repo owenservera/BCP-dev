@@ -1,0 +1,39 @@
+# Change Record — Self-Knowledge & Development Grounding Design
+
+- changeId: STEWARD-2026-09-25-SELF-KNOWLEDGE-GROUNDING
+- date/ref: 2026-09-25 / `research/steward-destination-architecture-graph`
+- affected entities: Architecture Steward documentation model; runtime self-knowledge design; development grounding design; future K1 contracts; vivim.mind and vivim.grounding implementation boundary
+- previous representation: the submitted proposal described a two-tier K0-native graph plus vivim.grounding. The proposal was useful but risked widening K0, turning vivim.mind into a universal graph authority, and creating a second development architecture graph.
+- new representation: K0 remains narrow; runtime self-knowledge is a derived observation/view family primarily realized through vivim.mind; the Architecture Steward graph remains the single development architecture network; vivim.grounding is a first-party/system-plugin bridge joining runtime self-knowledge to a versioned Steward graph bundle; grounding.trace is the primary developer operation; freshness and falsification are explicit.
+- reason: preserve the useful two-tier insight while aligning it with the existing factory, graph and Core-vs-Plugin boundaries.
+- source/evidence refs:
+  - user-provided proposal: Two-Tier Self-Knowledge Graph System
+  - docs/destination/system-intelligence/pass-3/SELF-KNOWLEDGE-DESIGN.md
+  - omega-baseline/omega-final/plugins/vivim-mind/src/derive.ts
+  - omega-baseline/omega-final/contracts/src/manifest.ts
+  - omega-baseline/omega-final/contracts/src/recipe.ts
+  - omega-baseline/omega-final/contracts/src/outcome.ts
+  - docs/destination/architecture/graph/README.md
+  - docs/destination/architecture/graph/NODES.json
+  - docs/destination/architecture/graph/EDGES.json
+  - docs/destination/architecture/graph/GRAPH-MANIFEST.json
+  - docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
+- authority ref: existing Ω law and contracts remain authoritative for runtime; destination documents and the Architecture Steward graph remain authoritative/derived according to their existing scopes.
+- affected dependencies:
+  - self-knowledge query/inspection;
+  - graph bundle generation;
+  - developer trace/impact workflows;
+  - freshness/drift falsifiers;
+  - future implementation/proof graph attachment;
+  - agent cold-start context.
+- stale views: none intentionally declared; the design is a refinement/new Steward design artifact.
+- unresolved questions:
+  - exact final K1 contract names and transport details;
+  - exact runtime observation sources for route/compartment generations;
+  - final graph-bundle serialization and deterministic digest format;
+  - exact code-node schema once implementation/proof attachment begins.
+- required revalidation:
+  - validate runtime self-knowledge against actual current Ω interfaces before coding Phase 1;
+  - prove grounding.trace on one real target and one real first-build slice;
+  - prove freshness invalidation and replacement continuity before expanding the system.
+- disposition: REFINEMENT / NEW DESIGN ARTIFACT
