@@ -563,6 +563,31 @@ That is the program layer we were missing.
 
 ## 16. Evolution controls now have a destination research boundary
 
+## 17. Core-vs-plugin boundary is now a development gate
+
+PG-16 — **Core-vs-Plugin Boundary** is now a mandatory pre-implementation control for substantive destination work.
+
+The archaeological distillation is recorded in `docs/destination/CORE-VS-PLUGIN-BOUNDARY-DISTILLATION.md`.
+
+Before implementation, every substantive component must be classified as:
+
+```text
+K0_CORE
+K1_CONTRACT
+SYSTEM_PLUGIN
+EXTENSION_PLUGIN
+TOOLING
+```
+
+The default is **not Core**. A K0 classification requires an evidence-backed demonstration that the responsibility is plugin-independent, non-bypassable, domain-neutral, cross-plugin, constitutionally stable, minimal, and not product semantics.
+
+This gate exists to prevent the most dangerous form of architecture drift: turning essential VIVIM product behavior into accidental kernel responsibility.
+
+**Required record:** semantic owner, why-not-Core rationale, dependencies, authority boundary, replacement seam, evolution class, and falsifier.
+
+**Complexity:** 6/10.
+
+
 PG-11 (change impact / dependency revalidation) and PG-13 (release / deprecation / migration policy) are now explicitly consumed by the destination **Evolution, Reconciliation & Self-Maintenance** design.
 
 The new lane does not add another program tracker. It supplies the semantic model needed to answer:
