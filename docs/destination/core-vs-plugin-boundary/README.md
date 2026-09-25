@@ -1,107 +1,53 @@
 # Core vs Plugin Boundary Research
 
-Status: DERIVED — COMPLETE / DEEPENED PASS
+Status: DERIVED — PASS 3 COMPLETE / ADVERSARIAL CLOSURE
 Branch: research/core-vs-plugin-boundary
+PR: #46
 
-## Executive result
+## Executive verdict
 
-VIVIM should retain a very small K0 enforcement kernel, a K1 shared protocol layer, replaceable first-party system plugins, third-party extension plugins, and out-of-tree tooling.
+Pass 3 confirms the central architecture but narrows what can honestly be called proven K0. The strongest proven nucleus is signed composition admission, integrity/signature verification, compartment/Port enforcement, capability egress, revocation/fencing, atomic activation/recovery and generic lifecycle. Several larger host subsystems are now explicitly underproven or experiment-required.
 
-The decisive boundary is not “important versus unimportant”. It is: what must be enforced before an arbitrary plugin can safely exist?
+Two earlier claims are corrected by direct code evidence:
 
-K0 contains only the smallest mechanisms that answer that question. Product/domain meaning, policy content, external-system knowledge, storage implementations, UX and evolution analysis remain outside the kernel.
+1. Zero-plugin boot is NOT current. recipe.ts rejects empty composition and verifyCompositionInvariants() hardcodes vivim.law at bootPhase 0.
+2. B1 executable-entry confinement is NOT closed. The manifest entry path is not explicitly proven to remain inside the content tree whose bytes are hashed.
 
-## K0 nucleus
+## Proven boundary
 
-- signed Recipe/manifest admission
-- integrity, hashing, signature and canonical encoding primitives
-- plugin isolation and Port transport
-- host-side capability egress enforcement
-- revocation/generation fencing
-- atomic activation and fail-closed recovery mechanics
-- minimal owner-scoped platform seam
-- generic runtime lifecycle required to admit, start, stop and recover compartments
+K0: universal non-bypassable runtime mechanisms.
+K1: shared protocol/reference vocabulary without product implementation ownership.
+System plugins: first-party domain capabilities and semantics.
+Extension plugins: third-party/user capabilities through the same governed boundary.
+Tooling: authoring, analysis, diagnostics and CI outside runtime authority.
 
-These are supported by current Ω B1–B5 and concrete host code in genesis.ts, canon.ts, worker.ts and ports.ts.
+## Pass 3 deepening
 
-## K1 is not a second kernel
+The package now contains direct host file-by-file classification, formal K0 proof/reduction matrix, host semantic leakage findings, K1 contract audit, first-party privilege audit, B5 extraction analysis, zero-plugin proof model, active Work replacement boundary, adversarial stress results and eight required diagrams.
 
-K1 is the shared language crossing the boundary: Manifest/Recipe, Port, Capability, Lifecycle, Outcome/Refusal, Plugin references, Object/Revision references, Evidence references, Intent references, Work references, Authority frames and Change references.
+## Critical findings
 
-Shared vocabulary does not imply host ownership of the behavior described by that vocabulary.
+- recipe.ts contains a product-specific bootstrap role check; current rule is ratified but its literal first-party identity is not domain-neutral K0. A generic signed bootstrap-role seam is preferred.
+- compileComposition() and main.ts are tooling/launcher responsibilities, not K0.
+- graph analytics, audit export and worker pooling are not K0; only smaller routing/provenance/lifecycle primitives may remain.
+- StateArbitrator is plausible but UNDERPROVEN and must be reduction-tested.
+- ToolRegistry/generation resolution is not proven K0; call-lifetime pinning is the smaller candidate.
+- current worker isolation is proven as compartment separation, not as a demonstrated hostile OS sandbox.
+- rich contracts such as chat, world, work, provider, control and language are semantic/system APIs even when housed in contracts/src.
 
-## System plugins remain plugins
+## Implementation gate
 
-The default VIVIM composition can contain first-party system plugins for Law/Policy, Vault, Work, Mind/Context, NLCL, Agent, Providers, Accounts, Browser realization, Credentials, Chat, Discovery/Healing, Forge, Surfaces, Memory/Attention and Product Instance.
+Before any substantive host/runtime work, classify the responsibility here. A K0 proposal requires a protected invariant, concrete bypass, universality argument, domain-neutrality argument, smallest mechanism, removal experiment, impact set and falsifier.
 
-Being bundled, essential, security-sensitive, boot-required or heavily depended upon does not promote one of these to K0.
+## Blocking experiments
 
-## Concrete repository evidence
+1. B1 executable-entry confinement.
+2. Generic empty-composition and bootstrap-role proof.
+3. K0 reduction of state, graph and grant provenance.
+4. Generation-pin continuity proof.
+5. First-party/third-party symmetry test.
+6. Active Work implementation replacement test.
 
-See ARCHAEOLOGICAL-EVIDENCE.md and CURRENT-OMEGA-IMPLEMENTATION-MAP.md for direct mapping to current Ω source and law.
+## Authority
 
-Especially strong evidence:
-
-- host/src/genesis.ts: only a closed generic bootstrap identity set is hardcoded; later plugins and grants are Recipe data
-- host/src/worker.ts: compartment mechanics are host-owned while lifecycle policy remains outside host
-- host/src/ports.ts: host-side token ownership, revocation, generation and scope are mechanically enforced
-- contracts/src/manifest.ts: plugin declarations, runtime tiers, dependencies, risk and generality remain protocol data rather than host product semantics
-- plugins/vivim-law: substantial authority and privacy semantics remain in plugins
-- plugins/vivim-agent: delegation and adaptation governance remain in plugins
-- plugins/vivim-run/src/liveness.ts: rich resource/lifecycle semantics remain in a system plugin
-
-## Decomposition rule
-
-A concept may span all three layers.
-
-Capability: K1 reference → plugin definition/implementation → K0 egress enforcement.
-
-Law: K1 authority protocol → plugin policy content → K0 enforcement mechanism.
-
-Evidence: K1 evidence reference → plugin storage/semantics → K0 integrity primitives.
-
-Work: K1 durable identity → plugin orchestration/execution → K0 safe invocation.
-
-Object: K1 identity/revision → plugin domain semantics/storage.
-
-Resource control: K0 hard safety bounds → plugin policy/economics.
-
-## False-Core result
-
-The deeper audit finds no evidence requiring Vault, Work, Intent/NLCL, Law semantics, Provider/Browser, World/Object ontology, Evidence storage, Forge semantics, Surfaces, Resource economics, Self-Knowledge or Product Instance to become K0 domains.
-
-Where these areas are security-sensitive, the recurring pattern is still: policy/meaning outside, enforcement boundary inside.
-
-## Evolution result
-
-Everything-is-a-Plugin and Evolution are one coupled architecture with two dimensions:
-
-Plugin architecture = what can be added, replaced or removed.
-
-Evolution governance = under what evidence and authority that change is allowed.
-
-Replacement follows: propose → dependency/impact → compatibility → authority → stage → atomic activation → verify → monitor → promote/rollback/quarantine.
-
-A plugin's ability to create another plugin does not grant the child authority. A provider-healed realization is not exempt from the same admission model. A system plugin cannot silently rewrite the constitutional boundary.
-
-## Stress-tested cases
-
-The package walks through removal/replacement of chat, NLCL, Vault, provider/browser realization and Work, plus third-party surfaces, object-domain plugins, Forge-generated plugins, contract evolution, constitutional changes, zero-plugin boot and system-plugin upgrades.
-
-The hardest unresolved experiment is active Work continuity across implementation replacement because it simultaneously exercises identity, contract compatibility, authority, evidence, persistence and evolution.
-
-## Zero-plugin falsifier
-
-The minimal runtime state is a generic, inspectable trust substrate able to verify/admit a composition, explain an empty state and install a valid composition. It should not need chat, provider, project, memory, routing, canvas or Work semantics merely to boot.
-
-## Package contents
-
-The required 19 outputs are present, plus diagrams and a deeper evidence/control layer covering archaeology, current implementation mapping, boundary anatomy, stress cases, K0 proof obligations, lifecycle/trust, contract evolution, responsibility decision ledger, review checklist and zero-plugin bootstrap.
-
-## Authority warning
-
-This package is derived research. It does not amend ratified Ω decisions. Where this package and current Ω law disagree, the law wins and the disagreement becomes an explicit reconciliation item.
-
-## Build gate
-
-Before any substantive host/runtime work, classify the responsibility here. A new K0 proposal must include a protected invariant, concrete bypass, universality argument, domain-neutrality argument, smallest mechanism, removal experiment, impact set and falsifier.
+This package is derived research. Ratified Ω law remains authoritative. Any disagreement is recorded explicitly rather than silently normalizing it.
