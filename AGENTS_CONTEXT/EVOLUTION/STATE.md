@@ -104,3 +104,17 @@ Refined model:
 - Tooling = out-of-tree development machinery.
 
 The default classification is not Core. A K0 addition requires an explicit why-not-plugin rationale and falsifier.
+
+## Factory / composition implication
+
+Evolution applies to the entire compositional ecosystem, not only to self-maintenance or provider repair.
+
+A user may evolve both:
+- an individual piece/capability; and
+- a composition/set made from multiple pieces.
+
+The ordinary product path is therefore capable of:
+discover → compose → use → inspect → modify → replace → extend → remove
+with the same governed evolution rules that protect identity, evidence, authority, compatibility and recovery.
+
+The first-party ecosystem should provide reference pieces and compositions that demonstrate these rules in practice, so interoperability is learned from working examples rather than designed only as abstract specification.
