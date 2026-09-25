@@ -23,6 +23,26 @@ https://github.com/owenservera/BCP-dev
 9. relevant P1/program documents
 10. the source tree assigned to your role
 
+
+## Orchestration
+
+The first run is six parallel investigators, not six copies of the same task.
+
+Parent coordinator:
+- SI-COORD — dispatches SI-01..SI-06, checks completeness, then launches synthesis.
+
+Children:
+- SI-01 → findings/SI-01-omega-runtime/
+- SI-02 → findings/SI-02-legacy-vivim/
+- SI-03 → findings/SI-03-omega-lineage/
+- SI-04 → findings/SI-04-product-surface/
+- SI-05 → findings/SI-05-boundaries/
+- SI-06 → findings/SI-06-red-team/
+
+Do not start specialized deep dives during Wave 1 unless a safety/integrity issue requires immediate clarification. First collect the broad evidence set, then synthesize and calculate centrality/uncertainty. Only then dispatch additional deep-dive agents.
+
+The parent coordinator must not merge partial conclusions into product architecture during Wave 1. Its first synthesis job is normalization and contradiction preservation.
+
 ## Mission
 
 Reconstruct the assigned area at atomic resolution and connect findings to the existing VIVIM product/program model.
