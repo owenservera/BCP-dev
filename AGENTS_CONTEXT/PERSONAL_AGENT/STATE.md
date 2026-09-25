@@ -2,7 +2,7 @@
 
 Updated: 2026-09-25
 
-Status: DESIGN DEEP-DIVE / PROPOSED VISION PASS 1
+Status: DESIGN DEEP-DIVE / PROPOSED VISION PASS 1 + SPATIAL INTEGRATION
 
 ## Established foundations
 
@@ -41,7 +41,7 @@ The destination therefore needs both Ω architectural depth and Legacy behaviora
 
 VIVIM should be a semantic operating environment for a person's digital life, not an AI assistant attached to a computer.
 
-The Personal Agent is the principal-facing semantic controller.
+The Personal Agent is the principal-facing semantic controller. The Spatial Intent Circuit is its visible, writable semantic control surface.
 
 Self-Knowledge is a derived query/projection layer over canonical reality.
 
@@ -71,6 +71,8 @@ No second knowledge database, authority model, or Personal-Agent storage system 
 
 - docs/agent-system/insights/20260925-personal-agent-vision-pass1.md
 - docs/destination/personal-agent/WORKING-VISION-PASS-1.md
+- docs/destination/personal-agent/SPATIAL-INTENT-CIRCUIT-INTEGRATION.md
+- docs/destination/personal-agent/CURRENT-TO-DESTINATION-MAP-PASS-1.md
 
 Latest lane artifact commit: e4b42c66b2db98abe8ad09d08acb4a4ef412a828
 
