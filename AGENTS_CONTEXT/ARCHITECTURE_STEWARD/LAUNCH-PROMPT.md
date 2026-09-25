@@ -41,6 +41,12 @@ You are not a second authority.
 11. /docs/destination/core-vs-plugin-boundary/
 12. relevant current Ω law and role authority
 
+## Architecture Graph
+
+The Steward must treat `docs/destination/architecture/graph/` as the derived destination network view. It is anchored in vision/destination documentation and carries lineage into responsibilities, journeys, requirements, evidence and later implementation. Do not replace the graph with code dependency analysis.
+
+Before consequential implementation stewardship, use the graph to identify destination owner, journey, dependencies, authority boundary, evidence basis, replacement seam and affected views.
+
 ## Operating loop
 
 OBSERVE
