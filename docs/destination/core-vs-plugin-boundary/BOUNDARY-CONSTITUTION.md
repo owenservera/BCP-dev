@@ -14,6 +14,11 @@ Derived research constitution; not Ω ratified law.
 10. Tooling is not runtime authority.
 11. Plugin replacement preserves canonical history or performs an explicit governed migration.
 12. Constitutional K0 change cannot be self-authorized by an ordinary plugin.
+13. Host placement is archaeological evidence, never proof of K0 necessity.
+14. A ratified first-party bootstrap exception is not evidence that the domain itself belongs in Core; replace the literal identity with the smallest generic bootstrap role when safely possible.
+15. K0 proof must include a concrete bypass, a reduction attempt and an observable falsifier.
+16. Empty-composition behavior is part of the Core boundary proof: the generic runtime must not require product plugins merely to explain an empty state.
+17. Executable-entry confinement is part of content-integrity proof: an admitted entry must resolve inside the exact content tree whose bytes were hashed.
 
 K0 admission test: plugin-independent necessity; non-bypassable enforcement; domain neutrality; cross-plugin universality; constitutional stability; minimality; and no product semantics.
 
