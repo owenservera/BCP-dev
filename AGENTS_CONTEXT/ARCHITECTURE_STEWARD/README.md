@@ -117,6 +117,17 @@ Read:
 16. AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md
 
 
+
+## Core Function Area constellation
+
+The Steward is also responsible for maintaining the **shape and boundaries of the enduring Core Function Areas** as derived architectural responsibility. Individual areas are born through self-design and owner alignment before their durable identities are established.
+
+See:
+
+`SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
+
+The register currently identifies ten approved areas spanning World, Data, Self-Knowledge/Language, Authority, Agency/Work, Capability/Provider, Composition/Forge, Experience, Evolution, and Runtime Constitution. The register deliberately separates these enduring responsibilities from reusable investigation instruments such as discovery, proof audit, archaeology and falsification.
+
 ## Independent subagents
 
 The Steward may delegate bounded investigation to independent subagents when repository context may be incomplete, stale, duplicated, or improperly contextualized.
