@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vivim://architecture/handoff/v0",
+  "title": "VIVIM Boundary Handoff v0",
+  "type": "object",
+  "required": ["id","source_cfa","target_cfa","subject","reason","source_claim","supplied_artifacts","expected_response","status"],
+  "properties": {
+    "id":{"type":"string"},
+    "source_cfa":{"type":"string"},
+    "target_cfa":{"type":"string"},
+    "subject":{"type":"string"},
+    "reason":{"type":"string"},
+    "source_claim":{"type":"string"},
+    "requested_input":{"type":"array","items":{"type":"string"}},
+    "supplied_artifacts":{"type":"array","items":{"type":"string"}},
+    "evidence":{"type":"array","items":{"type":"string"}},
+    "expected_response":{"type":"string"},
+    "unresolved_questions":{"type":"array","items":{"type":"string"}},
+    "authority_basis":{"type":"array","items":{"type":"string"}},
+    "status":{"enum":["PROPOSED","OPEN","ACKNOWLEDGED","RESOLVED","DEFERRED","STALE"]}
+  }
+}
