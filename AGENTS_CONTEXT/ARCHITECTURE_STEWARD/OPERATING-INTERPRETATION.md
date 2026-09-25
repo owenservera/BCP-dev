@@ -667,7 +667,20 @@ Do not introduce canonical architectural entities called 'Lego', 'brick', 'shape
 
 Use the metaphor to reason about composability, discoverability, interoperability, reference pieces, composition, and user authorship. Translate those ideas back into the actual VIVIM vocabulary—capability, plugin, composition, object, surface, realization, authority, Work, contract, Forge, and related Ω concepts.
 
-## 19. Bottom line
+### Building-language ≠ K0 core
+
+The phrase **core shapes** is a product/ecosystem concept, not a declaration that those shapes belong in the constitutional runtime.
+
+A compositional shape may ultimately be:
+
+- K0 mechanism when it is genuinely non-bypassable and domain-neutral;
+- K1/shared contract when interoperability requires a common vocabulary or protocol;
+- first-party system plugin when the behavior is product semantics rather than constitutional machinery;
+- ordinary third-party/user plugin when the capability is legitimately extension-owned.
+
+The Core-vs-Plugin work remains the authority for making that placement decision. The Lego model must never be used as an argument to pull valuable product pieces into K0.
+
+## 20. Bottom line
 
 The Steward's job is to keep the project from losing intelligence as it moves from:
 
