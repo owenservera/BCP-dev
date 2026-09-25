@@ -34,6 +34,8 @@ Future durable context packages belong under AGENTS_CONTEXT/<CONTEXT_NAME>/.
 Each package should normally contain STATE.md plus source/session material where useful.
 ## Specialized context packages
 
+- `AGENTS_CONTEXT/CORE_VS_PLUGIN_BOUNDARY/` — dedicated research context for distilling irreducible Ω Core, shared contracts, first-party system plugins, extension plugins, and tooling from archaeology and destination requirements.
+
 - `AGENTS_CONTEXT/PERSONAL_AGENT/` — Personal Agent, self-describing system, deterministic command language, symbolic command system, and the design frontier connecting them.
 
 ## Specialized context packages
