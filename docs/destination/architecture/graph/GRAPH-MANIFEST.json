@@ -82,6 +82,6 @@
     "nullEvidenceRefs": 0,
     "sourceEvidenceRecordsWithoutIds": 31,
     "generatedEvidenceNodes": 31,
-    "removedMalformedEdges": 1211
+    "removedMalformedEdges": 23
   }
 }
