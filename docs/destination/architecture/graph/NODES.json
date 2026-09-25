@@ -6517,27 +6517,6 @@
       }
     },
     {
-      "kind": "evidence",
-      "layer": "evidence",
-      "authority": "system-intelligence",
-      "status": "evidence",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/indexes/ATOMS.json"
-      ],
-      "properties": {
-        "source": {
-          "lineage": "BCP-OMEGA",
-          "repository": "owenservera/BCP-dev",
-          "ref": "research/system-intelligence-archaeology",
-          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
-        },
-        "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md §1–4",
-        "location": "VIVIM-PRODUCT-INSTANCE-CORE.md §1–4",
-        "evidenceKind": "documentation",
-        "note": null
-      }
-    },
-    {
       "id": "SI-040102",
       "kind": "si_atom",
       "name": "World projection",
@@ -10096,6 +10075,812 @@
         "fanOut": "8",
         "complexity": "10",
         "why": "Makes the environment extensible, repairable, and capable of evolving with the owner"
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-040101-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-040101-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md §1–4",
+        "location": "VIVIM-PRODUCT-INSTANCE-CORE.md §1–4",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-040101",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-040102-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-040102-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2–5, §11",
+        "location": "WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2–5, §11",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-040102",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-040103-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-040103-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2, §7–8, §17",
+        "location": "WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2, §7–8, §17",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-040103",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-040104-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-040104-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md §9 / destination interaction docs",
+        "location": "VIVIM-PRODUCT-INSTANCE-CORE.md §9 / destination interaction docs",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-040104",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-040105-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-040105-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/MATURITY-AND-GAPS.md §4 G6–G8; VIVIM-PRODUCT-INSTANCE-CORE.md §6, §11",
+        "location": "MATURITY-AND-GAPS.md §4 G6–G8; VIVIM-PRODUCT-INSTANCE-CORE.md §6, §11",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-040105",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-040106-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-040106-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md §1–3; VIVIM-PRODUCT-INSTANCE-CORE.md §10",
+        "location": "PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md §1–3; VIVIM-PRODUCT-INSTANCE-CORE.md §10",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-040106",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-040107-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-040107-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/VERTICAL-SLICE-REGISTRY.md §2–4",
+        "location": "VERTICAL-SLICE-REGISTRY.md §2–4",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-040107",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050101-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050101-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "LEGACY-VIVIM",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+        "location": "ProviderAccount",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050101",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050101-02",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050101-02",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "LEGACY-VIVIM",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md",
+        "location": "§1–3",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050101",
+        "sourceEvidenceIndex": 2
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050102-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050102-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "LEGACY-VIVIM",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+        "location": "ProviderSession/ProfileSession",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050102",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050102-02",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050102-02",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "LEGACY-VIVIM",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+        "location": "live session descriptor",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050102",
+        "sourceEvidenceIndex": 2
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050103-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050103-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+        "location": "ProviderRealization",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050103",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050103-02",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050103-02",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+        "location": "message.send bars 2–4",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050103",
+        "sourceEvidenceIndex": 2
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050104-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050104-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "omega-baseline/omega-final/contracts/src/intent.ts",
+        "location": "Intent/IntentResolution",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050104",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050104-02",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050104-02",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "omega-baseline/omega-final/plugins/vivim-law/plugin.json",
+        "location": "law.check and invoke.check",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050104",
+        "sourceEvidenceIndex": 2
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050105-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050105-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "omega-baseline/omega-final/plugins/vivim-run/plugin.json",
+        "location": "run/exec/watch/budget/context",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050105",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050105-02",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050105-02",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "omega-baseline/omega-final/plugins/vivim-vault/plugin.json",
+        "location": "vault append/get/verify",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050105",
+        "sourceEvidenceIndex": 2
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050106-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050106-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "omega-baseline/omega-final/plugins/vivim-mind/plugin.json",
+        "location": "WorldModel/read-only lens",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050106",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050106-02",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050106-02",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md",
+        "location": "§2",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050106",
+        "sourceEvidenceIndex": 2
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050107-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050107-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md",
+        "location": "§2–4,§7,§10",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050107",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050107-02",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050107-02",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "omega-baseline/omega-final/plugins/vivim-vault/plugin.json",
+        "location": "data ownership",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050107",
+        "sourceEvidenceIndex": 2
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050108-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050108-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "LEGACY-VIVIM",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+        "location": "Capability resolution → Provider Routing → Execution",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050108",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-050108-02",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-050108-02",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "LEGACY-VIVIM",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md",
+        "location": "§1–4",
+        "evidenceKind": "implementation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-050108",
+        "sourceEvidenceIndex": 2
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-060101-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-060101-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence",
+        "location": "SI-06 evidence synthesis",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-060101",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-060102-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-060102-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence",
+        "location": "SI-06 evidence synthesis",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-060102",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-060103-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-060103-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence",
+        "location": "SI-06 evidence synthesis",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-060103",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-060104-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-060104-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence",
+        "location": "SI-06 evidence synthesis",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-060104",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-060105-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-060105-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence",
+        "location": "SI-06 evidence synthesis",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-060105",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-060106-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-060106-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence",
+        "location": "SI-06 evidence synthesis",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-060106",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-060107-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-060107-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence",
+        "location": "SI-06 evidence synthesis",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-060107",
+        "sourceEvidenceIndex": 1
+      }
+    },
+    {
+      "id": "EV-AUTO-SI-060108-01",
+      "kind": "evidence",
+      "name": "EV-AUTO-SI-060108-01",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence",
+        "location": "SI-06 evidence synthesis",
+        "evidenceKind": "documentation",
+        "note": null,
+        "idOrigin": "deterministic-from-atom-and-position",
+        "sourceAtom": "SI-060108",
+        "sourceEvidenceIndex": 1
       }
     }
   ]
