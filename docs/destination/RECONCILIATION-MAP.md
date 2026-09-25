@@ -259,3 +259,311 @@ The next useful artifact is a deeper **concept → existing artifact → impleme
 4. intelligence + agents + background work;
 5. data/memory/context;
 6. Forge/composition/evolution.
+
+
+## 10. Deep audit — what the repository actually gives us
+
+The first pass was intentionally broad. The deeper pass traced the destination concepts into concrete Ω and VIVIM structures. Several findings need to be made explicit.
+
+### 10.1 The destination environment is currently distributed, not assembled
+
+Ω has multiple strong compositions, each proving a slice:
+
+- `browser` — shippable-v1 browser/provider substrate;
+- `chat` — conversation storage/resolution pilot;
+- `console` — integrated local console over email/mind/NLCL/director;
+- `discovery-mind` — discovery + provider registry pipeline;
+- Forge compositions — builder/evolution paths.
+
+Those compositions are evidence of good subsystem boundaries, but none is yet the finished expression of:
+
+> **My machine + my internet + my accounts + my apps + my data + my intelligence + my rules + my interaction.**
+
+This is the central assembly gap.
+
+### 10.2 The Ω WorldModel is not yet the user's whole world
+
+`vivim.mind` is a strong deterministic lens, but its current `WorldModel` is deliberately bounded.
+
+Today its principal grounding material includes:
+- active plugins/composition;
+- routable operations;
+- projected messages;
+- derived contacts;
+- automation rules;
+- taught lexicon;
+- current focus/attachments and optional capability-gap data.
+
+Its evidence projection is currently centered on small named namespaces rather than the entire person's digital world.
+
+That is not a flaw in the lens. It means the destination-level **World** is ahead of the current Ω product world.
+
+The legacy VIVIM mine contains much richer domain structures for providers, accounts, conversations, projects, workspaces, canvas, memory, routing, and onboarding. Those are evidence inputs to be harvested, not a second authority model.
+
+### 10.3 Provider choice/routing is the clearest real product gap
+
+The current Ω provider model has:
+
+```
+capability/op
+    ↓
+provider realization
+    ↓
+status / proof / provenance
+```
+
+The current resolver can choose a PROMOTED realization, but the rule is effectively a deterministic default selection (currently first eligible realization by stable id ordering). That is useful for proof and safety; it is not yet the finished user control model.
+
+The legacy VIVIM mine contains materially richer evidence:
+
+- provider definitions;
+- provider accounts;
+- account defaulting;
+- model catalogs;
+- provider capability declarations;
+- provider-specific capability configuration;
+- multi-account/profile strategy;
+- routing preferences;
+- routing strategies;
+- cost budgets;
+- fallback ordering;
+- learned routing scores;
+- explicit target provider lists.
+
+The legacy `ProviderMuxEngine` therefore looks less like an obsolete feature and more like a **harvest candidate for the product concept of user-controlled realization selection**.
+
+Important limitation: the legacy mux does not finish the destination requirement. Its response path records `accountId` but currently dispatches with `accountId: null`, and its learned routing score is provider/capability based rather than a complete user-authored policy over provider + account + model + context + authority.
+
+So the repository gives us substantial raw material for this feature, but not a finished destination implementation.
+
+### 10.4 "Default V1" is a packaging/composition problem, not a new capability architecture
+
+D-418 and D-420 establish a precise shipping boundary:
+
+- `compositions/browser.json` is the shippable-v1 composition;
+- v1 is fully Chrome master/slave;
+- no AI-API realization ships in v1.
+
+That is a release/substrate statement, not yet a product statement answering which **free default providers** a user receives and how those providers become selectable in the user's environment.
+
+The destination requirement therefore sits one level above the current proof composition:
+
+```
+V1 distribution
+    ↓
+default installed plugins / provider realizations
+    ↓
+connected user accounts
+    ↓
+available capabilities
+    ↓
+user routing / choice
+```
+
+Nothing in the deep pass justifies inventing a new plugin architecture for this. The existing composition, provider, realization, credential, and routing material is the source pool.
+
+### 10.5 Accounts are a separate object from providers
+
+This is more important than the first map showed.
+
+The legacy VIVIM provider model distinguishes:
+
+```
+Provider
+  ├── Definition
+  ├── Endpoints
+  ├── Models
+  ├── Capabilities
+  └── Accounts
+       ├── identity
+       ├── plan/tier
+       ├── login state
+       ├── profile
+       └── Chrome slave
+```
+
+Ω's current `ProviderRealization` primarily represents:
+
+```
+archetype + provider + class + status + proof
+```
+
+Those solve different problems.
+
+For the destination phrase **"my accounts"**, the user will need to be able to distinguish:
+
+- the provider itself;
+- the user's account with that provider;
+- the browser/profile/session realization serving that account;
+- the capability available through that account;
+- the user's chosen routing policy.
+
+This is a real reconciliation boundary already visible in the mine. It should not be collapsed into "provider metadata."
+
+### 10.6 The canvas/product surface gap is real and concrete
+
+The Ω architecture gives us the correct constitutional rule:
+
+> canvas is a projection, never the source of truth.
+
+It also gives us the live-object model and `ns canvas` placement semantics.
+
+But the actual richer canvas implementation — primitives, layers, designers, sandbox, workspace presets, adaptive workspace, project/conversation organization — is still in the legacy VIVIM tree.
+
+The old canvas primitive set includes workspace, projects, knowledge, agents, providers, and conversations. That is highly relevant evidence for the destination product surface.
+
+So the current state is:
+
+```
+Ω
+  = strong canvas/object CONSTITUTION
+
+VIVIM mine
+  = strong canvas/UX IMPLEMENTATION EVIDENCE
+
+BCP
+  = reconciliation / harvesting machinery
+
+Destination
+  = the place where these become one product surface
+```
+
+### 10.7 Context is already substantially solved at the substrate level
+
+D-443 is stronger than the first pass implied.
+
+The repository already has a deterministic context substrate:
+- cited source rows;
+- byte offsets;
+- epistemic kinds;
+- named eviction;
+- deterministic digest;
+- principal-scoped cache;
+- budget reference;
+- explicit refusal on unresolved or unlabelled context.
+
+So the question is no longer "do we need context?" It is:
+
+> **How does the product-level idea of "my current context" map onto this existing deterministic assembly substrate and the richer legacy context/assembly mechanisms?**
+
+That is primarily a P1-04 / product integration question.
+
+### 10.8 Agents: governance is ahead of breadth
+
+The agent machinery is no longer merely hypothetical:
+- identity and lineage are vault data;
+- spawn authority is scope-based;
+- delegation chains and revocation exist;
+- `agent.exec` checks scope, realization status, law, and ledgers outcomes.
+
+But the current execution envelope is still narrower than the destination agent concept. In particular, the current v0 execution path is deliberately constrained around attributable `vault.*` calls, while the destination scenario expects agents to orchestrate local deterministic capabilities, provider sessions, AI reasoning, external actions, and background work.
+
+This is therefore a **breadth/integration gap**, not a missing governance concept.
+
+### 10.9 Background continuity has the machinery but not yet the product loop
+
+The repository contains:
+- director tick;
+- automation rules as data;
+- daemon surfaces;
+- governed event / ledger machinery;
+- provider background direction.
+
+The missing piece is the user-facing loop:
+
+```
+standing intent
+  → work while away
+  → observed changes / actions / results
+  → trustworthy return summary
+  → pending decisions / next actions
+```
+
+The architecture already contains the ingredients; the product has not yet assembled the experience.
+
+### 10.10 Forge / no privileged user class is unusually well represented
+
+The Forge work is one of the strongest alignments with the destination:
+- Forges are ordinary plugins;
+- no privileged developer path is required by the conceptual model;
+- builder composition exists;
+- generated artifacts are proposal-only until promoted;
+- the house gate mechanically prevents Forge operations from silently entering product compositions.
+
+The remaining product question is ergonomic:
+
+> **Can an ordinary VIVIM user go from "I want this" to a useful new capability/plugin/composition without leaving the environment or learning the architecture?**
+
+The Ω and legacy plugin-builder evidence strongly suggest this is a continuation of existing work, not a new idea.
+
+## 11. Deep bridge matrix
+
+The most useful way to continue is now:
+
+| Destination outcome | Existing asset to reuse | Missing connection | Likely ownership |
+|---|---|---|---|
+| **My world** | `vivim.mind`, vault, ontology, legacy domain stores | unify more domain projections into one product world | P1-03/P1-04 + D1/D2 |
+| **My accounts** | legacy ProviderAccount, Chrome profiles, credentials, provider registry | connect account identity to Ω realization/session/capability model | P1-05/P1-07 + D1/D4 |
+| **My capabilities** | plugin manifests, provider registry, WorldModel capability view | expose complete capability universe across installed plugins | P1-05/P1-04 + D1/D5 |
+| **My choices** | legacy ProviderMux routing preferences/strategies; Ω realization registry | user-owned routing over provider/account/model/context | P1-04/P1-05/P1-07 + D3/D4 |
+| **My interaction** | NLCL, intent, visual spec, CLI/MCP/web | make one interaction layer address the complete world/capability set | P1-04/P1-05 + D1/D5 |
+| **My workspace** | Ω live-object model + legacy canvas/workspaces/presets | assemble one product canvas over current vault/world state | P1-03/P1-04 + D1/D2 |
+| **My conversations** | `vivim.chat`, import pack, legacy conversation organizers/importers | materialize/import/organize into user workspace at product scale | P1-03/P1-04/P1-08 + D2 |
+| **My context** | D-443 context substrate + legacy context assembly | product context/focus semantics over the deterministic substrate | P1-04 + D2/D5 |
+| **My delegated work** | `vivim.agent`, law, director, daemon | broaden acting capabilities and user-facing work lifecycle | P1-06/P1-07 + D3/D4/D5 |
+| **My continuity** | automation + daemon + event ledger | return/attention/next-action product loop | P1-04/P1-06/P1-07 + D5 |
+| **My evolution** | Forge + forge-author + legacy plugin builder | ordinary-user creation path inside VIVIM | P1-05/P1-08 + D5 |
+| **My exit** | vault roundtrip/export + destination rule | complete product backup/recovery/migration journey | P1-03 + D1 |
+
+## 12. The key architectural/product boundary
+
+The deep pass suggests the destination should be thought of as **a user-owned assembly**, not as a fixed collection of subsystems.
+
+The repository already provides many of the parts:
+
+```
+                USER'S VIVIM
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+     WORLD       CAPABILITIES   CONTROL
+        │            │            │
+   data/things    plugins      rules
+   spaces         providers    routing
+   history        realizations authority
+   context        accounts     delegation
+                     │
+                     ▼
+                 SURFACES
+                     │
+            canvas / prompt / views
+                     │
+                     ▼
+              COMPOSITIONS / WORK
+                     │
+                     ▼
+             EVENTS / EVIDENCE
+                     │
+                     ▼
+               MEMORY / TIME
+```
+
+The important thing is not to implement this diagram literally. It is to use it as the reconciliation test:
+
+> **Can every user-visible capability be traced back through an existing governed mechanism, and can the user understand/control the relevant choice without needing to understand the mechanism?**
+
+That is the product-level test the current repository has not yet passed.
+
+## 13. Deep-pass conclusion
+
+We should **not** open another conceptual-design phase.
+
+The evidence now supports a mapping/build sequence:
+
+1. reconcile the existing provider/account/routing machinery;
+2. reconcile the existing canvas/workspace/product-surface machinery;
+3. reconcile import/conversation/memory/context into the World;
+4. reconcile agent/background work into the same capability/authority model;
+5. only then write the final end-state blueprint from the mapped system.
+
+The final blueprint should therefore be a **synthesis of existing evidence plus explicit gaps**, not a new architecture invented after reading the repository.
