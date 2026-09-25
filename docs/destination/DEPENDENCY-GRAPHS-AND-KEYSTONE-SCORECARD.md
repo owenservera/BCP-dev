@@ -212,6 +212,8 @@ These are not ordinary “gaps” in an existing subsystem. They require fresh p
 | **F12 Universal data acquisition** | Imports exist for selected domains; no general “bring my digital world in” onboarding | **Partial / fragmented** | Acquire files, conversations, contacts, projects, services, and other user-owned history | **9** |
 | **F13 Resource discovery / local network reality** | Provider discovery exists; general local-device/network discovery is not a destination model | **Mostly absent** | Discover printers, machines, services, devices, local endpoints, etc. | **9** |
 | **F14 User-facing diagnostics / recovery / repair** | Engine-level refusal, health, healing, evidence exist; whole-product repair UX is not scoped | **Under-modelled** | Explain, repair, restore, quarantine, and recover the environment | **8** |
+| **F15 Generic web/resource substrate** | Browser-mediated provider paths exist; arbitrary web resources as first-class user-owned objects are not fully scoped | **Mostly absent** | Treat websites, pages, sessions, bookmarks, web actions, and changing web resources as one coherent resource model | **9** |
+| **F16 Local intelligence / model execution substrate** | Provider-LLM/plugin evidence exists; the full sovereign model lifecycle (local/remote choice, model installation, resource management, replacement) is not the destination product model | **Under-modelled** | Make intelligence itself a replaceable, user-controlled resource rather than only a provider capability | **9** |
 
 ### Why this matters
 
@@ -279,7 +281,7 @@ F13 Local/network discovery
 F14 Recovery/repair
 ~~~
 
-### The five highest-risk unscoped frontiers
+### The seven highest-risk unscoped frontiers
 
 By combination of centrality, novelty, and uncertainty:
 
@@ -288,8 +290,10 @@ By combination of centrality, novelty, and uncertainty:
 3. **F4 Desktop interaction substrate**
 4. **F6 Multi-device / machine continuity**
 5. **F7 Sharing / collaboration / cross-machine delegation**
+6. **F15 Generic web/resource substrate**
+7. **F16 Local intelligence / model execution substrate**
 
-These should not immediately become five implementation projects.
+These should not immediately become seven implementation projects.
 
 They first need **characterization slices** proving their boundaries and relationship to the existing Ω substrate.
 
