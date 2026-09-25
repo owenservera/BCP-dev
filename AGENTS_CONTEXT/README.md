@@ -35,3 +35,8 @@ Each package should normally contain STATE.md plus source/session material where
 ## Specialized context packages
 
 - `AGENTS_CONTEXT/PERSONAL_AGENT/` — Personal Agent, self-describing system, deterministic command language, symbolic command system, and the design frontier connecting them.
+
+## Specialized context packages
+
+- `AGENTS_CONTEXT/PERSONAL_AGENT/` — Personal Agent, self-describing system, deterministic command language, symbolic command system, and the design frontier connecting them.
+- `AGENTS_CONTEXT/EVOLUTION/` — Evolution, reconciliation, self-maintenance, self-extension, dynamic data/ontology evolution, compatibility, impact, temporal continuity, migration, rollback, and constitutional change boundaries.
