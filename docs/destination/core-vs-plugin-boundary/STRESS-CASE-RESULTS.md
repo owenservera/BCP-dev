@@ -1,51 +1,37 @@
 # Stress Case Results
 
 ## Remove vivim.chat
-Core should continue to boot while chat capability disappears from the composition. Canonical objects and history remain intact. A surface reports absence rather than inventing hidden chat semantics.
-
-Resulting boundary: chat is a system plugin.
+Boundary remains SYSTEM PLUGIN. Core should boot without chat semantics; canonical data survives.
 
 ## Replace vivim-nlcl
-Intent reference and resolution contracts remain stable while the interpretation realization changes. Historical intent records preserve provenance.
-
-Resulting boundary: language interpretation is a plugin; intent identity/citation is K1.
+Boundary remains SYSTEM PLUGIN. Intent references remain stable; interpretation is replaceable. Live replacement proof remains open.
 
 ## Replace vivim-vault
-Canonical data must survive through a governed storage replacement or migration. Storage engine semantics cannot be embedded in the host.
-
-Open experiment: prove revision references, migration, atomic cutover and recovery with no domain database in K0.
+Boundary remains SYSTEM PLUGIN. Storage semantics and implementation stay outside Core. Migration/recovery must preserve canonical references.
 
 ## Replace browser/provider realization
-Provider/account semantics remain stable while a realization is staged, tested and promoted. Chrome/CDP, parser and selector knowledge remain outside K0.
-
-Open experiment: live realization replacement with active Work preserved.
+Boundary remains SYSTEM PLUGIN. Chrome/CDP/parser/provider knowledge stays outside K0. Live replacement with active Work remains experiment-required.
 
 ## Replace active Work implementation
-The semantic Work identity remains stable. The implementation may continue, migrate, pause or refuse based on compatibility and authority evidence.
+Boundary remains K1 + SYSTEM PLUGIN. Work identity and plan reference stay stable; compatibility determines continue/migrate/pause/refuse. Live replacement remains experiment-required.
 
-Open experiment: restart + plugin replacement + continuation with no semantic drift.
+## Add new object-domain plugin
+Boundary remains SYSTEM PLUGIN contribution over shared Object/Revision references.
 
-## Add a new object-domain plugin
-A new object kind should be introduced without changing K0. Generic identity/revision references remain compatible.
+## Add third-party surface
+Target boundary is EXTENSION PLUGIN. Runtime privilege symmetry is still underproven.
 
-Open experiment: two unrelated object plugins using the same object protocol.
+## Add Forge-generated plugin
+Generated code is an ordinary plugin candidate: declaration → integrity → dependency → falsifier → authority → admission. Creation confers no authority.
 
-## Add a third-party surface
-The external surface uses the same Port, capability, evidence and aperture contracts as first-party surfaces, with explicit trust/permission differences only where justified.
+## Evolve shared contract
+Contract consumers must be inventoried and compatibility tested. Structural TypeScript compatibility is insufficient.
 
-Open experiment: useful third-party surface without a hidden first-party-only host API.
-
-## Add a Forge-generated plugin
-The generated artifact enters the ordinary manifest, integrity, dependency, falsifier and promotion path. Creation cannot create authority.
-
-## Evolve a shared contract
-Impact analysis identifies consumers. Compatibility is assessed. Old/new versions coexist, migrate or refuse according to evidence.
-
-## Change a constitutional invariant
-Ordinary runtime plugins cannot self-authorize the change. Constitutional change is a distinct governance boundary.
+## Change constitutional invariant
+Ordinary plugins cannot self-authorize. Constitutional change uses a distinct governance path.
 
 ## Zero-plugin boot
-K0 can admit, inspect and install a composition and expose diagnostics. It cannot claim the VIVIM product experience without product plugins.
+PASS 3 RESULT: current implementation FAILS the intended proof. parseRecipe rejects empty composition and verifyCompositionInvariants requires vivim.law at boot phase 0. The target model remains valid but is not current.
 
-## Upgrade a system plugin
-Canonical references survive; evidence records the transition; affected Work and surfaces are revalidated.
+## Upgrade system plugin
+Canonical references and evidence should survive; dependent Work and surfaces require revalidation.
