@@ -223,3 +223,138 @@ Round 1 succeeds when a fresh agent can determine:
 - what evidence is required before architectural claims become stronger.
 
 It does **not** require a complete ontology, complete context engine design, or implementation plan.
+
+## 11. Provisional operational data model
+
+The home needs an internal model for reasoning even before a canonical Ω schema exists.
+
+Use these as **semantic categories, not schema commitments**:
+
+```
+WorldSubject
+  - something the system currently treats as part of the user's world
+
+Identity / Correspondence
+  - how the subject is recognized across representations, sources or revisions
+
+Relationship
+  - a typed semantic connection between world subjects
+
+WorldObservation
+  - an observed claim about a subject or relationship, with basis and freshness
+
+ContextDefinition
+  - the purpose/scope/rules for selecting relevant world material
+
+ContextMaterialization
+  - one derived realization of a ContextDefinition at a particular basis/freshness point
+
+Representation
+  - a projection for a consumer or surface
+
+Unknown / Conflict
+  - explicit semantic states, not exceptional failure
+```
+
+Important separation:
+
+```
+canonical meaning
+  != observation
+  != derived context
+  != representation
+  != authority
+  != storage record
+```
+
+Identity, provenance, freshness and authority constraints should travel with relevant references/derivations rather than being hidden in prose.
+
+This internal model exists to improve reasoning and cross-agent communication. It becomes canonical only through evidence and owner/authority alignment.
+
+## 12. Provisional graph contract
+
+The Architecture Steward Intelligence Graph is a **shared derived projection**.
+
+This CFA contributes candidate/source-backed relationships such as:
+
+```
+World concept
+  -> related concept
+  -> destination responsibility
+  -> journey / vertical slice
+  -> evidence
+```
+
+and boundary facts such as:
+
+```
+semantic owner
+canonical data owner
+runtime realization
+authority owner
+representation owner
+```
+
+The CFA must not independently promote these into graph authority.
+
+For any proposed graph contribution, retain:
+
+- source reference;
+- epistemic status;
+- relationship kind;
+- supporting evidence;
+- affected boundary/owner;
+- unresolved alternatives where applicable.
+
+The intended reconciliation loop is:
+
+`research → evidence → local finding → peer challenge → Steward reconciliation → graph projection`
+
+## 13. Developer / productivity interface
+
+The future productivity layer should expose the World/Context contribution through compact queries rather than giant context dumps.
+
+Useful questions include:
+
+- `graph:trace <world-or-context-target>`
+- `graph:impact <changed-world-contract>`
+- `grounding.trace(<target>)`
+- `graph:freshness`
+- `graph:orphaned`
+
+For this CFA, the useful answer shape is:
+
+```
+WHAT IS IT?
+SEMANTIC MEANING
+CANONICAL SOURCE
+CURRENT OBSERVATIONS
+RELATED CONTEXT
+OWNER / BOUNDARY
+EVIDENCE
+FRESHNESS
+UNKNOWN / CONFLICT
+FALSIFIER
+```
+
+The productivity system should progressively disclose deeper evidence and implementation details. It should not generate authoritative ontology merely because an agent asks a fluent question.
+
+## 14. Relationship to implementation
+
+Implementation should attach to the semantic model through explicit seams:
+
+```
+World semantics
+   ↓
+contract / boundary
+   ↓
+implementation
+   ↓
+runtime observation
+   ↓
+evidence / proof
+```
+
+A runtime class, table, API, file path or plugin does not become a World concept merely because it exists.
+
+Historical implementation is evidence for characterization and harvesting, not destination authority.
