@@ -6,7 +6,10 @@
       "source": "../plugins/vivim-law",
       "bootPhase": 0,
       "grant": {
-        "capabilities": ["host.journal.append", "host.tokens.revoke"],
+        "capabilities": [
+          "host.journal.append",
+          "host.tokens.revoke"
+        ],
         "contracts": [
           "law.check@1",
           "law.registry@1",
@@ -34,29 +37,65 @@
           "vault.roundtrip@1"
         ]
       },
-      "config": { "dataDir": "${TMP}/omega-spine/vault-data" }
+      "config": {
+        "dataDir": "${TMP}/omega-spine/vault-data"
+      }
     },
     {
       "id": "vivim.run",
       "source": "../plugins/vivim-run",
       "bootPhase": 1,
       "grant": {
-        "capabilities": ["host.compartment.admin", "port:echo.ping@1"],
-        "contracts": ["run.submit@1", "run.stats@1", "run.health@1"]
+        "capabilities": [
+          "host.compartment.admin",
+          "port:echo.ping@1",
+          "port:vault.append@1",
+          "port:vault.get@1",
+          "port:vault.query@1"
+        ],
+        "contracts": [
+          "run.submit@1",
+          "run.stats@1",
+          "run.health@1",
+          "work.create@1",
+          "work.get@1",
+          "work.list@1",
+          "work.transition@1",
+          "work.attempt.start@1",
+          "work.attempt.finish@1",
+          "work.reconcile@1",
+          "work.verify@1",
+          "work.cancel@1",
+          "work.recover@1"
+        ]
       },
-      "config": { "capacity": 2 }
+      "config": {
+        "capacity": 2
+      }
     },
     {
       "id": "omega.echo",
       "source": "../examples/plugin-echo",
       "bootPhase": 1,
-      "grant": { "capabilities": [], "contracts": ["echo.ping@1", "echo.stream@1"] }
+      "grant": {
+        "capabilities": [],
+        "contracts": [
+          "echo.ping@1",
+          "echo.stream@1"
+        ]
+      }
     },
     {
       "id": "omega.risky",
       "source": "../examples/plugin-risky",
       "bootPhase": 1,
-      "grant": { "capabilities": [], "contracts": ["risky.op@1", "risky.read@1"] }
+      "grant": {
+        "capabilities": [],
+        "contracts": [
+          "risky.op@1",
+          "risky.read@1"
+        ]
+      }
     }
   ]
 }

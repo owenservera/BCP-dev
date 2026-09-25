@@ -19,3 +19,6 @@ export * from "./intent.ts"; // D-389 Phase 1
 export * from "./intent-plan.ts"; // D-389 Phase 2
 export * from "./intent-phase3.ts"; // D-389 Phase 3 — output references + safe projection
 export * from "./intent-phase4.ts"; // D-389 Phase 4 — compensation + IntentContext — durable Intent object — DB-agnostic storage vocabulary (drivers are dumb byte stores)
+
+export * from "./world.ts"; // canonical World/Object envelope
+export * from "./work.ts"; // durable Work/Plan/Attempt vocabulary
