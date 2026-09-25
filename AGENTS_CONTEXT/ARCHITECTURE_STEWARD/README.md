@@ -100,3 +100,22 @@ Read:
 12. DRIFT-AND-REPULL.md
 13. CHANGE-PROTOCOL.md
 14. LAUNCH-PROMPT.md
+
+
+## Independent subagents
+
+The Steward may delegate bounded investigation to independent subagents when repository context may be incomplete, stale, duplicated, or improperly contextualized.
+
+This is intentionally lightweight:
+
+**Steward identifies uncertainty → writes prompt → owner launches → subagent explores → outputs land in repository → Steward reconciles.**
+
+Subagent prompts live under:
+
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/<TYPE>/`
+
+Each prompt must explicitly define **what to explore, how to explore it, what to produce, and where to put the outputs**.
+
+The owner does not need to infer the assignment. The Steward should provide the exact prompt path and any branch/output expectations.
+
+A subagent's findings are not automatically architecture authority. They enter through the normal evidence/lineage/reconciliation rules.
