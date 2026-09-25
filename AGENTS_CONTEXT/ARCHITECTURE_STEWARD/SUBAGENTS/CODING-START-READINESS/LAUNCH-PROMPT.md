@@ -479,3 +479,221 @@ The repository should contain a concise, evidence-linked answer to:
 > **What exactly are we coding first, why is this the factory rather than a fixed product instance, what pieces prove the building language, what composition proves interoperability, what Ω core is actually required, and what is the precise point at which we stop preparing and begin coding?**
 
 Optimize for **credible readiness to build without losing the intelligence already accumulated**.
+
+
+# EXECUTION DIRECTIVE — THIS IS A TAKEOVER, NOT A DESCRIPTION
+
+You are the new clean-context owner of this entire task.
+
+The previous conversation/context is intentionally not being supplied to you. This file is the durable handoff of that work.
+
+Your responsibility is not merely to read this prompt and explain what should happen. You must EXECUTE the complete preparation sequence using the repository and the available GitHub/subagent capabilities.
+
+Do not ask the owner to restate prior context that is already represented here or in the repository.
+
+## A. FIRST: RE-GROUND YOURSELF IN REPOSITORY REALITY
+
+Before launching anything:
+1. Read the mandatory files in this prompt.
+2. Locate the current versions of existing destination/research artifacts, including artifacts on research branches.
+3. Inspect recent commits/branches relevant to the Architecture Steward and this readiness task.
+4. Confirm what is completed versus merely proposed.
+5. Read enough of the actual artifacts to understand conclusions, contradictions, maturity states, and remaining gaps.
+
+You are specifically being asked to RE-READ the existing intelligence before doing new work.
+
+Do not treat this prompt as a substitute for the repository.
+
+Context that must be re-grounded includes: Architecture Steward context; Product Vision; Personal Agent; Core vs Plugin; Evolution; destination master model; responsibility inventory; dependency/keystone map; requirement/evidence traceability; vertical slices; System Intelligence; Product Experience Archaeology; Journey → Architecture Mapping; Current Reality & Proof; World/Surface/Interaction/Provider reconciliations; Legacy harvest; current Ω decisions/contracts/code; existing subagent prompts; and any already-produced Round 1 / Round 2 artifacts.
+
+Preserve these maturity distinctions: research ≠ authority; design characterization ≠ implementation; implementation ≠ integration; integration ≠ proof; proof ≠ productization; prototype maturity ≠ factory maturity; factory maturity ≠ ordinary-user product-instance maturity.
+
+## B. DETERMINE WHETHER THIS TASK IS ALREADY PARTIALLY OR FULLY EXECUTED
+
+Search the repository and relevant branches for:
+
+• docs/destination/architecture/research/FACTORY-BOUNDARY-BASELINE.md
+• docs/destination/architecture/research/REFERENCE-LEGOS-BASELINE.md
+• docs/destination/architecture/research/FIRST-COMPOSITION-BASELINE.md
+• docs/destination/architecture/research/FACTORY-UX-INVARIANTS.md
+• docs/destination/architecture/research/CODING-START-READINESS.md
+
+Also inspect these branches when present:
+
+• research/steward-round1-factory-boundary
+• research/steward-round1-reference-legos
+• research/steward-round1-first-composition
+• research/steward-round1-factory-ux
+• research/steward-coding-start-readiness
+
+If an artifact already exists and is credible, do NOT regenerate it merely to create another copy. Inspect it, verify it, and reuse it in convergence.
+
+If an artifact is missing, stale, empty, contradicted, or clearly non-executed, execute that bounded work now.
+
+The repository is the source of truth about whether prior work actually happened.
+
+## C. ROUND 1 MUST BE EXECUTED AS A PARALLEL FAN-OUT
+
+After the context pass, run the four Round 1 investigations IN PARALLEL whenever execution is still required.
+
+R1-A — FACTORY BOUNDARY
+Prompt: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/FACTORY-BOUNDARY/LAUNCH-PROMPT.md
+Output: docs/destination/architecture/research/FACTORY-BOUNDARY-BASELINE.md
+Branch: research/steward-round1-factory-boundary
+Commit: research: factory boundary baseline
+
+R1-B — REFERENCE LEGOS
+Prompt: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/REFERENCE-LEGOS/LAUNCH-PROMPT.md
+Output: docs/destination/architecture/research/REFERENCE-LEGOS-BASELINE.md
+Branch: research/steward-round1-reference-legos
+Commit: research: reference legos baseline
+
+R1-C — FIRST COMPOSITION
+Prompt: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/FIRST-COMPOSITION/LAUNCH-PROMPT.md
+Output: docs/destination/architecture/research/FIRST-COMPOSITION-BASELINE.md
+Branch: research/steward-round1-first-composition
+Commit: research: first composition baseline
+
+R1-D — FACTORY UX
+Prompt: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/FACTORY-UX/LAUNCH-PROMPT.md
+Output: docs/destination/architecture/research/FACTORY-UX-INVARIANTS.md
+Branch: research/steward-round1-factory-ux
+Commit: research: factory ux invariants
+
+Every Round 1 subagent must directly use repository/GitHub access, read existing intelligence first, cite concrete evidence, compress rather than reopen archaeology, answer only its bounded question, avoid new ontology, avoid fixed canonical application UX, avoid project-management machinery, avoid a full roadmap, and end with exactly one of:
+
+ROUND 1 FINDING: READY
+ROUND 1 FINDING: BLOCKED
+ROUND 1 FINDING: NEEDS ONE SPECIFIC DECISION
+
+If the subagent facility is unavailable, do not pretend it ran. Perform the bounded investigation yourself, preserving the same four output contracts and documenting the limitation.
+
+## D. VERIFY ROUND 1 BEFORE CONVERGENCE
+
+For each output verify:
+1. it exists;
+2. it is durably present on the expected branch/commit or an equivalent current ref;
+3. it cites existing repository intelligence;
+4. it did not create a duplicate architecture model;
+5. it preserves factory versus instance;
+6. it identifies actual blockers rather than general incompleteness;
+7. it does not contradict Ω law without explicitly identifying the conflict;
+8. it has the required final ROUND 1 FINDING line.
+
+When agents disagree, reconcile from repository evidence. Do not average opinions.
+
+## E. ROUND 2 MUST BE A SINGLE CONVERGENCE PASS
+
+After Round 1 is available, run exactly one convergence agent.
+
+Prompt: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CODING-START-READINESS/LAUNCH-PROMPT.md
+Expected output: docs/destination/architecture/research/CODING-START-READINESS.md
+Branch: research/steward-coding-start-readiness
+Commit: research: establish coding start boundary
+
+The convergence agent must consume the existing destination corpus; System Intelligence; Product Experience Archaeology; Journey → Architecture Mapping; Current Reality & Proof; Core/Plugin research; Legacy harvest; current Ω contracts/decisions/implementation; and all four Round 1 outputs.
+
+It must answer: current factory readiness; first building language; first reference pieces; first composition; exact end-to-end proof path; blocking versus non-blocking unknowns; reuse/harvest decisions; explicit non-goals/cut line; and final GO/HOLD decision with evidence.
+
+It must NOT create a complete 125-row implementation program, a full product completion plan, a complete plugin ecosystem roadmap, another ontology, another architecture research portfolio, or a large task-management backlog.
+
+End with exactly:
+CODING STATUS: GO
+or
+CODING STATUS: HOLD — <specific blocker>
+
+## F. WHAT GO ACTUALLY MEANS
+
+GO does not mean VIVIM is complete.
+
+GO means we know enough about the factory and its first compositional demonstration that implementation will now produce more information than another broad architecture excavation, and no unresolved assumption is presently likely to force redesign of the factory's fundamental boundary.
+
+The first coding target is:
+Ω K0 → K1 contracts → system/extension plugins → compositions → Product Instance
+
+The stable product surface is the FACTORY, not one fixed instance.
+
+Factory affordances are stable around discovery, addressing, understanding, composition, configuration, governance, inspection, creation, replacement, evolution, and removal.
+
+The eventual ordinary-user model is: create a piece; compose pieces into a set; use it; inspect it; modify/replace/evolve it; preserve authority, evidence, and continuity.
+
+## G. KNOWN MATURITY / BLOCKER FRAMING
+
+Do not automatically classify these known gaps as architecture blockers merely because they remain incomplete:
+
+• B1 executable-entry confinement
+• empty-composition/bootstrap semantics
+• State/Graph/Grant/Generation reductions
+• first-party/third-party symmetry
+• Work continuation across replacement
+• Product Instance activation semantics
+• live provider/browser proof
+
+For each, determine whether failure could actually force redesign of the factory boundary. If not, classify it as an implementation/proof gate or build-time falsifier.
+
+## H. EXPECTED FIRST-BUILD DIRECTION
+
+The convergence should explicitly test whether the evidence supports a first compositional nucleus along the lines of:
+
+Research → Evidence → World
+
+with the broader governed path:
+
+Address → Intent → Context → Capability → Realization → Authority → Work → Execution → Evidence → World → Product Instance continuity
+
+Reference substrate to verify rather than assume:
+
+• vivim.law
+• vivim.vault
+• vivim.run
+• vivim.mind
+• existing intent/NLCL machinery
+• provider-browser where required for a real external realization
+• Forge as the reference for later creation/evolution
+
+Do not accept this list merely because it appears in the handoff; verify it against the repository and Round 1 outputs.
+
+## I. FINAL VERIFICATION
+
+When Round 2 completes:
+1. verify the synthesis exists and has the required final status;
+2. verify evidence linkage;
+3. verify no broad new research program was created;
+4. verify the first composition is executable as a design trace;
+5. verify factory/instance distinction;
+6. verify K0/K1/system-plugin/extension placement;
+7. verify the cut line;
+8. verify an engineer can begin without another architecture-discovery cycle.
+
+If synthesis says GO and repository evidence supports it, do NOT invent another preparation gate.
+
+If synthesis says HOLD, the hold must name the specific architectural fact that must be resolved and explain why it could change the factory design.
+
+## J. FINAL OWNER-FACING REPORT
+
+Report compactly:
+• what was actually re-read and verified;
+• whether Round 1 was already present or had to be executed;
+• the four Round 1 results;
+• Round 2 branch/commit/PR when available;
+• first factory/building-language/reference-piece/composition conclusion;
+• remaining proof/implementation items;
+• final CODING STATUS.
+
+Never claim an agent ran unless repository evidence proves it.
+
+## K. HARD STOP
+
+Once Round 2 establishes CODING STATUS: GO:
+
+STOP PREPARING.
+
+Do not add another archaeology round, readiness gates, expanded responsibility implementation, ontology redesign, destination-wide completion work, full-provider coverage, or autonomous-evolution completion before coding.
+
+The next information-bearing move is implementation and falsification in the real repository.
+
+Use:
+FIND → SYNTHESIZE → DECIDE → BUILD → LEARN
+
+not:
+RESEARCH → DOCUMENT → RESEARCH → DOCUMENT.
