@@ -12,6 +12,7 @@ The running product should be the most useful documentation of the running produ
 2. VISION.md
 3. CANONICAL-MODEL.md
 4. COMMAND-SYMBOL-SYSTEM.md
-5. OPEN-FRONTIER.md
+5. LAUNCH-PROMPT.md
+6. OPEN-FRONTIER.md
 
 This is product/design context, not a replacement for ratified Ω contracts or current repository truth.
