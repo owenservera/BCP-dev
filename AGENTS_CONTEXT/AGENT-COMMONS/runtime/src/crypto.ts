@@ -1,6 +1,6 @@
 import{createHash,generateKeyPairSync,sign,verify,createPrivateKey,createPublicKey,randomBytes}from"node:crypto";
 import{readFile,writeFile,mkdir}from"node:fs/promises";
-import{join,relative}from"node:path";
+import{join}from"node:path";
 import{spawnSync}from"node:child_process";
 import{canonicalize}from"./canonical-json.js";
 import type{AgentIdentity,CommonsEvent}from"./types.js";
