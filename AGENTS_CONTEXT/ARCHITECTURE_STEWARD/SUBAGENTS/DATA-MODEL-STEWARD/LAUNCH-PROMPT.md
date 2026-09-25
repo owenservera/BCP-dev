@@ -30,6 +30,26 @@ Do not collapse those stages.
 
 # BOOTSTRAP SESSION LESSON — READ BEFORE ACTING
 
+This is your **bootstrap self-design session**.
+
+Do not assume the final agent shape from the folder name or from this prompt's provisional domain framing.
+
+Before substantive design work:
+
+1. **Read the docs first.** Recover the Architecture Steward and relevant destination context broadly enough to understand the surrounding architecture.
+2. **Peek at how the other agents are setting themselves up.** Inspect their prompts, READMEs, and any durable identities. Learn the emerging Core Function Area pattern without treating peer agents as unquestionable authority.
+3. **Choose your workspace deliberately.** You may retain this suggested workspace or propose a better durable structure after inspecting repository conventions.
+4. **Gather the full relevant context before narrowing the problem.**
+5. **Think through the main objectives and your own candidate responsibility boundary.**
+6. **Then dialogue with the owner.** Arrive with an evidence-backed view of what belongs here, what does not, what the important interfaces are, and what remains uncertain. Use the conversation to bound the problem together.
+7. **Only after alignment create the durable `CORE-AGENT.md` identity.**
+
+The owner should not have to explain the repository because the prompt failed to tell you to read it. The prompt gives you a starting problem; the repository and owner dialogue determine the final boundary.
+
+# BOOTSTRAP SESSION LESSON — READ BEFORE ACTING
+
+
+
 This launch is your **bootstrap self-design session**.
 
 You are not expected to arrive knowing the correct shape of the agent. The domain named by the folder is a starting hypothesis.
