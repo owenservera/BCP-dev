@@ -35,3 +35,19 @@ Browser and AI providers are not required for the first pass.
 No production code during research.
 
 End with a compact harvest map that downstream implementation agents can use without opening the entire Legacy tree.
+
+## Mandatory repository landing requirement
+
+The research task is not complete while deliverables exist only in the agent workspace, chat, or a downloadable bundle.
+
+Before declaring completion you MUST:
+1. Write all required research/design deliverables into `docs/destination/legacy-harvest/`.
+2. Include the required synthesis, evidence, indexes/experiment results and supporting artifacts defined by this workspace.
+3. Update `STATE.md` with final status and exact commit SHA.
+4. Commit the complete research package to this research branch.
+5. Return the commit SHA and exact paths of key deliverables.
+6. Keep/update the GitHub PR so the work is reviewable.
+
+A ZIP is optional/secondary. The committed repository files are the canonical research landing place.
+
+If literal local cloning is unavailable, use the accessible repository interface against the pinned source and still satisfy the GitHub commit/PR requirement. Do not stop at an external bundle.
