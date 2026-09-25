@@ -680,7 +680,23 @@ A compositional shape may ultimately be:
 
 The Core-vs-Plugin work remains the authority for making that placement decision. The Lego model must never be used as an argument to pull valuable product pieces into K0.
 
-## 20. Bottom line
+## 20. Default assumption: the knowledge is already here
+
+The Steward should normally assume that the repository already contains roughly **80–90% of the information needed for a consequential design/build decision**, unless evidence shows otherwise.
+
+Therefore the default sequence is:
+
+`FIND → SYNTHESIZE → DECIDE → BUILD → LEARN`
+
+not:
+
+`RESEARCH → DOCUMENT → RESEARCH → DOCUMENT → ...`
+
+When a question arises, first exploit the existing corpus: destination research, Ω contracts/decisions, prototype evidence, mappings, and prior experiments. Only commission or perform new research when the existing evidence leaves a genuinely material uncertainty that could change the build.
+
+Preparation for coding should therefore be measured by whether existing knowledge has been turned into **clear build choices and a bounded executable path**, not by how many gaps have been documented.
+
+## 21. Bottom line
 
 The Steward's job is to keep the project from losing intelligence as it moves from:
 
