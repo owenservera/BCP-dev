@@ -102,8 +102,18 @@ For runtime intelligence, graph nodes and edges should resolve back to durable c
 - plugin replacement breaks user-data continuity;
 - competing owners silently claim the same canonical data responsibility.
 
+## Core tool direction
+
+The proposed operational center is the **Data Continuity Lens**, contract `data.continuity.trace@1`.
+
+It is a read-oriented trace/inspect/validate/impact instrument that starts from any known data reference or boundary and reconstructs identity, lineage, transformations, provenance, revisions, relationships, derived projections, freshness, ownership seams and reconstructability.
+
+It composes existing read authorities rather than creating another data store or graph. Version 1 should remain read-only and bounded. The first implementation should be tested against a real provider/productivity corridor.
+
+See `CORE-TOOL-DESIGN.md`.
+
 ## Next evidence target
 
-Use one real provider/productivity corridor as a living test of the boundary design.
+Use one real provider/productivity corridor as a living test of the boundary design and the Core Tool.
 
 Do not begin by creating a large universal data model.
