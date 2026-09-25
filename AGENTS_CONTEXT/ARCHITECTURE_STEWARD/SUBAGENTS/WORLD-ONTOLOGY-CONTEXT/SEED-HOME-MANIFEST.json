@@ -1,0 +1,42 @@
+{
+  "schema": "vivim.cfa.seed-home-manifest",
+  "schema_version": "1.0.0",
+  "generated_on": "2026-09-26",
+  "agent_id": "world-ontology-context",
+  "cfa": "CFA-01",
+  "status": "ACTIVE / PROVISIONAL SEED",
+  "permanent_identity_ratified": false,
+  "entrypoint": "SEED-HOME.md",
+  "operating_baseline": "OPERATING-BASELINE.md",
+  "machine_context": "WORLD-OPERATIONAL-CONTEXT.json",
+  "live_state": "STATE.md",
+  "active_research": "RESEARCH-QUEUE.md",
+  "boundary_declaration": "BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md",
+  "peer_map": "PEER-RELATIONSHIP-DISTANCE-MAP.json",
+  "boundary_router": "BOUNDARY-ROUTER.json",
+  "gap_audits": [
+    "WORLD-BOOTSTRAP-GAP-AUDIT.json",
+    "BOOTSTRAP-GAP-REGISTER.json"
+  ],
+  "communications": [
+    "COMMUNICATION-HOW-TO.md",
+    "COMMONS-BOOTSTRAP-EXECUTION-PROMPT.md",
+    "COMMONS-BOOTSTRAP-RESULT.md",
+    "commons/"
+  ],
+  "research_tools": [
+    "WORLD-LENS-ONE-TOOL-DESIGN.md",
+    "THE-ONE-TOOL-GROUNDED-SEMANTIC-TRACE.md"
+  ],
+  "fresh_session_order": [
+    "SEED-HOME.md",
+    "WORLD-OPERATIONAL-CONTEXT.json",
+    "STATE.md",
+    "BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md",
+    "PEER-RELATIONSHIP-DISTANCE-MAP.json",
+    "BOUNDARY-ROUTER.json",
+    "RESEARCH-QUEUE.md",
+    "COMMUNICATION-HOW-TO.md"
+  ],
+  "ratification_gate": "CORE-AGENT.md must not be created until owner alignment establishes the enduring identity and boundary."
+}
