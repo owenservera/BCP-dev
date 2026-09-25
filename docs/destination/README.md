@@ -18,7 +18,8 @@ The source material is being developed interactively before the final end-state 
 2. Foundational principles — what should remain true even as implementation changes.
 3. Human experience — how the environment should feel and behave for the person.
 4. Conceptual model — the fundamental nouns and verbs from which capabilities and architecture can be derived.
-5. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
+5. Reconciliation map — where the destination concepts already exist in Ω/VIVIM/BCP and what remains genuinely missing.
+6. Later: sovereignty model, composability model, autonomy/delegation, capability universe, and the final master blueprint.
 
 ## Historical relationship
 
@@ -35,3 +36,5 @@ None of these historical code/doc structures should automatically become the des
 Start with NORTH-STAR.md, then FOUNDATIONAL-PRINCIPLES.md, HUMAN-EXPERIENCE.md, and CONCEPTUAL-MODEL.md.
 
 The sources/ directory contains conversation and research material preserved for future synthesis. Source captures are evidence of design thinking, not law.
+
+The current reconciliation pass is `RECONCILIATION-MAP.md`; it is a working map, not a replacement for the destination foundation.
