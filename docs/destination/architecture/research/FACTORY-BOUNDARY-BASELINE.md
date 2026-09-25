@@ -144,4 +144,30 @@ The boundary is sufficiently clear to code **provided the first implementation t
 
 The factory is therefore the smallest governed host + contract language + composition mechanism that can safely carry interchangeable first-party and extension contributions.
 
+
+## Fresh takeover re-evaluation — 2026-09-25 / main 13fc6c0
+
+This is a fresh bounded execution of the Factory Boundary question. The prior artifact was treated as historical input, not as completion.
+
+### Current challenge to prior finding
+
+The current mainline changes since the prior Round 1 work are the task-owner/convergence prompt separation only; no Ω boundary law or destination boundary evidence changed. Re-checking the actual current Ω contract/runtime confirms the same architectural cut:
+
+- omega-baseline/omega-final/contracts/src/recipe.ts still makes the signed Recipe the composition grantor.
+- omega-baseline/omega-final/contracts/src/manifest.ts still defines one manifest vocabulary for all plugins and keeps requested capabilities separate from grants.
+- omega-baseline/omega-final/host/src/index.ts still exposes the µhost as the constitutional/runtime mechanism.
+- CURRENT-INVARIANTS.md still makes B1–B5 the governing host laws and freezes host LOC at 1500.
+
+The important fresh finding is that the first composition does not need a new Core boundary. A thin first-party research capability can be a plugin using an existing contract family/realization. This preserves the K0/K1 split.
+
+### Fresh boundary test
+
+The first build should be able to exercise an arbitrary extension-shaped test plugin and a first-party-shaped test plugin through the same Recipe → Manifest → Port path. The only host-side responsibilities needed are admission, isolation/transport, egress enforcement, activation/recovery and generic runtime primitives already identified by the Core research.
+
+A new host exception for research or any other product capability would falsify the boundary.
+
+### Fresh result
+
+The previous READY conclusion survives challenge. The only material clarification is that a new product capability can be added as a plugin without expanding K0, even when that capability is essential to the first composition.
+
 ROUND 1 FINDING: READY
