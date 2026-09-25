@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vivim://architecture/boundary/v0",
+  "title": "VIVIM Architecture Boundary v0",
+  "type": "object",
+  "required": ["id", "subject", "participants", "ownership", "inputs", "outputs", "invariants", "claims", "evidence", "unknowns", "conflicts", "falsifiers", "status", "basis"],
+  "properties": {
+    "id": {"type":"string"},
+    "subject": {"type":"string"},
+    "participants": {"type":"array","items":{"type":"string"}},
+    "ownership": {
+      "type":"object",
+      "additionalProperties":{"type":"string"},
+      "properties": {
+        "meaning":{"type":"string"},
+        "data":{"type":"string"},
+        "authority":{"type":"string"},
+        "execution":{"type":"string"},
+        "realization":{"type":"string"},
+        "evidence":{"type":"string"},
+        "lifecycle":{"type":"string"},
+        "representation":{"type":"string"},
+        "runtime":{"type":"string"}
+      }
+    },
+    "inputs": {"type":"array","items":{"type":"string"}},
+    "outputs": {"type":"array","items":{"type":"string"}},
+    "handoffs": {"type":"array","items":{"type":"string"}},
+    "invariants": {"type":"array","items":{"type":"string"}},
+    "claims": {"type":"array","items":{"$ref":"#/$defs/claim"}},
+    "evidence": {"type":"array","items":{"$ref":"#/$defs/evidence"}},
+    "unknowns": {"type":"array","items":{"type":"string"}},
+    "conflicts": {"type":"array","items":{"type":"string"}},
+    "falsifiers": {"type":"array","items":{"type":"string"}},
+    "decision_rights": {"type":"array","items":{"type":"string"}},
+    "status": {"enum":["PROPOSED","ACTIVE","STALE","CONFLICTED","SUPERSEDED"]},
+    "basis": {
+      "type":"object",
+      "required":["repository_revision"],
+      "properties":{
+        "repository_revision":{"type":"string"},
+        "source_refs":{"type":"array","items":{"type":"string"}}
+      }
+    }
+  },
+  "$defs": {
+    "claim": {
+      "type":"object",
+      "required":["statement","epistemic_state"],
+      "properties":{
+        "statement":{"type":"string"},
+        "epistemic_state":{"enum":["OBSERVED","DERIVED","PROPOSED","UNKNOWN","CONFLICTED"]},
+        "freshness":{"enum":["CURRENT","STALE","UNRESOLVABLE"]}
+      }
+    },
+    "evidence": {
+      "type":"object",
+      "required":["ref"],
+      "properties":{
+        "ref":{"type":"string"},
+        "kind":{"type":"string"},
+        "supports":{"type":"array","items":{"type":"string"}}
+      }
+    }
+  }
+}
