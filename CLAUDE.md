@@ -11,7 +11,7 @@
 > or read from here directly. It is the full current state; there is no
 > more-complete snapshot elsewhere (owner-confirmed).
 >
-> **Last synced against `main`: commit `94048a6` (2026-09-25). If your
+> **Last synced against `main`: commit `2ffd932` (2026-09-25). If your
 > clone shows a different HEAD, pull first — this file describes that
 > commit's state, not necessarily right now's.
 
@@ -97,6 +97,8 @@ This is deliberately a process gate, not a second task system.
 ---
 
 ## 1. Conceptual vision — the mental model
+
+**Destination foundation:** the current destination/product/UX discovery is being reconstructed in `docs/destination/`. Start with `docs/destination/README.md`. These documents are **DERIVED — WORKING / DRAFT** until explicitly ratified; they do not override Ω law, current code/evidence, or the program's proof gates.
 
 **The end state this program is building toward:** a real, governed,
 sovereign AI system — Ω — where every capability is a plugin, every action
