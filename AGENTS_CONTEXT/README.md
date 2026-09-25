@@ -34,5 +34,3 @@ Other agents may produce local artifacts in local forms. The Steward is responsi
 Completed research intended to guide implementation belongs in durable mainline architecture memory. Historical prompts and project trackers belong under docs/archive/project-history/.
 
 AGENTS_CONTEXT is durable context, not automatic law. Ratified Ω decisions and current repository evidence win.
-
-- `AGENTS_CONTEXT/PRODUCT_ENVIRONMENT/` — Native Windows product environment, OS/resource integration, desktop interaction, lifecycle, recovery, and machine sovereignty boundary.
