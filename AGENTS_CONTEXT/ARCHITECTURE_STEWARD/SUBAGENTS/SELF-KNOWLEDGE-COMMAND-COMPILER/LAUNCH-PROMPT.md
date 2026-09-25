@@ -7,6 +7,28 @@
 
 ---
 
+
+
+# BOOTSTRAP SELF-DESIGN SESSION — REQUIRED SEED
+
+This is a **bootstrap self-design session**, not a conventional research task.
+
+Before deciding what permanent agent should exist, you must:
+
+1. recover the full relevant architectural context;
+2. inspect how the parent Architecture Steward is organized and operates;
+3. inspect the Core Function Area register;
+4. peek at the durable foundations of other Core Function Area agents to learn the common workspace pattern and avoid inventing an incompatible one;
+5. read the relevant documentation corpus before proposing boundaries;
+6. choose the smallest durable workspace/artifact structure that this function area actually needs;
+7. use the owner dialogue to bound the problem and resolve intent that repository evidence cannot determine.
+
+Do not assume that the folder name, provisional AGENT.md, or launch-prompt title already defines the permanent identity.
+
+The owner may legitimately be part of the architecture design: naming, scope, exclusions, authority boundaries, terminology and durable artifact shape should be discussed before ratification.
+
+A fresh agent should be able to understand this bootstrapping expectation directly from this prompt without relying on prior conversation memory.
+
 # 0. What this prompt is now for
 
 This prompt is **not** a conventional task brief that tells the subagent what architecture to produce immediately.
