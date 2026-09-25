@@ -3,7 +3,7 @@
 
 **Repository:** https://github.com/owenservera/BCP-dev  
 **Access:** You have full GitHub access to the owner's account. Use it directly.  
-**Branch:** `steward/subagent-self-knowledge-command-compiler`
+**Working rule:** This is documentation/research work. Commit completed artifacts directly to `main`. Do not create a branch or pull request.
 
 ## Mission
 
@@ -26,6 +26,27 @@ can be understood, traced and eventually represented visually without creating:
 - a K0 project-management/developer subsystem;
 - a second command grammar;
 - or a visual representation that becomes authoritative merely because it is displayed.
+
+## Strategic Context (V1 vs V2)
+
+You must understand the immediate product timeline so that the “smallest implementation slice” is sized correctly and does not accidentally pull V1 into V2 scope.
+
+1. **V1 (Immediate Priority):** a Sovereign AI Command Center built around a universal command/prompt surface, Vault, and Chrome substrate. The immediate UI may remain a raw Command Palette.
+2. **V2 (This Subagent's Strategic Domain):** the Spatial Intent Circuit and the richer Visual/Symbolic Compiler.
+
+Your boundary design must therefore preserve this layering:
+
+`V1 raw Command Palette → existing NLCL / Intent pipeline`
+
+with:
+
+`V2 Visual/Symbolic Compiler → optional projection/editing layer over the same canonical interpretation and Intent model`
+
+V1 must not require the full visual compiler.
+
+The visual compiler must be designed so it can be introduced later as a projection and editing surface **without rewriting the V1 NLCL/Intent core or introducing a parallel semantic engine**.
+
+Do not interpret this as permission to ignore visual/compiler semantics. The subagent must still determine the correct long-term bidirectional and execution-aware boundary now, while keeping immediate implementation scope narrow.
 
 ## Why delegated
 
@@ -184,6 +205,16 @@ Determine:
 - whether symbols are sufficient to reconstruct canonical commands;
 - whether visual rendering is merely a representation or an input-capable canonical syntax.
 
+**Bidirectional Compilation:** Evaluate whether the visual representation can act as a writable surface through direct manipulation. If a user drags an edge, changes a slot/entity chip, inserts/removes a node, changes ordering, or otherwise edits the visual DAG, determine how that edit canonicalizes back into the underlying IR, canonical command and/or Intent/plan representation.
+
+Define a **Round-Trip Invariant** for the system. At minimum evaluate:
+
+`parse(canonical(compile(intent))) ≡ intent`
+
+and determine the correct strengthened form when plan identity, evidence, non-semantic presentation metadata, or execution state make literal equality inappropriate.
+
+The visual representation must therefore be treated as a potentially editable representation of canonical semantics, not merely a screenshot of them. Any editing semantics must remain deterministic and must converge on the same canonical semantic model used by V1.
+
 ### G. Real-time interpretation assurance
 Determine how the user should distinguish:
 - incomplete parse;
@@ -202,6 +233,26 @@ Keep separate:
 - risk/consent;
 - execution state;
 - proof.
+
+**Orthogonal Visual Encoding:** Design a visual grammar in which Epistemic State (match/knowledge quality) and Risk Class (consequence level) are encoded orthogonally rather than collapsed into one flat state machine. A concrete encoding strategy is required (for example, Dual-Ring Encoding where Inner Ring = Epistemic and Outer Ring = Risk), but the agent may propose a different orthogonal mechanism if it is equally explicit and deterministic.
+
+The visual model must allow a user to distinguish, at a glance, cases such as:
+- VERIFIED + READ;
+- VERIFIED + MUTATION;
+- VERIFIED + EXTERNAL_MUTATION;
+- AMBIGUOUS + EXTERNAL_MUTATION;
+- STALE/UNKNOWN + any risk class.
+
+Do not use a single “color/status” value that makes combinations like “verified but dangerous” impossible to represent.
+
+**Execution-Time Semantics:** The visual/compiler model must not stop at pre-execution parsing. Define visual and semantic states for at least:
+- `RUNNING` — active node/step progress;
+- `PAUSED_AT_GATE` — waiting for `law.consent` / approval on an External Mutation;
+- `PARTIALLY_COMPLETED` — committed steps versus pending/gated steps;
+- `FAILED` — distinguish failure from successful committed prior work;
+- `CANCELLED` — distinguish cancellation from rollback and make clear which work is already committed.
+
+Treat execution state as a separate axis from interpretation, epistemic state and risk.
 
 ### H. Self-knowledge command surface
 Investigate how user/agent commands could ask:
@@ -251,7 +302,12 @@ Explicitly test:
 - visual DAG is mistaken for executable DAG;
 - language contribution changes grammar rather than data;
 - surface-only pseudo-intent accidentally routes;
-- changing visual representation changes semantic identity.
+- changing visual representation changes semantic identity;
+- the visual compiler is read-only and lacks a canonical write-back path, violating the Round-Trip Invariant;
+- a visual edit (for example dragging an entity chip to a new object or changing a dependency edge) does not deterministically update the underlying canonical text/IR/plan;
+- execution state is flattened into parse state such that RUNNING, PAUSED_AT_GATE, PARTIALLY_COMPLETED, FAILED and CANCELLED cannot be represented without semantic loss;
+- a visual edit appears to authorize, bypass, or mutate law without going through the governed runtime authority path;
+- V2 visual functionality forces a rewrite of the V1 NLCL/Intent pipeline rather than remaining a projection/editing layer over stable canonical semantics.
 
 ## Anti-assumption rule
 
@@ -320,6 +376,14 @@ Produce a bounded architecture design covering:
 - identity/provenance/freshness seams;
 - smallest implementation slice proving the boundary.
 
+The design must explicitly address:
+- V1 raw Command Palette compatibility;
+- V2 optional visual projection/editing;
+- bidirectional compilation and the Round-Trip Invariant;
+- orthogonal visual encoding;
+- execution-time semantics;
+- how visual editing remains below semantic/authority ownership.
+
 Explicitly state what **not** to build.
 
 ### 4. `IMPLEMENTATION-QUEUE.md`
@@ -342,7 +406,10 @@ Include one fully traced example for each:
 - multi-step command;
 - ambiguous command;
 - self-knowledge/grounding query;
-- visual symbolic projection.
+- visual symbolic projection;
+- **paused execution:** a multi-step command where step 2 has succeeded/committed, but step 3 is an `EXTERNAL_MUTATION` currently `PAUSED_AT_GATE` awaiting user consent. Show how the visual model represents the committed state of step 2 separately from the gated state of step 3.
+
+For the visual/editable example, include at least one direct-manipulation mutation (for example changing a target entity, removing a step, or editing an edge) and trace the deterministic write-back to canonical semantics.
 
 For every example distinguish **observed current behavior** from **proposed future behavior**.
 
@@ -356,7 +423,11 @@ Stop when:
 - identities and provenance across planes are mapped;
 - contradictions are named;
 - the boundary proposal is minimal and explicit;
-- implementation queue contains only justified next steps.
+- the implementation queue contains only justified next steps;
+- the V1/V2 compatibility boundary is explicit;
+- bidirectional compilation and its round-trip invariant are addressed;
+- orthogonal state encoding is addressed;
+- execution-time states and partial completion semantics are addressed.
 
 ## Non-goals
 
@@ -371,12 +442,15 @@ Do NOT:
 - rewrite `nlcl-pure` merely to make the visual concept easier;
 - build the full SVG UI;
 - turn this into project management;
-- silently promote archived design ideas.
+- silently promote archived design ideas;
+- make V1 depend on the full V2 visual compiler;
+- introduce a visual-only semantic model that diverges from the canonical NLCL/Intent semantics.
 
 ## Handoff rule
 
 When complete:
-- commit all four outputs to the branch;
+- commit all four outputs directly to `main`;
+- do not create a pull request or temporary branch;
 - report the final commit SHA;
 - summarize the 5–10 most consequential findings;
 - identify the smallest next implementation seam;
