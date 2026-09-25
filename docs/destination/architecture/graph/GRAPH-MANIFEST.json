@@ -5,18 +5,24 @@
   "repository": "owenservera/BCP-dev",
   "documentationFirst": true,
   "codeIncluded": false,
-  "sourceLayerOrder": [
-    "vision",
-    "destination",
-    "architecture",
-    "experience",
-    "research",
-    "evidence"
+  "sourceDocuments": [
+    "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+    "docs/destination/CONCEPTUAL-MODEL.md",
+    "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md",
+    "docs/destination/DESTINATION-MASTER-MAP.md",
+    "docs/destination/HUMAN-EXPERIENCE.md",
+    "docs/destination/NORTH-STAR.md",
+    "docs/destination/REQUIREMENT-EVIDENCE-TRACEABILITY.md",
+    "docs/destination/VERTICAL-SLICE-REGISTRY.md",
+    "docs/destination/architecture/graph/CURRENT-BUILD-VIEW.md",
+    "docs/destination/architecture/research/JOURNEY-ARCHITECTURE-MAPPING.md",
+    "docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md",
+    "docs/destination/system-intelligence/indexes/ATOMS.json",
+    "docs/destination/system-intelligence/indexes/EDGES.json"
   ],
   "counts": {
-    "nodes": 354,
-    "edges": 943,
-    "evidenceNodes": 99,
+    "nodes": 364,
+    "edges": 1211,
     "invalidEdges": 0,
     "document": 11,
     "vision_anchor": 4,
@@ -25,8 +31,10 @@
     "journey": 8,
     "requirement": 13,
     "vertical_slice": 9,
+    "keystone": 10,
     "si_atom": 44,
     "evidence": 99,
+    "evidenceNodes": 99,
     "workstream": 8,
     "reference_piece": 7,
     "composition": 1
@@ -37,12 +45,12 @@
     "FRAMES": 38,
     "INVENTORIES": 125,
     "REGISTERS": 30,
-    "DEPENDS_ON": 54,
+    "DEPENDS_ON": 257,
     "SERVES": 33,
     "INDEXES": 44,
     "EVIDENCES": 63,
     "INFORMS": 312,
-    "DESCRIBES": 41,
+    "DESCRIBES": 49,
     "CONTRIBUTES_TO": 108,
     "AUTHORIZES": 1,
     "GATES": 11,
@@ -60,24 +68,16 @@
     "PROVES": 2,
     "CONTRADICTS": 1,
     "PARTICIPATES_IN": 7,
-    "TESTS": 1,
-    "SELECTS": 1
+    "TESTS": 49,
+    "PROJECTS": 10
   },
-  "sourceDocuments": [
-    "docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md",
-    "docs/destination/DESTINATION-MASTER-MAP.md",
-    "docs/destination/REQUIREMENT-EVIDENCE-TRACEABILITY.md",
-    "docs/destination/VERTICAL-SLICE-REGISTRY.md",
-    "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md",
-    "docs/destination/NORTH-STAR.md",
-    "docs/destination/HUMAN-EXPERIENCE.md",
-    "docs/destination/CONCEPTUAL-MODEL.md",
-    "docs/destination/system-intelligence/indexes/ATOMS.json",
-    "docs/destination/system-intelligence/indexes/EDGES.json",
-    "docs/destination/architecture/research/CODING-START-READINESS.md"
-  ],
   "validation": {
     "invalidEdges": 0,
-    "allEndpointsPresent": true
+    "allEndpointsPresent": true,
+    "duplicateNodeIds": 0,
+    "duplicateEdgeIds": 0,
+    "edgesWithSourceRefs": 1211,
+    "edgesWithoutSourceRefs": 0,
+    "lineageFillCount": 884
   }
 }
