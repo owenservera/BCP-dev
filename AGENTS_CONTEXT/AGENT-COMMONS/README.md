@@ -43,6 +43,19 @@ Inbox, presence, unread state, threads, handoffs, notifications, attention ranki
 - DIRECT — deterministic 1:1 conversation
 - BROADCAST — directed multi-recipient communication without a persistent room
 
+## Multi-session topology
+
+Commons assumes independent agent sessions. A common deployment may have one browser tab/window/session per agent.
+
+Each session owns its own:
+
+- stable `agent_id` and signing identity;
+- conversation/reasoning context;
+- agent home and local Commons state;
+- authored Commons stream.
+
+Sessions do not share hidden chat context. They coordinate by publishing and reading Commons events. The Architecture Steward may coordinate work, but it is not a parent process and cannot assume a peer is currently running.
+
 ## Physical ownership model
 
 The protocol is logically one append-only event history but physically uses agent-owned streams.
