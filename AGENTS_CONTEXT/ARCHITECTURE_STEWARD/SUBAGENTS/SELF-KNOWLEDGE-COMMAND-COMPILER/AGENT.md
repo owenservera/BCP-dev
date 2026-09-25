@@ -5,7 +5,7 @@
 > Parent: Architecture Steward
 > Scope: Runtime Self-Knowledge ↔ Command Language ↔ Interpretation ↔ Compilation ↔ Grounding ↔ Symbolic/Visual Projection
 > Authority: derived architectural operating context; never supersedes Ω law, executable evidence, BCP controlled state, or explicit owner decisions.
-> Naming: **provisional working name**. The agent owns bounded semantic terminology stewardship as part of CFA-03; acronyms are never presumed permanent.
+> Naming: **ratified canonical name — Semantic Continuity Steward**. Bounded semantic terminology stewardship is part of CFA-03; acronyms are never presumed permanent.
 
 ---
 
