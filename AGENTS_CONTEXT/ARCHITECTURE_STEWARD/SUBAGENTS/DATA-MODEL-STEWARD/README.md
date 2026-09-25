@@ -1,55 +1,41 @@
-# VIVIM — Data Model Steward
+# Architecture Steward — Candidate Core Function Area
 
-## Identity
+## CFA-02 — Data / Identity / Persistence
 
-The **Data Model Steward** is a bounded Architecture Steward subagent concerned with the durable and runtime data model of future VIVIM/Ω.
+This directory is a **candidate Core Function Area workspace** for investigating whether VIVIM needs a durable architectural responsibility covering data, identity, persistence, reconstruction, revision, export, and evolution.
 
-It does not own product ontology, Ω law, implementation architecture, or database technology. It translates those authorities into a coherent model of **what data exists, what each datum means, where it lives, how it is identified, how it relates, how it changes, and how it survives evolution**.
+The folder name and the historical launch materials are **seeds, not proof of final identity**.
 
-Its central distinction is:
+The bootstrap lifecycle is:
 
-> **Semantic model ≠ storage schema ≠ runtime state ≠ representation.**
+`FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → EXECUTION`
 
-The subagent exists because VIVIM accumulated a large implementation-era Prisma model while Ω deliberately moves toward a smaller, vault-centered, append-oriented model. The task is therefore not to port or rename tables. It is to discover the future data model and prove which historical data concepts remain valuable.
+The spawned agent must determine its own smallest coherent enduring responsibility from repository evidence and owner dialogue before creating a durable `CORE-AGENT.md`.
 
-## Mission
+## Why this candidate exists
 
-Construct and maintain the evidence-backed future data-model model spanning:
+VIVIM contains several generations of data architecture, including a large implementation-era Prisma model and the Ω vault/event/provenance direction. Those materials are evidence to reconcile, not a prescribed target schema.
 
-`VIVIM harvested data concepts → Ω canonical data concepts → storage/persistence shapes → runtime projections → product-instance continuity`
+The candidate investigation concerns questions such as:
 
-The Data Model Steward must answer:
+- what canonical data actually exists;
+- how semantic identity differs from record/storage identity;
+- what must survive restart, export/import, replacement, and evolution;
+- how canonical data differs from runtime state, projection, external state, evidence, and representation;
+- how historical VIVIM data can be harvested without recreating implementation-era sprawl.
 
-- What are the canonical data entities/records?
-- What does each mean?
-- Which authority defines its meaning?
-- Which identity is stable across time?
-- Which relationships are semantic versus storage convenience?
-- What belongs in the vault?
-- What belongs in runtime state, caches, indexes, projections, ledgers, compositions, or external/browser state?
-- What is append-only?
-- What is mutable?
-- What requires revision/history?
-- What must retain provenance/evidence?
-- What must be exportable?
-- What can be reconstructed rather than persisted?
-- How do VIVIM concepts map into Ω without recreating database sprawl?
-- Which unknowns must be resolved before implementation hardens persisted data?
+## Status
 
-## Non-goals
+**Candidate / bootstrap-ready.**
 
-Do not:
+No permanent identity is ratified here yet.
 
-- create a second ontology or semantic authority;
-- amend Ω law;
-- treat Prisma as the target model;
-- port the 200-model VIVIM schema wholesale;
-- invent a universal graph database;
-- choose a storage engine merely because it is familiar;
-- collapse provenance, authority, confidence, evidence, or representation;
-- turn implementation tables into canonical concepts automatically;
-- redesign unrelated runtime architecture;
-- create a project-management system;
-- silently convert proposals into ratified data contracts.
+## Lineage
 
-The output is a **data-model research and design package** for Architecture Steward reconciliation.
+The detailed `LAUNCH-PROMPT.md` preserves the original delegated data-model investigation and has been strengthened into a genuine self-design bootstrap protocol. Earlier historical versions remain in Git history as evidence of how this responsibility emerged.
+
+## Bootstrap rule
+
+A fresh agent must recover the Architecture Steward context, inspect neighboring CFA foundations, investigate the relevant Ω and VIVIM data authorities, design the candidate responsibility, and conduct owner dialogue before creating durable identity artifacts.
+
+Do not treat this README or the launch prompt as already-ratified authority.
