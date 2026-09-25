@@ -38,7 +38,7 @@ The validated graph includes explicit Journey → Responsibility bindings and co
 - 9 vertical slices;
 - 10 keystone projections;
 - 44 System Intelligence atoms;
-- 99 unique System Intelligence evidence records;
+- 129 unique System Intelligence evidence records (98 source-index IDs + 31 deterministic graph-local IDs);
 - typed System Intelligence relationships;
 - explicit journey → responsibility product mappings (81 unique responsibilities across J1–J8);
 - first-party/reference pieces;
