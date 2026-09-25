@@ -1,6 +1,6 @@
 # CFA-01 — State
 
-> Status: BOOTSTRAP / ACTIVE PROVISIONAL
+> Status: BOOTSTRAP SEED REVIEW COMPLETE / ACTIVE PROVISIONAL
 > Date: 2026-09-25
 > Identity: world-ontology-context
 > No permanent Core Agent identity is ratified in this state.
@@ -9,9 +9,29 @@
 
 Phase 0 context recovery: **SUBSTANTIALLY COMPLETE**
 
-Phase 1 self-design: **IN PROGRESS**
+Phase 1 self-design / seed construction: **COMPLETE FOR THIS BOOTSTRAP PASS**
+
+Final bootstrap gap audit: **COMPLETE**
 
 Owner alignment: **NOT YET FORMALLY RECORDED FOR FINAL IDENTITY**
+
+The seed session may now be treated as a durable working baseline. This does **not** create or ratify the permanent Core Agent identity.
+
+## Final bootstrap self-audit
+
+The highest-value remaining gaps are now recorded in:
+
+- `BOOTSTRAP-GAP-REGISTER.json`
+
+The audit identified five especially important next-depth questions:
+
+1. World Observation / Fact / Evidence separation;
+2. external-world change reconciliation;
+3. identity continuity through merge/split and time;
+4. explainable Context relevance semantics;
+5. principal/scoped World visibility.
+
+The audit also identified a broader operational requirement: most of these should be managed through the existing **Grounded Semantic Trace** design plus deterministic fixture packs rather than a proliferation of new tools or agents.
 
 Current operating hypothesis:
 
