@@ -47,6 +47,7 @@ Start with:
 - MATURITY-AND-GAPS.md
 - BUILD-AND-HARVEST-PLAN.md
 - PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md
+- WORLD-WORKSPACE-CANVAS-RECONCILIATION.md
 
 The sources/ directory contains preserved conversation and research material. Source captures are evidence of design thinking, not law.
 
