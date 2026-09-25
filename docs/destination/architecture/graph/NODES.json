@@ -1,22 +1,14 @@
 {
-  "schemaVersion": "0.1",
+  "schemaVersion": "0.2",
   "generatedAt": "2026-09-25",
   "repository": "owenservera/BCP-dev",
-  "sourceLayers": [
-    "vision",
-    "destination",
-    "architecture",
-    "experience",
-    "research",
-    "evidence"
-  ],
   "nodes": [
     {
       "id": "DOC-NORTH-STAR",
       "kind": "document",
       "name": "North Star",
       "layer": "vision",
-      "authority": "derived",
+      "authority": "document",
       "status": "current",
       "sourceRefs": [
         "docs/destination/NORTH-STAR.md"
@@ -28,7 +20,7 @@
       "kind": "document",
       "name": "Human Experience",
       "layer": "vision",
-      "authority": "derived",
+      "authority": "document",
       "status": "current",
       "sourceRefs": [
         "docs/destination/HUMAN-EXPERIENCE.md"
@@ -40,7 +32,7 @@
       "kind": "document",
       "name": "Conceptual Model",
       "layer": "destination",
-      "authority": "derived",
+      "authority": "document",
       "status": "current",
       "sourceRefs": [
         "docs/destination/CONCEPTUAL-MODEL.md"
@@ -52,7 +44,7 @@
       "kind": "document",
       "name": "Destination Master Map",
       "layer": "destination",
-      "authority": "derived",
+      "authority": "document",
       "status": "current",
       "sourceRefs": [
         "docs/destination/DESTINATION-MASTER-MAP.md"
@@ -64,7 +56,7 @@
       "kind": "document",
       "name": "Destination Responsibility Matrix",
       "layer": "architecture",
-      "authority": "derived",
+      "authority": "document",
       "status": "current",
       "sourceRefs": [
         "docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md"
@@ -76,7 +68,7 @@
       "kind": "document",
       "name": "Requirement & Evidence Traceability",
       "layer": "architecture",
-      "authority": "derived",
+      "authority": "document",
       "status": "current",
       "sourceRefs": [
         "docs/destination/REQUIREMENT-EVIDENCE-TRACEABILITY.md"
@@ -88,7 +80,7 @@
       "kind": "document",
       "name": "Vertical Slice Registry",
       "layer": "architecture",
-      "authority": "derived",
+      "authority": "document",
       "status": "current",
       "sourceRefs": [
         "docs/destination/VERTICAL-SLICE-REGISTRY.md"
@@ -100,7 +92,7 @@
       "kind": "document",
       "name": "Dependency Graphs & Keystone Scorecard",
       "layer": "architecture",
-      "authority": "derived",
+      "authority": "document",
       "status": "current",
       "sourceRefs": [
         "docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md"
@@ -112,7 +104,7 @@
       "kind": "document",
       "name": "System Intelligence Atoms Index",
       "layer": "research",
-      "authority": "derived",
+      "authority": "document",
       "status": "research-input",
       "sourceRefs": [
         "docs/destination/system-intelligence/indexes/ATOMS.json"
@@ -124,22 +116,10 @@
       "kind": "document",
       "name": "System Intelligence Edges Index",
       "layer": "research",
-      "authority": "derived",
+      "authority": "document",
       "status": "research-input",
       "sourceRefs": [
         "docs/destination/system-intelligence/indexes/EDGES.json"
-      ],
-      "properties": {}
-    },
-    {
-      "id": "DOC-SI-STATE",
-      "kind": "document",
-      "name": "System Intelligence State",
-      "layer": "research",
-      "authority": "derived",
-      "status": "research-input",
-      "sourceRefs": [
-        "docs/destination/system-intelligence/STATE.md"
       ],
       "properties": {}
     },
@@ -148,8 +128,8 @@
       "kind": "document",
       "name": "Coding Start Readiness (fresh convergence)",
       "layer": "research",
-      "authority": "derived",
-      "status": "research-input",
+      "authority": "document",
+      "status": "historical-input",
       "sourceRefs": [
         "docs/destination/architecture/research/CODING-START-READINESS.md"
       ],
@@ -160,11 +140,10 @@
       "kind": "vision_anchor",
       "name": "Sovereign personal computing environment",
       "layer": "vision",
-      "authority": "derived",
+      "authority": "destination-vision",
       "status": "current",
       "sourceRefs": [
-        "docs/destination/NORTH-STAR.md",
-        "docs/destination/HUMAN-EXPERIENCE.md"
+        "docs/destination/NORTH-STAR.md"
       ],
       "properties": {}
     },
@@ -173,7 +152,7 @@
       "kind": "vision_anchor",
       "name": "Persistent digital world",
       "layer": "vision",
-      "authority": "derived",
+      "authority": "destination-vision",
       "status": "current",
       "sourceRefs": [
         "docs/destination/NORTH-STAR.md",
@@ -186,20 +165,19 @@
       "kind": "vision_anchor",
       "name": "Extreme internal complexity with simple human mental model",
       "layer": "vision",
-      "authority": "derived",
+      "authority": "destination-vision",
       "status": "current",
       "sourceRefs": [
-        "docs/destination/NORTH-STAR.md",
-        "docs/destination/HUMAN-EXPERIENCE.md"
+        "docs/destination/NORTH-STAR.md"
       ],
       "properties": {}
     },
     {
       "id": "VISION-INTERACTION-LOOP",
       "kind": "vision_anchor",
-      "name": "My world → context → what I want → what can be done → what happened",
+      "name": "My world → context → what I want → what can be done → what happened → what I can do next",
       "layer": "vision",
-      "authority": "derived",
+      "authority": "destination-vision",
       "status": "current",
       "sourceRefs": [
         "docs/destination/NORTH-STAR.md",
@@ -3133,7 +3111,7 @@
       }
     },
     {
-      "id": "J-1",
+      "id": "J1",
       "kind": "journey",
       "name": "J1 Open & Orient",
       "layer": "experience",
@@ -3150,7 +3128,7 @@
       }
     },
     {
-      "id": "J-2",
+      "id": "J2",
       "kind": "journey",
       "name": "J2 Continue Work",
       "layer": "experience",
@@ -3167,7 +3145,7 @@
       }
     },
     {
-      "id": "J-3",
+      "id": "J3",
       "kind": "journey",
       "name": "J3 Universal Interaction",
       "layer": "experience",
@@ -3184,7 +3162,7 @@
       }
     },
     {
-      "id": "J-4",
+      "id": "J4",
       "kind": "journey",
       "name": "J4 Delegated Action",
       "layer": "experience",
@@ -3201,7 +3179,7 @@
       }
     },
     {
-      "id": "J-5",
+      "id": "J5",
       "kind": "journey",
       "name": "J5 Provider Choice",
       "layer": "experience",
@@ -3218,7 +3196,7 @@
       }
     },
     {
-      "id": "J-6",
+      "id": "J6",
       "kind": "journey",
       "name": "J6 Background Continuity",
       "layer": "experience",
@@ -3235,7 +3213,7 @@
       }
     },
     {
-      "id": "J-7",
+      "id": "J7",
       "kind": "journey",
       "name": "J7 Evolution",
       "layer": "experience",
@@ -3252,7 +3230,7 @@
       }
     },
     {
-      "id": "J-8",
+      "id": "J8",
       "kind": "journey",
       "name": "J8 Exit",
       "layer": "experience",
@@ -3477,6 +3455,159 @@
       }
     },
     {
+      "id": "VS-0",
+      "kind": "vertical_slice",
+      "name": "VS0",
+      "layer": "proof",
+      "authority": "vertical-slice-registry",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+      ],
+      "properties": {
+        "userOutcome": "one governed external action",
+        "mainDependencies": "Runtime, Authority, Provider, Evidence",
+        "current": "L3 code / L4 pending",
+        "target": "L4"
+      }
+    },
+    {
+      "id": "VS-1",
+      "kind": "vertical_slice",
+      "name": "VS1",
+      "layer": "proof",
+      "authority": "vertical-slice-registry",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+      ],
+      "properties": {
+        "userOutcome": "install/start/reopen a local VIVIM world",
+        "mainDependencies": "Product Shell, Vault, World, Workspace",
+        "current": "L0/L1",
+        "target": "L5"
+      }
+    },
+    {
+      "id": "VS-2",
+      "kind": "vertical_slice",
+      "name": "VS2",
+      "layer": "proof",
+      "authority": "vertical-slice-registry",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+      ],
+      "properties": {
+        "userOutcome": "import an AI conversation into a project",
+        "mainDependencies": "Import, Ontology, World, Memory, Context",
+        "current": "L2/L3",
+        "target": "L5"
+      }
+    },
+    {
+      "id": "VS-3",
+      "kind": "vertical_slice",
+      "name": "VS3",
+      "layer": "proof",
+      "authority": "vertical-slice-registry",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+      ],
+      "properties": {
+        "userOutcome": "choose provider/account and perform work",
+        "mainDependencies": "Routing, Account, Realization, Authority",
+        "current": "L1/L2",
+        "target": "L4/L5"
+      }
+    },
+    {
+      "id": "VS-4",
+      "kind": "vertical_slice",
+      "name": "VS4",
+      "layer": "proof",
+      "authority": "vertical-slice-registry",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+      ],
+      "properties": {
+        "userOutcome": "delegate durable work and leave",
+        "mainDependencies": "Work, Agent, Background",
+        "current": "L1",
+        "target": "L5"
+      }
+    },
+    {
+      "id": "VS-5",
+      "kind": "vertical_slice",
+      "name": "VS5",
+      "layer": "proof",
+      "authority": "vertical-slice-registry",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+      ],
+      "properties": {
+        "userOutcome": "return to a changed world with truthful continuity",
+        "mainDependencies": "Attention, Work, World, Evidence",
+        "current": "L1",
+        "target": "L5"
+      }
+    },
+    {
+      "id": "VS-6",
+      "kind": "vertical_slice",
+      "name": "VS6",
+      "layer": "proof",
+      "authority": "vertical-slice-registry",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+      ],
+      "properties": {
+        "userOutcome": "create/modify a capability from inside VIVIM",
+        "mainDependencies": "Forge, Composition, Runtime, Evidence",
+        "current": "L2/L3",
+        "target": "L5/L6"
+      }
+    },
+    {
+      "id": "VS-7",
+      "kind": "vertical_slice",
+      "name": "VS7",
+      "layer": "proof",
+      "authority": "vertical-slice-registry",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+      ],
+      "properties": {
+        "userOutcome": "survive provider drift",
+        "mainDependencies": "Provider Lab, Healing, Forge, Routing",
+        "current": "L2/L3",
+        "target": "L4/L6"
+      }
+    },
+    {
+      "id": "VS-8",
+      "kind": "vertical_slice",
+      "name": "VS8",
+      "layer": "proof",
+      "authority": "vertical-slice-registry",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/VERTICAL-SLICE-REGISTRY.md"
+      ],
+      "properties": {
+        "userOutcome": "export and reconstruct the working environment",
+        "mainDependencies": "Vault, World, Config, Product Lifecycle",
+        "current": "L2/L3",
+        "target": "L6"
+      }
+    },
+    {
       "id": "SI-010101",
       "kind": "si_atom",
       "name": "Recipe authority",
@@ -3605,6 +3736,30 @@
         "evidenceKind": "implementation",
         "note": null
       }
+    },
+    {
+      "id": "WS-P1-05",
+      "kind": "workstream",
+      "name": "P1-05",
+      "layer": "program",
+      "authority": "system-intelligence",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {}
+    },
+    {
+      "id": "WS-P1-06",
+      "kind": "workstream",
+      "name": "P1-06",
+      "layer": "program",
+      "authority": "system-intelligence",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {}
     },
     {
       "id": "SI-010102",
@@ -3881,6 +4036,30 @@
       }
     },
     {
+      "id": "WS-P1-03",
+      "kind": "workstream",
+      "name": "P1-03",
+      "layer": "program",
+      "authority": "system-intelligence",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {}
+    },
+    {
+      "id": "WS-P1-09",
+      "kind": "workstream",
+      "name": "P1-09",
+      "layer": "program",
+      "authority": "system-intelligence",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {}
+    },
+    {
       "id": "SI-010104",
       "kind": "si_atom",
       "name": "Law / authority gate",
@@ -4147,6 +4326,18 @@
         "evidenceKind": "decision",
         "note": null
       }
+    },
+    {
+      "id": "WS-P1-04",
+      "kind": "workstream",
+      "name": "P1-04",
+      "layer": "program",
+      "authority": "system-intelligence",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {}
     },
     {
       "id": "SI-010106",
@@ -4547,6 +4738,30 @@
         "evidenceKind": "implementation",
         "note": null
       }
+    },
+    {
+      "id": "WS-P1-07",
+      "kind": "workstream",
+      "name": "P1-07",
+      "layer": "program",
+      "authority": "system-intelligence",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {}
+    },
+    {
+      "id": "WS-P1-08",
+      "kind": "workstream",
+      "name": "P1-08",
+      "layer": "program",
+      "authority": "system-intelligence",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {}
     },
     {
       "id": "SI-020102",
@@ -5398,6 +5613,18 @@
         "evidenceKind": "documentation",
         "note": null
       }
+    },
+    {
+      "id": "WS-P1-02",
+      "kind": "workstream",
+      "name": "P1-02",
+      "layer": "program",
+      "authority": "system-intelligence",
+      "status": "current",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/ATOMS.json"
+      ],
+      "properties": {}
     },
     {
       "id": "SI-030102",
@@ -8215,6 +8442,1340 @@
           ],
           "source_evidence_count": 1
         }
+      }
+    },
+    {
+      "id": "EV-100041",
+      "kind": "evidence",
+      "name": "EV-100041",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100042",
+      "kind": "evidence",
+      "name": "EV-100042",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100043",
+      "kind": "evidence",
+      "name": "EV-100043",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100044",
+      "kind": "evidence",
+      "name": "EV-100044",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100045",
+      "kind": "evidence",
+      "name": "EV-100045",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100046",
+      "kind": "evidence",
+      "name": "EV-100046",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100047",
+      "kind": "evidence",
+      "name": "EV-100047",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100048",
+      "kind": "evidence",
+      "name": "EV-100048",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100053",
+      "kind": "evidence",
+      "name": "EV-100053",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100054",
+      "kind": "evidence",
+      "name": "EV-100054",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100056",
+      "kind": "evidence",
+      "name": "EV-100056",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100059",
+      "kind": "evidence",
+      "name": "EV-100059",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100060",
+      "kind": "evidence",
+      "name": "EV-100060",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100064",
+      "kind": "evidence",
+      "name": "EV-100064",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100049",
+      "kind": "evidence",
+      "name": "EV-100049",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100050",
+      "kind": "evidence",
+      "name": "EV-100050",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100051",
+      "kind": "evidence",
+      "name": "EV-100051",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100052",
+      "kind": "evidence",
+      "name": "EV-100052",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100055",
+      "kind": "evidence",
+      "name": "EV-100055",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100063",
+      "kind": "evidence",
+      "name": "EV-100063",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100057",
+      "kind": "evidence",
+      "name": "EV-100057",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100058",
+      "kind": "evidence",
+      "name": "EV-100058",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100061",
+      "kind": "evidence",
+      "name": "EV-100061",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-100062",
+      "kind": "evidence",
+      "name": "EV-100062",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "main",
+          "commit": "05464e085122a173d1f093612292336750436c7e"
+        },
+        "path": "docs/destination/system-intelligence/synthesis",
+        "location": "Wave 1 derived graph",
+        "evidenceKind": "documentation",
+        "note": "edge derived from cited atom relationships"
+      }
+    },
+    {
+      "id": "EV-04-EDGE-001",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-001",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240101",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-002",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-002",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240102",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-003",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-003",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240103",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-004",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-004",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240104",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-005",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-005",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240105",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-006",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-006",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240106",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-007",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-007",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240107",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-008",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-008",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240108",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-009",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-009",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240109",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-010",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-010",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240110",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-011",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-011",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240111",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-04-EDGE-012",
+      "kind": "evidence",
+      "name": "EV-04-EDGE-012",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+        "location": "SI-04 edge SIE-240112",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-001",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-001",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250101",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-002",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-002",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250102",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-003",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-003",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250103",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-004",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-004",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250104",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-005",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-005",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250105",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-006",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-006",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250106",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-007",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-007",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250107",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-008",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-008",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250108",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-009",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-009",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250109",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-010",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-010",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250110",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-011",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-011",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250111",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-012",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-012",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250112",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-013",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-013",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250113",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-05-EDGE-014",
+      "kind": "evidence",
+      "name": "EV-05-EDGE-014",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+        "location": "SI-05 edge SIE-250114",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-06-EDGE-001",
+      "kind": "evidence",
+      "name": "EV-06-EDGE-001",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+        "location": "SI-06 edge SIE-260101",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-06-EDGE-002",
+      "kind": "evidence",
+      "name": "EV-06-EDGE-002",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+        "location": "SI-06 edge SIE-260102",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-06-EDGE-003",
+      "kind": "evidence",
+      "name": "EV-06-EDGE-003",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+        "location": "SI-06 edge SIE-260103",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-06-EDGE-004",
+      "kind": "evidence",
+      "name": "EV-06-EDGE-004",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+        "location": "SI-06 edge SIE-260104",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-06-EDGE-005",
+      "kind": "evidence",
+      "name": "EV-06-EDGE-005",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+        "location": "SI-06 edge SIE-260105",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-06-EDGE-006",
+      "kind": "evidence",
+      "name": "EV-06-EDGE-006",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+        "location": "SI-06 edge SIE-260106",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-06-EDGE-007",
+      "kind": "evidence",
+      "name": "EV-06-EDGE-007",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+        "location": "SI-06 edge SIE-260107",
+        "evidenceKind": "documentation",
+        "note": null
+      }
+    },
+    {
+      "id": "EV-06-EDGE-008",
+      "kind": "evidence",
+      "name": "EV-06-EDGE-008",
+      "layer": "evidence",
+      "authority": "system-intelligence",
+      "status": "evidence",
+      "sourceRefs": [
+        "docs/destination/system-intelligence/indexes/EDGES.json"
+      ],
+      "properties": {
+        "source": {
+          "lineage": "BCP-OMEGA",
+          "repository": "owenservera/BCP-dev",
+          "ref": "research/system-intelligence-archaeology",
+          "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+        },
+        "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+        "location": "SI-06 edge SIE-260108",
+        "evidenceKind": "documentation",
+        "note": null
       }
     },
     {
