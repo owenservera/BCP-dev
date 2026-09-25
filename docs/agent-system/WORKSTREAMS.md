@@ -3,6 +3,7 @@
 > **Classification: DERIVED — CURRENT**
 > **Maintainer:** COORD-01 · **Updated:** 2026-09-25
 > **Portfolio:** `docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md`
+> **Program control:** `docs/agent-system/PROGRAM-BOARD.md` — the single lightweight view for milestones, dependencies, complexity, blockers, and next actions.
 
 The P1 portfolio is ten durable workstreams. Setup prompts are created only after
 the relevant research boundary exists; some workstreams already have committed
@@ -115,6 +116,9 @@ setup/research artifacts while others remain unopened.
 - **Research agenda:** `RESEARCH-AGENDA.md`.
 
 ## Portfolio relationship
+
+> For sequencing and day-to-day program management, use `docs/agent-system/PROGRAM-BOARD.md`. This registry stays focused on durable workstream identity, boundary, owner, evidence, and proof state.
+
 
 ```
 P1-01 Cooperative System

@@ -189,8 +189,9 @@ what happens when you skip straight to declaring something proven.
 > Update this table directly whenever new information arrives — a prompt
 > returns, a real run completes, a new contradiction surfaces. The table is
 > the workstream-level view; §3.1 is the task-level view. Keep both aligned.
-> This section, §3.1, and §4 are what make this file worth reading instead of
-> re-deriving everything from scratch.
+> This section keeps the cold-start workstream snapshot. Detailed program sequencing,
+> milestone state, dependencies, complexity, and the immediate queue live in
+> `docs/agent-system/PROGRAM-BOARD.md`.
 
 | # | Workstream | Status | Evidence (real paths + commit) | Next action |
 |---|---|---|---|---|
@@ -229,57 +230,26 @@ meaning. When a task is replaced, split, or made obsolete, record the change
 in the relevant workstream row/log rather than leaving two live instructions
 that disagree.
 
-### 3.2. Milestone roadmap
+### 3.2. Program control pointer
 
-This section is the pre-declared milestone path. The Goal + Non-goals fields
-are each milestone's scope contract. IDs are stable references and are never
-renumbered; a cut milestone is marked SUPERSEDED rather than deleted.
+The detailed P1 program-management view is canonical at:
 
-### P1-01 / WS-001 — Cooperative Agent System
+`docs/agent-system/PROGRAM-BOARD.md`
 
-milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+It is the single lightweight control surface for:
 
-### P1-02 / WS-002 — Repository Truth, Cleanup & Drift
+- milestone state;
+- cross-workstream dependencies;
+- complexity/uncertainty;
+- blockers and awaiting-evidence items;
+- the current critical path;
+- the next three concrete actions.
 
-milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
+Do not duplicate that roadmap here. Keep §3.1 for the small set of immediate
+coordination tasks that must be visible during cold start, and keep detailed
+evidence in the owning workstream artifacts.
 
-### P1-03 / WS-003 — Ω Ontology, Evidence & Representation
-
-milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
-
-### P1-04 / WS-004 — Ω Self-Knowledge & Context
-
-milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
-
-### P1-05 / WS-005 — Ω Plugin Kernel & Runtime
-
-| ID | Goal | Deliverable | Success criteria | Depends on | Non-goals | Status | Evidence |
-|---|---|---|---|---|---|---|---|
-| WS-005-M1 | The current Ω plugin kernel/runtime and Phase-1 plugin boundary are characterized from committed repository evidence. | `docs/agent-system/workstreams/WS-005/PHASE-1-KERNEL-BASELINE.md` | `host/src` totals 1,500 lines by the repository gate method; B1–B5 each have an evidence-backed implementation characterization in the baseline; `provider-browser`, `vivim-agent`, and `vivim-law` have no direct host-runtime bypass in their audited source sets. | NONE | No host/plugin/tooling implementation changes; no live execution proof; no ratification of H-01 or H-02. | DONE (verified) | `docs/agent-system/workstreams/WS-005/PHASE-1-KERNEL-BASELINE.md` @ `4316c27bbda01dfd91bdfdd81362ce6a2b1b8606` |
-| WS-005-M2 | Signed plugin execution is constrained to an entry path contained by the content-hashed plugin tree. | `bun run omega:gate` result plus a B1 entry-confinement test covering the four named cases in H-01. | Normal `src/index.ts` entry passes; `../outside.ts` refuses before execution; a symlink entry refuses consistently with the existing symlink-hash rule; a signed manifest cannot execute outside the content-hashed tree; `host/src` remains at or below 1,500 lines by the gate method, with any offset coming only from cosmetic blank/comment-line trims outside `recipe.ts` and `boot.ts`. | WS-005-M1 | No changes to `tooling/gates/`; no provider-specific behavior; no dynamic load/unload work; no logic changes made solely to hit the B5 budget. | PROPOSED, UNRATIFIED | — |
-| WS-005-M3 | Dynamic plugin composition remains outside the Phase-1 host until an explicit trigger and decision exist. | Future design decision record naming the accepted dynamic-composition trigger and signed-Recipe contract, only after a trigger is accepted. | No Phase-1 host change adds hot-load or hot-unload behavior; no M3 implementation begins before an explicit trigger is recorded; the existing composition-time verified model remains unchanged in Phase-1. | NONE | No Phase-1 hot-load/hot-unload implementation; no µhost expansion for a future-only capability; no B5 budget redefinition. | PROPOSED, UNRATIFIED — NOT PLANNED — forward-looking, no current trigger | — |
-
-### P1-06 / WS-006 — Ω Agency, Execution & Governance
-
-milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
-
-### P1-07 / WS-007 — Provider Intelligence & Autonomous Maintenance
-
-milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
-
-### P1-08 / WS-008 — Forge / VIVIM Harvest & Migration
-
-milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
-
-### P1-09 / WS-009 — Ω Integration & End-to-End Proof
-
-milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
-
-### P1-10 / WS-010 — Program Observatory / Visual State
-
-milestone roadmap not yet harvested — see §3/WORKSTREAMS.md until built.
 ---
-
 **Known open decision:** the capability target for Phase-1 was resolved by
 P1-06 (not chosen up front) to **`message.send@1`** on
 `omega-baseline/omega-final/plugins/provider-browser/`. This maps most
