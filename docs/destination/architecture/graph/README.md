@@ -28,6 +28,8 @@ The initial seed is built from existing repository material, not from code depen
 
 It includes:
 
+The validated graph includes explicit Journey → Responsibility bindings and composition → Journey / Vertical Slice test links; these are derived product mappings, not inferred hard runtime dependencies.
+
 - 4 vision anchors;
 - 25 destination concepts;
 - 125 destination responsibilities;
@@ -38,6 +40,7 @@ It includes:
 - 44 System Intelligence atoms;
 - 99 unique System Intelligence evidence records;
 - typed System Intelligence relationships;
+- explicit journey → responsibility product mappings (81 unique responsibilities across J1–J8);
 - first-party/reference pieces;
 - the first **Research → Evidence → World** composition;
 - source-document lineage.
@@ -235,3 +238,7 @@ This is not:
 - a fixed instance UX specification.
 
 The purpose is to make the **documented destination, architectural relationships, evidence and eventual implementation traversable as one system**.
+
+## Validation repair (2026-09-25)
+
+The graph was revalidated without changing the destination model. The repair restores the 10 keystone projections, replaces a stale readiness-document pointer with the current Journey → Architecture Mapping source, adds explicit journey/responsibility and journey/slice links, and preserves source lineage on every emitted edge. Responsibility statuses remain source-native rather than being coerced into a closed graph enum.
