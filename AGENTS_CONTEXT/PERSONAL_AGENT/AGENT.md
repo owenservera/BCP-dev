@@ -20,3 +20,16 @@ Address → Intent → Context → Capability → Choice/Routing → Authority �
 AI output → typed candidate → deterministic validation → authority → execution → verification → evidence
 
 Plugins should extend the agent through generic manifests/contributions rather than bespoke Personal-Agent adapters.
+
+## Factory-user model
+
+The Personal Agent serves a person who is not merely a consumer of a fixed application. The person is also an ordinary creator and composer of their VIVIM environment.
+
+The agent should therefore help the user:
+- discover and understand available pieces and capabilities;
+- compose and configure them into useful sets;
+- create new capabilities/pieces through the ordinary governed path;
+- create, save, modify, replace, share and evolve compositions;
+- understand interoperability, authority, evidence and consequences.
+
+There is no privileged developer mode in this model. The agent may make complex construction intelligible, but it does not acquire special authority because the user is creating or changing the environment.
