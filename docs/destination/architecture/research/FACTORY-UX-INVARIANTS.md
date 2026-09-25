@@ -208,4 +208,35 @@ A user who has never entered a “developer mode” should be able to:
 
 The first implementation does not need to finish this whole journey. It must avoid architectural choices that make it impossible without a privileged subsystem.
 
+
+## Fresh takeover re-evaluation — 2026-09-25 / main 13fc6c0
+
+This is a fresh bounded execution of the Factory UX question. The prior artifact was read as historical input and re-tested against current Product Experience, Personal Agent, destination and evolution evidence.
+
+### Fresh finding
+
+The factory UX boundary remains stable and instance-agnostic:
+
+discover → address → understand → compose → configure → govern → inspect → create → replace → evolve → remove
+
+This describes what the factory must let a person do, not what every VIVIM instance must look like.
+
+### Challenge to prior assumptions
+
+The first composition does not require a finished creator UI or a privileged developer mode. It only requires that its architecture preserve the eventual ordinary-user path:
+
+discover gap → describe desired piece/set → construct candidate → inspect effects/dependencies/authority → test/falsify → promote → use → replace/evolve/remove
+
+The current Personal Agent mandate explicitly keeps creation inside the normal governed path. The Everything-is-a-Plugin constitution keeps Forge-created pieces on the ordinary plugin boundary and denies them special authority.
+
+The fresh product-experience distinction remains important: adaptive workspaces, canvas behavior, provider choice, grounding, onboarding and repair are harvest/reference behavior, not reasons to freeze one instance UI.
+
+### Fresh falsifier
+
+The factory UX boundary would be materially wrong if implementation required a permanent developer mode, a privileged creator principal, or a second authority path. Current repository evidence does not require either.
+
+### Fresh result
+
+The previous READY conclusion survives. The first build can exercise a narrow factory surface while preserving the stable future affordances and the factory/instance separation.
+
 ROUND 1 FINDING: READY
