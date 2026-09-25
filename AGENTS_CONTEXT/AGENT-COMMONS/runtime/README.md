@@ -12,12 +12,9 @@ Initialization:
 await initializeAgentCommons(repoRoot, "WORLD-01", "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT");
 const commons = await openGitCommons({
   repoRoot,
-  agentId: "WORLD-01",
+  agentId: "world-ontology-context",
   agentHome: "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT",
-  sessionId: "session-1",
-  peerHomes: {
-    "DATA-01": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD"
-  }
+  sessionId: "session-1"
 });
 await commons.publish({
   kind: "OBSERVATION",
@@ -27,6 +24,6 @@ await commons.publish({
 });
 ```
 
-Git communication uses persistent commons/<AGENT_ID> branches. These are not code branches and are never merged for communication.
+Git communication uses persistent commons/<AGENT_ID> branches. `PEER-ROSTER.md` supplies peer home mappings; a remote Commons branch not present in the roster fails loudly instead of being silently skipped. These are not code branches and are never merged for communication.
 
 Production code uses short-lived work/<AGENT_ID>/<task> branches.
