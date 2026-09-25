@@ -265,11 +265,20 @@ export async function startAttempt(ctx: PluginContext, input: StartAttemptInput)
   const priorEffectIds = new Set(prior.map((a) => a.effectId).filter((v): v is string => typeof v === "string"));
   let effectId = input.effectId;
   if (step.sideEffecting) {
-    if (typeof effectId !== "string" || effectId.length === 0) {
-      throw new Error(`WORK_EFFECT_ID_REQUIRED: ${stepId} is side-effecting`);
-    }
-    if (priorEffectIds.size > 0 && !priorEffectIds.has(effectId)) {
-      throw new Error(`WORK_EFFECT_ID_CHANGED: retries must reuse effect identity for ${stepId}`);
+    // Retries reuse the first established effect identity. On the first attempt,
+    // a plan-declared effectKey is a deterministic default; otherwise the
+    // concrete execution must supply an explicit effectId.
+    if (priorEffectIds.size > 0) {
+      const prior = [...priorEffectIds];
+      if (effectId === undefined) effectId = prior[0];
+      if (typeof effectId !== "string" || !priorEffectIds.has(effectId)) {
+        throw new Error(`WORK_EFFECT_ID_CHANGED: retries must reuse effect identity for ${stepId}`);
+      }
+    } else {
+      effectId = effectId ?? step.effectKey;
+      if (typeof effectId !== "string" || effectId.length === 0) {
+        throw new Error(`WORK_EFFECT_ID_REQUIRED: ${stepId} is side-effecting`);
+      }
     }
   } else if (priorEffectIds.size > 0) {
     effectId = [...priorEffectIds][0];
