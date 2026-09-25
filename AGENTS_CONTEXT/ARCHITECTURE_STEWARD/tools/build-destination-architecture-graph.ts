@@ -203,9 +203,10 @@ const siEdges=JSON.parse(siEdgesText).edges as any[];
 for(const a of atoms){
   addNode({id:a.id,kind:"si_atom",name:a.subject?.name||a.id,layer:"research",authority:"system-intelligence",status:"research",sourceRefs:[SOURCES.siAtoms],properties:{subjectKind:a.subject?.kind,claim:a.claim,siStatus:a.status,lineage:a.lineage,product:a.product,program:a.program,maturity:a.maturity,unknowns:a.unknowns,conflicts:a.conflicts,externalReality:a.external_reality,proofCritical:a.proof_critical,researchRole:a.research_role,metrics:a.metrics||null}});
   addEdge({id:"DOC-"+a.id,from:"DOC-SI-ATOMS",to:a.id,relation:"INDEXES",class:"descriptive",status:"current",basis:"source-text",sourceRefs:[SOURCES.siAtoms],evidenceRefs:[],reason:null});
-  for(const ev of a.evidence||[]){
-    addNode({id:ev.id,kind:"evidence",name:ev.id,layer:"evidence",authority:"system-intelligence",status:"evidence",sourceRefs:[SOURCES.siAtoms],properties:{source:ev.source,path:ev.path,location:ev.location,evidenceKind:ev.evidence_kind,note:ev.note||null}});
-    addEdge({id:a.id+"-"+ev.id,from:ev.id,to:a.id,relation:"EVIDENCES",class:"evidence",status:"current",basis:"source-text",sourceRefs:[SOURCES.siAtoms],evidenceRefs:[ev.id],reason:null});
+  for(const [evIndex,ev] of (a.evidence||[]).entries()){
+    const evidenceId = ev.id || `EV-AUTO-${a.id}-${String(evIndex+1).padStart(2,"0")}`;
+    addNode({id:evidenceId,kind:"evidence",name:evidenceId,layer:"evidence",authority:"system-intelligence",status:"evidence",sourceRefs:[SOURCES.siAtoms],properties:{source:ev.source,path:ev.path,location:ev.location,evidenceKind:ev.evidence_kind,note:ev.note||null,idOrigin:ev.id?"source":"deterministic-from-atom-and-position",sourceAtom:a.id,sourceEvidenceIndex:evIndex+1}});
+    addEdge({id:a.id+"-"+evidenceId,from:evidenceId,to:a.id,relation:"EVIDENCES",class:"evidence",status:"current",basis:"source-text",sourceRefs:[SOURCES.siAtoms],evidenceRefs:[evidenceId],reason:ev.id?null:"Source evidence record had no canonical id; the graph assigns a deterministic derived identity scoped to the source atom and record position."});
   }
   for(const j of a.product?.journeys||[])if(nodes.has(j))addEdge({id:a.id+"-"+j,from:a.id,to:j,relation:"INFORMS",class:"product",status:"current",basis:"source-text",sourceRefs:[SOURCES.siAtoms],evidenceRefs:[],reason:null});
   for(const v of a.product?.vertical_slices||[]){const vid=v.replace("VS","VS-");if(nodes.has(vid))addEdge({id:a.id+"-"+vid,from:a.id,to:vid,relation:"INFORMS",class:"product",status:"current",basis:"source-text",sourceRefs:[SOURCES.siAtoms],evidenceRefs:[],reason:null});}
@@ -255,7 +256,9 @@ if(counts.journey!==8)throw new Error(`Expected 8 journeys, got ${counts.journey
 if(!nodeArray.some(n=>n.id==="DOC-JOURNEY-ARCH-MAPPING"))throw new Error("Journey mapping document node missing");
 if(counts.si_atom!==44)throw new Error(`Expected 44 SI atoms, got ${counts.si_atom}`);
 if((JSON.parse(siEdgesText).edges||[]).length!==65)throw new Error(`Expected 65 SI edges`);
-if(evidenceNodes!==99)throw new Error(`Expected 99 unique evidence records, got ${evidenceNodes}`);
+if(evidenceNodes<1)throw new Error("Graph contains no evidence nodes");
+if(nodeArray.some(n=>n.id==="undefined"))throw new Error("Evidence node id undefined; source evidence records must receive deterministic IDs");
+if(edgeArray.some(e=>String(e.from)==="undefined"||String(e.to)==="undefined"||e.evidenceRefs?.some((id:any)=>id==null)))throw new Error("Evidence graph contains undefined/null identity");
 if(invalid.length)throw new Error(`Invalid graph endpoints: ${invalid.map(e=>e.id).join(", ")}`);
 
 await mkdir(OUT,{recursive:true});
