@@ -2,33 +2,40 @@
 
 Updated: 2026-09-25
 
-Status: **SETUP COMPLETE / RESEARCH NOT STARTED AS A COMPLETE PASS**
+Status: **RESEARCH PASS COMPLETE / DERIVED PACKAGE COMMITTED**
 
-## Existing baseline
+## Result
 
-Current archaeology already supports:
+The dedicated pass concludes that VIVIM should retain a small K0 enforcement kernel, a K1 shared contract/protocol layer, replaceable first-party system plugins, third-party extension plugins, and out-of-tree tooling.
 
-- K0 Ω Core = irreducible trust/runtime boundary;
-- K1 contracts = shared plugin-boundary vocabulary;
-- System plugins = first-party VIVIM capabilities that remain replaceable;
-- Extension plugins = user/third-party capabilities;
-- Tooling = development/research/CI machinery outside product runtime.
+K0 is limited to non-bypassable, domain-neutral runtime mechanisms: admission/integrity, isolation/transport, capability egress enforcement, revocation/fencing, atomic activation/recovery, minimal platform/crypto primitives and generic lifecycle.
 
-## Existing proposed criterion
+K1 contains shared boundary vocabulary such as Manifest/Recipe, Port, Capability, Outcome/Refusal, Object/Revision, Evidence, Intent, Work, Authority and Change references. Product meaning remains outside K0.
 
-A K0 candidate should demonstrate:
-1. plugin-independent necessity;
-2. non-bypassable enforcement responsibility;
-3. domain neutrality;
-4. cross-plugin universality;
-5. constitutional stability;
-6. minimality;
-7. absence of product semantics.
+System plugins include law/policy, vault, Work, mind/context, NLCL, agent, providers/realizations, credentials, chat, discovery/healing, Forge, surfaces, memory/attention and Product Instance. Their being essential or bundled does not make them Core.
 
-Default classification is **not Core**.
+## Canonical package
 
-## Research gap
+`docs/destination/core-vs-plugin-boundary/`
 
-The current classification is a strong synthesis, but not yet a complete audited map of every destination responsibility against every concrete Ω and Legacy implementation.
+The package contains the 19 required outputs plus `DIAGRAMS.md`.
 
-The dedicated research pass must produce that complete map and identify contradictions, false-Core candidates, missing contracts, and unresolved boundaries.
+## Key unresolved questions
+
+- exact zero-plugin bootstrap composition;
+- complete symmetry audit of every existing Ω plugin versus external plugins;
+- exact Work continuity semantics under replacement;
+- contract compatibility algebra;
+- OS/product shell boundary;
+- unified evolution admission across Forge, healing and installation;
+- whether any additional generic object/vault primitive is truly K0.
+
+These remain experiments/design work, not reasons to enlarge Core now.
+
+## Authority
+
+This STATE is a derived research handoff. It does not amend ratified Ω decisions. The research reconciles B1–B5 and the current Ω rule that everything else is a plugin.
+
+## Next action
+
+Use the package as the mandatory classification gate before substantive implementation. Any proposed K0 addition must include a why-not-plugin rationale, impact analysis, replacement seam and falsifier.
