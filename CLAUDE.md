@@ -229,6 +229,7 @@ DONE requires verified evidence, not an agent's declaration.
 | **BLOCKED** | Prove the executable P1-05 manifest entry is contained inside the content-hashed plugin tree | P1-05 / WS-005-M2 | WS-005-M2 is PROPOSED, UNRATIFIED; existing B5 1,500-line constraint | Ratify WS-005-M2 in a separate coordinator turn before implementation |
 | **BLOCKED** | Launch P1-07 Provider Intelligence workstream | P1-07 | P1-08 real M4 result | Send queued launch prompt when dependency clears |
 | **BLOCKED** | Launch P1-09 Integration & End-to-End Proof | P1-09 | P1-06 + P1-07 + P1-08 real output | Send only after all three dependencies clear |
+| **DONE** | Complete destination Self-Knowledge / Freshness Core research | Destination D — Self-Knowledge | `docs/destination/self-knowledge-core/RESEARCH.md` + `FALSIFIERS.md` @ commits `aa5cf19c620a5b2beace8ff312e123d8808ed418` / `0caa7119102fd2ba12042069441ee5471c82ecf8` | Separate implementation/evidence record after World/Object revision and dependency-token seams are settled |
 
 **Task hygiene:** the description must say what a human can actually do or
 verify. IDs may be included as references, but an ID alone is not a task
@@ -330,7 +331,7 @@ returns 1,500/1,500, matching P1-05. **Resolution: NOT a contradiction.**
 **Affects:** anyone manually spot-checking line counts — use the gate's
 method, not raw `wc -l`.
 
-**Trigger rule (from the P1-02 addendum, still standing):** if a *third*
+**2026-09-25 — Destination Self-Knowledge/Freshness research closes a design gap without reopening Ω ontology law.** The executed D-lane research found that current `vivim.mind` is a deterministic, read-only derivation over evidence, but its current WorldModel does not persist an explicit complete basis vector (vault revisions/CIDs + contract/manifest/policy dependency tokens + derivation identity). The smallest safe extension is a generic DerivedView evidence envelope with `basisRefs`, `basisDigest`, `dependencyVersions`, `computedAt`, `derivationRef`, and a lazily recomputed freshness diagnostic. Persisted freshness is never trusted; a missing basis is UNRESOLVABLE; derivation-local conflicting evidence is CONFLICTED; time/TTL never proves canonical currentness. No global invalidation bus, second ontology, provenance store, or authority layer is required. This confirms the existing P1-03 warning: D-424's staleness rule must not be generalized into ratified universal Ω freshness law without a new formal decision. **Affects: P1-03 and the destination World/Object lane; P1-04 Phase-1 status remains NOT STARTED because this was a separate destination research lane.** Evidence: `docs/destination/self-knowledge-core/RESEARCH.md`, `FALSIFIERS.md`, `STATE.md` on `research/D-self-knowledge`.\n\n**Trigger rule (from the P1-02 addendum, still standing):** if a *third*
 instance of "status file says X, history/source says Y" turns up beyond the
 two above, that's the signal to propose a standalone
 agent-system-state-integrity workstream — don't decide that in advance,
