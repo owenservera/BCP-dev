@@ -326,3 +326,20 @@ Future milestones can remain visible without becoming simultaneous work.
 | Date | Change |
 |---|---|
 | 2026-09-25 | Created as the single lightweight P1 program-control projection: milestones, dependencies, complexity, critical path, current queue. |
+
+## 10. Destination product assembly
+
+The destination package now provides the product-level synthesis above the P1 architecture portfolio:
+
+- docs/destination/NORTH-STAR.md — destination promise.
+- docs/destination/CONCEPTUAL-MODEL.md — human-level vocabulary.
+- docs/destination/DESTINATION-MASTER-MAP.md — destination-to-repository mapping and canonical journeys.
+- docs/destination/MATURITY-AND-GAPS.md — maturity levels, current state, and gap register.
+- docs/destination/BUILD-AND-HARVEST-PLAN.md — sequenced product assembly and harvest plan.
+
+The delivery lens is now:
+
+**world coherence → capability choice → durable work → live external reality → persistent continuity → native evolution.**
+
+P1 remains the architecture/proof decomposition. D1–D6 in the destination build plan are the user-visible product assembly tracks feeding that portfolio. Do not create a second P1 portfolio merely to represent product assembly.
+
