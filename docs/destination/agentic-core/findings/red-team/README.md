@@ -1,0 +1,2 @@
+# Red-Team Findings
+The primary failure classes are duplicate effects, stale authority, zombie workers, retry storms, checkpoint corruption, replay side effects, evidence inflation and hidden UI state. See `RED-TEAM.md`.
