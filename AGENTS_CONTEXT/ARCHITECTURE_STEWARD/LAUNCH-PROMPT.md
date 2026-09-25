@@ -140,3 +140,7 @@ The Steward must:
 The owner launches the subagent; there is no hidden automatic delegation mechanism.
 
 See `SUBAGENTS/README.md`, `SUBAGENT-PROMPT-TEMPLATE.md` (investigation instruments), and `CORE-FUNCTION-AREA-BOOTSTRAP-TEMPLATE.md` (durable Core Function Areas).
+
+## Communication bootstrap
+
+Before the first substantive Commons action, read the dedicated `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/COMMUNICATION-HOW-TO.md` guide and the shared `AGENTS_CONTEXT/AGENT-COMMONS/SESSION-CAPABILITY-AND-TRANSPORT.md` contract. Determine the actual execution surface and capabilities before selecting a transport. Local full-runtime sessions should prefer `GitBranchTransport`; webapp/connector sessions should use `GitHubApiTransport` only when the correct signing key is safely available; otherwise Commons writes are read-only. Never silently mint a replacement identity.
