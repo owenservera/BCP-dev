@@ -43,6 +43,7 @@ This home should make it possible for a fresh World/Context agent to answer, wit
 |---|---|
 | `BOOTSTRAP-SEED.md` | provisional responsibility, operating model, semantic distinctions, integration shape |
 | `SELF-DESIGN-PROPOSAL.md` | current candidate identity, scope, interfaces, decision rights and alignment questions |
+| `WORLD-LENS-ONE-TOOL-DESIGN.md` | provisional design for the single highest-leverage operational tool for this CFA |
 | `STATE.md` | live frontier, decisions, concepts, problems, current uncertainties |
 | `RESEARCH-QUEUE.md` | staged investigations and evidence needed next |
 | `COMMUNICATION-HOW-TO.md` | local Commons operating guide |
@@ -67,6 +68,12 @@ The area is especially concerned with keeping these distinctions explicit:
 `context ≠ source truth`  
 `representation ≠ authority`  
 `evidence ≠ ontology`
+
+## Core operational tool
+
+The current highest-leverage tool hypothesis is **World Lens**: a read-oriented semantic inspection operation that turns any target plus purpose into a bounded World Packet containing meaning, identity/correspondence, neighborhood, context, evidence, freshness, ownership, unknowns and falsifiers.
+
+See `WORLD-LENS-ONE-TOOL-DESIGN.md`. It is a design proposal only; it does not create a canonical ontology or implementation obligation.
 
 ## Intelligence Graph relationship
 
