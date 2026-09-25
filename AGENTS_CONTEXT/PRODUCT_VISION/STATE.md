@@ -393,3 +393,21 @@ For a new Product Vision / architecture conversation:
 
 Immediate action:
 **let Pass 2 finish; do not prematurely implement the identified critical areas.**
+
+## 29. New cross-cutting frontier — Evolution, Reconciliation & Self-Maintenance
+
+A deeper hard-problem cluster has now been elevated beneath D5 and alongside Forge/Provider/Work/Product lifecycle:
+
+**How may VIVIM change while remaining the same coherent, user-owned, evidence-backed system?**
+
+Initial design separates:
+
+- deterministic maintenance;
+- governed evolution;
+- constitutional evolution.
+
+Research must cover dynamic data/ontology evolution, identity and relationship reconciliation, compatibility, impact, temporal continuity, migration/recovery/rollback, evidence across versions, resource economics, self-extension, and constitutional anti-bypass rules.
+
+Cold-start context: `AGENTS_CONTEXT/EVOLUTION/`.
+Destination design: `docs/destination/EVOLUTION-RECONCILIATION.md`.
+Research package target: `docs/destination/evolution/`.
