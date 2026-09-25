@@ -2,31 +2,32 @@
 
 ## Purpose
 
-The zero-plugin state is a falsification tool for hidden product semantics in K0. It does not need to be a useful consumer product.
+The zero-plugin state remains the target proof model, but Pass 3 found that the current Ω implementation does not yet realize it.
 
-## What should remain
+## Current status
 
-1. Cryptographic and integrity primitives.
-2. Signed Recipe/manifest admission.
-3. Generic compartment and Port transport.
-4. Capability egress enforcement.
-5. Generic lifecycle, activation and recovery mechanics.
-6. Minimal owner-scoped platform seam.
-7. Diagnostics/inspection explaining why nothing is installed and how a composition is admitted.
-8. Installation/admission of a valid plugin composition.
+CONTRADICTED in current implementation.
 
-## What should disappear
+recipe.ts parseRecipe() rejects an empty composition. verifyCompositionInvariants() also requires exactly one bootPhase-0 entry whose id is vivim.law. Therefore the present boot path cannot enter a genuine product-plugin-free state.
 
-There should be no requirement for chat, AI provider, browser session, canvas semantics, project ontology, memory semantics, Work orchestration, account model, routing policy, product notifications or provider parser/healing knowledge.
+This overturns the earlier package wording that treated zero-plugin boot as an already valid runtime state. The architectural principle remains unchanged; the implementation claim is withdrawn pending a generic bootstrap-role design.
 
-## Bootstrap ceremony
+## Target proof model
 
-boot K0 → verify signed composition → if empty enter diagnostic/installation state → admit selected composition → instantiate plugins → normal VIVIM product emerges from composition.
+boot inputs → K0 boot → parse/verify empty composition → diagnostic/install state → inspect/explain → install signed composition → normal VIVIM composition.
 
-## Important distinction
+## What remains without system plugins
 
-Zero-plugin does not mean zero UI, zero capability or zero diagnostics. It means no first-party product semantics are required to establish or protect the runtime boundary.
+Cryptographic/integrity primitives, signed Recipe admission, generic compartment/Port machinery, capability egress enforcement, generic lifecycle/activation/recovery, minimal owner-scoped platform support, and sufficient diagnostics/install capability.
 
-## Falsifier
+## What must not be required
 
-A fresh K0 runtime cannot perform generic admission/inspection duties without importing a product plugin. The response is to inspect the contract boundary first, not automatically add that product behavior to K0.
+Chat, provider, browser session, project ontology, memory semantics, Work orchestration, account model, routing policy, product notifications or provider parser/healing knowledge.
+
+## Resolution experiment
+
+Create an offline empty Recipe fixture. Prove parse, signature verification, composition verification, diagnostic boot, inspection, and installation of a signed non-empty composition. The experiment must preserve the ratified security role of vivim.law while removing the literal first-party identity from the generic bootstrap mechanism.
+
+## Blocking status
+
+This blocks the claim of CURRENT zero-plugin compliance. It does not justify enlarging K0. The remedy is a generic bootstrap-role contract plus tests.
