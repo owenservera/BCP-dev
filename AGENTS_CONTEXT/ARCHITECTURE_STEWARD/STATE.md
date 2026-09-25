@@ -138,3 +138,25 @@ Design rule:
 - returned findings remain evidence/research until reconciled.
 
 First likely use: repository-wide completeness/contextualization discovery before treating the existing architecture corpus as the full system picture.
+## 2026-09-25 session continuity
+
+Current session handoff artifacts:
+
+- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-2026-09-25.json` — structured durable extraction;
+- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md` — full narrative context;
+- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/FRESH-SESSION-PROMPT.md` — next-session cold-start.
+
+Current major architectural instrument:
+
+- `research/steward-destination-architecture-graph`;
+- `docs/destination/architecture/graph/NODES.json`;
+- `docs/destination/architecture/graph/EDGES.json`;
+- `docs/destination/architecture/graph/SCHEMA.json`;
+- `docs/destination/architecture/graph/GRAPH-MANIFEST.json`.
+
+The graph is documentation-first and currently reports 354 nodes, 943 typed edges, 99 evidence nodes, 125 responsibilities, 8 journeys, 9 vertical slices, 13 requirements, 44 System Intelligence atoms, 7 reference pieces, 1 composition, and 0 invalid edge endpoints.
+
+Preparation/readiness is GO. The immediate Steward focus is graph validation/targeted repair and using the graph as the architecture-to-build map; broad archaeology is closed unless concrete implementation evidence exposes a material blind spot.
+
+Session continuity rule:
+`A fresh Steward reads the session handoff + graph state first and must not reconstruct this conversation from scratch.`
