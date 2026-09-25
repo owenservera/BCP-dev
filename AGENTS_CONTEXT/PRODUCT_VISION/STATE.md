@@ -280,3 +280,116 @@ Discovery source conversation: docs/destination/sources/2026-09-25-destination-d
 ## 22. Fresh-session instruction
 
 Read this STATE.md first, then the session JSON, then docs/destination/README.md and the program-control artifacts. Treat this file as a working handoff, not architecture law. Reconcile against current repository evidence before making changes.
+
+## 23. System Intelligence — Wave 1 result
+
+Wave 1 archaeology completed on:
+- branch: `research/system-intelligence-archaeology`
+- final research tip: `a7971a0557c464786b0db922cff34ae799e91767`
+
+Reported completion:
+- 6/6 investigator roles
+- 44 atomic findings
+- 65 dependency / relationship edges
+- 99 normalized evidence records
+- 42/42 required role artifacts
+- 11/11 required synthesis artifacts
+
+Central seams found:
+- Internal/governed: `Vault / Evidence → Law / Authority → Recipe / Composition → Canonical Intent → Execution / Context`
+- External/provider: `Provider → Account → Session → Browser → Realization → Routing → Governed Effect → Evidence`
+- Product: `Product Instance → Persistence → Composition → World → Surface → Continuity`
+
+Wave 1 found the external chain incomplete in current Ω: Legacy contains substantial Account/Session/routing machinery and BCP contains a browser realization path, but canonical Ω Account, routing, and full session lifecycle remain insufficiently characterized.
+
+Wave 1 also confirms that Ω runtime maturity must not be confused with destination product maturity.
+
+## 24. Wave 1 red-team findings
+
+Keep these tensions explicit:
+- provider-browser live implementation exists, but owner-side live proof is still pending;
+- Legacy ChromeGovernor was historical browser authority, while current Ω has plugin-local CDP behavior;
+- Legacy has concrete ProviderAccount/session/routing machinery, while current Ω does not yet prove an equivalent canonical model;
+- Ω implementation maturity does not equal product maturity;
+- the mind WorldModel is a bounded projection, not proof of a complete world model;
+- product shell/lifecycle and durable continuity remain materially under-characterized.
+
+## 25. Pass 2 now in progress
+
+A second archaeology pass is running as a structural coverage and falsification audit.
+
+It is intended to expose:
+- hidden runtime dependencies and dynamic coupling;
+- incomplete data flows and evolution limits;
+- false shared abstractions;
+- provider-specific leakage;
+- provider protocol knowledge storage/use gaps;
+- onboarding/parsing/discovery/healing/promotion gaps;
+- routing/account/session gaps;
+- Chrome master/slave lifecycle and resource risks;
+- plugin cross-sharing and dependency-graph weaknesses;
+- self-knowledge limitations;
+- reprogrammability limitations;
+- Legacy capability parity and destination negative space;
+- boundary, lifecycle and authority holes.
+
+The explicit concern set to falsify is:
+1. self-evolving data model across prompts, messages, artifacts, documents, files, work, evidence, memory and relationships;
+2. provider abstraction across similar-but-not-identical providers;
+3. provider protocol knowledge as durable, queryable, versioned, repairable system knowledge;
+4. provider onboarding and autonomous maintenance;
+5. routing across provider/account/model/realization under user policy;
+6. resource-efficient Chrome master/slave substrate;
+7. reliable shared-vs-bespoke separation;
+8. plugin infrastructure capable of the actual cross-capability dependency web;
+9. robust actionable self-knowledge;
+10. system-wide reprogrammability/evolvability.
+
+Pass 2 must preserve Pass 1 as evidence and distinguish design-needed, experiment-needed, implementation-needed, proven, underproven, partial, missing and unknown.
+
+## 26. V1 capability-floor clarification
+
+A key product conclusion from this conversation:
+
+**V1 must cover at least the meaningful capability floor demonstrated by Legacy VIVIM.**
+
+This does not mean rebuilding the old architecture.
+
+The rule is:
+- meaningful demonstrated Legacy behaviors become V1 parity candidates;
+- mechanisms can be replaced by destination/Ω mechanisms;
+- obsolete or accidental behavior can be rejected with explicit evidence;
+- destination capabilities absent from Legacy become new V1 work;
+- unknown-value legacy behavior remains a research/defer decision.
+
+The eventual mapping is:
+
+`Legacy capability → evidence → V1 parity candidate → destination support → current implementation → proof`
+
+The 80% Provider-01 parity target remains a provider-specific empirical target, not the whole V1 product scope.
+
+## 27. Research sequencing decision
+
+Do not immediately start every Wave 1 deep dive.
+
+First consume Pass 2's structural audit.
+
+Then classify each major critical area as:
+- DESIGN FIRST
+- EXPERIMENT FIRST
+- IMPLEMENT FIRST
+- SAFE TO DEFER
+
+The next research/build sequence should be driven by structural risks revealed by Pass 2.
+
+## 28. Fresh-session entry point
+
+For a new Product Vision / architecture conversation:
+1. Read `AGENTS_CONTEXT/PRODUCT_VISION/STATE.md`.
+2. Read `AGENTS_CONTEXT/PRODUCT_VISION/HANDOFF-2026-09-25.md`.
+3. Read `AGENTS_CONTEXT/PRODUCT_VISION/CONVERSATION-2026-09-25-SYSTEM-INTELLIGENCE.json` for detailed rationale/transcript context.
+4. Read current System Intelligence synthesis on the research branch and, once merged, the Pass 2 outputs.
+5. Reconcile against current repository evidence before treating handoff claims as current facts.
+
+Immediate action:
+**let Pass 2 finish; do not prematurely implement the identified critical areas.**
