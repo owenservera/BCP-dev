@@ -1,0 +1,4 @@
+{"id":"SAE-060001","from":"SA-060001","to":"SA-060002","type":"ENABLES","reason":"Typed runtime facts feed inspectable views."}
+{"id":"SAE-060002","from":"SA-060002","to":"SA-060004","type":"ENABLES","reason":"Runtime/evidence views support discovery and proof."}
+{"id":"SAE-060003","from":"SA-060004","to":"SA-060005","type":"GATES","reason":"Local evidence freshness does not prove global freshness."}
+{"id":"SAE-060004","from":"SA-060005","to":"SA-060003","type":"CONTRADICTS","reason":"Distributed derived views lack one freshness contract."}

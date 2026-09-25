@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "status": "DERIVED — CURRENT",
+  "dependencies": [
+    {"id":"DEP3-01","from":"Account","to":"Provider","reason":"account is authenticated relationship to a provider"},
+    {"id":"DEP3-02","from":"Session","to":"Account","reason":"session must retain selected account identity"},
+    {"id":"DEP3-03","from":"BrowserResource","to":"Session","reason":"resource is concrete execution substrate"},
+    {"id":"DEP3-04","from":"Routing","to":"Account+Realization","reason":"selection must distinguish authenticated relationship and implementation"},
+    {"id":"DEP3-05","from":"World","to":"CanonicalObject+Relationship","reason":"projection requires stable semantic identity"},
+    {"id":"DEP3-06","from":"Surface","to":"World","reason":"surface projects canonical objects"},
+    {"id":"DEP3-07","from":"Work","to":"Intent+Plan+Evidence","reason":"work joins request, procedure and proof without duplicating them"},
+    {"id":"DEP3-08","from":"ProviderKnowledgeView","to":"Discovery+Realization+Evidence","reason":"derived current knowledge needs source basis"},
+    {"id":"DEP3-09","from":"SelfKnowledge","to":"CanonicalBasis+ContractVersions","reason":"freshness requires basis comparison"},
+    {"id":"DEP3-10","from":"PluginEvolution","to":"Contracts+Recipe+Authority","reason":"reprogrammability is constrained by existing semantics"},
+    {"id":"DEP3-11","from":"ProductInstance","to":"DurableData+Composition+Recovery","reason":"instance must survive executable replacement"},
+    {"id":"DEP3-12","from":"ThirdProvider","to":"ProviderKnowledgeView+CapabilityContracts","reason":"provider generality is experimentally testable"}
+  ]
+}

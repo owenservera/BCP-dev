@@ -1,0 +1,1196 @@
+{
+  "generated_from_branch": "research/system-intelligence-archaeology",
+  "evidence_count": 99,
+  "evidence": [
+    {
+      "id": "EV-100001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+      "location": "Recipe / CompositionEntry",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/contracts/src/manifest.ts",
+      "location": "PluginManifest header and capabilities field",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/host/src/index.ts",
+      "location": "public exports and module header",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+      "location": "Boot-security laws B1–B5",
+      "evidence_kind": "decision"
+    },
+    {
+      "id": "EV-100005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-vault/plugin.json",
+      "location": "vault.object schema and contract contributions",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100006",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+      "location": "Ω-0.5 vault durability / evidence-store rules",
+      "evidence_kind": "decision"
+    },
+    {
+      "id": "EV-100007",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-law/plugin.json",
+      "location": "law contract contributions and capability requests",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100008",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+      "location": "architecture laws and D-451–D-455 boundary chain",
+      "evidence_kind": "decision"
+    },
+    {
+      "id": "EV-100009",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/contracts/src/intent.ts",
+      "location": "Intent / IntentResolution",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100010",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+      "location": "Canonical intent D-411",
+      "evidence_kind": "decision"
+    },
+    {
+      "id": "EV-100011",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-run/src/index.ts",
+      "location": "registry fields and routed ops",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100012",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-run/plugin.json",
+      "location": "contract contribution catalog",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100013",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-mind/plugin.json",
+      "location": "WorldModel description and engine contributions",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100014",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-mind/src/index.ts",
+      "location": "fetchRegistry / buildSnapshot / mind.portrait@1",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100015",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+      "location": "Three Big Concepts / Data Flow",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100016",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/src/engines/capability-resolution.ts",
+      "location": "CapabilityResolutionEngine",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100017",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+      "location": "model ProviderAccount",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100018",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+      "location": "models VivimSession, ProviderSession, ProfileSession",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100019",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+      "location": "models Conversation and ConversationMessage",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100020",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/data-model.md",
+      "location": "Database / Node Model / Store Contracts",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100021",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+      "location": "Chrome Governor",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100022",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/backend.md",
+      "location": "Chrome Layer / ChromeGovernor",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100023",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/backend.md",
+      "location": "Browser Automation / Provider engines",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100024",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/docs/runbooks/providers.md",
+      "location": "8-Phase Onboarding Pipeline / Parser System",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100025",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "d7db5011d0d99ae73cdb86f35f2d527f5804d37a"
+      },
+      "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md",
+      "location": "§4 Existing VIVIM mine evidence / §17 Harvest matrix",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100026",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md",
+      "location": "§5 Legacy VIVIM evidence to harvest",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100027",
+      "source": {
+        "lineage": "STANDALONE-OMEGA",
+        "repository": "owenservera/vivim-omega",
+        "ref": "main",
+        "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+      },
+      "path": "README.md",
+      "location": "What this is / Ω laws / Layout",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100028",
+      "source": {
+        "lineage": "STANDALONE-OMEGA",
+        "repository": "owenservera/vivim-omega",
+        "ref": "main",
+        "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+      },
+      "path": "plugins/provider-browser/src/index.ts",
+      "location": "module header / Ops exposed",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100029",
+      "source": {
+        "lineage": "STANDALONE-OMEGA",
+        "repository": "owenservera/vivim-omega",
+        "ref": "main",
+        "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+      },
+      "path": "plugins/provider-browser/plugin.json",
+      "location": "provider.browser manifest",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100030",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+      "location": "Architecture laws / D-418 and D-456 v1 substrate",
+      "evidence_kind": "decision"
+    },
+    {
+      "id": "EV-100031",
+      "source": {
+        "lineage": "STANDALONE-OMEGA",
+        "repository": "owenservera/vivim-omega",
+        "ref": "main",
+        "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+      },
+      "path": "docs/decisions/CURRENT-INVARIANTS.md",
+      "location": "Shippable-v1 fence and Chrome-only decision",
+      "evidence_kind": "decision"
+    },
+    {
+      "id": "EV-100032",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+      "location": "Core Phase seam laws — Canonical intent D-411",
+      "evidence_kind": "decision"
+    },
+    {
+      "id": "EV-100033",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/contracts/src/intent.ts",
+      "location": "Intent contract",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100034",
+      "source": {
+        "lineage": "STANDALONE-OMEGA",
+        "repository": "owenservera/vivim-omega",
+        "ref": "main",
+        "commit": "79ee558d6c7ea77c20f220db2341adaa57b11d44"
+      },
+      "path": "docs/decisions/CURRENT-INVARIANTS.md",
+      "location": "Core Phase / Omega Forge / Ω-DEV / program law sections",
+      "evidence_kind": "decision"
+    },
+    {
+      "id": "EV-100035",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/genome/layers.json",
+      "location": "layers array and lineage metadata",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100036",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "599a0ddbce7597ecb6ed61217914b9fa794f5971"
+      },
+      "path": "omega-baseline/omega-final/plugins/provider-browser/plugin.json",
+      "location": "description — explicit fixture and live ChatGPT modes",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100037",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "6dc53b2e39a2f47c35761d590ba247eca339a934"
+      },
+      "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+      "location": "module header and browser.attach@1 live descriptor",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-100038",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "4163194e7573fa2b1339bcb440b08819404cb068"
+      },
+      "path": "P1-08 / WS-008 — PHASE-1-HANDOFF-PACKAGE",
+      "location": "§1 Executive result; §7 invariant checklist",
+      "evidence_kind": "documentation",
+      "note": "M4 owner-side run is explicitly pending"
+    },
+    {
+      "id": "EV-100039",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+      "location": "Omega Forge constitution D-404–D-406",
+      "evidence_kind": "decision"
+    },
+    {
+      "id": "EV-100040",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "omega-baseline/omega-final/genome/layers.json",
+      "location": "GeneralityStamp / layer registry metadata",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md §1–4",
+      "location": "VIVIM-PRODUCT-INSTANCE-CORE.md §1–4",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-SYN-0002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2–5, §11",
+      "location": "WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2–5, §11",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-SYN-0003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2, §7–8, §17",
+      "location": "WORLD-WORKSPACE-CANVAS-RECONCILIATION.md §2, §7–8, §17",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-SYN-0004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md §9 / destination interaction docs",
+      "location": "VIVIM-PRODUCT-INSTANCE-CORE.md §9 / destination interaction docs",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-SYN-0005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/MATURITY-AND-GAPS.md §4 G6–G8; VIVIM-PRODUCT-INSTANCE-CORE.md §6, §11",
+      "location": "MATURITY-AND-GAPS.md §4 G6–G8; VIVIM-PRODUCT-INSTANCE-CORE.md §6, §11",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-SYN-0006",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md §1–3; VIVIM-PRODUCT-INSTANCE-CORE.md §10",
+      "location": "PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md §1–3; VIVIM-PRODUCT-INSTANCE-CORE.md §10",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-SYN-0007",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/VERTICAL-SLICE-REGISTRY.md §2–4",
+      "location": "VERTICAL-SLICE-REGISTRY.md §2–4",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-SYN-0008",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+      "location": "ProviderAccount",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0009",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md",
+      "location": "§1–3",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0010",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+      "location": "ProviderSession/ProfileSession",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0011",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+      "location": "live session descriptor",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0012",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+      "location": "ProviderRealization",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0013",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+      "location": "message.send bars 2–4",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0014",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "omega-baseline/omega-final/contracts/src/intent.ts",
+      "location": "Intent/IntentResolution",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0015",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-law/plugin.json",
+      "location": "law.check and invoke.check",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0016",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-run/plugin.json",
+      "location": "run/exec/watch/budget/context",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0017",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-vault/plugin.json",
+      "location": "vault append/get/verify",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0018",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-mind/plugin.json",
+      "location": "WorldModel/read-only lens",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0019",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md",
+      "location": "§2",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0020",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/VIVIM-PRODUCT-INSTANCE-CORE.md",
+      "location": "§2–4,§7,§10",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0021",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "omega-baseline/omega-final/plugins/vivim-vault/plugin.json",
+      "location": "data ownership",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0022",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+      "location": "Capability resolution → Provider Routing → Execution",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0023",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md",
+      "location": "§1–4",
+      "evidence_kind": "implementation"
+    },
+    {
+      "id": "EV-SYN-0024",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence",
+      "location": "SI-06 evidence synthesis",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-100041",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "main",
+        "commit": "05464e085122a173d1f093612292336750436c7e"
+      },
+      "path": "docs/destination/system-intelligence/synthesis",
+      "location": "Wave 1 derived graph",
+      "evidence_kind": "documentation",
+      "note": "edge derived from cited atom relationships"
+    },
+    {
+      "id": "EV-04-EDGE-001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240101",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240102",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240103",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240104",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240105",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-006",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240106",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-007",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240107",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-008",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240108",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-009",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240109",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-010",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240110",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-011",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240111",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-04-EDGE-012",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-04/EDGES.jsonl",
+      "location": "SI-04 edge SIE-240112",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250101",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250102",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250103",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250104",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250105",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-006",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250106",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-007",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250107",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-008",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250108",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-009",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250109",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-010",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250110",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-011",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250111",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-012",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250112",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-013",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250113",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-05-EDGE-014",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-05/ATOMS.jsonl",
+      "location": "SI-05 edge SIE-250114",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-06-EDGE-001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+      "location": "SI-06 edge SIE-260101",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-06-EDGE-002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+      "location": "SI-06 edge SIE-260102",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-06-EDGE-003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+      "location": "SI-06 edge SIE-260103",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-06-EDGE-004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+      "location": "SI-06 edge SIE-260104",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-06-EDGE-005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+      "location": "SI-06 edge SIE-260105",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-06-EDGE-006",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+      "location": "SI-06 edge SIE-260106",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-06-EDGE-007",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+      "location": "SI-06 edge SIE-260107",
+      "evidence_kind": "documentation"
+    },
+    {
+      "id": "EV-06-EDGE-008",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-archaeology",
+        "commit": "f22b5444e4872d81a9ad5fd24c34472e7f885aea"
+      },
+      "path": "docs/destination/system-intelligence/findings/SI-06/CONTRADICTIONS.md",
+      "location": "SI-06 edge SIE-260108",
+      "evidence_kind": "documentation"
+    }
+  ]
+}

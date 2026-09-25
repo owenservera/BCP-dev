@@ -18,15 +18,15 @@ Primary implementation target:
 Read its current docs, contracts, runtime, plugins, surfaces and tests as needed.
 
 ### Tier 3 — System Intelligence
-Pass 1–3 are the latest deep characterization of the system:
+Pass 1–3 are now durably present in main under:
 - `docs/destination/system-intelligence/`
 
-Use Pass 3 as the current design baseline for the hard problems.
+Use Pass 3 as the current design-characterization baseline for the hard problems; use the Architecture Steward for cross-repository normalization, dependency mapping, and drift/repull.
 
-Important Pass 3 baseline:
+Important Pass 3 lineage:
 `research/system-intelligence-pass3 @ 0121570c005112eb8875e9b8a6f484cc732d4e62`
 
-If the relevant Pass 3 files are not present on main, use the destination/system-intelligence material that is present and treat the ZAI_BUILD_CONTEXT hard-problem descriptions as the executable summary. Do not stop because a research branch is unavailable.
+The source branches remain lineage/history; new work should not depend on branch availability to discover the corpus.
 
 ### Tier 4 — Legacy behavioral mine
 - `vivim-original-baseline/vivim-final-enhanced/`
@@ -45,7 +45,7 @@ Do not recursively analyze it unless the active problem requires it.
 ## What to ignore by default
 
 Do NOT spend the first turns:
-- redoing System Intelligence archaeology;
+- redoing completed System Intelligence archaeology;
 - redesigning the Ω ontology;
 - rebuilding the cooperative agent system;
 - reading every Legacy engine;

@@ -1,0 +1,4 @@
+{"id":"SAE-040001","from":"SA-040001","to":"SA-040003","type":"CONTRADICTS","reason":"Legacy browser authority carries account/process semantics current SessionRecord lacks."}
+{"id":"SAE-040002","from":"SA-040002","to":"SA-040004","type":"ENABLES","reason":"Local CDP selects and attaches a page target."}
+{"id":"SAE-040003","from":"SA-040004","to":"SA-040005","type":"GATES","reason":"Selected target is part of external resource identity."}
+{"id":"SAE-040004","from":"SA-040001","to":"SA-040002","type":"CONTRADICTS","reason":"Browser authority moved from shared governor to plugin-local adapter."}

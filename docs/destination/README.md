@@ -80,6 +80,12 @@ admission/integrity; isolation/transport; capability egress/fencing; activation/
 
 Current plugin-authoring architecture has moved to plugin-ecosystem/ so cleanup/repository-hygiene documents are not treated as the semantic home of plugin architecture.
 
+## Architecture Steward
+
+The repository-wide architectural/documentation custodian is defined in `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/`. It maintains canonical decomposition, documentation depth, mappings, dependency graph, evidence/authority relationships, and drift/repull across workstreams.
+
+System Intelligence is preserved under `system-intelligence/` as the durable archaeology/design evidence corpus and is mapped into the broader destination model by the Steward.
+
 ## Working rule
 
 Make the world coherent → make capabilities selectable → make work durable → make external reality real → make continuity persistent → make evolution native.

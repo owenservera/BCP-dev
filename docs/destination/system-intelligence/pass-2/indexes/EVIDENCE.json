@@ -1,0 +1,631 @@
+{
+  "pass": "2",
+  "source_tip": "a7971a0557c4647862cb922cff34ae799e91767",
+  "evidence_count": 52,
+  "evidence": [
+    {
+      "id": "EV-SA-010001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+        "location": "Recipe / CompositionEntry",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-010002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/port.ts",
+        "location": "PortResult / contract",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-010003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/lifecycle.ts",
+        "location": "HOST_OPS / HOST_CAPS",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-010004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+        "location": "ProviderRealization",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-010005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/discovery-mapping/src/index.ts",
+        "location": "loadBlueprint",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-020001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/storage.ts",
+        "location": "StorageOp / StorageDriverContract",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-020002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/chat.ts",
+        "location": "ChatConversation / ChatMessage",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-020003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+        "location": "CaptureRecord / SessionRecord",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-020004",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+        "location": "provider model sections",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-020005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/index.ts",
+        "location": "contract exports",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-030001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+        "location": "RealizationStatus",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-030002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/discovery-inference/src/index.ts",
+        "location": "discovery.infer@1",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-030003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/discovery-mapping/src/index.ts",
+        "location": "loadBlueprint / solveMapping",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-030004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/discovery-inference/src/index.ts",
+        "location": "candidate/evidence graph",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-030005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+        "location": "validateLiveSessionDescriptor",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-040001",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+        "location": "Governor Canon",
+        "evidence_kind": "documentation"
+      }
+    },
+    {
+      "id": "EV-SA-040002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+        "location": "LocalCdpClient",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-040003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+        "location": "SessionRecord",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-040004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+        "location": "Target.getTargets / target selection",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-040005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+        "location": "LocalCdpClient lifecycle",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-050001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/plugin.json",
+        "location": "manifest/dependencies",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-050002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+        "location": "portCall",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-050003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+        "location": "CompositionEntry",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-050004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+        "location": "grant.contracts",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-050005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/forge-author/src/index.ts",
+        "location": "authorInit",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-060001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/index.ts",
+        "location": "exports",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-060002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/lifecycle.ts",
+        "location": "graphSnapshot / auditChain",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-060003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/vivim-mind/plugin.json",
+        "location": "WorldModel",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-060004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/discovery-inference/src/index.ts",
+        "location": "evidence invariant",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-060005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+        "location": "RealizationStatus",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-070001",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "vivim-original-baseline/vivim-final-enhanced/docs/architecture/overview.md",
+        "location": "Data Flow",
+        "evidence_kind": "documentation"
+      }
+    },
+    {
+      "id": "EV-SA-070002",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "vivim-original-baseline/vivim-final-enhanced/src/engines",
+        "location": "browser machinery inventory",
+        "evidence_kind": "documentation"
+      }
+    },
+    {
+      "id": "EV-SA-070003",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "vivim-original-baseline/vivim-final-enhanced/src/engines",
+        "location": "conversation machinery",
+        "evidence_kind": "documentation"
+      }
+    },
+    {
+      "id": "EV-SA-070004",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "vivim-original-baseline/vivim-final-enhanced/src/engines",
+        "location": "workspace/canvas inventory",
+        "evidence_kind": "documentation"
+      }
+    },
+    {
+      "id": "EV-SA-070005",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "vivim-original-baseline/vivim-final-enhanced/src/engines",
+        "location": "scheduler/workflow/export inventory",
+        "evidence_kind": "documentation"
+      }
+    },
+    {
+      "id": "EV-SA-080001",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+        "location": "ProviderAccount",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-080002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+        "location": "SessionRecord",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-080003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/live.ts",
+        "location": "LocalCdpClient.connect",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-080004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/vivim-run/plugin.json",
+        "location": "run/exec/watch/budget/context",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SA-080005",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c4647862cb922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/vivim-mind/plugin.json",
+        "location": "WorldModel",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-010001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+        "location": "grant",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-010002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+        "location": "ProviderRealization",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-010003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/lifecycle.ts",
+        "location": "state arbitration",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-010004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/discovery-mapping/src/index.ts",
+        "location": "loadBlueprint",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-020001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/storage.ts",
+        "location": "StorageOp",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-020002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/chat.ts",
+        "location": "provenance refs",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-020003",
+      "source": {
+        "lineage": "LEGACY-VIVIM",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+        "location": "provider/content sections",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-020004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+        "location": "SessionRecord",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-030001",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/discovery-mapping/src/index.ts",
+        "location": "discovery.map@1",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-030002",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+        "location": "lifecycle",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-030003",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+        "location": "message.send bars",
+        "evidence_kind": "implementation"
+      }
+    },
+    {
+      "id": "EV-SAE-030004",
+      "source": {
+        "lineage": "BCP-OMEGA",
+        "repository": "owenservera/BCP-dev",
+        "ref": "research/system-intelligence-pass2",
+        "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+        "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+        "location": "LiveSessionDescriptor",
+        "evidence_kind": "implementation"
+      }
+    }
+  ]
+}

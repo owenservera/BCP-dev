@@ -1,0 +1,4 @@
+{"id":"SAE-050001","from":"SA-050001","to":"SA-050002","type":"GATES","reason":"Composition grants constrain port access."}
+{"id":"SAE-050002","from":"SA-050002","to":"SA-050003","type":"ENABLES","reason":"Port-governed plugins can vary within existing contracts."}
+{"id":"SAE-050003","from":"SA-050003","to":"SA-050004","type":"GATES","reason":"Composition vocabulary cannot invent a new semantic protocol."}
+{"id":"SAE-050004","from":"SA-050005","to":"SA-050003","type":"ENABLES","reason":"Forge can propose without granting authority."}

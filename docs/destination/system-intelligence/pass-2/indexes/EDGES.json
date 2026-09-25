@@ -1,0 +1,399 @@
+{
+  "pass": "2",
+  "source_tip": "a7971a0557c4647862cb922cff34ae799e91767",
+  "edge_count": 32,
+  "edges": [
+    {
+      "id": "SAE-010001",
+      "from": "SA-010001",
+      "to": "SA-010002",
+      "type": "GATES",
+      "reason": "Recipe grants determine available ports/contracts.",
+      "evidence": [
+        {
+          "id": "EV-SAE-010001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/recipe.ts",
+            "location": "grant",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-010002",
+      "from": "SA-010002",
+      "to": "SA-010004",
+      "type": "ENABLES",
+      "reason": "Provider state readers/writers cross the port seam.",
+      "evidence": [
+        {
+          "id": "EV-SAE-010002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+            "location": "ProviderRealization",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-010003",
+      "from": "SA-010003",
+      "to": "SA-010004",
+      "type": "GOVERNS",
+      "reason": "Host state/audit mechanisms are runtime dependencies of stateful plugins.",
+      "evidence": [
+        {
+          "id": "EV-SAE-010003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/lifecycle.ts",
+            "location": "state arbitration",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-010004",
+      "from": "SA-010005",
+      "to": "SA-010002",
+      "type": "GATES",
+      "reason": "Configuration selects runtime inputs without an import edge.",
+      "evidence": [
+        {
+          "id": "EV-SAE-010004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/discovery-mapping/src/index.ts",
+            "location": "loadBlueprint",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-020001",
+      "from": "SA-020001",
+      "to": "SA-020005",
+      "type": "GATES",
+      "reason": "Storage permits records but does not define product lifecycle semantics.",
+      "evidence": [
+        {
+          "id": "EV-SAE-020001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/storage.ts",
+            "location": "StorageOp",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-020002",
+      "from": "SA-020002",
+      "to": "SA-020003",
+      "type": "RELATED_TO",
+      "reason": "Both use vault provenance but remain separate canonical families.",
+      "evidence": [
+        {
+          "id": "EV-SAE-020002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/chat.ts",
+            "location": "provenance refs",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-020003",
+      "from": "SA-020004",
+      "to": "SA-020005",
+      "type": "CONTRADICTS",
+      "reason": "Legacy richness is not represented by one Ω-wide lifecycle.",
+      "evidence": [
+        {
+          "id": "EV-SAE-020003",
+          "source": {
+            "lineage": "LEGACY-VIVIM",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "vivim-original-baseline/vivim-final-enhanced/prisma/schema.prisma",
+            "location": "provider/content sections",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-020004",
+      "from": "SA-020003",
+      "to": "SA-020005",
+      "type": "GATES",
+      "reason": "Browser/session persistence illustrates object/reference/evidence separation.",
+      "evidence": [
+        {
+          "id": "EV-SAE-020004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+            "location": "SessionRecord",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-030001",
+      "from": "SA-030002",
+      "to": "SA-030003",
+      "type": "ENABLES",
+      "reason": "Candidates feed declarative mapping.",
+      "evidence": [
+        {
+          "id": "EV-SAE-030001",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/discovery-mapping/src/index.ts",
+            "location": "discovery.map@1",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-030002",
+      "from": "SA-030003",
+      "to": "SA-030001",
+      "type": "ENABLES",
+      "reason": "Mapped candidates enter realization lifecycle.",
+      "evidence": [
+        {
+          "id": "EV-SAE-030002",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/contracts/src/provider.ts",
+            "location": "lifecycle",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-030003",
+      "from": "SA-030001",
+      "to": "SA-030005",
+      "type": "GATES",
+      "reason": "Promotion is a send prerequisite.",
+      "evidence": [
+        {
+          "id": "EV-SAE-030003",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/index.ts",
+            "location": "message.send bars",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-030004",
+      "from": "SA-030005",
+      "to": "SA-030004",
+      "type": "CONTRADICTS",
+      "reason": "Shared realization vocabulary coexists with concrete ChatGPT-specific execution.",
+      "evidence": [
+        {
+          "id": "EV-SAE-030004",
+          "source": {
+            "lineage": "BCP-OMEGA",
+            "repository": "owenservera/BCP-dev",
+            "ref": "research/system-intelligence-pass2",
+            "commit": "a7971a0557c464786b0db922cff34ae799e91767",
+            "path": "omega-baseline/omega-final/plugins/provider-browser/src/session.ts",
+            "location": "LiveSessionDescriptor",
+            "evidence_kind": "implementation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAE-040001",
+      "from": "SA-040001",
+      "to": "SA-040003",
+      "type": "CONTRADICTS",
+      "reason": "Legacy browser authority carries account/process semantics current SessionRecord lacks."
+    },
+    {
+      "id": "SAE-040002",
+      "from": "SA-040002",
+      "to": "SA-040004",
+      "type": "ENABLES",
+      "reason": "Local CDP selects and attaches a page target."
+    },
+    {
+      "id": "SAE-040003",
+      "from": "SA-040004",
+      "to": "SA-040005",
+      "type": "GATES",
+      "reason": "Selected target is part of external resource identity."
+    },
+    {
+      "id": "SAE-040004",
+      "from": "SA-040001",
+      "to": "SA-040002",
+      "type": "CONTRADICTS",
+      "reason": "Browser authority moved from shared governor to plugin-local adapter."
+    },
+    {
+      "id": "SAE-050001",
+      "from": "SA-050001",
+      "to": "SA-050002",
+      "type": "GATES",
+      "reason": "Composition grants constrain port access."
+    },
+    {
+      "id": "SAE-050002",
+      "from": "SA-050002",
+      "to": "SA-050003",
+      "type": "ENABLES",
+      "reason": "Port-governed plugins can vary within existing contracts."
+    },
+    {
+      "id": "SAE-050003",
+      "from": "SA-050003",
+      "to": "SA-050004",
+      "type": "GATES",
+      "reason": "Composition vocabulary cannot invent a new semantic protocol."
+    },
+    {
+      "id": "SAE-050004",
+      "from": "SA-050005",
+      "to": "SA-050003",
+      "type": "ENABLES",
+      "reason": "Forge can propose without granting authority."
+    },
+    {
+      "id": "SAE-060001",
+      "from": "SA-060001",
+      "to": "SA-060002",
+      "type": "ENABLES",
+      "reason": "Typed runtime facts feed inspectable views."
+    },
+    {
+      "id": "SAE-060002",
+      "from": "SA-060002",
+      "to": "SA-060004",
+      "type": "ENABLES",
+      "reason": "Runtime/evidence views support discovery and proof."
+    },
+    {
+      "id": "SAE-060003",
+      "from": "SA-060004",
+      "to": "SA-060005",
+      "type": "GATES",
+      "reason": "Local evidence freshness does not prove global freshness."
+    },
+    {
+      "id": "SAE-060004",
+      "from": "SA-060005",
+      "to": "SA-060003",
+      "type": "CONTRADICTS",
+      "reason": "Distributed derived views lack one freshness contract."
+    },
+    {
+      "id": "SAE-070001",
+      "from": "SA-070001",
+      "to": "SA-070002",
+      "type": "ENABLES",
+      "reason": "Provider routing culminates in browser execution."
+    },
+    {
+      "id": "SAE-070002",
+      "from": "SA-070002",
+      "to": "SA-070003",
+      "type": "ENABLES",
+      "reason": "Browser execution and conversation streaming/persistence form one path."
+    },
+    {
+      "id": "SAE-070003",
+      "from": "SA-070003",
+      "to": "SA-070004",
+      "type": "RELATED_TO",
+      "reason": "Conversation continuity feeds richer workspace/canvas surfaces."
+    },
+    {
+      "id": "SAE-070004",
+      "from": "SA-070004",
+      "to": "SA-070005",
+      "type": "ENABLES",
+      "reason": "Continuity depends on background and exit behavior."
+    },
+    {
+      "id": "SAE-080001",
+      "from": "SA-080001",
+      "to": "SA-080002",
+      "type": "GATES",
+      "reason": "Without account identity, a session cannot prove whose authenticated state it carries."
+    },
+    {
+      "id": "SAE-080002",
+      "from": "SA-080002",
+      "to": "SA-080003",
+      "type": "REQUIRES",
+      "reason": "Session bridges to browser through debugPort/live descriptor."
+    },
+    {
+      "id": "SAE-080003",
+      "from": "SA-080003",
+      "to": "SA-080004",
+      "type": "GATES",
+      "reason": "External browser ownership affects durable work truth."
+    },
+    {
+      "id": "SAE-080004",
+      "from": "SA-080004",
+      "to": "SA-080005",
+      "type": "RELATED_TO",
+      "reason": "Work continuity and world freshness meet at the product boundary."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "status": "DERIVED — CURRENT",
+  "flows": [
+    {"id":"F3-01","name":"External effect","path":["Intent","Capability","Realization","Account","Session","BrowserResource","Provider","Result","Evidence"]},
+    {"id":"F3-02","name":"Routing","path":["Request","PolicyScope","Candidates","Constraints","Selection","Authority","Execution","Receipt"]},
+    {"id":"F3-03","name":"Object lifecycle","path":["Create","Identify","Relate","Modify","Version","Derive","Project","Reference","Export","Restore","Archive/Delete"]},
+    {"id":"F3-04","name":"World projection","path":["CanonicalObjects","Relationships","WorldView","Space","Surface","Layout"]},
+    {"id":"F3-05","name":"Provider knowledge","path":["Manifest","Discovery","Observation","Mapping","ParserPin","Realization","Evidence","KnowledgeView"]},
+    {"id":"F3-06","name":"Provider healing","path":["Drift","Detect","Diagnose","Repair","Test","Probation","Promote/Reject/Rollback"]},
+    {"id":"F3-07","name":"Durable Work","path":["Request","Work","Plan","Session","Effect","Outcome","Evidence","Checkpoint","Continuity"]},
+    {"id":"F3-08","name":"Self-knowledge","path":["CanonicalBasis","Derivation","BasisDigest","Freshness","Recompute","View"]},
+    {"id":"F3-09","name":"Forge evolution","path":["Need","Proposal","Evidence","Test","HumanApproval","Promotion","Capability"]},
+    {"id":"F3-10","name":"Recovery","path":["Failure","StaleState","Inspection","ReattachOrRefuse","Checkpoint","ResumeOrEscalate"]}
+  ]
+}
