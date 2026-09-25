@@ -560,3 +560,22 @@ The major missing program work is now **control of convergence**:
 **requirements → dependencies → ownership → implementation level → vertical slice → evidence → release decision → next dependency.**
 
 That is the program layer we were missing.
+
+## 16. Evolution controls now have a destination research boundary
+
+PG-11 (change impact / dependency revalidation) and PG-13 (release / deprecation / migration policy) are now explicitly consumed by the destination **Evolution, Reconciliation & Self-Maintenance** design.
+
+The new lane does not add another program tracker. It supplies the semantic model needed to answer:
+
+```
+what changed?
+what is affected?
+what remains compatible?
+what must be revalidated?
+what can be automated?
+what requires authority?
+what can be rolled back?
+what evidence survives the change?
+```
+
+Until those questions are researched and falsified, “self-evolving” remains an architectural destination claim rather than a production capability claim.
