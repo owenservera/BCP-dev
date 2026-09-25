@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "status": "DERIVED — CURRENT",
+  "boundaries": [
+    {"id":"B3-01","name":"Provider↔Account","status":"DESIGN-CANDIDATE","experiment":"E1"},
+    {"id":"B3-02","name":"Account↔Session","status":"DESIGN-CANDIDATE","experiment":"E1"},
+    {"id":"B3-03","name":"Session↔BrowserResource","status":"EXPERIMENT-REQUIRED","experiment":"E1,E2,E3,E4"},
+    {"id":"B3-04","name":"Provider↔Realization","status":"EVIDENCE-SUPPORTED","experiment":"E5"},
+    {"id":"B3-05","name":"Provider↔Routing","status":"DESIGN-CANDIDATE","experiment":"E1,E5"},
+    {"id":"B3-06","name":"Artifact↔World","status":"DESIGN-CANDIDATE","experiment":"E6"},
+    {"id":"B3-07","name":"Work↔Evidence","status":"DESIGN-CANDIDATE","experiment":"E7"},
+    {"id":"B3-08","name":"World↔Surface","status":"EXPERIMENT-REQUIRED","experiment":"E6"},
+    {"id":"B3-09","name":"Plugin↔Runtime","status":"EVIDENCE-SUPPORTED","experiment":"E5"},
+    {"id":"B3-10","name":"CanonicalData↔SelfKnowledge","status":"DESIGN-CANDIDATE","experiment":"E8"},
+    {"id":"B3-11","name":"Composition↔ProductInstance","status":"DESIGN-CANDIDATE","experiment":"E7,E6"},
+    {"id":"B3-12","name":"Export↔Restore","status":"UNRESOLVED","experiment":"E6"}
+  ]
+}
