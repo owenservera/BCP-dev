@@ -1,6 +1,6 @@
 # Architecture Steward — Core Function Area Register
 
-> Status: APPROVED WORKING CONSTELLATION — 2026-09-25
+> Status: APPROVED INITIAL SEED — EXPECTED TO EVOLVE — 2026-09-25
 > Classification: DERIVED / OWNER-APPROVED DESIGN DIRECTION
 > This register describes enduring architectural responsibility areas. It is not Ω law and does not grant semantic authority to any subagent.
 
@@ -20,7 +20,7 @@ A Core Function Area is different from an investigation method.
 
 Do not create a permanent agent merely because a useful investigation technique exists.
 
-## Approved initial constellation
+## Approved initial constellation — provisional seed
 
 | ID | Core Function Area | Primary question | Foundation status |
 |---|---|---|---|
@@ -53,7 +53,7 @@ Every Core Function Area is born through:
 
 `FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → EXECUTION`
 
-The agent must not infer its final role from its folder name.
+The agent must not infer its final role from its folder name. The register entry itself is also provisional and must not be treated as an anchor.
 
 Its first session is a **bootstrap self-design session**.
 
