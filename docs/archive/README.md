@@ -1,17 +1,19 @@
 # docs/archive — retained history, not authority
 
-Moved here during the 2026-09-23 repository cleanup so a fresh agent can tell
-CURRENT apart from HISTORY at a glance. Nothing under `docs/archive/` guides
-current implementation. Current truth lives in:
+Archive material is genealogy and forensic evidence, not current operating instruction.
 
-- `/AGENTS.md`, `/BUILD_CONTEXT.md` (repo root)
-- `docs/CURRENT-CONTEXT.md`
-- `docs/CONTEXT-system.md`, `docs/CONTEXT-product.md`, `docs/CONTEXT-appendix.md`
+## Retained history
 
-| Subdir | What it holds | Period | Authoritative? | Replaced by |
-|---|---|---|---|---|
-| `sessions/` | Past agent session logs (`master-.md`, `session-ses_f371.md`) | 2026-09-22 build day | No — raw research | `docs/CONTEXT-*.md` synthesis |
-| `conversations/` | Exported chat transcripts + notes (`chat-*.txt`, `Untitled.txt`, `Thoughts on a response.txt`) | 2026-09-16 – 09-21 | No — raw research | `docs/EXPERIMENTAL-PATHS.md`, Ω vision records |
-| `planning/` | Reserved for retired planning docs (empty at cleanup) | — | No | — |
+- `project-history/` — completed construction-era plans, trackers and setup prompts. Useful for understanding how BCP/Ω was constructed.
+- `conversations/` and `sessions/` — raw build-day source material. These have been harvested by the Architecture Steward and retired from the live tree.
+- `README.md` — this navigation contract.
 
-Original filenames preserved. Do not move files back without a cleanup-record entry.
+Current truth is not defined by archive contents. Use:
+- `/AGENTS.md`
+- `/BUILD_CONTEXT.md`
+- `/docs/CURRENT-CONTEXT.md`
+- `/AGENTS_CONTEXT/`
+- current `docs/destination/`
+- current Ω law and BCP state where applicable.
+
+A historical file may explain *why* something exists; it does not establish that it remains true.
