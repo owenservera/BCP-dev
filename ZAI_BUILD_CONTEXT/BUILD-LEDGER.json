@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "mission": "Autonomous VIVIM build",
+  "baseline": "main",
+  "current_turn": 0,
+  "active_hard_problem": null,
+  "completed_hard_problems": [],
+  "proofs": [],
+  "packages": [],
+  "product_journeys_unlocked": [],
+  "known_risks": [],
+  "next_recommended_problem": "HP-01",
+  "last_updated": "2026-09-25"
+}
