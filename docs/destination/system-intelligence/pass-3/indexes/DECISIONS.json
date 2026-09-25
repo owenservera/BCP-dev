@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "status": "DERIVED — CURRENT",
+  "decisions": [
+    {"id":"D3-001","label":"DESIGN-CANDIDATE","subject":"Account is a first-class user-world relationship, distinct from Provider and Session.","basis":["Pass2 boundary falsification","D4 provider/account/routing","Legacy ProviderAccount"]},
+    {"id":"D3-002","label":"DESIGN-CANDIDATE","subject":"Session binds Account + Realization + BrowserResource when browser-mediated.","basis":["Pass2 browser seam","Ω provider-browser SessionRecord","Legacy ProviderSession/ProfileSession"]},
+    {"id":"D3-003","label":"EXPERIMENT-REQUIRED","subject":"debugPort is a locator, not sufficient identity for an authenticated account/browser resource.","basis":["Ω provider-browser live.ts","Pass2 Session↔Browser falsification"]},
+    {"id":"D3-004","label":"DESIGN-CANDIDATE","subject":"Routing is policy over already-valid realizations; learned ranking cannot grant authority.","basis":["D4 reconciliation","Ω resolve/computation model"]},
+    {"id":"D3-005","label":"DESIGN-CANDIDATE","subject":"A typed canonical object envelope can unify identity/revision/provenance without becoming a universal semantic supertype.","basis":["Vault namespaces","Legacy Conversation/Message","World↔Surface boundary"]},
+    {"id":"D3-006","label":"DESIGN-CANDIDATE","subject":"Message remains distinct; Artifact is a generic produced/deliverable role; Document and File have distinct semantics.","basis":["Legacy schema","Destination world model"]},
+    {"id":"D3-007","label":"DESIGN-CANDIDATE","subject":"Work is durable outcome identity; Intent is request semantics; Plan is procedural structure.","basis":["Ω intent contract","Ω planstate","V1 product continuity gap"]},
+    {"id":"D3-008","label":"DESIGN-CANDIDATE","subject":"ProviderKnowledgeView is a derived projection over existing discovery/realization evidence.","basis":["Provider registry","VAULT-NAMESPACES","Legacy provider knowledge graph"]},
+    {"id":"D3-009","label":"DESIGN-CANDIDATE","subject":"Self-knowledge freshness must be basis-aware, not primarily time-based.","basis":["Ω derived views","Pass2 freshness hole","E8 falsifier"]},
+    {"id":"D3-010","label":"REJECTED","subject":"A universal semantic object supertype should replace typed product data.","basis":["Red team Attack 3"]},
+    {"id":"D3-011","label":"REJECTED","subject":"Legacy engine/class hierarchy should be copied as destination architecture.","basis":["Legacy parity negative-space"]},
+    {"id":"D3-012","label":"PROMOTION-CANDIDATE","subject":"E1–E4 are the minimum external substrate experiments before broad Account/Session/Browser implementation claims.","basis":["Pass2 critical areas","Pass3 convergence"]}
+  ]
+}
