@@ -1,0 +1,2 @@
+# Modern Findings
+Current primary documentation supports durable orchestration, timers/events, retries, approvals, guardrails, tracing and deterministic coordinator/activity separation. See `indexes/SOURCES.md`.
