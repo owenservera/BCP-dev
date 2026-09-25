@@ -309,17 +309,19 @@ Primary artifact: `PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md`.
 
 Outputs: canonical Account relationship, routing-policy semantics, realization-selection flow, migration/harvest matrix, maturity path, thin falsifier, and live-account proof criteria.
 
-### Cycle 2 — CURRENT
+### Cycle 2 — COMPLETE
 World / Workspace / Canvas reconciliation.
 
 Primary artifact: `WORLD-WORKSPACE-CANVAS-RECONCILIATION.md`.
 
 Outputs: world projection, space/thing mapping, project/conversation continuity, canvas integration, first-minute experience.
 
-### Cycle 3
+### Cycle 3 — CURRENT
 Interaction / Work reconciliation.
 
-Outputs: universal addressing, work states, durable delegated-work flow, result/evidence presentation.
+Primary artifact: `INTERACTION-INTENT-WORK-RECONCILIATION.md`.
+
+Outputs: universal addressing, durable work envelope, routing integration, authority integration, result/evidence presentation.
 
 ### Cycle 4
 Live Chrome / Accounts.
