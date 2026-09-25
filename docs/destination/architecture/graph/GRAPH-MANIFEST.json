@@ -21,8 +21,8 @@
     "docs/destination/system-intelligence/indexes/EDGES.json"
   ],
   "counts": {
-    "nodes": 364,
-    "edges": 1211,
+    "nodes": 394,
+    "edges": 1219,
     "invalidEdges": 0,
     "document": 11,
     "vision_anchor": 4,
@@ -33,8 +33,8 @@
     "vertical_slice": 9,
     "keystone": 10,
     "si_atom": 44,
-    "evidence": 99,
-    "evidenceNodes": 99,
+    "evidence": 129,
+    "evidenceNodes": 129,
     "workstream": 8,
     "reference_piece": 7,
     "composition": 1
@@ -48,7 +48,7 @@
     "DEPENDS_ON": 257,
     "SERVES": 33,
     "INDEXES": 44,
-    "EVIDENCES": 63,
+    "EVIDENCES": 71,
     "INFORMS": 312,
     "DESCRIBES": 49,
     "CONTRIBUTES_TO": 108,
@@ -76,8 +76,12 @@
     "allEndpointsPresent": true,
     "duplicateNodeIds": 0,
     "duplicateEdgeIds": 0,
-    "edgesWithSourceRefs": 1211,
+    "edgesWithSourceRefs": 1219,
     "edgesWithoutSourceRefs": 0,
-    "lineageFillCount": 884
+    "undefinedNodeIds": 0,
+    "nullEvidenceRefs": 0,
+    "sourceEvidenceRecordsWithoutIds": 31,
+    "generatedEvidenceNodes": 31,
+    "removedMalformedEdges": 1211
   }
 }
