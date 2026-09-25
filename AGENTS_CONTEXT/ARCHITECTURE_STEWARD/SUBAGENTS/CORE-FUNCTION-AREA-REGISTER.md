@@ -32,8 +32,8 @@ Do not create a permanent agent merely because a useful investigation technique 
 | CFA-06 | Capability / Provider / Realization | What can VIVIM do, and through which valid interchangeable realizations can those capabilities act on the external world? | BOOTSTRAP-READY |
 | CFA-07 | Composition / Plugin / Forge | How does VIVIM assemble, extend, create, replace, and evolve capabilities without recreating a hard-coded monolith? | BOOTSTRAP-READY |
 | CFA-08 | Experience / Interaction / Surfaces | How does a person perceive, navigate, manipulate, configure, and act through VIVIM's world and surfaces? | BOOTSTRAP-READY |
-| CFA-09 | Evolution / Compatibility / Self-Maintenance | How can VIVIM change, migrate, repair, replace, and maintain itself without losing meaning, authority, evidence, or continuity? | EXISTING PEER AREA + BOOTSTRAP TO ALIGN |
-| CFA-10 | Runtime Constitution / Core Substrate | What irreducible guarantees must every VIVIM composition and execution obey? | EXISTING PEER AREA + BOOTSTRAP TO ALIGN |
+| CFA-09 | Evolution / Compatibility / Self-Maintenance | How can VIVIM change, migrate, repair, replace, and maintain itself without losing meaning, authority, evidence, or continuity? | BOOTSTRAP-READY — PREEXISTING PEER RESPONSIBILITY |
+| CFA-10 | Runtime Constitution / Core Substrate | What irreducible guarantees must every VIVIM composition and execution obey? | BOOTSTRAP-READY — PREEXISTING PEER RESPONSIBILITY |
 
 ## Cross-cutting concern intentionally not instantiated as a separate Core Agent yet
 
@@ -54,6 +54,8 @@ Every Core Function Area is born through:
 `FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → EXECUTION`
 
 The agent must not infer its final role from its folder name. The register entry itself is also provisional and must not be treated as an anchor.
+
+A preexisting peer responsibility is not the same thing as a ratified Core Agent identity. Legacy/peer architecture may supply evidence for the bootstrap, but the CFA still crosses the self-design and owner-alignment gates.
 
 Its first session is a **bootstrap self-design session**.
 
