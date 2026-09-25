@@ -576,128 +576,6 @@
       "strategic_role": "The floor beneath the system. I should ask very little of it, but I need to know exactly which World/Context invariants are protected there."
     }
   ],
-  "distance_matrix_working_distance": {
-    "ARCH-STEWARD": {
-      "ARCH-STEWARD": 0,
-      "CFA-02": 4,
-      "CFA-03": 4,
-      "CFA-04": 14,
-      "CFA-05": 15,
-      "CFA-06": 15,
-      "CFA-07": 24,
-      "CFA-08": 12,
-      "CFA-09": 17,
-      "CFA-10": 20
-    },
-    "CFA-02": {
-      "ARCH-STEWARD": 4,
-      "CFA-02": 0,
-      "CFA-03": 1,
-      "CFA-04": 11,
-      "CFA-05": 11,
-      "CFA-06": 12,
-      "CFA-07": 21,
-      "CFA-08": 9,
-      "CFA-09": 14,
-      "CFA-10": 17
-    },
-    "CFA-03": {
-      "ARCH-STEWARD": 4,
-      "CFA-02": 1,
-      "CFA-03": 0,
-      "CFA-04": 11,
-      "CFA-05": 11,
-      "CFA-06": 12,
-      "CFA-07": 21,
-      "CFA-08": 9,
-      "CFA-09": 14,
-      "CFA-10": 17
-    },
-    "CFA-04": {
-      "ARCH-STEWARD": 14,
-      "CFA-02": 11,
-      "CFA-03": 11,
-      "CFA-04": 0,
-      "CFA-05": 21,
-      "CFA-06": 22,
-      "CFA-07": 31,
-      "CFA-08": 19,
-      "CFA-09": 24,
-      "CFA-10": 27
-    },
-    "CFA-05": {
-      "ARCH-STEWARD": 15,
-      "CFA-02": 11,
-      "CFA-03": 11,
-      "CFA-04": 21,
-      "CFA-05": 0,
-      "CFA-06": 22,
-      "CFA-07": 31,
-      "CFA-08": 19,
-      "CFA-09": 24,
-      "CFA-10": 27
-    },
-    "CFA-06": {
-      "ARCH-STEWARD": 15,
-      "CFA-02": 12,
-      "CFA-03": 12,
-      "CFA-04": 22,
-      "CFA-05": 22,
-      "CFA-06": 0,
-      "CFA-07": 32,
-      "CFA-08": 20,
-      "CFA-09": 25,
-      "CFA-10": 28
-    },
-    "CFA-07": {
-      "ARCH-STEWARD": 24,
-      "CFA-02": 21,
-      "CFA-03": 21,
-      "CFA-04": 31,
-      "CFA-05": 31,
-      "CFA-06": 32,
-      "CFA-07": 0,
-      "CFA-08": 29,
-      "CFA-09": 34,
-      "CFA-10": 37
-    },
-    "CFA-08": {
-      "ARCH-STEWARD": 12,
-      "CFA-02": 9,
-      "CFA-03": 9,
-      "CFA-04": 19,
-      "CFA-05": 19,
-      "CFA-06": 20,
-      "CFA-07": 29,
-      "CFA-08": 0,
-      "CFA-09": 22,
-      "CFA-10": 25
-    },
-    "CFA-09": {
-      "ARCH-STEWARD": 17,
-      "CFA-02": 14,
-      "CFA-03": 14,
-      "CFA-04": 24,
-      "CFA-05": 24,
-      "CFA-06": 25,
-      "CFA-07": 34,
-      "CFA-08": 22,
-      "CFA-09": 0,
-      "CFA-10": 30
-    },
-    "CFA-10": {
-      "ARCH-STEWARD": 20,
-      "CFA-02": 17,
-      "CFA-03": 17,
-      "CFA-04": 27,
-      "CFA-05": 27,
-      "CFA-06": 28,
-      "CFA-07": 37,
-      "CFA-08": 25,
-      "CFA-09": 30,
-      "CFA-10": 0
-    }
-  },
   "first_order_reading": {
     "closest": [
       "CFA-02",
@@ -811,6 +689,244 @@
         "relevant_peer",
         "World Lens"
       ]
+    }
+  ],
+  "cfa01_distance_map": [
+    {
+      "id": "ARCH-STEWARD",
+      "name": "Architecture Steward",
+      "taxonomy": [
+        "PARENT",
+        "RECONCILER",
+        "GRAPH-STEWARD",
+        "PRODUCTIVITY-BRIDGE"
+      ],
+      "working_distance": 8,
+      "distance_band": "IMMEDIATE",
+      "closeness_score": 92,
+      "need_from_peer": 5,
+      "provide_to_peer": 5,
+      "semantic_proximity": 4,
+      "information_exchange": 5,
+      "boundary_criticality": 4,
+      "graph_coupling": 5,
+      "commons_value": 4,
+      "temporal_priority": 5,
+      "world_lens_relevance": 5
+    },
+    {
+      "id": "CFA-02",
+      "name": "Data Steward",
+      "taxonomy": [
+        "CORE-NEIGHBOR",
+        "IDENTITY-SEAM",
+        "CONTINUITY-PROVIDER",
+        "LENS-COMPOSITOR"
+      ],
+      "working_distance": 1,
+      "distance_band": "IMMEDIATE",
+      "closeness_score": 99,
+      "need_from_peer": 5,
+      "provide_to_peer": 5,
+      "semantic_proximity": 5,
+      "information_exchange": 5,
+      "boundary_criticality": 5,
+      "graph_coupling": 5,
+      "commons_value": 4,
+      "temporal_priority": 5,
+      "world_lens_relevance": 5
+    },
+    {
+      "id": "CFA-03",
+      "name": "Semantic Continuity Steward",
+      "taxonomy": [
+        "CORE-NEIGHBOR",
+        "SEMANTIC-BRIDGE",
+        "GROUNDING-PARTNER",
+        "TERMINOLOGY-COUPLER"
+      ],
+      "working_distance": 1,
+      "distance_band": "IMMEDIATE",
+      "closeness_score": 99,
+      "need_from_peer": 5,
+      "provide_to_peer": 5,
+      "semantic_proximity": 5,
+      "information_exchange": 5,
+      "boundary_criticality": 5,
+      "graph_coupling": 5,
+      "commons_value": 4,
+      "temporal_priority": 5,
+      "world_lens_relevance": 5
+    },
+    {
+      "id": "CFA-04",
+      "name": "Authority Governance Steward",
+      "taxonomy": [
+        "GOVERNANCE-NEIGHBOR",
+        "CONSTRAINT-PROVIDER",
+        "BOUNDARY-GUARD"
+      ],
+      "working_distance": 21,
+      "distance_band": "NEAR",
+      "closeness_score": 79,
+      "need_from_peer": 4,
+      "provide_to_peer": 4,
+      "semantic_proximity": 3.5,
+      "information_exchange": 4,
+      "boundary_criticality": 4.5,
+      "graph_coupling": 4,
+      "commons_value": 3.5,
+      "temporal_priority": 4.5,
+      "world_lens_relevance": 4
+    },
+    {
+      "id": "CFA-05",
+      "name": "Agency / Work / Execution",
+      "taxonomy": [
+        "OPERATIONAL-NEIGHBOR",
+        "CONTEXT-CONSUMER",
+        "OUTCOME-FEEDBACK"
+      ],
+      "working_distance": 22,
+      "distance_band": "NEAR",
+      "closeness_score": 78,
+      "need_from_peer": 4.5,
+      "provide_to_peer": 4.5,
+      "semantic_proximity": 3.5,
+      "information_exchange": 4,
+      "boundary_criticality": 3.5,
+      "graph_coupling": 4,
+      "commons_value": 3,
+      "temporal_priority": 4.5,
+      "world_lens_relevance": 4
+    },
+    {
+      "id": "CFA-06",
+      "name": "Capability / Provider / Realization",
+      "taxonomy": [
+        "REALIZATION-NEIGHBOR",
+        "EXTERNAL-WORLD-BRIDGE",
+        "OBSERVATION-PROVIDER"
+      ],
+      "working_distance": 23,
+      "distance_band": "NEAR",
+      "closeness_score": 77,
+      "need_from_peer": 4,
+      "provide_to_peer": 4,
+      "semantic_proximity": 3.5,
+      "information_exchange": 4,
+      "boundary_criticality": 3.5,
+      "graph_coupling": 4,
+      "commons_value": 3,
+      "temporal_priority": 4,
+      "world_lens_relevance": 4.5
+    },
+    {
+      "id": "CFA-07",
+      "name": "Composition / Plugin / Forge",
+      "taxonomy": [
+        "ASSEMBLY-NEIGHBOR",
+        "CAPABILITY-CONSUMER",
+        "EXTENSIBILITY-PROVIDER"
+      ],
+      "working_distance": 41,
+      "distance_band": "ADJACENT",
+      "closeness_score": 59,
+      "need_from_peer": 3,
+      "provide_to_peer": 3.5,
+      "semantic_proximity": 2.5,
+      "information_exchange": 3,
+      "boundary_criticality": 3,
+      "graph_coupling": 3.5,
+      "commons_value": 2.5,
+      "temporal_priority": 3,
+      "world_lens_relevance": 3
+    },
+    {
+      "id": "CFA-08",
+      "name": "Experience / Interaction / Surfaces",
+      "taxonomy": [
+        "CORE-NEIGHBOR",
+        "REPRESENTATION-PROVIDER",
+        "WORLD-PROJECTION-CONSUMER"
+      ],
+      "working_distance": 17,
+      "distance_band": "IMMEDIATE",
+      "closeness_score": 83,
+      "need_from_peer": 4,
+      "provide_to_peer": 4.5,
+      "semantic_proximity": 4,
+      "information_exchange": 4.5,
+      "boundary_criticality": 4,
+      "graph_coupling": 4,
+      "commons_value": 3,
+      "temporal_priority": 4,
+      "world_lens_relevance": 5
+    },
+    {
+      "id": "CFA-09",
+      "name": "Evolution / Compatibility / Self-Maintenance",
+      "taxonomy": [
+        "LIFECYCLE-NEIGHBOR",
+        "CONTINUITY-GUARD",
+        "DRIFT-CONSUMER"
+      ],
+      "working_distance": 27,
+      "distance_band": "NEAR",
+      "closeness_score": 73,
+      "need_from_peer": 4,
+      "provide_to_peer": 4,
+      "semantic_proximity": 3,
+      "information_exchange": 3.5,
+      "boundary_criticality": 3.5,
+      "graph_coupling": 4,
+      "commons_value": 3,
+      "temporal_priority": 4,
+      "world_lens_relevance": 4.5
+    },
+    {
+      "id": "CFA-10",
+      "name": "Runtime Constitution / Core Substrate",
+      "taxonomy": [
+        "CONSTITUTIONAL-NEIGHBOR",
+        "ENFORCEMENT-GUARD",
+        "LOW-LEVEL-CONSTRAINT"
+      ],
+      "working_distance": 33,
+      "distance_band": "NEAR",
+      "closeness_score": 67,
+      "need_from_peer": 3.5,
+      "provide_to_peer": 4,
+      "semantic_proximity": 2.5,
+      "information_exchange": 3,
+      "boundary_criticality": 4.5,
+      "graph_coupling": 3.5,
+      "commons_value": 2.5,
+      "temporal_priority": 3.5,
+      "world_lens_relevance": 3.5
+    }
+  ],
+  "matrix_interpretation": "Every distance in this file is from CFA-01 to the named peer/parent. No peer-to-peer distance is asserted.",
+  "distance_examples": [
+    {
+      "band": "IMMEDIATE",
+      "meaning": "I expect this relationship to be part of ordinary ongoing work and to need direct exchange."
+    },
+    {
+      "band": "NEAR",
+      "meaning": "I expect a strong seam, but interaction can remain contract- or task-triggered."
+    },
+    {
+      "band": "ADJACENT",
+      "meaning": "I expect recurring boundary coordination, usually through explicit interfaces."
+    },
+    {
+      "band": "CONNECTED",
+      "meaning": "I expect meaningful but episodic collaboration."
+    },
+    {
+      "band": "OUTER",
+      "meaning": "I expect mostly indirect interaction unless a concrete boundary/change creates a need."
     }
   ]
 }
