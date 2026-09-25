@@ -193,4 +193,62 @@ A different user can later compose:
 - monitoring + attention + background Work;
 without changing the factory boundary.
 
+
+## Fresh takeover re-evaluation — 2026-09-25 / main 13fc6c0
+
+This is a fresh bounded trace of the first composition. The prior composition was re-read and checked against current Product Instance, System Intelligence, Ω contract and provider-browser evidence.
+
+### Important clarification
+
+The prior trace named research capability without naming its implementation boundary. The first composition therefore should be understood as:
+
+- six existing reference substrate pieces;
+- one thin first-party research capability plugin;
+- the existing Product Instance/composition surface wrapper.
+
+That is still a small composition. The research capability is ordinary plugin semantics, not K0.
+
+### Fresh trace
+
+User → Factory surface/composition → Address/Intent → Context/World → Research capability → provider.browser realization → vivim.law authority → vivim.run Work → browser execution → vivim.vault evidence/result → vivim.mind projection → Product Instance continuity
+
+The capability can initially be constrained to one declared browser realization/account. The general Account/Routing model remains outside the first proof.
+
+### Current evidence
+
+- Recipe/Manifest admission and Port routing are implemented in Ω.
+- Intent persistence and Intent/Capability/Authority separation are implemented.
+- provider.browser has both fixture and live ChatGPT paths, but live owner-machine execution remains unproven.
+- vivim.vault provides durable revisions/evidence.
+- vivim.mind is explicitly a derived lens, not canonical storage.
+- Product Instance research explicitly separates verification from activation and requires prior activation preservation until a candidate is ready.
+
+### Fresh blocker test
+
+The unresolved issues are still implementation/proof concerns:
+- executable-entry confinement;
+- generic bootstrap;
+- minimum State/Graph/Grant/Generation reduction;
+- first-party/extension symmetry;
+- Work continuation across replacement;
+- Product Instance activation;
+- owner-machine live-provider proof.
+
+The only newly identified gap is the need for the first-party research capability implementation itself. Because this can live behind the existing plugin/contract boundary, it does not currently force factory redesign.
+
+### Fresh falsifier
+
+The factory boundary would be challenged if implementing the research capability required:
+- a new host privilege;
+- hardcoded research behavior in K0;
+- a second composition/admission mechanism;
+- bypassing law/Port/Recipe;
+- or a product-specific persistence database outside the vault boundary.
+
+None is currently evidenced as necessary.
+
+### Fresh result
+
+The composition remains the smallest useful user-visible composition that exercises the factory end to end, with the research capability explicitly classified as system-plugin semantics rather than silently assumed infrastructure.
+
 ROUND 1 FINDING: READY
