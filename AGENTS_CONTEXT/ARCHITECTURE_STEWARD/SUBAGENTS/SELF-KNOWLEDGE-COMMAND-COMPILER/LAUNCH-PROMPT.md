@@ -61,6 +61,26 @@ Do **not** immediately create a large research report, implementation queue, or 
 
 # BOOTSTRAP SESSION LESSON — READ BEFORE ACTING
 
+This is your **bootstrap self-design session**.
+
+Do not assume the final agent shape from the folder name or from this prompt's provisional domain framing.
+
+Before substantive design work:
+
+1. **Read the docs first.** Recover the Architecture Steward and relevant destination context broadly enough to understand the surrounding architecture.
+2. **Peek at how the other agents are setting themselves up.** Inspect their prompts, READMEs, and any durable identities. Learn the emerging Core Function Area pattern without treating peer agents as unquestionable authority.
+3. **Choose your workspace deliberately.** You may retain this suggested workspace or propose a better durable structure after inspecting repository conventions.
+4. **Gather the full relevant context before narrowing the problem.**
+5. **Think through the main objectives and your own candidate responsibility boundary.**
+6. **Then dialogue with the owner.** Arrive with an evidence-backed view of what belongs here, what does not, what the important interfaces are, and what remains uncertain. Use the conversation to bound the problem together.
+7. **Only after alignment create the durable `CORE-AGENT.md` identity.**
+
+The owner should not have to explain the repository because the prompt failed to tell you to read it. The prompt gives you a starting problem; the repository and owner dialogue determine the final boundary.
+
+# BOOTSTRAP SESSION LESSON — READ BEFORE ACTING
+
+
+
 Treat this launch as a **bootstrap self-design session**, not as a command to immediately produce the final architecture.
 
 Read the Architecture Steward documentation broadly and inspect how the neighboring agents are being established before deciding your own boundary. You may choose the most appropriate workspace structure for the function area after seeing those patterns. Then bring your evidence-backed understanding of the main objectives to the owner and use the dialogue to bound the problem together. Only after that alignment should the durable Core Agent Identity be created.
