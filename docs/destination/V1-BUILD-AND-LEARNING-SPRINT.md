@@ -145,6 +145,61 @@ A complete ledger of prototype shortcuts, discoveries, contradictions, rejected 
 
 ---
 
+
+
+# 3A. Repository genealogy and evidence roles
+
+The V1 sprint must distinguish the major VIVIM code lineages. They are not interchangeable sources.
+
+~~~text
+LEGACY VIVIM
+   │
+   └──────────────► standalone VIVIM-Ω
+                         │
+                         │ incorporated snapshot
+                         ▼
+                  BCP / omega-baseline
+                         │
+          ┌──────────────┴──────────────┐
+          │                             │
+      Ω baseline                 BCP live evolution
+          │                             │
+          └──────────────┬──────────────┘
+                         ▼
+                 emerging VIVIM product
+~~~
+
+## Current source roles
+
+| Source | Role | Authority |
+|---|---|---|
+| `vivim-original-baseline/vivim-final-enhanced/` | Legacy behavioral, UX, provider and machinery mine | Evidence to harvest; not destination law |
+| `owenservera/vivim-omega` | Standalone Ω historical upstream/reference snapshot and decision history | Historical evidence; not current BCP implementation |
+| `omega-baseline/omega-final/` inside BCP-dev | Incorporated Ω tree plus subsequent BCP evolution | Current implementation evidence within BCP |
+| `bcp-speed/bcp/` | BCP/Forge/forensic/migration machinery | Current program/tooling evidence |
+| `docs/destination/` | Product destination and discovery/control documents | Current product working model unless superseded |
+| `docs/agent-system/` | Cooperative-program controls | Process authority, not product definition |
+
+### Standalone Ω rule
+
+The standalone `vivim-omega` repository must be consulted when we need to answer:
+
+- what the original Ω design intended;
+- why an Ω decision was made;
+- what existed before BCP incorporated the Ω tree;
+- whether BCP changed, removed or added a capability relative to that historical baseline.
+
+It must **not** be used as evidence that a capability exists in the current BCP product unless the corresponding capability is also verified in BCP.
+
+### BCP-current rule
+
+When deciding what can be built now, use the current BCP tree and current product/program documents.
+
+When a current BCP implementation differs from standalone Ω, record the difference as lineage/evolution evidence rather than silently treating either version as universally authoritative.
+
+This distinction is especially important for V1 provider work, because BCP contains later live-browser and governed-execution evolution that is not present in the September 21 standalone Ω snapshot.
+
+
 # 4. The four architectural layers we are learning simultaneously
 
 The sprint should never treat “the architecture” as one blob.
