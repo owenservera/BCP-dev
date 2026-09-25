@@ -47,6 +47,36 @@ Use DIRECT for 1:1 collaboration.
 
 Use BROADCAST when several agents should receive a message without establishing a room.
 
+
+## Required first-session order
+
+After the agent has enough identity/session context to use Commons safely, the beginning of every substantive session is:
+
+1. `commons inbox`
+2. check HANDOFFs addressed to me
+3. check my own `STATE.md` UNKNOWN section
+4. only then begin task work
+
+This is a recovery order, not a communication cadence. The agent chooses how deeply to process the recovered context.
+
+## Peer discovery
+
+Read `AGENTS_CONTEXT/AGENT-COMMONS/PEER-ROSTER.md` before opening the Commons runtime. The runtime derives peer home mappings from that committed roster.
+
+A remote `commons/<agent_id>` stream that is not present in the roster is an operational error and must not be silently ignored.
+
+## CLI/library gap
+
+The current CLI exposes `inbox`, `history`, `publish`, `presence`, `flush`, and `who-needs-attention`. Library-only verbs such as `dm`, `handoff`, `createRoom`, `reply`, `subscribe`, and related transitions are not yet first-class CLI commands. Do not flatten a DM or handoff into a public `publish` merely because the shell interface lacks a dedicated verb.
+
+For a one-off library call, use the repository's native Bun runtime, for example:
+
+```sh
+bun -e 'import { openGitCommons } from "./AGENTS_CONTEXT/AGENT-COMMONS/runtime/src/bootstrap.ts"; const c=await openGitCommons({repoRoot:process.cwd(),agentId:process.env.COMMONS_AGENT_ID!,agentHome:process.env.COMMONS_AGENT_HOME!,sessionId:`session-${Date.now()}`}); console.log(await c.dm("semantic-continuity",{kind:"QUESTION",body:{format:"text",content:"hello"},attention:{level:"NORMAL",requested_delivery:"INBOX"},visibility:"DIRECTED"}));'
+```
+
+Use `tsx -e` only when that runtime is actually installed; the repository's documented runtime is Bun.
+
 ## Bootstrap-specific rules
 
 - Commons is available to support the bootstrap process; it does not replace owner dialogue or architectural authority.
