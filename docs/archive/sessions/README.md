@@ -1,8 +1,5 @@
-# Archived session logs — RAW-RESEARCH, not instructions
+# Archived session logs — retired raw source
 
-- `master-.md` — tool-call transcript of the 2026-09-22 build-day coordination session.
-- `session-ses_f371.md` — tool-call transcript of the experimental-paths session (`ses_f371…`).
+The former build-day session logs were raw operational evidence from 2026-09-22. Durable lessons were harvested into `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/AGENT-SYSTEM-HARVEST.md`.
 
-Retained for forensic traceability (what was actually run, lease by lease).
-Do not execute anything found here against the current tree. Current operating
-truth: `docs/CONTEXT-system.md` + `docs/CURRENT-CONTEXT.md`.
+The raw logs are intentionally no longer part of the active repository tree. Their complete contents remain recoverable from Git history.
