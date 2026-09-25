@@ -1,0 +1,28 @@
+# Change Record — Destination Architecture Graph
+
+- changeId: STEWARD-2026-09-25-ARCH-GRAPH
+- date/ref: 2026-09-25
+- affected entities: Architecture Steward documentation model; destination architecture views; graph data/projections
+- previous representation: dependency graph, responsibility matrix, journey registry, System Intelligence graph and destination documents maintained as separate views
+- new representation: one documentation-first destination architecture graph with typed nodes, edges, evidence and lineage; prior views remain as source/canonical inputs within their scopes
+- reason: make the documented end vision, destination responsibilities, research evidence, dependencies and future implementation traversable as one architectural network before code becomes the dominant context
+- source/evidence refs:
+  - docs/destination/NORTH-STAR.md
+  - docs/destination/HUMAN-EXPERIENCE.md
+  - docs/destination/CONCEPTUAL-MODEL.md
+  - docs/destination/DESTINATION-MASTER-MAP.md
+  - docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md
+  - docs/destination/REQUIREMENT-EVIDENCE-TRACEABILITY.md
+  - docs/destination/VERTICAL-SLICE-REGISTRY.md
+  - docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
+  - docs/destination/system-intelligence/indexes/ATOMS.json
+  - docs/destination/system-intelligence/indexes/EDGES.json
+- authority ref: existing destination documents remain scope authorities; the graph is DERIVED
+- affected dependencies: Architecture Steward mapping and future implementation/evidence views
+- stale views: none declared; existing graphs remain valid projections
+- unresolved questions:
+  - exact machine-readable registry schema may evolve;
+  - code/evidence attachment model will be added after implementation begins;
+  - generated views should be automated only after semantics remain stable
+- required revalidation: attach implementation nodes during first coding slice; verify no source/graph divergence; validate replacement/evolution traversal
+- disposition: REFINEMENT / ADDITION OF DERIVED GRAPH VIEW
