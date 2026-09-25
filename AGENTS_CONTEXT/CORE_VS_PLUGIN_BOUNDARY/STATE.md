@@ -1,62 +1,48 @@
 # State — Core vs Plugin Boundary
 
 Updated: 2026-09-25
+Status: RESEARCH PASS 3 COMPLETE / ADVERSARIAL CLOSURE
 
-Status: RESEARCH PASS COMPLETE / DEEPENED PACKAGE COMMITTED
+## Final result
 
-## Result
+Pass 3 confirms the narrow K0/K1/plugin architecture but does NOT approve the current implementation as a fully closed Core boundary.
 
-The dedicated pass concludes that VIVIM should retain a small K0 enforcement kernel, a K1 shared contract/protocol layer, replaceable first-party system plugins, third-party extension plugins, and out-of-tree tooling.
+PROVEN K0: signed Recipe admission; manifest integrity/signature verification; content integrity primitive; compartment/Port boundary; capability token verification and ownership; revocation/generation fencing; atomic activation; fail-closed recovery; generic lifecycle; necessary crypto/canonicalization primitives.
 
-K0 is limited to non-bypassable, domain-neutral runtime mechanisms: admission/integrity, isolation/transport, capability egress enforcement, revocation/fencing, atomic activation/recovery, minimal platform/crypto primitives and generic lifecycle.
+UNDERPROVEN K0: StateArbitrator; grant-provenance subsystem; broader platform seam; full generation registry; hostile OS-level isolation claim; literal bootstrap-role mechanism.
 
-K1 contains shared boundary vocabulary such as Manifest/Recipe, Port, Capability, Outcome/Refusal, Object/Revision, Evidence, Intent, Work, Authority and Change references. Product meaning remains outside K0.
+EXPERIMENT-REQUIRED: graph reduction; exact generation-pin primitive.
 
-## Deepened evidence pass
+CONTRADICTED current implementation: zero-plugin boot; executable-entry confinement.
 
-The package is grounded in concrete current Ω source, not only design prose:
+PROVEN K1: Manifest/Recipe, Port, Lifecycle, Capability references, Outcome/Refusal, Plugin/Object/Revision/Evidence/Intent/Work references, Authority frame shape, Change references, Runtime tier and storage-driver protocol.
 
-- host/src/genesis.ts → minimal closed bootstrap and generic kernel structures
-- host/src/canon.ts → canonical encoding, hashes, signatures and atomic-write boundary
-- host/src/worker.ts → compartment/transport mechanics with explicitly documented resource limits
-- host/src/ports.ts → host-side capability token ownership, revocation, generation and scope checks
-- contracts/src/lifecycle.ts → host operation/capability vocabulary
-- contracts/src/manifest.ts → plugin declaration, dependency, runtime, risk and generality vocabulary
-- plugins/vivim-law/* → invocation, standing and privacy semantics outside K0
-- plugins/vivim-agent/* → delegation and adaptation governance outside K0
-- plugins/vivim-run/* → Work/liveness semantics outside K0
+SYSTEM PLUGINS PROVEN as domain placement: vivim.law, vivim.vault, vivim.run, vivim.agent, vivim.mind, vivim.nlcl and provider.browser.
+
+EXTENSION PLUGIN boundary is PROVEN conceptually but runtime privilege symmetry remains UNDERPROVEN until exercised with a third-party plugin.
+
+## What changed from Pass 2
+
+Earlier wording implied zero-plugin boot was an already-valid runtime state. Direct source inspection overturned that claim: parseRecipe() requires a non-empty composition and verifyCompositionInvariants() requires vivim.law at boot phase 0.
+
+Earlier wording treated StateArbitrator and the larger graph/audit/generation structures too confidently as K0. Pass 3 reduces those claims to minimal candidates pending experiments.
+
+Pass 3 also identifies a concrete B1 executable-entry confinement gap: entry is joined to sourceDir but not explicitly constrained to the hashed tree.
 
 ## Canonical package
 
 docs/destination/core-vs-plugin-boundary/
 
-The package contains the 19 required outputs plus diagrams and a deeper evidence/control layer covering archaeology, current implementation mapping, boundary anatomy, stress cases, K0 proof obligations, lifecycle/trust, contract evolution, responsibility decision ledger, review checklist and zero-plugin bootstrap.
+The package now contains the required Pass 1/2 artifacts plus the complete Pass 3 adversarial closure package and diagrams.
 
-## Strongest findings
+## Immediate blockers
 
-1. Current Ω source already provides unusually strong evidence for a narrow host.
-2. The remaining risk is semantic leakage into K0, not insufficient host authority.
-3. Security sensitivity does not imply Core; authority enforcement and policy meaning remain separate.
-4. First-party/system and third-party/extension symmetry is the key generality test.
-5. Active Work replacement is the hardest boundary experiment because it exercises identity, contracts, evidence, authority, persistence and evolution simultaneously.
-6. Zero-plugin bootstrap is a powerful falsifier for hidden product semantics in the host.
-
-## Key unresolved experiments
-
-- exact zero-plugin bootstrap composition and installation UX
-- complete symmetry audit of every current Ω plugin versus a legitimate external plugin
-- exact Work continuity semantics under implementation replacement
-- semantic contract compatibility algebra
-- OS/product shell boundary
-- unified evolution admission for Forge, provider healing and installation
-- whether any generic object/vault primitive truly cannot live outside K0
-
-These are research/experiment items, not reasons to enlarge Core now.
-
-## Authority
-
-This STATE is a derived research handoff. It does not amend ratified Ω decisions. The research reconciles B1–B5 and the current Ω rule that everything else is a plugin.
+- do not claim B1 executable-entry confinement closed until the entry-path experiment/fix is proven;
+- do not claim zero-plugin boot current until empty-composition/bootstrap-role semantics are proven;
+- do not enlarge host code for state/graph/generation without first reduction-testing smaller mechanisms;
+- do not claim first-party/third-party runtime symmetry without an actual extension experiment;
+- do not claim active Work replacement until a live continuation/reconciliation experiment succeeds.
 
 ## Next action
 
-Use the package as the mandatory classification gate before substantive implementation. Any proposed K0 addition must include a protected invariant, concrete bypass, universality argument, domain-neutrality argument, smallest mechanism, removal experiment, impact analysis and falsifier.
+Use FINAL-BOUNDARY-VERDICT.md as the implementation-gate baseline. The next work should be a tiny constitutional-runtime reduction experiment, not a broad redesign.
