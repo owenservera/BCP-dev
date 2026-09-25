@@ -167,7 +167,7 @@ export class GitBranchTransport implements CommonsTransport {
       const agent = ref.split("/").at(-1);
       if (!agent) continue;
       const home = agent === this.o.agentId ? this.o.agentHome : this.o.peerHomes?.[agent];
-      if (!home) continue;
+      if (!home) throw new Error(`COMMONS_PEER_NOT_REGISTERED:${agent}`);
       try { all.push(...this.readRef(ref, home)); } catch {}
     }
     const seen = new Set<string>();
