@@ -1,10 +1,40 @@
 # FINAL-BOUNDARY-VERDICT
 
 > Pass 3 — Adversarial Core Boundary Closure
+>
+> **Post-pass correction:** the original responsibility matrix was too coarse to serve as the complete destination adequacy universe. It has been replaced by the expanded 125-responsibility matrix in `DESTINATION-RESPONSIBILITY-MATRIX.md`. This correction does not, by itself, promote any newly separated responsibility into K0; it makes the adequacy test honest enough to detect such a promotion if a concrete non-bypassable invariant requires it.
 
-## FINAL K0
+## 1. Final boundary conclusion
+
+The central boundary remains:
+
+```
+K0 Ω CORE
+    minimum non-bypassable, domain-neutral runtime mechanisms
+
+K1 CORE CONTRACTS
+    shared references, envelopes and protocol vocabulary
+
+SYSTEM PLUGINS
+    first-party VIVIM capabilities and semantics
+
+EXTENSION PLUGINS
+    user / third-party capabilities through the same governed path
+
+TOOLING
+    authoring, analysis, diagnostics and CI outside runtime authority
+```
+
+The fundamental rule remains:
+
+> **Fundamental to VIVIM does not imply fundamental to K0.**
+
+The complete responsibility universe is now represented explicitly so Core adequacy can be tested against the actual destination rather than against coarse subsystem buckets.
+
+## 2. FINAL K0
 
 PROVEN K0:
+
 - signed Recipe admission
 - manifest integrity and signature verification
 - content integrity primitives
@@ -19,6 +49,7 @@ PROVEN K0:
 - minimum crypto/canonicalization primitives needed by those functions
 
 UNDERPROVEN K0:
+
 - StateArbitrator as a distinct constitutional subsystem
 - grant provenance as a separate AuditLog subsystem
 - platform seam beyond the minimal primitive
@@ -26,16 +57,19 @@ UNDERPROVEN K0:
 - hard OS-level isolation/security sandbox claim
 
 EXPERIMENT-REQUIRED:
+
 - graph subsystem reduction to a minimal op→implementation routing structure
 - exact generation-pin continuity primitive
 
-CONTRADICTED:
-- current B1 executable-entry confinement claim, because source entry is not explicitly proven to remain inside the hashed source tree
-- current zero-plugin boot claim, because parseRecipe rejects empty composition and verification requires vivim.law at boot phase 0
+CONTRADICTED CURRENT IMPLEMENTATION:
 
-## FINAL K1
+- B1 executable-entry confinement: source entry is not explicitly proven to remain inside the hashed source tree
+- zero-plugin boot: empty composition is rejected and bootPhase 0 currently requires `vivim.law`
+
+## 3. FINAL K1
 
 PROVEN K1:
+
 - Manifest/Recipe protocol vocabulary
 - Port wire
 - Lifecycle vocabulary
@@ -51,74 +85,190 @@ PROVEN K1:
 - Runtime tier
 - storage driver protocol
 
-UNDERPROVEN / SEMANTIC API:
-- Provider realization facade
-- Control bootstrap/describe
-- Lang frames
-- Intent plan semantics
-- World object semantics
-- Work plan/attempt semantics
-- Chat vocabulary
+Semantic/shared APIs remain K1 only where they are actually protocol/reference contracts. Rich domain semantics do not become constitutional merely because they are stored under `contracts/src`.
 
-These are valid shared APIs where useful, but they are not constitutional K1 merely because they live in contracts/src.
+## 4. RESPONSIBILITY-UNIVERSE CORRECTION
 
-## SYSTEM PLUGINS
+The previous matrix was insufficiently granular. The corrected matrix now contains **125 explicit destination responsibility rows** plus a cross-cutting concern view.
 
-PROVEN SYSTEM PLUGIN as domain placement:
-vivim.law, vivim.vault, vivim.run, vivim.agent, vivim.mind, vivim.nlcl, provider.browser, plus their domain-specific capabilities and semantics.
+It separately represents:
 
-The privilege symmetry is not fully proven yet because a hostile extension has not been exercised through the same runtime constraints and the boot-role exception remains first-party-specific.
+- Ownership / Principal identity
+- Composition identity / admission / bootstrap role
+- Plugin lifecycle and trust state
+- Capability definition / reference / realization / discovery
+- Identity, scope, revocation and generation fencing
+- Storage substrate vs canonical data model
+- Object identity / lifecycle / revision
+- Relationship and identity reconciliation
+- Provenance, evidence, verification and epistemic state
+- Schema / semantic / identity / relationship evolution
+- Query, retrieval, derivation and projection
+- Import / acquisition / export / restore
+- Ontology / World
+- Context and Memory
+- Self-Knowledge and freshness
+- Language / symbolic command system / grounding / teaching
+- Intent / Plan / Spatial Intent Circuit
+- Authority / Law / Consent / Delegation / Risk
+- Work / Step / Attempt / Recovery / Scheduler
+- Agent / Execution realization
+- Resource governance
+- Provider / Account / Session / Resource as distinct identities
+- Routing / preference / fallback
+- Provider knowledge / discovery / healing
+- Browser realization
+- Credentials / secret integration
+- Attention / notifications / background / return continuity
+- Workspace / Surface / Canvas / direct manipulation
+- Product shell / OS / desktop / install / update
+- Product Instance / persistence / continuity / configuration
+- Backup / reconstruction / multi-device continuity
+- Sharing / cross-machine delegation
+- Universal acquisition / generic web resources
+- Local intelligence / model lifecycle
+- Forge / plugin distribution
+- Evolution / compatibility / impact / migration / promotion / rollback
+- Diagnostics / interoperability / research tooling
 
-## EXTENSION PLUGINS
+The previous matrix should no longer be used as the completeness baseline.
 
-PROVEN conceptually as the target boundary; runtime symmetry is UNDERPROVEN until a third-party plugin experiment passes without undocumented host APIs.
+## 5. IMPORTANT NEGATIVE FINDINGS
 
-## TOOLING
+The expanded inventory still does **not** justify promoting the following domains into K0 merely because they are fundamental to the destination:
 
-PROVEN TOOLING / OUTSIDE RUNTIME:
-- CLI composition compiler
-- graph analytics such as blastRadius
-- audit export/lens projections
-- worker-pool optimization
-- research/diagnostic generators and CI
+- Self-Knowledge
+- NCLL / command language
+- Dynamic data model / ontology
+- World / objects / relationships
+- Intent / Plan / Spatial Intent
+- Authority / Law semantics / Consent / Delegation
+- Work / Agent / Automation
+- Provider / Account / Session / Resource
+- Routing / Discovery / Healing
+- Memory / Context / Attention
+- Surface / Canvas / Workspace
+- Product Instance / Product shell
+- Forge / Evolution / Migration
+- Evidence storage / audit storage
 
-## REAL K0 GAPS
+For each, the test remains:
 
-1. B1 executable-entry confinement.
-2. The exact minimum of StateArbitrator.
-3. The exact minimum of graph + grant-provenance machinery.
-4. The exact minimum generation-pin mechanism.
-5. OS-level containment semantics if extension plugins are adversarial rather than merely signed code.
-6. Generic bootstrap-role mechanism that removes the literal vivim.law exception without weakening the ratified boot trust chain.
+> **What concrete universal unsafe bypass exists if the semantic responsibility lives in a governed plugin?**
 
-## FALSE-CORE FINDINGS
+Pass 3 has not produced such a bypass for these domains.
 
-Current evidence does not justify promoting Vault, Work, Law semantics, Intent/NLCL, World, Evidence storage, Provider/Account/Session, Browser, Routing, Discovery, Self-Knowledge, Spatial Intent, Agent, Forge, Memory, Attention, Surface or Product Instance into K0 domains.
+## 6. SELF-KNOWLEDGE, NCLL AND CANONICAL DATA MODEL
 
-## B1 STATUS
+These are now explicitly first-class destination responsibilities.
 
-CONTRADICTED at the implementation boundary: contentHashDir() hashes the source directory, but manifest entry validation does not prove that m.entry resolves inside that hashed tree. This must be resolved before treating B1 executable-entry confinement as closed.
+### Self-Knowledge
 
-## ZERO-PLUGIN STATUS
+`vivim.mind` remains a derived, falsifiable system model. It consumes registry, vault and configuration evidence and does not become a second authority or canonical store.
 
-CONTRADICTED in current implementation; the architecture remains a valid target. Empty-composition parsing and the hardcoded law boot role must be reconciled.
+### NCLL / Command Language
 
-## ACTIVE-WORK REPLACEMENT STATUS
+`vivim.nlcl` owns deterministic language interpretation, symbolic command families, frames, grounding and feedback. Stable symbolic primitives may be code while language meanings and learned lexicon remain data. The engine is intentionally replaceable.
 
-Boundary model: PROVEN K1/System Plugin. Live replacement/continuation: EXPERIMENT-REQUIRED.
+### Canonical Data Model
 
-## B5 STATUS
+The data model is distinct from the Vault storage substrate. It includes object identity, ontology, relationships, reconciliation, revision, query, projection and semantic/schema evolution.
 
-PROVEN K0 architectural constraint. Host is at 1500/1500, and several safe extraction opportunities exist. No evidence in this pass shows the constitutional minimum cannot fit after extraction.
+None of these produces a current K0 expansion proof.
 
-## IMPLEMENTATION BLOCKERS
+## 7. SYSTEM PLUGINS
 
-Blocker 1 — repair B1 entry confinement before any claim of complete B1 closure.
-Blocker 2 — do not implement claimed zero-plugin boot until the generic empty-composition/bootstrap-role design is reconciled.
-Blocker 3 — define and test the minimal K0 graph/generation/state/provenance primitives before extending host code.
-Blocker 4 — prove first-party/third-party symmetry for the actual runtime boundary.
-Blocker 5 — prove active Work continuation across implementation replacement.
+PROVEN AS DOMAIN PLACEMENT:
 
-## NEXT RESEARCH NEEDED
+- `vivim.law`
+- `vivim.vault`
+- `vivim.run`
+- `vivim.agent`
+- `vivim.mind`
+- `vivim.nlcl`
+- `provider.browser`
 
-First priority is a tiny constitutional-runtime reduction exercise: derive the minimal Routing/Grant/Generation/State primitives and the bootstrap-role abstraction, then run the B1 entry-confinement and hostile-plugin experiments. Do not start a broad architecture redesign.
+Runtime first-party/third-party privilege symmetry remains UNDERPROVEN because an actual hostile extension has not yet been exercised through exactly the same boundary and the bootstrap-role exception remains first-party-specific.
+
+## 8. REAL K0 GAPS / ADJUSTMENTS
+
+Current K0-related work is therefore narrower than the full destination model:
+
+1. **B1 executable-entry confinement** — concrete implementation defect.
+2. **Generic bootstrap role** — replace hardcoded product identity with a signed generic role without weakening the trust chain.
+3. **Minimum State primitive** — reduction experiment.
+4. **Minimum Graph / Grant primitive** — reduction experiment.
+5. **Minimum Generation pin** — reduction experiment.
+6. **Grant provenance minimum** — determine whether integrity proof alone suffices.
+7. **Platform seam minimum** — define exact owner-scoped boundary.
+8. **Hostile OS containment** — only if the intended extension threat model requires adversarial native-code containment.
+
+## 9. ZERO-PLUGIN STATUS
+
+The target remains a valid diagnostic/installation state with:
+
+- kernel identity and trust root available;
+- generic contracts/diagnostics available;
+- no product-domain capability active;
+- explicit “no composition installed” state;
+- later signed composition install path.
+
+Current implementation does not yet satisfy this.
+
+## 10. ACTIVE-WORK REPLACEMENT
+
+The semantic boundary remains:
+
+- K0: safe admission / activation / fencing
+- Work: canonical continuity and execution identity
+- Evolution / Compatibility: semantic replacement decision
+- Law / Authority: replacement authorization
+- Evidence: transition history and verification
+- Plugin: concrete realization
+
+Live continuation across replacement remains EXPERIMENT-REQUIRED.
+
+## 11. B5
+
+B5 remains a K0 architectural constraint, not a target to satisfy by deleting needed enforcement.
+
+Current host contains extraction opportunities for:
+
+- CLI / launcher
+- composition compilation
+- graph analytics
+- audit export
+- worker pooling
+- vault-format initialization
+- queue/scheduling policy
+- generation registry storage
+
+No current evidence shows that the true constitutional nucleus cannot fit after these responsibilities are externalized.
+
+## 12. FINAL ADEQUACY STATUS
+
+**Boundary model:** strong / substantially characterized.
+
+**Complete responsibility inventory:** CORRECTED — expanded and now suitable as the destination adequacy baseline.
+
+**K0 adequacy against the full inventory:** NOT YET FULLY PROVEN.
+
+Reason: the expanded inventory makes several destination responsibilities explicit whose exact invariants and implementations are still DESIGN-REQUIRED / EXPERIMENT-REQUIRED. This is not evidence that they belong in K0; it means their dependency on K0 must be checked explicitly rather than inferred from coarse rows.
+
+**Most likely outcome from current evidence:** K0 remains small, while K1 contracts and system plugins become richer and more precisely segmented.
+
+## 13. NEXT ACTION
+
+The next step is **not another broad Core pass**. It is a targeted adequacy/reduction pass against the expanded responsibility inventory:
+
+```
+responsibility
+→ required invariant
+→ minimum generic enforcement
+→ current Ω mechanism
+→ evidence
+→ gap
+→ K0 / K1 / plugin / tooling
+```
+
+That pass should prioritize B1, bootstrap role, State, Graph/Grant, Generation and hostile-plugin symmetry, and then use representative vertical slices (governed action, durable Work, provider action, self-knowledge/NCLL and data evolution) to prove that the expanded destination can actually compose over the proposed kernel.
