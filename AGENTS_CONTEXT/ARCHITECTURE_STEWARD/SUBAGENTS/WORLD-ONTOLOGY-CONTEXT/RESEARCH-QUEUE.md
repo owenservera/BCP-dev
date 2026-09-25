@@ -1,240 +1,200 @@
-# CFA-01 World / Ontology / Context — Research Queue
+# CFA-01 — Research Queue
 
-> Status: BOOTSTRAP ROUND 1 / ACTIVE
-> Updated: 2026-09-25
-> Principle: evidence quality > document volume.
+> Status: BOOTSTRAP / BOUNDED
+> Date: 2026-09-25
+> This is a working queue, not a roadmap and not a project-management authority.
 
-## Round 1 — Essential now
+## 1. TODO-001 — Identity / Correspondence Seam
 
-### TODO-001 — Characterize the minimum World semantic primitives
+Case: CASE-001
+Priority: HIGH
 
-Determine the smallest useful set of concepts required to describe the user's world without collapsing:
+Question:
 
-- entity;
-- atomic unit;
-- relationship;
-- event;
-- state;
-- space;
-- identity/correspondence;
-- resource;
-- evidence;
-- representation.
+> Where does semantic correspondence end and durable identity/evolution begin?
 
-Output target: a concise proposed semantic boundary, not a full ontology implementation.
+Inspect:
+- R-028 canonical object identity;
+- R-032 identity reconciliation;
+- R-033 relationship reconciliation;
+- world-object research;
+- CFA-02 data/identity boundary;
+- CFA-09 evolution/compatibility boundary;
+- source identity, alias and tombstone semantics.
 
-### TODO-002 — Characterize Context
+Produce:
+- semantic correspondence model;
+- CFA-01 ↔ CFA-02 ↔ CFA-09 handoff;
+- unresolved decisions;
+- explicit falsifiers.
 
-Define Context as a semantic construct before designing a Context engine.
+Do not:
+- implement merge/split logic;
+- create an identity database;
+- decide authority outside the semantic boundary.
 
-Questions to resolve:
+## 2. TODO-002 — Context Semantic Contract
 
-- What makes an item legitimately belong to a Context?
-- What is the purpose/scope of a Context?
-- Is Context always transient, or can a context definition/recipe be durable?
-- What belongs to the canonical bundle versus derived optimization metadata?
-- How are provenance, freshness, epistemic status and authority constraints carried?
+Case: CASE-002
+Priority: HIGH
 
-Output target: provisional Context contract.
+Question:
 
-### TODO-003 — ACU/DCB archaeology
+> What makes something relevant to Context, independent of assembly mechanics?
 
-Trace:
+Use:
+- D-443;
+- WorldModel / mind research;
+- World / Space / Focus / Attention material;
+- Intent / Work material;
+- memory semantics;
+- evidence/freshness constraints.
 
-```
-AtomicChatUnit
-  -> Node / content-unit representations
-  -> Conversation / Memory
-  -> DynamicContextBundle
-  -> Context Assembly
-  -> DCB projection
-  -> relevant Ω concepts
-```
+Produce:
+- context semantic inputs;
+- exclusions;
+- scope rules;
+- relationship to Space, Focus, Attention, Memory, Intent and Work;
+- handoff into D-443 assembly.
 
-Classify each useful concept as:
+Do not:
+- replace context.assemble@1;
+- create a second context store;
+- make Context an authority.
 
-- retain;
-- adapt;
-- rename;
-- split;
-- reject;
-- unresolved.
+## 3. TODO-003 — Event / State Characterization
 
-Output target: evidence-backed harvest findings.
+Case: CASE-004
+Priority: MEDIUM
 
-### TODO-004 — World / Data identity seam
+Question:
 
-Characterize:
+> Are Event and/or State universal semantic primitives?
 
-- semantic identity;
-- record identity;
-- revision identity;
-- external identity;
-- correspondence;
-- merge/split semantics.
+Test against:
+- vault revisions/changelog;
+- governed events;
+- Work state;
+- runtime state;
+- provider observations;
+- legacy AtomicChatUnit/event/state models.
 
-Output target: boundary note with explicit ownership.
+Produce:
+- evidence table;
+- candidate semantics;
+- counterexamples;
+- decision or explicit UNKNOWN.
 
-### TODO-005 — Space semantics
+Do not:
+- introduce universal Event/State abstractions merely for naming consistency.
 
-Resolve:
+## 4. TODO-004 — World Projection Contract
 
-```
-World
-  -> Space?
-  -> Workspace?
-  -> Surface
-  -> Layout / interaction state
-```
+Case: CASE-003
+Priority: MEDIUM
 
-Determine whether Space is canonical world meaning, a projection/configuration concept, or both with separate senses.
+Question:
 
-### TODO-006 — Context continuity seam
+> What must every coherent World projection guarantee without becoming one giant snapshot?
 
-Trace the semantic transition:
+Inspect:
+- world-object convergence;
+- vivim.mind;
+- Destination Master Map;
+- World/Workspace/Surface reconciliation;
+- graph projection concepts.
 
-```
-WORLD
-  -> CONTEXT
-  -> INTERPRETATION / GROUNDING
-  -> INTENT
-  -> WORK
-  -> EVIDENCE
-```
+Produce:
+- world projection invariants;
+- bounded-lens model;
+- freshness/basis expectations;
+- relationship to canonical object state.
 
-Goal: identify exactly which parts belong to CFA-01 and which belong to peer CFAs.
+Do not:
+- create a World database;
+- turn WorldModel into a warehouse.
 
-## Round 1.5 — Only if Round 1 reveals the need
+## 5. TODO-005 — Semantic Boundary Crosswalk
 
-### TODO-007 — Canonical World Model document
+Priority: MEDIUM
 
-Create `WORLD-MODEL.md` only when the semantic primitives are sufficiently stable that a canonical view would reduce confusion rather than freeze speculation.
+Question:
 
-### TODO-008 — Canonical Context Model document
+> What is the minimum durable representation of cross-CFA ownership?
 
-Create `CONTEXT-MODEL.md` once Context has a stable enough contract to warrant durable canonical wording.
+Produce only after TODO-001 and TODO-002 expose recurring patterns:
+- concept;
+- semantic owner;
+- data owner;
+- runtime owner;
+- authority owner;
+- evidence owner;
+- lifecycle owner;
+- handoff contract;
+- conflict rule.
 
-### TODO-009 — Cross-CFA Boundary Map
+Likely destination:
+- a compact BOUNDARY-MAP.md or equivalent.
 
-Create `BOUNDARY-MAP.md` if repeated work reveals ownership ambiguity that cannot be kept safely in the seed/state documents.
+Do not create it early if STATE.md remains sufficient.
 
-### TODO-010 — Semantic Continuity Map
+## Trigger rules
 
-Create a dedicated semantic continuity artifact if ACU/DCB and Ω investigations demonstrate that cross-identity continuity is a recurring problem rather than a one-off explanation.
+### Immediate trigger
 
-## Evolution sequence
+Open a case when:
+- the owner asks a World semantic question;
+- another CFA hands off an identity/relationship/context problem;
+- a source conflict affects world meaning;
+- a runtime observation challenges a semantic assumption.
 
-This CFA should evolve in rounds rather than lock its whole architecture at birth.
+### Re-ground trigger
 
-### Round 1 — Self-description and orientation
+Re-read relevant graph/document basis when:
+- the destination graph changes materially;
+- an owning peer changes identity or boundary;
+- a ratified decision affecting the case changes;
+- the source commit moves beyond the recorded basis.
 
-Goal:
-- establish provisional mandate;
-- establish operating method;
-- start evidence/register discipline;
-- identify the minimum research frontier.
+### Closure trigger
 
-Exit condition:
-- owner can understand what the agent thinks it is and where it is uncertain.
+A case may close when:
+- the semantic question has an evidence-backed answer;
+- ownership is explicit;
+- remaining uncertainty is named;
+- downstream handoff is clear;
+- no second authority/store is required.
 
-### Round 2 — Semantic characterization
+Closure of a CFA-01 case does not imply implementation completion.
 
-Goal:
-- establish World primitives;
-- establish Context semantics;
-- resolve major boundary questions;
-- compare legacy evidence against Ω destination concepts.
+## Evidence standard
 
-Exit condition:
-- core semantic vocabulary is coherent enough to write canonical views.
+Every consequential result distinguishes:
 
-### Round 3 — Canonical model
+OBSERVED
+DERIVED
+PROPOSED
+UNKNOWN
+CONFLICTED
 
-Goal:
-- ratify the smallest useful permanent identity;
-- publish canonical World/Context views;
-- establish cross-CFA contracts where necessary.
+Every durable conclusion identifies enough source/evidence lineage for another agent to reproduce the reasoning.
 
-Exit condition:
-- fresh sessions can use the artifacts without reconstructing the model from research history.
+## Escalation
 
-### Round 4 — Operational contracts
+Escalate to owner alignment when:
+- two CFA responsibilities cannot be cleanly separated by evidence;
+- semantic meaning conflicts with an existing ratified architectural decision;
+- a proposed boundary would materially change the CFA identity;
+- multiple plausible destination models remain after evidence reconciliation.
 
-Goal:
-- define durable interfaces/seams for context derivation, world querying/addressability and identity correspondence where proven necessary.
+## Current non-queue
 
-Exit condition:
-- implementation agents can build against stable contracts rather than inferred prose.
-
-### Round 5 — Implementation / proof
-
-Goal:
-- support or review implementation;
-- connect canonical semantics to code;
-- validate with executable evidence;
-- preserve semantic/provenance continuity.
-
-Exit condition:
-- implemented behavior matches characterized semantics and known boundaries.
-
-### Round 6 — Evolution and self-maintenance
-
-Goal:
-- detect semantic drift;
-- re-evaluate inherited terminology;
-- repair canonical views when evidence changes;
-- learn which artifacts deserve automation.
-
-Exit condition:
-- the steward can maintain itself from observed repository change without becoming a process bureaucracy.
-
-## Defer list
-
-Do not design these fully in Round 1:
-
-- universal world graph runtime;
-- universal ontology engine;
-- full context ranking/optimization engine;
-- dynamic context scheduler;
-- context caching strategy;
-- generalized semantic database;
-- automatic ontology learning;
-- full Context UI;
-- cross-device context synchronization;
-- automated self-healing of ontology/semantic models.
-
-They may become legitimate later. They are not justified yet.
-
-## Round 1 — Newly surfaced integration work
-
-### TODO-011 — Define the World/Context contribution seam to the Intelligence Graph
-
-Characterize which World/Context facts can become graph nodes/edges and which must remain local research until corroborated.
-
-Questions:
-- Which concepts map directly to destination concepts already in the graph?
-- Which relationships are semantic framing versus true dependency?
-- What provenance must accompany a graph contribution?
-- How should UNKNOWN and CONFLICTED findings be represented?
-
-Output target: a small graph-contribution crosswalk, not a second graph.
-
-### TODO-012 — Define the World/Context productivity trace
-
-Using the current grounding design, specify the minimal fields this CFA needs returned for a target:
-
-`identity, meaning, owner, canonical source, context relationship, evidence, freshness, unknowns, falsifier`
-
-Output target: a compact trace contract or example only if repeated use demonstrates the need.
-
-### TODO-013 — Cross-CFA seam observations
-
-During TODO-001 through TODO-006, explicitly record boundary observations involving:
-
-- Data / Identity / Persistence;
-- Semantic Continuity;
-- Authority / Governance;
-- Experience / Interaction;
-- Architecture Steward / Intelligence Graph.
-
-Do not resolve peer boundaries unilaterally. Preserve competing interpretations until evidence or owner alignment resolves them.
+Do not currently queue:
+- canvas rendering;
+- provider parser implementation;
+- Chrome/browser mechanics;
+- runtime K0 changes;
+- generic task management;
+- broad terminology cleanup;
+- implementation of D-443;
+- production code unrelated to a proven semantic seam.
