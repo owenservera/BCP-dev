@@ -49,6 +49,7 @@ Start with:
 - PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md
 - WORLD-WORKSPACE-CANVAS-RECONCILIATION.md
 - INTERACTION-INTENT-WORK-RECONCILIATION.md
+- AGENCY-BACKGROUND-ATTENTION-RECONCILIATION.md
 
 The sources/ directory contains preserved conversation and research material. Source captures are evidence of design thinking, not law.
 
