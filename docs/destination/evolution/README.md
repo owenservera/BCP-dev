@@ -31,3 +31,14 @@ The initial hard problems are dynamic data/ontology evolution, identity reconcil
 ## Entry point
 
 Use `LAUNCH-PROMPT.md` to execute the dedicated research/design pass. Do not implement production code until its completion gate is met.
+
+
+## Architectural integration
+
+This is explicitly a **plugin-native evolution** research package.
+
+The central relationship is:
+
+> **Everything-is-a-Plugin defines the replaceable/extensible boundary. Evolution governance defines the rules and continuity guarantees for changing what crosses that boundary.**
+
+The package must therefore consume the existing Ω plugin/runtime, manifest/contribution, Forge, lifecycle, evidence, Work, World/Object, and law models rather than inventing a generic evolution subsystem in isolation.
