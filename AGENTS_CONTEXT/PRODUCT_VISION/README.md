@@ -16,6 +16,9 @@ Machine-readable export of the current System Intelligence discussion, including
 ### HANDOFF-2026-09-25.md
 Fresh-chat handoff with current state, confirmed findings, open questions, sequencing, and the explicit next action.
 
+### PASS-2-LAUNCH-PROMPT-2026-09-25.md
+Preserved operating prompt for the current Structural Coverage & Falsification pass, so a fresh agent can recover exactly what the running research pass was instructed to do.
+
 ## Relationship to repository truth
 
 This package exists so a fresh conversation can recover the relevant context without relying on chat history.
