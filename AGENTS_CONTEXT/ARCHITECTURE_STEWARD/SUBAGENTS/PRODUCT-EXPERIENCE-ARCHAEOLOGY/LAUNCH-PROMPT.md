@@ -181,3 +181,13 @@ Complete only when the major destination, Product Vision, agent-context, Ω, Sys
 
 Handoff must include:
 branch, commit, output path, most important discoveries, strongest evidence that UX mapping is incomplete, major contradictions, proposed documentation structure, and remaining owner questions.
+## Additional factory-model framing
+
+Treat this distinction as mandatory during the investigation:
+
+- Factory UX = stable affordances that let a person discover, address, compose, configure, inspect, govern, create, replace and evolve their environment.
+- Instance UX = the particular environment a person creates from those affordances.
+
+Do not make one fixed dashboard, workspace arrangement, starter workflow, or feature bundle the canonical UX.
+
+Also investigate the initial building language and first-party reference pieces: what compositional shapes and interoperable contracts must exist, and what compelling basic pieces demonstrate them. Treat Lego as a conceptual metaphor only; translate findings back into VIVIM terms such as capability, plugin, composition, contract, object, surface, realization, Work and Forge.
