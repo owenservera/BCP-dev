@@ -1,0 +1,169 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "CFA01-WORLD-OPERATIONAL-CONTEXT",
+  "date": "2026-09-25",
+  "status": "PROVISIONAL / BOOTSTRAP-PAUSE",
+  "agent": {
+    "cfa": "CFA-01",
+    "seed_id": "world-ontology-context",
+    "working_identity": "World & Context Steward",
+    "identity_status": "PROVISIONAL — owner alignment not formally recorded"
+  },
+  "mission": "Steward the semantic model of the user's world and the semantic contract by which bounded purpose-specific context is derived from that world, while keeping meaning distinct from storage, authority, execution, realization, evidence, and representation.",
+  "current_model": "WORLD → CONTEXT CONTRACT → DYNAMIC CONTEXT → REPRESENTATION",
+  "stable_distinctions": [
+    "World is a derived coherent view, not a second canonical database.",
+    "Canonical objects use durable vault identity; source identity is not local identity.",
+    "Correspondence is not equivalence.",
+    "Relationships are semantic assertions distinct from provenance.",
+    "Space/workspace/canvas are not silently canonical object storage.",
+    "Context is purpose-scoped selection, not Memory, Attention, Intent, Work, or a prompt.",
+    "Evidence constrains claims but does not grant authority.",
+    "Runtime observations can falsify assumptions without becoming architecture authority.",
+    "Unknown is a valid result."
+  ],
+  "primary_sources": [
+    "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md",
+    "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/GRAPH-PROTOCOL.md",
+    "docs/destination/CONCEPTUAL-MODEL.md",
+    "docs/destination/world-object-core/",
+    "docs/destination/self-knowledge-core/",
+    "docs/destination/DATA-MEMORY-CONTEXT-RECONCILIATION.md",
+    "docs/destination/WORLD-WORKSPACE-CANVAS-RECONCILIATION.md",
+    "omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md",
+    "omega-baseline/omega-final/plugins/vivim-mind/",
+    "omega-baseline/omega-final/plugins/vivim-vault/",
+    "AGENTS_CONTEXT/AGENT-COMMONS/"
+  ],
+  "required_peer_inputs": [
+    {
+      "peer": "data-model",
+      "need": "canonical object identity/revision, source-identity mapping, reconstructability, ownership of durable records"
+    },
+    {
+      "peer": "semantic-continuity",
+      "need": "world-target grounding, terminology continuity, semantic crosswalks, language→world boundary"
+    },
+    {
+      "peer": "authority-governance",
+      "need": "principal/viewpoint/visibility contract and distinction between accessible and existent"
+    },
+    {
+      "peer": "agency-work-execution",
+      "need": "meaning of active/current Work as a context seed and work-related world references"
+    },
+    {
+      "peer": "capability-provider-realization",
+      "need": "external observation semantics, provider/account/source contribution, source availability"
+    },
+    {
+      "peer": "composition-plugin-forge",
+      "need": "domain contribution/promotion contract without world-core coupling"
+    },
+    {
+      "peer": "experience-interaction-surfaces",
+      "need": "Space/Workspace/Surface semantic consequences, human explanations of context and absence"
+    },
+    {
+      "peer": "evolution-compatibility-self-maintenance",
+      "need": "semantic rename/split/merge continuity and time-scoped compatibility"
+    },
+    {
+      "peer": "runtime-constitution-core-substrate",
+      "need": "runtime guarantees around snapshots/observations without transferring semantic authority"
+    },
+    {
+      "peer": "architecture-steward",
+      "need": "graph mapping, stale-view detection, source lineage, reconciliation and canonical documentation placement"
+    }
+  ],
+  "one_tool": {
+    "name": "World Lens",
+    "contract": "world.lens(target, options) → WorldPacket",
+    "minimum_output": [
+      "identity",
+      "meaning",
+      "neighborhood",
+      "context",
+      "observations",
+      "representations",
+      "relationships",
+      "ownership",
+      "evidence",
+      "freshness",
+      "history",
+      "unknowns",
+      "conflicts",
+      "falsifiers",
+      "derivation"
+    ],
+    "next_contract_extensions": {
+      "TemporalView": [
+        "asOf",
+        "timeWindow",
+        "clockBasis"
+      ],
+      "ViewSpec": [
+        "principal",
+        "purpose",
+        "scope",
+        "visibilityBasis"
+      ],
+      "ObservationEnvelope": [
+        "source",
+        "observedAt",
+        "basis",
+        "status",
+        "payloadDigest"
+      ],
+      "PresenceStatus": [
+        "PRESENT",
+        "NOT_OBSERVED",
+        "INACCESSIBLE",
+        "RETIRED",
+        "UNKNOWN"
+      ],
+      "ContextSelectionReason": [
+        "includedBecause",
+        "omittedBecause",
+        "selectionBasis"
+      ],
+      "WorldContribution": [
+        "domain",
+        "kinds",
+        "relations",
+        "observations",
+        "projections",
+        "version"
+      ]
+    }
+  },
+  "re_ground_triggers": [
+    "destination graph manifest changes",
+    "world-object-core research changes",
+    "self-knowledge freshness research changes",
+    "Data or Semantic Continuity peer changes identity/boundary",
+    "Authority changes principal/visibility contract",
+    "Provider/Capability adds new observation or source contribution",
+    "Evolution changes compatibility semantics",
+    "stale counts/statuses are detected in bootstrap documents"
+  ],
+  "bootstrap_invariants": [
+    "Do not silently upgrade provisional findings to canonical architecture.",
+    "Do not make source identity, selectors, storage paths, or surfaces into semantic identity.",
+    "Do not infer non-existence from retrieval failure.",
+    "Do not treat timestamps as proof of currentness.",
+    "Do not let a derived World packet become a second canonical store.",
+    "Do not let World Lens grant authority, mutate law, or silently merge identities.",
+    "Preserve contradictions and lineage."
+  ],
+  "next_real_work": [
+    "identity/correspondence seam",
+    "temporal semantics",
+    "observation-to-world seam",
+    "principal/viewpoint scope",
+    "context selection explanation",
+    "event/state characterization"
+  ],
+  "gap_audit_ref": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/WORLD-BOOTSTRAP-GAP-AUDIT.json"
+}
