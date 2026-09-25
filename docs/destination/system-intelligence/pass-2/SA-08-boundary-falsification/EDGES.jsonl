@@ -1,0 +1,4 @@
+{"id":"SAE-080001","from":"SA-080001","to":"SA-080002","type":"GATES","reason":"Without account identity, a session cannot prove whose authenticated state it carries."}
+{"id":"SAE-080002","from":"SA-080002","to":"SA-080003","type":"REQUIRES","reason":"Session bridges to browser through debugPort/live descriptor."}
+{"id":"SAE-080003","from":"SA-080003","to":"SA-080004","type":"GATES","reason":"External browser ownership affects durable work truth."}
+{"id":"SAE-080004","from":"SA-080004","to":"SA-080005","type":"RELATED_TO","reason":"Work continuity and world freshness meet at the product boundary."}
