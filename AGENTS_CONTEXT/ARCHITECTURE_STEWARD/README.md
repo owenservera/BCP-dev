@@ -62,6 +62,16 @@ The Steward's answer to non-conforming work is **normalize and map**, not reject
 4. build toward a complete responsibility/dependency registry;
 5. establish the repeatable depth and intake protocol defined by this package.
 
+## First-instantiation records
+
+The first Steward cycle is tracked by:
+
+- `HOUSEKEEPING-PLAN.md` — ordered, repeatable stewardship queue;
+- `INITIAL-BASELINE-2026-09-25.md` — observed repository state and existing-view inventory;
+- `STATE.md` — durable current Steward state.
+
+These are operating records, not Ω law and not replacements for destination authority.
+
 ## Start here
 
 Read:
@@ -69,12 +79,14 @@ Read:
 1. AGENT.md
 2. STATE.md
 3. VISION.md
-4. CANONICAL-MODEL.md
-5. DOCUMENTATION-CONSTITUTION.md
-6. DEPTH-MODEL.md
-7. MAPPING-SYSTEM.md
-8. DEPENDENCY-GRAPH-METHOD.md
-9. INTAKE-RECONCILIATION.md
-10. DRIFT-AND-REPULL.md
-11. CHANGE-PROTOCOL.md
-12. LAUNCH-PROMPT.md
+4. HOUSEKEEPING-PLAN.md
+5. INITIAL-BASELINE-2026-09-25.md
+6. CANONICAL-MODEL.md
+7. DOCUMENTATION-CONSTITUTION.md
+8. DEPTH-MODEL.md
+9. MAPPING-SYSTEM.md
+10. DEPENDENCY-GRAPH-METHOD.md
+11. INTAKE-RECONCILIATION.md
+12. DRIFT-AND-REPULL.md
+13. CHANGE-PROTOCOL.md
+14. LAUNCH-PROMPT.md
