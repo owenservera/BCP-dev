@@ -3,7 +3,7 @@
 > This document planned Tasks 1–6. All six tasks have since been EXECUTED —
 > evidence: `bcp-speed/bcp/workspaces/task-N/RESULT.md` (Tasks 1–6 PASS) and
 > `bcp-speed/bcp/workspaces/STATE.json`. Do not execute this plan again.
-> Current automation truth: `docs/CONTEXT-system.md` §6.
+> Current automation truth is the live `bcp-speed/bcp/` control plane (`state/`, `log/`, tooling). The former `docs/CONTEXT-system.md` snapshot was harvested and retired.
 > Retained for design genealogy (why the automation looks the way it does).
 # Status: DESIGN. Nothing below is built yet. Hand tasks to builders in order.
 # Source brief: user's 6-task hardening brief. This doc keeps its goal
