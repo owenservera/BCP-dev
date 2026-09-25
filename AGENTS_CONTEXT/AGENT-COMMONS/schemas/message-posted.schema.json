@@ -1,0 +1,28 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://vivim.live/schemas/agent-commons/message-posted.schema.json",
+  "title":"Agent Commons message.posted payload",
+  "type":"object",
+  "required":["message_id","conversation_id","kind","body","mentions","references","attention","delivery","visibility","sealed"],
+  "properties":{
+    "message_id":{"type":"string"},
+    "conversation_id":{"type":"string"},
+    "kind":{"enum":["OBSERVATION","QUESTION","HYPOTHESIS","PROPOSAL","REQUEST","OBJECTION","EVIDENCE_REFERENCE","STATUS","HANDOFF","DECISION_CANDIDATE","ANNOUNCEMENT"]},
+    "body":{"type":"object","required":["format","content"],"properties":{"format":{"enum":["text","markdown","json"]},"content":{}},"additionalProperties":false},
+    "reply_to":{"type":["string","null"]},
+    "thread_root":{"type":["string","null"]},
+    "mentions":{"type":"array","items":{"type":"string"}},
+    "references":{"type":"array","items":{"type":"object","required":["type"],"properties":{"type":{"enum":["MESSAGE","EVENT","FILE","COMMIT","BRANCH","URL","EVIDENCE"]},"id":{"type":"string"},"location":{"type":"string"},"fragment":{"type":"string"},"description":{"type":"string"}},"additionalProperties":false}},
+    "attention":{"type":"object","required":["level","requested_delivery"],"properties":{"level":{"enum":["AMBIENT","NORMAL","ATTENTION","URGENT"]},"requested_delivery":{"enum":["LIVE","INBOX","DIGEST","DEFERRED"]}},"additionalProperties":false},
+    "delivery":{"type":"object","properties":{"requested":{"enum":["LIVE","INBOX","DIGEST","DEFERRED"]},"expires_at":{"type":["string","null"],"format":"date-time"}},"additionalProperties":true},
+    "epistemic_intent":{"type":"string"},
+    "causation_id":{"type":["string","null"]},
+    "correlation_id":{"type":["string","null"]},
+    "handoff_id":{"type":"string"},
+    "visibility":{"enum":["PUBLIC","ROOM","DIRECTED","SEALED"]},
+    "recipients":{"type":"array","items":{"type":"string"}},
+    "sealed":{"type":"boolean"},
+    "expires_at":{"type":["string","null"],"format":"date-time"}
+  },
+  "additionalProperties":false
+}

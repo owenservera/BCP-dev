@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vivim.live/schemas/agent-commons/event.schema.json",
+  "title": "Agent Commons Event",
+  "type": "object",
+  "required": ["event_id","event_type","schema_version","agent_id","session_id","key_id","stream_id","stream_seq","prev_hash","ts","payload","signature"],
+  "properties": {
+    "event_id": {"type":"string","description":"Globally unique, time-sortable event identifier; UUIDv7 recommended."},
+    "event_type": {"type":"string"},
+    "schema_version": {"type":"string"},
+    "agent_id": {"type":"string"},
+    "session_id": {"type":"string"},
+    "key_id": {"type":"string"},
+    "stream_id": {"type":"string"},
+    "stream_seq": {"type":"integer","minimum":1},
+    "prev_hash": {"type":["string","null"]},
+    "ts": {"type":"string","format":"date-time"},
+    "payload": {},
+    "signature": {"type":"string"}
+  },
+  "additionalProperties": false
+}

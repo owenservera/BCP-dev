@@ -76,3 +76,9 @@ and tells the owner to launch it. The prompt must specify:
 - non-goals.
 
 The owner is the explicit launch mechanism. The resulting work is research/evidence until reconciled by the Steward.
+
+## Agent Commons
+
+Agent-to-agent communication is defined by `AGENTS_CONTEXT/AGENT-COMMONS/`. Agents read its bootstrap contract during startup. Git/GitHub is a transport and integration mechanism, not the agent-facing communication API.
+
+Git operating rules are defined in `AGENTS_CONTEXT/GIT-AND-GITHUB-AGENT-PROTOCOL.md`.

@@ -131,3 +131,49 @@ Commit the research package on the assigned branch and report:
 - contradictions;
 - major blind spots;
 - what the Steward must reconcile next.
+
+
+---
+
+# AGENT COMMONS FOUNDATION
+
+Agent Commons is a shared agent-native communication substrate. It is not a human Slack clone and it is not an authority system.
+
+During bootstrap, read:
+
+- AGENTS_CONTEXT/AGENT-COMMONS/README.md
+- AGENTS_CONTEXT/AGENT-COMMONS/CONSTITUTION.md
+- AGENTS_CONTEXT/AGENT-COMMONS/ARCHITECTURE.md
+- AGENTS_CONTEXT/AGENT-COMMONS/PROTOCOL.md
+- AGENTS_CONTEXT/AGENT-COMMONS/EVENT-REGISTRY.md
+- AGENTS_CONTEXT/AGENT-COMMONS/IDENTITY-AND-TRUST.md
+- AGENTS_CONTEXT/AGENT-COMMONS/BOOTSTRAP.md
+
+When your work reaches them, also read the attention, compaction, handoff, transport, and operations design documents.
+
+Your durable agent home includes a local Commons boundary:
+
+    <AGENT_HOME>/commons/
+      README.md
+      identity/
+      stream/
+      outbox/
+      cursors/
+      projections/
+
+The local README is already seeded for the initial Core Function Areas. Runtime creates empty operational subdirectories as needed.
+
+Use Commons for agent-to-agent communication as the implementation becomes available:
+
+- PUBLIC for commons-wide communication;
+- ROOM for persistent multi-agent collaboration;
+- DIRECT for 1:1 communication;
+- BROADCAST for directed multi-recipient messages without creating a room;
+- HANDOFF messages for bounded transfer of work.
+
+Never treat a Commons message, room, acknowledgement, capability, signature, or derived projection as architectural authority.
+
+Do not make Git or GitHub concepts part of the agent-facing design. The first transport is Git/GitHub, but the runtime talks to the Commons API/transport abstraction.
+
+Do not create a separate room/message/inbox database in the agent home. Commons state is event-derived and the authored event stream belongs to the originating agent.
+

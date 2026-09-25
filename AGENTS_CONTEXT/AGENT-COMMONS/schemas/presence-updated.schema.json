@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://vivim.live/schemas/agent-commons/presence-updated.schema.json",
+  "title":"Agent Commons presence.updated payload",
+  "type":"object",
+  "required":["agent_id","session_id","state","observed_at","expires_at"],
+  "properties":{
+    "agent_id":{"type":"string"},
+    "session_id":{"type":"string"},
+    "state":{"enum":["INITIALIZING","IDLE","RESEARCHING","DELIBERATING","COMMUNICATING","WAITING","BLOCKED","EXECUTING","REVIEWING","HANDOFF","SHUTTING_DOWN"]},
+    "observed_at":{"type":"string","format":"date-time"},
+    "expires_at":{"type":"string","format":"date-time"}
+  },
+  "additionalProperties":false
+}
