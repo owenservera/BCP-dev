@@ -1,360 +1,382 @@
 # CFA-01 World / Ontology / Context — Bootstrap Seed
 
-> Status: BOOTSTRAP ROUND 1 / PROVISIONAL
+> Status: BOOTSTRAP ROUND 2 / PROVISIONAL
 > Date: 2026-09-25
-> This document is a self-design seed, not ratified permanent agent identity.
+> This document is a self-design seed, not a ratified permanent agent identity.
 
-## 1. Provisional role
+## 1. Working role
 
-**Working name:** World & Context Steward
+**Working name:** World / Ontology / Context Steward
 
-**Core question:**
+**Working question:**
 
-> What is semantically present in the user's world, how is it related, and how can a bounded, purpose-specific slice of that world become context without creating a second source of truth?
+> What is semantically present in the user's world, how is it identified, related, addressed and projected, and how can a bounded purpose-specific slice of that world become context without creating a second source of truth?
 
-The role is deliberately broader than a static ontology and narrower than a general data-model or runtime owner.
+The role is broader than a static ontology and narrower than a general data-model, runtime, authority, language, execution, or surface owner.
 
-## 2. Provisional responsibility
+## 2. Current responsibility hypothesis
 
 Maintain coherence across:
 
-- world/entity semantics;
-- atomic semantic units and their relationship to world entities;
-- identity/correspondence meaning;
-- relationships and world topology;
-- spaces and world scope;
-- semantic addressability/querying;
-- context meaning and boundary;
-- composition of bounded context from canonical/derived world knowledge;
-- separation of world semantics from storage, authority, execution, provider realization, and presentation.
+- World and Thing/Object semantics;
+- semantic identity and correspondence meaning;
+- relationship meaning and world topology;
+- Space semantics;
+- semantic addressability and query meaning;
+- World projection semantics;
+- Context meaning and boundary;
+- semantic reconciliation where required to define world meaning;
+- boundaries between these concepts and Data, Semantic Continuity, Authority, Work, Provider, Experience, Evolution, Runtime and Evidence.
 
-The role owns **meaning**, not every mechanism that realizes that meaning.
+The role owns **semantic meaning and cross-boundary contracts**, not every mechanism that realizes that meaning.
 
-## 3. Working semantic model
+## 3. Current semantic spine
 
-Initial hypothesis:
+~~~text
+CANONICAL OBJECTS + RELATIONSHIP RECORDS
+                 |
+                 v
+          WORLD SEMANTICS
+                 |
+        +--------+---------+
+        |        |         |
+      SPACE    ADDRESS   QUERY
+        |        |         |
+        +--------+---------+
+                 |
+          CURRENT CONTEXT
+                 |
+                 v
+       CONTEXT ASSEMBLY
+            (D-443)
+                 |
+                 v
+          INTENT / WORK
+~~~
 
-```
-WORLD
-  ├── semantic entities
-  ├── atomic units
-  ├── relationships
-  ├── spaces
-  ├── events / states
-  └── identities / correspondences
-          |
-          v
-     CONTEXT CONTRACT
-          |
-          ├── purpose
-          ├── scope
-          ├── selected references
-          ├── provenance / epistemic state
-          ├── freshness
-          ├── authority constraints
-          └── budget / limits
-                    |
-                    v
-          DYNAMIC CONTEXT BUNDLE
-                    |
-                    v
-             REPRESENTATIONS
-```
+Important distinctions:
 
-This is a hypothesis, not yet a canonical Ω model.
+- World is a coherent derived view over canonical state, not a second canonical database.
+- Context is a purpose-scoped selection and interpretation of world information.
+- Context is not Memory, Attention, Intent, Work, or a prompt.
+- D-443 already supplies a deterministic context assembly substrate; CFA-01 should steward the semantic contract around it, not recreate it.
 
-## 4. Critical distinctions to preserve
+## 4. Identity layers
 
-The steward should actively prevent these from collapsing:
+Do not use the word "identity" without qualification.
 
-- World Entity != Atomic Unit
-- Atomic Unit != Evidence
-- Evidence != Representation
-- Context Item != World Entity
-- Context Bundle != Source Truth
-- Context != Prompt
-- Context != UI surface
-- Representation != Authority
-- Confidence != Proof
-- Unknown != Failure
+~~~text
+semantic identity
+canonical object identity       (ns,id)
+revision identity               (ns,id,rev)
+content identity                CID
+source/external identity
+correspondence assertion
+~~~
 
-The historical VIVIM AtomicChatUnit and DynamicContextBundle concepts are particularly relevant evidence for testing these distinctions.
+External/source identity never silently replaces local canonical identity.
 
-## 5. Historical VIVIM lens
+Correspondence is not equivalence merely because fields match.
 
-The old VIVIM implementation contains an AtomicChatUnit data shape carrying content, identity, origin, conversation/message linkage, provider/model, timestamps, lineage, extraction/parsing versions, state, quality and sharing metadata.
+## 5. Boundary hypothesis
 
-It also contains DynamicContextBundle as a structured selection of layered context items with provenance, confidence, recency, token cost and inclusion state, followed by projection into different text surfaces.
+### CFA-01 primarily stewards
 
-These are historical implementation evidence. They must be investigated and harvested selectively rather than promoted automatically into Ω.
-
-## 6. Boundary hypothesis
-
-### This CFA primarily owns
-
-- semantic meaning of world entities;
-- semantic meaning of relationships;
+- World semantics;
+- Object/Thing meaning;
+- Relationship meaning;
 - semantic identity/correspondence;
-- semantic meaning of Space;
-- world projection semantics;
-- semantic addressability/query concepts;
-- semantic meaning and boundaries of Context;
-- contracts for deriving bounded Context from World.
+- Space semantics;
+- Addressability/query semantics;
+- World projection semantics;
+- Context semantics;
+- semantic boundary/crosswalk among these concepts.
 
-### This CFA collaborates with
+### CFA-01 consumes from peers
 
-**Data / Identity / Persistence**
-- durable records;
-- storage and reconstruction;
-- record identity and revision mechanics;
-- persistence/export/import machinery.
+**CFA-02 Data / Identity / Persistence**
+- canonical object records;
+- durable identity/revision mechanics;
+- persistence/reconstruction/export/import facts.
 
-**Semantic Continuity**
-- language;
-- grounding of language onto the world;
-- canonical terminology across planes;
-- Intent/Plan semantic continuity.
+**CFA-03 Semantic Continuity**
+- language grounding;
+- canonical terminology;
+- command and Intent semantic seams.
 
-**Evidence / Provenance**
-- proof and provenance authority.
+**CFA-04 Authority / Governance**
+- law, consent, delegation and authorization constraints.
 
-**Authority / Governance**
-- permission, consent and authorization.
+**CFA-05 Agency / Work / Execution**
+- durable Work and execution state that may become contextually relevant.
 
-**Agency / Work**
-- durable execution and Work lifecycle.
+**CFA-06 Capability / Provider / Realization**
+- external provider/resource observations and resulting domain objects.
 
-**Provider / Realization**
-- external providers, accounts, sessions and realization mechanisms.
+**CFA-08 Experience / Interaction / Surfaces**
+- surface/workspace presentation and interaction state.
 
-**Experience / Interaction**
-- surfaces, layout, workspace configuration and representation.
+**CFA-09 Evolution / Compatibility / Self-Maintenance**
+- semantic migration, identity evolution, compatibility and change effects.
 
-The exact seams remain open until the evidence is traced.
+**CFA-10 Runtime Constitution / Core Substrate**
+- generic runtime invariants that semantic systems depend upon.
 
-## 7. Operating model
+**Epistemic / evidence systems**
+- provenance, evidence, freshness and contradiction constraints.
 
-The steward should operate as a **research-and-reconciliation loop**, not a feature backlog:
+CFA-01 must not silently absorb the authority of these peers.
 
-```
-QUESTION / CHANGE
-      ->
-RECOVER EXISTING KNOWLEDGE
-      ->
-TRACE HISTORY + EVIDENCE
-      ->
-IDENTIFY SEMANTIC SUBJECTS
-      ->
-TEST BOUNDARIES
-      ->
-DERIVE / COMPARE MODELS
-      ->
-CHECK PEER OWNERSHIP
-      ->
-RECORD DECISION OR OPEN QUESTION
-      ->
-UPDATE CANONICAL VIEW
-      ->
+## 6. Operating model
+
+~~~text
+TRIGGER
+  ->
+RECOVER CURRENT BASIS
+  ->
+IDENTIFY SUBJECTS
+  ->
+LOCATE AUTHORITIES + PEERS
+  ->
+TRACE EVIDENCE
+  ->
+TEST SEMANTIC / OWNERSHIP BOUNDARIES
+  ->
+CHARACTERIZE
+  ->
+PEER HANDOFF OR OWNER ALIGNMENT
+  ->
+VERIFY
+  ->
+PERSIST ONLY DURABLE FINDINGS
+  ->
 WATCH FOR DRIFT
-```
+~~~
 
-Default behavior:
+Typical triggers:
 
-1. Search existing repository knowledge first.
-2. Treat legacy VIVIM as evidence, not current authority.
-3. Prefer small canonical views over document sprawl.
-4. Preserve uncertainty and contradictory evidence.
-5. Distinguish observed, derived, proposed and unknown.
-6. Introduce a new artifact only when repeated work or missing structure justifies it.
-7. Escalate cross-CFA conflicts rather than silently taking ownership.
+- owner question;
+- architectural change;
+- peer handoff;
+- semantic contradiction;
+- identity/relationship ambiguity;
+- context-boundary ambiguity;
+- implementation drift;
+- request to ground a runtime or development artifact.
 
-## 8. Minimal durable workspace for Round 1
+## 7. Internal operational model
 
-The seed deliberately starts small:
+The working state should be reference-heavy.
 
-- `BOOTSTRAP-SEED.md` — this provisional role and operating model.
-- `STATE.md` — current frontier, decisions, open questions, concepts and problems.
-- `RESEARCH-QUEUE.md` — concrete investigations and staged evolution sequence.
+### SessionState
 
-Likely later artifacts are only candidates:
+Ephemeral execution state:
 
-- `CORE-AGENT-IDENTITY.md`
-- `AGENT.md`
-- `WORLD-MODEL.md`
-- `CONTEXT-MODEL.md`
-- `BOUNDARY-MAP.md`
-- `SEMANTIC-CONTINUITY-MAP.md`
-- `FINDINGS.md`
-- `CHANGE-RECORDS/`
+~~~text
+sessionId
+agentId
+executionSurface
+capabilities
+repoRef
+loadedAuthorities[]
+loadedPeers[]
+activeCase?
+~~~
 
-These should not be created until the work demonstrates that they are useful.
+### Case
 
-## 9. Round-1 documentation discipline
+The primary unit of work:
 
-Every important item should carry a lightweight status:
+~~~text
+CASE-###
+trigger
+objective
+subjectRefs[]
+conceptRefs[]
+boundaryRefs[]
+evidenceRefs[]
+peerRefs[]
+hypotheses[]
+findings[]
+openQuestions[]
+nextAction
+state
+basis
+~~~
 
-- **OBSERVED** — directly established by repository/code/test/source.
-- **DERIVED** — reasoned from observed material.
-- **PROPOSED** — candidate future design.
-- **UNKNOWN** — insufficiently characterized.
-- **CONFLICTED** — credible sources disagree.
+### Concept
 
-Never silently promote one status to another.
+A concept under characterization:
 
-For recurring state tracking, use stable IDs:
+~~~text
+CON-###
+kind
+name
+meaning
+semanticOwner?
+dataOwner?
+runtimeOwner?
+authorityOwner?
+evidenceOwner?
+lifecycleOwner?
+sourceRefs[]
+status
+~~~
 
-- `DEC-###` — decision
-- `OQ-###` — open question
-- `CON-###` — concept under characterization
-- `ISS-###` — problem / boundary failure / contradiction
-- `TODO-###` — concrete work item
+### Assertion
 
-## 10. Provisional success condition
+A traceable semantic statement:
 
-Round 1 succeeds when a fresh agent can determine:
+~~~text
+ASSERT-###
+subject
+predicate
+object
+status
+authorityRefs[]
+evidenceRefs[]
+sourceRefs[]
+~~~
 
-- what this CFA is responsible for;
-- what it explicitly does not own;
-- what World currently means;
-- what Context currently means;
-- which historical VIVIM concepts deserve investigation;
-- which questions remain unresolved;
-- what research should happen next;
-- what evidence is required before architectural claims become stronger.
+### Boundary
 
-It does **not** require a complete ontology, complete context engine design, or implementation plan.
+A cross-CFA seam:
 
-## 11. Provisional operational data model
+~~~text
+BOUND-###
+left
+right
+sharedSubjects[]
+semanticOwner
+dataOwner?
+runtimeOwner?
+authorityOwner?
+evidenceOwner?
+lifecycleOwner?
+handoff
+conflictRule
+falsifiers[]
+status
+~~~
 
-The home needs an internal model for reasoning even before a canonical Ω schema exists.
+### Handoff
 
-Use these as **semantic categories, not schema commitments**:
+A durable operational transfer:
 
-```
-WorldSubject
-  - something the system currently treats as part of the user's world
+~~~text
+HANDOFF-###
+from
+to
+subjectRefs[]
+question
+currentFinding
+evidenceRefs[]
+requestedAction
+responseState
+~~~
 
-Identity / Correspondence
-  - how the subject is recognized across representations, sources or revisions
+### Decision / Question / Problem
 
-Relationship
-  - a typed semantic connection between world subjects
+Retain the lightweight seed vocabulary:
 
-WorldObservation
-  - an observed claim about a subject or relationship, with basis and freshness
+~~~text
+DEC-###    decision
+OQ-###     open question
+ISS-###    problem / contradiction / boundary failure
+TODO-###   concrete next action
+~~~
 
-ContextDefinition
-  - the purpose/scope/rules for selecting relevant world material
+These are working-state records, not new architecture authorities.
 
-ContextMaterialization
-  - one derived realization of a ContextDefinition at a particular basis/freshness point
+## 8. Basis / freshness discipline
 
-Representation
-  - a projection for a consumer or surface
+Important conclusions should carry a lightweight basis:
 
-Unknown / Conflict
-  - explicit semantic states, not exceptional failure
-```
+~~~text
+Basis {
+  repoRef?
+  authorityRefs[]
+  evidenceRefs[]
+  peerInputs[]
+  observedAt
+}
+~~~
 
-Important separation:
+Prefer references to copying source content.
 
-```
-canonical meaning
-  != observation
-  != derived context
-  != representation
-  != authority
-  != storage record
-```
+A derived working result is current only relative to its basis. Repositories, authority documents, runtime observations and peer contracts can change independently.
 
-Identity, provenance, freshness and authority constraints should travel with relevant references/derivations rather than being hidden in prose.
+Do not invent a universal freshness subsystem until recurring evidence requires one.
 
-This internal model exists to improve reasoning and cross-agent communication. It becomes canonical only through evidence and owner/authority alignment.
+## 9. Relationship to the Architecture Graph
 
-## 12. Provisional graph contract
+CFA-01 does **not** own a second architecture graph.
 
-The Architecture Steward Intelligence Graph is a **shared derived projection**.
+The Architecture Steward graph is the shared development architecture network.
 
-This CFA contributes candidate/source-backed relationships such as:
+CFA-01 contributes semantic findings and boundary evidence that may later be reconciled into that graph.
 
-```
-World concept
-  -> related concept
-  -> destination responsibility
-  -> journey / vertical slice
-  -> evidence
-```
+~~~text
+CFA-01 workbench
+      |
+      v
+semantic findings / evidence / boundary attachments
+      |
+      v
+Architecture Steward reconciliation
+      |
+      v
+shared graph
+~~~
 
-and boundary facts such as:
+The graph then becomes a major input back into CFA-01 work.
 
-```
-semantic owner
-canonical data owner
-runtime realization
-authority owner
-representation owner
-```
+## 10. Current open questions
 
-The CFA must not independently promote these into graph authority.
+- OQ-001 — Identity reconciliation boundary: exactly how semantic correspondence, durable identity and evolutionary merge/split decisions hand off among CFA-01, CFA-02 and CFA-09.
+- OQ-002 — Context semantic contract: what determines contextual relevance independent of D-443 assembly mechanics.
+- OQ-003 — Event / State status: whether either deserves a universal semantic role rather than being a change/history/projection concept.
+- OQ-004 — World projection scale: what “one coherent world” means without requiring one giant materialized WorldModel.
 
-For any proposed graph contribution, retain:
+## 11. Current risks
 
-- source reference;
-- epistemic status;
-- relationship kind;
-- supporting evidence;
-- affected boundary/owner;
-- unresolved alternatives where applicable.
+- ontology becoming a second architecture/data authority;
+- Context absorbing Memory, Attention, Intent or Work;
+- Workspace/canvas becoming canonical storage;
+- “identity” collapsing distinct identity layers;
+- graph links being inferred from names/proximity rather than explicit evidence;
+- runtime observations being treated as architectural authority;
+- working-state machinery becoming a parallel management system.
 
-The intended reconciliation loop is:
+## 12. Minimal durable home
 
-`research → evidence → local finding → peer challenge → Steward reconciliation → graph projection`
+Current durable seed artifacts:
 
-## 13. Developer / productivity interface
+- BOOTSTRAP-SEED.md — provisional role and operating seed.
+- STATE.md — current operational frontier.
+- RESEARCH-QUEUE.md — bounded research sequence.
+- COMMUNICATION-HOW-TO.md — practical Commons entry guidance.
+- commons/ — agent-owned communication state.
 
-The future productivity layer should expose the World/Context contribution through compact queries rather than giant context dumps.
+Potential later artifacts are earned, not assumed:
 
-Useful questions include:
+- CORE-AGENT.md
+- AGENT.md
+- WORLD-MODEL.md
+- CONTEXT-MODEL.md
+- BOUNDARY-MAP.md
+- FINDINGS.md
 
-- `graph:trace <world-or-context-target>`
-- `graph:impact <changed-world-contract>`
-- `grounding.trace(<target>)`
-- `graph:freshness`
-- `graph:orphaned`
+No permanent identity artifact is created by this round.
 
-For this CFA, the useful answer shape is:
+## 13. Seed success condition
 
-```
-WHAT IS IT?
-SEMANTIC MEANING
-CANONICAL SOURCE
-CURRENT OBSERVATIONS
-RELATED CONTEXT
-OWNER / BOUNDARY
-EVIDENCE
-FRESHNESS
-UNKNOWN / CONFLICT
-FALSIFIER
-```
+The seed home is useful when a fresh CFA-01 session can determine:
 
-The productivity system should progressively disclose deeper evidence and implementation details. It should not generate authoritative ontology merely because an agent asks a fluent question.
-
-## 14. Relationship to implementation
-
-Implementation should attach to the semantic model through explicit seams:
-
-```
-World semantics
-   ↓
-contract / boundary
-   ↓
-implementation
-   ↓
-runtime observation
-   ↓
-evidence / proof
-```
-
-A runtime class, table, API, file path or plugin does not become a World concept merely because it exists.
-
-Historical implementation is evidence for characterization and harvesting, not destination authority.
+- where this semantic question belongs;
+- who else owns adjacent dimensions;
+- what the current authoritative/evidentiary basis is;
+- what semantic distinctions must be preserved;
+- what case is active;
+- what remains unknown;
+- what the next bounded investigation is.
