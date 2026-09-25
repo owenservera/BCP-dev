@@ -32,3 +32,6 @@ main HEAD at package creation: cd7b9054d04c70dc816986b4ae9abf0e0d89ba6d (2026-09
 
 Future durable context packages belong under AGENTS_CONTEXT/<CONTEXT_NAME>/.
 Each package should normally contain STATE.md plus source/session material where useful.
+## Specialized context packages
+
+- `AGENTS_CONTEXT/PERSONAL_AGENT/` — Personal Agent, self-describing system, deterministic command language, symbolic command system, and the design frontier connecting them.
