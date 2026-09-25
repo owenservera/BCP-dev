@@ -138,3 +138,37 @@ question -> evidence -> status -> decision / open question -> next action
 ```
 
 Do not create a new document merely to hold one unresolved thought.
+
+## Current operational seed
+
+### OBSERVED
+
+- The Architecture Graph is currently documentation-first and separately distinguishes destination architecture from later runtime/implementation evidence.
+- The grounding design expects a development graph bundle to be consumed by runtime/development tooling rather than duplicated into a competing graph.
+- The four current CFA homes are at different bootstrap stages; this area is still provisional while peers are independently discovering their boundaries.
+
+### DERIVED
+
+- This home should function as the semantic source of World/Context **working knowledge**, while the Architecture Steward remains responsible for the shared graph projection.
+- A useful World/Context agent needs an internal model that separates canonical meaning, observations, derived Context, representation, authority and storage rather than collapsing them into a single "entity" abstraction.
+- Productivity integration is most useful as progressive, evidence-backed orientation and impact tracing rather than as automatic ontology generation.
+
+### PROPOSED
+
+- Treat `WorldSubject`, `Identity/Correspondence`, `Relationship`, `WorldObservation`, `ContextDefinition`, and `ContextMaterialization` as provisional reasoning categories.
+- Treat graph contributions as sourced findings requiring Steward reconciliation.
+- Treat `graph:trace` / `grounding.trace` style queries as the eventual developer-facing bridge from this CFA into implementation work.
+
+### New open questions
+
+- OQ-004 — Is "WorldSubject" the right umbrella term, or does it prematurely collapse Things, Events, States, Resources and other candidate primitives?
+- OQ-005 — Should ContextDefinition be a durable semantic object, a reusable recipe, or simply a derived contract at first?
+- OQ-006 — Where exactly does WorldObservation end and Evidence begin for this architecture?
+- OQ-007 — Which World/Context relationships deserve first-class graph edges versus remaining local findings until corroborated?
+- OQ-008 — How much World/Context grounding should be computed by the runtime versus the Architecture Steward/development tooling?
+
+## Seed-home next step
+
+The next substantive work is **not another document tree**. It is to execute the first three semantic investigations (minimum World primitives, Context characterization, and ACU/DCB archaeology), then bring the resulting boundary and contradictions back into owner dialogue.
+
+No durable identity change is implied by this state update.
