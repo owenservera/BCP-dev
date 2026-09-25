@@ -78,3 +78,15 @@ Research and reconcile:
 - self-maintenance safety;
 - evidence across versions;
 - constitutional amendment rules.
+
+
+## Plugin architecture integration
+
+A key refinement is now established:
+
+**Everything-is-a-Plugin is the extensibility/replacement architecture; Evolution is the temporal/governance dimension of that architecture.**
+
+The research must therefore treat plugin boundaries, contribution metadata, contract/version semantics, canonical data ownership, Work continuity, evidence, Forge recursion, and host constitutional enforcement as one coupled problem.
+
+New integration artifact:
+`docs/destination/EVERYTHING-IS-A-PLUGIN-EVOLUTION-CONSTITUTION.md`.

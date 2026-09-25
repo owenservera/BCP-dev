@@ -181,3 +181,28 @@ Complete only when:
 - all outputs are committed on this branch.
 
 Return branch, commit SHA, PR, package root, principal conclusions, and unresolved experiments/blockers.
+
+
+## Critical architectural framing
+
+Do not model this research as a generic “evolution engine” sitting beside Ω.
+
+Treat the destination relation as:
+
+```text
+EVERYTHING-IS-A-PLUGIN
+        +
+GOVERNED EVOLUTION
+        +
+CANONICAL DATA / WORLD
+        +
+DURABLE WORK
+        +
+EVIDENCE
+        +
+SELF-KNOWLEDGE
+```
+
+The plugin boundary is the primary extensibility/replacement seam for capabilities and product behavior. Evolution governance determines which changes cross that seam, what they affect, how compatibility is established, how active Work is protected, and how rollback/recovery works.
+
+`docs/destination/EVERYTHING-IS-A-PLUGIN-EVOLUTION-CONSTITUTION.md` is part of the required reading for the research pass.

@@ -386,3 +386,20 @@ This design **extends, rather than replaces** existing destination controls:
 - durable Work recovery.
 
 The purpose is to give those pieces one semantic vocabulary for change.
+
+
+## 19. Everything-is-a-Plugin integration
+
+The evolution model is not a parallel architecture to Ω's everything-is-a-plugin design.
+
+**Plugin boundaries are the primary extensibility/replacement seams; evolution governance is the temporal and constitutional rule set governing those seams.**
+
+Therefore the research must explicitly test:
+
+```text
+plugin → contributions → contracts → dependencies → canonical state → Work → evidence → replacement
+```
+
+The plugin boundary does not mean every byte or canonical object is itself a plugin. It means replaceable/extensible capability and product behavior should enter through governed plugin/contribution contracts.
+
+See `docs/destination/EVERYTHING-IS-A-PLUGIN-EVOLUTION-CONSTITUTION.md`.
