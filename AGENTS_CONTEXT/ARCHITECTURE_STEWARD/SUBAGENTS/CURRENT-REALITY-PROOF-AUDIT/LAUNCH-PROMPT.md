@@ -719,3 +719,15 @@ Return:
 Remember:
 
 > **The job is to make the repository more truthful about what it has actually proved — not to make the architecture look more complete.**
+
+## Additional maturity framing
+
+Keep at least these three maturity dimensions distinct throughout the audit:
+
+1. Prototype maturity — how mature a prior VIVIM implementation or behavior is, even if its architecture is not composable.
+2. Factory/core maturity — how real and dependable Ω is as the governed compositional substrate.
+3. Product-instance maturity — how complete a particular user-facing VIVIM environment is.
+
+Do not infer product maturity from factory maturity, or factory maturity from the sophistication of an old prototype.
+
+Where first-party building blocks or compositions exist, also ask whether they demonstrate the intended interoperability model and whether the factory can support their replacement and recomposition without bespoke core growth.
