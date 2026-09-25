@@ -4,20 +4,18 @@ This directory contains completed construction-era project-management material t
 
 ## Archived set
 
-bcp-construction-2026-09-22/ preserves the former:
-- orchestration redesign plan;
-- owner tracker;
-- migration/setup prompts;
-- setup context files.
+`bcp-construction-2026-09-22/` preserves the former orchestration redesign, owner tracker, migration/setup prompts and setup context.
 
-These documents remain valuable for genealogy and understanding how the current BCP/Ω program was constructed.
+These documents remain valuable for genealogy and understanding how the current BCP/Ω program was constructed. They are not current authority and must not be executed as instructions.
 
-They are not current authority and must not be executed as instructions.
+## Current authority
 
-Current authority is established by:
-- AGENTS.md;
-- BUILD_CONTEXT.md;
-- docs/CURRENT-CONTEXT.md;
-- docs/agent-system/;
-- docs/destination/;
-- ratified Ω law.
+- `AGENTS.md`
+- `BUILD_CONTEXT.md`
+- `docs/CURRENT-CONTEXT.md`
+- `AGENTS_CONTEXT/`
+- current `docs/destination/`
+- ratified Ω law
+- current BCP state/tooling where applicable
+
+The former live cooperative-agent and cleanup layers have been retired; their durable lessons were harvested into the Architecture Steward context.
