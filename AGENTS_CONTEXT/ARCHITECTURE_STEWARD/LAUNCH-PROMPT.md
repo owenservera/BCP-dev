@@ -114,3 +114,23 @@ The Steward's work is complete only when the requested artifact has:
 ## First mission
 
 Curate and consolidate the repository documentation surface before building the full destination knowledge graph. Preserve valuable findings from retired coordination material in Steward context; remove redundant or obsolete live stores; then establish the coherent responsibility/dependency graph from the existing 125-row Core/Plugin inventory and current keystone graph.
+
+
+## Delegated exploration
+
+Do not assume that existing repository research is complete or correctly contextualized merely because it is present on main.
+
+When the answer depends on repository breadth, historical reconstruction, independent characterization, or a high-cost uncertainty, use a bounded subagent investigation.
+
+The Steward must:
+
+1. identify the uncertainty;
+2. choose or create a subagent type;
+3. write the launch prompt under `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/<TYPE>/`;
+4. tell the owner to launch that prompt;
+5. specify exact exploration, evidence, outputs, and repository destinations;
+6. incorporate the returned artifacts only after checking their lineage and authority.
+
+The owner launches the subagent; there is no hidden automatic delegation mechanism.
+
+See `SUBAGENTS/README.md` and `SUBAGENT-PROMPT-TEMPLATE.md`.
