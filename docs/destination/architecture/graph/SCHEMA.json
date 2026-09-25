@@ -1,5 +1,17 @@
 {
-  "schemaVersion": "0.1",
+  "schemaVersion": "0.2",
+  "description": "Documentation-first VIVIM Destination Architecture Graph",
+  "layers": [
+    "vision",
+    "destination",
+    "experience",
+    "architecture",
+    "proof",
+    "composition",
+    "research",
+    "evidence",
+    "program"
+  ],
   "nodeRequired": [
     "id",
     "kind",
@@ -34,7 +46,8 @@
     "si_atom",
     "evidence",
     "reference_piece",
-    "composition"
+    "composition",
+    "workstream"
   ],
   "edgeClasses": [
     "descriptive",
@@ -44,31 +57,20 @@
     "evidence",
     "product"
   ],
-  "edgeRelations": [
-    "DEFINES",
-    "ELABORATES",
-    "FRAMES",
-    "INVENTORIES",
-    "REGISTERS",
-    "PROJECTS",
-    "INDEXES",
-    "EVIDENCES",
-    "INFORMS",
-    "DESCRIBES",
-    "CONTRIBUTES_TO",
-    "AUTHORIZES",
-    "GATES",
-    "PERSISTS",
-    "GOVERNS",
-    "ENABLES",
-    "REPRESENTS",
-    "REQUIRES",
-    "SUPERSEDES",
-    "VARIANT_OF",
-    "PARTICIPATES_IN",
-    "TESTS",
-    "SERVES",
-    "DEPENDS_ON"
+  "epistemicStatuses": [
+    "current",
+    "research-input",
+    "historical-input",
+    "research",
+    "evidence",
+    "candidate"
   ],
-  "statusRule": "authority/evidence/status are carried independently; presence in graph never upgrades maturity."
+  "governingRules": [
+    "Documentation/end vision anchors the graph; implementation is a later evidence projection.",
+    "A graph node never upgrades maturity.",
+    "Consequential relations require reason and/or evidence.",
+    "Current and target dependencies are separate; unknown is represented explicitly rather than inferred.",
+    "Legacy is evidence/history, not destination authority.",
+    "One semantic node may have many source/evidence/view references."
+  ]
 }
