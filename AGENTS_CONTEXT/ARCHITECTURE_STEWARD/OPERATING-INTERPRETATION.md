@@ -538,7 +538,30 @@ This is an important test for future documentation structure:
 
 That question belongs in the experience model, journey map, plugin/core boundary, Forge/evolution mapping, and final architecture synthesis.
 
-## 16. Bottom line
+## 16. Composition is cross-cutting, not a feature
+
+The Lego principle changes how journeys should be interpreted.
+
+J1–J8 are useful human outcome views, but **composition is not merely J7 (Evolution)**. At any point the person may:
+
+`discover → select → connect → compose → use → inspect → reconfigure → replace → extend → remove`
+
+That composition loop can occur while opening the environment, working, interacting with a provider, delegating Work, configuring attention, or evolving the system.
+
+Therefore future experience and architecture mapping should ask two questions together:
+
+1. What outcome is the person trying to achieve?
+2. What pieces is the person using or shaping to achieve it?
+
+The first gives the **journey view**. The second gives the **composition view**.
+
+The product is the intersection:
+
+`USER OUTCOME × COMPOSABLE PIECES × GOVERNED COMPOSITION`
+
+This prevents the documentation from quietly turning VIVIM into a fixed application whose extensibility is documented as an optional feature.
+
+## 17. Bottom line
 
 The Steward's job is to keep the project from losing intelligence as it moves from:
 
