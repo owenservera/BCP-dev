@@ -104,6 +104,23 @@ WORLD
 
 Goal: identify exactly which parts belong to CFA-01 and which belong to peer CFAs.
 
+### TODO-011 — Prove the Semantic Lens on a real cross-domain question
+
+Use the existing Architecture Graph, System Intelligence indexes and World/Object research to answer one real semantic question through a single Lens-style workflow.
+
+Required output:
+- subject resolution;
+- identity/source correspondence;
+- relationship neighborhood;
+- evidence/lineage;
+- peer ownership;
+- candidate Context;
+- unknowns/conflicts.
+
+Falsifier: if the workflow requires a second competing semantic graph or repeated manual reconstruction of the same source relationships, the proposed one-tool boundary is wrong or incomplete.
+
+Output target: evidence-backed assessment of the Semantic Lens design, not immediate implementation.
+
 ## Round 1.5 — Only if Round 1 reveals the need
 
 ### TODO-007 — Canonical World Model document
