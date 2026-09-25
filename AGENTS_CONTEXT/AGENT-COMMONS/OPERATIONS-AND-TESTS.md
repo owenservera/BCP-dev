@@ -81,3 +81,33 @@ Every rejection should expose event_id, agent_id, session_id, validation stage, 
 4. transport contract tests against an in-memory transport;
 5. Git transport tests;
 6. concurrency/idempotency fuzz tests.
+
+## Worked example: DECISION_CANDIDATE promotion
+
+A Commons message must not become durable architecture merely because it was posted or acknowledged.
+
+Example:
+
+```text
+message.posted
+  kind: DECISION_CANDIDATE
+  message_id: m-123
+  subject: K0 boundary proposal
+  references: [ ... ]
+  named stakeholders: Runtime Constitution, Authority, and Architecture Steward
+
+stakeholder disposition
+  Runtime Constitution → explicit non-objection
+  Authority → explicit non-objection
+  Architecture Steward → objection raised
+  objection → resolved in the applicable authority-owned record
+
+promotion
+  → update the appropriate durable authority artifact
+  → cite message_id m-123 and the supporting evidence
+  → record the disposition/resolution lineage
+```
+
+For a K0 boundary matter, the durable destination might be the applicable Ω decision/invariant record such as `omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md`; for a Steward-owned architectural reconciliation, it may instead be the appropriate Steward change/reconciliation record. The destination is determined by semantic and authority ownership, not by Commons.
+
+Commons retains the communication history. The authority-owned artifact carries the canonical decision.
