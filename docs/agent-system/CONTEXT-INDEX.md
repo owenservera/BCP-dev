@@ -4,8 +4,8 @@
 
 | Question | Answer (read-first link) |
 |---|---|
-| What are the program's P1 workstreams? | `docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md` → nine boundaries, dependencies and proof obligations |
-| Where is the active workstream registry? | `docs/agent-system/WORKSTREAMS.md` |
+| What is the program control view? | `docs/agent-system/PROGRAM-BOARD.md` → current milestones, dependencies, complexity, blockers, and next actions |
+| Where are the ten P1 workstreams and their durable boundaries? | `docs/agent-system/P1-WORKSTREAM-PORTFOLIO.md` + `docs/agent-system/WORKSTREAMS.md` |
 | Where is the cooperative protocol? | `docs/agent-system/SYSTEM.md` |
 | Where is durable current context? | `docs/agent-system/CURRENT.md` |
 | Where is the large architectural mental model? | `docs/agent-system/CHATGPT-ARCHITECTURAL-CONTEXT.md` → synthesized Ω design, VIVIM→BCP→Ω framing, P1 boundaries, self-knowledge vision, open questions, and future-agent model |
