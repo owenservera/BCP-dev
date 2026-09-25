@@ -302,10 +302,12 @@ This is a delivery track, not another architecture layer.
 
 ## 13. Immediate sequence
 
-### Cycle 1
+### Cycle 1 — CURRENT
 Provider / Account / Routing reconciliation.
 
-Outputs: canonical account model, routing policy model, realization-selection flow, mapped harvest list, exit criteria.
+Primary artifact: `PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md`.
+
+Outputs: canonical Account relationship, routing-policy semantics, realization-selection flow, migration/harvest matrix, maturity path, thin falsifier, and live-account proof criteria.
 
 ### Cycle 2
 World / Workspace / Canvas reconciliation.
@@ -332,13 +334,17 @@ Product lifecycle / E2E.
 
 Outputs: first-run, default environment, recovery, export, end-to-end journey suite.
 
-## 14. Explicit non-goals
+## 14. Current execution rule
+
+Do not open a new architectural workstream for this slice. D4 owns the product synthesis; P1-05/P1-06/P1-07/P1-08 contribute the runtime, authority, provider-reality, and harvest evidence. The first implementation request comes only after RA-1 through RA-3 are reconciled and the thin falsifier is specified.
+
+## 15. Explicit non-goals
 
 Do not spend major effort on another plugin SDK, another provider abstraction layer, another world graph, another memory architecture, another routing engine, another canvas authority model, or broad AI-provider API integration ahead of the shippable Chrome path.
 
 The repository already has enough material in these areas.
 
-## 15. Destination-grade rule
+## 16. Destination-grade rule
 
 A capability becomes destination-grade when the relevant journey is:
 
