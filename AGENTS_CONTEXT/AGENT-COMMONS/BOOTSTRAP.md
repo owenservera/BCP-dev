@@ -39,6 +39,29 @@ Do not infer stable agent identity from Git author, branch, or folder name.
 
 After the Core Agent identity is aligned, record or link the stable agent_id and active signing-key material through the identity design defined by Commons.
 
+## Agent session topology
+
+A participating agent is an independent runtime/session, not a child process of another agent.
+
+The owner may launch multiple agents as separate ChatGPT/Codex/browser sessions or equivalent execution environments. Each session is one peer:
+
+```text
+Architecture Steward session
+World / Ontology session
+Data / Identity session
+Semantic Continuity session
+Authority / Governance session
+ ...
+```
+
+Each peer has its own agent identity, conversation context, working session, and agent-home Commons state. Peers communicate through Commons; one session does not inherit another session's private conversation context.
+
+The Architecture Steward is a coordinating architectural role, not a hidden parent runtime. It cannot assume another peer is awake, and another peer does not become subordinate merely because the Steward launched its prompt.
+
+A fresh session should recover peer communication from `PEER-ROSTER.md` and Commons rather than expecting another tab/session to inject context.
+
+This topology is deliberately compatible with multiple browser tabs/windows: one tab/session may represent one agent, while all sessions share the same repository-level Commons protocol and durable communication history.
+
 ## Communication during bootstrap
 
 The agent may use Commons after it has enough identity/session context to communicate safely.
