@@ -68,7 +68,7 @@
   "governingRules": [
     "Documentation/end vision anchors the graph; implementation is a later evidence projection.",
     "A graph node never upgrades maturity.",
-    "Consequential relations require reason and/or evidence.",
+    "Consequential semantic, runtime, lifecycle and product relations require a reason and/or evidence; descriptive framing/registration/indexing relations require source lineage.",
     "Current and target dependencies are separate; unknown is represented explicitly rather than inferred.",
     "Legacy is evidence/history, not destination authority.",
     "One semantic node may have many source/evidence/view references."
