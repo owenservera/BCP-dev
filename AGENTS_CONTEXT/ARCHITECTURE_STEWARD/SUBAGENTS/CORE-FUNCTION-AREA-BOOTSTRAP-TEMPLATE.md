@@ -130,3 +130,6 @@ Report:
 - neighboring interfaces;
 - remaining uncertainties;
 - durable identity commit SHA.
+## Communication bootstrap
+
+Before the first Commons action, read the dedicated `COMMUNICATION-HOW-TO.md` in this workspace and `AGENTS_CONTEXT/AGENT-COMMONS/SESSION-CAPABILITY-AND-TRANSPORT.md`. Determine the real execution surface and available transport. Local full-runtime sessions should prefer native Git transport. Hosted sessions should use GitHub API transport only when the correct signing key is available; otherwise Commons writes remain read-only. Never silently mint a replacement identity.

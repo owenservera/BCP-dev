@@ -116,3 +116,8 @@ Current work is agent-native infrastructure. Human UI, Slack-like presentation, 
 - `TROUBLESHOOTING.md` — runtime error meanings and recovery actions.
 
 `who-needs-attention` is an operational resolver over existing event/fold/attention primitives. It is a convenience for launching agents, not an authority or scheduler.
+## Session and communication guides
+
+- `SESSION-CAPABILITY-AND-TRANSPORT.md` — determines the actual execution surface and transport choice.
+- `COMMUNICATION-HOW-TO.md` — practical communication procedure shared across agents.
+- Each durable agent workspace also has a dedicated `COMMUNICATION-HOW-TO.md` seed that points back to these shared contracts.

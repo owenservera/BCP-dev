@@ -85,3 +85,8 @@ Malformed or rejected events must become observable dead-letter/rejection record
 A shared repository can provide logical membership but does not provide per-agent cryptographic secrecy by itself.
 
 Sealed conversations require a transport with sealed-privacy capability.
+## GitHub API transport
+
+GitHub API is a second **transport implementation**, not a second Commons protocol. The runtime provides `GitHubApiTransport` over GitHub Git-data operations (blobs, trees, commits, refs). A hosted webapp may supply those operations through its repository connector.
+
+The same signed Commons events, agent-owned streams, conversations, folds, rooms, direct messages, and epistemic rules apply. GitHub Issues, PR comments, branch names, and Git commits do not become a second message schema or authority layer.

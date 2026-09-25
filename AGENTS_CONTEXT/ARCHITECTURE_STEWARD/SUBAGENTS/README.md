@@ -107,3 +107,6 @@ Do not rewrite a launch prompt merely because a born agent's identity evolves. C
 ## Delivery rule
 
 Durable Core Function Area artifacts and bounded investigation artifacts are committed directly to `main` unless the owner explicitly assigns another delivery mechanism. Git branches are not communication channels, and no branch/PR should be created merely to stage ordinary agent bootstrap or communication artifacts.
+## Communication bootstrap seeds
+
+Every durable Core Function Area workspace has a dedicated `COMMUNICATION-HOW-TO.md` seed. It is a practical guide, not a second protocol. It points agents to the shared Commons capability/transport contract and the existing communication guidance.
