@@ -66,3 +66,4 @@ Do not create a new folder for a one-off wording variation.
 Current type:
 
 - **REPOSITORY-DISCOVERY** — independent completeness/contextualization sweep before the Steward treats the architecture corpus as sufficiently sampled.
+- **PRODUCT-EXPERIENCE-ARCHAEOLOGY** — independent recovery and mapping of the user-experience vision, lifecycle, interaction grammar, and architectural corollaries before UX becomes the primary destination organizing lens.
