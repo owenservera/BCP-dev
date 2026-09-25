@@ -1,7 +1,7 @@
 # Architecture Steward — State
 
 > Updated: 2026-09-25
-> Status: ACTIVE / INITIALIZED / FIRST HOUSEKEEPING CYCLE
+> Status: ACTIVE / INITIALIZED / CONTEXTUALIZED / FIRST HOUSEKEEPING CYCLE
 
 ## Current state
 
@@ -98,8 +98,29 @@ Durable records:
 - branch-local promotion/archive rules;
 - stable architecture versioning.
 
+## Repository contextualization pass
+
+A repository-scale structural/contextual pass was completed on 2026-09-25 before adding further Steward machinery.
+
+Key findings:
+- docs/ contains about 600 tracked files, with 345 in docs/destination, 125 in docs/agent-system, 20 in docs/archive, 4 in docs/cleanup and 13 in docs/migration;
+- the System Intelligence corpus is 164 files, including Pass 1 findings, large Pass-2 characterization material, Pass 3, indexes and synthesis;
+- the Legacy mine is 3,133 tracked files and is evidence/prototyping history, not destination authority;
+- omega-baseline is 930 tracked files and is the fresh Ω destination/runtime tree;
+- AGENTS_CONTEXT is the specialized cold-start context layer, with this Steward now maintaining a dedicated workspace;
+- ZAI_BUILD_CONTEXT and agent-tools are separate build/utility layers and are not automatically part of Steward control;
+- docs/agent-system is an inherited management apparatus whose useful facts and proven mechanics should be retained, but whose process should not be expanded automatically or allowed to become a second architecture authority;
+- multiple destination research packages repeatedly characterize the same subjects at different depths, so research must be reconciled as lineage rather than flattened into one summary.
+
+A durable working interpretation of these findings is recorded in:
+- OPERATING-INTERPRETATION.md
+
+The operating interpretation establishes the Steward's three working modes (policeman, tutor, hard-hat), triggered stewardship tasks, artifact-creation threshold, research-stratigraphy model and anti-bloat rules.
+
 ## Current Steward rule
 
 Do not start by rewriting architecture prose.
 
 Start by making existing knowledge addressable, attributable, connected and repairable.
+
+Add new Steward machinery only when a real recurring need demonstrates that an existing view or lightweight record is no longer sufficient.
