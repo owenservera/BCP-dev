@@ -93,6 +93,20 @@ This is a provisional interpretation pending deeper archaeology and owner alignm
 
 **Status:** ACCEPTED FOR BOOTSTRAP ROUND 1.
 
+### DEC-006 — Close bootstrap with explicit gap memory
+
+**Decision:** Treat the current CFA-01 home as a seed-ready bootstrap baseline and record the remaining blind spots explicitly rather than expanding the architecture prematurely.
+
+**Reason:** The final reread showed that the home is strong on structural orientation but not yet sufficient on temporal semantics, external observation/reconciliation, negative-space, productivity semantics, attention, query/addressing, semantic change, scoped World views, and reproducible Lens snapshots.
+
+**Status:** ACCEPTED FOR BOOTSTRAP PAUSE.
+
+### OQ-001 — Living World semantics
+
+The next substantive CFA-01 phase must establish how World meaning behaves across time, observation, scope, contradiction and change. The gap audit identifies the minimum research/tooling needed without requiring a universal ontology or graph runtime.
+
+**Status:** OPEN.
+
 ## Concept register
 
 ### CON-001 — World Entity
