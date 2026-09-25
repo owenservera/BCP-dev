@@ -204,3 +204,37 @@ Do not design these fully in Round 1:
 - automated self-healing of ontology/semantic models.
 
 They may become legitimate later. They are not justified yet.
+
+## Round 1 — Newly surfaced integration work
+
+### TODO-011 — Define the World/Context contribution seam to the Intelligence Graph
+
+Characterize which World/Context facts can become graph nodes/edges and which must remain local research until corroborated.
+
+Questions:
+- Which concepts map directly to destination concepts already in the graph?
+- Which relationships are semantic framing versus true dependency?
+- What provenance must accompany a graph contribution?
+- How should UNKNOWN and CONFLICTED findings be represented?
+
+Output target: a small graph-contribution crosswalk, not a second graph.
+
+### TODO-012 — Define the World/Context productivity trace
+
+Using the current grounding design, specify the minimal fields this CFA needs returned for a target:
+
+`identity, meaning, owner, canonical source, context relationship, evidence, freshness, unknowns, falsifier`
+
+Output target: a compact trace contract or example only if repeated use demonstrates the need.
+
+### TODO-013 — Cross-CFA seam observations
+
+During TODO-001 through TODO-006, explicitly record boundary observations involving:
+
+- Data / Identity / Persistence;
+- Semantic Continuity;
+- Authority / Governance;
+- Experience / Interaction;
+- Architecture Steward / Intelligence Graph.
+
+Do not resolve peer boundaries unilaterally. Preserve competing interpretations until evidence or owner alignment resolves them.
