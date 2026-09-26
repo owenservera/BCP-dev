@@ -172,6 +172,24 @@ Objective: test historical and Ω evidence for a universal Event or State primit
 - CFA-01 ↔ CFA-09: semantic evolution vs migration/compatibility mechanics
 - CFA-01 ↔ CFA-10: semantic model vs constitutional runtime guarantees
 
+## Execution / capability audit — 2026-09-26
+
+This is a session capability observation, not a permanent host guarantee.
+
+- Repository read: **AVAILABLE** through GitHub connector.
+- Repository write: **AVAILABLE** through GitHub connector; authenticated account currently has repository admin permission.
+- GitHub API / Git-data operations: **AVAILABLE**, including file, blob/tree/commit/ref, branch, search, PR/issue and workflow-evidence operations.
+- Direct native Commons runtime: **UNAVAILABLE on this hosted tool surface**.
+- Commons public identity/read-back: **AVAILABLE** through the published `commons/world-ontology-context` branch.
+- Published Commons identity: `world-ontology-context`, key_id `world-ontology-context:ed25519:01a0da48-27e7-74f4-a829-a2e5cd3532b9`.
+- Existing signed public introduction: recoverable at stream sequence 1; persisted branch evidence and bootstrap report are present.
+- Commons signed write: **UNVERIFIED / CONDITIONAL** in this session because the private signing key is not exposed through the repository connector. Never mint a replacement keypair under the same agent_id.
+- Local filesystem/runtime: available as model-side tooling in this session, but not treated as an agent-host guarantee.
+- Native outbound Git remote access: not assumed for this session.
+- Preferred durable communication path when a signing key is recoverable in a compatible host: `GitHubApiTransport`; otherwise Commons remains read-only for this session.
+
+No new tool or agent is required by this audit. The missing capability is environmental/session-specific, not a missing CFA-01 home subsystem.
+
 ## Final bootstrap gap audit
 
 The bootstrap framing pass is now sufficient to pause. The remaining uncertainty is no longer hidden; it is recorded in:
