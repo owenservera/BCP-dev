@@ -149,7 +149,11 @@ Exact principal × viewpoint × visibility representation; absence/non-observati
 
 Identity, visibility and scope appear on both sides. These are not yet proven duplicate responsibilities.
 
-#### 13. Peer question
+#### 13. Conflicts
+
+No material peer-claim conflict is currently identified at this seam. The overlap questions remain open rather than treated as reconciled.
+
+#### 14. Peer question
 
 **What exact World-side state should be returned when a subject is semantically addressable but not authorized/visible, and which portion belongs to World projection versus Authority policy?**
 
@@ -220,7 +224,11 @@ Minimum durable authority reference carried by Work; multi-step/batched authoriz
 
 Scope, actor, evidence and risk appear in both Work and Authority for different purposes.
 
-#### 13. Peer question
+#### 13. Conflicts
+
+No material peer-claim conflict is currently identified at this seam. The overlap questions remain open rather than treated as reconciled.
+
+#### 14. Peer question
 
 **What minimum authority reference must Work/Attempt retain so execution can re-check live permission without Work becoming an authority store, and how should retries behave after expiry or revocation?**
 
@@ -291,7 +299,11 @@ Canonical effect/risk vocabulary; precise ownership of risk classification versu
 
 Risk, scope, operation and target/resource occur on both sides as crosswalk subjects, not proven duplicate ownership.
 
-#### 13. Peer question
+#### 13. Conflicts
+
+No material peer-claim conflict is currently identified at this seam. The overlap questions remain open rather than treated as reconciled.
+
+#### 14. Peer question
 
 **What canonical effect/risk descriptor must every Capability expose so Authority can decide permission without importing capability semantics, and how does a realization change preserve that contract?**
 
