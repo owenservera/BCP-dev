@@ -29,7 +29,12 @@
     "THE-ONE-TOOL-GROUNDED-SEMANTIC-TRACE.md"
   ],
   "fresh_session_order": [
+    "/AGENTS.md",
+    "/BUILD_CONTEXT.md",
+    "/docs/CURRENT-CONTEXT.md",
+    "/AGENTS_CONTEXT/README.md",
     "SEED-HOME.md",
+    "SEED-HOME-MANIFEST.json",
     "WORLD-OPERATIONAL-CONTEXT.json",
     "STATE.md",
     "BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md",
