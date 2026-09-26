@@ -41,15 +41,25 @@ CFA-01 may define and challenge the World-facing semantic contract at those seam
 
 ## Fresh-session recovery
 
-1. SEED-HOME.md
-2. WORLD-OPERATIONAL-CONTEXT.json
-3. STATE.md
-4. BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md
-5. PEER-RELATIONSHIP-DISTANCE-MAP.json
-6. BOUNDARY-ROUTER.json
-7. RESEARCH-QUEUE.md
-8. COMMUNICATION-HOW-TO.md
-9. task-specific research artifacts
+First satisfy the repository cold-start baseline:
+
+0. `/AGENTS.md`
+1. `/BUILD_CONTEXT.md`
+2. `/docs/CURRENT-CONTEXT.md`
+3. `/AGENTS_CONTEXT/README.md`
+
+Then recover CFA-01:
+
+4. SEED-HOME.md
+5. SEED-HOME-MANIFEST.json
+6. WORLD-OPERATIONAL-CONTEXT.json
+7. STATE.md
+8. BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md
+9. PEER-RELATIONSHIP-DISTANCE-MAP.json
+10. BOUNDARY-ROUTER.json
+11. RESEARCH-QUEUE.md
+12. COMMUNICATION-HOW-TO.md
+13. task-specific research artifacts
 
 For cross-CFA questions, inspect the peer's current role/boundary artifact before making a durable ownership claim.
 
@@ -99,9 +109,28 @@ QUESTION / CHANGE → RECOVER → TRACE → CHARACTERIZE → TEST BOUNDARY → C
 
 Prefer the smallest durable artifact that makes a finding recoverable.
 
-## Tool posture
+## Tool and transport posture
 
-World Lens is the current highest-leverage tool hypothesis: a read-oriented semantic inspection operation that turns a target plus purpose into a bounded World Packet containing meaning, identity/correspondence, neighborhood, context, evidence, freshness, ownership, uncertainty and falsifiers.
+This agent operates against the repository as the durable system of record.
+
+Current connector capabilities observed in this session:
+- repository read: **AVAILABLE**;
+- repository write: **AVAILABLE**;
+- GitHub API / Git-data operations: **AVAILABLE**;
+- repository search, commit/branch inspection, issue/PR inspection and workflow-evidence inspection: **AVAILABLE**;
+- direct native Agent Commons runtime: **NOT EXPOSED on this hosted tool surface**;
+- Commons branch read-back: **AVAILABLE** through GitHub repository access;
+- signed Commons write: **CONDITIONAL** — requires recovery of the existing private signing key; never generate a replacement identity merely to publish;
+- local filesystem/runtime tooling may exist per host, but must be rediscovered per session and must not be assumed by the seed home.
+
+The current Commons identity is already published under `commons/world-ontology-context`. Its public identity and authored event stream are recoverable from that branch. The private signing key is intentionally not stored in the repository.
+
+Communication transport rule:
+- prefer native `GitBranchTransport` only when a full local runtime **and** the correct signing key are actually available;
+- use `GitHubApiTransport` when GitHub repository access **and** the correct signing key are available;
+- otherwise treat Commons writes as **read-only/unavailable**, and never manufacture message or signature evidence.
+
+World Lens is the current highest-leverage **tool hypothesis**, not yet a claimed implemented runtime tool: a read-oriented semantic inspection operation that turns a target plus purpose into a bounded World Packet containing meaning, identity/correspondence, neighborhood, context, evidence, freshness, ownership, uncertainty and falsifiers.
 
 See WORLD-LENS-ONE-TOOL-DESIGN.md and THE-ONE-TOOL-GROUNDED-SEMANTIC-TRACE.md.
 
