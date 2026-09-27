@@ -19,7 +19,7 @@ Runtime/bootstrap reads this file instead of requiring each session to hand-type
 | `composition-plugin-forge` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/COMPOSITION-PLUGIN-FORGE` | Composition / Plugin / Forge | bootstrap-ready |
 | `experience-interaction-surfaces` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES` | Experience / Interaction / Surfaces | bootstrap-ready |
 | `evolution-compatibility-self-maintenance` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE` | Evolution / Compatibility / Self-Maintenance | bootstrap-ready |
-| `runtime-constitution-core-substrate` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE` | Runtime Constitution / Core Substrate | bootstrap-ready |
+| `runtime-constitution-core-substrate` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE` | Runtime Constitution & Core Substrate Steward — Runtime Constitution / Core Substrate | ratified |
 
 ## Registry rules
 
