@@ -8,11 +8,11 @@
 ## Open tasks
 
 ### HOME-UPGRADE-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
 - **Priority:** P1
 - **Dependencies:** None currently known.
 - **Write scope:** Own agent home only.
-- **Next action:** Read current main, then reconcile this task against `SESSION-CONTEXT.md`, identity, `STATE.md`, `TASKS.md`, `LESSONS.md`, and applicable alignment/history.
+- **Next action:** Persist the required `RESULTS/<SESSION_ID>.md` receipt, then mark this task DONE after verifying the closure commit.
 - **Completion condition:** Validate the home as cold-startable; persist only justified corrections; update task status; report exact result/commit; do not start unrelated work.
 - **Stop condition:** Stop after this task and report.
 
