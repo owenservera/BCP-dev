@@ -45,7 +45,7 @@ After the global protocol:
 1. `AGENTS.md`
 2. `BUILD_CONTEXT.md`
 3. `docs/CURRENT-CONTEXT.md`
-4. `AGENTS_CONTEXT/AGENTS_CONTEXT README` as applicable
+4. `AGENTS_CONTEXT/README.md` as applicable
 5. this workspace `SESSION-CONTEXT.md`
 6. `CORE-AGENT-SEED.md`
 7. `STATE.md`
