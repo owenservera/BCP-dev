@@ -1,6 +1,6 @@
 # Architecture Steward — Durable Lessons
 
-> Operating layer: ChatGPT Agent Operating Model 1.1 / FSSP-1.2
+> Operating layer: ChatGPT Agent Operating Model 1.1 / FSSP-1.3
 > Status: ACTIVE
 > Purpose: compact cross-session operational memory for the Architecture Steward.
 > Authority: operational learning only; not Ω law or semantic authority.
@@ -22,6 +22,8 @@ Do not use this file as a transcript archive, task tracker, architecture authori
 7. **Operating-model knowledge is not enough to infer the immediate task.** The Steward home must expose an explicit current mission and next-action artifact when work transitions from shared setup to owner-launched peer sessions.
 8. **Instructions ≠ decisions.** A sequence, checklist, launch queue, predecessor label, or prior agent recommendation is not proof of dependency. Assess the actual semantic, authority, read/predecessor, write-surface, synchronization, verification, and risk dependencies before selecting serial or parallel execution.
 9. **Do not manufacture progress.** A healthy target can require no change; do not create commits merely to satisfy a prescribed sequence.
+
+10. **Freeze design breadth when enforcement becomes the scaling risk.** Once the protocol corpus is sufficiently defined, new shared design should be limited to correctness, security/integrity, or testability until the existing operational contract has evidence-backed execution. Do not expand the coordination model to compensate for an unimplemented runtime.
 
 ## Promotion rule
 
