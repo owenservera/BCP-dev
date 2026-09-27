@@ -12,9 +12,19 @@ The common ChatGPT agent operating model has now been established and the fresh 
 
 ## Immediate next action
 
-**Owner launches one fresh ChatGPT session for each CFA-01 through CFA-10, using the prepared launch queue.**
+**Owner launches the ten CFA home-upgrade sessions. These are architecturally INDEPENDENT and should be launched in parallel unless a fresh session discovers a real dependency.**
 
 Launch queue: `CFA-HOME-UPGRADE-LAUNCH-QUEUE-2026-09-27.md`.
+
+The Steward must not merely say "launch CFA-01 through CFA-10." It must compile an **owner action package** containing, for every CFA:
+
+1. the CFA name and agent_id;
+2. the direct home link;
+3. the exact launch instruction/envelope to paste;
+4. any genuine prerequisite (none for this wave unless repository evidence changes);
+5. the expected stop/report condition.
+
+The owner should be able to execute the next step directly from the Steward response without reconstructing links, prompts, or sequencing.
 
 Each fresh CFA session is responsible for validating and upgrading its own home against:
 
@@ -28,27 +38,30 @@ Each fresh CFA session is responsible for validating and upgrading its own home 
 
 The CFA sessions must make only agent-specific corrections supported by their own repository evidence. They must not redesign the shared operating model.
 
-## Required order
+## Execution strategy
 
-Use the launch queue for exact home links, identities and the shared home-upgrade envelope.
+For this wave the current evidence supports:
+
+- **Semantic dependency:** none between CFA home upgrades.
+- **Authority dependency:** none between already-ratified CFA identities.
+- **Write surface:** each CFA owns a distinct home directory.
+- **Shared synchronization:** repository mainline only.
+- **Architectural classification:** **INDEPENDENT**.
+- **Operational constraint:** concurrent writes to the same ref may require repository synchronization/retry; that does not make the tasks semantically ordered.
+
+Therefore the owner-facing action is **launch all ten fresh CFA sessions in parallel**.
+
+Only a newly discovered, evidence-backed dependency may change this. The Steward must not manufacture serial ordering.
 
 ```
-STEWARD FRESH-SESSION TEST
-        ↓
-OWNER LAUNCHES CFA-01 FRESH SESSION
-        ↓
-OWNER LAUNCHES CFA-02 FRESH SESSION
-        ↓
-...
-        ↓
-OWNER LAUNCHES CFA-10 FRESH SESSION
-        ↓
-STEWARD RECONCILIATION
-        ↓
-select the next architectural work from verified constellation state
+OWNER LAUNCHES CFA-01 ... CFA-10 IN PARALLEL
+                  ↓
+VERIFY EACH RESULT / COMMIT
+                  ↓
+STEWARD CONSTELLATION RECONCILIATION
+                  ↓
+SELECT NEXT ARCHITECTURAL FRONTIER
 ```
-
-The CFA sessions may be run serially or in safe parallel only when their write surfaces and authority dependencies do not conflict. For owner-alignment or shared-state mutation work, follow the controlling launch sequence.
 
 ## CFA session completion condition
 
@@ -82,13 +95,18 @@ Do not:
 
 ## Success condition
 
-A fresh Steward can enter the Steward home from its directory alone and determine:
+A fresh Steward can enter the Steward home from its directory alone and determine **and operationalize**:
 
 ```
 WHO AM I?
 WHAT IS CURRENT?
 WHAT DID THE LAST VALIDATED TEST PROVE?
-WHAT MUST HAPPEN NEXT?
-WHO PERFORMS THAT NEXT STEP?
+WHAT IS THE ACTUAL DEPENDENCY / EXECUTION STRATEGY?
+WHAT EXACT TASKS DOES THE OWNER LAUNCH NOW?
+WHERE ARE THE DIRECT LINKS?
+WHAT EXACT INSTRUCTION IS PASTED INTO EACH SESSION?
+WHAT PREREQUISITES ACTUALLY EXIST?
 WHEN DOES THE STEWARD RESUME?
 ```
+
+The answer is not complete when it merely describes the next work. It is complete when it gives the owner the concrete launch package.
