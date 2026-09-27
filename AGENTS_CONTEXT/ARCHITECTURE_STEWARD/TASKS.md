@@ -7,73 +7,67 @@
 
 ## Open tasks
 
-### HOME-UPGRADE-2026-09-27
-- **Status:** DONE
+### CFA-DOMAIN-ROADMAP-WAVE-2026-09-27
+- **Status:** READY
 - **Priority:** P1
-- **Completed:** 2026-09-27
-- **Receipt:** RESULTS/STEWARD-20260927-OPS-MATURITY.md
-- **Result:** Steward home and operating-control seams were reconciled; current main was independently re-checked; home-upgrade work is closed.
+- **Scope:** Launch and reconcile the first self-owned domain roadmap/task set for CFA-01 through CFA-10.
+- **Protocol:** `CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
+- **Launch queue:** `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
+- **Dependencies:** None for launch; each CFA independently determines its internal dependencies.
+- **Next action:** Owner launches the ten fresh CFA roadmap sessions.
+- **Completion condition:** Each CFA has a durable roadmap or honest BLOCKED/UNKNOWN result and its TASKS.md reflects the resulting work frontier; Steward reconciles all ten and records the bounded shared next frontier.
+- **Stop condition:** unresolved owner decision, material peer ownership conflict, or inability to establish an evidence-backed domain work frontier.
 
 ### CFA-HOME-UPGRADE-WAVE-RECONCILIATION-2026-09-27
 - **Status:** COMPLETE WITH EXCEPTION
 - **Priority:** P1
-- **Completed:** 2026-09-27
-- **Result:** Nine CFA home-upgrade tasks are DONE with durable receipts; CFA-05 remains READY without a RESULTS receipt and is explicitly left unresolved rather than inferred complete.
-- **Next action:** Do not relaunch the wave. Reconcile CFA-05 separately only if needed.
+- **Result:** Nine CFA homes have durable DONE tasks/receipts. CFA-05 remains READY without a durable RESULTS receipt. Preserve the discrepancy; do not relaunch the whole wave.
 
-## Open strategic operating tasks
+### CYCLE-4-LIVE-CHROME-ACCOUNTS-2026-09-27
+- **Status:** SUPERSEDED
+- **Priority:** P1
+- **Reason:** The Steward selected this downstream product slice before the CFA-owned domain-roadmap stage had been completed. The packet remains valid candidate evidence; it is not a current mandate.
+- **Next:** Re-evaluate only after CFA roadmap reconciliation.
 
 ### COMMONS-V0-RUNTIME-2026-09-27
-- **Status:** READY
+- **Status:** READY / BACKGROUND
 - **Priority:** P1
 - **Operational owner:** runtime-constitution-core-substrate
-- **Source:** AGENTS_CONTEXT/AGENT-COMMONS/RUNTIME-PLATFORM-WORKSTREAM-2026-09-27.md
-- **Dependencies:** Current Commons design freeze; no semantic boundary activation required.
-- **Next action:** implement/test the existing Commons Phases 1–3 scope and drive the 10-point v0 operational completion test to evidence-backed green.
-- **Completion condition:** two independent agent runtimes satisfy the complete Commons v0 test and persist the evidence; then the owner decides whether to unfreeze broader protocol design.
+- **Source:** `AGENTS_CONTEXT/AGENT-COMMONS/RUNTIME-PLATFORM-WORKSTREAM-2026-09-27.md`
+- **Reason for background status:** durable work remains valid, but current Steward attention is on missing CFA domain planning.
 
 ### COMMONS-IDENTITY-DRILL-2026-09-27
-- **Status:** BLOCKED
+- **Status:** BLOCKED / BACKGROUND
 - **Priority:** P1
-- **Operational owner:** authority-governance
-- **Dependencies:** a real key-rotation operation must exist before the full rotation + recovery drill can run.
-- **Current evidence:** recovery/no-silent-fork guard is covered by the Commons smoke test; rotation operation is absent.
-- **Next action:** implement/authorize a real rotation operation, then execute the documented drill.
-- **Completion condition:** stable agent_id, explicit old/new key ceremony, old-key retirement/rejection, new-key attribution, and authored-stream continuity are all evidenced.
+- **Reason:** remains blocked until a real key-rotation operation exists; does not govern CFA roadmap formation.
 
 ### OWNER-DIGEST-2026-09-27
 - **Status:** ACTIVE
 - **Priority:** P1
 - **Owner:** architecture-steward
-- **Cadence:** weekly derived snapshot; generate/replace rather than append history.
-- **Scope:** pending receipts, receipt verification state, handoff/attention items when computable, open contradictions, and births awaiting ratification.
-- **Authority:** projection only; it never replaces source receipts, Commons history, the CFA register, or authority-owned records.
-
-### CYCLE-4-LIVE-CHROME-ACCOUNTS-2026-09-27
-- **Status:** READY
-- **Priority:** P1
-- **Scope:** existing Build-and-Harvest Plan Cycle 4; RA-5 live account proof using the V1 Chrome substrate.
-- **Operational lead:** CFA-06 capability-provider-realization, with CFA-04 authority, CFA-05 work/execution, and CFA-08 surface evidence contributing within their boundaries.
-- **Next action:** execute RA-5 against the existing provider/account reconciliation; do not redesign routing or provider architecture.
-- **Completion condition:** selected account/session is proven to be the one actually used; no silent account substitution; release/re-authentication is attributable; evidence reconstructs the path.
-- **Environment note:** requires owner-machine Chrome/live execution. A webapp-only session must not claim live proof.
+- **Cadence:** weekly derived snapshot.
+- **Scope:** receipt verification, pending work, unresolved contradictions, handoff/attention items when computable.
+- **Authority:** projection only.
 
 ## Future task intake
 
-Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
+Add durable Steward work only with status, priority, verified dependencies, write scope, next action, and completion condition.
 
 ## Completed task history
+
+### HOME-UPGRADE-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Receipt:** RESULTS/STEWARD-20260927-OPS-MATURITY.md
 
 ### SESSION-LAUNCH-UPGRADE-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
 - **Receipt:** RESULTS/STEWARD-20260927-SESSION-LAUNCH-UPGRADE.md
-- **Result:** Upgraded the fresh-session and session-receipt machinery to FSSP-1.3 / Contract 1.1, including the Steward receipt pull loop and investigation-subagent receipt coverage.
 
 ### AGENT-SYSTEM-OPS-MATURITY-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
 - **Receipt:** RESULTS/STEWARD-20260927-OPS-MATURITY.md
-- **Result:** Reviewed and implemented the operating-maturity seams: Commons/repository receipt convergence and trust posture, runtime ownership/freeze line, quantitative Epistemic Integrity trigger, publishing-session reconciliation, owner digest projection, security/identity custodian assignment, roster drift correction, and explicit blocked status for the unimplemented rotation drill.
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
