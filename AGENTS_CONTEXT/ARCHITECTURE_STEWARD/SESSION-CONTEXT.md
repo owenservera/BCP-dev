@@ -1,6 +1,6 @@
 # Architecture Steward — ChatGPT Session Context
 
-> Protocol: FSSP-1.0
+> Protocol: FSSP-1.1
 > Status: RATIFIED / ACTIVE
 > This file is a navigation aid, not architectural authority.
 
@@ -10,6 +10,7 @@
 - workspace: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/`
 - durable role context: `README.md`, `OWNERSHIP-MAP.md`
 - current state: `STATE.md` if present, otherwise current Steward artifacts
+- lessons: `FRESH-SESSION-DESIGN-LESSONS-2026-09-27.md` and `LESSONS.md` when a compact durable lesson store is warranted
 - process protocol: `CHATGPT-FRESH-SESSION-PROTOCOL.md`
 - prompt template: `CHATGPT-FRESH-SESSION-PROMPT-TEMPLATE.md`
 
@@ -41,4 +42,4 @@ Documentation architecture, research lineage/reconciliation, architecture mappin
 ## Last verified baseline
 `3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
 
-Fresh sessions MUST verify a newer current main tip before use.
+Fresh sessions MUST resolve and verify the current `main`/target ref before use; the recorded SHA above is orientation only.
