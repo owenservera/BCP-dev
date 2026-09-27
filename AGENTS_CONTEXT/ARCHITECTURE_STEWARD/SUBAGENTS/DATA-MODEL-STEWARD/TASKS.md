@@ -18,6 +18,20 @@
 
 ## Open tasks
 
+### STAGE-E-L2-CFA02-DATA-CONTINUITY-BASIS-ADAPTER-2026-09-27
+- **Status:** READY — OWNER-BOUNDED CHARACTERIZATION
+- **Priority:** P0
+- **Objective:** Characterize the CFA-02-owned durable continuity/reconstruction basis inputs for Stage-E derived-view freshness without creating a second identity store.
+- **Milestone:** Stage-E L2 — Source and runtime basis adapters.
+- **Required characterization:** canonical durable record/revision/lineage source references; revision/CID token available today; bounded resolver; comparison rule; STALE condition; UNRESOLVABLE condition; evidence refs; falsifier; explicit UNKNOWN/DEFERRED items.
+- **Primary evidence:** existing vault revisions/CIDs, lineage/reconstruction evidence, and CFA-02 M1 continuity contract.
+- **Write scope:** CFA-02 home documentation only; do not implement runtime adapters or alter shared contracts/Ω law.
+- **Completion condition:** the adapter identifies which existing Data-plane references can serve as basis, names owner/comparison/resolution/stale-unresolvable behavior and falsifier, or records missing evidence as UNKNOWN/BLOCKED.
+- **Stop condition:** second identity store, owner-policy ambiguity, peer-owned semantic transfer, Ω-law collision, or insufficient evidence.
+- **Next action:** produce the bounded CFA-02 durable-continuity basis-adapter characterization, then persist a durable receipt.
+
+## Open tasks
+
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** DONE
 - **Priority:** P1
