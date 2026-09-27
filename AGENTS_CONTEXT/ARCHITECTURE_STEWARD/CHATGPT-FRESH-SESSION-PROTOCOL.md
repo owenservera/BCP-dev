@@ -1,117 +1,127 @@
 # ChatGPT Fresh-Agent Session Protocol
 
-> Version: FSSP-1.0
+> Version: FSSP-1.1
 > Date: 2026-09-27
 > Scope: every new ChatGPT web-app conversation launched as an independent BCP-dev agent session.
 > Status: PROPOSED / Steward operating protocol
 > Authority: process protocol only; not Ω law and not semantic authority.
+> Operating model: `CHATGPT-AGENT-OPERATING-MODEL.md`
 
 ## 1. Purpose
 
-A new ChatGPT conversation is treated as an independent agent session.
+A new ChatGPT conversation is an independent **agent session instance**.
 
-The conversation has no trusted memory of prior sessions. The repository is the durable source of truth.
-
-A launch prompt is therefore not a substitute for agent context. It is a task envelope that points the new session to the durable context it must recover before acting.
+The repository contains the durable agent identity, state and lessons. The launch prompt is the task envelope for this one session.
 
 The governing pattern is:
 
 ```
 FRESH CHAT
-→ IDENTIFY ASSIGNED AGENT
-→ LOAD AGENT SESSION-CONTEXT
-→ LOAD DURABLE IDENTITY / SEED
-→ LOAD CURRENT STATE
-→ LOAD OWNER ALIGNMENT + HISTORY
+→ BIND SESSION IDENTITY
 → VERIFY CURRENT MAIN
-→ LOAD RELEVANT PEERS / AUTHORITY
+→ ENTER AGENT HOME
+→ LOAD SESSION-CONTEXT
+→ LOAD IDENTITY / SEED
+→ LOAD STATE
+→ LOAD LESSONS (when present)
+→ LOAD RELEVANT AUTHORITY / PEERS
+→ VERIFY PREDECESSOR
 → EXECUTE TASK
-→ VERIFY RESULT IN REPOSITORY
-→ COMMIT DURABLE STATE
-→ RETURN MACHINE-CHECKABLE REPORT
+→ VERIFY RESULT
+→ PERSIST REQUIRED DURABLE CONTEXT
+→ REPORT
 ```
 
 ## 2. Conversation-as-agent rule
 
-The active ChatGPT conversation itself is the execution session.
+The active ChatGPT conversation is the execution session.
 
 Do not assume an external implementation agent exists.
 
-If repository read/write capability is available in the ChatGPT session, the session should perform the assigned repository work directly.
+If repository read/write capability is available, the session should perform the assigned work directly.
 
-If repository write or required execution capability is unavailable, report **BLOCKED** or **PARTIAL** with the exact limitation. Never invent a handoff, execution, signature, commit, message ID, test result or repository change.
+If a required capability is unavailable, report **BLOCKED** or **PARTIAL** with the exact limitation. Never invent a handoff, signature, commit, message ID, test result or repository change.
 
 ## 3. Durable source-of-truth hierarchy
 
-Use this order unless a more specific governing artifact says otherwise:
+Unless a more specific governing artifact says otherwise:
 
 1. Ω ratified law.
 2. BCP enforced state/vocabulary.
 3. Current repository code/tests/evidence.
 4. Current owner-aligned CFA identity and boundary artifacts.
 5. Destination architecture/research.
-6. Agent session context and working artifacts.
+6. Agent durable context and working artifacts.
 7. Historical/archive material.
 
-The agent's local session context is a navigation aid, not authority.
+A prompt, chat transcript or conversation report does not outrank repository evidence.
 
-## 4. Agent home convention
+## 4. Agent-home contract
 
-Every CFA home MUST expose a fresh-session front door:
+A standing agent home is the durable operating memory of one role.
 
-```
-SESSION-CONTEXT.md
-```
-
-When the CFA is ratified, it MUST also expose:
-
-```
-CORE-AGENT.md
-```
-
-When the CFA is provisional, use the existing seed/design artifact instead of manufacturing a CORE-AGENT.
-
-The canonical relationship is:
+Expected structure:
 
 ```
 SESSION-CONTEXT.md
-  → CORE-AGENT.md        (if ratified)
-  → BOOTSTRAP-SEED.md / CORE-AGENT-SEED.md / design proposal (if provisional)
-  → STATE.md
-  → OWNER-ALIGNMENT-*.md
-  → IDENTITY-HISTORY.md
-  → active task artifacts
+CORE-AGENT.md            # or established AGENT.md
+STATE.md
+LESSONS.md               # when durable lessons exist
+OWNER-ALIGNMENT-*.md     # when applicable
+IDENTITY-HISTORY.md      # when applicable
+task / research artifacts
 ```
 
-`SESSION-CONTEXT.md` must remain small and pointer-heavy. It summarizes where to look; it must not become a second authority document.
+### Artifact meanings
 
-## 5. Required SESSION-CONTEXT contents
+**SESSION-CONTEXT.md**
+- fresh-session front door;
+- small and pointer-heavy;
+- navigation only, not authority.
 
-Each CFA session context should state:
+**CORE-AGENT.md / AGENT.md**
+- durable identity;
+- enduring responsibility;
+- ownership and non-ownership;
+- invariant/boundary references;
+- authority references.
 
-- CFA number;
+**STATE.md**
+- current operating frontier;
+- current unresolved items;
+- recent durable progress.
+
+**LESSONS.md**
+- compact, cross-session operational memory;
+- only lessons that materially change future behavior;
+- not a transcript archive and not semantic authority.
+
+**Owner-alignment / identity history**
+- governance and lineage records, when applicable.
+
+## 5. SESSION-CONTEXT requirements
+
+Each session context should state:
+
+- CFA / role;
 - human-readable identity;
 - agent_id;
-- current identity status;
-- canonical workspace path;
-- durable identity artifact, if any (CORE-AGENT.md or established AGENT.md);
-- current STATE artifact;
-- owner-alignment artifact;
-- identity-history artifact;
-- immediate relevant peer homes;
-- current mission/task frontier;
-- major unresolved UNKNOWN / CONFLICTED / DEFERRED items;
-- last verified main commit;
-- last updated date;
-- explicit warning that the file is navigation context, not authority.
+- identity status;
+- canonical workspace;
+- durable identity artifact;
+- current STATE;
+- LESSONS when present;
+- owner-alignment/history when applicable;
+- relevant peers;
+- current mission/frontier;
+- unresolved seams;
+- navigation pointers.
 
-The file should point to canonical artifacts rather than copying long bodies of text.
+A last-known baseline SHA may be recorded for orientation, but it is informational only. **It never replaces verification of the current `main` tip.**
 
 ## 6. Fresh-session load order
 
-Before substantive action:
-
-### A. Repository baseline
+### A. Repository
 
 Read:
 
@@ -120,164 +130,180 @@ Read:
 - `/docs/CURRENT-CONTEXT.md` if present
 - `/AGENTS_CONTEXT/README.md`
 
-Verify the current `main` tip.
+Resolve the current `main` tip.
 
-### B. Agent home
+### B. Own home
 
-Open the assigned CFA workspace from the launch prompt.
-
-Read in this order:
+Read:
 
 1. `SESSION-CONTEXT.md`
-2. `CORE-AGENT.md` if it exists; otherwise the current seed/design artifact
+2. `CORE-AGENT.md` or established `AGENT.md`; otherwise the current seed/design artifact
 3. `STATE.md`
-4. latest owner-alignment record, if any
-5. identity history, if any
-6. task-specific artifact named by the launch prompt
+4. `LESSONS.md` when present
+5. latest alignment/history artifacts as applicable
+6. task-specific artifacts named by the task envelope
 
-### C. Peer context
+### C. Relevant context
 
-Load only the peers needed for the current task.
+Load only the peers and Ω/destination authority needed for the current task.
 
-For boundary/ratification work, inspect the relevant peer CORE-AGENT identities and current CFA register/ownership map.
+Do not reconstruct the architecture indiscriminately.
 
-### D. Authority
+## 7. Session identity
 
-Read the narrowest current Ω/destination authority needed to answer the task. Do not load the entire repository when the current evidence is sufficient.
+Every launch envelope should identify:
 
-## 7. Verify claims from prior sessions
+- `SESSION_ID`
+- repository
+- CFA / role
+- identity
+- agent_id
+- workspace
+- target branch/ref
 
-A pasted completion report is evidence of what another conversation claimed, not repository truth.
+Identity must be reconciled against repository evidence.
+
+Never infer identity from:
+- conversation title;
+- Git author;
+- branch name;
+- user account;
+- prior chat memory;
+- folder name alone.
+
+## 8. Boot receipt
+
+Before substantive work, the session should establish:
+
+```
+SESSION_ID
+IDENTITY
+AGENT_ID
+CURRENT_MAIN_SHA
+IDENTITY_VERIFIED
+PREDECESSOR_STATUS
+```
+
+This is a state check, not a semantic conclusion.
+
+## 9. Verify predecessor claims
 
 For every predecessor dependency:
 
 ```
-REPORTED SHA
-→ VERIFY ON CURRENT MAIN
-→ INSPECT EXPECTED ARTIFACT
-→ ONLY THEN CONTINUE
+reported SHA
+→ verify on current main/ref
+→ inspect expected artifact
+→ validate expected semantic condition
+→ continue only when satisfied
 ```
 
-Never accept “I completed it” as sufficient proof.
+A report is a claim, not proof.
 
-## 8. Identity discipline
+Do not silently skip a missing or contradictory predecessor.
 
-The session must bind itself to the `agent_id` and workspace specified by the launch prompt and confirmed by repository evidence.
+## 10. Task envelope
 
-Never derive identity from:
+The launch prompt is a **task envelope**, not durable memory.
 
-- the ChatGPT conversation name;
-- Git author name;
-- branch name;
-- user account;
-- memory of a previous conversation;
-- a folder name alone.
+It must contain:
 
-If current artifacts disagree about identity, preserve the contradiction and resolve it through the documented owner/boundary process.
-
-## 9. Execution envelope
-
-Every generated launch prompt should explicitly include:
-
-- protocol version/link;
+- FSSP version/link;
+- session identity;
 - repository;
-- target CFA;
-- agent_id;
-- canonical workspace;
-- predecessor prerequisite, when any;
-- exact read-first sequence;
-- current task;
-- explicit completion gate;
-- explicit STOP condition;
-- write/commit rule;
+- workspace;
+- target branch/ref;
+- predecessor prerequisite when needed;
+- read-first sequence;
+- exact task;
+- completion gate;
 - non-actions;
-- common completion report format.
+- write/commit rule;
+- report contract;
+- STOP condition.
 
-The prompt should be sufficient to bootstrap the session without copying the entire architecture into the new conversation.
+It should not copy the full architecture or repeat settled identity prose.
 
-## 10. Sequencing
+## 11. Owner dialogue
 
-A prompt may declare:
+Owner dialogue is task-mode, not universal bootstrap.
 
-```
-SERIAL
-```
+Use it for:
+- new identity/boundary alignment;
+- unresolved owner policy;
+- decisions repository evidence cannot determine.
 
-when predecessor state must be visible before the session begins.
+Already-ratified identities are verified and reconciled, not repeatedly re-ratified.
 
-When sessions can run independently, parallel execution is permitted only when their write surfaces do not conflict and no authority dependency is hidden.
+## 12. Execution and write discipline
 
-For architecture ratification and boundary work, default to serial execution unless the controlling protocol explicitly permits parallelism.
+When writes are available:
 
-## 11. Owner dialogue gate
-
-When a task requires owner alignment:
-
-```
-SELF-DESIGN / EXISTING PROPOSAL
-→ OWNER QUESTIONS
-→ EXPLICIT OWNER DECISION
-→ DURABLE ALIGNMENT
-→ CORE-AGENT IDENTITY
-```
-
-Do not self-ratify.
-
-Do not create `CORE-AGENT.md` before alignment.
-
-Once an identity is already ratified, a fresh session verifies and reconciles rather than re-ratifying it.
-
-## 12. Commit discipline
-
-When repository writes are available:
-
-- make only changes justified by the current task;
-- preserve prior evidence and lineage;
-- verify modified files before finishing;
-- commit durable changes to the branch/ref specified by the task;
+- make only task-justified changes;
+- preserve evidence and lineage;
+- update durable context when future sessions need the information;
+- verify changed files;
+- commit to the specified branch/ref;
 - report the exact resulting SHA.
 
-Do not claim a commit exists until the repository confirms it.
+For parallel sessions, use distinct write surfaces/branches where needed.
 
-## 13. Commons discipline
+`main` is the shared synchronization point.
 
-Commons is communication state, not authority.
+Never assume another session's uncommitted work exists.
 
-Only claim a Commons operation when the actual available runtime/transport has executed and its result is recoverable.
+## 13. Session result
 
-If the ChatGPT session cannot perform the native operation, record the limitation exactly.
+A session produces:
 
-Never fabricate:
+1. repository evidence;
+2. required durable state/lessons/history;
+3. an exact commit/ref when changes occurred;
+4. a completion report.
 
-- identities;
-- key material;
-- signatures;
-- event IDs;
-- message IDs;
-- stream positions.
+Do not create a transcript archive or session-log bureaucracy merely to preserve chats.
 
-## 14. Failure handling
+## 14. Failure states
 
-A fresh session must use the narrowest honest state:
+Use the narrowest truthful status:
 
 - `COMPLETE`
 - `PARTIAL`
 - `BLOCKED`
 - `UNKNOWN`
 
-Do not convert a capability/environment limitation into an architecture failure.
+A tool limitation is an environment fact.
 
-Do not silently continue past a missing predecessor when the task requires that predecessor.
+A repository contradiction is a state/knowledge problem.
 
-## 15. Completion report contract
+A missing owner decision is a governance stop.
+
+Do not conflate them.
+
+## 15. Commons discipline
+
+Commons is communication state, not authority.
+
+Only claim an operation when the available runtime/transport actually executed and its result is recoverable.
+
+Never fabricate:
+- identities;
+- signatures;
+- event IDs;
+- message IDs;
+- stream positions.
+
+## 16. Completion report contract
 
 Every substantive session returns:
 
 ```
 SESSION_STATUS:
+SESSION_ID:
 CFA:
 IDENTITY:
 AGENT_ID:
+TARGET_REF:
 BASE_MAIN_SHA:
 PREDECESSOR_VERIFIED:
 TASK:
@@ -286,6 +312,7 @@ FILES_CHANGED:
 COMMIT_SHA:
 OWNER_ALIGNMENT:
 CORE_AGENT:
+LESSONS_UPDATED:
 COMMONS:
 UNRESOLVED:
 BLOCKERS:
@@ -295,92 +322,77 @@ IMPLEMENTATION_STARTED:
 NEXT_REQUIRED_STEP:
 ```
 
-Values must be evidence-backed.
+Every value must be evidence-backed.
 
-## 16. Handoff / next-prompt generation
+## 17. Handoff / next-session generation
 
-When the owner brings a completed report back to a later conversation:
+When a report returns to the Architecture Steward or owner:
 
-1. verify the reported commit on current `main`;
-2. inspect the changed durable artifacts;
-3. compare actual state to the report;
-4. determine the next task from the controlling sequence;
-5. generate a new launch prompt using this protocol;
-6. include the verified predecessor SHA or exact prerequisite condition;
-7. do not repeat questions already settled unless repository evidence has changed them.
+1. verify the reported commit/ref;
+2. inspect the expected durable artifacts;
+3. compare report to repository reality;
+4. determine the next valid action;
+5. generate a new task envelope from current repository truth;
+6. include verified predecessor conditions;
+7. do not repeat settled questions unless evidence changed them.
 
-The next prompt is generated from **current repository truth**, not from the previous chat transcript alone.
+The next prompt is a **compiled task envelope**, not a transcript continuation.
 
-## 17. Parallel conversation rule
+## 18. Parallel conversation rule
 
-Multiple fresh conversations may coexist.
+Multiple sessions may coexist when:
 
-Each conversation is an independent session and MUST:
+- authority dependencies are independent;
+- write surfaces do not conflict;
+- their task envelopes make branch/ref ownership explicit.
 
-- bind to one assigned CFA/agent identity;
-- read its own durable session context;
-- verify current main before acting;
-- avoid assuming another conversation's uncommitted work exists;
-- communicate only through durable repository artifacts / Commons where genuinely supported;
-- treat the latest verified main state as the shared synchronization point.
+Each session must:
+- verify current main/ref;
+- maintain its own identity;
+- avoid assumptions about uncommitted peer work;
+- communicate through durable repository artifacts or genuinely supported Commons operations.
 
-## 18. Anti-context-wall rule
+## 19. Anti-context-wall rule
 
-Do not solve context loss by copying more architecture into prompts.
+Do not solve context loss by making prompts larger.
 
-Instead use progressive disclosure:
+Use progressive disclosure:
 
 ```
 SESSION-CONTEXT
-→ CORE-AGENT / SEED
+→ IDENTITY
 → STATE
-→ RELEVANT PEERS
-→ TASK ARTIFACT
-→ EVIDENCE ONLY AS NEEDED
+→ LESSONS
+→ RELEVANT PEERS / AUTHORITY
+→ TASK
+→ EVIDENCE AS NEEDED
 ```
 
-A launch prompt should point to durable context rather than becoming the durable context.
+## 20. Protocol evolution
 
-## 19. Protocol evolution
+Fix the smallest layer that caused the failure:
 
-If the same fresh-session failure recurs across multiple sessions, change this protocol.
+- local operating lesson → agent `LESSONS.md` / `SESSION-CONTEXT.md`;
+- task-envelope failure → shared launch template;
+- repeated cross-agent failure → FSSP;
+- semantic ownership failure → CFA reconciliation;
+- owner-intent change → owner dialogue.
 
-If the issue occurs only within one CFA, change that CFA's session context or task prompt.
+Do not introduce infrastructure merely to make one session easier.
 
-If the issue is a peer-boundary ambiguity, use the boundary/reconciliation process.
+## 21. Architectural success condition
 
-Do not weaken the protocol merely to make one task easier.
-
-## 20. First validated lesson
-
-The 2026-09-27 CFA-01 session exposed a critical failure mode:
-
-> A new ChatGPT conversation may incorrectly assume that repository work must be handed to an external implementation agent.
-
-The correct rule is now explicit:
-
-**The new ChatGPT conversation is the agent session. If the current ChatGPT environment can read/write the repository, it should execute the task itself.**
-
-This protocol exists to make that assumption durable and automatic.
-
-## 21. Steward design principle
-
-The objective is not perfect memory.
-
-The objective is:
+A fresh session must be able to determine, without prior chat history:
 
 ```
-independent session
-+
-durable identity
-+
-small local context
-+
-verified repository state
-+
-explicit task envelope
-+
-evidence-backed completion
+WHO AM I?
+WHAT DO I OWN?
+WHAT IS CURRENT?
+WHAT HAVE I LEARNED?
+WHAT IS THIS SESSION TASK?
+WHAT MUST I NOT DO?
+WHAT PROVES COMPLETION?
+WHERE DO I STOP?
 ```
 
-That combination should make fresh conversations behave consistently even when the human launches many sessions over time.
+That is the cold-start contract.
