@@ -53,6 +53,6 @@
 
 ## Current owner actions
 
-1. Launch/assign the Commons v0 runtime/platform workstream.
-2. Keep the protocol/design breadth frozen until v0 is proven.
-3. Run the identity/rotation drill after a real rotation operation lands.
+1. Execute the existing Cycle 4 RA-5 live account proof on the owner machine using the V1 Chrome substrate.
+2. Capture the evidence envelope and keep code/test evidence distinct from live proof.
+3. Return to the Architecture Steward for proof classification and next-slice selection.
