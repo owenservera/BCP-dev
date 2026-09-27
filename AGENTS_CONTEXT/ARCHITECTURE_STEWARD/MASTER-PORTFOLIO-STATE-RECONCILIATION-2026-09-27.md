@@ -1,7 +1,7 @@
 # Architecture Steward — Master Portfolio State Reconciliation
 ## 2026-09-27
 
-> Status: DESIGN / CURRENT STATE AUDIT
+> Status: ACTIVE / ROUTING INSTALLED / CURRENT STATE AUDIT
 > Purpose: assess all ten ratified Core Function Areas against the approved master register and current central Steward state.
 > Authority: derived portfolio planning view. Local CFA roadmaps remain the planning source for their own domains; this document does not transfer semantic ownership.
 
@@ -26,7 +26,7 @@ All ten identities are ratified and owner-aligned. No CFA-11 should be created m
 
 ## 2. Portfolio state at current main
 
-Current `main` at audit: `a5e14b670b818c306348948d4f5c0011bcfe65be`.
+Current `main` after portfolio routing setup: `c2860f1c927b6caa19bbc74c9ea2cbf50179bbaf`.
 
 | CFA | Master roadmap position | Current local state | Immediate useful work | Key blocker / dependency | Portfolio status |
 |---|---|---|---|---|---|
@@ -171,6 +171,8 @@ Otherwise leave it WAITING, BLOCKED, UNKNOWN or PROPOSED as appropriate.
 The master architecture is healthy: all ten intended responsibility areas exist, are owner-aligned, and have durable roadmaps.
 
 The primary portfolio risk is now **coordination drift**, not missing agents.
+
+Routing setup is now installed and synchronized across all ten CFA `TASKS.md` projections. Synchronization receipt: `MASTER-PORTFOLIO-ROUTING-SYNCHRONIZATION-RECEIPT-2026-09-27.md`.
 
 The team does not need more permanent subagents. It needs:
 - one master structural register;
