@@ -48,6 +48,8 @@ VERIFY CURRENT IDENTITY
 
 Each CFA home must contain `TASKS.md`. The home-upgrade session must read it, reconcile the seeded home-upgrade task against current repository truth, update its status as work progresses, and leave the next actionable state durable before stopping.
 
+The session must also persist its completion report in `RESULTS/<SESSION_ID>.md` before marking the task complete. Follow `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md`.
+
 `TASKS.md` is the agent's work queue, not semantic authority or proof of dependency.
 
 ## Required validation
@@ -117,8 +119,10 @@ The session is complete only when:
 3. agent-specific corrections, if any, are persisted;
 4. lessons are updated only when warranted;
 5. changed files are verified;
-6. exact commit SHA is known;
-7. the session returns the FSSP-1.2 completion report.
+6. an exact session result receipt exists at `RESULTS/<SESSION_ID>.md`;
+7. the receipt and durable changes are contained in a verifiable commit/ref;
+8. `TASKS.md` marks the home-upgrade task `DONE` (or a truthful blocked/partial state);
+9. the session returns the FSSP-1.2 completion report.
 
 ## Report
 
