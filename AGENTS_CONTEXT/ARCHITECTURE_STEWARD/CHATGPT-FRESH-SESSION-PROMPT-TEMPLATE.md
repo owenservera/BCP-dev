@@ -36,8 +36,9 @@ Then:
 4. Read `SESSION-CONTEXT.md`.
 5. Read `CORE-AGENT.md` / established `AGENT.md`, or the current seed if provisional.
 6. Read `STATE.md`.
-7. Read `LESSONS.md` when present.
-8. Read only relevant owner-alignment, history, peer and authority artifacts.
+7. Read `TASKS.md`.
+8. Read `LESSONS.md` when present.
+9. Read only relevant owner-alignment, history, peer and authority artifacts.
 9. Verify predecessor commits/artifacts independently.
 
 Before substantive work, establish a boot receipt with SESSION_ID, IDENTITY, AGENT_ID, current MAIN_SHA, identity verification, and predecessor status.
