@@ -1,6 +1,6 @@
 # CFA-04 — State
 
-> Status: RATIFIED — OWNER-ALIGNED / M1 AUTHORITY CORRIDOR EVIDENCE COMPLETE
+> Status: RATIFIED — OWNER-ALIGNED / LIVE CORRIDOR WAITING
 > Updated: 2026-09-27
 
 ## Identity
@@ -83,8 +83,8 @@ Explicit non-ownership:
 ## Shared-frontier wait state
 
 - CFA-04 local M1 authority corridor evidence is complete and durable.
-- `LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27` is WAITING-M1.
-- The central Steward frontier remains `CROSS-CFA M1 CONTRACT + EVIDENCE CLOSURE`.
+- `LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27` is WAITING-GOVERNED-CORRIDOR; central M1 is complete, but the master router has not yet selected the shared governed corridor.
+- The central M1 closure is complete. The current master portfolio frontier is WP-E Stage-E readiness, with WP-A seam closure continuing in parallel; CFA-04's live corridor remains downstream of explicit governed-corridor selection.
 - Current peer task inspection shows M1 evidence work is still active/waiting outside CFA-04; CFA-04 should not independently select or execute the live corridor until the shared frontier's completion condition is met.
 
 ## Active frontiers
