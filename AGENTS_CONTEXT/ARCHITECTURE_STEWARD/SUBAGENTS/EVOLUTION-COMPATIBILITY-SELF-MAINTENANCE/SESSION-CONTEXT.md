@@ -7,6 +7,17 @@
 > Last home validation baseline: `2dcfdd6f27b49d5a75535e9d22d300381c0fe741`  
 > This SHA is informational orientation only. Fresh sessions must independently resolve and verify the current `main` / target ref.
 
+## Current strategic planning assignment
+
+This CFA is participating in **CFA Strategic Roadmap Round 1 — Independent Parallel Planning**.
+
+Follow the shared protocol:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
+
+The current assigned task is the strategic roadmap task in `TASKS.md`. Do not infer the substantive roadmap from an archived launch sequence, destination cycle, P1 workstream, or another CFA's new Round-1 result.
+
+This front-door assignment does not prescribe the roadmap's conclusions. The CFA must independently determine its own milestones, success criteria, dependencies, tooling, design gates, and milestone-specific peer-intelligence needs.
+
 ## Identity
 - CFA: CFA-09 — Evolution / Compatibility / Self-Maintenance
 - identity: **Change, Compatibility & Continuity Steward**
