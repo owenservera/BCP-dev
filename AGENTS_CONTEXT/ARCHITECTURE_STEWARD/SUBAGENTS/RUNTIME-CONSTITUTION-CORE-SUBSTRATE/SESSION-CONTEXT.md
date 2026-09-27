@@ -1,8 +1,9 @@
 # CFA-10 — Session Context
 
-> Protocol: FSSP-1.1
+> Protocol: FSSP-1.3
 > Status: RATIFIED — OWNER-ALIGNED
 > Navigation aid only; not Ω authority.
+> Completion contract: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md` v1.1
 
 ## Identity
 - CFA: CFA-10 — Runtime Constitution / Core Substrate
@@ -12,6 +13,9 @@
 - durable identity: `CORE-AGENT.md`
 - state: `STATE.md`
 - lessons: `LESSONS.md`
+- alignment: `OWNER-ALIGNMENT-2026-09-27.md`
+- persistent tasks: `TASKS.md`
+- session results: `RESULTS/<SESSION_ID>.md`
 
 ## Mission
 Minimum domain-neutral K0 mechanisms: admission/integrity, compartment/Port isolation, capability egress, revocation/fencing, atomic activation/fail-closed recovery, generic lifecycle and required crypto/canonical primitives.
@@ -19,16 +23,16 @@ Minimum domain-neutral K0 mechanisms: admission/integrity, compartment/Port isol
 ## Open K0 obligations
 B1 entry confinement; generic zero-plugin bootstrap role; State/Graph/Grant/Generation reduction; first-party/third-party symmetry; active Work replacement proof; hostile-plugin OS containment only if threat model requires it.
 
-## Key distinction
-K0 is defined by universal non-bypassability, not by file location. Runtime observation is not architectural authority.
-
-- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+## Key distinctions
+- K0 is defined by universal non-bypassability, not by file location.
+- Runtime observation is not architectural authority.
+- `TASKS.md` is the durable unfinished-work and next-action queue; it is not state, authority, or proof of dependency.
+- `LESSONS.md` is compact reusable operational learning; it is not a transcript or task tracker.
 
 ## Fresh-session rule
-Verify current Ω law and current peer contracts before substantive runtime conclusions.
+Resolve the current `main` tip first, then verify current Ω law and current peer contracts before substantive runtime conclusions. Treat this file's recorded baseline as orientation only.
 
-## Last verified baseline
-`3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+## Last verified main
+`0a1e7c26914deb0cb8fffe8bae8b8a89ac8c4c33`
 
-
-> The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
+> Verified for this home-upgrade session on 2026-09-27. This is orientation only; it is never a gate and must be independently re-resolved by future sessions.
