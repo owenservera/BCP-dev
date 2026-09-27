@@ -1,7 +1,7 @@
 # CFA-04 — State
 
 > Status: RATIFIED — OWNER-ALIGNED / LIVE CORRIDOR WAITING
-> Updated: 2026-09-27
+> Updated: 2026-09-28
 
 ## Identity
 
@@ -78,14 +78,19 @@ Explicit non-ownership:
 - Positive corridor: explicit principal + consent + D-452 frame + live `law.describe` consent resolution + `invoke.check` before target + governed event linkage.
 - Negative corridor: inactive/expired/revoked authority, out-of-scope frame, principal mismatch, and frameless mutation all have explicit refusal paths; target non-execution must be independently observed for live proof.
 - Current proof limit: implementation/falsifier evidence exists, but authenticated owner-machine live external execution remains UNVERIFIED.
-- Durable reconstruction gap: final CFA-02 AuthorityCitation schema/join remains UNKNOWN.
+- Durable reconstruction gap: final physical CFA-02 AuthorityCitation storage/join remains UNKNOWN.
+- CFA-02 explicitly accepts the minimum historical AuthorityCitation reconstruction payload; this closes the semantic Data-side requirement for the current M1 corridor but does not freeze physical storage.
 
 ## Shared-frontier wait state
 
 - CFA-04 local M1 authority corridor evidence is complete and durable.
 - `LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27` is WAITING-GOVERNED-CORRIDOR; central M1 is complete, but the master router has not yet selected the shared governed corridor.
 - The central M1 closure is complete. The current master portfolio frontier is WP-E Stage-E readiness, with WP-A seam closure continuing in parallel; CFA-04's live corridor remains downstream of explicit governed-corridor selection.
-- Current peer task inspection shows M1 evidence work is still active/waiting outside CFA-04; CFA-04 should not independently select or execute the live corridor until the shared frontier's completion condition is met.
+- Current peer evidence now confirms the Data-side historical citation requirement and preserves the live-vs-historical distinction. CFA-05 still leaves Work-versus-Attempt attachment/cardinality and exact citation join UNKNOWN. CFA-04 should not independently select or execute the live corridor until the shared frontier's governed-corridor gate is met.
+
+## Recent seam closure
+
+The 2026-09-28 Authority/Data/Work seam reconciliation is complete. Result: `RESULTS/AUTHORITY-DATA-WORK-SEAM-RECONCILIATION-20260928.md`. No schema freeze, production implementation, shared-boundary activation, or Ω-law change occurred.
 
 ## Active frontiers
 
