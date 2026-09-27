@@ -21,19 +21,15 @@ Then follow:
 7. `STATE.md`
 8. `LESSONS.md`
 
-## Current handoff
+## Historical handoff — DO NOT EXECUTE
 
-The Steward cold-start test is complete.
+The Steward cold-start test and the CFA home-upgrade wave are complete operating history. This superseded prompt must not be used to launch the next work.
 
-The current operation is **not another Steward test**.
+The active successor is:
 
-The owner must launch fresh ChatGPT sessions for CFA-01 through CFA-10 so each ratified agent validates and upgrades its own durable home.
+`CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
 
-Use:
-
-`CFA-HOME-UPGRADE-LAUNCH-QUEUE-2026-09-27.md`
-
-After the CFA sessions complete, return to the Architecture Steward for constellation reconciliation.
+That stage exists because home readiness does not define substantive CFA work. Fresh sessions now form their own domain roadmap and persistent task set before the Steward performs cross-CFA reconciliation.
 
 ## Historical content
 
