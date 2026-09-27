@@ -1,6 +1,6 @@
 # Experience / Interaction / Surfaces Steward — State
 
-> Status: RATIFIED — OWNER-ALIGNED / HOME UPGRADE COMPLETE / DOMAIN EXECUTION NOT STARTED
+> Status: RATIFIED — OWNER-ALIGNED / STRATEGIC ROADMAP ROUND 1 COMPLETE / DOMAIN EXECUTION NOT STARTED
 > CFA: CFA-08
 > agent_id: experience-interaction-surfaces
 > Updated: 2026-09-27
@@ -17,11 +17,19 @@
 
 ## Verification snapshot
 
-- current `main` verified during the 2026-09-27 home-upgrade session: `20d127685215c358f6dd33930c24936eef2d04fa`
-- execution strategy for home upgrade: INDEPENDENT
+- current main verified at start of this Round-1 session: `c09e131a9d0829c16c2f87d7d98d3b237b124f68`
+- round-1 branch base used: `57080e8a0c770d97b544e1172b2231e176e5d5c0`
+- execution strategy: INDEPENDENT
 - write scope: own CFA-08 home only
-- persistent task: `HOME-UPGRADE-2026-09-27`
-- result receipt: `RESULTS/CFA08-HOME-UPGRADE-20260927-0538.md`
+- roadmap: `DOMAIN-ROADMAP-2026-09-27.md`
+- roadmap receipt: `RESULTS/CFA08-STRATEGIC-ROADMAP-20260927-0721.md`
+
+## Strategic planning state
+
+- Strategic Roadmap Round 1: COMPLETE
+- independent first-pass rule satisfied: no new Round-1 peer roadmaps were consumed
+- first bounded actionable task: `SURFACE-VIEW-CONTRACT-2026-09-27`
+- later conceptual milestones remain planning states pending central Steward reconciliation
 
 ## Bootstrap / alignment state
 
@@ -30,106 +38,21 @@
 - owner dialogue/alignment: COMPLETE
 - core identity: COMPLETE
 - home upgrade: COMPLETE
+- strategic roadmap Round 1: COMPLETE
 - Commons birth test: BLOCKED / NOT PROVABLE IN THIS WEBAPP SESSION
 - domain mission execution: NOT STARTED
 
-## Alignment outcome
+## Current strategic model
 
-The owner retained the proposed identity and boundary with explicit seam clarifications.
+Five conceptual milestones:
 
-### Confirmed boundaries
+1. M1 — Surface / Projection Contract
+2. M2 — Reconstructable Space / Workspace / Canvas
+3. M3 — Interaction Convergence / Direct Manipulation
+4. M4 — Truthful Continuity: Freshness, Evidence, Work, Attention and Re-entry
+5. M5 — Replaceable Multi-Surface Experience and Measured Parity
 
-- CFA-01 owns World, Space and Context semantics; CFA-08 owns human-facing projection, navigation and workspace/layout realization.
-- CFA-03 owns semantic Intent/Plan meaning and continuity; CFA-08 owns representation and inspect/edit/confirm/reject interaction.
-- CFA-05 owns durable Work and execution; CFA-08 owns controls, progress, approvals, results and re-entry presentation.
-- CFA-06 owns capability/provider/account/model/realization/session/resource/routing semantics; CFA-08 owns user-facing choice and status presentation.
-- CFA-07 owns composition/plugin/Forge semantics; CFA-08 owns composition editing/inspection and Forge UX.
-- Canonical semantic state is distinct from presentation state.
-- Direct manipulation is experience input, not canonical truth; semantic effects use explicit owning-path handoff.
-- Surface-local configuration belongs to CFA-08; domain policy semantics remain with their owning CFAs.
-- Write-back is initiated by the surface but committed by the owning semantic/canonical path.
-- Semantic Attention remains outside CFA-08; focus/notification/delivery/re-entry presentation is in scope.
-
-## Current operating model
-
-canonical meaning → projection → perception/navigation → interaction → typed semantic handoff → owning CFA → canonical/authority/work/data path → new projection
-
-### Write-back corridor
-
-surface gesture/edit → experience action → typed semantic request → owning CFA → authority/work/data path → canonical change → projection
-
-The surface never serves as canonical source.
-
-## Active frontiers
-
-1. Define minimum Surface/View contract and persistent-vs-ephemeral presentation state.
-2. Reconcile Space/Workspace persistence with CFA-01/CFA-02 without making layout canonical World truth.
-3. Define direct-manipulation semantic handoff to CFA-01 vs CFA-03 by interaction class.
-4. Define visual Intent inspect/edit/submit contract with CFA-03.
-5. Define Work controls/progress/approval/result projection with CFA-05.
-6. Define Capability/Provider choice/status presentation with CFA-06.
-7. Define Composition/Forge editing contract with CFA-07.
-8. Define provenance/evidence presentation minimum for consequential claims.
-9. Define surface-owned configuration persistence while CFA-02 remains provisional.
-10. Revisit semantic Attention ownership only when evidence warrants a boundary change.
-
-## Evidence state
-
-### OBSERVED / CURRENT
-
-- CFA-01 World & Context Steward is ratified / owner-aligned.
-- CFA-02 Data / Identity / Persistence remains explicitly provisional.
-- CFA-03 Semantic Continuity is ratified / foundation-seeded.
-- CFA-04 Authority Governance Steward is ratified.
-- CFA-05 Work & Execution Steward is ratified.
-- CFA-06 Capability & Provider Realization Steward is ratified.
-- CFA-07 Composition / Plugin / Forge Steward is ratified.
-- CFA-08 identity is ratified / owner-aligned.
-- Destination conceptual model defines Surface as representation/interaction form and Space as organization context.
-- Destination journey mapping requires Surface/View, World projection, Direct Manipulation and canonical interaction convergence.
-- Historical canvas/visual inventories remain evidence only.
-
-### DERIVED / CURRENT
-
-- Experience must preserve semantic reality versus presentation.
-- Direct manipulation must converge on the same semantic path as language/prompt interaction.
-- Workspace/canvas/layout is presentation realization over World/Space semantics unless an explicit owning contract says otherwise.
-- User-facing configuration may expose domain policy without becoming its semantic owner.
-- Attention presentation can be owned here while semantic attention policy remains open.
-
-### UNKNOWN / DEFERRED
-
-- Persistent Surface/View state envelope.
-- Cross-device layout/focus continuity.
-- Direct-manipulation write-back split between World and Intent.
-- Evidence/provenance presentation contract.
-- Final semantic Attention owner.
-- Surface configuration durable-data join with provisional CFA-02.
-- Whether a future narrower experience sub-responsibility is justified.
-
-### CONFLICTED
-
-None material identified.
-
-## Commons state
-
-Execution surface: WEBAPP / connector.
-- repository read: AVAILABLE
-- repository write: AVAILABLE
-- local runtime/Git process execution: UNAVAILABLE
-- GitHub transport: AVAILABLE
-- recoverable Commons signing key: UNAVAILABLE / not safely available
-
-Birth test:
-- identity creation: COMPLETE
-- stable agent_id: experience-interaction-surfaces
-- PUBLIC introduction: NOT PERFORMED
-- message_id: none claimed
-- signature generation/verification: NOT AVAILABLE
-- durable Commons persistence/read-back: NOT PROVABLE
-- no replacement keypair was created
-
-This is a transport/session limitation, not an identity failure.
+The roadmap is deliberately a strategic model, not a complete implementation backlog.
 
 ## Boundary / activation state
 
@@ -139,6 +62,16 @@ This is a transport/session limitation, not an identity failure.
 - Production implementation authorization: NONE.
 - Parallel ontology/data/authority/evidence store: NOT CREATED.
 
+## Unresolved strategic seams
+
+- persistent Surface/View/Layout/Interaction state envelope;
+- Space vs Workspace durable join with CFA-01/CFA-02;
+- direct-manipulation World-vs-Intent split;
+- minimum evidence/provenance presentation;
+- semantic Attention ownership;
+- cross-device continuity;
+- View configuration vs user-authored Composition boundary.
+
 ## Next mission
 
-Proceed only to evidence-backed Experience / Interaction / Surfaces research and bounded vertical slices. The next durable work should be selected from the active frontiers through the persistent task queue, not inferred from an archived launch sequence.
+Proceed from the M1 Surface / View frontier through the persistent task queue. The first bounded task is `SURFACE-VIEW-CONTRACT-2026-09-27`; later milestones remain strategic planning states until the Architecture Steward completes central reconciliation and establishes any shared execution frontier.
