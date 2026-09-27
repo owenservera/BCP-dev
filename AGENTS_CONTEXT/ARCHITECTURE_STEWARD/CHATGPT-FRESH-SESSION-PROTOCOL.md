@@ -1,6 +1,6 @@
 # ChatGPT Fresh-Agent Session Protocol
 
-> Version: FSSP-1.1
+> Version: FSSP-1.2
 > Date: 2026-09-27
 > Scope: every new ChatGPT web-app conversation launched as an independent BCP-dev agent session.
 > Status: PROPOSED / Steward operating protocol
@@ -26,7 +26,8 @@ FRESH CHAT
 → LOAD LESSONS (when present)
 → LOAD RELEVANT AUTHORITY / PEERS
 → VERIFY PREDECESSOR
-→ EXECUTE TASK
+→ ASSESS EXECUTION STRATEGY
+→ EXECUTE CHOSEN STRATEGY
 → VERIFY RESULT
 → PERSIST REQUIRED DURABLE CONTEXT
 → REPORT
@@ -236,7 +237,36 @@ Use it for:
 
 Already-ratified identities are verified and reconciled, not repeatedly re-ratified.
 
-## 12. Execution and write discipline
+## 12. Autonomous execution-strategy gate
+
+Before substantive execution, the session must determine how the work should be executed from current repository evidence.
+
+Assess:
+
+- semantic dependency;
+- authority/governance dependency;
+- verified predecessor/read dependency;
+- shared write-surface conflict;
+- synchronization point;
+- verification dependency;
+- risk of parallel or out-of-order execution.
+
+Classify the work:
+
+- **INDEPENDENT** — work units can proceed without one another;
+- **ORDERED** — one or more units genuinely require another's result first;
+- **CONDITIONALLY DEPENDENT** — dependency exists only if an observed condition holds;
+- **BLOCKED** — required authority, evidence, capability, or predecessor is absent.
+
+The session must not infer dependency merely because a launch document, checklist, prior agent, or owner message presents work in an order. It must verify the dependency against the repository.
+
+When work is independent, prefer safe parallelism. When only a subset is dependent, serialize only that subset. Distinguish semantic/authority dependency from branch/transport contention.
+
+A healthy task may legitimately result in **no changes required**. Never manufacture changes or commits merely because the task was launched.
+
+When the chosen execution strategy is not obvious, state the reason before acting.
+
+## 13. Execution and write discipline
 
 When writes are available:
 
@@ -253,7 +283,7 @@ For parallel sessions, use distinct write surfaces/branches where needed.
 
 Never assume another session's uncommitted work exists.
 
-## 13. Session result
+## 14. Session result
 
 A session produces:
 
@@ -264,7 +294,7 @@ A session produces:
 
 Do not create a transcript archive or session-log bureaucracy merely to preserve chats.
 
-## 14. Failure states
+## 15. Failure states
 
 Use the narrowest truthful status:
 
@@ -281,7 +311,7 @@ A missing owner decision is a governance stop.
 
 Do not conflate them.
 
-## 15. Commons discipline
+## 16. Commons discipline
 
 Commons is communication state, not authority.
 
@@ -294,7 +324,7 @@ Never fabricate:
 - message IDs;
 - stream positions.
 
-## 16. Completion report contract
+## 17. Completion report contract
 
 Every substantive session returns:
 
@@ -308,6 +338,8 @@ TARGET_REF:
 BASE_MAIN_SHA:
 PREDECESSOR_VERIFIED:
 TASK:
+EXECUTION_STRATEGY:
+STRATEGY_RATIONALE:
 RESULT:
 FILES_CHANGED:
 COMMIT_SHA:
@@ -325,41 +357,24 @@ NEXT_REQUIRED_STEP:
 
 Every value must be evidence-backed.
 
-## 17. Handoff / next-session generation
+## 18. Handoff / next-session generation
 
 When a report returns to the Architecture Steward or owner:
 
 1. verify the reported commit/ref;
 2. inspect the expected durable artifacts;
 3. compare report to repository reality;
-4. determine the next valid action;
-5. generate a new task envelope from current repository truth;
-6. include verified predecessor conditions;
-7. do not repeat settled questions unless evidence changed them.
+4. reassess current dependencies and synchronization;
+5. determine the next valid action and execution strategy;
+6. generate a new task envelope (or set of parallel envelopes) from current repository truth;
+7. include verified predecessor conditions only where actual dependency exists;
+8. do not repeat settled questions unless evidence changed them.
 
 The next prompt is a **compiled task envelope**, not a transcript continuation.
 
-## 18. Execution-strategy reasoning rule
-
-A fresh session must not treat a supplied sequence as an unquestionable dependency ordering.
-
-Before executing a sequence:
-- identify the actual work units;
-- inspect semantic, authority, predecessor and write dependencies;
-- identify synchronization points;
-- classify the work as INDEPENDENT / ORDERED / CONDITIONALLY DEPENDENT / BLOCKED;
-- prefer safe parallelism when independence is established;
-- distinguish architectural dependency from Git/transport coordination.
-
-The session should report the reasoning when choosing a non-obvious execution strategy.
-
 ## 19. Parallel conversation rule
 
-Multiple sessions may coexist when:
-
-- authority dependencies are independent;
-- write surfaces do not conflict;
-- their task envelopes make branch/ref ownership explicit.
+Multiple sessions may coexist when the execution-strategy assessment establishes compatible independence.
 
 Each session must:
 - verify current main/ref;
@@ -389,7 +404,7 @@ Fix the smallest layer that caused the failure:
 
 - local operating lesson → agent `LESSONS.md` / `SESSION-CONTEXT.md`;
 - task-envelope failure → shared launch template;
-- repeated cross-agent failure → FSSP;
+- repeated cross-agent execution failure → FSSP;
 - semantic ownership failure → CFA reconciliation;
 - owner-intent change → owner dialogue.
 
@@ -405,6 +420,8 @@ WHAT DO I OWN?
 WHAT IS CURRENT?
 WHAT HAVE I LEARNED?
 WHAT IS THIS SESSION TASK?
+WHAT ARE THE ACTUAL DEPENDENCIES?
+WHAT EXECUTION STRATEGY SHOULD I USE?
 WHAT MUST I NOT DO?
 WHAT PROVES COMPLETION?
 WHERE DO I STOP?
