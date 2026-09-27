@@ -205,32 +205,49 @@ The operational context packet is the preferred machine-readable cold-start entr
 
 M1 peer reconciliation is **COMPLETE / AGREED at seam level**.
 
-Peer evidence now confirms:
+Peer evidence confirms:
 - CFA-03 accepts the minimum World reference/result seam;
 - CFA-04 accepts World-vs-Authority separation and treats accessible as a composed seam property;
 - CFA-02 accepts the dimensional World/Data identity, correspondence, revision and lineage crosswalk.
 
 Shared boundaries remain **UNACTIVATED**. These agreements do not ratify peer identity or change Ω law.
 
-The remaining qualifications are deliberately bounded:
-- accessible composite representation;
-- temporal merge/split semantics;
-- observation-to-World assertion envelope;
-- final projection basis/freshness contract;
-- external provider/source realism.
+## M2 reference, correspondence & addressability — 2026-09-27
+
+M2 is **COMPLETE at design/evidence level**.
+
+Durable packet:
+- `M2-REFERENCE-CORRESPONDENCE-EVIDENCE-2026-09-27.md`
+
+The evidence packet closes the required five resolution states:
+- RESOLVED
+- AMBIGUOUS
+- STALE
+- UNRESOLVABLE
+- CONFLICTED
+
+It also closes the M2 non-collapse set:
+- correspondence != equivalence;
+- correspondence != proof;
+- source identity != canonical World identity;
+- alias/address != semantic identity;
+- addressability != authorization;
+- evidence/basis and freshness remain attached.
+
+The bounded replay corpus is a fixture specification, not a claim of production resolver execution.
+
+Remaining limits:
+- real external provider refresh/disappearance;
+- final merge/split temporal semantics;
+- final projection freshness algorithm;
+- final principal-relative visibility model;
+- production resolver mechanics.
 
 ### Next bounded task
 
-WORLD-M2-REFERENCE-CORRESPONDENCE-EVIDENCE-2026-09-27 is READY.
+WORLD-M3-CONTEXT-WORLD-PROJECTION-EVIDENCE-2026-09-27 is READY.
 
-Focus:
-- five World resolution states;
-- correspondence vs equivalence/proof;
-- alias/source identity;
-- stale/historical references;
-- addressability vs authority.
-
-No production resolver implementation is authorized by this task.
+No new resolver implementation is authorized by the M2 result.
 
 ## Immediate next actions
 
