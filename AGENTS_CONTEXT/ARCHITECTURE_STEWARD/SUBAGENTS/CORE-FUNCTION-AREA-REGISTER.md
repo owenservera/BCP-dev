@@ -167,9 +167,23 @@ The Architecture Steward connects these areas through the architecture graph and
 
 CFA-04 — Authority / Governance is the operational custodian for cross-cutting Commons identity/security ceremonies: key custody policy, roster-integrity review, identity-recovery procedure, and key-rotation/recovery drills. This is an operational duty, not a transfer of Commons authority semantics or Ω authority.
 
-## Next birth sequence
+## Bootstrap stage status — CLOSED
 
-The recommended next self-design sessions are:
+All ten CFA identities are now ratified and owner-aligned in the current repository.
+
+**Do not relaunch CFA birth/self-design or treat the historical birth sequence as a current task list.**
+
+The next operating stage is **CFA Domain Roadmap Formation**:
+
+`RATIFIED CFA → HOME READY → CFA ROADMAP → CFA TASK QUEUE → CROSS-CFA RECONCILIATION → SHARED FRONTIER`
+
+Use:
+- `CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
+- `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
+
+### Historical birth sequence — COMPLETED
+
+The following sequence records the former bootstrap recommendation for lineage only:
 
 1. World & Context Steward
 2. Authority / Governance
@@ -180,7 +194,7 @@ The recommended next self-design sessions are:
 7. Evolution / Compatibility / Self-Maintenance
 8. Runtime Constitution / Core Substrate
 
-Data / Identity / Persistence and Self-Knowledge / Language / Command are already in bootstrap/self-design execution and should not be duplicated.
+Data / Identity / Persistence and Self-Knowledge / Language / Command were already in earlier bootstrap/self-design execution and were not to be duplicated.
 
 
 ### CFA-01 ratification note — 2026-09-27
