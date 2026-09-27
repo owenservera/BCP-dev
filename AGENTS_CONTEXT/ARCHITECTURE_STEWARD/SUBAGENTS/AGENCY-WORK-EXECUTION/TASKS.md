@@ -7,6 +7,22 @@
 
 ## Open tasks
 
+## NEXT routing — current Wave 1 gate
+
+The first actionable task for this home is the CFA-05 boundary baseline in:
+AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md
+
+When the human owner says "Next", execute **Wave 1 / CFA-05** only:
+- verify current main and this home;
+- read owner alignment plus CFA-01–04 Round-2 Completion Audit;
+- produce BOUNDARY-BASELINE-DECLARATION-2026-09-27.md;
+- classify every stated seam with evidence/freshness/falsifiers/unknowns;
+- stop after the declaration is committed and report the exact SHA.
+
+Do not execute the older M1 peer-reconciliation task first. Do not create or reactivate shared boundaries. Do not start production Work implementation.
+
+
+
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** DONE
 - **Priority:** P1
