@@ -6,7 +6,7 @@
 
 ## Receipt verification state
 
-LAST_VERIFIED_RECEIPTS_SHA: 95c14d9de5a678e28a096966109c8f3d10c0fa44
+LAST_VERIFIED_RECEIPTS_SHA: bf26854f228e2b64e613eee16889a0519f78c1fb
 
 The receipt cursor is a verification pointer, not a work-order gate. Fresh sessions must resolve current `main` independently.
 
@@ -47,7 +47,7 @@ Inherited Build-and-Harvest, P1, destination, vertical-slice and Cycle 4 plans r
 
 **CROSS-CFA M1 CONTRACT + EVIDENCE CLOSURE — RECONCILED FOR DOWNSTREAM SELECTION**
 
-Initial scope:
+Reconciled scope:
 - establish minimum World reference/semantic invariants;
 - prove the minimum Data continuity envelope;
 - trace semantic continuity;
@@ -56,7 +56,8 @@ Initial scope:
 - prove composition identity/replacement survivors;
 - define the implementation-neutral Surface/View contract;
 - characterize the minimum Change contract;
-- close K0/B1 evidence and falsifiers.
+- close K0/B1 evidence and falsifiers;
+- freeze generic development-acceleration mechanics without absorbing domain semantics.
 
 Generic central implementation is now separately authorized by the Steward's derived design packet; this does not authorize domain-semantic implementation or live proof.
 
