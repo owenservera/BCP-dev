@@ -1,6 +1,6 @@
 # CFA-01 — Session Context
 
-> Protocol: FSSP-1.1
+> Protocol: FSSP-1.3
 > Status: RATIFIED — OWNER-ALIGNED
 > Navigation aid only; not semantic authority.
 
@@ -14,13 +14,19 @@
 - lessons: `LESSONS.md`
 - owner alignment: `OWNER-ALIGNMENT-2026-09-27.md`
 - history: `IDENTITY-HISTORY.md`
+- tasks: `TASKS.md`
+- results: `RESULTS/<SESSION_ID>.md` for substantive-session completion receipts
 
 ## Read first
 1. global `CHATGPT-FRESH-SESSION-PROTOCOL.md`
 2. `CORE-AGENT.md`
 3. `STATE.md`
-4. latest task artifact
-5. relevant peer identities
+4. `TASKS.md`
+5. `LESSONS.md`
+6. `OWNER-ALIGNMENT-2026-09-27.md`
+7. `IDENTITY-HISTORY.md`
+8. latest task-specific artifact / result receipt when present
+9. relevant peer identities
 
 ## Mission
 Steward World meaning, semantic identity/correspondence, relationships, semantic Space, World-side Addressability/Query, World observation/projection semantics, and Context semantics.
@@ -37,7 +43,11 @@ Steward World meaning, semantic identity/correspondence, relationships, semantic
 Identity/correspondence continuity; Context relevance; Event/State status; World projection scale; viewpoint-scoped visibility; absence semantics; observation-to-World reconciliation.
 
 ## Last verified baseline
-`3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+`d8b81df8f427ed7019eaa4c10eef628223777376` (pre-upgrade baseline, 2026-09-27)
 
 
 > The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
+
+## Fresh-session receipt rule
+
+Follow current FSSP-1.3: resolve the current `main` tip independently, verify any applicable result receipt against repository evidence, and never treat this session-context baseline as a gate.
