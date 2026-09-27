@@ -44,6 +44,6 @@ B1 entry confinement; generic zero-plugin bootstrap role; State/Graph/Grant/Gene
 Resolve the current `main` tip first, then verify current Ω law and current peer contracts before substantive runtime conclusions. Treat this file's recorded baseline as orientation only.
 
 ## Last verified main
-`0a1e7c26914deb0cb8fffe8bae8b8a89ac8c4c33`
+`e16db347e458512e12cc9ed3953a5e3820f68520`
 
-> Verified for this home-upgrade session on 2026-09-27. This is orientation only; it is never a gate and must be independently re-resolved by future sessions.
+> Re-verified for the home-upgrade revalidation on 2026-09-27. This is orientation only; it is never a gate and must be independently re-resolved by future sessions.

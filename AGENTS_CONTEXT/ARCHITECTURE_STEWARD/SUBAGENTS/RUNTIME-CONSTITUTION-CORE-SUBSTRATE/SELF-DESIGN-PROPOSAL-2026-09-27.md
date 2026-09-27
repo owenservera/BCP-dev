@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED BOOTSTRAP DESIGN.** CFA-10 is now RATIFIED — OWNER-ALIGNED. The proposal below records the pre-alignment candidate design only. Its `PROPOSED / UNBORN / OWNER ALIGNMENT REQUIRED` status is not the current identity/state; use `CORE-AGENT.md`, `STATE.md`, and `OWNER-ALIGNMENT-2026-09-27.md` for current status.
+
 # CFA-10 Runtime Constitution / Core Substrate — Self-Design Proposal
 
 > Date: 2026-09-27

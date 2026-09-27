@@ -29,5 +29,6 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 - **Result receipt:** `RESULTS/CFA10-HOME-UPGRADE-2026-09-27-0538.md`
 - **Completion commit:** bdad012a1e829bffdb2294f9fe5cbe276f1b8156
 - **Result:** Home validated and cold-start corrections persisted; FSSP-1.3/session-result-contract alignment is now reflected at the home front door; no Ω law, shared boundary, or production implementation changes.
+- **Revalidation:** `CFA10-HOME-UPGRADE-20260927-0644` — receipt `RESULTS/CFA10-HOME-UPGRADE-20260927-0644.md`; corrected remaining stale bootstrap-history markers and FSSP metadata after subsequent mainline evolution.
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.

@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED — DO NOT EXECUTE.** CFA-10 is already RATIFIED — OWNER-ALIGNED. This file is preserved only as bootstrap lineage. Fresh sessions must start at `SESSION-CONTEXT.md`, `CORE-AGENT.md`, `STATE.md`, `LESSONS.md`, and `TASKS.md` under FSSP-1.3.
+
 # VIVIM — Core Function Area Bootstrap
 ## Runtime Constitution / Core Substrate
 

@@ -1,3 +1,5 @@
+> **HISTORICAL / SUPERSEDED BOOTSTRAP EVIDENCE.** CFA-10 is now RATIFIED — OWNER-ALIGNED. The bootstrap state recorded below is preserved for lineage and must not be treated as the current identity/state. Current identity/state are carried by `CORE-AGENT.md`, `STATE.md`, and `OWNER-ALIGNMENT-2026-09-27.md`.
+
 # CFA-10 Runtime Constitution / Core Substrate — Bootstrap Report
 
 > Date: 2026-09-27
