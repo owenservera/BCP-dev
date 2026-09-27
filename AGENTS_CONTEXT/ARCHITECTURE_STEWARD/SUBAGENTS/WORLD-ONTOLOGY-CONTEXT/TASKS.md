@@ -1,38 +1,21 @@
-# Persistent Tasks — world-ontology-context
-
-> Owner: `world-ontology-context`
-> Status: ACTIVE
-> Purpose: durable unfinished-work and next-action queue across ChatGPT sessions.
-> Authority: task/work memory only; not Ω law, semantic authority, or proof of dependency.
-
-## CURRENT PORTFOLIO ROUTING — 2026-09-27
-
-> **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
-> **Master structural anchor:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
-> **CFA:** CFA-01
-> **Portfolio package:** SEAM-CLOSURE
-> **Current portfolio state:** M1 evidence complete; waiting peer input
->
-> Local TASKS remains CFA-owned execution detail. Historical local routers/prompts are lineage only and cannot override the master portfolio router. Do not resurrect completed Wave-1/Wave-2/Wave-3 or bootstrap stages from stale local routing text.
-> Resolve any new `Next` against the master router first, then this local queue.
-
 ## Open tasks
 
-### WORLD-M1-PEER-RECONCILIATION-2026-09-27
-- **Status:** WAITING-PEER-INPUT
+### WORLD-M2-REFERENCE-CORRESPONDENCE-EVIDENCE-2026-09-27
+- **Status:** READY
 - **Priority:** P1
-- **Objective:** Reconcile CFA-01's M1 kernel and top three seam contracts against the already-selected cross-CFA M1 frontier without activating boundaries.
-- **Dependencies:** CFA-03 acceptance of minimum World reference/result; CFA-04 reconciliation of World state vs authority; CFA-02 confirmation of durable identity/reference continuity; central Steward M1 evidence coordination.
-- **Peer inputs required:** World-side semantic inputs are now supplied by `M1-SEMANTIC-KERNEL-EVIDENCE-2026-09-27.md`; wait only for peer responses/evidence that resolve the named gaps.
-- **Tooling:** shared evidence/claim envelopes and repository inspection; no new production tooling.
-- **Write scope:** CFA-01 home only unless the Steward explicitly requests a bounded shared handoff.
-- **Next action:** consume peer evidence when it lands, classify each response OBSERVED/DERIVED/PROPOSED/UNKNOWN/CONFLICTED with freshness, and update only the affected seam statements.
-- **Completion condition:** the M1 World reference, World-vs-authority state, and World-vs-data continuity seams each have an evidence-backed peer reconciliation status, with unresolved decisions isolated.
-- **Stop condition:** owner decision, Ω-law collision, material ownership conflict, or any request to encode unresolved domain semantics centrally.
+- **Objective:** Characterize the minimum World reference, correspondence and addressability contract across RESOLVED, AMBIGUOUS, STALE, UNRESOLVABLE and CONFLICTED cases.
+- **Milestone:** M2 — Reference, Correspondence & Addressability.
+- **Dependencies:** M1 semantic kernel evidence; peer reconciliation now AGREED from CFA-02, CFA-03 and CFA-04; unresolved accessible-composite representation remains explicitly bounded.
+- **Peer inputs required:** Existing reconciled World/Data, World/Semantic and World/Authority seam evidence. New peer roadmap outputs are not required to start.
+- **Tooling:** existing repository search/graph and replay/fixture mechanisms; small deterministic correspondence/resolution fixture extension only if needed.
+- **Write scope:** CFA-01 home only; do not activate shared boundaries or implement production resolver mechanics.
+- **Next action:** build an evidence matrix and bounded replay corpus for the five resolution states, source/canonical correspondence states, alias/source identity, and historical/stale references.
+- **Completion condition:** one minimum World reference/result candidate survives all five resolution states; correspondence remains distinct from equivalence/proof; addressability remains distinct from authority; evidence and freshness remain attached; explicit falsifiers are documented.
+- **Stop condition:** owner decision, Ω-law collision, material ownership conflict, or evidence showing M2 requires absorbed peer semantics.
 
 ## First bounded actionable task
 
-No new implementation task is authorized from CFA-01 home at this point. The next bounded action is peer reconciliation of the completed M1 evidence packet.
+WORLD-M2-REFERENCE-CORRESPONDENCE-EVIDENCE-2026-09-27 is the only READY task.
 
 ## Completed task history
 
