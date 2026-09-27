@@ -7,6 +7,15 @@
 
 ## Open tasks
 
+### STAGE-E-L2-BASIS-ADAPTER-CHARACTERIZATION-2026-09-27
+- **Status:** ACTIVE — PARALLEL OWNER CHARACTERIZATION
+- **Priority:** P0
+- **Packet:** `BOUNDARY-DESIGN-SYSTEM/STAGE-E-L2-SOURCE-RUNTIME-BASIS-ADAPTER-PACKET-2026-09-27.md`
+- **Participants:** CFA-01, CFA-02, CFA-04, CFA-06, CFA-07, CFA-09, CFA-10; CFA-03 is semantic lead/consumer.
+- **Write scope:** owner CFA homes only for adapter characterizations; Steward reconciles after all receipts are available.
+- **Completion condition:** each adapter has canonical source token, resolver, STALE/UNRESOLVABLE behavior, evidence and falsifier, or an explicit blocked/UNKNOWN result with named dependency.
+- **Hard stop:** no runtime join implementation, second graph, Ω-law change or semantic ownership transfer.
+
 ### MASTER-PORTFOLIO-WORKLOAD-2026-09-27
 - **Status:** ACTIVE — MASTER ROUTER INSTALLED
 - **Priority:** P0
@@ -84,7 +93,7 @@
 - **Stage D:** DONE — receipt `GRAPH-W1-D-PROOF-EVIDENCE-ATTACHMENT-RECEIPT-2026-09-27.md`; commit `3b009ac92a4e312fc73e19d0a5cea3eb1a91d068` (source-identity correction included).
 - **Stage E readiness assessment:** DONE / BLOCKED — receipt `BOUNDARY-DESIGN-SYSTEM/GRAPH-W1-E-SELF-KNOWLEDGE-READINESS-ASSESSMENT-RECEIPT-2026-09-27.md`; commit `5eed9ed10a8b1a38a2237de244debd2d37ba06f9`.
 - **Stage E runtime joins:** BLOCKED — the separate self-knowledge design/evidence gate is not yet satisfied.
-- **Next action:** execute **Stage E L2 — source and runtime basis adapters**; runtime joins remain blocked until the full readiness gate passes.
+- **Next action:** owner-scoped L2 adapter characterization is active in parallel under `BOUNDARY-DESIGN-SYSTEM/STAGE-E-L2-SOURCE-RUNTIME-BASIS-ADAPTER-PACKET-2026-09-27.md`; runtime joins remain blocked until the full readiness gate passes.
 - **Stop condition:** any request to create a second graph, infer semantic authority from code topology, or collapse UNKNOWN into dependency.
 
 ### SELECT-GOVERNED-CORRIDOR-AFTER-M1-2026-09-27
