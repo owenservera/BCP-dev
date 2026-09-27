@@ -1,6 +1,7 @@
 # Composition / Plugin / Forge Steward — State
 
-> **Status:** RATIFIED — OWNER-ALIGNED / DOMAIN EXECUTION NOT STARTED  
+> **Status:** RATIFIED — OWNER-ALIGNED / DOMAIN EXECUTION NOT STARTED
+> **Home-upgrade posture:** 2026-09-27 validation is complete; domain execution remains intentionally not started.  
 > **CFA:** CFA-07 — Composition / Plugin / Forge  
 > **agent_id:** `composition-plugin-forge`  
 > **Updated:** 2026-09-27
