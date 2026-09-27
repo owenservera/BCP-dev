@@ -28,6 +28,8 @@ https://github.com/owenservera/BCP-dev/blob/main/AGENTS_CONTEXT/ARCHITECTURE_STE
 
 Then:
 
+**Repository access rule:** when connected GitHub integration/access is available, use it directly for repository reads, SHA/ref resolution, verification, and writes. Do not use general web search as a substitute for connected repository access.
+
 1. Resolve the current `main` tip/ref.
 2. Read `AGENTS.md`, `BUILD_CONTEXT.md`, `docs/CURRENT-CONTEXT.md`, and `AGENTS_CONTEXT/README.md` as available.
 3. Open the assigned workspace.
