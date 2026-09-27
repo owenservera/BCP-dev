@@ -1,3 +1,7 @@
+> **Historical status correction — 2026-09-27 home upgrade**
+>
+> This report is preserved bootstrap evidence. Its recorded state `DESIGNED ONLY / PROPOSED — OWNER DIALOGUE REQUIRED` is superseded by `OWNER-ALIGNMENT-2026-09-27.md` and the ratified `CORE-AGENT.md`. Do not use this historical report as the current CFA identity/state.
+>
 # CFA-07 — One-Shot Bootstrap Report — 2026-09-27
 
 > **Completion state: DESIGNED ONLY**

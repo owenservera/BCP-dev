@@ -1,3 +1,9 @@
+> **HISTORICAL BOOTSTRAP SEED — DO NOT RE-EXECUTE FOR A RATIFIED HOME**
+>
+> CFA-07 is already **RATIFIED — OWNER-ALIGNED** in current main.
+> This file is retained as bootstrap/self-design lineage. Do not use it to repeat CFA birth, Owner Dialogue, or identity creation.
+> Current fresh sessions must follow FSSP-1.3 and the CFA Home Upgrade / task envelope supplied by the Architecture Steward.
+>
 # VIVIM — Core Function Area Bootstrap
 ## Composition / Plugin / Forge
 
