@@ -8,7 +8,8 @@
 ## Open tasks
 
 ### HOME-UPGRADE-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
+- **Next action:** Apply validated home corrections, persist the session receipt, then mark this task DONE.
 - **Priority:** P1
 - **Dependencies:** None currently known.
 - **Write scope:** Own agent home only.
