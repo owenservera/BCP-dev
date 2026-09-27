@@ -8,8 +8,8 @@
 
 ## Receipts
 
-- Indexed receipts: 1
-- VERIFIED: 1
+- Indexed receipts: 2
+- VERIFIED: 2
 - PENDING: 0
 - RECONCILED: not yet tracked for this snapshot
 - Source: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/RECEIPTS.md
