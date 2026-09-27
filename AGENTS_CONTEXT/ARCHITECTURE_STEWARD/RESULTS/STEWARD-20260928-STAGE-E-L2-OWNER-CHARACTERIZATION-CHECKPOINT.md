@@ -61,3 +61,18 @@ After the remaining owner responses land, the Steward will run the formal L2 con
 **Next → CFA-02, CFA-04, CFA-10 — remaining Stage-E L2 owner characterization/closure.**
 
 Do not repeat CFA-01, CFA-06, CFA-07 or CFA-09 unless their owners publish new evidence requiring reconciliation.
+
+
+## 7. Next bounded dispatch
+
+**DISPATCHED NEXT: CFA-02 — durable continuity/reconstruction basis adapter characterization.**
+
+This is an owner-scoped handoff, not evidence of execution. CFA-02 must characterize its existing Data-plane basis references, comparison/resolution rules, STALE/UNRESOLVABLE behavior, evidence, falsifier and explicit UNKNOWN/DEFERRED items. The Steward must not synthesize missing Data-plane tokens centrally.
+
+After CFA-02 returns a durable characterization, the remaining sequence is:
+
+1. CFA-04 — close the existing partial runtime-source binding or record the dependency as explicit UNKNOWN/BLOCKED.
+2. CFA-10 — characterize the minimum proven runtime generation/source basis while preserving the K0/B1 evidence boundary.
+3. Steward — perform the formal L2 consistency/reconciliation gate.
+
+No L3 graph-bundle work is enabled until that gate passes.
