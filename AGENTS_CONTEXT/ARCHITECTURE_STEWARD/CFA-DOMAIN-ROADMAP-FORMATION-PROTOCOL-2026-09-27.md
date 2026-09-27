@@ -4,6 +4,8 @@
 > Status: ACTIVE
 > Classification: derived operating protocol; not Ω law
 > Purpose: run one independent parallel strategic-planning round across all ratified Core Function Areas before any shared execution frontier is selected.
+> Compatibility note: the file path is retained from the earlier CFA roadmap-formation stage so existing links remain valid; this document now governs the fuller Strategic Roadmap Round 1 contract.
+
 
 ## 1. Why this round exists
 
