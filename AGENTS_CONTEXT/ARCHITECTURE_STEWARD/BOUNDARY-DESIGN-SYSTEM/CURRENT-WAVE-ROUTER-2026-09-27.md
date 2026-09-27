@@ -24,8 +24,8 @@ AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/GRAPH-ATTACHMENT-WAVE
 
 **A → B → C → D → E**
 
-A. Architecture Graph revalidation.
-B. Linked implementation-projection contract.
+A. Architecture Graph revalidation — **DONE**.
+B. Linked implementation-projection contract — **CURRENT**.
 C. Bounded Source-Code Graph pilot.
 D. Proof/evidence attachment.
 E. Runtime self-knowledge joins.
@@ -35,7 +35,7 @@ The current graph stage is always the first stage whose required receipt is abse
 ## Required receipts
 
 - Stage A:
-  GRAPH-W1-A-REVALIDATION-RECEIPT-2026-09-27.md
+  GRAPH-W1-A-REVALIDATION-RECEIPT-2026-09-27.md — **DONE**
 - Stage B:
   GRAPH-W1-B-IMPLEMENTATION-PROJECTION-CONTRACT-2026-09-27.md
 - Stage C:
@@ -82,4 +82,4 @@ Do not repeat completed stages because local task state is stale.
 
 ## Human action
 
-**Next → Architecture Steward — Graph Stage A**
+**Next → Architecture Steward — Graph Stage B**
