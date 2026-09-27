@@ -378,6 +378,7 @@ When a report returns to the Architecture Steward or owner:
 5. determine the next valid action and execution strategy;
 6. generate a new task envelope (or set of parallel envelopes) from current repository truth;
 7. include verified predecessor conditions only where actual dependency exists;
+8. when the next action is owner-executable, return a concrete owner action package with direct links, exact launch instructions, prerequisites, and stop/report conditions;
 8. do not repeat settled questions unless evidence changed them.
 
 The next prompt is a **compiled task envelope**, not a transcript continuation.
