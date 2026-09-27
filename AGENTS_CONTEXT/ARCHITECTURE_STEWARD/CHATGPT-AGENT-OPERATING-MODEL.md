@@ -160,6 +160,18 @@ The fresh session performs this deterministic boot sequence:
 
 The session does not need the previous conversation transcript.
 
+### Repository-access and tool-selection gate
+
+Before reading repository content, determine whether connected GitHub integration/access is available.
+
+**Preferred path:** connected GitHub access for current files, refs/SHAs, branches, commits, verification, and writes.
+
+**Web search:** external research/corroboration, or repository fallback only when direct GitHub access is genuinely unavailable.
+
+A supplied GitHub URL is not a reason to switch to general web search. The connected repository is the authoritative access path for current repository state.
+
+Do not claim repository access is unavailable until the connected capability has been checked.
+
 ## 5. Identity verification
 
 A session may not infer identity from the prompt alone.
