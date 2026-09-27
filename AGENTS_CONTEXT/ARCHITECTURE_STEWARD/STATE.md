@@ -1,7 +1,7 @@
 # Architecture Steward — State
 
 > Updated: 2026-09-27
-> Status: ACTIVE / M1 RECONCILED — CENTRAL KERNEL READY
+> Status: ACTIVE / STAGE-E L2 RECONCILED — L3 GRAPH-BUNDLE ENABLED
 > This is durable Steward operating state; not Ω law or semantic authority.
 
 ## Receipt verification state
@@ -29,9 +29,9 @@ All ten CFA strategic roadmaps and the portfolio state reconciliation are now co
 
 Current Steward operation:
 
-**Master Portfolio Workload Routing + Stage-E readiness + generic-kernel enablement + bounded seam continuation**
+**Master Portfolio Workload Routing + Stage-E L3 readiness work + generic-kernel enablement + bounded seam continuation**
 
-The Steward has enough cross-CFA evidence to freeze the generic Layer-1 mechanics without absorbing domain meaning. CFA-local unresolved seams remain explicit and continue only where their owners have identified a concrete next evidence need.
+The Steward has enough cross-CFA evidence to freeze the generic Layer-1 mechanics without absorbing domain meaning. Stage-E L2 is now centrally reconciled across all seven owner adapters. CFA-local unresolved seams remain explicit and continue only where their owners have identified a concrete next evidence need.
 
 This is not a new centralized backlog and does not transfer CFA ownership.
 
@@ -45,7 +45,7 @@ Inherited Build-and-Harvest, P1, destination, vertical-slice and Cycle 4 plans r
 
 ## Reconciled shared frontier
 
-**MASTER PORTFOLIO WORKLOAD — WP-E STAGE-E READINESS + WP-D GENERIC KERNEL + PARALLEL CFA CLOSURE**
+**MASTER PORTFOLIO WORKLOAD — STAGE-E L2 RECONCILED → L3 GRAPH-BUNDLE + WP-D GENERIC KERNEL + PARALLEL CFA CLOSURE**
 
 Reconciled scope:
 - establish minimum World reference/semantic invariants;
@@ -56,10 +56,10 @@ Reconciled scope:
 - prove composition identity/replacement survivors;
 - define the implementation-neutral Surface/View contract;
 - characterize the minimum Change contract;
-- close K0/B1 evidence and falsifiers;
+- close K0/B1 evidence and falsifiers; the B1 target-runtime closure remains separately blocked;
 - freeze generic development-acceleration mechanics without absorbing domain semantics.
 
-Generic central implementation is now separately authorized by the Steward's derived design packet; this does not authorize domain-semantic implementation or live proof.
+Generic central implementation is now separately authorized by the Steward's derived design packet; this does not authorize domain-semantic implementation or live proof. Stage-E L3 graph-bundle design is now enabled; runtime joins remain gated.
 
 ## CFA-05 maintenance state
 
@@ -77,7 +77,7 @@ Commons runtime/platform, identity/security and other prior operating tasks rema
 
 ## Resume condition
 
-**WP-E STAGE-E READINESS + WP-D GENERIC KERNEL → SEAM/EMPIRICAL CLOSURE → SELECT ONE GOVERNED CORRIDOR → LIVE/EXTERNAL PROOF → RECONSTRUCTION/REPLACEMENT → PRODUCT JOURNEY PROOF**
+**WP-E L3 GRAPH-BUNDLE / GROUNDING / FALSIFIER READINESS + WP-D GENERIC KERNEL → STAGE-E GATE AUDIT → SELECT ONE GOVERNED CORRIDOR → LIVE/EXTERNAL PROOF → RECONSTRUCTION/REPLACEMENT → PRODUCT JOURNEY PROOF**
 
 
 ## Master portfolio workload
