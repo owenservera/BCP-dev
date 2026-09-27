@@ -1,23 +1,29 @@
 # Architecture Steward — Owner Digest
 ## 2026-09-27
 
-> Status: DERIVED / CURRENT SNAPSHOT
+> Status: DERIVED / CURRENT SNAPSHOT — M1 RECONCILED
 > Cadence: weekly replacement snapshot; not an append-only log.
 > Owner: architecture-steward
 > Authority: projection only.
 
 ## Current operating frontier
 
-**CROSS-CFA M1 CONTRACT + EVIDENCE CLOSURE**
+**M1 RECONCILED → CENTRAL GENERIC DEVELOPMENT KERNEL**
 
 The ten independent CFA strategic roadmaps are complete and have been reconciled into the central Steward synthesis.
 
 ## Required owner action
 
-Launch/continue the already-created CFA-owned M1 evidence tasks. Do not launch another roadmap wave and do not start a broad product cycle from historical planning.
+Launch/continue the central generic development-kernel implementation packet. CFA-local follow-up remains owner-scoped. Do not launch another roadmap wave or broad product cycle.
 
-The central synthesis is:
+The central synthesis remains:
 `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`
+
+M1 reconciliation:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DEVELOPMENT-ACCELERATION/CFA-M1-RECONCILIATION-2026-09-27.md`
+
+Central implementation packet:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DEVELOPMENT-ACCELERATION/CENTRAL-KERNEL-IMPLEMENTATION-PACKET-2026-09-27.md`
 
 ## What the central synthesis established
 
@@ -28,7 +34,7 @@ The first shared frontier is therefore contract/evidence closure rather than Liv
 
 ## Candidate downstream path
 
-After M1 closure:
+After generic-kernel mechanical acceptance:
 1. one narrow governed consequential corridor;
 2. live/external realization proof;
 3. reconstruction/replacement/evolution proof;
