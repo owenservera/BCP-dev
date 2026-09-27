@@ -7,20 +7,19 @@
 
 ## Open tasks
 
-### HOME-UPGRADE-2026-09-27
-- **Status:** IN_PROGRESS
-- **Next action:** Apply validated home corrections, persist the session receipt, then mark this task DONE.
-- **Priority:** P1
-- **Dependencies:** None currently known.
-- **Write scope:** Own agent home only.
-- **Next action:** Read current main, then reconcile this task against `SESSION-CONTEXT.md`, identity, `STATE.md`, `TASKS.md`, `LESSONS.md`, and applicable alignment/history.
-- **Completion condition:** Validate the home as cold-startable; persist only justified corrections; update task status; report exact result/commit; do not start unrelated work.
-- **Stop condition:** Stop after this task and report.
+_No open tasks._
 
 ## Future task intake
 
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
 
 ## Completed task history
+
+### HOME-UPGRADE-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result:** `RESULTS/AUTHORITY-GOVERNANCE-20260927-HOME-UPGRADE.md`
+- **Primary correction commit:** `95b3d4af8e8efa63f5bf64b7b0d622413164bcd2`
+- **Receipt commit:** `7ab6dda36597582be185cdc63bb506c1a0598b50`
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
