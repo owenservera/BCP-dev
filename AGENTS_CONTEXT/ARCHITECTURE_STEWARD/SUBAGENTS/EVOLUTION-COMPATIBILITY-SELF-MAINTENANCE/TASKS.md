@@ -7,18 +7,7 @@
 
 ## Open tasks
 
-### EVO-R1-M1-01 — Minimum Change Contract Characterization
-- **Status:** READY
-- **Priority:** P1
-- **Milestone:** M1 — Make Change a First-Class Semantic Unit
-- **Objective:** Characterize the smallest evidence-backed change record + semantic-delta + lifecycle contract reusable across at least two existing domain seams without introducing a second canonical store.
-- **Dependencies:** Initial execution is independent of new Round-1 peer roadmaps. Finalization requires evidence/contract checks with relevant semantic, Data, Authority and Runtime owners as identified in the local roadmap.
-- **Peer inputs required:** CFA-01/03 semantic references; CFA-02 persistence/revision references; CFA-04 authority-result references; CFA-10 activation-state references.
-- **Tooling required:** repository inspection, deterministic fixtures, and a small pure state-transition validator only if current evidence shows it is needed.
-- **Write scope:** Own CFA-09 home only unless a later task explicitly authorizes a destination contract update.
-- **Next action:** Map the minimum change record/state vocabulary against at least two existing mechanisms and record falsifiers/unknowns.
-- **Completion condition:** Compact proposed contract with field semantics, state transitions, semantic-delta rules, evidence/authority reference rules, falsifiers, and a mapping showing two real mechanisms can adopt it without duplicate ownership.
-- **Stop condition:** Canonical-data contradiction, Ω-law collision, unresolved authority policy, or material CFA-boundary change; preserve the contradiction and escalate rather than silently deciding.
+_None currently actionable inside CFA-09 while the Architecture Steward completes shared M1 contract/evidence closure._
 
 ## Future task intake
 
@@ -26,17 +15,31 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 
 ## Completed task history
 
+### EVO-R1-M1-02 — Peer Reconciliation of Minimum Change Contract
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result:** `M1-PEER-RECONCILIATION-2026-09-27.md`
+- **Receipt:** `RESULTS/CFA09-20260927-EVO-R1-M1-02.md`
+- **Scope:** CFA-09 home only; reconciled the proposed Change Envelope against current peer contract evidence.
+- **Outcome:** Subject/state/evidence/lifecycle references are reusable without duplicate identity or persistence ownership. Data revision mapping, semantic-delta shared vocabulary, AuthorityCitation shape, Runtime activation references, generic impact, and multidimensional compatibility remain explicitly open rather than silently normalized.
+
+### EVO-R1-M1-01 — Minimum Change Contract Characterization
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result:** `M1-MINIMUM-CHANGE-CONTRACT-CHARACTERIZATION-2026-09-27.md`
+- **Receipt:** `RESULTS/CFA09-20260927-EVO-R1-M1-01.md`
+- **Scope:** CFA-09 home only; characterized a proposed logical Change Envelope from current Ω evidence.
+- **Outcome:** D-315 and D-326 independently demonstrate the reusable minimum of named subject, addressable state, lifecycle, evidence, causation context, and preserved predecessor history.
+
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
 - **Result:** `DOMAIN-ROADMAP-2026-09-27.md`
-- **Receipt:** to be recorded in `RESULTS/` after this session's final verification.
+- **Receipt:** `RESULTS/CFA09-20260927-STRATEGIC-ROADMAP-R1.md`
 - **Scope:** Independent CFA-09 strategic planning only; no production implementation, shared-boundary activation, or Ω-law change.
-- **Outcome:** Six-milestone local roadmap established; only the first bounded characterization task promoted to READY.
 
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
 - **Result receipt:** `RESULTS/CFA09-HOME-UPGRADE-20260927-0540.md`
-- **Substantive home commits:** `05503b5c95fe1ec96207852024f0da557390039e`, `dcb241ad9e514d8ffaf49e4285c35a17504b5608`
 - **Scope:** CFA-09 home only; front-door navigation and FSSP-1.3/session-result pointers corrected.

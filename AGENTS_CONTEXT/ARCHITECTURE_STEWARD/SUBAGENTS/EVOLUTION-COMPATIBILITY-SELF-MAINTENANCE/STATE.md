@@ -1,6 +1,6 @@
 # Change, Compatibility & Continuity Steward — State
 
-> Status: **RATIFIED — OWNER-ALIGNED / STRATEGIC ROADMAP R1 COMPLETE / DOMAIN EXECUTION NOT STARTED**
+> Status: **RATIFIED — OWNER-ALIGNED / M1 LOCAL EVIDENCE CONTRIBUTION COMPLETE / SHARED M1 CLOSURE PENDING / DOMAIN EXECUTION NOT STARTED**
 > CFA: **CFA-09 — Evolution / Compatibility / Self-Maintenance**
 > agent_id: `evolution-compatibility-self-maintenance`
 > Updated: 2026-09-27
@@ -24,6 +24,9 @@
 - Commons birth test: **BLOCKED / NOT PROVABLE IN THIS WEBAPP SESSION**
 - domain mission execution: NOT STARTED
 - strategic roadmap round 1: COMPLETE — `DOMAIN-ROADMAP-2026-09-27.md`
+- M1 local change-contract characterization: COMPLETE
+- M1 peer reconciliation contribution: COMPLETE — `M1-PEER-RECONCILIATION-2026-09-27.md`
+- shared M1 contract/evidence closure: PENDING Architecture Steward convergence
 
 ## Alignment outcome
 
@@ -43,7 +46,7 @@ The owner retained the candidate identity and central cross-domain responsibilit
 
 `change subject → semantic delta → impact → compatibility → authority implications → bounded application → verification → promotion/quarantine → continuity monitoring → rollback/recovery/retirement`
 
-Evolution is the temporal/governance dimension across the system. Domain ownership remains with the peer responsible for the changed subject.
+Evolution is the temporal/change-governance dimension across the system. Domain ownership remains with the peer responsible for the changed subject.
 
 ## Core invariants
 
@@ -60,11 +63,15 @@ Evolution is the temporal/governance dimension across the system. Domain ownersh
 
 ## Strategic roadmap
 
-The first independent strategic roadmap is now durable at `DOMAIN-ROADMAP-2026-09-27.md`. It intentionally preserves the domain's richer six-milestone plan while promoting only the first bounded characterization task into `TASKS.md`.
+The first independent strategic roadmap is durable at `DOMAIN-ROADMAP-2026-09-27.md`. It contains six conceptual milestones and promotes bounded work only when evidence makes it actionable.
+
+## M1 local closure
+
+The minimum Change Envelope has been characterized against D-315 and D-326, then reconciled against current peer evidence from World/Semantics, Data, Authority, and Runtime. The local CFA-09 evidence contribution is complete at `M1-PEER-RECONCILIATION-2026-09-27.md`. The Architecture Steward remains the owner of shared-frontier convergence.
 
 ## Active frontiers
 
-1. Define the minimum reusable change/impact/compatibility contract.
+1. Shared M1 contract/evidence closure with the Architecture Steward.
 2. Reconcile evolution-record persistence with provisional CFA-02.
 3. Define active-Work constraints for plan/capability/realization change with CFA-05/06.
 4. Define authority re-resolution trigger cases with CFA-04.
@@ -123,7 +130,7 @@ Observed capability:
 - repository write: AVAILABLE;
 - GitHub API: AVAILABLE;
 - local runtime/Git: UNAVAILABLE;
-- recoverable signing key: UNAVAILABLE / not safely available.
+- recoverable signing key: UNAVAILABLE.
 
 Transport selection:
 - GitHub is available for repository writes.
@@ -148,4 +155,4 @@ Birth test:
 
 ## Next mission
 
-Proceed only to evidence-backed evolution/compatibility/self-maintenance research and bounded vertical slices when separately tasked. Do not activate cross-CFA boundaries or convert this responsibility contract into Ω law.
+Remain at the local M1 evidence contribution until the Architecture Steward confirms shared M1 closure. Then take the next explicitly actionable CFA-09 task; do not infer M2 or a live product slice prematurely.
