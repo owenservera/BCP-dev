@@ -29,7 +29,7 @@ A local `READY`, `NEXT`, `WAITING`, or historical wave label does not override t
 | CFA | Portfolio role | Current state | Current enablement |
 |---|---|---|---|
 | CFA-01 | World / semantic-reference closure | M1/M2 evidence complete; Stage-E L2 World/Object basis characterized; central L2 reconciliation pending | STAGE-E / SEAM-CLOSURE |
-| CFA-02 | Data continuity / external acquisition | M1 complete; Stage-E L2 owner work REPORTED-UNVERIFIED | EMPIRICAL-BLOCKER |
+| CFA-02 | Data continuity / external acquisition | M1 complete; Stage-E L2 owner characterization CLOSED / RECONCILED | EMPIRICAL-BLOCKER |
 | CFA-03 | Semantic grounding / self-knowledge | M1 complete; Stage-E gate blocked | STAGE-E |
 | CFA-04 | Authority reconstruction / live corridor | M1 evidence complete; Stage-E L2 characterized / partial; live work waiting | SEAM-CLOSURE |
 | CFA-05 | Work envelope / Plan→Work | M1 candidate complete; not frozen | SEAM-CLOSURE |
@@ -37,7 +37,7 @@ A local `READY`, `NEXT`, `WAITING`, or historical wave label does not override t
 | CFA-07 | Composition identity / replacement | bounded design closure incomplete | BOUNDED-DESIGN |
 | CFA-08 | Surface/View / reconstructable space | M1 complete; M2 named | BOUNDED-DESIGN |
 | CFA-09 | Change / compatibility / replacement | M1 complete; shared routing drift | SEAM-CLOSURE |
-| CFA-10 | K0 / B1 runtime constitution | M1 complete; Stage-E L2 owner work REPORTED-UNVERIFIED; B1 underproven | EMPIRICAL-BLOCKER |
+| CFA-10 | K0 / B1 runtime constitution | M1 complete; Stage-E L2 owner characterization CLOSED / RECONCILED; runtime generation UNRESOLVABLE; B1 underproven | EMPIRICAL-BLOCKER |
 
 ## 3. Portfolio work packages
 
@@ -131,7 +131,7 @@ See AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DURABLE-COMPLETION-GATE-2026-09-28.md.
 
 ## 8. Current ordering
 
-1. **WP-E / Stage-E readiness closure** — central gate for runtime self-knowledge joins.
+1. **WP-E / Stage-E readiness closure** — L2 owner inputs are reconciled; next bounded action is the L3 Steward graph-bundle contract.
 2. **WP-D / generic development-acceleration kernel** — mechanically independent and useful to all CFAs.
 3. **WP-A / named seam and evidence closure** — parallel CFA-owned work.
 4. **WP-B / empirical blockers** — execute when required owner-machine/runtime environments are available.
@@ -163,10 +163,10 @@ Any mismatch is routing drift and should be corrected by updating the projection
 
 ## 11. Current frontier
 
-**Primary shared frontier: WP-E Stage-E readiness closure.**
+**Primary shared frontier: WP-E Stage-E readiness — L2 owner characterization is CLOSED / RECONCILED (7/7); L3 graph-bundle contract is next.**
 
 **Parallel enabling frontier: WP-D central generic development-acceleration kernel.**
 
-**Parallel domain frontier:** five Stage-E L2 owner inputs are repository-verified closed; CFA-02 and CFA-10 are REPORTED-UNVERIFIED pending durable completion verification. CFA-04 is closed with a preserved partial/UNKNOWN finding. Central L2 reconciliation remains required before L3.
+**Parallel domain frontier:** all seven Stage-E L2 owner inputs are repository-verified and centrally reconciled. CFA-04 remains PARTIAL/UNKNOWN on runtime policy-source binding; CFA-01, CFA-07, CFA-09 and CFA-10 retain explicit unresolved identity/runtime limitations. L3 graph-bundle design is enabled; runtime joins remain gated.
 
 Production/runtime joins remain gated.
