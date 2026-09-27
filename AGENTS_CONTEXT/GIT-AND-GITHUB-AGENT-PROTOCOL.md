@@ -67,6 +67,8 @@ Do not edit another agent home without explicit delegation.
 
 Shared implementation files should have one current owner. If two agents need one file, create a seam or designate one temporary owner; do not solve contention with continuous merges.
 
+For shared durable context files, updates use optimistic concurrency against the current blob/ref SHA. A rejected stale write is a visible race: re-read current main, reconcile the change, and retry from the fresh SHA. Do not force a stale context write or create a parallel claims registry merely to avoid the race.
+
 ## Commit discipline
 
 - Commit coherent units.
