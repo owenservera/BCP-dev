@@ -45,7 +45,7 @@ Stage D adds the existing evidence that materially supports the links and record
 
 | Source | Blob SHA |
 |---|---|
-| `contracts/src/manifest.ts` | `16570d1c65f0c2fa6f6348519a1ed157d1c? ` |
+| `contracts/src/manifest.ts` | `16570d1c65f0c2fa6f6348519a1ed15733ceafe9` |
 | `sdk/src/validate.ts` | `4cbca8bea7968fb1f5ba5a89884582f84ccb741e` |
 | `forge-author/test/happy/self-host.test.ts` | `dd9c67da1f6ede24603b4fe5d780a766302b481b` |
 | `forge-author/spec/self.json` | `3a5a2eb572f1a4eb117705500325e9bbb629586e` |
@@ -55,11 +55,7 @@ Stage D adds the existing evidence that materially supports the links and record
 | `docs/decisions/D-377-authoring-generator.md` | `cd5b3450fd3afcc0cb7c725c0f726f62cac69761` |
 | `docs/decisions/D-404-anvil-freeze.md` | `4eb0cd3bd7fbe2dd8da1f41491fc4ad25e2b09ed` |
 
-> **Correction before publication:** the first `manifest.ts` SHA above was transcribed incorrectly during drafting and must not be treated as an evidence identity. The source was fetched and verified during Stage C/D; use the repository path and current commit state as the source locator.
-
-## 4. Evidence attachments to the pilot relations
-
-| Pilot relation | Attached evidence | Boundary |
+> Source identities above were captured directly from the repository during Stage D. No manually invented source identity is used.
 |---|---|---|
 | validator `implements → R-003` | `E-R003-VALIDATOR` + `E-R003-WAVE0` + `E-R003-D406` | supports implemented validation responsibility and recorded historical verification |
 | validator `satisfies → PluginManifest contract` | `E-R003-SOURCE-MANIFEST` + `E-R003-VALIDATOR` | supports contract/validator correspondence |
