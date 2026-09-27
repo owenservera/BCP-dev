@@ -8,22 +8,23 @@
 ## Open tasks
 
 ### CFA-05-10-BOUNDARY-GATE-BEFORE-GRAPH-2026-09-27
-- **Status:** WAVE 3 CURRENT — CFA-06 ACTIVE
+- **Status:** WAVE 3 CURRENT — RECEIPT-DRIVEN
 - **Priority:** P0
 - **Canonical protocol:** `BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`
-- **Current router:** `BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
+- **Canonical router:** `BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
 - **Wave 1:** DONE — 6/6 baselines.
 - **Wave 2:** DONE — Steward reconciliation + Wave-3 queue.
-- **CFA-05:** Wave 3 DONE — `a4684afb2b7cb982ba2fc4de903319345ee1506e`.
-- **CFA-06:** **CURRENT / NEXT**.
-- **CFA-07:** WAITING FOR CFA-06.
-- **CFA-08:** WAITING FOR CFA-07.
-- **CFA-09:** WAITING FOR CFA-08.
-- **CFA-10:** WAITING FOR CFA-09.
-- **Current human-router action:** **Next → CFA-06**.
-- **Wave 4:** after CFA-10 Wave 3, Next → Steward.
-- **Graph Gate:** CLOSED until Wave 4 explicitly opens it.
-- **Lineage rule:** agents must verify `origin/main` / current GitHub `main` before acting; stale local task text never outranks the current central router.
+- **Wave 3:** sequential and receipt-driven: CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10.
+- **CFA-05:** DONE — receipt exists, commit `a4684afb2b7cb982ba2fc4de903319345ee1506e`.
+- **CFA-06:** **NEXT / EXECUTE NOW**.
+- **CFA-07:** waits on CFA-06 receipt.
+- **CFA-08:** waits on CFA-07 receipt.
+- **CFA-09:** waits on CFA-08 receipt.
+- **CFA-10:** waits on CFA-09 receipt.
+- **Human workflow:** send exactly **one `Next` to each CFA in sequence**, advancing only after the previous CFA reports completion. No second `Next` is required for a stale-router correction.
+- **Wave 4:** after CFA-10 receipt, send `Next` to Steward.
+- **Graph Gate:** CLOSED until Wave 4.
+- **Lineage rule:** every CFA recomputes eligibility from current `main` and the committed receipt paths in the canonical router; local cached state is subordinate.
 
 ### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
 - **Status:** DONE / CENTRAL DESIGN FROZEN
