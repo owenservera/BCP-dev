@@ -2,6 +2,17 @@
 
 This folder is the durable workspace for **CFA-09 — Evolution / Compatibility / Self-Maintenance**.
 
+## Fresh-session front door
+
+Start with `SESSION-CONTEXT.md`. It is the navigation layer for a new ChatGPT agent session and points to the durable identity, current state, lessons, task queue, alignment/history, and completion receipts.
+
+For ongoing work:
+- `TASKS.md` is the persistent agent-owned work queue.
+- `RESULTS/` contains mandatory session completion receipts.
+- `CORE-AGENT.md` is the ratified responsibility contract.
+- `STATE.md` is the current work frontier.
+- `LESSONS.md` contains only durable, behavior-changing operational lessons.
+
 ## Identity
 
 - agent_id: `evolution-compatibility-self-maintenance`
@@ -12,6 +23,9 @@ This folder is the durable workspace for **CFA-09 — Evolution / Compatibility 
 - current state: `STATE.md`
 - owner alignment: `OWNER-ALIGNMENT-2026-09-27.md`
 - identity history: `IDENTITY-HISTORY.md`
+- session context: `SESSION-CONTEXT.md`
+- task queue: `TASKS.md`
+- session receipts: `RESULTS/<SESSION_ID>.md`
 
 ## Responsibility
 
@@ -29,4 +43,6 @@ CFA-02 Data / Identity / Persistence remains explicitly **PROVISIONAL** and is n
 
 Shared CFA boundaries remain **UNACTIVATED**. This workspace contains responsibility contracts and research state, not Ω law or implementation authorization.
 
-Read `CORE-AGENT.md` and `STATE.md` before substantive work.
+## Fresh-session reading
+
+Follow the repository and FSSP cold-start sequence before substantive work. At minimum, enter through `SESSION-CONTEXT.md`, verify current `main`, read `CORE-AGENT.md`, `STATE.md`, `LESSONS.md`, and `TASKS.md`, then load only the relevant peer/authority context for the active task.
