@@ -8,13 +8,11 @@
 ## Open tasks
 
 ### HOME-UPGRADE-2026-09-27
-- **Status:** READY
+- **Status:** DONE
 - **Priority:** P1
-- **Dependencies:** None currently known.
-- **Write scope:** Own agent home only.
-- **Next action:** Read current main, then reconcile this task against `SESSION-CONTEXT.md`, identity, `STATE.md`, `TASKS.md`, `LESSONS.md`, and applicable alignment/history.
-- **Completion condition:** Validate the home as cold-startable; persist only justified corrections; update task status; report exact result/commit; do not start unrelated work.
-- **Stop condition:** Stop after this task and report.
+- **Completed:** 2026-09-27
+- **Receipt:** RESULTS/STEWARD-20260927-OPS-MATURITY.md
+- **Result:** Steward home and operating-control seams were reconciled; current main was independently re-checked; home-upgrade work is closed.
 
 ## Open strategic operating tasks
 
@@ -43,6 +41,15 @@
 - **Cadence:** weekly derived snapshot; generate/replace rather than append history.
 - **Scope:** pending receipts, receipt verification state, handoff/attention items when computable, open contradictions, and births awaiting ratification.
 - **Authority:** projection only; it never replaces source receipts, Commons history, the CFA register, or authority-owned records.
+
+### CYCLE-4-LIVE-CHROME-ACCOUNTS-2026-09-27
+- **Status:** READY
+- **Priority:** P1
+- **Scope:** existing Build-and-Harvest Plan Cycle 4; RA-5 live account proof using the V1 Chrome substrate.
+- **Operational lead:** CFA-06 capability-provider-realization, with CFA-04 authority, CFA-05 work/execution, and CFA-08 surface evidence contributing within their boundaries.
+- **Next action:** execute RA-5 against the existing provider/account reconciliation; do not redesign routing or provider architecture.
+- **Completion condition:** selected account/session is proven to be the one actually used; no silent account substitution; release/re-authentication is attributable; evidence reconstructs the path.
+- **Environment note:** requires owner-machine Chrome/live execution. A webapp-only session must not claim live proof.
 
 ## Future task intake
 
