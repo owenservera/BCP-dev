@@ -6,6 +6,15 @@ Status: OWNER-DIRECTED DESIGN BASELINE — 2026-09-25.
 
 **Branches are for changes. Commons is for communication. Do not merge to communicate.**
 
+## Repository access and tool selection
+
+When connected GitHub integration/access is available for the target repository, it is the primary repository access path.
+
+- Use connected GitHub access for repository files, refs/SHAs, branches, commits, and writes.
+- Use web search for external research or independent corroboration.
+- Use web access for repository content only as a fallback when direct GitHub access is genuinely unavailable.
+- Never report the repository as unavailable until the available connected repository capability has actually been checked.
+
 ## Branch classes
 
 ### main
