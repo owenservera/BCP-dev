@@ -1,6 +1,6 @@
 # Experience / Interaction / Surfaces Steward — State
 
-> Status: RATIFIED — OWNER-ALIGNED / DOMAIN EXECUTION NOT STARTED
+> Status: RATIFIED — OWNER-ALIGNED / HOME UPGRADE COMPLETE / DOMAIN EXECUTION NOT STARTED
 > CFA: CFA-08
 > agent_id: experience-interaction-surfaces
 > Updated: 2026-09-27
@@ -9,11 +9,19 @@
 
 - canonical identity: Experience / Interaction / Surfaces Steward
 - Core Function Area: CFA-08 — Experience / Interaction / Surfaces
-- workspace: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES
+- workspace: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES`
 - permanent identity: RATIFIED
-- owner alignment: OWNER-ALIGNMENT-2026-09-27.md
-- durable contract: CORE-AGENT.md
+- owner alignment: `OWNER-ALIGNMENT-2026-09-27.md`
+- durable contract: `CORE-AGENT.md`
 - identity version: v1.0
+
+## Verification snapshot
+
+- current `main` verified during the 2026-09-27 home-upgrade session: `20d127685215c358f6dd33930c24936eef2d04fa`
+- execution strategy for home upgrade: INDEPENDENT
+- write scope: own CFA-08 home only
+- persistent task: `HOME-UPGRADE-2026-09-27`
+- result receipt: `RESULTS/CFA08-HOME-UPGRADE-20260927-0538.md`
 
 ## Bootstrap / alignment state
 
@@ -21,6 +29,7 @@
 - self-design: COMPLETE
 - owner dialogue/alignment: COMPLETE
 - core identity: COMPLETE
+- home upgrade: COMPLETE
 - Commons birth test: BLOCKED / NOT PROVABLE IN THIS WEBAPP SESSION
 - domain mission execution: NOT STARTED
 
@@ -33,8 +42,8 @@ The owner retained the proposed identity and boundary with explicit seam clarifi
 - CFA-01 owns World, Space and Context semantics; CFA-08 owns human-facing projection, navigation and workspace/layout realization.
 - CFA-03 owns semantic Intent/Plan meaning and continuity; CFA-08 owns representation and inspect/edit/confirm/reject interaction.
 - CFA-05 owns durable Work and execution; CFA-08 owns controls, progress, approvals, results and re-entry presentation.
-- CFA-07 owns composition/plugin/Forge semantics; CFA-08 owns composition editing/inspection and Forge UX.
 - CFA-06 owns capability/provider/account/model/realization/session/resource/routing semantics; CFA-08 owns user-facing choice and status presentation.
+- CFA-07 owns composition/plugin/Forge semantics; CFA-08 owns composition editing/inspection and Forge UX.
 - Canonical semantic state is distinct from presentation state.
 - Direct manipulation is experience input, not canonical truth; semantic effects use explicit owning-path handoff.
 - Surface-local configuration belongs to CFA-08; domain policy semantics remain with their owning CFAs.
@@ -68,13 +77,14 @@ The surface never serves as canonical source.
 
 ### OBSERVED / CURRENT
 
+- CFA-01 World & Context Steward is ratified / owner-aligned.
+- CFA-02 Data / Identity / Persistence remains explicitly provisional.
+- CFA-03 Semantic Continuity is ratified / foundation-seeded.
 - CFA-04 Authority Governance Steward is ratified.
 - CFA-05 Work & Execution Steward is ratified.
 - CFA-06 Capability & Provider Realization Steward is ratified.
 - CFA-07 Composition / Plugin / Forge Steward is ratified.
-- CFA-02 Data / Identity / Persistence remains explicitly provisional.
-- CFA-01 World / Ontology / Context remains provisional and not identity-ratified.
-- CFA-03 Semantic Continuity is ratified / foundation-seeded.
+- CFA-08 identity is ratified / owner-aligned.
 - Destination conceptual model defines Surface as representation/interaction form and Space as organization context.
 - Destination journey mapping requires Surface/View, World projection, Direct Manipulation and canonical interaction convergence.
 - Historical canvas/visual inventories remain evidence only.
@@ -131,4 +141,4 @@ This is a transport/session limitation, not an identity failure.
 
 ## Next mission
 
-Proceed only to evidence-backed Experience / Interaction / Surfaces research and bounded vertical slices.
+Proceed only to evidence-backed Experience / Interaction / Surfaces research and bounded vertical slices. The next durable work should be selected from the active frontiers through the persistent task queue, not inferred from an archived launch sequence.
