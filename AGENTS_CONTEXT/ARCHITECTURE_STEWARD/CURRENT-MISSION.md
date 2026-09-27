@@ -6,7 +6,7 @@
 
 ## Current phase
 
-**CFA-05–10 Boundary Baseline + Reconciliation Gate — WAVE 3**
+**CFA-05–10 Boundary Gate — WAVE 4 STEWARD COMPLETION AUDIT**
 
 The ten independent CFA strategic roadmaps are complete and reconciled. Before implementation-node graph attachment, the missing CFA-05–10 boundary-evidence layer must be completed so graph relationships do not infer ownership from incomplete seam evidence.
 
@@ -25,13 +25,11 @@ The overlay does not cancel or replace the existing M1 CFA-owned evidence tasks.
 
 ## Immediate next action
 
-**Wave 2 is complete.** The Steward reconciliation and bounded peer queue are durably persisted.
+**Wave 1, Wave 2 and Wave 3 are complete.** All six Wave-3 peer-reconciliation receipts are present on current `main`.
 
-**Wave 3:** receipt-driven sequence **CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10**. Send exactly one `Next` to each CFA in order; each CFA determines its eligibility from current `main` and committed predecessor receipts.
+**Wave 4:** send exactly one `Next` to Architecture Steward. The Steward must perform the final completion audit, preserve all remaining UNKNOWN / CONFLICTED / DEFERRED states, record owner interventions and later-activation eligibility, and explicitly open or withhold the Graph Gate.
 
-**Wave 4:** after CFA-10 completes, send `Next` to Steward for the final completion audit.
-
-Do not begin Graph Kernel / Source-Code Graph attachment until Wave 4 explicitly opens the Graph Gate.
+Do not begin Graph Kernel / Source-Code Graph attachment until the Wave-4 receipt explicitly opens the Graph Gate.
 
 ## Shared-frontier contract
 
