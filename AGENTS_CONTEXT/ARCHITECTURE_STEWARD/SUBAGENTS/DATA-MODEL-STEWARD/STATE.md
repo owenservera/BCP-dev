@@ -131,6 +131,10 @@ Owner alignment ratified **Data Steward** (`data-model`) as CFA-02 and confirmed
 
 Shared boundaries remain **UNACTIVATED** and Ω law remains unchanged.
 
+## Stage-E L2 owner characterization — 2026-09-28
+
+**COMPLETE — owner characterization landed.** The Data continuity basis adapter uses the existing vault durable record/revision substrate: primary token `(ns,id,rev)`, optional CID, existing vault/reconstruction resolver, explicit STALE/UNRESOLVABLE/CONFLICTED behavior and falsifiers. Physical relation/storage shapes, AuthorityCitation join, cross-provider equivalence and live proof remain UNKNOWN/DEFERRED. No runtime adapter or shared boundary was activated.
+
 ## Next evidence target
 
 Use one real provider/productivity corridor as a living test of the boundary design and the Core Tool.

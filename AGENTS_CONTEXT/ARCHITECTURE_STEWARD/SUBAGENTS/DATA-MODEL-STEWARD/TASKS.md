@@ -2,7 +2,7 @@
 
 ## NEXT-COMMAND PRIMER — 2026-09-28
 
-When the owner sends **Next**, resolve against the master portfolio router first, then this CFA queue. The current durable state is REPORTED-UNVERIFIED.
+When the owner sends **Next**, resolve against the master portfolio router first, then this CFA queue. The current durable state is CLOSED for the Stage-E L2 owner lane.
 
 **Execute first:** verify current main for the substantive artifact, canonical receipt, exact commit/ref, and this task's state. If the substantive artifact exists, perform only the missing durable completion transaction. If it does not exist, execute the bounded characterization below.
 
@@ -37,9 +37,10 @@ Do not run the blocked live provider/Chrome corridor; do not create a second ide
 ## Open tasks
 
 ### STAGE-E-L2-CFA02-DATA-CONTINUITY-BASIS-ADAPTER-2026-09-27
-- **Status:** REPORTED-UNVERIFIED — DURABLE COMPLETION CHECK
-- **Human report:** owner has reported the bounded task complete, but current main did not yet contain a matching receipt/task closure when the Steward audited it.
-- **Next action:** first verify current main for the canonical characterization, receipt, exact commit/ref, and task-state closure. If the substantive artifact exists but closure is missing, complete only the durable completion transaction; do not repeat the characterization.
+- **Status:** DONE — OWNER CHARACTERIZATION COMPLETE
+- **Result:** `STAGE-E-L2-CFA02-DATA-CONTINUITY-BASIS-ADAPTER-CHARACTERIZATION-2026-09-28.md`
+- **Receipt:** `RESULTS/CFA02-20260928-STAGE-E-L2-DATA-CONTINUITY-BASIS-ADAPTER.md`
+- **Next action:** wait for Architecture Steward L2 reconciliation.
 - **Priority:** P0
 - **Objective:** Characterize the CFA-02-owned durable continuity/reconstruction basis inputs for Stage-E derived-view freshness without creating a second identity store.
 - **Milestone:** Stage-E L2 — Source and runtime basis adapters.
@@ -48,7 +49,7 @@ Do not run the blocked live provider/Chrome corridor; do not create a second ide
 - **Write scope:** CFA-02 home documentation only; do not implement runtime adapters or alter shared contracts/Ω law.
 - **Completion condition:** the adapter identifies which existing Data-plane references can serve as basis, names owner/comparison/resolution/stale-unresolvable behavior and falsifier, or records missing evidence as UNKNOWN/BLOCKED.
 - **Stop condition:** second identity store, owner-policy ambiguity, peer-owned semantic transfer, Ω-law collision, or insufficient evidence.
-- **Completion gate:** do not report DONE/COMPLETE until the exact result receipt and this task's final state are verified on current main, per DURABLE-COMPLETION-GATE-2026-09-28.md.
+- **Completion gate:** satisfied by the durable characterization and result receipt on current `main`.
 
 ## Open tasks
 
