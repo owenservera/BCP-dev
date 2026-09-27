@@ -64,14 +64,15 @@
 - **Stop condition:** Any requirement to invent domain meaning, authority, identity equivalence, product behavior or Ω-law.
 
 ### GRAPH-ATTACHMENT-WAVE-1-2026-09-27
-- **Status:** ACTIVE — STAGE C CURRENT
+- **Status:** ACTIVE — STAGE D CURRENT
 - **Priority:** P0
 - **Purpose:** Revalidate the existing documentation-first Architecture Graph, freeze the linked implementation-projection contract, and run one bounded Source-Code Graph pilot.
 - **Packet:** `BOUNDARY-DESIGN-SYSTEM/GRAPH-ATTACHMENT-WAVE-1-2026-09-27.md`
 - **Gate:** Graph Gate OPEN from Wave-4 completion audit.
 - **Stage B:** DONE — receipt `GRAPH-W1-B-IMPLEMENTATION-PROJECTION-CONTRACT-2026-09-27.md`; commit `05ccd40984f931a057ab40dd2c72f7221a5333d2`.
-- **Stage C:** **NEXT / EXECUTE NOW — bounded Source-Code Graph pilot**.
-- **Next action:** execute Stage C and commit `GRAPH-W1-C-SOURCE-CODE-PILOT-RECEIPT-2026-09-27.md`.
+- **Stage C:** DONE — receipt `GRAPH-W1-C-SOURCE-CODE-PILOT-RECEIPT-2026-09-27.md`; commit `24ac0bfbc5114d606f02e14308bd484bbdf5bba5`.
+- **Stage D:** **NEXT / EXECUTE NOW — proof/evidence attachment for existing attributable evidence only**.
+- **Next action:** execute Stage D and commit `GRAPH-W1-D-PROOF-EVIDENCE-ATTACHMENT-RECEIPT-2026-09-27.md`.
 - **Stop condition:** any request to create a second graph, infer semantic authority from code topology, or collapse UNKNOWN into dependency.
 
 ### SELECT-GOVERNED-CORRIDOR-AFTER-M1-2026-09-27
