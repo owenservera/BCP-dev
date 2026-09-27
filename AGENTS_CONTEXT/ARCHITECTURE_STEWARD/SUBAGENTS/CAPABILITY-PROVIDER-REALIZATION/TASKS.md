@@ -7,38 +7,28 @@
 
 ## Open tasks
 
-## NEXT routing — current Wave 1 gate
-
-The first actionable task for this home is the CFA-06 boundary baseline in:
-AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md
-
-When the human owner says "Next", execute **Wave 1 / CFA-06** only:
-- verify current main and this home;
-- read owner alignment plus CFA-01–04 Round-2 Completion Audit;
-- produce BOUNDARY-BASELINE-DECLARATION-2026-09-27.md;
-- explicitly cover Capability/Provider/Realization, Account/Session/Resource, routing/Authority, Work/effect evidence, and provider-healing/Evolution;
-- stop after the declaration is committed and report the exact SHA.
-
-Do not execute the older M1-M2 peer-intelligence task first. Do not start live provider work or production implementation.
-
-
-
-### M1-M2-PEER-INTELLIGENCE-ROUND-1-2026-09-27
+### M2-MINIMUM-JOIN-SHAPE-RESEARCH-2026-09-27
 - **Status:** READY
 - **Priority:** P1
-- **Purpose:** Turn the M1/M2 repository evidence pass into explicit cross-CFA information requests before any contract or implementation change.
-- **Evidence package:** `RESULTS/M1-M2-EVIDENCE-PACKAGE-2026-09-27.md`
-- **Required inputs:** CFA-02 identity/revision/persistence seam; CFA-04 authority/account/session/resource timing and revocation seam; CFA-05 Work/Attempt attachment semantics; CFA-03 continuity expectations across account/session/realization replacement.
-- **Next action:** Prepare the concrete peer-intelligence request artifact using only current CFA-06 evidence; do not consume peer Round-1 outputs yet.
-- **Write scope:** CFA-06 home only.
-- **Completion condition:** Request artifact persisted with BLOCKING/HIGH-VALUE/CONTEXTUAL classification and exact questions required to unlock M1/M2 gates.
-- **Stop condition:** Stop if request would imply a new shared store, Ω-law change, or an already-aligned boundary change.
+- **Purpose:** Define the smallest non-authoritative conceptual join among Capability, Realization, Provider, Account, Model, Session and Resource using only current evidence, without changing contracts.
+- **Preconditions:** M1/M2 evidence package complete; peer-intelligence request package persisted. Peer answers are not yet required for the research draft itself.
+- **Next action:** Draft and test the conceptual join against current ProviderRealization, SessionRecord, World, Work and storage vocabulary; mark every element OBSERVED/DERIVED/PROPOSED/UNKNOWN.
+- **Write scope:** CFA-06 home only; no production contracts.
+- **Completion condition:** research artifact identifies a minimal join, explicit non-authoritative boundaries, migration/legacy compatibility questions, and the exact peer evidence still blocking adoption.
+- **Stop condition:** stop if a join requires a second canonical store, changes Ω law, or asserts a peer-owned semantic contract as settled.
+
+### M1-M2-PEER-INTELLIGENCE-ROUND-1-2026-09-27
+- **Status:** DONE
+- **Result:** `PEER-INTELLIGENCE-REQUEST-2026-09-27.md` persisted with BLOCKING/HIGH-VALUE/CONTEXTUAL requests for CFA-02, CFA-04, CFA-05, CFA-03, CFA-01, CFA-09, CFA-07, CFA-08 and CFA-10.
+- **Primary artifact commit:** `fc1908750b2bde325cdf0cb8b860b6e80f85d682`
+- **Result receipt:** `RESULTS/M1-M2-PEER-INTELLIGENCE-ROUND-1-2026-09-27.md`
+- **Receipt commit:** `c837830d6b82bff1caaaa54eb650a13bc77a9c1e`
+- **Constraint:** No peer Round-1 outputs were consumed and no production implementation was started.
 
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** DONE
-- **Result:** `DOMAIN-ROADMAP-2026-09-27.md` persisted as the independent CFA-06 first-pass strategic roadmap. The roadmap defines six conceptual milestones, falsifiers, dependencies, tooling/substrate, strategic gates, peer-intelligence requests, product consequences, deferred work, and inherited-plan classifications.
+- **Result:** `DOMAIN-ROADMAP-2026-09-27.md` persisted as the independent CFA-06 first-pass strategic roadmap.
 - **Completion commit:** `7ea4a24a83c24d8a022ec0b4ea02aa92628c618a`
-- **Receipt:** roadmap plus this task history are the execution receipt; no production implementation was started.
 
 ## Future task intake
 
@@ -50,12 +40,10 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 - **Status:** DONE
 - **Result receipt:** `RESULTS/M1-M2-EVIDENCE-PACKAGE-2026-09-27.md`
 - **Completion commit:** `2ee41bb9183abf5f54200ed9f81ca28a4a1a4e6e`
-- **Result:** Current Ω ProviderRealization, provider registry, browser SessionRecord, promotion proof path, and browser live-vs-fixture substrate were inspected. The pass recorded the concrete Provider/mediation/upstream identity split and the absence of a canonical Account/Resource join without adding code.
 
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
 - **Result receipt:** `RESULTS/CFA06-HOME-UPGRADE-2026-09-27-0537.md`
 - **Completion commit:** pending this task-status commit
-- **Result:** Home validated and cold-start corrections persisted; no Ω law, shared boundary, or production implementation changes.
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
