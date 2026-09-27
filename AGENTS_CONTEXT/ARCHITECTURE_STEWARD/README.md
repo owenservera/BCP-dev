@@ -110,6 +110,20 @@ The graph is anchored in the end vision and destination documentation. Implement
 
 ## Start here
 
+For a fresh ChatGPT session, begin with:
+
+1. SESSION-CONTEXT.md
+2. CURRENT-MISSION.md
+3. CHATGPT-AGENT-OPERATING-MODEL.md
+4. CHATGPT-FRESH-SESSION-PROTOCOL.md
+5. AGENT.md
+6. STATE.md
+7. LESSONS.md
+
+Then continue with the existing architecture/graph reading sequence below.
+
+## Start here
+
 Read:
 
 1. AGENT.md
