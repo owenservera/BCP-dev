@@ -8,11 +8,11 @@
 ## Open tasks
 
 ### HOME-UPGRADE-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
 - **Priority:** P1
 - **Dependencies:** None currently known.
 - **Write scope:** Own agent home only.
-- **Next action:** Read current main, then reconcile this task against `SESSION-CONTEXT.md`, identity, `STATE.md`, `TASKS.md`, `LESSONS.md`, and applicable alignment/history.
+- **Next action:** Reconcile the current home against FSSP-1.3 and persist only evidence-backed cold-start corrections, then write the session result receipt.
 - **Completion condition:** Validate the home as cold-startable; persist only justified corrections; update task status; report exact result/commit; do not start unrelated work.
 - **Stop condition:** Stop after this task and report.
 
