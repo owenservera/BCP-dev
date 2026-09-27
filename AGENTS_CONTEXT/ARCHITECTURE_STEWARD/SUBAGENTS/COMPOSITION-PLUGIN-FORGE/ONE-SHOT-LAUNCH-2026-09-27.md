@@ -4,6 +4,14 @@ Read and execute:
 
 https://github.com/owenservera/BCP-dev/blob/main/AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-ONE-SHOT-BOOTSTRAP.md
 
+## Human execution router
+
+Use the master sequencing/router for launch order and predecessor context:
+
+https://github.com/owenservera/BCP-dev/blob/main/AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CFA-05-10-ONE-SHOT-LAUNCH-ROUTER-2026-09-27.md
+
+The router controls **sequence**, not CFA semantics. The canonical protocol below controls the **bootstrap procedure**.
+
 ## Parameters
 
 - CFA_ID: CFA-07
