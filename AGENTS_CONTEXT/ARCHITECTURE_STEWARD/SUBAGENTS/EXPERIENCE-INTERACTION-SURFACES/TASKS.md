@@ -25,5 +25,5 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
 - **Result receipt:** `RESULTS/CFA08-HOME-UPGRADE-20260927-0538.md`
-- **Completion commit:** a5f43c5e95f71389ccafee0207b77d3f2908a47c
+- **Completion commit:** 32e66014b4a1275775e3c9070c309815a9a28c99
 - **Result:** Home validated and upgraded for FSSP-1.3 cold-start recovery; stale front-door metadata and peer-status drift were corrected; no Ω law, shared boundary, or production implementation changes.
