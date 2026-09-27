@@ -3,7 +3,7 @@
 > Status: PROVISIONAL / FOUNDATION-SEEDED
 > Updated: 2026-09-26
 > Identity seed: authority-governance
-> Permanent identity: NOT YET RATIFIED
+> Permanent identity: RATIFIED — OWNER-ALIGNED
 
 This is the working operating model for CFA-04. It is not Ω law and does not create authority.
 
