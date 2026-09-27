@@ -39,7 +39,7 @@ Do not change Ω law, activate shared boundaries, create duplicate identity stor
 
 First assess the execution strategy from current repository evidence; do not assume prompt sequencing is dependency. Complete the home-upgrade gate, make only justified changes (including no change when the home is already healthy), and return the full FSSP-1.2 report.
 
-Before stopping, update `TASKS.md`: mark the home-upgrade item DONE/COMPLETE when genuinely finished, record any durable follow-up task discovered, and leave the next actionable state explicit. Then report.
+Before stopping, persist the full completion report to `RESULTS/<SESSION_ID>.md` according to `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md`. Only after that receipt and the durable changes are committed should you mark the home-upgrade task DONE/COMPLETE. Record any durable follow-up task discovered, leave the next actionable state explicit, then return the chat report.
 
 STOP after your home upgrade and report.
 ```
@@ -100,7 +100,7 @@ No CFA waits for another CFA's completion unless its own evidence discovers a re
 
 Each CFA session stops after its own home is validated and upgraded.
 
-The owner returns the completed session reports to the Architecture Steward after the parallel wave.
+The owner does not need to relay the substantive result manually: each session must persist its completion receipt in its own `RESULTS/` directory. The Architecture Steward reads and verifies those receipts from the repository after the wave. The chat report remains useful for immediate human visibility.
 
 The Steward verifies each reported commit/result against current `main` and reconciles the constellation after the wave. No CFA waits for another CFA's completion merely for authorization.
 
