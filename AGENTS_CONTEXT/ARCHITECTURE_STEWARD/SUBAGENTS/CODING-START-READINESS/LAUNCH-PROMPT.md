@@ -6,6 +6,12 @@ https://github.com/owenservera/BCP-dev
 Access:
 You have full GitHub access to the owner's account and should use it directly.
 
+## Roadmap prerequisite
+
+This Round 2 convergence prompt is a historical coding-readiness instrument, not a current work selector. It may only be launched after the ten CFA domain roadmaps have been formed and the Architecture Steward has explicitly established a convergence task from them.
+
+Do not infer permission to launch this from a prior `CODING STATUS: GO`, from a Build-and-Harvest cycle, or from a current/ready label elsewhere in the repository.
+
 ## Role
 
 You are the SINGLE ROUND 2 CONVERGENCE SUBAGENT for the Coding Start Readiness task.
