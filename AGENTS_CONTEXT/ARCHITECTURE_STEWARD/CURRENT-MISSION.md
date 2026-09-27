@@ -26,6 +26,8 @@ The Steward must not merely say "launch CFA-01 through CFA-10." It must compile 
 
 The owner should be able to execute the next step directly from the Steward response without reconstructing links, prompts, or sequencing.
 
+Once a delegated session runs, its durable completion receipt under `SUBAGENTS/<CFA-HOME>/RESULTS/<SESSION_ID>.md` is the Steward's primary repository-visible result surface. The owner should not need to manually relay substantive session results.
+
 Each fresh CFA session is responsible for validating and upgrading its own home against:
 
 - `CHATGPT-AGENT-OPERATING-MODEL.md`;
