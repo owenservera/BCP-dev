@@ -59,6 +59,19 @@ These are evidence-gathering tasks, not implementation authorization.
 - CFA-09: runtime transition/fencing/activation handoff.
 - CFA-02 (PROVISIONAL): atomicity/integrity to canonical persistence join.
 
+## Stage-E L2 runtime generation/source basis — 2026-09-28
+
+**COMPLETE — OWNER CHARACTERIZATION LANDED / RUNTIME BASIS UNRESOLVABLE AT CURRENT EVIDENCE.**
+
+The Stage-E runtime basis adapter is characterized without adding a Generation registry or K0 subsystem.
+
+- No immutable CFA-10-owned runtime generation token is currently proven.
+- Runtime freshness must not substitute process ID, Worker identity, timestamp, path/name, or repository revision without runtime binding.
+- The bounded future BasisRef is an attributable runtime observation → governed invocation/compartment → generation/source → admitted implementation binding.
+- Missing/ambiguous/unbound runtime generation yields UNRESOLVABLE; changed proven generation yields STALE; attributable contradiction yields CONFLICTED.
+- B1 containment/byte-binding and target-runtime replay remain separately underproven/blocked and were not substituted by this characterization.
+- No runtime join, K0 expansion, B1 production mechanism selection, shared-boundary activation, or Ω-law change occurred.
+
 ## Evidence state
 
 ### OBSERVED / CURRENT
