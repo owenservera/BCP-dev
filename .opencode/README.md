@@ -43,6 +43,14 @@ Proven against the actual installed toolchain — no longer open questions:
    correct — the test never exercised it), and the two git-remote smoke tests
    needed explicit timeouts (60s/120s; the 5s default is too tight for Windows git
    spawns — the exchange test alone takes ~19s here). No runtime source change.
+4. **Phase 2 v0 completion — GREEN (6 pass, 0 fail across 3 files, `bun test`,
+   2026-09-27).** New `runtime/test/v0-completion.test.ts` proves all ten
+   roadmap points with two independent runtimes (separate identities, homes,
+   clones) through `GitBranchTransport` against a shared bare remote: stable
+   identities, separate signed streams, Git sync, public-feed discovery, room
+   creation, in-room exchange, deterministic DM id, replay equivalence, duplicate
+   tolerance, raw-history preservation under derived inbox/context views. ~54s on
+   Windows; explicit 180s timeout. No runtime source change — test-only addition.
 
 ## What was deliberately left out
 
