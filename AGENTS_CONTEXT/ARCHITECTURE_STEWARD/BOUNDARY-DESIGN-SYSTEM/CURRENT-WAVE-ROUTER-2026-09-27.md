@@ -1,27 +1,22 @@
 # CFA-05–10 Current Wave Router — 2026-09-27
 
-> **CURRENT ROUTING AUTHORITY — DETERMINISTIC / RECEIPT-DRIVEN**
+> **CURRENT ROUTING AUTHORITY — WAVE 4 / RECEIPT-DRIVEN**
 >
-> This file is the authoritative human-agent execution router for the CFA-05–10 boundary program.
-> It intentionally does **not** cache a mutable “ACTIVE/WAITING” state per CFA.
-> The current turn is derived from committed Wave-3 completion receipts on current `main`.
-> If any local `TASKS.md` disagrees with this file or with current `main`, current `main` plus this file wins.
+> Wave 3 is complete: all six required CFA Wave-3 receipts exist on current `main`.
+> This router now routes the next turn to the Architecture Steward for the final completion audit.
+> It does not cache mutable CFA ACTIVE/WAITING state.
 
 ## Current phase
 
-**WAVE 3 — SEQUENTIAL PEER RECONCILIATION**
+**WAVE 4 — STEWARD COMPLETION AUDIT**
 
-Wave 1: **DONE — 6/6 boundary baselines present.**  
-Wave 2: **DONE — Steward reconciliation + Wave-3 queue persisted.**  
-Wave 4 / Graph Gate: **CLOSED.**
+Wave 1: **DONE — 6/6 boundary baselines present.**
+Wave 2: **DONE — Steward reconciliation + Wave-3 queue persisted.**
+Wave 3: **DONE — CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10 receipts present.**
+Wave 4: **READY — Steward audit packet persisted.**
+Graph Gate: **CLOSED pending Wave-4 decision.**
 
-## Deterministic turn rule
-
-Required order:
-
-**CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10**
-
-For each CFA, define its Wave-3 completion receipt as the exact home artifact:
+## Verified Wave-3 receipts
 
 - CFA-05: `SUBAGENTS/AGENCY-WORK-EXECUTION/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
 - CFA-06: `SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
@@ -30,55 +25,82 @@ For each CFA, define its Wave-3 completion receipt as the exact home artifact:
 - CFA-09: `SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
 - CFA-10: `SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
 
-**Current turn = the first CFA in that order whose required Wave-3 receipt is absent from current `main`.**
+## Deterministic Wave-4 turn rule
 
-Therefore:
-- if a CFA's own receipt exists, its Wave-3 turn is **DONE**;
-- if its own receipt is absent and every predecessor receipt exists, it is **EXECUTE NOW**;
-- if a predecessor receipt is absent, it is **WAITING FOR PREDECESSOR**;
-- no cached ACTIVE/WAITING text may override this calculation.
+The next eligible turn is **Architecture Steward**.
 
-## Bare “Next” contract
-
-When the human owner sends **one** `Next` to a CFA:
+When the human owner sends one **Next** to Steward:
 
 1. Verify current `main`.
-2. Read this router.
-3. Recompute the current turn from the six receipt paths above.
-4. If this CFA is the first missing receipt, **EXECUTE ITS WAVE-3 ROW NOW**.
-5. If its own receipt already exists, report **DONE** and do not redo work.
-6. If a predecessor receipt is missing, report **WAITING FOR <predecessor>** and stop.
-7. Never resume an older M1/M2/FUTURE task merely because it is still marked READY.
-8. Never require a second `Next` merely because routing text was stale.
+2. Read this router and `WAVE-4-COMPLETION-AUDIT-2026-09-27.md`.
+3. Verify all six Wave-3 receipts still exist.
+4. Perform the final bounded Wave-4 completion audit.
+5. Write the required Steward receipt:
+   `BOUNDARY-DESIGN-SYSTEM/WAVE-4-COMPLETION-AUDIT-2026-09-27.md`
+6. Explicitly decide Graph Gate **OPEN** or **WITHHELD**.
+7. Commit the receipt and report the exact commit SHA.
+8. Stop.
 
-## Wave-3 execution source
+No CFA should receive another Wave-3 `Next`.
 
-Use only:
+## Wave-4 audit authority
 
-`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md`
+Use:
 
-The CFA executes only its own row, then:
-- writes its own Wave-3 addendum;
-- commits it;
-- reports exact commit SHA;
-- stops.
+- `CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`
+- `WAVE-2-BASELINE-RECONCILIATION-2026-09-27.md`
+- all six Wave-3 addenda;
+- `WAVE-4-COMPLETION-AUDIT-2026-09-27.md`.
 
-The completion receipt itself advances eligibility for the next CFA. No Steward re-routing commit is required between CFA turns.
+The Steward must preserve:
 
-## Important distinction
+`OBSERVED | DERIVED | PROPOSED | UNKNOWN | CONFLICTED | DEFERRED`
 
-This protocol makes **eligibility receipt-driven**, not time-driven and not message-driven.
+and:
 
-A stale local task state can never block an otherwise eligible CFA after it verifies current `main`.
+`CURRENT | STALE | UNRESOLVABLE`
 
-A peer completion receipt is evidence of completed work, not a grant of semantic authority and not activation of a shared boundary.
+and the distinctions:
 
-## Global hard stops
+`evidence != representation != authority`
 
-Until Wave 4 explicitly opens the Graph Gate:
+`confidence != proof`
+
+`capability != permission`
+
+`surface != canonical truth`
+
+`candidate != admitted != active`
+
+`unknown != failure`
+
+## Graph Gate
+
+**CLOSED until the Wave-4 receipt explicitly opens it.**
+
+Opening the gate requires the acceptance criteria in the Wave-4 audit packet and a recorded graph-attachment policy.
+
+If OPEN, downstream graph work may begin in the previously designed order:
+
+Architecture Graph
+→ linked implementation projection
+→ Source-Code Graph
+→ proof/evidence attachments
+→ runtime self-knowledge joins
+
+Graph representation remains derived and documentation-first. It does not become architecture authority merely because it exists in code or graph storage.
+
+## Hard stops
+
+Until the Wave-4 audit explicitly opens the gate:
 
 - no Graph Kernel / Source-Code Graph attachment;
 - no shared-boundary activation;
 - no Ω-law amendment;
-- no production implementation justified solely by this reconciliation;
-- no semantic ownership transfer.
+- no production implementation justified solely by boundary reconciliation;
+- no semantic ownership transfer;
+- no claims of live/external proof from fixtures.
+
+## Human action
+
+**Next → Architecture Steward**
