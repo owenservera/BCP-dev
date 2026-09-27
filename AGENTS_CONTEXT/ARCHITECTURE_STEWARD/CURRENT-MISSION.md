@@ -27,7 +27,7 @@ The overlay does not cancel or replace the existing M1 CFA-owned evidence tasks.
 
 **Wave 1, Wave 2, Wave 3 and Wave 4 are complete.** The six CFA receipts and the Steward completion audit are durable on current `main`; Graph Gate is OPEN.
 
-**Next:** Stage A, Stage B and Stage C are complete. The linked implementation-projection contract is frozen and the bounded Source-Code Graph pilot is source-backed. Send exactly one `Next` to Architecture Steward for Graph Attachment Wave 1, Stage D: attach only existing attributable proof/evidence without upgrading its epistemic status.
+**Next:** Stage A, Stage B, Stage C and Stage D are complete. The linked implementation-projection contract is frozen, the bounded Source-Code Graph pilot is source-backed, and existing attributable evidence has been attached without epistemic upgrade. Stage E remains blocked pending a separate self-knowledge design/evidence readiness gate.
 
 Do not create a second graph, infer architecture from imports/calls alone, or attach live-proof claims without evidence.
 
@@ -78,4 +78,4 @@ Do not:
 
 ## Success condition
 
-The current frontier is Graph Attachment Wave 1. Stage A revalidation, Stage B contract freeze and Stage C pilot are complete. The current frontier is bounded proof/evidence attachment using already-existing attributable evidence. Runtime self-knowledge joins remain staged.
+The current frontier is Graph Attachment Wave 1. Stage A revalidation, Stage B contract freeze, Stage C pilot and Stage D evidence attachment are complete. The current frontier is **Stage E readiness assessment**, not runtime join implementation. Runtime self-knowledge joins remain separately gated.
