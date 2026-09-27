@@ -1,7 +1,7 @@
 # Architecture Steward — Current Mission
 
 > Updated: 2026-09-27
-> Status: ACTIVE / BOUNDARY GATE BEFORE GRAPH
+> Status: ACTIVE / GRAPH ATTACHMENT WAVE 1
 > Authority: derived Steward operating state; not Ω law or semantic authority.
 
 ## Current phase
