@@ -48,6 +48,8 @@ The current graph stage is the first stage whose execution gate is not satisfied
   GRAPH-W1-E-SELF-KNOWLEDGE-READINESS-ASSESSMENT-RECEIPT-2026-09-27.md — **DONE / BLOCKED**
 - Stage E runtime joins:
   **BLOCKED — separate self-knowledge design/evidence readiness gate not yet satisfied.**
+- Stage E L0 readiness contract: `STAGE-E-READINESS-CONTRACT-2026-09-27.md` — DONE.
+- Stage E L1 DerivedView/freshness closure: NEXT / ENABLED.
 - Stage E L0 readiness contract:
   `STAGE-E-READINESS-CONTRACT-2026-09-27.md` — **DONE**.
 - Stage E L1 DerivedView/freshness closure:
