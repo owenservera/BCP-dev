@@ -2,7 +2,7 @@
 
 > Date: 2026-09-27
 > Status: READY FOR OWNER LAUNCH
-> Governing protocol: FSSP-1.1
+> Governing protocol: FSSP-1.2
 > Purpose: launch one fresh ChatGPT session per ratified CFA to validate and upgrade its own durable home.
 
 ## Owner action
@@ -11,9 +11,9 @@ Open a new ChatGPT conversation for each CFA below.
 
 Use the linked CFA home as the first/seed message, then paste the matching shared launch envelope.
 
-Run serially: CFA-01 → CFA-02 → CFA-03 → CFA-04 → CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10.
+**Launch all ten in parallel.** Current architectural assessment: `INDEPENDENT`. There is no semantic, authority, predecessor, or home-write dependency between these already-ratified CFA home upgrades. Shared-main write contention is an operational synchronization issue, not a reason to invent serial semantics.
 
-After each session reports completion, verify its commit on `main` before launching the next.
+Each session independently verifies current `main` and its own home. Results are reconciled after the wave. If a session discovers a genuine cross-home dependency, it must report it and stop that dependency rather than silently reaching into another home.
 
 ## Shared launch envelope
 
@@ -23,7 +23,7 @@ You are the fresh ChatGPT agent session for the CFA named below.
 Open and work from this repository home:
 <CFA HOME LINK>
 
-Follow FSSP-1.1:
+Follow FSSP-1.2:
 https://github.com/owenservera/BCP-dev/blob/main/AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CHATGPT-FRESH-SESSION-PROTOCOL.md
 
 Follow the CFA home-upgrade contract:
@@ -37,7 +37,7 @@ Read current main and your home first. Verify your identity, current state, less
 
 Do not change Ω law, activate shared boundaries, create duplicate identity stores, or begin unrelated implementation.
 
-Complete the home-upgrade gate, commit justified changes to main, and return the full FSSP-1.1 report.
+First assess the execution strategy from current repository evidence; do not assume prompt sequencing is dependency. Complete the home-upgrade gate, make only justified changes (including no change when the home is already healthy), and return the full FSSP-1.2 report.
 
 STOP after your home upgrade and report.
 ```
@@ -81,6 +81,12 @@ agent_id: `evolution-compatibility-self-maintenance`
 ## CFA-10 — Runtime Constitution & Core Substrate Steward
 Home: https://github.com/owenservera/BCP-dev/tree/main/AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE
 agent_id: `runtime-constitution-core-substrate`
+
+## Owner launch checklist
+
+For each CFA below, open the direct home link in a new ChatGPT conversation and paste the shared launch envelope after replacing `<CFA HOME LINK>` with that home link. These ten sessions are the current owner action package.
+
+No CFA waits for another CFA's completion unless its own evidence discovers a real dependency.
 
 ## Completion / handoff
 
