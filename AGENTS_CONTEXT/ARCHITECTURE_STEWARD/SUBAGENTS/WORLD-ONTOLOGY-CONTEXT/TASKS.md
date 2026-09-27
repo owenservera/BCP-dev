@@ -7,17 +7,16 @@
 
 ## Open tasks
 
-### DOMAIN-ROADMAP-FORMATION-2026-09-27
+### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** READY
 - **Priority:** P1
-- **Purpose:** Form the first current evidence-backed substantive roadmap for this ratified CFA; home readiness does not constitute domain planning.
-- **Dependencies:** None for initial formation. Existing CFA tasks remain intact and are independently assessed; this task does not imply that a downstream product cycle or P1 workstream is adopted.
-- **Write scope:** Own CFA home and `DOMAIN-ROADMAP-2026-09-27.md`.
-- **Next action:** Follow `CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`; characterize the domain frontier, explicitly evaluate existing destination/P1/cycle plans as candidate inputs, and persist the bounded roadmap.
-- **Completion condition:** Durable domain roadmap exists; `TASKS.md` reflects the selected domain work; inherited plans are explicitly classified; unknowns/dependencies are preserved; completion receipt is verified.
-- **Stop condition:** Stop at a genuine owner decision, peer ownership conflict, Ω-law collision, or insufficient evidence; do not begin production implementation.
-
-_None currently._
+- **Purpose:** Independently define the CFA's high-level conceptual roadmap before shared execution is selected.
+- **Required outputs:** strategic objective; 3–7 core milestones; milestone success criteria/falsifiers; dependencies; tooling/substrate assessment; strategic design gates; milestone-by-milestone peer-intelligence requests; product/strategic consequences; deferred/do-not-do boundary; inherited-plan classification.
+- **Dependencies:** Initial pass is independent of the other nine new roadmap sessions. Existing repository evidence may be used; new Round-1 peer outputs must not be consumed before first-pass completion.
+- **Write scope:** Own CFA home, `DOMAIN-ROADMAP-2026-09-27.md`, and own `TASKS.md`.
+- **Next action:** Follow the shared strategic roadmap protocol; preserve existing useful artifacts rather than creating duplicates.
+- **Completion condition:** Full local strategic roadmap persisted; first bounded actionable tasks recorded; peer-intelligence needs are explicit at each milestone; receipt persisted and verified.
+- **Stop condition:** Stop at an owner decision, material peer ownership conflict, Ω-law collision, or insufficient evidence. Do not start production implementation.
 
 ## Future task intake
 
