@@ -7,24 +7,24 @@
 
 ## Open tasks
 
-## NEXT routing — current Wave 1 gate
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 1 / CFA-09 COMPLETE
 
-The first actionable task for this home is the CFA-09 boundary baseline in:
-AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md
+> **READ THIS BEFORE THE OPEN TASKS BELOW. THIS ROUTER OVERRIDES OLDER TASK PRIORITIES UNTIL THE CENTRAL BOUNDARY GATE ADVANCES.**
 
-When the human owner says "Next", execute **Wave 1 / CFA-09** only:
-- verify current main and this home;
-- read owner alignment plus CFA-01–04 Round-2 Completion Audit;
-- produce BOUNDARY-BASELINE-DECLARATION-2026-09-27.md;
-- explicitly cover Data continuity, provider healing, Composition replacement/promotion, Work impact/recovery, Authority re-resolution, Runtime activation, and Surface staleness/re-entry;
-- preserve compatibility dimensions as evidence-backed classifications, not trust labels;
-- stop after the declaration is committed and report the exact SHA.
+**Current state:** Wave 1 boundary baseline for **CFA-09 is already present on current `main`**.
 
-Do not infer generic evolution authority from historical tooling. Do not start self-maintenance implementation.
+When the human owner says exactly **“Next”**, **DO NOT select or resume any older Open/Future task in this home.** This home is waiting for the Architecture Steward's **Wave 2** reconciliation.
 
+Required response to an early/premature Next:
+- verify the current baseline remains present on `main`;
+- report **W1 COMPLETE / WAITING FOR STEWARD WAVE 2**;
+- do not perform additional substantive CFA work;
+- do not invent or activate a peer-reconciliation task before the Steward opens Wave 3.
 
+Only the Architecture Steward's Wave-2 completion and subsequent Wave-3 routing may advance this CFA.
 
-_None currently actionable inside CFA-09 while the Architecture Steward completes shared M1 contract/evidence closure._
+Hard stop: **no production implementation, no shared-boundary activation, no Ω-law change, and no graph attachment.**
+
 
 ## Completed task history
 
