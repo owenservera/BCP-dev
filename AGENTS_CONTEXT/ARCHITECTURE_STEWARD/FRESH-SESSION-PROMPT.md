@@ -1,7 +1,7 @@
 # VIVIM — Architecture Steward Fresh Session
 
 > **SUPERSEDED:** retained for historical compatibility only.
-> The active fresh-session entry is `SESSION-CONTEXT.md` + `CURRENT-MISSION.md` + FSSP-1.1.
+> The active fresh-session entry is `SESSION-CONTEXT.md` + `CURRENT-MISSION.md` + FSSP-1.3.
 > Do not use the graph-validation task below as the current Steward mission.
 
 ## Active entry
