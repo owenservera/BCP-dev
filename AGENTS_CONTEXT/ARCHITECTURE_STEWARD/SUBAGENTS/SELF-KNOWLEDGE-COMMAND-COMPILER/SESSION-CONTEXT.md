@@ -15,7 +15,7 @@ Master routing authority:
 The current bounded output is the CFA-03 working contract:
 `DERIVED-VIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27.md`
 
-The contract is proposed working evidence only. Do not infer shared runtime implementation authority from it. The next CFA-03 action is peer/Steward reconciliation of basis kinds, comparison rules and falsifiers.
+The L1 contract has now been reconciled/closed by the Architecture Steward. Do not infer shared runtime implementation authority from it. The next CFA-03 action is bounded L2 characterization of CFA-03-owned self-knowledge/semantic basis sources.
 
 ## Identity
 - CFA: CFA-03 — Semantic Continuity
@@ -50,7 +50,8 @@ Shared boundaries remain unactivated unless a separately verified and authorized
 - RP-01 is classified AGREED on the CFA-03 side.
 - RP-02 and RP-06 are AGREED in current peer-side Round-2 reconciliation.
 - M1 semantic baseline is complete.
-- Stage-E L1 freshness contract is proposed and persisted; peer/Steward reconciliation is pending.
+- Stage-E L1 freshness contract is reconciled/closed by the Steward.
+- CFA-03 L2 basis-adapter characterization is the next bounded action.
 
 ## Verified baseline
 `8353bb2db22b6f2e45f628c4c79ed42d5d8a56fb`
