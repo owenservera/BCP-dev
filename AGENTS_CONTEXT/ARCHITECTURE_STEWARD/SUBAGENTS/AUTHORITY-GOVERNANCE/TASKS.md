@@ -7,17 +7,17 @@
 
 ## Open tasks
 
-### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
-- **Status:** IN_PROGRESS
-- **Next action:** Complete the independent CFA-04 conceptual roadmap, persist it, then record the first bounded actionable task and session receipt.
+### AUTHORITY-CORRIDOR-EVIDENCE-PACK-2026-09-27
+- **Status:** READY
 - **Priority:** P1
-- **Purpose:** Independently define the CFA's high-level conceptual roadmap before shared execution is selected.
-- **Required outputs:** strategic objective; 3–7 core milestones; milestone success criteria/falsifiers; dependencies; tooling/substrate assessment; strategic design gates; milestone-by-milestone peer-intelligence requests; product/strategic consequences; deferred/do-not-do boundary; inherited-plan classification.
-- **Dependencies:** Initial pass is independent of the other nine new roadmap sessions. Existing repository evidence may be used; new Round-1 peer outputs must not be consumed before first-pass completion.
-- **Write scope:** Own CFA home, `DOMAIN-ROADMAP-2026-09-27.md`, and own `TASKS.md`.
-- **Next action:** Follow the shared strategic roadmap protocol; preserve existing useful artifacts rather than creating duplicates.
-- **Completion condition:** Full local strategic roadmap persisted; first bounded actionable tasks recorded; peer-intelligence needs are explicit at each milestone; receipt persisted and verified.
-- **Stop condition:** Stop at an owner decision, material peer ownership conflict, Ω-law collision, or insufficient evidence. Do not start production implementation.
+- **Objective:** Map one existing governed consequential action end-to-end and identify the minimum evidence required to prove live authority, runtime enforcement, and post-hoc reconstruction.
+- **Milestone:** M1 → M3 of `DOMAIN-ROADMAP-2026-09-27.md`.
+- **Dependencies:** Peer intelligence from CFA-05, CFA-06, CFA-10; reconstruction input from CFA-02; Intent reference only where the chosen corridor originates in canonical Intent. These are evidence requests until confirmed by reconciliation.
+- **Tooling:** Existing repository/Ω falsifier evidence; small fixture/replay extension only if required.
+- **Write scope:** Own CFA-04 home only.
+- **Next action:** Instantiate one Authority Case around `message.send@1` (or another already-governed effect if current evidence proves it more suitable), map each corridor field to its owning CFA, and define positive/negative proof criteria.
+- **Completion condition:** One positive corridor and one negative corridor with authority basis, scope/time/revocation semantics, live re-resolution point, runtime seam, evidence ownership, reconstruction requirements, and unresolved gaps explicit.
+- **Stop condition:** Stop at a material cross-CFA ownership conflict, owner-policy question, Ω-law collision, or missing live-evidence capability; record the blocker rather than designing around it.
 
 ## Future task intake
 
@@ -25,11 +25,12 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 
 ## Completed task history
 
-### HOME-UPGRADE-2026-09-27
+### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
-- **Result:** `RESULTS/AUTHORITY-GOVERNANCE-20260927-HOME-UPGRADE.md`
-- **Primary correction commit:** `95b3d4af8e8efa63f5bf64b7b0d622413164bcd2`
-- **Receipt commit:** `7ab6dda36597582be185cdc63bb506c1a0598b50`
+- **Result:** `RESULTS/CFA04-20260927-STRATEGIC-ROADMAP-R1.md`
+- **Roadmap:** `DOMAIN-ROADMAP-2026-09-27.md`
+- **Primary roadmap commit:** `9b9dc96ba8e34af071edfaabc6283b77472e25ce`
+- **Receipt commit:** `1787dd7740da5082307b715a376f0819d9e2cb92`
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
