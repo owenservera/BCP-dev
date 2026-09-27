@@ -22,6 +22,8 @@ B1 entry confinement; generic zero-plugin bootstrap role; State/Graph/Grant/Gene
 ## Key distinction
 K0 is defined by universal non-bypassability, not by file location. Runtime observation is not architectural authority.
 
+- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+
 ## Fresh-session rule
 Verify current Ω law and current peer contracts before substantive runtime conclusions.
 
