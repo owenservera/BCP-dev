@@ -384,6 +384,34 @@ SESSION-CONTEXT
 → EVIDENCE AS NEEDED
 ```
 
+
+## Planning ownership and roadmap formation
+
+A ratified domain agent is a **responsibility owner**, not merely a consumer of work selected elsewhere.
+
+When a CFA's substantive work roadmap has not yet been established for the current planning stage:
+
+1. the CFA must characterize its own domain frontier from repository evidence;
+2. the CFA must propose/adopt its own bounded tasks in its persistent `TASKS.md`;
+3. destination-wide programs, P1 workstreams, delivery cycles, prior Steward recommendations and historical launch queues are candidate inputs, not automatic mandates;
+4. the Architecture Steward must not substitute a downstream implementation/product slice for the missing CFA roadmap;
+5. after CFA roadmaps exist, the Architecture Steward reconciles them across boundaries and may derive a shared execution frontier.
+
+Therefore a task state such as `CURRENT`, `READY`, or a named "next cycle" in a destination-wide plan is not, by itself, evidence that a particular CFA should execute that work now.
+
+A roadmap-formation session is complete when the CFA has produced a durable domain roadmap, populated its task queue, classified relevant inherited plans, preserved unknowns/dependencies, and stopped without beginning production implementation.
+
+The intended transition is:
+
+```
+HOME READY
+→ CFA ROADMAP
+→ CFA TASK QUEUE
+→ CROSS-CFA RECONCILIATION
+→ SHARED FRONTIER
+→ EXECUTION
+```
+
 ## 21. Protocol evolution
 
 Fix the smallest layer that caused the failure:
