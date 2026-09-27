@@ -14,7 +14,7 @@ Wave 1: **DONE — 6/6 boundary baselines.**
 Wave 2: **DONE — Steward reconciliation + peer queue.**
 Wave 3: **DONE — 6/6 CFA receipts.**
 Wave 4: **DONE — Steward audit; Graph Gate OPEN.**
-Graph Attachment Wave 1: **ACTIVE — Stage A/B/C/D complete; Stage E BLOCKED pending separate readiness gate.**
+Graph Attachment Wave 1: **ACTIVE — Stage A/B/C/D complete; Stage E readiness closure L0 complete; L1 is next; runtime joins remain blocked.**
 
 ## Canonical launch packet
 
@@ -29,6 +29,8 @@ B. Linked implementation-projection contract — **DONE**.
 C. Bounded Source-Code Graph pilot — **DONE**.
 D. Proof/evidence attachment — **DONE**.
 E. Runtime self-knowledge joins — **BLOCKED / SEPARATE READINESS GATE**.
+
+Stage-E readiness closure is now a deterministic sub-sequence: L0 scope/gate contract → L1 DerivedView/freshness → L2 basis adapters → L3 graph bundle → L4 grounding → L5 falsifiers → L6 bounded pilots → L7 gate audit.
 
 The current graph stage is the first stage whose execution gate is not satisfied. A readiness receipt may exist while the stage remains blocked.
 
@@ -46,6 +48,10 @@ The current graph stage is the first stage whose execution gate is not satisfied
   GRAPH-W1-E-SELF-KNOWLEDGE-READINESS-ASSESSMENT-RECEIPT-2026-09-27.md — **DONE / BLOCKED**
 - Stage E runtime joins:
   **BLOCKED — separate self-knowledge design/evidence readiness gate not yet satisfied.**
+- Stage E L0 readiness contract:
+  `STAGE-E-READINESS-CONTRACT-2026-09-27.md` — **DONE**.
+- Stage E L1 DerivedView/freshness closure:
+  **NEXT / ENABLED**.
 
 Stage D is complete using only already-existing attributable evidence. Stage E must not begin runtime join implementation until its separate readiness condition is explicitly satisfied.
 
@@ -54,12 +60,12 @@ Stage D is complete using only already-existing attributable evidence. Stage E m
 When the human owner sends one **Next** to Architecture Steward:
 
 1. Verify current main.
-2. Read this router and the Graph Attachment Wave-1 launch packet.
-3. Determine the first missing stage receipt.
-4. Execute only that stage.
+2. Read this router, the graph launch packet, and the Stage-E readiness workload.
+3. Determine the first missing Stage-E closure step.
+4. Execute exactly one bounded step.
 5. Commit its durable receipt.
-6. Report the exact commit SHA.
-7. Stop.
+6. Update durable routing/task state.
+7. Report the exact commit SHA and stop.
 
 Do not repeat completed stages because local task state is stale.
 
@@ -88,4 +94,4 @@ Do not repeat completed stages because local task state is stale.
 
 ## Human action
 
-**Next → Architecture Steward — Stage E readiness assessment (no runtime join implementation yet)**
+**Next → Architecture Steward — Stage E L1 DerivedView/freshness contract closure (no runtime join implementation yet)**
