@@ -2,7 +2,7 @@
 ## Development Acceleration Substrate — 2026-09-27
 
 > Purpose: request the minimum domain intelligence required before central tooling becomes semantically opinionated.
-> Status: ROUTING / INPUT REQUIRED
+> Status: M1 INPUT MATERIAL RECONCILED / ADAPTER REFINEMENT CONTINUES
 > Owner: Architecture Steward coordinates; each CFA remains authoritative for its own domain claims.
 
 ## 1. Common response contract
@@ -102,7 +102,7 @@ State any known:
 ## 4. Stage timing
 
 ### Input round 1 — before central semantic implementation
-Each CFA supplies sections A–D.
+Current CFA M1 evidence packets supplied sufficient domain material for the central generic design and are reconciled in CFA-M1-RECONCILIATION-2026-09-27.md.
 
 ### Input round 2 — before CFA adapters
 Each CFA supplies sections E–G plus domain-specific scaffold/replay/proof requirements.
@@ -152,9 +152,12 @@ The requested information is an input to central tooling, not a request to the C
 
 Each CFA continues its own roadmap and M1 work unless the CFA chooses to produce a compatible shared artifact.
 
-## 8. Proposed first handoff
+## 8. Completed first handoff
 
-When each CFA answers sections A–D, the Steward should produce one derived cross-CFA packet:
+The first cross-CFA reconciliation packet is now durable:
+CFA-M1-RECONCILIATION-2026-09-27.md
+
+It records shared term candidates, seam contracts, unresolved questions and central extension points.
 
 `shared term candidates -> seam contracts -> dependency graph -> unresolved questions -> central extension points`
 
