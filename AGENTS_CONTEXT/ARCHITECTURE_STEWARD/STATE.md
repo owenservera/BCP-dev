@@ -1,12 +1,12 @@
 # Architecture Steward — State
 
 > Updated: 2026-09-27
-> Status: ACTIVE / CFA STRATEGIC ROADMAP ROUND 1
+> Status: ACTIVE / SHARED FRONTIER — M1 CONTRACT + EVIDENCE CLOSURE
 > This is durable Steward operating state; not Ω law or semantic authority.
 
 ## Receipt verification state
 
-LAST_VERIFIED_RECEIPTS_SHA: ed839f8827aa4e410778a5e969e5132cb8692463
+LAST_VERIFIED_RECEIPTS_SHA: 77b8918f932f9d332a3b638c5931c988673e8791
 
 The receipt cursor is a verification pointer, not a work-order gate. Fresh sessions must resolve current `main` independently.
 
@@ -14,65 +14,68 @@ The receipt cursor is a verification pointer, not a work-order gate. Fresh sessi
 
 The common agent-home substrate and FSSP-1.3 are established across the ratified CFA constellation.
 
-The home-upgrade wave established:
-
+The CFA home-upgrade and independent Strategic Roadmap Round 1 stages are complete:
 - durable CFA identities;
 - session context/state/lessons navigation;
 - persistent task queues;
 - result-receipt machinery;
-- cold-start operating discipline.
+- cold-start operating discipline;
+- ten independent CFA strategic roadmaps;
+- first bounded CFA-owned strategic tasks.
 
-It did **not** establish the CFA substantive roadmaps.
+## Current transition
 
-## Active planning transition
+The independent planning round has been reconciled.
 
-The current Steward operation is:
+Current Steward operation:
 
-**CFA Strategic Roadmap Round 1 — Independent Parallel Planning**
+**Cross-CFA M1 Contract + Evidence Closure**
 
-Use:
+The Steward now coordinates the already-created first bounded CFA tasks around the minimum semantic, data, authority, work, capability, composition, surface, evolution and runtime contracts needed for later integration.
 
-`CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
-
-and:
-
-`CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
-
-Each CFA now independently characterizes its strategic objective, conceptual milestones, success criteria, dependencies, tooling, design gates, and milestone-specific peer-intelligence needs, then persists its richer local roadmap and first bounded task set. The Steward later reconciles those roadmaps into one central cross-CFA synthesis.
+This is not a new centralized backlog and does not transfer CFA ownership.
 
 ## Planning authority invariant
 
-Do not treat an inherited:
+The ten local `DOMAIN-ROADMAP-2026-09-27.md` files remain the source planning artifacts for their own domains.
 
-- Build-and-Harvest cycle;
-- P1 workstream;
-- destination roadmap;
-- prior Steward recommendation;
-- READY/CURRENT label;
+Central synthesis is a derived cross-CFA reconciliation layer. It may sequence shared evidence work after comparing the local plans, but it does not override CFA responsibility or Ω law.
 
-as a current CFA mandate until the responsible CFA has evaluated and adopted it.
+Inherited Build-and-Harvest, P1, destination, vertical-slice and Cycle 4 plans remain candidate inputs unless explicitly adopted by the responsible CFA.
 
-The Architecture Steward may propose cross-CFA sequencing only after the independent strategic roadmaps have been verified and centrally reconciled.
+## Selected shared frontier
 
-## CFA-05 status
+**CROSS-CFA M1 CONTRACT + EVIDENCE CLOSURE**
 
-Repository evidence still contains a local CFA-05 home-upgrade exception: its prior HOME-UPGRADE task is READY and no durable RESULTS receipt was found. Preserve this discrepancy. Do not fabricate completion.
+Initial scope:
+- establish minimum World reference/semantic invariants;
+- prove the minimum Data continuity envelope;
+- trace semantic continuity;
+- characterize authority and Work seams;
+- define capability/realization boundaries;
+- prove composition identity/replacement survivors;
+- define the implementation-neutral Surface/View contract;
+- characterize the minimum Change contract;
+- close K0/B1 evidence and falsifiers.
 
-That exception does not block the independent roadmap-formation task.
+No production implementation is implied by this frontier.
 
-## Superseded frontier
+## CFA-05 maintenance state
 
-The previously selected **Cycle 4 — Live Chrome / Accounts** is retained as a candidate downstream slice and evidence packet, but is **not** the current Steward mission.
+The historical CFA-05 home-upgrade receipt mismatch is resolved: the durable home-upgrade receipt `CFA05-HOME-UPGRADE-20260927-0645CEST` exists and its task was closed after correction/reverification.
 
-It may return to the active frontier if the reconciled CFA roadmaps and evidence support it.
+Do not relaunch the home-upgrade wave.
+
+## Deferred candidate frontier
+
+The earlier **Cycle 4 — Live Chrome / Accounts** packet remains useful candidate evidence, especially for CFA-06 and later live proof, but it is not the current shared frontier.
 
 ## Background operating concerns
 
-Commons runtime/platform, identity/security drill, owner digest and other earlier operating-maturity tasks remain durable context. They are not allowed to displace the current CFA roadmap-formation transition unless new evidence makes them the current boundary.
+Commons runtime/platform, identity/security and other prior operating tasks remain durable context. They do not displace the selected M1 contract/evidence frontier unless new evidence establishes a different current boundary.
 
 ## Resume condition
 
-After the roadmap sessions:
+After the M1 evidence frontier:
 
-**VERIFY → COMPARE → RECONCILE → MAP TO DESTINATION/P1 → SELECT SHARED FRONTIER → COMPILE OWNER ACTION PACKAGE**
-
+**VERIFY → COMPARE → CONFIRM SEAMS → SELECT ONE GOVERNED CORRIDOR → LIVE/EXTERNAL PROOF → RECONSTRUCTION/REPLACEMENT → PRODUCT JOURNEY PROOF**
