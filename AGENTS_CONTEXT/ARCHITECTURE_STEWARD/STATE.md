@@ -1,7 +1,7 @@
 # Architecture Steward — State
 
 > Updated: 2026-09-27
-> Status: ACTIVE / CFA DOMAIN ROADMAP FORMATION
+> Status: ACTIVE / CFA STRATEGIC ROADMAP ROUND 1
 > This is durable Steward operating state; not Ω law or semantic authority.
 
 ## Receipt verification state
@@ -28,7 +28,7 @@ It did **not** establish the CFA substantive roadmaps.
 
 The current Steward operation is:
 
-**CFA Domain Roadmap Formation**
+**CFA Strategic Roadmap Round 1 — Independent Parallel Planning**
 
 Use:
 
@@ -38,7 +38,7 @@ and:
 
 `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
 
-Each CFA now characterizes its own domain frontier, creates a bounded roadmap, and populates its own TASKS.md. The Steward later reconciles those roadmaps.
+Each CFA now independently characterizes its strategic objective, conceptual milestones, success criteria, dependencies, tooling, design gates, and milestone-specific peer-intelligence needs, then persists its richer local roadmap and first bounded task set. The Steward later reconciles those roadmaps into one central cross-CFA synthesis.
 
 ## Planning authority invariant
 
@@ -52,7 +52,7 @@ Do not treat an inherited:
 
 as a current CFA mandate until the responsible CFA has evaluated and adopted it.
 
-The Architecture Steward may propose cross-CFA sequencing only after this roadmap-formation stage.
+The Architecture Steward may propose cross-CFA sequencing only after the independent strategic roadmaps have been verified and centrally reconciled.
 
 ## CFA-05 status
 
