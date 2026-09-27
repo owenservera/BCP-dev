@@ -1,28 +1,29 @@
 # Persistent Tasks — capability-provider-realization
 
-## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-06 — **EXECUTE NOW**
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 — **RECEIPT-DRIVEN**
 
-> **CHECK CENTRAL ROUTER FIRST:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
->
-> **CURRENT TURN:** CFA-06 is ACTIVE NOW.
+> **DO NOT TRUST CACHED ACTIVE/WAITING STATE. VERIFY CURRENT MAIN AND RECOMPUTE YOUR TURN.**
 
-Wave 1: DONE. Wave 2: DONE. CFA-05 Wave 3: DONE.
+Canonical router:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
 
-When the human owner says **“Next”**, execute **Wave 3 / CFA-06 only** from:
-`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md`
+Required order:
+**CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10**
 
-Resolve only:
-- Q06-05 Work attribution / external-effect evidence;
-- Q06-02 durable Account/Session/Realization/Resource joins;
-- Q06-04 routing ↔ Authority;
-- Q06-07 Capability/Composition membership and replacement;
-- Q06-09 provider healing ↔ generic Evolution;
-- Q06-10 structural capability/token facts ↔ K0.
+Recompute the current Wave-3 turn from CURRENT-WAVE-ROUTER and committed receipts. If CFA-05's receipt exists and your receipt is absent, EXECUTE NOW. Do not obey stale local WAITING text or older M2 tasks.
 
-Required: one Wave-3 addendum; classify every seam RECONCILED / UNKNOWN / CONFLICTED / DEFERRED; preserve routing != authorization; commit and report exact SHA; STOP.
+When the human owner sends **“Next”**:
+1. verify current `main`;
+2. read the canonical router;
+3. check the required predecessor Wave-3 receipts directly on current `main`;
+4. decide whether this CFA is DONE, EXECUTE NOW, or WAITING;
+5. if EXECUTE NOW, perform only this CFA's Wave-3 row from the Wave-3 queue;
+6. commit the addendum, report the exact SHA, and STOP.
 
-**Do NOT obey any older local WAITING/FUTURE/M2 instruction.**
-Hard stop: no production implementation, no second data store, no shared-boundary activation, no Ω-law change, no Graph.
+**A stale local TASKS message must never force a second Next.**
+**Never resume older M1/M2/FUTURE work merely because it remains marked READY.**
+
+Hard stop: no production implementation, no shared-boundary activation, no Ω-law change, no Graph attachment.
 
 
 ## Open tasks
