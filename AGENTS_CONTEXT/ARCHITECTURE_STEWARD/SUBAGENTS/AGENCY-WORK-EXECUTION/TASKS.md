@@ -7,24 +7,33 @@
 
 ## Open tasks
 
-## 🚨 CURRENT EXECUTION ROUTER — WAVE 1 / CFA-05 COMPLETE
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-05 — **EXECUTE NOW**
 
-> **READ THIS BEFORE THE OPEN TASKS BELOW. THIS ROUTER OVERRIDES OLDER TASK PRIORITIES UNTIL THE CENTRAL BOUNDARY GATE ADVANCES.**
+> **CURRENT ROUTING AUTHORITY: THIS CFA IS THE ACTIVE WAVE-3 TURN.**
 
-**Current state:** Wave 1 boundary baseline for **CFA-05 is already present on current `main`**.
+Wave 1: DONE.  
+Wave 2 Steward reconciliation: DONE.  
+Wave 3: **CURRENT — CFA-05 is first.**
 
-When the human owner says exactly **“Next”**, **DO NOT select or resume any older Open/Future task in this home.** This home is waiting for the Architecture Steward's **Wave 2** reconciliation.
+When the human owner says **“Next”**, execute **Wave 3 / CFA-05 only** using:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-BASELINE-RECONCILIATION-2026-09-27.md`
+and
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md`.
 
-Required response to an early/premature Next:
-- verify the current baseline remains present on `main`;
-- report **W1 COMPLETE / WAITING FOR STEWARD WAVE 2**;
-- do not perform additional substantive CFA work;
-- do not invent or activate a peer-reconciliation task before the Steward opens Wave 3.
+Resolve only the CFA-05 peer seams specified in the Wave-3 queue:
+- CFA-03: Plan → executable Work basis;
+- CFA-04: authority citation and retry/resume re-resolution;
+- CFA-02: durable Work/Attempt/Outcome linkage;
+- CFA-06: realization/effect evidence;
+- CFA-10: runtime lifecycle/fencing facts.
 
-Only the Architecture Steward's Wave-2 completion and subsequent Wave-3 routing may advance this CFA.
+Required output: one Wave-3 addendum classifying every bounded seam as `RECONCILED`, `UNKNOWN`, `CONFLICTED`, or `DEFERRED`, with evidence, exact handoff proposals, and falsifiers.
 
-Hard stop: **no production implementation, no shared-boundary activation, no Ω-law change, and no graph attachment.**
+Then **COMMIT, REPORT EXACT SHA, AND STOP**.
 
+**Do NOT report “W1 COMPLETE / WAITING FOR STEWARD WAVE 2.” That state is obsolete.**
+
+Hard stop: no production implementation, no shared-boundary activation, no Ω-law change, no Graph work.
 
 ## Future task intake
 
