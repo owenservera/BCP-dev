@@ -125,6 +125,7 @@ A standing agent home should converge on:
   SESSION-CONTEXT.md
   CORE-AGENT.md            # or established AGENT.md
   STATE.md
+  TASKS.md                 # persistent agent-owned work queue
   LESSONS.md               # create when durable lessons exist
   OWNER-ALIGNMENT-*.md     # when applicable
   IDENTITY-HISTORY.md      # when applicable
@@ -159,6 +160,10 @@ The fresh session performs this deterministic boot sequence:
 ```
 
 The session does not need the previous conversation transcript.
+
+### Persistent task-list gate
+
+`TASKS.md` is the agent's durable unfinished-work and next-action queue. Fresh sessions must read it, reconcile open items against current repository truth, and update task status whenever work starts, blocks, completes, is superseded, or materially changes. A task entry does not prove dependency or authority; those are independently assessed.
 
 ### Repository-access and tool-selection gate
 
