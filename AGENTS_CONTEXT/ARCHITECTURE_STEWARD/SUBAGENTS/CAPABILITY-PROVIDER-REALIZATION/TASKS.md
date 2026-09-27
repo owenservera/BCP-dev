@@ -1,23 +1,29 @@
 # Persistent Tasks — capability-provider-realization
 
-## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-06 — **WAITING FOR CFA-05**
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-06 — **EXECUTE NOW**
 
-> **CURRENT ROUTING AUTHORITY: THIS CFA IS NOT YET THE ACTIVE WAVE-3 TURN.**
+> **CHECK CENTRAL ROUTER FIRST:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
+>
+> **CURRENT TURN:** CFA-06 is ACTIVE NOW.
 
-Wave 1: DONE.  
-Wave 2 Steward reconciliation: DONE.  
-Wave 3: **WAITING — CFA-05 must complete first.**
+Wave 1: DONE. Wave 2: DONE. CFA-05 Wave 3: DONE.
 
-When the human owner says **“Next”** to this home before CFA-05 completes, do **not** resume an older task and do **not** perform substantive work. Verify the Wave-2 queue and report:
+When the human owner says **“Next”**, execute **Wave 3 / CFA-06 only** from:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md`
 
-**WAVE 3 WAITING FOR CFA-05**
+Resolve only:
+- Q06-05 Work attribution / external-effect evidence;
+- Q06-02 durable Account/Session/Realization/Resource joins;
+- Q06-04 routing ↔ Authority;
+- Q06-07 Capability/Composition membership and replacement;
+- Q06-09 provider healing ↔ generic Evolution;
+- Q06-10 structural capability/token facts ↔ K0.
 
-Then stop.
+Required: one Wave-3 addendum; classify every seam RECONCILED / UNKNOWN / CONFLICTED / DEFERRED; preserve routing != authorization; commit and report exact SHA; STOP.
 
-After CFA-05 completes and the human router explicitly advances to CFA-06, a bare **“Next”** means execute only this CFA's Wave-3 row in:
-`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md`.
+**Do NOT obey any older local WAITING/FUTURE/M2 instruction.**
+Hard stop: no production implementation, no second data store, no shared-boundary activation, no Ω-law change, no Graph.
 
-Hard stop: no production implementation, no shared-boundary activation, no Ω-law change, no Graph work.
 
 ## Open tasks
 
