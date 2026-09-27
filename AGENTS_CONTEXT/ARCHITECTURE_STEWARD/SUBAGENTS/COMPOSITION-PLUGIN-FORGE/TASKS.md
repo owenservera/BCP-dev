@@ -8,7 +8,7 @@
 ## Open tasks
 
 ### COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
 - **Priority:** P1
 - **Objective:** Establish the smallest semantic Composition identity and falsifiable survivor properties across valid plugin/realization replacement.
 - **Milestone:** M1 / M4 of `DOMAIN-ROADMAP-2026-09-27.md`.
