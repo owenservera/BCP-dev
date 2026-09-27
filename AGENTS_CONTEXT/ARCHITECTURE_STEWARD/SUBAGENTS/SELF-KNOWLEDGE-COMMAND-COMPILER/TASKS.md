@@ -8,7 +8,7 @@
 ## Open tasks
 
 ### ROADMAP-M1-SEMANTIC-BASELINE-TRACE-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
 - **Priority:** P1
 - **Objective:** Produce the evidence-backed M1 semantic continuity baseline and terminology collision map.
 - **Milestone:** M1 — Semantic Continuity Baseline.
@@ -16,7 +16,7 @@
 - **Peer inputs required:** Existing peer boundary artifacts may be consulted for orientation; newly produced Round-1 peer roadmaps must not be used during first-pass execution.
 - **Tooling:** Existing GitHub repository search/read plus deterministic tests; add only a small fixture if a concrete gap is demonstrated.
 - **Write scope:** Own CFA-03 home; no production runtime changes.
-- **Next action:** Trace the current semantic path from input → grounding → interpretation → Intent/Plan → authority/work-facing meaning → evidence/representation and build the compact identity/state/terminology crosswalk.
+- **Next action:** Complete the evidence-backed M1 trace and persist the compact continuity identity/state/terminology crosswalk.
 - **Completion condition:** Persist evidence-backed M1 findings, unknowns, falsifiers and a minimal continuity crosswalk without activating shared boundaries.
 - **Stop condition:** Stop at genuine owner policy, peer ownership conflict, Ω-law collision, or evidence insufficiency.
 
