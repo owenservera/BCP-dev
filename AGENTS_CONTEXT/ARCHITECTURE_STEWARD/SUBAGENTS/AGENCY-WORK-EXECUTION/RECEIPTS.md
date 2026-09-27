@@ -4,10 +4,12 @@
 > Purpose: durable verification cursor for session receipts.
 > Authority: operational index only; not Ω law, semantic authority, or proof.
 
-LAST_VERIFIED_RECEIPTS_SHA: e29cd3068d67ce273a869bdc390afc8f45a12243
+LAST_VERIFIED_RECEIPTS_SHA: 4b8f3445edffde2b4d66d674370d77030d42bc5f
 
 ## Receipts
 
-No prior CFA-05 session receipt was present in this home when the home-upgrade session started.
+| Session ID | Status | Receipt | Recorded commit | Verified |
+|---|---|---|---|---|
+| `CFA05-HOME-UPGRADE-20260927-0645CEST` | VERIFIED | `RESULTS/CFA05-HOME-UPGRADE-20260927-0645CEST.md` | `4b8f3445edffde2b4d66d674370d77030d42bc5f` | 2026-09-27 |
 
-This index is maintained according to FSSP-1.3 / Session Result Contract v1.1. Future sessions must verify receipts whose recorded commit is newer than `LAST_VERIFIED_RECEIPTS_SHA` before advancing the cursor.
+The recorded commit is the home-upgrade changeset. Future sessions must independently resolve current `main` and verify any receipt whose recorded commit is newer than this cursor before advancing it.
