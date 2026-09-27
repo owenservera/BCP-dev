@@ -7,6 +7,12 @@
 > Governing protocol: FSSP-1.3
 > Purpose: validate and improve each agent's durable home without repeating CFA birth/ratification.
 
+## Stage boundary
+
+This protocol governs **home maintenance only**. Completing this task establishes cold-startability and durable context; it does **not** establish the CFA's substantive work roadmap and does not authorize a downstream product cycle, P1 workstream, implementation task, or proof run.
+
+The next distinct stage after home readiness is **CFA Domain Roadmap Formation**, governed by `CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`. A completed home-upgrade task must never be used as evidence that the CFA has already selected or accepted downstream work.
+
 ## Mission
 
 Each CFA already has a ratified identity in the current repository.
@@ -133,3 +139,8 @@ Use `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md` v1.1 as the
 After completing the home upgrade and report, STOP.
 
 Do not proceed into the next CFA unless the owner's launch sequence explicitly assigns it.
+
+
+## Handoff after completion
+
+After the completion receipt is verified, stop this task. The owner/Steward should route the CFA to the separate domain-roadmap formation stage rather than selecting substantive work from this home-upgrade result.
