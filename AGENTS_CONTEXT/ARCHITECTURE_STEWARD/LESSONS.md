@@ -19,6 +19,7 @@ Do not use this file as a transcript archive, task tracker, architecture authori
 4. **Fresh context must be progressive.** Load the smallest sufficient context instead of copying more architecture into prompts.
 5. **Agent homes separate identity, state and lessons.** Do not collapse them into one growing file.
 6. **Steward is the session-envelope compiler.** Determine the next task from verified repository truth rather than replaying chat transcripts.
+7. **Operating-model knowledge is not enough to infer the immediate task.** The Steward home must expose an explicit current mission and next-action artifact when work transitions from shared setup to owner-launched peer sessions.
 
 ## Promotion rule
 
