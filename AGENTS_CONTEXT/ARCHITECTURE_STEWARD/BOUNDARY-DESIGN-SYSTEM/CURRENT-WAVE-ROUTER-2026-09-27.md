@@ -1,106 +1,85 @@
-# CFA-05–10 Current Wave Router — 2026-09-27
+# Architecture Steward Current Wave Router — 2026-09-27
 
-> **CURRENT ROUTING AUTHORITY — WAVE 4 / RECEIPT-DRIVEN**
+> **CURRENT ROUTING AUTHORITY — GRAPH ATTACHMENT WAVE 1**
 >
-> Wave 3 is complete: all six required CFA Wave-3 receipts exist on current `main`.
-> This router now routes the next turn to the Architecture Steward for the final completion audit.
-> It does not cache mutable CFA ACTIVE/WAITING state.
+> Wave 1–3 boundary work is complete and Wave 4 explicitly opened the Graph Gate.
+> This router now routes one controlled graph-attachment step at a time.
+> The existing Architecture Graph remains the single derived architecture network.
 
 ## Current phase
 
-**WAVE 4 — STEWARD COMPLETION AUDIT**
+**GRAPH-ATTACHMENT-WAVE-1**
 
-Wave 1: **DONE — 6/6 boundary baselines present.**
-Wave 2: **DONE — Steward reconciliation + Wave-3 queue persisted.**
-Wave 3: **DONE — CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10 receipts present.**
-Wave 4: **READY — Steward audit packet persisted.**
-Graph Gate: **CLOSED pending Wave-4 decision.**
+Wave 1: **DONE — 6/6 boundary baselines.**
+Wave 2: **DONE — Steward reconciliation + peer queue.**
+Wave 3: **DONE — 6/6 CFA receipts.**
+Wave 4: **DONE — Steward audit; Graph Gate OPEN.**
+Graph Attachment Wave 1: **READY.**
 
-## Verified Wave-3 receipts
+## Canonical launch packet
 
-- CFA-05: `SUBAGENTS/AGENCY-WORK-EXECUTION/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
-- CFA-06: `SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
-- CFA-07: `SUBAGENTS/COMPOSITION-PLUGIN-FORGE/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
-- CFA-08: `SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
-- CFA-09: `SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
-- CFA-10: `SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE/WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
+AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/GRAPH-ATTACHMENT-WAVE-1-2026-09-27.md
 
-## Deterministic Wave-4 turn rule
+## Deterministic stage order
 
-The next eligible turn is **Architecture Steward**.
+**A → B → C → D → E**
 
-When the human owner sends one **Next** to Steward:
+A. Architecture Graph revalidation.
+B. Linked implementation-projection contract.
+C. Bounded Source-Code Graph pilot.
+D. Proof/evidence attachment.
+E. Runtime self-knowledge joins.
 
-1. Verify current `main`.
-2. Read this router and `WAVE-4-COMPLETION-AUDIT-2026-09-27.md`.
-3. Verify all six Wave-3 receipts still exist.
-4. Perform the final bounded Wave-4 completion audit.
-5. Write the required Steward receipt:
-   `BOUNDARY-DESIGN-SYSTEM/WAVE-4-COMPLETION-AUDIT-2026-09-27.md`
-6. Explicitly decide Graph Gate **OPEN** or **WITHHELD**.
-7. Commit the receipt and report the exact commit SHA.
-8. Stop.
+The current graph stage is always the first stage whose required receipt is absent.
 
-No CFA should receive another Wave-3 `Next`.
+## Required receipts
 
-## Wave-4 audit authority
+- Stage A:
+  GRAPH-W1-A-REVALIDATION-RECEIPT-2026-09-27.md
+- Stage B:
+  GRAPH-W1-B-IMPLEMENTATION-PROJECTION-CONTRACT-2026-09-27.md
+- Stage C:
+  GRAPH-W1-C-SOURCE-CODE-PILOT-RECEIPT-2026-09-27.md
 
-Use:
+Stage D/E remain gated by their evidence/design readiness; do not assume completion from topology.
 
-- `CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`
-- `WAVE-2-BASELINE-RECONCILIATION-2026-09-27.md`
-- all six Wave-3 addenda;
-- `WAVE-4-COMPLETION-AUDIT-2026-09-27.md`.
+## Bare Next contract
 
-The Steward must preserve:
+When the human owner sends one **Next** to Architecture Steward:
 
-`OBSERVED | DERIVED | PROPOSED | UNKNOWN | CONFLICTED | DEFERRED`
+1. Verify current main.
+2. Read this router and the Graph Attachment Wave-1 launch packet.
+3. Determine the first missing stage receipt.
+4. Execute only that stage.
+5. Commit its durable receipt.
+6. Report the exact commit SHA.
+7. Stop.
 
-and:
+Do not repeat completed stages because local task state is stale.
 
-`CURRENT | STALE | UNRESOLVABLE`
+## Architecture Graph rules
 
-and the distinctions:
-
-`evidence != representation != authority`
-
-`confidence != proof`
-
-`capability != permission`
-
-`surface != canonical truth`
-
-`candidate != admitted != active`
-
-`unknown != failure`
-
-## Graph Gate
-
-**CLOSED until the Wave-4 receipt explicitly opens it.**
-
-Opening the gate requires the acceptance criteria in the Wave-4 audit packet and a recorded graph-attachment policy.
-
-If OPEN, downstream graph work may begin in the previously designed order:
-
-Architecture Graph
-→ linked implementation projection
-→ Source-Code Graph
-→ proof/evidence attachments
-→ runtime self-knowledge joins
-
-Graph representation remains derived and documentation-first. It does not become architecture authority merely because it exists in code or graph storage.
+- One Architecture Steward graph only.
+- Existing documentation-first graph remains the destination architecture network.
+- Preserve schema v0.2 unless an evidence-backed schema change is separately designed and reviewed.
+- Preserve source lineage on every derived edge.
+- Do not infer architecture ownership from imports, call graphs or file proximity.
+- UNKNOWN remains UNKNOWN.
+- Graph presence never upgrades maturity.
+- Implementation nodes are projections, not canonical architecture truth.
 
 ## Hard stops
 
-Until the Wave-4 audit explicitly opens the gate:
-
-- no Graph Kernel / Source-Code Graph attachment;
-- no shared-boundary activation;
+- no second architecture graph;
+- no graph-owned ontology;
+- no graph-owned authority/data store;
+- no universal identity/event/state primitive;
+- no live-proof claim from fixtures;
+- no B1 production mechanism choice without its evidence gate;
+- no shared semantic-boundary activation;
 - no Ω-law amendment;
-- no production implementation justified solely by boundary reconciliation;
-- no semantic ownership transfer;
-- no claims of live/external proof from fixtures.
+- no semantic ownership transfer.
 
 ## Human action
 
-**Next → Architecture Steward**
+**Next → Architecture Steward — Graph Stage A**
