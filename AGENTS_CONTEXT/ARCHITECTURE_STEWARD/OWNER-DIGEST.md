@@ -6,6 +6,17 @@
 > Owner: architecture-steward
 > Authority: projection only.
 
+## Current product frontier
+
+- Cycle 4 — Live Chrome / Accounts is the active destination execution frontier.
+- RA-5 is the current proof target: selected account/session identity, no silent substitution, attributable release/re-authentication, reconstructable evidence.
+- Existing provider/account reconciliation remains the design baseline; no new routing architecture is authorized by this task.
+
+## Home-upgrade wave
+
+- 9 CFA home-upgrade receipts are durable and task-complete.
+- CFA-05 is the sole repository exception: its task remains READY and no RESULTS receipt is present.
+- The exception is recorded, not fabricated away.
 ## Receipts
 
 - Indexed receipts: 2
