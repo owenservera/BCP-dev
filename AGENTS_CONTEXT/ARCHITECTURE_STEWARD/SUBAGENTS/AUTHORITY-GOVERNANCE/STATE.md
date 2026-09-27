@@ -80,6 +80,13 @@ Explicit non-ownership:
 - Current proof limit: implementation/falsifier evidence exists, but authenticated owner-machine live external execution remains UNVERIFIED.
 - Durable reconstruction gap: final CFA-02 AuthorityCitation schema/join remains UNKNOWN.
 
+## Shared-frontier wait state
+
+- CFA-04 local M1 authority corridor evidence is complete and durable.
+- `LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27` is WAITING-M1.
+- The central Steward frontier remains `CROSS-CFA M1 CONTRACT + EVIDENCE CLOSURE`.
+- Current peer task inspection shows M1 evidence work is still active/waiting outside CFA-04; CFA-04 should not independently select or execute the live corridor until the shared frontier's completion condition is met.
+
 ## Active frontiers
 
 1. Understand peer boundaries from their current durable artifacts.
