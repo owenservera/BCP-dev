@@ -8,17 +8,14 @@
 ## Open L2 task
 
 ### STAGE-E-L2-CFA06-CAPABILITY-REALIZATION-BASIS-ADAPTER-2026-09-28
-- **Status:** READY — OWNER-BOUNDED CHARACTERIZATION
+- **Status:** DONE — OWNER CHARACTERIZATION COMPLETE
 - **Priority:** P0
-- **Objective:** Characterize the CFA-06-owned capability/provider/realization observation basis consumed by Stage-E derived-view freshness, without redefining capability semantics or creating a parallel identity store.
-- **Milestone:** Stage-E L2 — Source and runtime basis adapters.
-- **Required characterization:** canonical provider/capability/realization source references; stable revision/observation token available today; bounded resolver; comparison rule; STALE condition; UNRESOLVABLE condition; domain-defined CONFLICTED behavior when applicable; evidence refs; falsifier; explicit UNKNOWN/DEFERRED items.
-- **Primary evidence:** current ProviderRealization/provider-browser evidence, provider-specific observation/session evidence, and existing CFA-06 M1/M2 join research.
-- **Write scope:** CFA-06 home documentation only; no runtime adapter implementation, shared-boundary activation, or capability-semantic rewrite.
-- **Completion condition:** the adapter names the owning source and stable comparison basis, resolver, stale/unresolvable behavior, evidence and falsifier, or explicitly records the missing evidence as UNKNOWN/BLOCKED.
-- **Stop condition:** capability meaning would be redefined centrally, owner-policy ambiguity, Ω-law collision, second identity store, or insufficient evidence.
-- **Next action:** produce the bounded CFA-06 capability/provider/realization basis-adapter characterization, then persist a durable receipt.
-
+- **Completed:** 2026-09-28
+- **Artifact:** `STAGE-E-L2-CFA06-CAPABILITY-REALIZATION-BASIS-ADAPTER-2026-09-27.md`
+- **Receipt:** `RESULTS/CFA06-STAGE-E-L2-ADAPTER-20260927.md`
+- **Result:** Canonical ProviderRealization basis is the existing vault `providers` record with realization identity plus vault `rev` and `cid`; bounded resolution, CURRENT/STALE/UNRESOLVABLE behavior and falsifier are closed. Runtime implementation drift and generalized external observation remain UNKNOWN/deferred.
+- **Handoff:** CFA-06 L2 owner characterization is complete; remaining Stage-E L2 work is the other owner lanes and later Steward reconciliation.
+- **Boundary:** no runtime join, shared-boundary activation, K0 change, second store/graph, or Ω-law change.
 # Persistent Tasks — capability-provider-realization
 
 ## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 — **RECEIPT-DRIVEN**
