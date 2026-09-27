@@ -7,6 +7,23 @@
 
 ## Open tasks
 
+### CFA-05-10-BOUNDARY-GATE-BEFORE-GRAPH-2026-09-27
+- **Status:** READY / CURRENT GATE
+- **Priority:** P0
+- **Purpose:** Close the missing durable boundary-evidence layer for CFA-05 through CFA-10 before Graph Kernel / Source-Code Graph attachment.
+- **Canonical packet:** `BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`
+- **Reason:** CFA-05–10 are already owner-aligned/rationalized; the missing artifact layer is Boundary baseline + peer reconciliation, not CFA birth. Do not rerun one-shot bootstrap.
+- **Wave 1:** CFA-05 through CFA-10 independently produce `BOUNDARY-BASELINE-DECLARATION-2026-09-27.md` in parallel.
+- **Wave 2:** Steward reconciles the six baselines and emits the peer-reconciliation queue.
+- **Wave 3:** CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10 reconcile bounded seams sequentially.
+- **Wave 4:** Steward audits completion and explicitly opens/withholds the Graph Gate.
+- **Next action:** Human router sends **Next to CFA-05, CFA-06, CFA-07, CFA-08, CFA-09, CFA-10 in parallel**. After all six complete, send **Next to Steward** for Wave 2; then sequential Next through CFA-05…CFA-10; then Steward for Wave 4.
+- **Completion condition:** Six baselines, Steward reconciliation, six peer outputs, and final audit are durably persisted with exact lineage; unresolved items remain UNKNOWN/CONFLICTED/DEFERRED.
+- **Stop condition:** owner-intent conflict, Ω-law collision, material ownership transfer, or pressure to infer semantics from names/implementation.
+- **Graph dependency:** Graph build is gated until Wave 4 explicitly opens it.
+
+
+
 ### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
 - **Status:** DONE / CENTRAL DESIGN FROZEN
 - **Priority:** P1
