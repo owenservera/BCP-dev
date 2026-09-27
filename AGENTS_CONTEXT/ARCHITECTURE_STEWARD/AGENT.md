@@ -101,6 +101,14 @@ Every launch prompt must state:
 
 The prompt should be executable by pointing a fresh agent at the prompt file; it should not depend on the Steward's hidden conversation state.
 
+### CFA planning ownership
+
+A standing CFA is a domain responsibility owner, not merely an execution endpoint for work selected by the Steward.
+
+When a ratified CFA's substantive roadmap is not yet formed, the Steward's job is to launch/coordinate **CFA-owned roadmap formation**, not to fill the gap with a downstream product cycle or implementation task. The CFA then records its own bounded domain work in its persistent `TASKS.md`.
+
+Use `CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md` for this transition. Destination plans, P1 workstreams and prior Steward recommendations are candidate inputs until the responsible CFA evaluates and adopts them.
+
 ### Delegation rule
 
 When a new subagent type is needed, create its own folder:
