@@ -14,7 +14,7 @@ Wave 1: **DONE — 6/6 boundary baselines.**
 Wave 2: **DONE — Steward reconciliation + peer queue.**
 Wave 3: **DONE — 6/6 CFA receipts.**
 Wave 4: **DONE — Steward audit; Graph Gate OPEN.**
-Graph Attachment Wave 1: **ACTIVE — Stage A/B/C complete; Stage D current.**
+Graph Attachment Wave 1: **ACTIVE — Stage A/B/C/D complete; Stage E BLOCKED pending separate readiness gate.**
 
 ## Canonical launch packet
 
@@ -27,8 +27,8 @@ AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/GRAPH-ATTACHMENT-WAVE
 A. Architecture Graph revalidation — **DONE**.
 B. Linked implementation-projection contract — **DONE**.
 C. Bounded Source-Code Graph pilot — **DONE**.
-D. Proof/evidence attachment — **CURRENT**.
-E. Runtime self-knowledge joins.
+D. Proof/evidence attachment — **DONE**.
+E. Runtime self-knowledge joins — **BLOCKED / SEPARATE READINESS GATE**.
 
 The current graph stage is always the first stage whose required receipt is absent.
 
@@ -41,9 +41,11 @@ The current graph stage is always the first stage whose required receipt is abse
 - Stage C:
   GRAPH-W1-C-SOURCE-CODE-PILOT-RECEIPT-2026-09-27.md — **DONE**
 - Stage D:
-  GRAPH-W1-D-PROOF-EVIDENCE-ATTACHMENT-RECEIPT-2026-09-27.md — **CURRENT**
+  GRAPH-W1-D-PROOF-EVIDENCE-ATTACHMENT-RECEIPT-2026-09-27.md — **DONE**
+- Stage E:
+  **BLOCKED — separate self-knowledge design/evidence readiness gate not yet satisfied.**
 
-Stage D is evidence-ready only for already-existing, explicitly attributable evidence; do not manufacture or upgrade proof. Stage E remains separately gated.
+Stage D is complete using only already-existing attributable evidence. Stage E must not begin runtime join implementation until its separate readiness condition is explicitly satisfied.
 
 ## Bare Next contract
 
@@ -84,4 +86,4 @@ Do not repeat completed stages because local task state is stale.
 
 ## Human action
 
-**Next → Architecture Steward — Graph Stage D**
+**Next → Architecture Steward — Stage E readiness assessment (no runtime join implementation yet)**
