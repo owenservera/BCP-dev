@@ -1,10 +1,16 @@
 # Cycle 4 — Live Chrome / Accounts Execution Packet
 ## 2026-09-27
 
-> Status: READY
+> Status: CANDIDATE / PAUSED
 > Classification: derived execution packet over existing destination reconciliation
 > Not a new architectural workstream; not Ω law.
 > Primary proof target: RA-5 — Live account proof
+
+## Planning status
+
+This packet remains valid candidate evidence for later domain planning, but it is **not the current Steward mandate**. It was previously promoted before the CFA-owned roadmap stage had been run and is now intentionally paused.
+
+Reconsider it only after the CFA domain roadmaps are formed and the Steward has reconciled them. Do not infer adoption from the packet's original sequencing or from the Build-and-Harvest plan's former CURRENT label.
 
 ## Purpose
 
@@ -70,7 +76,7 @@ Account is a first-class user-world relationship. Realization is the technical i
 
 ## Completion
 
-When live evidence is captured, the Architecture Steward:
+When this packet is later selected from the reconciled frontier and live evidence is captured, the Architecture Steward:
 
 VERIFY → CLASSIFY → UPDATE RELEVANT DESTINATION / P1 VIEW → PRESERVE RAW EVIDENCE → SELECT NEXT SLICE
 
