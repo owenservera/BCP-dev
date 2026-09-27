@@ -1,6 +1,6 @@
 # Agent Commons Peer Roster
 
-> Status: BOOTSTRAP COORDINATION REGISTER — 2026-09-25
+> Status: BOOTSTRAP COORDINATION REGISTER — 2026-09-27
 > This file is a coordination registry for discovering agent-owned Commons streams. It is not an authority registry.
 
 Runtime/bootstrap reads this file instead of requiring each session to hand-type `peerHomes`.
@@ -13,8 +13,8 @@ Runtime/bootstrap reads this file instead of requiring each session to hand-type
 | `world-ontology-context` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT` | World / Ontology / Context | bootstrap-ready |
 | `data-model` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD` | Data / Identity / Persistence | bootstrap-ready |
 | `semantic-continuity` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER` | Semantic continuity across self-knowledge, language, command, intent, execution meaning, evidence and representation | ratified |
-| `authority-governance` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE` | Authority Governance Steward — Authority / Governance | **ratified** |
-| `agency-work-execution` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AGENCY-WORK-EXECUTION` | Agency / Work / Execution | bootstrap-ready |
+| `authority-governance` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE` | Authority Governance Steward — Authority / Governance | ratified |
+| `agency-work-execution` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AGENCY-WORK-EXECUTION` | Work & Execution Steward — Agency / Work / Execution | ratified |
 | `capability-provider-realization` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION` | Capability / Provider / Realization | bootstrap-ready |
 | `composition-plugin-forge` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/COMPOSITION-PLUGIN-FORGE` | Composition / Plugin / Forge | bootstrap-ready |
 | `experience-interaction-surfaces` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES` | Experience / Interaction / Surfaces | bootstrap-ready |

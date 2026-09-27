@@ -1,37 +1,26 @@
-# Agent Commons — Local Home
+# CFA-05 Commons Boundary
 
-This is the local Commons state boundary for the AGENCY-WORK-EXECUTION agent workspace.
+**Agent identity:** `agency-work-execution`  
+**Human-readable identity:** Work & Execution Steward  
+**CFA:** CFA-05 — Agency / Work / Execution
 
-The shared protocol lives at:
+This local Commons boundary is part of the durable agent home. It is not an authority store and does not define Work truth.
 
-AGENTS_CONTEXT/AGENT-COMMONS/
+Read before communicating:
 
-This agent owns its own Commons state under this directory. Other agents must not write into this home.
+1. `AGENTS_CONTEXT/AGENT-COMMONS/SESSION-CAPABILITY-AND-TRANSPORT.md`
+2. `AGENTS_CONTEXT/AGENT-COMMONS/BOOTSTRAP.md`
+3. `AGENTS_CONTEXT/AGENT-COMMONS/PEER-ROSTER.md`
+4. `AGENTS_CONTEXT/AGENT-COMMONS/AGENT-COMMUNICATION-GUIDELINES.md`
 
-## Intended local structure
+Bootstrap requirement:
 
-    commons/
-      README.md
-      identity/
-      stream/
-      outbox/
-      cursors/
-      projections/
+`identity → signed event → accepted transport → durable authored stream → read-back`
 
-## Ownership
+This session does not currently possess the recoverable signing key required for signed Commons writes, so the PUBLIC birth introduction is recorded as blocked rather than simulated.
 
-- identity/ — stable agent identity and public-key metadata owned by this agent.
-- stream/ — signed authored Commons event stream owned by this agent.
-- outbox/ — local delivery intent/retry state.
-- cursors/ — local consumption watermarks.
-- projections/ — disposable derived local views such as inbox/context.
+Commons communication is communication, not architectural authority:
 
-Runtime may create the subdirectories as needed.
-
-## Important boundary
-
-This folder is not a second ontology, governance system, canonical data store, or evidence authority.
-
-The agent's Commons state records communication and operational state. Architectural meaning remains with the appropriate authority and durable artifact.
-
-See AGENTS_CONTEXT/AGENT-COMMONS/BOOTSTRAP.md for the shared bootstrap contract.
+`MESSAGE != TRUTH`  
+`CONVERSATION != CANON`  
+`ASSERTION != AUTHORITY`
