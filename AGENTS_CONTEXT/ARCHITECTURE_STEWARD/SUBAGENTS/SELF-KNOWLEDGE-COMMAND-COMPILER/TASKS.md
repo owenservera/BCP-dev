@@ -18,8 +18,20 @@
 
 ## Open tasks
 
+### STAGE-E-L2-CFA03-SELF-KNOWLEDGE-BASIS-ADAPTER-2026-09-27
+- **Status:** READY — OWNER-BOUNDED CHARACTERIZATION
+- **Priority:** P0
+- **Objective:** Characterize the CFA-03-owned basis inputs for self-knowledge/semantic derivation under the now-closed generic L1 freshness contract.
+- **Milestone:** Stage-E L2 — Source and runtime basis adapters.
+- **Primary sources to characterize:** WorldModel basis/version, self-knowledge operation/contract identity, NCLL semantic/derivation contract identity, and any additional CFA-03-owned semantic basis that is actually material to the selected Stage-E trace.
+- **Write scope:** CFA-03 home documentation only; no runtime adapter or shared contract implementation until owner semantics are reconciled.
+- **Completion condition:** Each CFA-03 basis source names owner, source reference, revision/observation rule, unresolved behavior, and falsifier without inventing universal identity or freshness semantics.
+- **Stop condition:** source semantics owned by another CFA, owner policy ambiguity, Ω-law collision, or evidence insufficiency.
+- **Next action:** Execute this characterization as the next bounded CFA-03 action.
+
 ### STAGE-E-L1-DERIVEDVIEW-BASIS-FRESHNESS-RECONCILIATION-2026-09-27
-- **Status:** WAITING — PEER / STEWARD RECONCILIATION
+- **Status:** DONE — RECONCILED BY STEWARD L1 CLOSURE
+- **Priority:** P0
 - **Priority:** P0
 - **Objective:** Reconcile the CFA-03 DerivedView/BasisRef/freshness working contract into the Stage-E cross-CFA readiness contract.
 - **Milestone:** Stage-E L1 — Derived-view and freshness contract.
