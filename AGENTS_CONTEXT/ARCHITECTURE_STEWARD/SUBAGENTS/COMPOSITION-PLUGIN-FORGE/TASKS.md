@@ -11,12 +11,22 @@
 > **Master structural anchor:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
 > **CFA:** CFA-07
 > **Portfolio package:** BOUNDED-DESIGN
-> **Current portfolio state:** Identity/survivor closure partial; replacement/admission seam still open
+> **Current portfolio state:** Identity/survivor closure partial; Stage-E L2 Composition/Manifest basis adapter characterized
 >
 > Local TASKS remains CFA-owned execution detail. Historical local routers/prompts are lineage only and cannot override the master portfolio router. Do not resurrect completed Wave-1/Wave-2/Wave-3 or bootstrap stages from stale local routing text.
 > Resolve any new `Next` against the master router first, then this local queue.
 
 ## Open tasks
+
+### STAGE-E-L2-CFA07-COMPOSITION-MANIFEST-ADAPTER
+- **Status:** DONE
+- **Priority:** P0
+- **Completed:** 2026-09-28
+- **Artifact:** `STAGE-E-L2-COMPOSITION-MANIFEST-BASIS-ADAPTER-CHARACTERIZATION-2026-09-28.md`
+- **Receipt:** `RESULTS/CFA07-20260928-STAGE-E-L2-COMPOSITION-MANIFEST-ADAPTER.md`
+- **Result:** Installed/admitted composition representation freshness is characterized from governed Recipe identity plus per-entry manifest/content hashes. Logical Composition identity, semantic revision, rename, membership-change and final runtime retrieval semantics remain explicit UNKNOWN.
+- **Hard stop respected:** no runtime join, K0 change, Ω-law amendment, second graph/store, or shared-boundary activation.
+
 
 ## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 — **RECEIPT-DRIVEN**
 
