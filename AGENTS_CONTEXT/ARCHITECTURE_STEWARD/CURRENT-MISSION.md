@@ -31,7 +31,7 @@ Once a delegated session runs, its durable completion receipt under `SUBAGENTS/<
 Each fresh CFA session is responsible for validating and upgrading its own home against:
 
 - `CHATGPT-AGENT-OPERATING-MODEL.md`;
-- FSSP-1.1;
+- FSSP-1.3;
 - its own `SESSION-CONTEXT.md`;
 - its durable identity;
 - `STATE.md`;
@@ -71,12 +71,26 @@ Each CFA fresh session must:
 
 1. verify its identity against current repository evidence;
 2. understand its own home without prior-chat memory;
-3. validate the home against FSSP-1.2;
+3. validate the home against FSSP-1.3;
 4. preserve its existing ratified identity and boundaries;
 5. update its own durable context only where genuinely required;
 6. record durable lessons only when justified;
 7. verify and commit its changes;
-8. return the standard FSSP-1.2 completion report.
+8. return the standard FSSP-1.3 completion report.
+
+## Strategic operating-maturity frontier
+
+The next Steward-level operating frontier is the existing Agent Commons runtime, not another expansion of the protocol corpus.
+
+- R1 — bus convergence: repository receipts are the current durable projection/compatibility surface for Commons HANDOFFs targeting REPORTED; convergence remains a target until Commons is the operational transport.
+- R2 — trust: repository commits establish lineage, not agent identity; unsigned/unverified artifact authorship is treated as an unattributed claim.
+- R3 — runtime owner/freeze: the Commons runtime/platform workstream is assigned to CFA-10, with shared design breadth frozen until the existing v0 operational completion test passes.
+- R4 — epistemic trigger: CFA-11 remains uninstantiated; quantitative review triggers are defined in the CFA register.
+- R5 — publishing concurrency: parallel readers are permitted; one active publishing session per stable agent_id is the default Commons rule.
+- R6 — owner digest: OWNER-DIGEST.md is the derived weekly human-facing compression surface; it does not replace source state.
+- R7 — identity drill: CFA-04 is the operational security/identity custodian; recovery is tested, but the full rotation + recovery drill remains blocked until a real key-rotation operation exists.
+
+The current actionable workstream is AGENTS_CONTEXT/AGENT-COMMONS/RUNTIME-PLATFORM-WORKSTREAM-2026-09-27.md.
 
 ## Steward stop condition
 
