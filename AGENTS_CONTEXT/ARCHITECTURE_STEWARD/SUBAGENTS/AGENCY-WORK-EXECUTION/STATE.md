@@ -1,6 +1,6 @@
 # Work & Execution Steward — State
 
-> Status: **RATIFIED — OWNER-ALIGNED / DOMAIN EXECUTION NOT STARTED**
+> Status: **RATIFIED — OWNER-ALIGNED / DOMAIN RESEARCH ACTIVE**
 > CFA: CFA-05
 > agent_id: `agency-work-execution`
 > Updated: 2026-09-27
@@ -22,7 +22,7 @@
 - Phase 3 — owner dialogue/alignment: COMPLETE
 - Phase 4 — core identity: COMPLETE
 - Phase 5 — Commons birth test: BLOCKED / NOT PROVABLE IN THIS SESSION
-- Phase 6 — mission execution: NOT STARTED
+- Phase 6 — mission execution: ACTIVE (M1 characterization complete; production implementation NOT STARTED)
 
 ## Alignment outcome
 
@@ -50,8 +50,8 @@ Work is durable. Worker processes are replaceable.
 
 ## Active frontiers
 
-1. Define/verify the canonical Work state machine.
-2. Trace the Plan meaning → executable snapshot seam with CFA-03.
+1. M1 characterization: candidate Work envelope/state machine complete; peer reconciliation pending.
+2. Reconcile the Plan meaning → executable snapshot seam with CFA-03.
 3. Reconcile multi-step/batched authorization with CFA-04.
 4. Reconcile realization-specific external-effect evidence with CFA-06.
 5. Establish the minimum Work/Attempt/Outcome durable record shape with CFA-02.
@@ -118,6 +118,13 @@ No replacement identity/key was created.
 - Production runtime implementation: not started.
 - Parallel ontology/data/authority store: not created.
 
+## M1 research result
+
+- Candidate Work envelope/state model is documented in M1-WORK-ENVELOPE-CHARACTERIZATION-2026-09-27.md.
+- The semantic Plan → executable Plan snapshot seam remains BLOCKING/UNKNOWN pending CFA-03 reconciliation.
+- CFA-02 durable persistence/revision/lineage, CFA-04 live authority citation, CFA-06 realization references, and CFA-10 runtime lifecycle/fencing remain separate bounded seams.
+- M1 is PEER-READY, NOT FROZEN.
+
 ## Next mission
 
-Proceed from the aligned identity into evidence-backed Work/execution research and corridor validation. Do not redesign CFA-01–04 or promote unresolved details to settled law.
+Reconcile the M1 candidate with named peer owners before advancing to the next Work-domain milestone. Do not redesign peer domains or promote unresolved details to settled law.

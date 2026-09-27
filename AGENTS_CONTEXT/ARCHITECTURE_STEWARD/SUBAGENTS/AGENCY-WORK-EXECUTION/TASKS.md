@@ -22,16 +22,19 @@
 - **Stop condition:** Stop after roadmap and receipt completion; do not start production implementation.
 
 ### WORK-M1-CANONICAL-WORK-ENVELOPE-2026-09-27
-- **Status:** READY
+- **Status:** DONE
 - **Priority:** P1
-- **Objective:** Characterize and freeze the smallest canonical Work envelope/state transition contract using existing Ω Work evidence and the M1 peer-intelligence gates.
+- **Objective:** Characterize the smallest canonical Work envelope/state transition contract using existing Ω Work evidence and the M1 peer-intelligence gates.
 - **Milestone:** M1 — Canonical Work Envelope & Lifecycle Contract.
-- **Dependencies:** CFA-03 semantic Plan handoff; CFA-02 durable identity/revision constraints; CFA-04 authority citation shape; CFA-10 lifecycle/fencing assumptions. These are evidence dependencies to verify, not execution permissions.
-- **Peer inputs required:** BLOCKING — CFA-03 semantic Plan snapshot seam; HIGH-VALUE — CFA-02, CFA-04, CFA-06, CFA-10.
-- **Tooling required:** repository/query/graph inspection; schema/round-trip fixtures. Small extensions only; no production runtime.
+- **Session:** CFA05-M1-20260927
+- **Completion receipt:** RESULTS/CFA05-M1-20260927.md
+- **Characterization artifact:** M1-WORK-ENVELOPE-CHARACTERIZATION-2026-09-27.md
+- **Dependencies:** CFA-03 semantic Plan handoff; CFA-02 persistence/revision/lineage; CFA-04 authority citation shape; CFA-10 lifecycle/fencing assumptions. These remain evidence dependencies, not execution permissions.
+- **Peer inputs required:** BLOCKING seam remains CFA-03 semantic Plan → executable Work basis; HIGH-VALUE CFA-02, CFA-04, CFA-06, CFA-10.
+- **Tooling required:** repository/query/graph inspection; schema/round-trip reasoning. No production runtime.
 - **Write scope:** CFA-05 home only.
-- **Next action:** Build an evidence-backed Work envelope/state comparison from Ω Work records, destination agentic-core contracts and the M1 peer gates; record unresolved fields as UNKNOWN rather than settling them by assumption.
-- **Completion condition:** A candidate Work envelope/state machine is explicitly classified OBSERVED/DERIVED/PROPOSED/UNKNOWN, preserves Plan meaning ownership, identifies Data-owned persistence seams, and is ready for peer reconciliation.
+- **Next action:** Await peer reconciliation of the candidate Work contract; do not freeze the state machine or Plan snapshot seam until the named peer evidence is accepted.
+- **Completion condition:** Candidate Work envelope/state machine is classified OBSERVED/DERIVED/PROPOSED/UNKNOWN, preserves peer ownership, identifies Data-owned persistence seams, and is durable and peer-ready.
 - **Stop condition:** Stop at a semantic ownership conflict, missing blocking peer evidence, Ω-law collision, or any pressure to start production implementation.
 
 ### HOME-UPGRADE-2026-09-27
