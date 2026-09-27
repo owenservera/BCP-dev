@@ -7,6 +7,17 @@
 
 ## Open tasks
 
+### LAUNCH-CFA-STRATEGIC-ROADMAP-ROUND-1-2026-09-27
+- **Status:** READY
+- **Priority:** P1
+- **Purpose:** Launch all ten independent CFA strategic-roadmap sessions as the current planning stage.
+- **Dependencies:** None for launch.
+- **Write scope:** Steward control plane only; CFA sessions own their respective roadmap artifacts and task queues.
+- **Next action:** Use `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md` and launch CFA-01 through CFA-10 in parallel.
+- **Completion condition:** All ten sessions have been launched and produce durable roadmap/receipt outcomes, or a session honestly reports BLOCKED/UNKNOWN.
+- **Stop condition:** do not preselect downstream product work; stop the launch wave only for a real owner/security/repository constraint.
+
+
 ### CENTRAL-CFA-STRATEGIC-ROADMAP-SYNTHESIS-2026-09-27
 - **Status:** WAITING
 - **Priority:** P1
