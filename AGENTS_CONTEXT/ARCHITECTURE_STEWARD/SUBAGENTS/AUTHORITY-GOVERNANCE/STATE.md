@@ -1,6 +1,6 @@
 # CFA-04 — State
 
-> Status: RATIFIED — OWNER-ALIGNED / STRATEGIC ROADMAP ROUND 1 COMPLETE
+> Status: RATIFIED — OWNER-ALIGNED / M1 AUTHORITY CORRIDOR EVIDENCE COMPLETE
 > Updated: 2026-09-27
 
 ## Identity
@@ -70,6 +70,15 @@ Explicit non-ownership:
 - Milestones: M1 cross-CFA contract convergence; M2 reconstructable authority state; M3 live corridor proof; M4 delegated/standing long-lived Work; M5 consequential change/sharing/self-governance.
 - First bounded actionable work: `AUTHORITY-CORRIDOR-EVIDENCE-PACK-2026-09-27` in `TASKS.md`.
 - Shared execution frontier remains unselected pending central cross-CFA reconciliation.
+
+## M1 corridor evidence state
+
+- Evidence pack: `AUTHORITY-CORRIDOR-EVIDENCE-PACK-2026-09-27.md`
+- Selected proof vehicle: existing P1-06 `agency.execute@1` → `message.send@1` governed action.
+- Positive corridor: explicit principal + consent + D-452 frame + live `law.describe` consent resolution + `invoke.check` before target + governed event linkage.
+- Negative corridor: inactive/expired/revoked authority, out-of-scope frame, principal mismatch, and frameless mutation all have explicit refusal paths; target non-execution must be independently observed for live proof.
+- Current proof limit: implementation/falsifier evidence exists, but authenticated owner-machine live external execution remains UNVERIFIED.
+- Durable reconstruction gap: final CFA-02 AuthorityCitation schema/join remains UNKNOWN.
 
 ## Active frontiers
 
