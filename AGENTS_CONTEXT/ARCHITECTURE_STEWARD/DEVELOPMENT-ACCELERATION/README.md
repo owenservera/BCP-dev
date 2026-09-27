@@ -1,7 +1,7 @@
 # CFA Collaboration + Development Acceleration
 
 > Date: 2026-09-27
-> Status: DESIGN COMPLETE / CFA INPUT REQUIRED BEFORE SHARED IMPLEMENTATION
+> Status: M1 EVIDENCE RECONCILED / GENERIC KERNEL READY
 > Authority: derived Steward design; not Ω law and not a substitute for CFA-owned semantics.
 
 This workspace defines the shared substrate the ten CFAs need to make architectural decisions and implement safely at high speed.
@@ -39,6 +39,12 @@ Historical Ω implementation is evidence of prior design/implementation experien
 
 ## Implementation gate
 
-No shared implementation is authorized by these documents alone.
+The ten current CFA M1 evidence packets have now been reconciled into a central design baseline. Generic Layer-1 mechanics are ready for implementation under the central-kernel packet; domain semantics, canonical ownership, consequential behavior and live-proof criteria remain CFA-owned.
 
-The next step is CFA input/reconciliation. The central design may establish generic schemas, protocols, extension points and tooling contracts; domain semantics, canonical ownership and consequential-behavior criteria remain CFA-owned until reconciled.
+Implementation packet: CENTRAL-KERNEL-IMPLEMENTATION-PACKET-2026-09-27.md
+
+Reconciliation: CFA-M1-RECONCILIATION-2026-09-27.md
+
+Adapter contract: CFA-ADAPTER-CONTRACT-2026-09-27.md
+
+No shared semantic boundary or Ω-law change is authorized by this design.
