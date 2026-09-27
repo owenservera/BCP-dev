@@ -141,12 +141,15 @@ Birth test:
 
 - Strategic Roadmap Round 1: **COMPLETE — FIRST-PASS INDEPENDENT**.
 - Roadmap: `DOMAIN-ROADMAP-2026-09-27.md`.
-- First bounded task: `COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27` — **COMPLETE / DESIGN CLOSURE PARTIAL**.
-- Proof pack: `COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27.md`.
-- No production implementation started; peer-dependent identity/replacement rules remain explicitly unresolved.
+- First bounded task: COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27 — COMPLETE / DESIGN CLOSURE PARTIAL.
+- Proof pack: COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27.md.
+- Peer reconciliation: COMPLETE / PARTIALLY CLOSED.
+- Reconciliation: COMPOSITION-IDENTITY-PEER-RECONCILIATION-2026-09-27.md.
+- Current conclusion: exact installed composition identity and peer ownership are characterized; stable logical composition lineage remains open pending semantic replacement discriminator evidence.
+- No production implementation started.
 
 ## Next mission
 
-Reconcile the proof pack with peer evidence from CFA-05, CFA-09, CFA-10 and CFA-02 before proposing any Composition identity schema or replacement contract change.
+Do not propose a wire/schema change yet. Await or obtain a concrete replacement/rename/membership falsifier and the Architecture Steward M1 closure decision; keep the logical-lineage discriminator explicitly OPEN.
 
 Do not treat this identity contract as Ω law, shared-boundary activation, or production implementation authorization.
