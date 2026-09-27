@@ -38,7 +38,7 @@ Current closure state:
 
 - L0 — **DONE** (STAGE-E-READINESS-CONTRACT-2026-09-27.md)
 - L1 — **DONE** (STAGE-E-L1-DERIVEDVIEW-FRESHNESS-CONTRACT-2026-09-27.md)
-- L2 — **ACTIVE / PARALLEL OWNER CHARACTERIZATION** (`STAGE-E-L2-SOURCE-RUNTIME-BASIS-ADAPTER-PACKET-2026-09-27.md`)
+- L2 — **ACTIVE / OWNER CHARACTERIZATION CHECKPOINT: 4 CLOSED, 1 PARTIAL, 2 OPEN** (`STAGE-E-L2-SOURCE-RUNTIME-BASIS-ADAPTER-PACKET-2026-09-27.md`)
 - L3–L7 — queued behind their declared dependencies.
 
 The runtime self-knowledge join remains blocked until the readiness gate is explicitly promoted.
@@ -65,6 +65,8 @@ The runtime self-knowledge join remains blocked until the readiness gate is expl
   `RESULTS/STEWARD-20260927-STAGE-E-L2-ADAPTER-LAUNCH.md` — **DONE**.
 - Stage E runtime joins:
   **BLOCKED — separate self-knowledge design/evidence readiness gate not yet satisfied.**
+- Stage E L2 owner checkpoint:
+  `RESULTS/STEWARD-20260928-STAGE-E-L2-OWNER-CHARACTERIZATION-CHECKPOINT.md` — **DONE / L2 STILL OPEN**
 
 ## Bare Next contract
 
@@ -105,4 +107,4 @@ Do not repeat completed stages because local task state is stale.
 
 ## Human action
 
-**Next → CFA-01, CFA-02, CFA-04, CFA-06, CFA-07, CFA-09, CFA-10 — owner-scoped Stage E L2 adapter characterization in parallel**
+**Next → CFA-02, CFA-04, CFA-10 — remaining Stage E L2 owner characterization/closure**
