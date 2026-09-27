@@ -14,6 +14,10 @@ This folder is the durable workspace for the **Composition / Plugin / Forge** Co
 - `LESSONS.md` — compact reusable operational learning
 - `SESSION-CONTEXT.md` — fresh-session front door
 
+## Strategic planning
+- `DOMAIN-ROADMAP-2026-09-27.md` — CFA-07 Strategic Roadmap Round 1.
+- `RESULTS/CFA07-20260927-STRATEGIC-ROADMAP-R1.md` — planning-session receipt.
+
 ## Current status
 The CFA identity is already ratified. The current home-upgrade task is maintained separately from domain execution; no production implementation is authorized by this home.
 
