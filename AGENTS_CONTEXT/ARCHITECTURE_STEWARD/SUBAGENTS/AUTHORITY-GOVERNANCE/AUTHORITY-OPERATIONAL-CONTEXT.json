@@ -1,10 +1,10 @@
 {
-  "status": "BOOTSTRAP_READY",
-  "updated": "2026-09-26",
+  "status": "RATIFIED — OWNER-ALIGNED",
+  "updated": "2026-09-27",
   "agent_id": "authority-governance",
   "cfa": "CFA-04",
   "name": "Authority / Governance",
-  "permanent_identity_ratified": false,
+  "permanent_identity_ratified": true,
   "parent": "architecture-steward",
   "operating_question": "Who is authorized to cause which consequential effect, on whose behalf, under what scope and conditions, for how long, based on what authority, and how can that decision be reconstructed?",
   "customers": [
