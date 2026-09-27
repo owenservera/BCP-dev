@@ -1,25 +1,38 @@
 # Architecture Steward — Open Frontier
 
-> Current phase: compress existing intelligence into a coding-ready factory/product baseline.
-
-**Do not pursue Steward infrastructure for its own sake.** The machine-readable registry, generated views, automated drift system, and deeper graph machinery are later optimizations unless a current build decision actually requires them.
+> Current phase: establish the missing planning layer between ratified CFA homes and cross-CFA execution.
 
 ## Immediate Steward work
 
-1. Synthesize Product Experience, Journey → Architecture, and Current Reality → Proof into the smallest useful coding map.
-2. Identify the first compositional building language and reference pieces from existing evidence.
-3. Trace the first executable composition through Ω responsibilities, contracts, implementations, and proof.
-4. Flag only uncertainties capable of forcing factory redesign.
-5. Stop preparing when that path is sufficiently clear and start coding.
+1. Launch the CFA Domain Roadmap Formation wave.
+2. Verify each CFA's durable roadmap and TASKS.md against current repository evidence.
+3. Compare the ten roadmaps for overlap, missing responsibility and true dependencies.
+4. Reconcile adopted/deferred/rejected destination and P1 work against CFA-owned plans.
+5. Produce the smallest bounded cross-CFA execution frontier.
+6. Only then compile the next owner action package.
 
-## Later, evidence-driven Steward work
+## Planning invariant
 
-- machine-readable architecture registry;
-- derived/generated views;
-- broad drift sweeps;
-- complete responsibility/dependency graph automation;
-- architecture versioning;
-- automatic revalidation triggers;
-- branch-local promotion machinery.
+A destination-wide program plan is not a substitute for a domain-owner roadmap.
 
-These are not current goals merely because they are useful eventually.
+The Steward must not jump from:
+
+`HOME READY → DOWNSTREAM PRODUCT CYCLE`
+
+without the intermediate:
+
+`HOME READY → CFA ROADMAP → CFA TASK QUEUE → CROSS-CFA RECONCILIATION → SHARED FRONTIER`
+
+## Downstream candidate material
+
+Build-and-Harvest, P1 workstreams, Cycle 4 Live Chrome / Accounts, and existing destination reconciliation packages remain valuable evidence. They are candidate inputs to be evaluated by the CFAs and later reconciled by the Steward.
+
+## Later Steward work
+
+- coding-ready factory/product synthesis;
+- architecture graph regeneration;
+- broader drift automation;
+- generated views;
+- additional infrastructure.
+
+These may resume only after the current planning transition is complete.
