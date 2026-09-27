@@ -27,7 +27,7 @@ The overlay does not cancel or replace the existing M1 CFA-owned evidence tasks.
 
 **Wave 1, Wave 2, Wave 3 and Wave 4 are complete.** The six CFA receipts and the Steward completion audit are durable on current `main`; Graph Gate is OPEN.
 
-**Next:** Stage A, Stage B, Stage C and Stage D are complete. The linked implementation-projection contract is frozen, the bounded Source-Code Graph pilot is source-backed, and existing attributable evidence has been attached without epistemic upgrade. Stage E remains blocked pending a separate self-knowledge design/evidence readiness gate.
+**Next:** Stage A, Stage B, Stage C and Stage D are complete. The linked implementation-projection contract is frozen, the bounded Source-Code Graph pilot is source-backed, and existing attributable evidence has been attached without epistemic upgrade. The Stage E readiness assessment is complete and remains BLOCKED pending a separate self-knowledge design/evidence readiness gate. Receipt: `BOUNDARY-DESIGN-SYSTEM/GRAPH-W1-E-SELF-KNOWLEDGE-READINESS-ASSESSMENT-RECEIPT-2026-09-27.md`.
 
 Do not create a second graph, infer architecture from imports/calls alone, or attach live-proof claims without evidence.
 
@@ -78,4 +78,4 @@ Do not:
 
 ## Success condition
 
-The current frontier is Graph Attachment Wave 1. Stage A revalidation, Stage B contract freeze, Stage C pilot and Stage D evidence attachment are complete. The current frontier is **Stage E readiness assessment**, not runtime join implementation. Runtime self-knowledge joins remain separately gated.
+The current frontier is Graph Attachment Wave 1. Stage A revalidation, Stage B contract freeze, Stage C pilot and Stage D evidence attachment are complete. The current frontier is **closure of the Stage E self-knowledge design/evidence readiness gate**, not runtime join implementation. The readiness assessment is already recorded; repeating it without new evidence is not the next stage.
