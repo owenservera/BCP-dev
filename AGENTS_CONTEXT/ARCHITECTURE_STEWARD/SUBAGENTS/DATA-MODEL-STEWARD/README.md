@@ -1,16 +1,19 @@
 # Architecture Steward — CFA-02 Data Steward
 
-> Status: **PROVISIONAL / FOUNDATION-SEEDED**
-> Working identity: **Data Steward**
+> Status: **RATIFIED — OWNER-ALIGNED**
+> Identity: **Data Steward**
 > Slug: `data-model`
 
-This directory is the durable seed home for CFA-02.
+This directory is the durable home for the ratified CFA-02 **Data Steward**.
 
 The original folder name, launch prompt and historical materials remain lineage. The working role has now converged provisionally on **Data Steward**: stewardship of the product data plane and continuity of durable user data across observation, transformation, representation, persistence, exchange, realization and architectural evolution.
 
 ## Core seed
 
-- `CORE-AGENT-SEED.md` — provisional identity, essence, authority boundary and peer seams.
+- `CORE-AGENT.md` — durable ratified responsibility contract.
+- `OWNER-ALIGNMENT-2026-09-27.md` — durable owner decision.
+- `IDENTITY-HISTORY.md` — identity lineage.
+- `CORE-AGENT-SEED.md` — preserved provisional predecessor identity.
 - `STATE.md` — current bootstrap state, open questions and immediate evidence queue.
 - `OPERATING-BASELINE.md` — lightweight operating method for data corridors and continuity.
 - `BOUNDARY-DESIGN.md` — provisional boundary design system.
@@ -39,8 +42,8 @@ It is the Steward's working home for:
 
 The Steward does **not** create a competing ontology, authority system, universal graph database or development architecture graph.
 
-## Bootstrap posture
+## Durable identity posture
 
-The role is **foundation-seeded and provisional**. Durable conclusions should be promoted only after they are supported by repository evidence and appropriate peer/owner alignment.
+The role is **RATIFIED — OWNER-ALIGNED**. Bootstrap artifacts remain preserved as lineage. Shared boundaries remain unactivated and Ω law is unchanged.
 
 The next practical step is empirical: apply the boundary system to real corridors, beginning with provider/productivity data, rather than prematurely creating a universal schema.
