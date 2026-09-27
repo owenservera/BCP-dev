@@ -339,7 +339,21 @@ When a report returns to the Architecture Steward or owner:
 
 The next prompt is a **compiled task envelope**, not a transcript continuation.
 
-## 18. Parallel conversation rule
+## 18. Execution-strategy reasoning rule
+
+A fresh session must not treat a supplied sequence as an unquestionable dependency ordering.
+
+Before executing a sequence:
+- identify the actual work units;
+- inspect semantic, authority, predecessor and write dependencies;
+- identify synchronization points;
+- classify the work as INDEPENDENT / ORDERED / CONDITIONALLY DEPENDENT / BLOCKED;
+- prefer safe parallelism when independence is established;
+- distinguish architectural dependency from Git/transport coordination.
+
+The session should report the reasoning when choosing a non-obvious execution strategy.
+
+## 19. Parallel conversation rule
 
 Multiple sessions may coexist when:
 
@@ -353,7 +367,7 @@ Each session must:
 - avoid assumptions about uncommitted peer work;
 - communicate through durable repository artifacts or genuinely supported Commons operations.
 
-## 19. Anti-context-wall rule
+## 20. Anti-context-wall rule
 
 Do not solve context loss by making prompts larger.
 
@@ -369,7 +383,7 @@ SESSION-CONTEXT
 → EVIDENCE AS NEEDED
 ```
 
-## 20. Protocol evolution
+## 21. Protocol evolution
 
 Fix the smallest layer that caused the failure:
 
@@ -381,7 +395,7 @@ Fix the smallest layer that caused the failure:
 
 Do not introduce infrastructure merely to make one session easier.
 
-## 21. Architectural success condition
+## 22. Architectural success condition
 
 A fresh session must be able to determine, without prior chat history:
 
