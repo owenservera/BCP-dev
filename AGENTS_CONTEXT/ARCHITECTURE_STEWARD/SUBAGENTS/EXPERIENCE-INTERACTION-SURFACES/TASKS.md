@@ -7,14 +7,18 @@
 
 ## Open tasks
 
-### SURFACE-VIEW-CONTRACT-2026-09-27
-- **Status:** IN_PROGRESS
+### SPACE-WORKSPACE-RECONSTRUCTION-2026-09-27
+- **Status:** READY
 - **Priority:** P2
-- **Dependencies:** None currently known; peer seams may require later coordination.
-- **Write scope:** Own CFA-08 home and bounded Experience / Interaction / Surfaces research artifacts.
-- **Next action:** Define the minimum Surface/View representation contract, including the durable-vs-ephemeral presentation-state envelope, from destination and current peer evidence.
-- **Completion condition:** Produce an evidence-backed bounded contract with explicit semantic owner, presentation state, mutation handoff, epistemic-state handling, and named remaining unknowns.
-- **Stop condition:** Do not begin production implementation or activate shared CFA boundaries without explicit authorization.
+- **Objective:** Reconcile the semantic Space / presentation Workspace seam and define the smallest reconstructable workspace contract.
+- **Milestone:** M2 — Reconstructable Space / Workspace / Canvas.
+- **Dependencies:** CFA-01 semantic Space/membership meaning; CFA-02 durable presentation-state/reconstruction constraints. These are peer evidence gates, not activated shared boundaries.
+- **Peer inputs required:** Current CFA-01 Space contract and CFA-02 durable record/revision/reconstruction constraints.
+- **Tooling required:** Existing world-surface falsifier blueprint; thin deterministic reconstruction fixture only if the contract can be stated without implementation coupling.
+- **Write scope:** Own CFA-08 home and bounded Workspace/Space design artifacts.
+- **Next action:** Map Space, Workspace, View, Layout and Interaction State into one reconstruction lifecycle while preserving CFA-01 semantic Space ownership and CFA-02 durable-data ownership.
+- **Completion condition:** Evidence-backed bounded seam contract with explicit persistence classification, reconstruction invariant, owner handoffs, falsifiers and remaining unknowns.
+- **Stop condition:** Stop on unresolved semantic ownership, durable-data policy conflict, Ω-law collision, or need for production implementation. Do not build frontend/runtime code.
 
 ## Future task intake
 
@@ -35,6 +39,14 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 - **Receipt:** `RESULTS/CFA08-STRATEGIC-ROADMAP-20260927-0721.md`
 - **Completion commit:** 44859bfed5c04412523e7f857162735e3c618254
 - **Result:** Independent five-milestone CFA-08 strategic roadmap persisted with milestone success criteria/falsifiers, dependency model, tooling/substrate assessment, milestone-specific peer-intelligence gates, strategic decision gates, product consequences, deferred/do-not-do boundaries, and inherited-plan classifications. No new Round-1 peer roadmaps were consumed before local completion. No Ω law, shared boundary, or production implementation changes.
+
+### SURFACE-VIEW-CONTRACT-2026-09-27
+- **Status:** DONE
+- **Priority:** P2
+- **Design:** `SURFACE-VIEW-CONTRACT-2026-09-27.md`
+- **Receipt:** `RESULTS/CFA08-SURFACE-VIEW-CONTRACT-20260927-0721.md`
+- **Completion:** Bounded M1 contract persisted and verified. It separates Subject Reference, Projection, View, Layout and Interaction State; defines freshness and mutation/reconstruction invariants; preserves peer semantic ownership; and leaves final durable storage and other unresolved seams explicit.
+- **Completion commit:** pending this branch merge
 
 ## Queue discipline
 
