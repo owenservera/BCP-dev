@@ -66,6 +66,24 @@ CANONICAL VIEWS CHANGE ONLY IF JUSTIFIED
 
 Subagent findings never become authority merely because an agent produced them.
 
+## Post-ratification CFA operating stage
+
+Bootstrap and investigation prompts are not the substantive work scheduler for a ratified CFA.
+
+Once a CFA identity is ratified and its home is cold-startable, the next stage is **CFA-owned domain roadmap formation**. The CFA must characterize its own responsibility frontier and populate its own `TASKS.md` before the Architecture Steward selects a shared execution frontier.
+
+Use:
+- `../CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
+- `../CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
+
+Destination plans, P1 workstreams, delivery cycles and previous Steward recommendations remain candidate inputs until the responsible CFA adopts them. A `CURRENT` or `READY` label in a downstream plan is not a CFA mandate.
+
+The Steward's sequence is:
+
+`VERIFY CFA ROADMAPS → COMPARE → RECONCILE → MAP TO DESTINATION/P1 → SELECT SHARED FRONTIER`
+
+Do not skip the CFA planning stage.
+
 ## Core Function Areas vs investigation instruments
 
 A **Core Function Area** is an enduring architectural responsibility with a durable identity, boundary, interfaces and operating loop. An **investigation instrument** is a reusable method such as discovery, proof audit, archaeology, falsification, journey tracing or convergence synthesis.
