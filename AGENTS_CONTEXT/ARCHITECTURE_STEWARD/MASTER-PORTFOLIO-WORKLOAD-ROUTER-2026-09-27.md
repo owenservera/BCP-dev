@@ -28,7 +28,7 @@ A local `READY`, `NEXT`, `WAITING`, or historical wave label does not override t
 
 | CFA | Portfolio role | Current state | Current enablement |
 |---|---|---|---|
-| CFA-01 | World / semantic-reference closure | M1 evidence complete; waiting peer input | SEAM-CLOSURE |
+| CFA-01 | World / semantic-reference closure | M1/M2 evidence complete; Stage-E L2 World/Object basis characterized; central L2 reconciliation pending | STAGE-E / SEAM-CLOSURE |
 | CFA-02 | Data continuity / external acquisition | M1 complete; M2 empirically blocked | EMPIRICAL-BLOCKER |
 | CFA-03 | Semantic grounding / self-knowledge | M1 complete; Stage-E gate blocked | STAGE-E |
 | CFA-04 | Authority reconstruction / live corridor | M1 evidence complete; live work waiting | SEAM-CLOSURE |
@@ -129,7 +129,7 @@ If the highest-priority package is blocked, do not loop on it. Select the next i
 2. **WP-D / generic development-acceleration kernel** — mechanically independent and useful to all CFAs.
 3. **WP-A / named seam and evidence closure** — parallel CFA-owned work.
 4. **WP-B / empirical blockers** — execute when required owner-machine/runtime environments are available.
-5. **WP-C / bounded CFA-07 and CFA-08 design closure.**
+5. **WP-C / bounded CFA-07 and CFA-08 design tasks.**
 6. After sufficient closure: select one narrow governed consequential corridor.
 
 This ordering is not a ranking of the CFAs. It is the order of shared enablement dependencies.
@@ -161,6 +161,6 @@ Any mismatch is routing drift and should be corrected by updating the projection
 
 **Parallel enabling frontier: WP-D central generic development-acceleration kernel.**
 
-**Parallel domain frontier: WP-A seam closure plus the two empirical blockers and bounded CFA-07/CFA-08 design tasks.**
+**Parallel domain frontier:** Stage-E L2 owner adapter characterization is now closed for **CFA-01**; remaining L2 owner inputs are still open, and central L2 reconciliation remains required before L3.
 
 Production/runtime joins remain gated.
