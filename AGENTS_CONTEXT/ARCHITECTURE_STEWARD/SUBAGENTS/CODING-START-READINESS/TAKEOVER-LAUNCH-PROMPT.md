@@ -6,6 +6,12 @@ https://github.com/owenservera/BCP-dev
 Access:
 You have full GitHub access to the owner's account and should use it directly.
 
+> **SUPERSEDED / HISTORICAL — DO NOT USE AS THE CURRENT WORK SELECTOR.**
+> This takeover prompt describes an earlier coding-start readiness operation. Its implementation mandate is not active merely because it remains in the repository.
+> Before reactivation, the current ten CFA domain roadmaps must exist, the Architecture Steward must reconcile them, and the owner must explicitly launch the resulting bounded implementation/readiness task.
+> Current planning entry: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`.
+
+
 ## Mission
 
 You are the TASK OWNER for the complete VIVIM / Ω coding-start-readiness operation.
