@@ -1,25 +1,13 @@
-## CURRENT PORTFOLIO ROUTING — 2026-09-27
+## CURRENT PORTFOLIO ROUTING — 2026-09-28
 
 > **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
 > **CFA:** CFA-01
 > **Portfolio package:** STAGE-E
-> **Current portfolio state:** M1/M2 evidence complete; Stage-E L2 adapter characterization active
+> **Current portfolio state:** Stage-E L2 World/Object basis adapter characterized; central L2 reconciliation remains pending
 
 Local TASKS remains CFA-owned execution detail. Historical local routers/prompts are lineage only and cannot override the master portfolio router.
 
 ## Open tasks
-
-### STAGE-E-L2-CFA01-WORLD-BASIS-ADAPTER-2026-09-27
-- **Status:** READY — OWNER-BOUNDED CHARACTERIZATION
-- **Priority:** P0
-- **Objective:** Characterize the CFA-01-owned World/Object basis input for Stage-E derived-view freshness without creating a new identity store or shared semantic contract.
-- **Milestone:** Stage-E L2 — Source and runtime basis adapters.
-- **Required characterization:** canonical World/Object source token; revision/observation identity available today; bounded resolver; comparison rule; STALE condition; UNRESOLVABLE condition; evidence refs; falsifier; explicit UNKNOWN/DEFERRED items.
-- **Primary evidence:** current canonical World/Object identity/revision evidence and the existing WorldReferenceResult-shaped basis/freshness fields.
-- **Write scope:** CFA-01 home documentation only; no runtime adapter implementation or shared-boundary activation.
-- **Completion condition:** the adapter names its owner, canonical source, comparison token, resolver, stale/unresolvable behavior, evidence and falsifier, or explicitly records the missing evidence as UNKNOWN/BLOCKED.
-- **Stop condition:** owner-policy ambiguity, peer-owned semantics, Ω-law collision, or insufficient evidence.
-- **Next action:** produce the bounded CFA-01 World/Object basis-adapter characterization, then persist a durable receipt.
 
 ### WORLD-M3-CONTEXT-WORLD-PROJECTION-EVIDENCE-2026-09-27
 - **Status:** READY
@@ -36,31 +24,39 @@ Local TASKS remains CFA-owned execution detail. Historical local routers/prompts
 
 ## First bounded actionable task
 
-STAGE-E-L2-CFA01-WORLD-BASIS-ADAPTER-2026-09-27 is the current P0 action.
+No CFA-01 Stage-E L2 owner task remains open. The completed L2 adapter is awaiting central reconciliation; the next independently enabled CFA-owned task is `WORLD-M3-CONTEXT-WORLD-PROJECTION-EVIDENCE-2026-09-27`.
 
 ## Completed task history
+
+### STAGE-E-L2-CFA01-WORLD-BASIS-ADAPTER-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-28
+- **Artifact:** `STAGE-E-L2-CFA01-WORLD-BASIS-ADAPTER-CHARACTERIZATION-2026-09-28.md`
+- **Receipt:** `RESULTS/STAGE-E-L2-CFA01-WORLD-BASIS-ADAPTER-20260928.md`
+- **Result:** Owner-characterized the strongest World/Object freshness basis as canonical vault `(ns,id,rev)`, with optional CID; rejected WorldModel.v/timestamps as complete freshness proof; defined resolution and stale/unresolvable/conflict behavior; recorded runtime propagation as UNKNOWN/deferred; no implementation or boundary activation.
+
+### WORLD-M2-REFERENCE-CORRESPONDENCE-EVIDENCE-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Evidence packet:** `M2-REFERENCE-CORRESPONDENCE-EVIDENCE-2026-09-27.md`
+- **Result:** M2 closed at design/evidence level; five resolution states and non-collapse rules preserved; production resolver mechanics not started.
 
 ### WORLD-M1-SEMANTIC-KERNEL-EVIDENCE-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
 - **Evidence packet:** `M1-SEMANTIC-KERNEL-EVIDENCE-2026-09-27.md`
-- **Result:** Minimum semantic World kernel characterized; 18 non-collapse invariants and 10 falsifier cases documented; evidence map, A–D central input contribution, peer seams and unresolved gaps persisted.
-- **Key unresolved items:** semantic identity over time; observation→World assertion; CFA-03 reference-result acceptance; CFA-04 accessible semantics; universal Event/State status; provider/source realism; projection basis/freshness.
-- **Guardrail:** no boundary activated, no Ω law changed, no production implementation started.
+- **Result:** Minimum semantic World kernel characterized; 18 non-collapse invariants and 10 falsifier cases documented.
 
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
 - **Primary correction commit:** `2fd549ab79f5a7f6f2f799c71e7ddff9df37819f`
-- **Result receipt:** `RESULTS/CFA01-HOME-UPGRADE-20260927T0337Z.md`
-- **Receipt commit:** `f1b0a252f28d29bd06f538fdc5e256d5a34152f6`
-- **Result:** Ratified front-door metadata reconciled with current identity; session navigation updated to FSSP-1.3; stale bootstrap status removed; completion receipt persisted.
+- **Receipt:** `RESULTS/CFA01-HOME-UPGRADE-20260927T0337Z.md`
 
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
 - **Roadmap:** `DOMAIN-ROADMAP-2026-09-27.md`
 - **Receipt:** `RESULTS/CFA01-20260927-STRATEGIC-ROADMAP-R1.md`
-- **Result:** Independent first-pass strategic roadmap persisted with five conceptual milestones, success/falsifiers, dependency model, tooling assessment, milestone-specific peer intelligence gates, strategic decision gates, product consequences, deferred/do-not-do boundary, and inherited-plan classifications.
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
