@@ -84,7 +84,7 @@
 - **Stage D:** DONE — receipt `GRAPH-W1-D-PROOF-EVIDENCE-ATTACHMENT-RECEIPT-2026-09-27.md`; commit `3b009ac92a4e312fc73e19d0a5cea3eb1a91d068` (source-identity correction included).
 - **Stage E readiness assessment:** DONE / BLOCKED — receipt `BOUNDARY-DESIGN-SYSTEM/GRAPH-W1-E-SELF-KNOWLEDGE-READINESS-ASSESSMENT-RECEIPT-2026-09-27.md`; commit `5eed9ed10a8b1a38a2237de244debd2d37ba06f9`.
 - **Stage E runtime joins:** BLOCKED — the separate self-knowledge design/evidence gate is not yet satisfied.
-- **Next action:** execute the Stage-E readiness workload defined in `BOUNDARY-DESIGN-SYSTEM/STAGE-E-SELF-KNOWLEDGE-READINESS-WORKLOAD-DESIGN-2026-09-27.md`; runtime joins remain blocked until its gate passes.
+- **Next action:** execute **Stage E L2 — source and runtime basis adapters**; runtime joins remain blocked until the full readiness gate passes.
 - **Stop condition:** any request to create a second graph, infer semantic authority from code topology, or collapse UNKNOWN into dependency.
 
 ### SELECT-GOVERNED-CORRIDOR-AFTER-M1-2026-09-27
@@ -146,6 +146,14 @@
 - **Authority:** projection only.
 
 ## Completed task history
+
+### STAGE-E-L1-DERIVEDVIEW-FRESHNESS-2026-09-27
+- **Status:** DONE / GENERIC CONTRACT CLOSED
+- **Priority:** P0
+- **Artifact:** `BOUNDARY-DESIGN-SYSTEM/STAGE-E-L1-DERIVEDVIEW-FRESHNESS-CONTRACT-2026-09-27.md`
+- **Receipt:** `BOUNDARY-DESIGN-SYSTEM/GRAPH-W1-E-L1-DERIVEDVIEW-FRESHNESS-RECEIPT-2026-09-27.md`
+- **Result:** Generic DerivedView, BasisRef, dependency identity, derivation identity, deterministic basis digest, computed freshness, restart/lazy validation, external observation boundary and L1 falsifiers are closed. Domain-specific basis mappings remain L2.
+- **Next:** L2 source/runtime basis adapters.
 
 ### STAGE-E-L0-READINESS-CONTRACT-2026-09-27
 - **Status:** DONE
