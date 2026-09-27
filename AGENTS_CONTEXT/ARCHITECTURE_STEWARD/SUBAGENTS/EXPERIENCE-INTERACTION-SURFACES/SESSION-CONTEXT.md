@@ -5,16 +5,20 @@
 > Navigation aid only; not authority itself.
 > Last validated: 2026-09-27
 
-## Current strategic planning assignment
+## Current assignment
 
-This CFA is participating in **CFA Strategic Roadmap Round 1 — Independent Parallel Planning**.
+CFA-08 is participating in **CFA Strategic Roadmap Round 1 — Independent Parallel Planning**.
 
-Follow the shared protocol:
+Governing protocol:
 `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
 
-The current assigned task is the strategic roadmap task in `TASKS.md`. Do not infer the substantive roadmap from an archived launch sequence, destination cycle, P1 workstream, or another CFA's new Round-1 result.
+Current local roadmap:
+`DOMAIN-ROADMAP-2026-09-27.md`
 
-This front-door assignment does not prescribe the roadmap's conclusions. The CFA must independently determine its own milestones, success criteria, dependencies, tooling, design gates, and milestone-specific peer-intelligence needs.
+Current next bounded task:
+`SURFACE-VIEW-CONTRACT-2026-09-27`
+
+During the Round-1 first pass, do not consume new peer Round-1 roadmaps before this local roadmap is complete. Central cross-CFA synthesis happens later under Architecture Steward ownership.
 
 ## Identity
 - CFA: CFA-08 — Experience / Interaction / Surfaces
@@ -32,7 +36,11 @@ This front-door assignment does not prescribe the roadmap's conclusions. The CFA
 Human-facing representation, navigation, manipulation, configuration and re-entry across World, Context, Intent, Work, capabilities and compositions.
 
 ## Core invariants
-Canonical semantic state != presentation state. Gesture != semantic effect. A stale, partial, conflicted or refused surface must not silently become canonical meaning. Semantic mutation returns through the owning typed contract.
+- canonical semantic state != presentation state
+- gesture != semantic effect
+- presentation != authority
+- unknown != failure
+- confidence != proof
 
 ## Key boundaries
 - CFA-01 owns semantic World / Space / Context; CFA-08 owns perception, navigation and workspace/layout realization.
@@ -45,22 +53,24 @@ Canonical semantic state != presentation state. Gesture != semantic effect. A st
 - CFA-10 owns K0/K1 runtime enforcement; CFA-08 presents relevant runtime state.
 - CFA-02 remains explicitly provisional for durable-data ownership.
 
-## Current frontier
-See `STATE.md` for the active Experience / Interaction / Surfaces frontiers and unresolved seams.
+## Strategic roadmap shape
 
-## This session
-- Task: `HOME-UPGRADE-2026-09-27`
-- Target: `main`
-- Current main verified during upgrade: `20d127685215c358f6dd33930c24936eef2d04fa`
-- Execution strategy: INDEPENDENT home maintenance; own-home write scope only.
-- Result receipt: `RESULTS/CFA08-HOME-UPGRADE-20260927-0538.md`
-- Completion rule: persist the receipt and durable upgrade changes, verify them, then mark the home-upgrade task DONE.
+The independent first-pass roadmap defines five conceptual milestones:
+
+1. Surface / Projection Contract
+2. Reconstructable Space / Workspace / Canvas
+3. Interaction Convergence / Direct Manipulation
+4. Truthful Continuity: Freshness, Evidence, Work, Attention and Re-entry
+5. Replaceable Multi-Surface Experience and Measured Parity
+
+See the roadmap for milestone evidence, success criteria, falsifiers, dependencies, tooling, peer-intelligence gates, decision gates, product consequences and inherited-plan classifications.
 
 ## Fresh-session navigation
+
 1. Read `/AGENTS.md`, `/BUILD_CONTEXT.md`, `/docs/CURRENT-CONTEXT.md`, `/AGENTS_CONTEXT/README.md`.
-2. Read `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CHATGPT-AGENT-OPERATING-MODEL.md` and `CHATGPT-FRESH-SESSION-PROTOCOL.md`.
+2. Read `CHATGPT-AGENT-OPERATING-MODEL.md`, `CHATGPT-FRESH-SESSION-PROTOCOL.md`, and the CFA roadmap protocol.
 3. Read `CORE-AGENT.md`, `STATE.md`, `TASKS.md`, `LESSONS.md`.
-4. Read alignment/history and only the peer/Ω/destination material relevant to the active task.
+4. Read the latest alignment/history and only the peer/Ω/destination material required by the active task.
 5. Read the latest `RESULTS/` receipt before relying on a prior session's completion claim.
 
 ## Commons
@@ -68,5 +78,9 @@ See `STATE.md` for the active Experience / Interaction / Surfaces frontiers and 
 - Local scaffold: `commons/`
 - Hosted connector session: repository read/write is available; no recoverable Commons signing key is claimed. Do not fabricate Commons events or signatures.
 
-## Baseline note
-A historical baseline may be retained for orientation, but it is informational only. Fresh sessions must resolve and verify the current `main`/target ref.
+## Current state
+- strategic roadmap Round 1: COMPLETE
+- domain mission execution: NOT STARTED
+- shared CFA boundaries: UNACTIVATED
+- Ω law: UNCHANGED
+- production implementation: NOT AUTHORIZED
