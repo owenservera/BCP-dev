@@ -6,7 +6,7 @@
 
 ## Receipt verification state
 
-LAST_VERIFIED_RECEIPTS_SHA: 96cd96bf346dd6df798cdad06d6e061e16eb065d
+LAST_VERIFIED_RECEIPTS_SHA: f33e98f93c5fd9f29eee2537863f9c9486234d38
 
 The receipt cursor is a verification pointer, not a work-order gate. Fresh sessions must resolve current `main` independently.
 
