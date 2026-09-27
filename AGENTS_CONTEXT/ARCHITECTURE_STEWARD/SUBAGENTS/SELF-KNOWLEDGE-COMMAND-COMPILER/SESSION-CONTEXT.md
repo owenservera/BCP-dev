@@ -47,8 +47,8 @@ Shared boundaries remain unactivated unless a separately verified and authorized
 - CFA-03 identity is ratified and verified.
 - Round-2 reconciliation is persisted in `BOUNDARY-ROUND-2-ADDENDUM-2026-09-27.md`.
 - RP-01 is classified AGREED on the CFA-03 side.
-- RP-02 and RP-06 remain UNKNOWN pending peer-side Round-2 acceptance.
-- Deeper mission work remains queued rather than launched by this home-upgrade session.
+- RP-02 and RP-06 are AGREED in current peer-side Round-2 reconciliation.
+- M1 semantic baseline is complete; deeper milestones remain queued.
 
 ## Verified baseline
 `8353bb2db22b6f2e45f628c4c79ed42d5d8a56fb`
@@ -62,3 +62,10 @@ The recorded baseline above is orientation only. Fresh sessions must independent
 - Durable state: `STATE.md`
 - Durable lessons: `LESSONS.md`
 - Completion receipts: `RESULTS/`
+
+
+## M1 outputs
+- `DOMAIN-ROADMAP-2026-09-27.md` — strategic roadmap
+- `FINDINGS.md` — current semantic trace and evidence-backed gaps
+- `CROSSWALK.md` — identity/state/terminology crosswalk
+- Current M1 gaps: complete Intent→Plan→Work continuity, generalized freshness, visual semantic write-back, and broader relation vocabulary remain unproven or require later reconciliation.
