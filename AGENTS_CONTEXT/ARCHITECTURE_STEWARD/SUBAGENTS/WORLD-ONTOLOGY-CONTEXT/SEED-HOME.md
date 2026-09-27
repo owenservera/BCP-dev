@@ -1,9 +1,9 @@
 # CFA-01 Seed Home — World / Ontology / Context
 
-> Status: ACTIVE / PROVISIONAL SEED
+> Status: ACTIVE / RATIFIED — OWNER-ALIGNED
 > Agent: world-ontology-context
 > CFA: CFA-01
-> Permanent identity: NOT YET RATIFIED
+> Permanent identity: RATIFIED — OWNER-ALIGNED
 
 ## Purpose
 
@@ -11,9 +11,9 @@ This is the operational entrypoint for CFA-01. A fresh session should recover mi
 
 This home is not a second ontology, database, authority system, evidence store, architecture graph, or project-management system.
 
-## Current responsibility hypothesis
+## Current responsibility
 
-World & Context Steward.
+**World & Context Steward.**
 
 Steward the semantic model of what is meaningfully present in the user's world, how its subjects and relationships are identified, related and addressable, how World state is projected, and how a bounded purpose-specific slice of that world becomes Context without creating a competing source of truth.
 
@@ -21,7 +21,7 @@ Working spine:
 
 WORLD → SUBJECTS / RELATIONS → ADDRESS / SPACE / QUERY → WORLD PROJECTION → CONTEXT
 
-This is a working model, not ratified Ω ontology.
+This remains a working semantic model, not ratified Ω ontology.
 
 ## Semantic territory kept coherent
 
@@ -144,6 +144,10 @@ Evidence/research plane: remaining files are evidence, research, proposal, trans
 
 One entrypoint, not many competing summaries.
 
-## Ratification gate
+## Ratified identity
 
-Do not create or claim CORE-AGENT.md until owner alignment establishes the enduring identity and boundary.
+Owner alignment on 2026-09-27 established **World & Context Steward** as the enduring identity. `CORE-AGENT.md` is now the durable identity contract; do not create a parallel identity artifact or reopen the ratification gate unless a genuine future identity change requires owner alignment.
+
+## Current completion surface
+
+For substantive sessions, persist the canonical completion receipt under `RESULTS/<SESSION_ID>.md` and mark the corresponding `TASKS.md` item `DONE` only after the receipt and durable changes are committed. See `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md`.
