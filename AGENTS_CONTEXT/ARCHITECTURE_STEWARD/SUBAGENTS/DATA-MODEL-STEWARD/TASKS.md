@@ -19,7 +19,7 @@
 - **Stop condition:** Stop at an owner decision, material peer ownership conflict, Ω-law collision, or insufficient evidence. Do not start production implementation.
 
 ### DATA-CONTINUITY-CORRIDOR-1-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
 - **Priority:** P1
 - **Purpose:** Build the smallest evidence-backed continuity contract candidate from one provider conversation acquisition corridor and one durable object/export corridor.
 - **Advances:** M1 — Data Continuity Contract and Evidence Model; feeds M2 corridor proof.
