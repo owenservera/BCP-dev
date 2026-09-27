@@ -24,7 +24,9 @@
 - **Wave 3:** COMPLETE — all six receipts present on current `main`.
 - **Wave 4:** DONE — receipt `BOUNDARY-DESIGN-SYSTEM/WAVE-4-COMPLETION-AUDIT-2026-09-27.md`; Graph Gate OPEN.
 - **Next wave:** GRAPH-ATTACHMENT-WAVE-1 — Architecture Graph revalidation → linked implementation projection contract → bounded Source-Code Graph pilot.
-- **Human workflow:** send exactly one `Next` to Architecture Steward for Graph Stage A.
+- **Stage A:** DONE — receipt `GRAPH-W1-A-REVALIDATION-RECEIPT-2026-09-27.md`; structural revalidation passed, direct local regeneration limitation recorded.
+- **Stage B:** **NEXT / EXECUTE NOW — linked implementation-projection contract**.
+- **Human workflow:** send exactly one `Next` to Architecture Steward for Graph Stage B.
 - **Lineage rule:** graph-stage eligibility is derived from current main plus the required stage receipts; local cached state is subordinate.
 
 ### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
