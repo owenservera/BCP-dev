@@ -8,23 +8,24 @@
 ## Open tasks
 
 ### CFA-05-10-BOUNDARY-GATE-BEFORE-GRAPH-2026-09-27
-- **Status:** WAVE 3 CURRENT — RECEIPT-DRIVEN
+- **Status:** WAVE 4 CURRENT — STEWARD COMPLETION AUDIT
 - **Priority:** P0
 - **Canonical protocol:** `BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`
 - **Canonical router:** `BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
 - **Wave 1:** DONE — 6/6 baselines.
 - **Wave 2:** DONE — Steward reconciliation + Wave-3 queue.
 - **Wave 3:** sequential and receipt-driven: CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10.
-- **CFA-05:** DONE — receipt exists, commit `a4684afb2b7cb982ba2fc4de903319345ee1506e`.
-- **CFA-06:** **NEXT / EXECUTE NOW**.
-- **CFA-07:** waits on CFA-06 receipt.
-- **CFA-08:** waits on CFA-07 receipt.
-- **CFA-09:** waits on CFA-08 receipt.
-- **CFA-10:** waits on CFA-09 receipt.
-- **Human workflow:** send exactly **one `Next` to each CFA in sequence**, advancing only after the previous CFA reports completion. No second `Next` is required for a stale-router correction.
-- **Wave 4:** after CFA-10 receipt, send `Next` to Steward.
-- **Graph Gate:** CLOSED until Wave 4.
-- **Lineage rule:** every CFA recomputes eligibility from current `main` and the committed receipt paths in the canonical router; local cached state is subordinate.
+- **CFA-05:** DONE — receipt exists; blob `1ee0aaddc5566b364d5a20b84784d442b1b61899`.
+- **CFA-06:** DONE — receipt exists; blob `8aa3f5be83092baa0ab3e40fabd0ced1df47b760`.
+- **CFA-07:** DONE — receipt exists; blob `e3cf9f196325afc7eb6b1f7230d5ae3b5488cc71`.
+- **CFA-08:** DONE — receipt exists; blob `17626d7586a463ca0bb3fb90108e1b0bff9623eb`.
+- **CFA-09:** DONE — receipt exists; blob `53835c665a098a8b56c706f59f9d6431dc1682e3`.
+- **CFA-10:** DONE — receipt exists; blob `e420ad08854a47c663077ba7c05e6be1c8a6e40f`.
+- **Wave 3:** COMPLETE — all six receipts present on current `main`.
+- **Wave 4:** **NEXT / EXECUTE NOW — Architecture Steward final completion audit**.
+- **Graph Gate:** CLOSED pending Wave-4 decision.
+- **Human workflow:** send exactly **one `Next` to Architecture Steward**. No CFA should receive another Wave-3 `Next`.
+- **Lineage rule:** Wave-4 eligibility is derived from current `main` plus the six committed receipt paths; local cached CFA state is subordinate.
 
 ### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
 - **Status:** DONE / CENTRAL DESIGN FROZEN
