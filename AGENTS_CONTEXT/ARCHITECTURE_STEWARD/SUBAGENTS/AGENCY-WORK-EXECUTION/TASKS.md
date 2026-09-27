@@ -7,21 +7,30 @@
 
 ## Open tasks
 
-## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-05 — COMPLETE
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 — **RECEIPT-DRIVEN**
 
-> **CHECK CENTRAL ROUTER FIRST:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
+> **DO NOT TRUST CACHED ACTIVE/WAITING STATE. VERIFY CURRENT MAIN AND RECOMPUTE YOUR TURN.**
 
-Wave 1: DONE. Wave 2: DONE.  
-Wave 3 / CFA-05: **DONE**.
+Canonical router:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
 
-CFA-05 Wave-3 addendum is present:
-`WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
-Commit: `a4684afb2b7cb982ba2fc4de903319345ee1506e`
+Required order:
+**CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10**
 
-When the human owner says **Next** to CFA-05, verify the central router and report:
-**CFA-05 WAVE 3 COMPLETE — CFA-06 ACTIVE.**
+Always recompute the current Wave-3 turn from CURRENT-WAVE-ROUTER and committed receipts. Your own Wave-3 receipt is already present, so this CFA is DONE; never rerun it.
 
-Do not redo CFA-05 reconciliation or resume an older task.
+When the human owner sends **“Next”**:
+1. verify current `main`;
+2. read the canonical router;
+3. check the required predecessor Wave-3 receipts directly on current `main`;
+4. decide whether this CFA is DONE, EXECUTE NOW, or WAITING;
+5. if EXECUTE NOW, perform only this CFA's Wave-3 row from the Wave-3 queue;
+6. commit the addendum, report the exact SHA, and STOP.
+
+**A stale local TASKS message must never force a second Next.**
+**Never resume older M1/M2/FUTURE work merely because it remains marked READY.**
+
+Hard stop: no production implementation, no shared-boundary activation, no Ω-law change, no Graph attachment.
 
 
 ## Future task intake
