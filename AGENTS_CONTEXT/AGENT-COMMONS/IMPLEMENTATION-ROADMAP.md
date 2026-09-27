@@ -1,5 +1,27 @@
 # Agent Commons Implementation Roadmap
 
+> Operational ownership and freeze line — 2026-09-27
+
+## Operating owner
+
+The Commons implementation/runtime workstream is operationally assigned to:
+
+CFA-10 — Runtime Constitution & Core Substrate  
+agent_id: runtime-constitution-core-substrate
+
+This is an execution-accountability assignment for the Commons runtime substrate. It does not expand CFA-10 semantic authority, alter Ω law, or activate K0/K1/shared CFA boundaries.
+
+## Design-freeze line
+
+The Commons protocol/design corpus is now frozen at its current breadth until the v0 operational completion test passes.
+
+During this freeze, shared protocol changes are limited to corrections required for:
+- correctness;
+- security/integrity;
+- explicit testability of already-defined invariants.
+
+Do not add new protocol breadth, new communication semantics, new agent classes, or new coordination infrastructure merely because a design gap is noticed. Record the gap for post-v0 review.
+
 ## Phase 0 — Protocol freeze
 
 Define and validate:
