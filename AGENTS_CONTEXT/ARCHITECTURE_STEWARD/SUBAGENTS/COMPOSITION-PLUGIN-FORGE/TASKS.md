@@ -8,7 +8,11 @@
 ## Open tasks
 
 ### COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27
-- **Status:** IN_PROGRESS
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result:** `COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27.md`
+- **Receipt:** `RESULTS/COMPOSITION-IDENTITY-SURVIVOR-PROOF-20260927.md`
+- **Commit:** recorded in the session receipt
 - **Priority:** P1
 - **Objective:** Establish the smallest semantic Composition identity and falsifiable survivor properties across valid plugin/realization replacement.
 - **Milestone:** M1 / M4 of `DOMAIN-ROADMAP-2026-09-27.md`.
@@ -19,6 +23,16 @@
 - **Next action:** Inventory current composition/Recipe identity fields and classify candidate survivor properties as semantic, representational, member-specific, or change-specific.
 - **Completion condition:** A compact identity model, replacement-class matrix, falsifiers, evidence lineage, explicit peer handoffs, and truthful UNKNOWN/CONFLICTED items are persisted; no Ω law or peer-owned semantics are rewritten.
 - **Stop condition:** Stop on Ω-law collision, material ownership conflict, or missing authority needed to decide a boundary.
+
+### COMPOSITION-IDENTITY-PEER-RECONCILIATION-2026-09-27
+- **Status:** WAITING
+- **Priority:** P1
+- **Objective:** Reconcile the proposed Composition identity and survivor matrix with peer-owned Work, Evolution, Runtime and Data semantics before any wire/schema change.
+- **Dependencies:** Targeted peer evidence from CFA-05, CFA-09, CFA-10 and CFA-02; no new semantic dependency is assumed before reconciliation.
+- **Write scope:** Own CFA-07 research/seam artifacts only.
+- **Next action:** Consume confirmed peer evidence when available and classify each unresolved replacement class/ survivor property as retained, revised, or deferred.
+- **Completion condition:** Peer-owned semantics are reconciled without duplicating authority, data, Work, evolution or runtime responsibility.
+- **Stop condition:** material ownership conflict, Ω-law collision, or unresolved owner policy.
 
 ## Future task intake
 
