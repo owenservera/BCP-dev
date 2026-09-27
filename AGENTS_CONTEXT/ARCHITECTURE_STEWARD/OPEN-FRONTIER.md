@@ -1,38 +1,36 @@
 # Architecture Steward — Open Frontier
 
-> Current phase: establish the missing planning layer between ratified CFA homes and cross-CFA execution.
+> Current phase: **CFA Strategic Roadmap Round 1 — Independent Parallel Planning**
 
 ## Immediate Steward work
 
-1. Launch the CFA Domain Roadmap Formation wave.
-2. Verify each CFA's durable roadmap and TASKS.md against current repository evidence.
-3. Compare the ten roadmaps for overlap, missing responsibility and true dependencies.
-4. Reconcile adopted/deferred/rejected destination and P1 work against CFA-owned plans.
-5. Produce the smallest bounded cross-CFA execution frontier.
-6. Only then compile the next owner action package.
+1. Launch the ten independent CFA strategic-roadmap sessions.
+2. Verify each local roadmap, task queue and completion receipt.
+3. Compare conceptual milestones without forcing identical internal structure.
+4. Consolidate milestone-specific peer intelligence requests.
+5. Confirm true cross-CFA dependencies from evidence rather than requests alone.
+6. Reconcile tooling/substrate needs and strategic decision gates.
+7. Populate the single central cross-CFA roadmap.
+8. Only then select the first bounded shared execution frontier.
 
 ## Planning invariant
 
-A destination-wide program plan is not a substitute for a domain-owner roadmap.
+The control flow is:
 
-The Steward must not jump from:
+`RATIFIED CFA → HOME READY → LOCAL STRATEGIC ROADMAP → LOCAL TASK QUEUE → CENTRAL STEWARD SYNTHESIS → SHARED FRONTIER → EXECUTION`
 
-`HOME READY → DOWNSTREAM PRODUCT CYCLE`
+A downstream product cycle or P1 workstream cannot skip the local-roadmap stage.
 
-without the intermediate:
+## Dual-roadmap model
 
-`HOME READY → CFA ROADMAP → CFA TASK QUEUE → CROSS-CFA RECONCILIATION → SHARED FRONTIER`
+Each CFA keeps its own richer `DOMAIN-ROADMAP-2026-09-27.md`.
 
-## Downstream candidate material
+The Steward keeps one central synthesis:
 
-Build-and-Harvest, P1 workstreams, Cycle 4 Live Chrome / Accounts, and existing destination reconciliation packages remain valuable evidence. They are candidate inputs to be evaluated by the CFAs and later reconciled by the Steward.
+`CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`
 
-## Later Steward work
+The central artifact links to local detail rather than copying it wholesale. Local divergence is intentional where evidence does not justify convergence.
 
-- coding-ready factory/product synthesis;
-- architecture graph regeneration;
-- broader drift automation;
-- generated views;
-- additional infrastructure.
+## Current candidate material
 
-These may resume only after the current planning transition is complete.
+Build-and-Harvest, P1 workstreams, Cycle 4 / Live Chrome, and prior Coding Start Readiness remain evidence/candidate inputs. None is a current execution mandate until the strategic round is reconciled.
