@@ -1,7 +1,7 @@
 # Architecture Steward — Current Mission
 
 > Updated: 2026-09-27
-> Status: ACTIVE / GRAPH ATTACHMENT WAVE 1
+> Status: ACTIVE / STAGE-E L2 RECONCILED → L3 GRAPH-BUNDLE
 > Authority: derived Steward operating state; not Ω law or semantic authority.
 
 ## Current phase
@@ -27,7 +27,7 @@ The overlay does not cancel or replace the existing M1 CFA-owned evidence tasks.
 
 **Wave 1, Wave 2, Wave 3 and Wave 4 are complete.** The six CFA receipts and the Steward completion audit are durable on current `main`; Graph Gate is OPEN.
 
-**Current next:** Drive the master portfolio workload. WP-E closes the Stage-E self-knowledge readiness gate; WP-D implements the generic development-acceleration kernel; WP-A/WP-B/WP-C proceed in parallel where enabled. The Graph Attachment Stage-E runtime join remains blocked until WP-E passes.
+**Current next:** Execute the single bounded L3 Steward graph-bundle contract/design action. L2 is centrally reconciled across all seven owner adapters. WP-D implements the generic development-acceleration kernel and WP-A/WP-B/WP-C continue in parallel where enabled. Runtime self-knowledge joins remain blocked until the later Stage-E readiness gates pass.
 
 Do not create a second graph, infer architecture from imports/calls alone, or attach live-proof claims without evidence.
 
@@ -78,7 +78,7 @@ Do not:
 
 ## Success condition
 
-The current frontier is Graph Attachment Wave 1. Stage A revalidation, Stage B contract freeze, Stage C pilot and Stage D evidence attachment are complete. The current frontier is the **master portfolio workload**, with WP-E Stage-E readiness as the primary gate and WP-D/WP-A/WP-B/WP-C as parallel enabled work.
+The current frontier is Graph Attachment Wave 1. Stage A revalidation, Stage B contract freeze, Stage C pilot and Stage D evidence attachment are complete. The current frontier is the **master portfolio workload**: Stage-E L2 is closed/reconciled; L3 graph-bundle design is the next bounded gate, with WP-D/WP-A/WP-B/WP-C as parallel enabled work.
 
 
 ## Master portfolio routing
