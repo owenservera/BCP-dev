@@ -92,6 +92,15 @@ Explicit non-ownership:
 
 The 2026-09-28 Authority/Data/Work seam reconciliation is complete. Result: `RESULTS/AUTHORITY-DATA-WORK-SEAM-RECONCILIATION-20260928.md`. No schema freeze, production implementation, shared-boundary activation, or Ω-law change occurred.
 
+## Stage-E L2 authority/policy adapter
+
+- Characterization: `STAGE-E-L2-CFA04-AUTHORITY-POLICY-BASIS-ADAPTER-CHARACTERIZATION-2026-09-28.md`
+- Status: CHARACTERIZED / PARTIAL.
+- Current declared basis: `law.policy` 1.9.0; law manifest 0.3.0; governed contract refs `law.describe@1` and `invoke.check@1`.
+- Repository source revisions are available as evidence; runtime immutable source binding remains UNKNOWN because manifest `contentHash` is empty and `law.describe@1` does not expose a policy/source digest.
+- Freshness rule: material basis change → STALE; missing required basis → UNRESOLVABLE; contradictory basis observations → CONFLICTED.
+- Non-authority rule: self-knowledge may describe the governing basis but cannot turn freshness into authorization.
+
 ## Active frontiers
 
 1. Understand peer boundaries from their current durable artifacts.
