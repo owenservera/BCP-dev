@@ -1,18 +1,18 @@
 # CFA-02 — Session Context
 
 > Protocol: FSSP-1.0
-> Status: PROVISIONAL / FOUNDATION-SEEDED
+ > Status: RATIFIED — OWNER-ALIGNED
 > Navigation aid only; not data authority.
 
 ## Identity
 - CFA: CFA-02 — Data / Identity / Persistence
-- working identity: Data Steward
+- identity: Data Steward
 - agent_id: `data-model`
 - workspace: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD/`
-- durable identity: not yet ratified; use `CORE-AGENT-SEED.md`
+- durable identity: `CORE-AGENT.md`
 - state: `STATE.md`
 - owner alignment task: `OWNER-ALIGNMENT-2026-09-27.md`
-- history: none yet
+- history: `IDENTITY-HISTORY.md`
 
 ## Read first
 1. global `CHATGPT-FRESH-SESSION-PROTOCOL.md`
@@ -33,7 +33,7 @@ Steward durable user-data continuity across observation, transformation, represe
 - CFA-09 owns change/migration/compatibility semantics; CFA-02 owns durable continuity implications.
 
 ## Immediate task
-Complete Owner Alignment for Data Steward. Do not self-ratify, activate shared boundaries, change Ω law or begin implementation.
+The Owner Alignment is now complete. Fresh sessions should verify the ratified identity, current STATE, relevant peers and then execute only the explicitly assigned task. Do not activate shared boundaries or change Ω law.
 
 ## Last verified baseline
 `3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
