@@ -24,6 +24,8 @@ Intent != Permission; Grounding != Authorization; Capability != Authority; Ident
 ## Current unresolved seams
 CFA-02 authority citations; CFA-01 accessible/World visibility treatment; CFA-05 multi-step authorization; runtime/evidence authority trace joins.
 
+- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+
 ## Fresh-session rule
 Already-ratified means verify, do not re-ratify. Escalate genuine owner-policy or Ω-law changes.
 
