@@ -157,6 +157,20 @@ See:
 
 The register currently identifies ten approved areas spanning World, Data, Self-Knowledge/Language, Authority, Agency/Work, Capability/Provider, Composition/Forge, Experience, Evolution, and Runtime Constitution. The register deliberately separates these enduring responsibilities from reusable investigation instruments such as discovery, proof audit, archaeology and falsification.
 
+## Ratified CFA planning stage
+
+Once a Core Function Area is ratified and its durable home is cold-startable, the next substantive stage is **CFA-owned domain roadmap formation**.
+
+The Steward must not jump directly from home readiness to a Build-and-Harvest cycle, P1 workstream or implementation slice. Each CFA first characterizes its own domain frontier and populates its persistent `TASKS.md`. The Steward then reconciles those roadmaps into a shared frontier.
+
+Current control-plane entry:
+`CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
+
+Current launch queue:
+`CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
+
+This stage is distinct from CFA birth/bootstrap and from downstream execution.
+
 ## Independent subagents
 
 The Steward may delegate bounded investigation to independent subagents when repository context may be incomplete, stale, duplicated, or improperly contextualized.
