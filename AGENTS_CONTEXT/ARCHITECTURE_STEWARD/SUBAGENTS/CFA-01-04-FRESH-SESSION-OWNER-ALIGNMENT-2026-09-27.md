@@ -1,6 +1,6 @@
 # CFA-01–04 — FRESH-SESSION OWNER ALIGNMENT / RATIFICATION PROTOCOL
 
-> **FSSP-1.0 applies first:** `CHATGPT-FRESH-SESSION-PROTOCOL.md` defines the generic ChatGPT conversation/session bootstrap. This file adds the CFA-01–04 domain sequence and owner-alignment specifics.
+> **FSSP-1.1 applies first:** `CHATGPT-FRESH-SESSION-PROTOCOL.md` defines the generic ChatGPT conversation/session bootstrap. This file adds the CFA-01–04 domain sequence and owner-alignment specifics.
 
 Repository: https://github.com/owenservera/BCP-dev
 
