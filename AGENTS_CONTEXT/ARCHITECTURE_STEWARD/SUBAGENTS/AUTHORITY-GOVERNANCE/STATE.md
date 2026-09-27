@@ -1,6 +1,6 @@
 # CFA-04 — State
 
-> Status: RATIFIED — OWNER-ALIGNED / DOMAIN EXECUTION NOT STARTED
+> Status: RATIFIED — OWNER-ALIGNED / STRATEGIC ROADMAP ROUND 1 COMPLETE
 > Updated: 2026-09-27
 
 ## Identity
@@ -62,6 +62,14 @@ Explicit non-ownership:
 - AUTHORITY-CASE-TEMPLATE.md
 - AUTHORITY-OPERATIONAL-CONTEXT.json
 - commons/README.md
+
+## Strategic roadmap state
+
+- Local strategic roadmap: `DOMAIN-ROADMAP-2026-09-27.md`
+- Roadmap status: FIRST-PASS COMPLETE / PROPOSED
+- Milestones: M1 cross-CFA contract convergence; M2 reconstructable authority state; M3 live corridor proof; M4 delegated/standing long-lived Work; M5 consequential change/sharing/self-governance.
+- First bounded actionable work: `AUTHORITY-CORRIDOR-EVIDENCE-PACK-2026-09-27` in `TASKS.md`.
+- Shared execution frontier remains unselected pending central cross-CFA reconciliation.
 
 ## Active frontiers
 
