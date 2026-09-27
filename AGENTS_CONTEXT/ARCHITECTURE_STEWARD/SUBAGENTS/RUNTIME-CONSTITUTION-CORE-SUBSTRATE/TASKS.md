@@ -26,6 +26,17 @@ When the human owner sends **“Next”**:
 Hard stop: no production implementation, no shared-boundary activation, no Ω-law change, no Graph attachment.
 
 
+## CURRENT PORTFOLIO ROUTING — 2026-09-27
+
+> **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
+> **Master structural anchor:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
+> **CFA:** CFA-10
+> **Portfolio package:** EMPIRICAL-BLOCKER
+> **Current portfolio state:** M1 K0 matrix complete; B1 containment/byte-binding underproven
+>
+> Local TASKS remains CFA-owned execution detail. Historical local routers/prompts are lineage only and cannot override the master portfolio router. Do not resurrect completed Wave-1/Wave-2/Wave-3 or bootstrap stages from stale local routing text.
+> Resolve any new `Next` against the master router first, then this local queue.
+
 ## Open tasks
 
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
