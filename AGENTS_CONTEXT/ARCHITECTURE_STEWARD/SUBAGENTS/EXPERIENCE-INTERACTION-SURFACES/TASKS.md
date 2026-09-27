@@ -7,6 +7,22 @@
 
 ## Open tasks
 
+## NEXT routing — current Wave 1 gate
+
+The first actionable task for this home is the CFA-08 boundary baseline in:
+AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md
+
+When the human owner says "Next", execute **Wave 1 / CFA-08** only:
+- verify current main and this home;
+- read owner alignment plus CFA-01–04 Round-2 Completion Audit;
+- produce BOUNDARY-BASELINE-DECLARATION-2026-09-27.md;
+- explicitly cover World/Space, Semantic/Intent, Work, Composition, Capability/Provider, canonical-vs-presentation, persistence/re-entry and write-back;
+- stop after the declaration is committed and report the exact SHA.
+
+Do not execute the older Workspace reconstruction task first. Do not build frontend/runtime code.
+
+
+
 ### SPACE-WORKSPACE-RECONSTRUCTION-2026-09-27
 - **Status:** READY
 - **Priority:** P2
