@@ -12,7 +12,8 @@
 - **Completed:** 2026-09-27
 - **Result:** `COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27.md`
 - **Receipt:** `RESULTS/COMPOSITION-IDENTITY-SURVIVOR-PROOF-20260927.md`
-- **Commit:** recorded in the session receipt
+- **Main merge commit:** `435dd2a2ef48005afd2f85fde91db016ad48b2ba`
+- **Final receipt-alignment commit:** `743a3fc8632ef9ddfa227d7434be694eaa3dc910`
 - **Priority:** P1
 - **Objective:** Establish the smallest semantic Composition identity and falsifiable survivor properties across valid plugin/realization replacement.
 - **Milestone:** M1 / M4 of `DOMAIN-ROADMAP-2026-09-27.md`.
