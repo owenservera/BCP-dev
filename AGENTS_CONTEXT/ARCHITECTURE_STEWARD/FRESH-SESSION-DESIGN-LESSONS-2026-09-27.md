@@ -4,6 +4,10 @@
 > Scope: independent ChatGPT web-app conversations acting as BCP-dev agents.
 > Authority: Steward process-learning artifact; not Ω law.
 
+## Governing operating model
+
+This lesson set is governed by `CHATGPT-AGENT-OPERATING-MODEL.md`. The durable design now separates **identity**, **session context**, **state/lessons**, and the **task envelope**.
+
 ## What failed
 
 A fresh conversation correctly read a task prompt but assumed that repository execution had to be delegated to an external implementation agent.
@@ -24,7 +28,7 @@ If required capability is unavailable, report the exact environment limitation i
 
 ### 2. Prompt ≠ context
 
-A launch prompt identifies the task, but it cannot safely carry the agent's entire architectural memory.
+A launch prompt identifies the task, but it cannot safely carry the agent's entire architectural memory. The agent home is the durable memory boundary.
 
 Every agent home therefore needs a small:
 
