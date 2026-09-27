@@ -24,7 +24,7 @@ Do not create a permanent agent merely because a useful investigation technique 
 
 | ID | Core Function Area | Primary question | Foundation status |
 |---|---|---|---|
-| CFA-01 | World / Ontology / Context | What exists in VIVIM's world, what does it mean, how is it related, and how does relevant world state become context? | BOOTSTRAP-READY |
+| CFA-01 | **World & Context Steward** | What exists in VIVIM's world, what does it mean, how is it related, and how does relevant world state become context? | **RATIFIED — OWNER-ALIGNED** |
 | CFA-02 | Data / Identity / Persistence | How are canonical meanings durably represented, identified, versioned, retained, reconstructed, exported, and evolved? | BOOTSTRAP-READY |
 | CFA-03 | Self-Knowledge / Language / Command | How does VIVIM maintain semantic continuity from self-knowledge and grounding through command interpretation, canonical Intent/Plan meaning, evidence, and representation? | RATIFIED — FOUNDATION-SEEDED |
 | CFA-04 | Authority / Governance | What may happen, who may authorize it, under what scope, consent, delegation, risk, and revocation rules? | **RATIFIED — OWNER-ALIGNED** |
@@ -130,7 +130,7 @@ These are **methods**, not automatically Core Function Areas.
 ```
 ARCHITECTURE STEWARD
 │
-├── CFA-01 World / Ontology / Context
+├── CFA-01 World & Context Steward
 ├── CFA-02 Data / Identity / Persistence
 ├── CFA-03 Self-Knowledge / Language / Command
 ├── CFA-04 Authority / Governance
@@ -157,7 +157,7 @@ The Architecture Steward connects these areas through the architecture graph and
 
 The recommended next self-design sessions are:
 
-1. World / Ontology / Context
+1. World & Context Steward
 2. Authority / Governance
 3. Agency / Work / Execution
 4. Capability / Provider / Realization
@@ -167,6 +167,11 @@ The recommended next self-design sessions are:
 8. Runtime Constitution / Core Substrate
 
 Data / Identity / Persistence and Self-Knowledge / Language / Command are already in bootstrap/self-design execution and should not be duplicated.
+
+
+### CFA-01 ratification note — 2026-09-27
+
+CFA-01 is ratified as **World & Context Steward** (machine-safe slug: `world-ontology-context`). The enduring responsibility covers World meaning, semantic identity/correspondence, relationships, semantic Space, World-side Addressability/Query, World observation/projection semantics and Context semantics. Durable record identity/persistence remains CFA-02; language/grounding remains CFA-03; workspace/surface realization remains CFA-08; executable Work context remains CFA-05. Shared boundaries remain unactivated and Ω law is unchanged.
 
 
 ### CFA-03 ratification note — 2026-09-25
