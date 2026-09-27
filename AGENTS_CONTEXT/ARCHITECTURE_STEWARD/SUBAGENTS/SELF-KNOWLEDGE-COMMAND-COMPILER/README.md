@@ -46,3 +46,17 @@ A fresh session must explicitly inspect:
 The agent should choose and justify its working structure before adding new artifacts.
 
 Do not infer the permanent role from the directory name alone.
+
+
+## Fresh-session front door
+
+For a ratified fresh session, this home is governed by the current FSSP and persistent task queue, not by the historical bootstrap prompt.
+
+Read in order:
+1. repository working agreements and current `main`;
+2. this home `SESSION-CONTEXT.md`;
+3. `AGENT.md` and `CORE-AGENT-IDENTITY.md`;
+4. `STATE.md`, `LESSONS.md`, and `TASKS.md`;
+5. the current boundary/reconciliation artifacts required by the assigned task.
+
+`LAUNCH-PROMPT.md` is retained as bootstrap lineage only. It is not the launch contract for an already-ratified fresh session. Use FSSP-1.3 and the current task envelope instead.
