@@ -27,7 +27,7 @@ The overlay does not cancel or replace the existing M1 CFA-owned evidence tasks.
 
 **Wave 2 is complete.** The Steward reconciliation and bounded peer queue are durably persisted.
 
-**Wave 3:** send `Next` to CFA-05, then wait; after its completion send `Next` to CFA-06, then continue sequentially through CFA-10.
+**Wave 3:** receipt-driven sequence **CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10**. Send exactly one `Next` to each CFA in order; each CFA determines its eligibility from current `main` and committed predecessor receipts.
 
 **Wave 4:** after CFA-10 completes, send `Next` to Steward for the final completion audit.
 
