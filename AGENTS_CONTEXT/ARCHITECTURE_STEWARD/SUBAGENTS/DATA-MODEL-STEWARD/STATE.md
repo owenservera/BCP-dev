@@ -10,7 +10,7 @@
 - Phase 1 — self-design: COMPLETE (provisional)
 - Phase 2 — owner dialogue: COMPLETE — owner-aligned
 - Phase 3 — durable identity ratification: COMPLETE
-- Phase 4 — mission execution: STARTING AFTER RATIFICATION
+- Phase 4 — mission execution: ACTIVE
 
 ## Current understanding
 
