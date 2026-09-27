@@ -7,33 +7,22 @@
 
 ## Open tasks
 
-## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-05 — **EXECUTE NOW**
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-05 — COMPLETE
 
-> **CURRENT ROUTING AUTHORITY: THIS CFA IS THE ACTIVE WAVE-3 TURN.**
+> **CHECK CENTRAL ROUTER FIRST:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
 
-Wave 1: DONE.  
-Wave 2 Steward reconciliation: DONE.  
-Wave 3: **CURRENT — CFA-05 is first.**
+Wave 1: DONE. Wave 2: DONE.  
+Wave 3 / CFA-05: **DONE**.
 
-When the human owner says **“Next”**, execute **Wave 3 / CFA-05 only** using:
-`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-BASELINE-RECONCILIATION-2026-09-27.md`
-and
-`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md`.
+CFA-05 Wave-3 addendum is present:
+`WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
+Commit: `a4684afb2b7cb982ba2fc4de903319345ee1506e`
 
-Resolve only the CFA-05 peer seams specified in the Wave-3 queue:
-- CFA-03: Plan → executable Work basis;
-- CFA-04: authority citation and retry/resume re-resolution;
-- CFA-02: durable Work/Attempt/Outcome linkage;
-- CFA-06: realization/effect evidence;
-- CFA-10: runtime lifecycle/fencing facts.
+When the human owner says **Next** to CFA-05, verify the central router and report:
+**CFA-05 WAVE 3 COMPLETE — CFA-06 ACTIVE.**
 
-Required output: one Wave-3 addendum classifying every bounded seam as `RECONCILED`, `UNKNOWN`, `CONFLICTED`, or `DEFERRED`, with evidence, exact handoff proposals, and falsifiers.
+Do not redo CFA-05 reconciliation or resume an older task.
 
-Then **COMMIT, REPORT EXACT SHA, AND STOP**.
-
-**Do NOT report “W1 COMPLETE / WAITING FOR STEWARD WAVE 2.” That state is obsolete.**
-
-Hard stop: no production implementation, no shared-boundary activation, no Ω-law change, no Graph work.
 
 ## Future task intake
 
