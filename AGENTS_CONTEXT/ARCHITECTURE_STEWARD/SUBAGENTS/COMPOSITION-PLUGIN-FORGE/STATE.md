@@ -141,11 +141,12 @@ Birth test:
 
 - Strategic Roadmap Round 1: **COMPLETE — FIRST-PASS INDEPENDENT**.
 - Roadmap: `DOMAIN-ROADMAP-2026-09-27.md`.
-- First bounded task: `COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27` in `TASKS.md`.
-- No production implementation started by the roadmap session.
+- First bounded task: `COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27` — **COMPLETE / DESIGN CLOSURE PARTIAL**.
+- Proof pack: `COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27.md`.
+- No production implementation started; peer-dependent identity/replacement rules remain explicitly unresolved.
 
 ## Next mission
 
-Proceed with the first bounded Composition Identity + Replacement Survivor Proof Pack only when executed as the current task.
+Reconcile the proof pack with peer evidence from CFA-05, CFA-09, CFA-10 and CFA-02 before proposing any Composition identity schema or replacement contract change.
 
 Do not treat this identity contract as Ω law, shared-boundary activation, or production implementation authorization.
