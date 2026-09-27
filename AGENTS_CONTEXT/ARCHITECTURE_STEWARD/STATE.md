@@ -1,66 +1,78 @@
 # Architecture Steward — State
 
 > Updated: 2026-09-27
-> Status: ACTIVE / CYCLE 4 LIVE CHROME / ACCOUNTS
+> Status: ACTIVE / CFA DOMAIN ROADMAP FORMATION
 > This is durable Steward operating state; not Ω law or semantic authority.
 
 ## Receipt verification state
 
 LAST_VERIFIED_RECEIPTS_SHA: 96cd96bf346dd6df798cdad06d6e061e16eb065d
 
-No Steward receipt index existed at boot, so the baseline tip is the initial last-verified point. The value is advanced only after a receipt sweep verifies indexed receipts against repository evidence.
+The receipt cursor is a verification pointer, not a work-order gate. Fresh sessions must resolve current `main` independently.
 
-## Strategic operating state
+## Operating state
 
-- Commons/repository receipt convergence is defined; repository receipts remain the live completion surface until Commons is the operational transport.
-- Repository commit lineage is not treated as agent identity; unverified artifact authorship is an unattributed claim for Steward trust purposes.
-- Commons runtime/platform work is assigned to CFA-10 under RUNTIME-PLATFORM-WORKSTREAM-2026-09-27.md.
-- Commons design breadth is frozen until the existing 10-point v0 operational completion test is evidence-backed green across two independent runtimes.
-- Epistemic Integrity remains cross-cutting; quantitative review triggers for a possible dedicated CFA-11 are defined in the CFA register.
-- CFA-04 is the operational custodian for Commons identity/security ceremonies.
-- OWNER-DIGEST.md is the derived weekly owner-facing compression surface.
-- The full key-rotation + identity-recovery drill remains blocked until a real key-rotation operation exists; recovery/no-silent-fork is already smoke-tested.
+The common agent-home substrate and FSSP-1.3 are established across the ratified CFA constellation.
 
-## Current state
+The home-upgrade wave established:
 
-The ChatGPT Agent Operating Model 1.0 and FSSP-1.3 are established.
+- durable CFA identities;
+- session context/state/lessons navigation;
+- persistent task queues;
+- result-receipt machinery;
+- cold-start operating discipline.
 
-The fresh Architecture Steward cold-start test has passed. The session recovered identity, current repository state, operating model and the required next action after the Steward home was given as the seed. No further Steward test is required.
+It did **not** establish the CFA substantive roadmaps.
 
-The common agent-home substrate is now established across the Steward and all ten CFA homes:
+## Active planning transition
 
-- `SESSION-CONTEXT.md`
-- durable identity (`CORE-AGENT.md` or established `AGENT.md`)
-- `STATE.md`
-- `LESSONS.md`
-- applicable owner-alignment/history artifacts.
+The current Steward operation is:
 
-All ten CFA identities are verified as ratified in their current durable identity artifacts.
-
-## Immediate next operation
-
-The CFA home-upgrade wave is treated as reconciled operating history. Nine CFA homes have durable DONE tasks and receipts. One local exception remains: CFA-05 lacks a durable RESULTS receipt and still has HOME-UPGRADE READY; this is not promoted to a false completion.
-
-The active strategic next operation is Cycle 4 — Live Chrome / Accounts, specifically RA-5 live account proof using the existing V1 Chrome substrate.
+**CFA Domain Roadmap Formation**
 
 Use:
 
-`CYCLE-4-LIVE-CHROME-ACCOUNTS-2026-09-27.md`
+`CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
 
-The work remains constrained by the existing destination reconciliation and does not authorize a new router/provider architecture.
+and:
 
-## Steward resume condition
+`CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
 
-After Cycle 4 live-account evidence is captured, the Architecture Steward resumes to classify the proof, reconcile impacted destination/P1 views, and select the next bounded destination slice.
+Each CFA now characterizes its own domain frontier, creates a bounded roadmap, and populates its own TASKS.md. The Steward later reconciles those roadmaps.
 
-The CFA home-upgrade wave has already been reconciled as operating history; it is not a prerequisite to repeat.
+## Planning authority invariant
 
-## Historical Steward context
+Do not treat an inherited:
 
-The prior 2026-09-25 graph-validation and broad architecture-preparation state remains historical context. It is not the current mission.
+- Build-and-Harvest cycle;
+- P1 workstream;
+- destination roadmap;
+- prior Steward recommendation;
+- READY/CURRENT label;
 
-See `CURRENT-MISSION.md` for the active phase and next owner action.
+as a current CFA mandate until the responsible CFA has evaluated and adopted it.
 
-## Operating rule
+The Architecture Steward may propose cross-CFA sequencing only after this roadmap-formation stage.
 
-Do not add more Steward machinery merely because a fresh session asks what happens next. Put a real current transition in `CURRENT-MISSION.md` when the workflow reaches a handoff boundary.
+## CFA-05 status
+
+Repository evidence still contains a local CFA-05 home-upgrade exception: its prior HOME-UPGRADE task is READY and no durable RESULTS receipt was found. Preserve this discrepancy. Do not fabricate completion.
+
+That exception does not block the independent roadmap-formation task.
+
+## Superseded frontier
+
+The previously selected **Cycle 4 — Live Chrome / Accounts** is retained as a candidate downstream slice and evidence packet, but is **not** the current Steward mission.
+
+It may return to the active frontier if the reconciled CFA roadmaps and evidence support it.
+
+## Background operating concerns
+
+Commons runtime/platform, identity/security drill, owner digest and other earlier operating-maturity tasks remain durable context. They are not allowed to displace the current CFA roadmap-formation transition unless new evidence makes them the current boundary.
+
+## Resume condition
+
+After the roadmap sessions:
+
+**VERIFY → COMPARE → RECONCILE → MAP TO DESTINATION/P1 → SELECT SHARED FRONTIER → COMPILE OWNER ACTION PACKAGE**
+
