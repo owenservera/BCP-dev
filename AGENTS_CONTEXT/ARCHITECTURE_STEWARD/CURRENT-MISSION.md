@@ -1,14 +1,14 @@
 # Architecture Steward — Current Mission
 
 > Updated: 2026-09-27
-> Status: ACTIVE / M1 RECONCILED — CENTRAL KERNEL READY
+> Status: ACTIVE / BOUNDARY GATE BEFORE GRAPH
 > Authority: derived Steward operating state; not Ω law or semantic authority.
 
 ## Current phase
 
-**Central Generic Development Kernel**
+**CFA-05–10 Boundary Baseline + Reconciliation Gate**
 
-The ten independent CFA strategic roadmaps are now complete and reconciled. The immediate purpose is to prove the smallest shared seam contracts and evidence packets that make later integration safe.
+The ten independent CFA strategic roadmaps are complete and reconciled. Before implementation-node graph attachment, the missing CFA-05–10 boundary-evidence layer must be completed so graph relationships do not infer ownership from incomplete seam evidence.
 
 ## Development acceleration overlay
 
@@ -19,13 +19,20 @@ This overlay answers a different but complementary question: what shared machine
 Design set:
 `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DEVELOPMENT-ACCELERATION/`
 
-The design is now frozen for **generic implementation only**. Central implementation must stop where a mechanism would require a CFA-owned semantic choice; domain semantics, falsifiers and consequential behavior remain with the responsible CFAs.
+The design remains frozen for generic mechanics, but Graph Kernel / implementation attachment is explicitly gated behind the CFA-05–10 boundary pass. Domain semantics, falsifiers and consequential behavior remain with the responsible CFAs.
 
 The overlay does not cancel or replace the existing M1 CFA-owned evidence tasks.
 
 ## Immediate next action
 
-Execute `DEVELOPMENT-ACCELERATION/CENTRAL-KERNEL-IMPLEMENTATION-PACKET-2026-09-27.md` using the frozen generic kernel design. In parallel, CFAs may continue only concrete local seam reconciliation where peer evidence is still required. Do not create another roadmap wave.
+Execute `BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`.
+
+**Wave 1:** Next to CFA-05..10 in parallel.
+**Wave 2:** Next to Steward.
+**Wave 3:** Next to CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10, sequentially.
+**Wave 4:** Next to Steward.
+
+Do not begin Graph Kernel / Source-Code Graph attachment until Wave 4 explicitly opens the Graph Gate.
 
 ## Shared-frontier contract
 
@@ -74,4 +81,4 @@ Do not:
 
 ## Success condition
 
-The M1 frontier is reconciled for downstream selection when each relevant CFA has a durable minimum-boundary packet, remaining peer gaps are explicitly named, and the central Steward can describe a bounded governed corridor without inventing semantics. Live/product proof remains a later gate.
+The current frontier is the CFA-05–10 boundary gate. Success requires durable baseline declarations, bounded peer reconciliation, explicit unknowns/conflicts/deferred items, and a Steward decision that the Graph Gate is open. Graph attachment and later governed-corridor work remain downstream.
