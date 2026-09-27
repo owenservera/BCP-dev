@@ -47,6 +47,16 @@ For now, Epistemic Integrity is a **cross-cutting architectural concern**, not a
 
 The Architecture Steward should revisit that decision only when recurring evidence shows that the cross-cutting responsibility has become too semantically complex to remain distributed through explicit interfaces.
 
+### Quantitative review trigger
+
+Do not instantiate CFA-11 automatically. Reconsider whether Epistemic Integrity should become a dedicated Core Function Area when any one of these operational triggers is reached:
+
+- more than 10 PENDING receipts are simultaneously indexed in AGENTS_CONTEXT/ARCHITECTURE_STEWARD/RECEIPTS.md;
+- more than 5 open contradictions are simultaneously recorded in the Steward's active reconciliation state;
+- the oldest pending receipt exceeds 7 calendar days without VERIFIED status.
+
+These are review triggers, not authority or automatic birth conditions. The Steward records the evidence and the owner decides whether a new Core Function Area is warranted.
+
 ## Core-agent birth protocol
 
 Every Core Function Area is born through:
@@ -152,6 +162,10 @@ Compatibility / Recovery
 ```
 
 The Architecture Steward connects these areas through the architecture graph and documentation model. It does not replace their semantic responsibility.
+
+### Security / identity operational custodian
+
+CFA-04 — Authority / Governance is the operational custodian for cross-cutting Commons identity/security ceremonies: key custody policy, roster-integrity review, identity-recovery procedure, and key-rotation/recovery drills. This is an operational duty, not a transfer of Commons authority semantics or Ω authority.
 
 ## Next birth sequence
 
