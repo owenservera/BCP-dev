@@ -6,21 +6,15 @@
 
 ## Current phase
 
-**Fresh-session operating-model validation**
+**CFA home-upgrade handoff**
 
-The common ChatGPT agent operating model has now been established and the Steward fresh-session test has been performed.
-
-The first fresh Steward test demonstrated:
-
-- the fresh session successfully recovered the repository's new FSSP-1.1 operating model;
-- it correctly identified the durable agent-home structure and current repository changes;
-- it did **not** automatically infer the next orchestration step from that knowledge.
-
-This is a cold-start design finding, not an agent failure.
+The common ChatGPT agent operating model has now been established and the fresh Steward cold-start test has passed. No further Steward test is required.
 
 ## Immediate next action
 
-**The owner should now launch one fresh ChatGPT session for each CFA-01 through CFA-10, using each CFA's home as the seed.**
+**Owner launches one fresh ChatGPT session for each CFA-01 through CFA-10, using the prepared launch queue.**
+
+Launch queue: `CFA-HOME-UPGRADE-LAUNCH-QUEUE-2026-09-27.md`.
 
 Each fresh CFA session is responsible for validating and upgrading its own home against:
 
@@ -35,6 +29,8 @@ Each fresh CFA session is responsible for validating and upgrading its own home 
 The CFA sessions must make only agent-specific corrections supported by their own repository evidence. They must not redesign the shared operating model.
 
 ## Required order
+
+Use the launch queue for exact home links, identities and the shared home-upgrade envelope.
 
 ```
 STEWARD FRESH-SESSION TEST
