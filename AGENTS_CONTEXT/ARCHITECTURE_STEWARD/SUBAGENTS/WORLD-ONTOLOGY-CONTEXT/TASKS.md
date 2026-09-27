@@ -7,17 +7,6 @@
 
 ## Open tasks
 
-### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
-- **Status:** IN_PROGRESS
-- **Priority:** P1
-- **Purpose:** Independently define the CFA's high-level conceptual roadmap before shared execution is selected.
-- **Required outputs:** strategic objective; 3–7 core milestones; milestone success criteria/falsifiers; dependencies; tooling/substrate assessment; strategic design gates; milestone-by-milestone peer-intelligence requests; product/strategic consequences; deferred/do-not-do boundary; inherited-plan classification.
-- **Dependencies:** Initial pass is independent of the other nine new roadmap sessions. Existing repository evidence may be used; new Round-1 peer outputs must not be consumed before first-pass completion.
-- **Write scope:** Own CFA home, `DOMAIN-ROADMAP-2026-09-27.md`, and own `TASKS.md`.
-- **Next action:** Complete first-pass roadmap receipt verification, then leave the next bounded task READY only; do not begin M2 implementation.
-- **Completion condition:** Full local strategic roadmap persisted; first bounded actionable task recorded; peer-intelligence needs are explicit at each milestone; receipt persisted and verified.
-- **Stop condition:** Stop at an owner decision, material peer ownership conflict, Ω-law collision, or insufficient evidence. Do not start production implementation.
-
 ## First bounded actionable task
 
 ### WORLD-M1-SEMANTIC-KERNEL-EVIDENCE-2026-09-27
