@@ -7,6 +7,23 @@
 
 ## Open tasks
 
+## NEXT routing — current Wave 1 gate
+
+The first actionable task for this home is the CFA-09 boundary baseline in:
+AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md
+
+When the human owner says "Next", execute **Wave 1 / CFA-09** only:
+- verify current main and this home;
+- read owner alignment plus CFA-01–04 Round-2 Completion Audit;
+- produce BOUNDARY-BASELINE-DECLARATION-2026-09-27.md;
+- explicitly cover Data continuity, provider healing, Composition replacement/promotion, Work impact/recovery, Authority re-resolution, Runtime activation, and Surface staleness/re-entry;
+- preserve compatibility dimensions as evidence-backed classifications, not trust labels;
+- stop after the declaration is committed and report the exact SHA.
+
+Do not infer generic evolution authority from historical tooling. Do not start self-maintenance implementation.
+
+
+
 _None currently actionable inside CFA-09 while the Architecture Steward completes shared M1 contract/evidence closure._
 
 ## Future task intake
