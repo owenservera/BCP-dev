@@ -30,9 +30,6 @@ Provider Lab / empirical provider protocol, parser, drift and healing evidence.
 Use repository evidence to verify status; preserve provider-specific uncertainty.
 
 ## Last verified main
-`02452730000e8f013e55db25f919fd9c7f39364a`
+`841670c8360abd1df61dc6af5fe02a662e409fc5`
 
 > Verified for this home-upgrade session on 2026-09-27. This is orientation only; it is never a gate.
-
-
-> The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
