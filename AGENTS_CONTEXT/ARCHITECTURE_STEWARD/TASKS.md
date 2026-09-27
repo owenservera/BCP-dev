@@ -19,15 +19,11 @@
 
 
 ### CFA-DOMAIN-ROADMAP-WAVE-2026-09-27
-- **Status:** READY
+- **Status:** SUPERSEDED
 - **Priority:** P1
-- **Scope:** Launch and reconcile the first self-owned domain roadmap/task set for CFA-01 through CFA-10.
-- **Protocol:** `CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
-- **Launch queue:** `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
-- **Dependencies:** None for launch; each CFA independently determines its internal dependencies.
-- **Next action:** Owner launches the ten fresh CFA roadmap sessions.
-- **Completion condition:** Each CFA has a durable roadmap or honest BLOCKED/UNKNOWN result and its TASKS.md reflects the resulting work frontier; Steward reconciles all ten and records the bounded shared next frontier.
-- **Stop condition:** unresolved owner decision, material peer ownership conflict, or inability to establish an evidence-backed domain work frontier.
+- **Reason:** Expanded into the full independent Strategic Roadmap Round 1. The active task is the ten-CFA strategic planning round; no second roadmap-generation wave should be run.
+- **Successor:** The strategic work is represented by the ten CFA `STRATEGIC-ROADMAP-ROUND-1-2026-09-27` tasks and the central synthesis task above.
+
 
 ### CFA-HOME-UPGRADE-WAVE-RECONCILIATION-2026-09-27
 - **Status:** COMPLETE WITH EXCEPTION
