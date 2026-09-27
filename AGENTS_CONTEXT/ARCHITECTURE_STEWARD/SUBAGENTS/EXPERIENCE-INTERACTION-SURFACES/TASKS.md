@@ -7,14 +7,14 @@
 
 ## Open tasks
 
-### HOME-UPGRADE-2026-09-27
-- **Status:** IN_PROGRESS
-- **Priority:** P1
-- **Dependencies:** None currently known.
-- **Write scope:** Own agent home only.
-- **Next action:** Complete the cold-start validation and persist the exact session receipt under `RESULTS/`, then mark this task DONE.
-- **Completion condition:** Validate the home as cold-startable; persist only justified corrections; update task status; report exact result/commit; do not start unrelated work.
-- **Stop condition:** Stop after this task and report.
+### SURFACE-VIEW-CONTRACT-2026-09-27
+- **Status:** READY
+- **Priority:** P2
+- **Dependencies:** None currently known; peer seams may require later coordination.
+- **Write scope:** Own CFA-08 home and bounded Experience / Interaction / Surfaces research artifacts.
+- **Next action:** Define the minimum Surface/View representation contract, including the durable-vs-ephemeral presentation-state envelope, from destination and current peer evidence.
+- **Completion condition:** Produce an evidence-backed bounded contract with explicit semantic owner, presentation state, mutation handoff, epistemic-state handling, and named remaining unknowns.
+- **Stop condition:** Do not begin production implementation or activate shared CFA boundaries without explicit authorization.
 
 ## Future task intake
 
@@ -22,4 +22,8 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 
 ## Completed task history
 
-Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
+### HOME-UPGRADE-2026-09-27
+- **Status:** DONE
+- **Result receipt:** `RESULTS/CFA08-HOME-UPGRADE-20260927-0538.md`
+- **Completion commit:** pending this task-status commit
+- **Result:** Home validated and upgraded for FSSP-1.3 cold-start recovery; stale front-door metadata and peer-status drift were corrected; no Ω law, shared boundary, or production implementation changes.
