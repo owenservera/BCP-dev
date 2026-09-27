@@ -8,25 +8,38 @@
 ## Open tasks
 
 ### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
-- **Status:** DESIGN COMPLETE / INPUT REQUIRED
+- **Status:** DONE / CENTRAL DESIGN FROZEN
 - **Priority:** P1
 - **Purpose:** Establish the shared collaboration + development-acceleration substrate design before any shared implementation, combining decision/evidence coordination with a fast context→experiment→proof→receipt loop.
 - **Design set:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DEVELOPMENT-ACCELERATION/`
-- **Dependencies:** CFA domain input sections A–D in `CFA-INPUT-REGISTER-2026-09-27.md`; existing FSSP-1.3, Agent Commons and Boundary Protocol remain the baseline.
-- **Write scope:** Steward-owned design/control-plane artifacts only until CFA inputs are reconciled.
-- **Next action:** Route the input register to all ten CFAs; compare canonical terms, seam contracts, evidence sources, falsifiers and automation boundaries; freeze only the generic central schemas that do not require domain-semantic choices.
-- **Completion condition:** The central kernel can be implemented without inventing domain meaning, ownership, authority, or live-proof semantics; every deferred semantic decision has a named CFA owner and input request.
-- **Stop condition:** material ownership conflict, Ω-law collision, or a generic mechanism would need to encode unresolved domain semantics.
+- **Dependencies:** Reconciled CFA M1 evidence; existing FSSP-1.3, Agent Commons and Boundary Protocol remain the baseline.
+- **Write scope:** Steward-owned generic design/control-plane implementation only; no domain-semantic implementation.
+- **Next action:** Completed. Ten current CFA M1 evidence packets were reconciled; generic central schemas, implementation packet and CFA adapter contract are now frozen for mechanical implementation.
+- **Completion condition:** Met. The central kernel can be implemented without inventing domain meaning, ownership, authority or live-proof semantics; deferred decisions have named CFA owners and explicit extension points.
+- **Stop condition:** Preserved as an implementation guard: stop on semantic ownership conflict, Ω-law collision, or hidden domain semantics.
 
 ### CROSS-CFA-M1-CONTRACT-EVIDENCE-CLOSURE-2026-09-27
-- **Status:** READY
+- **Status:** DONE / RECONCILED FOR DOWNSTREAM SELECTION
 - **Priority:** P1
 - **Purpose:** Coordinate and verify the first bounded CFA-owned M1 contract/evidence tasks identified by the ten independent roadmaps.
 - **Dependencies:** Local CFA M1 tasks and their peer-information requests; no new centralized semantic ownership.
 - **Write scope:** Steward control plane and central synthesis only; local CFA homes remain owned by their CFAs.
-- **Next action:** Verify each local M1 task/receipt, compare the requested peer intelligence, confirm which requests are real dependencies, and maintain the central evidence/dependency view.
-- **Completion condition:** Minimum M1 contracts/evidence are sufficiently characterized to select one bounded governed end-to-end corridor without inventing missing semantics.
+- **Next action:** Completed. All ten local M1 packets were verified and reconciled into the central evidence/dependency view; remaining gaps are named and owner-scoped.
+- **Completion condition:** Met for downstream selection. The minimum contracts/evidence are sufficiently characterized to prepare one bounded governed corridor without inventing missing semantics; live proof remains separately gated.
 - **Stop condition:** owner decision, Ω-law collision, material ownership dispute, or insufficient evidence.
+
+### IMPLEMENT-CENTRAL-DEVELOPMENT-ACCELERATION-KERNEL-2026-09-27
+- **Status:** READY
+- **Priority:** P1
+- **Purpose:** Implement the frozen generic Layer-1 development-acceleration kernel without introducing domain semantics.
+- **Design:** `DEVELOPMENT-ACCELERATION/CENTRAL-KERNEL-DESIGN-2026-09-27.md`
+- **Implementation packet:** `DEVELOPMENT-ACCELERATION/CENTRAL-KERNEL-IMPLEMENTATION-PACKET-2026-09-27.md`
+- **Adapter contract:** `DEVELOPMENT-ACCELERATION/CFA-ADAPTER-CONTRACT-2026-09-27.md`
+- **Dependencies:** Reconciled CFA M1 evidence; FSSP-1.3; Agent Commons; Boundary Protocol; Session Result Contract v1.1.
+- **Write scope:** Central generic development substrate only.
+- **Next action:** Implement generic schemas/validation, reference/evidence/dependency indexes, bounded context/inspection, deterministic scaffolding, proof/replay bookkeeping, receipt generation, orchestration projection and friction telemetry in independently verifiable slices.
+- **Completion condition:** Synthetic domain-neutral acceptance passes without central code knowing CFA semantics; receipts and derived projections are reproducible.
+- **Stop condition:** Any requirement to invent domain meaning, authority, identity equivalence, product behavior or Ω-law.
 
 ### SELECT-GOVERNED-CORRIDOR-AFTER-M1-2026-09-27
 - **Status:** WAITING
