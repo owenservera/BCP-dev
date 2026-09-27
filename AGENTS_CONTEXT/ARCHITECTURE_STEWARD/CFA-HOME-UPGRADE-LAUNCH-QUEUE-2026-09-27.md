@@ -92,8 +92,8 @@ No CFA waits for another CFA's completion unless its own evidence discovers a re
 
 Each CFA session stops after its own home is validated and upgraded.
 
-The owner returns to the Architecture Steward with the session report.
+The owner returns the completed session reports to the Architecture Steward after the parallel wave.
 
-The Steward verifies the reported commit on current `main`, then authorizes the next launch.
+The Steward verifies each reported commit/result against current `main` and reconciles the constellation after the wave. No CFA waits for another CFA's completion merely for authorization.
 
-After CFA-10, the Steward resumes constellation reconciliation.
+After the ten home upgrades are resolved, the Steward resumes constellation reconciliation.
