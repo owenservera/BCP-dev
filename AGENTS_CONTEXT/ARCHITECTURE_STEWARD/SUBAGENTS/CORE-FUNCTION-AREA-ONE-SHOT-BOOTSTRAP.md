@@ -1,7 +1,7 @@
 # CFA-05–10 — One-Shot Core Function Area Bootstrap
 
 > Status: DERIVED / PROPOSED from completed CFA-01–04 Round-2 cycle
-> Fresh-session execution protocol: FSSP-1.0 — `../CHATGPT-FRESH-SESSION-PROTOCOL.md`
+> Fresh-session execution protocol: FSSP-1.1 — `../CHATGPT-FRESH-SESSION-PROTOCOL.md`
 > Date: 2026-09-27
 > Scope: birth/bootstrap procedure only
 > Authority: process contract; not Ω law and not CFA authority
