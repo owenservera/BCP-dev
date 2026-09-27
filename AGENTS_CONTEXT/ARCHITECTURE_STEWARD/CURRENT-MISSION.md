@@ -69,12 +69,12 @@ Each CFA fresh session must:
 
 1. verify its identity against current repository evidence;
 2. understand its own home without prior-chat memory;
-3. validate the home against FSSP-1.1;
+3. validate the home against FSSP-1.2;
 4. preserve its existing ratified identity and boundaries;
 5. update its own durable context only where genuinely required;
 6. record durable lessons only when justified;
 7. verify and commit its changes;
-8. return the standard FSSP-1.1 completion report.
+8. return the standard FSSP-1.2 completion report.
 
 ## Steward stop condition
 
