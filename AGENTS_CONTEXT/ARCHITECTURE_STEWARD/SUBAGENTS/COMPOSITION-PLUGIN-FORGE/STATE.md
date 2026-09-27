@@ -1,6 +1,6 @@
 # Composition / Plugin / Forge Steward — State
 
-> **Status:** RATIFIED — OWNER-ALIGNED / DOMAIN EXECUTION NOT STARTED
+> **Status:** RATIFIED — OWNER-ALIGNED / DESIGN EXECUTION ACTIVE
 > **Home-upgrade posture:** 2026-09-27 validation is complete; domain execution remains intentionally not started.  
 > **CFA:** CFA-07 — Composition / Plugin / Forge  
 > **agent_id:** `composition-plugin-forge`  
@@ -153,3 +153,13 @@ Birth test:
 Do not propose a wire/schema change yet. Await or obtain a concrete replacement/rename/membership falsifier and the Architecture Steward M1 closure decision; keep the logical-lineage discriminator explicitly OPEN.
 
 Do not treat this identity contract as Ω law, shared-boundary activation, or production implementation authorization.
+
+## Stage-E L2 state
+
+- Composition/Manifest basis adapter: **COMPLETE — DESIGN-CHARACTERIZED**
+- Artifact: `STAGE-E-L2-COMPOSITION-MANIFEST-BASIS-ADAPTER-CHARACTERIZATION-2026-09-28.md`
+- Receipt: `RESULTS/CFA07-20260928-STAGE-E-L2-COMPOSITION-MANIFEST-ADAPTER.md`
+- Installed/admitted representation freshness is based on governed Recipe identity plus per-entry `manifestHash` / `contentHash`.
+- Logical Composition identity and semantic survivor discriminator remain **OPEN / UNKNOWN**.
+- Stage-E runtime self-knowledge joins remain blocked until the full readiness gate passes.
+
