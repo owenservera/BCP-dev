@@ -10,7 +10,7 @@ Runtime/bootstrap reads this file instead of requiring each session to hand-type
 | agent_id | home path | role | status |
 |---|---|---|---|
 | `architecture-steward` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD` | Architecture Steward — architectural memory, documentation integrity, reconciliation and coordination | ratified |
-| `world-ontology-context` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT` | World / Ontology / Context | bootstrap-ready |
+| `world-ontology-context` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT` | World & Context Steward — World / Ontology / Context | ratified |
 | `data-model` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD` | Data / Identity / Persistence | bootstrap-ready |
 | `semantic-continuity` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER` | Semantic continuity across self-knowledge, language, command, intent, execution meaning, evidence and representation | ratified |
 | `authority-governance` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE` | Authority Governance Steward — Authority / Governance | ratified |
