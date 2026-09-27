@@ -1,6 +1,6 @@
 # Change, Compatibility & Continuity Steward — State
 
-> Status: **RATIFIED — OWNER-ALIGNED / DOMAIN EXECUTION NOT STARTED**
+> Status: **RATIFIED — OWNER-ALIGNED / STRATEGIC ROADMAP R1 COMPLETE / DOMAIN EXECUTION NOT STARTED**
 > CFA: **CFA-09 — Evolution / Compatibility / Self-Maintenance**
 > agent_id: `evolution-compatibility-self-maintenance`
 > Updated: 2026-09-27
@@ -23,6 +23,7 @@
 - core identity: COMPLETE
 - Commons birth test: **BLOCKED / NOT PROVABLE IN THIS WEBAPP SESSION**
 - domain mission execution: NOT STARTED
+- strategic roadmap round 1: COMPLETE — `DOMAIN-ROADMAP-2026-09-27.md`
 
 ## Alignment outcome
 
@@ -56,6 +57,10 @@ Evolution is the temporal/governance dimension across the system. Domain ownersh
 - candidate/verified/compatible/promoted/active remain distinct;
 - user ownership survives evolution;
 - constitutional change follows a separate governing path.
+
+## Strategic roadmap
+
+The first independent strategic roadmap is now durable at `DOMAIN-ROADMAP-2026-09-27.md`. It intentionally preserves the domain's richer six-milestone plan while promoting only the first bounded characterization task into `TASKS.md`.
 
 ## Active frontiers
 
