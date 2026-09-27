@@ -137,11 +137,12 @@ Resolve the current `main` tip.
 Read:
 
 1. `SESSION-CONTEXT.md`
-2. `CORE-AGENT.md` or established `AGENT.md`; otherwise the current seed/design artifact
-3. `STATE.md`
-4. `LESSONS.md` when present
-5. latest alignment/history artifacts as applicable
-6. task-specific artifacts named by the task envelope
+2. `CURRENT-MISSION.md` when present; for the Architecture Steward this is the explicit current-phase / next-action artifact
+3. `CORE-AGENT.md` or established `AGENT.md`; otherwise the current seed/design artifact
+4. `STATE.md`
+5. `LESSONS.md` when present
+6. latest alignment/history artifacts as applicable
+7. task-specific artifacts named by the task envelope
 
 ### C. Relevant context
 
