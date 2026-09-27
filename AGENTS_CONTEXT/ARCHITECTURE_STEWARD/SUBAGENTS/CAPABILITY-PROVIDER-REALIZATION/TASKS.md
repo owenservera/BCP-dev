@@ -8,7 +8,10 @@
 ## Open tasks
 
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
-- **Status:** READY
+- **Status:** DONE
+- **Result:** `DOMAIN-ROADMAP-2026-09-27.md` persisted as the independent CFA-06 first-pass strategic roadmap. The roadmap defines six conceptual milestones, falsifiers, dependencies, tooling/substrate, strategic gates, peer-intelligence requests, product consequences, deferred work, and inherited-plan classifications.
+- **Completion commit:** `7ea4a24a83c24d8a022ec0b4ea02aa92628c618a`
+- **Receipt:** this task entry plus the durable roadmap are the execution receipt; no production implementation was started.
 - **Priority:** P1
 - **Purpose:** Independently define the CFA's high-level conceptual roadmap before shared execution is selected.
 - **Required outputs:** strategic objective; 3–7 core milestones; milestone success criteria/falsifiers; dependencies; tooling/substrate assessment; strategic design gates; milestone-by-milestone peer-intelligence requests; product/strategic consequences; deferred/do-not-do boundary; inherited-plan classification.
