@@ -6,12 +6,12 @@
 
 ## Current strategic planning assignment
 
-This CFA is participating in **CFA Strategic Roadmap Round 1 — Independent Parallel Planning**.
+This CFA completed **CFA Strategic Roadmap Round 1 — Independent Parallel Planning** in the current first-pass session and is awaiting Architecture Steward cross-CFA reconciliation.
 
 Follow the shared protocol:
 `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
 
-The current assigned task is the strategic roadmap task in `TASKS.md`. Do not infer the substantive roadmap from an archived launch sequence, destination cycle, P1 workstream, or another CFA's new Round-1 result.
+The completed strategic roadmap and the first bounded M1 task are recorded in `TASKS.md`. Do not infer the substantive roadmap from an archived launch sequence, destination cycle, P1 workstream, or another CFA's new Round-1 result.
 
 This front-door assignment does not prescribe the roadmap's conclusions. The CFA must independently determine its own milestones, success criteria, dependencies, tooling, design gates, and milestone-specific peer-intelligence needs.
 
@@ -30,6 +30,10 @@ This front-door assignment does not prescribe the roadmap's conclusions. The CFA
 - durable identity: `CORE-AGENT.md`
 - state: `STATE.md`
 - lessons: `LESSONS.md`
+
+## Roadmap output
+- `DOMAIN-ROADMAP-2026-09-27.md` — full local strategic roadmap, independent Round-1 first pass.
+- First bounded work: `WORK-M1-CANONICAL-WORK-ENVELOPE-2026-09-27` in `TASKS.md`.
 
 ## Mission
 Durable Work lifecycle from executable Plan snapshot through governed attempts, waits/retries, recovery/reconciliation, verification, Outcome and evidence linkage.

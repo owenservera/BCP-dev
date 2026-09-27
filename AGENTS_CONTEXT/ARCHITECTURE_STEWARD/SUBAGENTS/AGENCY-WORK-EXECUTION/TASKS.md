@@ -8,15 +8,31 @@
 ## Open tasks
 
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
-- **Status:** READY
+- **Status:** DONE
 - **Priority:** P1
 - **Purpose:** Independently define the CFA's high-level conceptual roadmap before shared execution is selected.
+- **Session:** CFA05-20260927-STRATEGIC-ROADMAP-R1
+- **Completion receipt:** RESULTS/CFA05-20260927-STRATEGIC-ROADMAP-R1.md
+- **Roadmap:** DOMAIN-ROADMAP-2026-09-27.md
 - **Required outputs:** strategic objective; 3–7 core milestones; milestone success criteria/falsifiers; dependencies; tooling/substrate assessment; strategic design gates; milestone-by-milestone peer-intelligence requests; product/strategic consequences; deferred/do-not-do boundary; inherited-plan classification.
-- **Dependencies:** Initial pass is independent of the other nine new roadmap sessions. Existing repository evidence may be used; new Round-1 peer outputs must not be consumed before first-pass completion.
-- **Write scope:** Own CFA home, `DOMAIN-ROADMAP-2026-09-27.md`, and own `TASKS.md`.
-- **Next action:** Follow the shared strategic roadmap protocol; preserve existing useful artifacts rather than creating duplicates.
-- **Completion condition:** Full local strategic roadmap persisted; first bounded actionable tasks recorded; peer-intelligence needs are explicit at each milestone; receipt persisted and verified.
-- **Stop condition:** Stop at an owner decision, material peer ownership conflict, Ω-law collision, or insufficient evidence. Do not start production implementation.
+- **Dependencies:** First-pass roadmap was independently formed from repository evidence; newly produced peer Round-1 roadmaps were not consumed.
+- **Write scope:** Own CFA home, DOMAIN-ROADMAP-2026-09-27.md, and own TASKS.md.
+- **Next action:** Await Architecture Steward cross-CFA reconciliation; do not treat this roadmap as shared sequencing authority.
+- **Completion condition:** Full local strategic roadmap persisted; first bounded actionable task recorded; peer-intelligence needs are explicit at each milestone; receipt persisted and verified.
+- **Stop condition:** Stop after roadmap and receipt completion; do not start production implementation.
+
+### WORK-M1-CANONICAL-WORK-ENVELOPE-2026-09-27
+- **Status:** READY
+- **Priority:** P1
+- **Objective:** Characterize and freeze the smallest canonical Work envelope/state transition contract using existing Ω Work evidence and the M1 peer-intelligence gates.
+- **Milestone:** M1 — Canonical Work Envelope & Lifecycle Contract.
+- **Dependencies:** CFA-03 semantic Plan handoff; CFA-02 durable identity/revision constraints; CFA-04 authority citation shape; CFA-10 lifecycle/fencing assumptions. These are evidence dependencies to verify, not execution permissions.
+- **Peer inputs required:** BLOCKING — CFA-03 semantic Plan snapshot seam; HIGH-VALUE — CFA-02, CFA-04, CFA-06, CFA-10.
+- **Tooling required:** repository/query/graph inspection; schema/round-trip fixtures. Small extensions only; no production runtime.
+- **Write scope:** CFA-05 home only.
+- **Next action:** Build an evidence-backed Work envelope/state comparison from Ω Work records, destination agentic-core contracts and the M1 peer gates; record unresolved fields as UNKNOWN rather than settling them by assumption.
+- **Completion condition:** A candidate Work envelope/state machine is explicitly classified OBSERVED/DERIVED/PROPOSED/UNKNOWN, preserves Plan meaning ownership, identifies Data-owned persistence seams, and is ready for peer reconciliation.
+- **Stop condition:** Stop at a semantic ownership conflict, missing blocking peer evidence, Ω-law collision, or any pressure to start production implementation.
 
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
