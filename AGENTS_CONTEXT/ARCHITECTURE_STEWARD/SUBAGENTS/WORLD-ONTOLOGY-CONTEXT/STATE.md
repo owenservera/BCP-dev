@@ -1,9 +1,9 @@
 # CFA-01 — State
 
-> Status: BOOTSTRAP SEED REVIEW COMPLETE / ACTIVE PROVISIONAL
-> Date: 2026-09-26
+> Status: **RATIFIED — OWNER-ALIGNED / ACTIVE**
+> Date: 2026-09-27
 > Identity: world-ontology-context
-> No permanent Core Agent identity is ratified in this state.
+> Permanent Core Agent identity: **RATIFIED — OWNER-ALIGNED**.
 
 ## Current position
 
@@ -13,9 +13,9 @@ Phase 1 self-design / seed construction: **COMPLETE FOR THIS BOOTSTRAP PASS**
 
 Final bootstrap gap audit: **COMPLETE**
 
-Owner alignment: **NOT YET FORMALLY RECORDED FOR FINAL IDENTITY**
+Owner alignment: **FORMALLY RECORDED — 2026-09-27**
 
-The seed session may now be treated as a durable working baseline. This does **not** create or ratify the permanent Core Agent identity.
+The bootstrap seed is preserved as lineage. The durable Core Agent identity is now established by the owner-alignment record.
 
 ## Final bootstrap self-audit
 
@@ -219,9 +219,24 @@ Create one only when:
 - another agent needs to consume it;
 - a current artifact cannot carry it cleanly.
 
-## Bootstrap gate
+## Owner alignment / durable identity — 2026-09-27
 
-Do not create CORE-AGENT.md until the owner and CFA-01 have explicitly aligned on the enduring responsibility.
+The owner-alignment record ratified **World & Context Steward** as the enduring CFA-01 identity and retained the existing workspace.
+
+Aligned seams:
+- semantic World identity/correspondence is CFA-01; durable record identity/persistence/revision/lineage/reconstruction is CFA-02;
+- semantic Space is CFA-01; workspace/canvas/layout/navigation/surface realization is CFA-08;
+- World-side Addressability/Query is CFA-01; language/command interpretation and grounding remain CFA-03;
+- Context semantics are CFA-01; Intent/Plan meaning remains CFA-03; executable Work context and snapshots remain CFA-05;
+- observation/projection remain distinct from cross-cutting Evidence/Provenance.
+
+Shared boundaries remain **UNACTIVATED** and Ω law remains unchanged.
+
+## Durable identity references
+
+- `CORE-AGENT.md` — ratified responsibility contract.
+- `OWNER-ALIGNMENT-2026-09-27.md` — owner decision.
+- `IDENTITY-HISTORY.md` — identity lineage.
 
 ## Seed-home construction — 2026-09-26
 
