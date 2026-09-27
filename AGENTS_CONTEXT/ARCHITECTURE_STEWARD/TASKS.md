@@ -81,15 +81,16 @@
 - **Stop condition:** owner decision, Ω-law collision, material ownership dispute, or insufficient evidence.
 
 ### IMPLEMENT-CENTRAL-DEVELOPMENT-ACCELERATION-KERNEL-2026-09-27
-- **Status:** READY
+- **Status:** READY — DESIGN DEPENDENCY RESTORED
 - **Priority:** P1
 - **Purpose:** Implement the frozen generic Layer-1 development-acceleration kernel without introducing domain semantics.
 - **Design:** `DEVELOPMENT-ACCELERATION/CENTRAL-KERNEL-DESIGN-2026-09-27.md`
+- **Design recovery receipt:** `RESULTS/STEWARD-20260928-CENTRAL-KERNEL-DESIGN-RECOVERY.md`
 - **Implementation packet:** `DEVELOPMENT-ACCELERATION/CENTRAL-KERNEL-IMPLEMENTATION-PACKET-2026-09-27.md`
 - **Adapter contract:** `DEVELOPMENT-ACCELERATION/CFA-ADAPTER-CONTRACT-2026-09-27.md`
 - **Dependencies:** Reconciled CFA M1 evidence; FSSP-1.3; Agent Commons; Boundary Protocol; Session Result Contract v1.1.
 - **Write scope:** Central generic development substrate only.
-- **Next action:** Implement generic schemas/validation, reference/evidence/dependency indexes, bounded context/inspection, deterministic scaffolding, proof/replay bookkeeping, receipt generation, orchestration projection and friction telemetry in independently verifiable slices.
+- **Next action:** Implement the first generic schema/validation slice and its domain-neutral valid/invalid fixtures; do not implement domain adapters yet.
 - **Completion condition:** Synthetic domain-neutral acceptance passes without central code knowing CFA semantics; receipts and derived projections are reproducible.
 - **Stop condition:** Any requirement to invent domain meaning, authority, identity equivalence, product behavior or Ω-law.
 
