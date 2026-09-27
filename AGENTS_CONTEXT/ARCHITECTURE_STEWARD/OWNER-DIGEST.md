@@ -8,41 +8,38 @@
 
 ## Current operating frontier
 
-**CFA Strategic Roadmap Round 1 — Independent Parallel Planning**
+**CROSS-CFA M1 CONTRACT + EVIDENCE CLOSURE**
 
-The immediate objective is to obtain ten independent conceptual roadmaps before selecting any shared execution slice.
+The ten independent CFA strategic roadmaps are complete and have been reconciled into the central Steward synthesis.
 
 ## Required owner action
 
-Launch all ten CFA strategic-roadmap sessions in parallel from:
+Launch/continue the already-created CFA-owned M1 evidence tasks. Do not launch another roadmap wave and do not start a broad product cycle from historical planning.
 
-`CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
+The central synthesis is:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`
 
-Do not preselect or tell the CFAs which product cycle to adopt.
+## What the central synthesis established
 
-Each CFA should return a local roadmap containing milestones, success criteria, dependencies, tooling, strategic decision gates, and milestone-specific peer intelligence requirements.
+The ten local roadmaps independently converge on continuity and explicit ownership across:
+semantic meaning; durable data; authority; Work; capability/realization; composition; surfaces; evolution; runtime constitution.
 
-## Central synthesis
+The first shared frontier is therefore contract/evidence closure rather than Live Chrome or a product vertical slice.
 
-The Architecture Steward will populate:
+## Candidate downstream path
 
-`CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`
+After M1 closure:
+1. one narrow governed consequential corridor;
+2. live/external realization proof;
+3. reconstruction/replacement/evolution proof;
+4. product-grade multi-surface journey.
 
-That artifact is the single central cross-CFA synthesis. Local CFA roadmaps remain richer, owner-maintained internal planning artifacts.
+Cycle 4 / Live Chrome remains candidate evidence, not a current mandate.
 
-## Current candidate material
+## Historical maintenance exception
 
-- Build-and-Harvest remains a destination program plan, not a current CFA mandate.
-- Cycle 4 / Live Chrome remains a candidate downstream slice, paused until roadmaps are reconciled.
-- P1 workstreams remain candidate inputs pending CFA adoption and cross-CFA reconciliation.
-- Prior Coding Start Readiness remains historical preparation evidence.
+CFA-05 home-upgrade receipt lineage is now resolved and should not be relaunched.
 
-## CFA-05 exception
+## Background
 
-CFA-05 still has a repository-visible home-upgrade READY state without its durable receipt. Preserve the discrepancy; it does not block the independent roadmap round.
-
-## Background operating concerns
-
-- Commons v0 runtime/platform remains valid background work.
-- Identity rotation/recovery remains blocked until a real rotation operation exists.
-- These do not displace the current strategic roadmap round.
+Commons runtime/platform and identity/recovery work remain durable context but do not displace the current M1 frontier.
