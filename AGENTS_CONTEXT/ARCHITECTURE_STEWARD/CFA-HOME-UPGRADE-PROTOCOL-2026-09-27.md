@@ -1,6 +1,6 @@
 # CFA Home Upgrade Protocol
 
-> Version: 1.1
+> Version: 1.2
 > Date: 2026-09-27
 > Status: ACTIVE
 > Scope: fresh ChatGPT sessions for CFA-01 through CFA-10 after ratified identity establishment.
@@ -118,7 +118,7 @@ The session is complete only when:
 4. lessons are updated only when warranted;
 5. changed files are verified;
 6. exact commit SHA is known;
-7. the session returns the FSSP-1.1 completion report.
+7. the session returns the FSSP-1.2 completion report.
 
 ## Report
 
