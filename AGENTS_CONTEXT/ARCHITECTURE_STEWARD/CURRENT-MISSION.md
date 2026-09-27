@@ -1,87 +1,69 @@
 # Architecture Steward — Current Mission
 
 > Updated: 2026-09-27
-> Status: ACTIVE / CFA STRATEGIC ROADMAP ROUND 1
+> Status: ACTIVE / SHARED FRONTIER — M1 CONTRACT + EVIDENCE CLOSURE
 > Authority: derived Steward operating state; not Ω law or semantic authority.
 
 ## Current phase
 
-**CFA Strategic Roadmap Round 1 — Independent Parallel Planning**
+**Cross-CFA M1 Contract + Evidence Closure**
 
-The ten ratified CFAs have durable homes. The immediate purpose is now to let each domain owner independently define the conceptual work needed inside its responsibility before the Steward decides what the system should execute together.
-
-This is a strategic planning round, not a backlog-writing exercise.
+The ten independent CFA strategic roadmaps are now complete and reconciled. The immediate purpose is to prove the smallest shared seam contracts and evidence packets that make later integration safe.
 
 ## Immediate next action
 
-Launch the ten fresh CFA strategic-roadmap sessions using:
+Coordinate and verify the already-queued first bounded CFA tasks. Do not create a second centralized roadmap or replace CFA-local work with a new implementation backlog.
 
-`CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
-
-Governing protocol:
-
-`CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
-
-Central synthesis target:
-
+Central synthesis:
 `CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`
 
-## What each CFA must independently produce
+Governing planning protocol:
+`CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
 
-Each roadmap must define:
+## Shared-frontier contract
 
-- strategic conceptual objective;
-- 3–7 core milestones;
-- success criteria and falsifiers for every milestone;
-- true dependencies;
-- tooling/substrate needed at each stage;
-- strategic design decisions/gates;
-- first-pass peer intelligence/evidence needed from each relevant peer **at each stage**, including the decision it informs and minimum acceptable evidence;
-- product/strategic consequences;
-- deferred/do-not-do boundaries;
-- explicit treatment of existing destination/P1/cycle plans.
+The first shared frontier is evidence/contract closure, not a product vertical slice.
 
-Each CFA keeps its richer local roadmap in its own home. The central Steward set links to and synthesizes those local plans; it does not replace them.
+The frontier spans:
+- World semantic kernel/reference states;
+- Data identity/revision/continuity;
+- Semantic grounding and Intent/Plan continuity;
+- Authority citation/live re-resolution/refusal;
+- Work/Plan/Attempt/Outcome continuity;
+- Capability/Provider/Realization separation;
+- Composition identity/admission/replacement;
+- Surface/View projection and re-entry;
+- Change/compatibility characterization;
+- K0/B1 runtime evidence and falsifiers.
 
-## Independence rule
+## Evidence discipline
 
-The first pass is intentionally parallel.
+The Steward must preserve:
+- OBSERVED / DERIVED / PROPOSED / UNKNOWN / CONFLICTED;
+- CURRENT / STALE / UNRESOLVABLE;
+- request vs confirmed dependency;
+- design vs implementation vs integration vs live proof vs product proof.
 
-New roadmap outputs from one CFA must not be used to shape another CFA's first-pass conclusions. Existing repository evidence may be consulted, but fresh Round-1 peer outputs are reconciled only after the independent plans land.
+No peer request is a dependency merely because it appears in a local roadmap.
 
-The goal is to expose genuine independent models before convergence.
+## Next integration gate
 
-## Planning authority
+Once the M1 packets are sufficiently mature, select one narrow consequential corridor and verify:
 
-1. explicit owner decisions and Ω law;
-2. ratified CFA responsibility/boundary;
-3. verified current repository evidence;
-4. CFA-owned strategic roadmap;
-5. Architecture Steward cross-CFA reconciliation;
-6. destination/P1/program plans as candidate inputs.
+semantic meaning → authority → Work/Attempt → capability/realization → runtime enforcement → evidence → surface projection.
 
-The Steward does not select Cycle 4, Cycle 5, a P1 workstream, or an implementation slice before this round is reconciled.
+The prior `message.send@1` vehicle is a candidate, not an automatic mandate.
 
-## Steward's post-round job
+## Non-goals
 
-After the ten roadmaps land:
-
-`VERIFY → COMPARE → CONSOLIDATE PEER INTELLIGENCE → CONFIRM DEPENDENCIES → RECONCILE OVERLAPS/CONTRADICTIONS → MAP TO DESTINATION/P1 → FORM CENTRAL ROADMAP → SELECT SHARED FRONTIER`
-
-The Steward must preserve meaningful divergence where evidence does not justify convergence.
-
-## Known maintenance exception
-
-CFA-05 still has the prior home-upgrade task/receipt mismatch. It remains explicit but is not treated as a strategic predecessor to this independent round.
+Do not:
+- begin a broad Live Chrome/product build because Cycle 4 exists;
+- convert local roadmaps into one giant task list;
+- activate new shared ownership boundaries;
+- rewrite Ω law;
+- promote historical implementation into authority;
+- claim live/external proof from fixtures.
 
 ## Success condition
 
-The round is not complete until:
-
-- all ten CFA local roadmaps are durable or honestly blocked/unknown;
-- each local task queue reflects its first bounded actionable work;
-- milestone success criteria, dependencies, tooling and peer-intelligence gates are present;
-- inherited plans are explicitly classified;
-- all receipts are verified;
-- the central synthesis is populated from the ten local plans;
-- the resulting shared execution frontier is selected only after that synthesis.
+The M1 frontier is complete when each relevant CFA has evidence for its minimum boundary, peer joins are reconciled, and the central Steward can name a single bounded governed corridor whose proof does not require semantic duplication or hidden authority.
