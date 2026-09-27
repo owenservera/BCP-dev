@@ -25,8 +25,8 @@
 - **Wave 4:** DONE — receipt `BOUNDARY-DESIGN-SYSTEM/WAVE-4-COMPLETION-AUDIT-2026-09-27.md`; Graph Gate OPEN.
 - **Next wave:** GRAPH-ATTACHMENT-WAVE-1 — Architecture Graph revalidation → linked implementation projection contract → bounded Source-Code Graph pilot.
 - **Stage A:** DONE — receipt `GRAPH-W1-A-REVALIDATION-RECEIPT-2026-09-27.md`; structural revalidation passed, direct local regeneration limitation recorded.
-- **Stage B:** **NEXT / EXECUTE NOW — linked implementation-projection contract**.
-- **Human workflow:** send exactly one `Next` to Architecture Steward for Graph Stage B.
+- **Stage B:** DONE — receipt `GRAPH-W1-B-IMPLEMENTATION-PROJECTION-CONTRACT-2026-09-27.md`; commit `05ccd40984f931a057ab40dd2c72f7221a5333d2`.
+- **Human workflow:** send exactly one `Next` to Architecture Steward; routing must follow the current Wave Router and must not repeat completed stages.
 - **Lineage rule:** graph-stage eligibility is derived from current main plus the required stage receipts; local cached state is subordinate.
 
 ### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
@@ -72,8 +72,9 @@
 - **Stage B:** DONE — receipt `GRAPH-W1-B-IMPLEMENTATION-PROJECTION-CONTRACT-2026-09-27.md`; commit `05ccd40984f931a057ab40dd2c72f7221a5333d2`.
 - **Stage C:** DONE — receipt `GRAPH-W1-C-SOURCE-CODE-PILOT-RECEIPT-2026-09-27.md`; commit `24ac0bfbc5114d606f02e14308bd484bbdf5bba5`.
 - **Stage D:** DONE — receipt `GRAPH-W1-D-PROOF-EVIDENCE-ATTACHMENT-RECEIPT-2026-09-27.md`; commit `3b009ac92a4e312fc73e19d0a5cea3eb1a91d068` (source-identity correction included).
-- **Stage E:** BLOCKED — separate self-knowledge design/evidence readiness gate is not yet satisfied.
-- **Next action:** assess Stage E readiness only; do not implement runtime joins until the gate is explicit.
+- **Stage E readiness assessment:** DONE / BLOCKED — receipt `BOUNDARY-DESIGN-SYSTEM/GRAPH-W1-E-SELF-KNOWLEDGE-READINESS-ASSESSMENT-RECEIPT-2026-09-27.md`; commit `5eed9ed10a8b1a38a2237de244debd2d37ba06f9`.
+- **Stage E runtime joins:** BLOCKED — the separate self-knowledge design/evidence gate is not yet satisfied.
+- **Next action:** close the named readiness gate; do not repeat the assessment without new evidence and do not implement runtime joins before explicit readiness.
 - **Stop condition:** any request to create a second graph, infer semantic authority from code topology, or collapse UNKNOWN into dependency.
 
 ### SELECT-GOVERNED-CORRIDOR-AFTER-M1-2026-09-27
