@@ -7,31 +7,36 @@
 
 ## Open tasks
 
-### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
+### ROADMAP-M1-SEMANTIC-BASELINE-TRACE-2026-09-27
 - **Status:** READY
 - **Priority:** P1
-- **Purpose:** Independently define the CFA's high-level conceptual roadmap before shared execution is selected.
-- **Required outputs:** strategic objective; 3–7 core milestones; milestone success criteria/falsifiers; dependencies; tooling/substrate assessment; strategic design gates; milestone-by-milestone peer-intelligence requests; product/strategic consequences; deferred/do-not-do boundary; inherited-plan classification.
-- **Dependencies:** Initial pass is independent of the other nine new roadmap sessions. Existing repository evidence may be used; new Round-1 peer outputs must not be consumed before first-pass completion.
-- **Write scope:** Own CFA home, `DOMAIN-ROADMAP-2026-09-27.md`, and own `TASKS.md`.
-- **Next action:** Follow the shared strategic roadmap protocol; preserve existing useful artifacts rather than creating duplicates.
-- **Completion condition:** Full local strategic roadmap persisted; first bounded actionable tasks recorded; peer-intelligence needs are explicit at each milestone; receipt persisted and verified.
-- **Stop condition:** Stop at an owner decision, material peer ownership conflict, Ω-law collision, or insufficient evidence. Do not start production implementation.
+- **Objective:** Produce the evidence-backed M1 semantic continuity baseline and terminology collision map.
+- **Milestone:** M1 — Semantic Continuity Baseline.
+- **Dependencies:** Current Ω code/contracts and existing CFA-03 boundary evidence only; new Round-1 peer roadmap outputs are not required to begin.
+- **Peer inputs required:** Existing peer boundary artifacts may be consulted for orientation; newly produced Round-1 peer roadmaps must not be used during first-pass execution.
+- **Tooling:** Existing GitHub repository search/read plus deterministic tests; add only a small fixture if a concrete gap is demonstrated.
+- **Write scope:** Own CFA-03 home; no production runtime changes.
+- **Next action:** Trace the current semantic path from input → grounding → interpretation → Intent/Plan → authority/work-facing meaning → evidence/representation and build the compact identity/state/terminology crosswalk.
+- **Completion condition:** Persist evidence-backed M1 findings, unknowns, falsifiers and a minimal continuity crosswalk without activating shared boundaries.
+- **Stop condition:** Stop at genuine owner policy, peer ownership conflict, Ω-law collision, or evidence insufficiency.
 
 ### DEEPER-SEMANTIC-CONTINUITY-MISSION-2026-09-27
-- **Status:** READY
+- **Status:** SUPERSEDED
 - **Priority:** P1
-- **Dependencies:** None for initial local investigation; RP-02/RP-06 remain conditionally dependent on peer Round-2 acceptance.
-- **Write scope:** Own agent home unless a separately authorized cross-home reconciliation is required.
-- **Next action:** Trace the current command/self-knowledge pipelines and map CANON, semantic/provenance identity, and the smallest evidence-backed implementation seams.
-- **Completion condition:** Persist evidence-backed findings and bounded design only for the explicitly launched mission; do not activate shared boundaries or start unrelated implementation.
-- **Stop condition:** Stop at a genuine owner decision, peer ownership conflict, Ω-law collision, or other verified blocker.
+- **Reason:** Replaced by the smaller milestone-scoped M1 task produced by Strategic Roadmap Round 1. Preserve the broader mission shape in the roadmap; re-introduce future work as milestone-bounded tasks when evidence makes it actionable.
+- **Successor:** `ROADMAP-M1-SEMANTIC-BASELINE-TRACE-2026-09-27`
 
 ## Future task intake
 
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
 
 ## Completed task history
+
+### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
+- **Status:** DONE
+- **Receipt:** `RESULTS/CFA03-20260927-STRATEGIC-ROADMAP-R1.md`
+- **Roadmap commit:** `d1d3a35ac0aa47347e1e1712538522e6a10acc0e`
+- **Outcome:** Independent five-milestone CFA-03 strategic roadmap persisted with success criteria, dependencies, tooling, peer-intelligence gates, decision gates, product consequences, deferred work and inherited-plan classifications.
 
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
