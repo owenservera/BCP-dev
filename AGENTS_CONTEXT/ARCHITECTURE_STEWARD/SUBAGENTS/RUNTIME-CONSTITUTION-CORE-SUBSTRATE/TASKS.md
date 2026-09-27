@@ -32,6 +32,16 @@
 - **Stop condition:** Further work stops for Ω-law collision, boundary/security-tier decision, insufficient evidence, or any request to begin production implementation.
 
 ## Future task intake
+### RUNTIME-M1-B1-TARGET-RUNTIME-CLOSURE-2026-09-27
+- **Status:** READY-LOCAL-RUNTIME-EXECUTION
+- **Priority:** P1
+- **Purpose:** Replay the B1 signed-manifest corpus on an actual supported Ω runtime and close the remaining target-runtime evidence gaps identified by the bounded primitive experiment.
+- **Preconditions:** EXPERIMENTS/B1-CONTAINMENT-BYTE-BINDING-EXPERIMENT-2026-09-27.md persisted; current Ω host and target-runtime checkout available.
+- **Next action:** Run signed-manifest cases for entry/source/manifest containment, symlink/non-file refusal, verify→execute mutation/replacement, and B4 recovery; record exact allow/refuse outcomes and preserve UNKNOWN where platform behavior is unavailable.
+- **Write scope:** CFA-10 experiment/results only; no Ω-law or production-runtime changes until a later implementation decision.
+- **Completion condition:** Reproducible target-runtime evidence covers the M1 B1 matrix or names the residual unknowns precisely; no uncovered bytes are shown to execute.
+- **Stop condition:** stop on Ω-law collision, boundary/security-tier decision, or need to choose a production mechanism before evidence is sufficient.
+
 
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
 
