@@ -51,7 +51,7 @@ Shared boundaries remain unactivated unless a separately verified and authorized
 - RP-02 and RP-06 are AGREED in current peer-side Round-2 reconciliation.
 - M1 semantic baseline is complete.
 - Stage-E L1 freshness contract is reconciled/closed by the Steward.
-- CFA-03 L2 basis-adapter characterization is the next bounded action.
+- CFA-03 L2 semantic/self-knowledge basis characterization is complete; Steward L2 reconciliation is now the synchronization point.
 
 ## Verified baseline
 `8353bb2db22b6f2e45f628c4c79ed42d5d8a56fb`
