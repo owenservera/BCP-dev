@@ -7,6 +7,22 @@
 
 ## Open tasks
 
+## NEXT routing — current Wave 1 gate
+
+The first actionable task for this home is the CFA-06 boundary baseline in:
+AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md
+
+When the human owner says "Next", execute **Wave 1 / CFA-06** only:
+- verify current main and this home;
+- read owner alignment plus CFA-01–04 Round-2 Completion Audit;
+- produce BOUNDARY-BASELINE-DECLARATION-2026-09-27.md;
+- explicitly cover Capability/Provider/Realization, Account/Session/Resource, routing/Authority, Work/effect evidence, and provider-healing/Evolution;
+- stop after the declaration is committed and report the exact SHA.
+
+Do not execute the older M1-M2 peer-intelligence task first. Do not start live provider work or production implementation.
+
+
+
 ### M1-M2-PEER-INTELLIGENCE-ROUND-1-2026-09-27
 - **Status:** READY
 - **Priority:** P1
