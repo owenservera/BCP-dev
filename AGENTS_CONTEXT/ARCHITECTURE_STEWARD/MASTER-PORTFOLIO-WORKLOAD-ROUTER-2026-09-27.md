@@ -28,15 +28,15 @@ A local `READY`, `NEXT`, `WAITING`, or historical wave label does not override t
 
 | CFA | Portfolio role | Current state | Current enablement |
 |---|---|---|---|
-| CFA-01 | World / semantic-reference closure | M1/M2 evidence complete; Stage-E L2 World/Object basis characterized; central L2 reconciliation pending | STAGE-E / SEAM-CLOSURE |
+| CFA-01 | World / semantic-reference closure | M1/M2 evidence complete; Stage-E L2 World/Object basis characterized; central L2 reconciliation CLOSED | STAGE-E / SEAM-CLOSURE |
 | CFA-02 | Data continuity / external acquisition | M1 complete; Stage-E L2 owner characterization CLOSED / RECONCILED | EMPIRICAL-BLOCKER |
 | CFA-03 | Semantic grounding / self-knowledge | M1 complete; Stage-E gate blocked | STAGE-E |
-| CFA-04 | Authority reconstruction / live corridor | M1 evidence complete; Stage-E L2 characterized / partial; live work waiting | SEAM-CLOSURE |
+| CFA-04 | Authority reconstruction / live corridor | M1 evidence complete; Stage-E L2 CLOSED / partial; live work waiting | SEAM-CLOSURE |
 | CFA-05 | Work envelope / Plan→Work | M1 candidate complete; not frozen | SEAM-CLOSURE |
-| CFA-06 | Capability→realization / provider continuity | M2 reconciliation peer-blocked | SEAM-CLOSURE |
-| CFA-07 | Composition identity / replacement | bounded design closure incomplete | BOUNDED-DESIGN |
+| CFA-06 | Capability→realization / provider continuity | Stage-E L2 CLOSED; M2 reconciliation remains peer-blocked | SEAM-CLOSURE |
+| CFA-07 | Composition identity / replacement | Stage-E L2 CLOSED; bounded downstream design closure remains | BOUNDED-DESIGN |
 | CFA-08 | Surface/View / reconstructable space | M1 complete; M2 named | BOUNDED-DESIGN |
-| CFA-09 | Change / compatibility / replacement | M1 complete; shared routing drift | SEAM-CLOSURE |
+| CFA-09 | Change / compatibility / replacement | Stage-E L2 CLOSED; shared routing drift remains | SEAM-CLOSURE |
 | CFA-10 | K0 / B1 runtime constitution | M1 complete; Stage-E L2 owner characterization CLOSED / RECONCILED; runtime generation UNRESOLVABLE; B1 underproven | EMPIRICAL-BLOCKER |
 
 ## 3. Portfolio work packages
