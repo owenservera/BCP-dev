@@ -21,17 +21,15 @@
 ## Open bounded work
 
 ### RUNTIME-M1-K0-EVIDENCE-CLOSURE-2026-09-27
-- **Status:** READY
+- **Status:** DONE
 - **Priority:** P1
-- **Objective:** Turn the retained K0 duties into a compact invariant → bypass → minimum mechanism → evidence → falsifier matrix, with B1 executable-entry confinement as the first closure target.
-- **Milestone:** M1 — Executable Constitutional Boundary & Evidence Closure.
-- **Dependencies:** Current Ω B1–B5 and runtime evidence; current CFA-04/05/06/07/09 aligned contracts; CFA-02 only if persistence atomicity is claimed K0.
-- **Peer inputs required:** Existing ratified/current peer contracts are sufficient to start. Do not consume newly produced Round-1 peer roadmaps before the Architecture Steward formally reconciles the round.
-- **Tooling required:** Existing Ω boot/recovery/token/lifecycle corpus; small B1 fixture/gate extension if the required adversarial cases are absent.
-- **Write scope:** CFA-10 home; one evidence/falsifier artifact if no existing equivalent exists; no Ω-law or production-runtime changes.
-- **Next action:** Build the M1 invariant/falsifier matrix from current Ω/runtime evidence and define the exact B1 adversarial cases and expected refusal semantics before selecting implementation changes.
-- **Completion condition:** Matrix covers all retained K0 duties; B1 cases are explicit; each candidate mechanism has a named bypass and falsifier; UNKNOWN/DEFERRED items remain named.
-- **Stop condition:** Stop for Ω-law collision, material CFA-boundary change, security/threat-tier decision, insufficient evidence, or any request to begin production implementation.
+- **Completed:** 2026-09-27
+- **Artifact:** `M1-K0-EVIDENCE-FALSIFIER-MATRIX-2026-09-27.md`
+- **Receipt:** `RESULTS/CFA10-M1-K0-EVIDENCE-CLOSURE-2026-09-27.md`
+- **Result:** Retained K0 duties were converted into an invariant → bypass → minimum mechanism → evidence → falsifier matrix. B1 was refined into explicit source-root, manifest-root, executable-entry, symlink and verify→execute byte-binding cases. No Ω-law or production-runtime changes were made.
+- **Next state:** No new READY implementation task is created; B1 containment/byte-binding requires a separately authorized experiment.
+- **Completion condition:** Met by durable matrix, state/queue update, receipt and verified mainline lineage.
+- **Stop condition:** Further work stops for Ω-law collision, boundary/security-tier decision, insufficient evidence, or any request to begin production implementation.
 
 ## Future task intake
 
