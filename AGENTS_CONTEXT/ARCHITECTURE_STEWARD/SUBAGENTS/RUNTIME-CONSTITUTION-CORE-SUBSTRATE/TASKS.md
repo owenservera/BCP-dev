@@ -7,19 +7,18 @@
 
 ## Open tasks
 
-### HOME-UPGRADE-2026-09-27
-- **Status:** READY
-- **Priority:** P1
-- **Dependencies:** None currently known.
-- **Write scope:** Own agent home only.
-- **Next action:** Read current main, then reconcile this task against `SESSION-CONTEXT.md`, identity, `STATE.md`, `TASKS.md`, `LESSONS.md`, and applicable alignment/history.
-- **Completion condition:** Validate the home as cold-startable; persist only justified corrections; update task status; report exact result/commit; do not start unrelated work.
-- **Stop condition:** Stop after this task and report.
+_No open tasks._
 
 ## Future task intake
 
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
 
 ## Completed task history
+
+### HOME-UPGRADE-2026-09-27
+- **Status:** DONE
+- **Result receipt:** `RESULTS/CFA10-HOME-UPGRADE-2026-09-27-0538.md`
+- **Completion commit:** bdad012a1e829bffdb2294f9fe5cbe276f1b8156
+- **Result:** Home validated and cold-start corrections persisted; FSSP-1.3/session-result-contract alignment is now reflected at the home front door; no Ω law, shared boundary, or production implementation changes.
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
