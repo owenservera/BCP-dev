@@ -8,20 +8,21 @@
 ## Open tasks
 
 ### CFA-05-10-BOUNDARY-GATE-BEFORE-GRAPH-2026-09-27
-- **Status:** READY / CURRENT GATE
+- **Status:** WAVE 2 DONE / WAVE 3 CURRENT
 - **Priority:** P0
 - **Purpose:** Close the missing durable boundary-evidence layer for CFA-05 through CFA-10 before Graph Kernel / Source-Code Graph attachment.
 - **Canonical packet:** `BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`
-- **Reason:** CFA-05–10 are already owner-aligned/rationalized; the missing artifact layer is Boundary baseline + peer reconciliation, not CFA birth. Do not rerun one-shot bootstrap.
-- **Wave 1:** CFA-05 through CFA-10 independently produce `BOUNDARY-BASELINE-DECLARATION-2026-09-27.md` in parallel.
-- **Wave 2:** Steward reconciles the six baselines and emits the peer-reconciliation queue.
-- **Wave 3:** CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10 reconcile bounded seams sequentially.
-- **Wave 4:** Steward audits completion and explicitly opens/withholds the Graph Gate.
-- **Next action:** Human router sends **Next to CFA-05, CFA-06, CFA-07, CFA-08, CFA-09, CFA-10 in parallel**. After all six complete, send **Next to Steward** for Wave 2; then sequential Next through CFA-05…CFA-10; then Steward for Wave 4.
+- **Wave 1:** DONE — all six CFA boundary baselines are present on `main`.
+- **Wave 2:** DONE — Steward reconciliation and bounded peer-reconciliation queue persisted.
+- **Wave 2 artifacts:**
+  - `BOUNDARY-DESIGN-SYSTEM/WAVE-2-BASELINE-RECONCILIATION-2026-09-27.md` — commit `0ab5fbfec0b28937ac4936d44e5c96013b237261`
+  - `BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md` — commit `0b1e8d78e1f605a9295ac987044191aa2f74e1fd`
+- **Wave 3:** CURRENT — execute **CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10** sequentially.
+- **Current human-router action:** Send **Next to CFA-05 only**. Wait for its completion before sending Next to CFA-06.
+- **Wave 4:** After CFA-10 completes Wave 3, send **Next to Steward** for the final completion audit and explicit Graph Gate decision.
+- **Graph:** CLOSED until Wave 4 explicitly opens it.
 - **Completion condition:** Six baselines, Steward reconciliation, six peer outputs, and final audit are durably persisted with exact lineage; unresolved items remain UNKNOWN/CONFLICTED/DEFERRED.
 - **Stop condition:** owner-intent conflict, Ω-law collision, material ownership transfer, or pressure to infer semantics from names/implementation.
-- **Graph dependency:** Graph build is gated until Wave 4 explicitly opens it.
-
 
 
 ### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
