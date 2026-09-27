@@ -38,12 +38,12 @@ An adapter may consume existing canonical references but must not create a new c
 | Adapter | Owner | Current basis evidence | Required L2 closure | Current status |
 |---|---|---|---|---|
 | World/Object revision | CFA-01 | canonical vault identity/revision exists; WorldReferenceResult carries basis-oriented fields; CFA-01 L2 characterized the strongest token as `(ns,id,rev)` with optional CID | owner-scoped canonical token, resolver, STALE/UNRESOLVABLE behavior, evidence and falsifier | **CLOSED — design CHARACTERIZED; runtime propagation UNKNOWN** |
-| Durable continuity / reconstruction | CFA-02 | vault revisions/CIDs, lineage and reconstruction responsibility are established; CFA-02 is ratified but some joins remain unresolved | define which durable record/revision references can serve as basis without creating a second identity store | OPEN |
-| Authority / policy | CFA-04 | authority corridor uses live authority/evidence and policy/law references; exact self-knowledge dependency adapter is not frozen | identify policy/law version or immutable digest basis, resolution rule and refusal/staleness boundary | OPEN |
-| Capability / Provider / Realization | CFA-06 | ProviderRealization and provider-specific evidence are current; exact stable observation basis and live-vs-fixture rule remain partly open | identify stable capability/realization/provider observation token and unresolved behavior | OPEN |
-| Composition / Manifest | CFA-07 | Recipe/Manifest admission evidence includes manifest/content identity and replacement lineage; logical composition survivor semantics remain open | define version + immutable identity basis needed for a derived view; preserve logical-vs-installed identity distinction | OPEN |
-| Change / Compatibility | CFA-09 | Change is a cross-domain relation with subject/state/evidence/history references; exact Data mapping remains open | define the minimum change/revision/compatibility basis a derived view actually depends upon | OPEN |
-| Runtime generation/source | CFA-10 | runtime lifecycle/generation/fencing evidence exists; B1 remains underproven and exact minimum runtime source token is not frozen | define bounded generation/source basis and failure semantics without promoting experimental machinery to K0 | OPEN |
+| Durable continuity / reconstruction | CFA-02 | vault revisions/CIDs, lineage and reconstruction responsibility are established; owner reports completion but durable receipt/task closure is absent on current main | verify/repair the durable completion transaction; do not repeat substantive characterization unless required artifact is actually absent | REPORTED-UNVERIFIED |
+| Authority / policy | CFA-04 | authority corridor uses live authority/evidence and policy/law references; owner result is characterized with an explicit partial/UNKNOWN runtime source-binding finding | preserve the partial/UNKNOWN finding for central reconciliation; no additional owner characterization unless a specific gap is assigned | CLOSED — PARTIAL |
+| Capability / Provider / Realization | CFA-06 | ProviderRealization and provider-specific evidence are current; owner L2 characterization receipt is present | none; await central reconciliation | CLOSED |
+| Composition / Manifest | CFA-07 | Recipe/Manifest admission evidence includes manifest/content identity and replacement lineage; owner L2 characterization is present | none; await central reconciliation | CLOSED |
+| Change / Compatibility | CFA-09 | Change is a cross-domain relation with subject/state/evidence/history references; owner L2 characterization is present with residual UNKNOWNs | none; await central reconciliation | CLOSED |
+| Runtime generation/source | CFA-10 | runtime lifecycle/generation/fencing evidence exists; owner reports completion but durable receipt/task closure is absent on current main; B1 remains underproven | verify/repair the durable completion transaction; do not repeat substantive characterization unless required artifact is actually absent | REPORTED-UNVERIFIED |
 
 **CFA-01 closure note:** the strongest World/Object freshness basis is the existing canonical vault revision `(ns,id,rev)`, with optional CID where available. Current WorldModel/EntityView shapes do not propagate the exact canonical revision/CID for every derived entity, so runtime token propagation remains UNKNOWN/deferred. This is a characterization result, not a runtime implementation claim.
 
@@ -180,7 +180,7 @@ The owner MUST NOT report the adapter as DONE/COMPLETE until:
 4. the exact commit/ref is recorded;
 5. current main is re-read and both the receipt and task-state update are verified there.
 
-A chat-only completion claim is REPORTED-UNVERIFIED and does not satisfy the L2 gate. A later Next must first repair/verify the durable completion surface rather than repeat the characterization.
+A chat-only completion claim is REPORTED-UNVERIFIED and does not satisfy the L2 gate. For a REPORTED-UNVERIFIED owner, a later Next first verifies/repairs the durable completion surface; it does not automatically rerun the characterization.
 
 ## 12. L2 completion gate
 

@@ -2,7 +2,14 @@
 
 ## NEXT-COMMAND PRIMER — 2026-09-28
 
-When the owner sends **Next**, resolve against the master portfolio router first, then this CFA queue. The current bounded action is **STAGE-E-L2-CFA10-RUNTIME-GENERATION-BASIS-ADAPTER-2026-09-28** only.
+When the owner sends **Next**, resolve against the master portfolio router first, then this CFA queue. The current durable state is REPORTED-UNVERIFIED.
+
+**Execute first:** verify current main for the substantive artifact, canonical receipt, exact commit/ref, and this task's state. If the substantive artifact exists, perform only the missing durable completion transaction. If it does not exist, execute the bounded characterization below.
+
+**Characterization only when needed:** identify the minimum CFA-10-owned runtime generation/source basis consumed by Stage-E freshness: canonical source location, proven generation/source token, bounded resolver, comparison rule, STALE/UNRESOLVABLE behavior, evidence refs, falsifier, and explicit UNKNOWN/DEFERRED items. Persist the durable receipt.
+
+Do not execute the blocked B1 target-runtime replay in this hosted session; do not promote experimental machinery into K0; do not select a production mechanism; do not implement runtime joins; do not change Ω law.
+
 
 **Execute:** characterize the minimum CFA-10-owned runtime generation/source basis consumed by Stage-E freshness: canonical source location, proven generation/source token, bounded resolver, comparison rule, STALE/UNRESOLVABLE behavior, evidence refs, falsifier, and explicit UNKNOWN/DEFERRED items. Persist the durable receipt.
 

@@ -29,15 +29,15 @@ A local `READY`, `NEXT`, `WAITING`, or historical wave label does not override t
 | CFA | Portfolio role | Current state | Current enablement |
 |---|---|---|---|
 | CFA-01 | World / semantic-reference closure | M1/M2 evidence complete; Stage-E L2 World/Object basis characterized; central L2 reconciliation pending | STAGE-E / SEAM-CLOSURE |
-| CFA-02 | Data continuity / external acquisition | M1 complete; M2 empirically blocked | EMPIRICAL-BLOCKER |
+| CFA-02 | Data continuity / external acquisition | M1 complete; Stage-E L2 owner work REPORTED-UNVERIFIED | EMPIRICAL-BLOCKER |
 | CFA-03 | Semantic grounding / self-knowledge | M1 complete; Stage-E gate blocked | STAGE-E |
-| CFA-04 | Authority reconstruction / live corridor | M1 evidence complete; live work waiting | SEAM-CLOSURE |
+| CFA-04 | Authority reconstruction / live corridor | M1 evidence complete; Stage-E L2 characterized / partial; live work waiting | SEAM-CLOSURE |
 | CFA-05 | Work envelope / Plan→Work | M1 candidate complete; not frozen | SEAM-CLOSURE |
 | CFA-06 | Capability→realization / provider continuity | M2 reconciliation peer-blocked | SEAM-CLOSURE |
 | CFA-07 | Composition identity / replacement | bounded design closure incomplete | BOUNDED-DESIGN |
 | CFA-08 | Surface/View / reconstructable space | M1 complete; M2 named | BOUNDED-DESIGN |
 | CFA-09 | Change / compatibility / replacement | M1 complete; shared routing drift | SEAM-CLOSURE |
-| CFA-10 | K0 / B1 runtime constitution | M1 complete; B1 underproven | EMPIRICAL-BLOCKER |
+| CFA-10 | K0 / B1 runtime constitution | M1 complete; Stage-E L2 owner work REPORTED-UNVERIFIED; B1 underproven | EMPIRICAL-BLOCKER |
 
 ## 3. Portfolio work packages
 
@@ -125,7 +125,7 @@ If the highest-priority package is blocked, do not loop on it. Select the next i
 
 ## 7. Durable completion routing
 
-When a CFA reports DONE in chat but current main lacks the corresponding receipt or TASKS.md closure, classify it as REPORTED-UNVERIFIED. The next Next for that CFA must repair/verify the durable completion surface; it must not repeat the substantive task.
+When a CFA reports DONE in chat but current main lacks the corresponding receipt or TASKS.md closure, classify it as REPORTED-UNVERIFIED. This status is not a substantive work request: the next command performs only durable-completion verification/repair, not a second characterization. The next Next for that CFA must repair/verify the durable completion surface; it must not repeat the substantive task.
 
 See AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DURABLE-COMPLETION-GATE-2026-09-28.md.
 
@@ -167,6 +167,6 @@ Any mismatch is routing drift and should be corrected by updating the projection
 
 **Parallel enabling frontier: WP-D central generic development-acceleration kernel.**
 
-**Parallel domain frontier:** Stage-E L2 owner adapter characterization is now closed for **CFA-01**; remaining L2 owner inputs are still open, and central L2 reconciliation remains required before L3.
+**Parallel domain frontier:** five Stage-E L2 owner inputs are repository-verified closed; CFA-02 and CFA-10 are REPORTED-UNVERIFIED pending durable completion verification. CFA-04 is closed with a preserved partial/UNKNOWN finding. Central L2 reconciliation remains required before L3.
 
 Production/runtime joins remain gated.

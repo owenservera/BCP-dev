@@ -5,18 +5,27 @@
 > Purpose: durable unfinished-work and next-action queue across ChatGPT sessions.
 > Authority: task/work memory only; not Ω law, semantic authority, or proof of dependency.
 
+### ENFORCE-DURABLE-COMPLETION-GATE-2026-09-28
+- **Status:** DONE
+- **Priority:** P0
+- **Purpose:** Fix the observed divergence between chat-reported Stage-E L2 owner completion and durable repository completion state.
+- **Result:** Added the central Durable Completion Gate, strengthened the Session Result Contract and subagent handoff, corrected the Stage-E L2 packet, classified owner-reported-but-unverified work explicitly, and prevented repeat-work loops.
+- **Receipt:** `RESULTS/STEWARD-20260928-DURABLE-COMPLETION-GATE.md`
+- **Completion commit:** `ffa349dd5add29bce0e3d766a4c580c9dd9f001a`
+- **Next:** Pending L2 owners must verify/repair durable completion before the Steward reconciles L2.
+
 ## Open tasks
 
 ### STAGE-E-L2-BASIS-ADAPTER-CHARACTERIZATION-2026-09-27
-- **Status:** ACTIVE — CHECKPOINT / 4 CLOSED + 1 PARTIAL + 2 OPEN
+- **Status:** ACTIVE — DURABLE COMPLETION RECOVERY / 5 CLOSED + 1 PARTIAL + 2 REPORTED-UNVERIFIED
 - **Priority:** P0
 - **Packet:** `BOUNDARY-DESIGN-SYSTEM/STAGE-E-L2-SOURCE-RUNTIME-BASIS-ADAPTER-PACKET-2026-09-27.md`
 - **Participants:** CFA-01, CFA-02, CFA-04, CFA-06, CFA-07, CFA-09, CFA-10; CFA-03 is semantic lead/consumer.
 - **Write scope:** owner CFA homes only for adapter characterizations; Steward reconciles after all receipts are available.
 - **Completion condition:** each adapter has canonical source token, resolver, STALE/UNRESOLVABLE behavior, evidence and falsifier, or an explicit blocked/UNKNOWN result with named dependency.
 - **Latest checkpoint:** `RESULTS/STEWARD-20260928-STAGE-E-L2-OWNER-CHARACTERIZATION-CHECKPOINT.md`
-- **Verified state:** CFA-01/CFA-06/CFA-07/CFA-09 closed; CFA-04 partial; CFA-02/CFA-10 outstanding.
-- **Next action:** owner-scoped closure only for CFA-02, CFA-04 and CFA-10; then Steward L2 consistency/reconciliation.
+- **Verified state:** CFA-01/CFA-04/CFA-06/CFA-07/CFA-09 have owner-side L2 results on main; CFA-04 retains an explicit PARTIAL/UNKNOWN finding. CFA-02 and CFA-10 have owner-reported completion claims but no matching durable receipt/task closure on current main.
+- **Next action:** for CFA-02 and CFA-10, verify/repair only the durable completion transaction; do not repeat substantive characterization. Then Steward performs L2 consistency/reconciliation.
 
 ### MASTER-PORTFOLIO-WORKLOAD-2026-09-27
 - **Status:** ACTIVE — MASTER ROUTER INSTALLED

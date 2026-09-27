@@ -2,7 +2,14 @@
 
 ## NEXT-COMMAND PRIMER — 2026-09-28
 
-When the owner sends **Next**, resolve against the master portfolio router first, then this CFA queue. The current bounded action is **STAGE-E-L2-CFA02-DATA-CONTINUITY-BASIS-ADAPTER-2026-09-27** only.
+When the owner sends **Next**, resolve against the master portfolio router first, then this CFA queue. The current durable state is REPORTED-UNVERIFIED.
+
+**Execute first:** verify current main for the substantive artifact, canonical receipt, exact commit/ref, and this task's state. If the substantive artifact exists, perform only the missing durable completion transaction. If it does not exist, execute the bounded characterization below.
+
+**Characterization only when needed:** use existing Data-plane evidence to name canonical durable record/revision/lineage references, available revision/CID token, bounded resolver, comparison rule, STALE/UNRESOLVABLE behavior, evidence refs, falsifier, and explicit UNKNOWN/DEFERRED items. Persist the durable receipt.
+
+Do not run the blocked live provider/Chrome corridor; do not create a second identity store; do not alter shared contracts or Ω law.
+
 
 **Execute:** characterize the CFA-02 durable-continuity basis adapter using existing Data-plane evidence: canonical durable record/revision/lineage source references, available revision/CID token, bounded resolver, comparison rule, STALE/UNRESOLVABLE behavior, evidence refs, falsifier, and explicit UNKNOWN/DEFERRED items. Persist the durable receipt.
 
