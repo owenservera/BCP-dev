@@ -70,9 +70,9 @@ Peer ownership is described in `CORE-AGENT.md` and the owner-alignment record; t
 8. Durable composition references/lineage with provisional CFA-02.
 
 ## Current task
-`STRATEGIC-ROADMAP-ROUND-1-2026-09-27` — completed by this session. See `TASKS.md`, `DOMAIN-ROADMAP-2026-09-27.md`, and `RESULTS/CFA07-20260927-STRATEGIC-ROADMAP-R1.md`.
+`COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27` — completed by this session. See `TASKS.md` and `COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27.md`.
 
-The next actionable task is the first bounded Composition Identity + Replacement Survivor Proof Pack recorded in `TASKS.md`. Resume CFA-07 domain research only when a separate task is assigned.
+The home is now awaiting targeted peer reconciliation before any schema/contract or implementation change. Resume CFA-07 domain research only when a separate task is assigned.
 
 ## Strategic roadmap
 - `DOMAIN-ROADMAP-2026-09-27.md` — full CFA-owned Strategic Roadmap Round 1; current planning artifact for CFA-07.
