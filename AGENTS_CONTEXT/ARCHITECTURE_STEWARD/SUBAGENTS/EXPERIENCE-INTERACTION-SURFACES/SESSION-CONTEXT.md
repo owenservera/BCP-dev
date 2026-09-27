@@ -22,6 +22,8 @@ Canonical semantic state != presentation state. Gesture != semantic effect. A st
 ## Key boundaries
 CFA-01 semantic World/Space/Context; CFA-03 Intent/meaning; CFA-04 authority; CFA-05 Work controls; CFA-07 composition editing.
 
+- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+
 ## Fresh-session rule
 Verify current main and relevant peer boundaries before changes.
 
