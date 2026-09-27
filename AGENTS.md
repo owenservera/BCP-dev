@@ -51,6 +51,12 @@ Do **not** use general web search as a substitute for direct connected GitHub ac
 
 At cold start, determine the repository-access capabilities available to the session before choosing the access method.
 
+## Persistent agent task queue
+
+Every standing agent home maintains a persistent `TASKS.md` owned by that agent. It records unfinished work, next actions, verified dependencies, blockers, and completion state across ChatGPT conversations. `TASKS.md` is distinct from `STATE.md` (what is currently true) and `LESSONS.md` (reusable learning), and it is not architectural authority.
+
+Fresh sessions read and reconcile `TASKS.md`; unfinished work must not depend on chat history for recovery.
+
 ## Agent operating rule
 
 For substantive changes:
