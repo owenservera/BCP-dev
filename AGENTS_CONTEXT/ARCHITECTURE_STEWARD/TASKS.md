@@ -7,6 +7,16 @@
 
 ## Open tasks
 
+### MASTER-PORTFOLIO-WORKLOAD-2026-09-27
+- **Status:** ACTIVE — MASTER ROUTER INSTALLED
+- **Priority:** P0
+- **Router:** `MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
+- **Reconciliation:** `MASTER-PORTFOLIO-STATE-RECONCILIATION-2026-09-27.md`
+- **Rule:** master register → local roadmap → master workload router → central task state → local task projection. Historical local routers cannot override the master router.
+- **Current packages:** WP-E Stage-E readiness; WP-D generic development kernel; WP-A seam closure; WP-B empirical blockers; WP-C bounded design.
+- **Next action:** advance the highest-priority enabled package by exactly one bounded action and update durable routing state.
+
+
 ### CFA-05-10-BOUNDARY-GATE-BEFORE-GRAPH-2026-09-27
 - **Status:** DONE — WAVE 4 COMPLETE / GRAPH GATE OPEN
 - **Priority:** P0
@@ -74,7 +84,7 @@
 - **Stage D:** DONE — receipt `GRAPH-W1-D-PROOF-EVIDENCE-ATTACHMENT-RECEIPT-2026-09-27.md`; commit `3b009ac92a4e312fc73e19d0a5cea3eb1a91d068` (source-identity correction included).
 - **Stage E readiness assessment:** DONE / BLOCKED — receipt `BOUNDARY-DESIGN-SYSTEM/GRAPH-W1-E-SELF-KNOWLEDGE-READINESS-ASSESSMENT-RECEIPT-2026-09-27.md`; commit `5eed9ed10a8b1a38a2237de244debd2d37ba06f9`.
 - **Stage E runtime joins:** BLOCKED — the separate self-knowledge design/evidence gate is not yet satisfied.
-- **Next action:** close the named readiness gate; do not repeat the assessment without new evidence and do not implement runtime joins before explicit readiness.
+- **Next action:** execute the Stage-E readiness workload defined in `BOUNDARY-DESIGN-SYSTEM/STAGE-E-SELF-KNOWLEDGE-READINESS-WORKLOAD-DESIGN-2026-09-27.md`; runtime joins remain blocked until its gate passes.
 - **Stop condition:** any request to create a second graph, infer semantic authority from code topology, or collapse UNKNOWN into dependency.
 
 ### SELECT-GOVERNED-CORRIDOR-AFTER-M1-2026-09-27
