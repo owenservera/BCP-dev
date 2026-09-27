@@ -1,6 +1,6 @@
 # Change, Compatibility & Continuity Steward — State
 
-> Status: **RATIFIED — OWNER-ALIGNED / WAVE 1 BOUNDARY BASELINE COMPLETE / WAVE 2 STEWARD PENDING / DOMAIN EXECUTION NOT STARTED**
+> Status: **RATIFIED — OWNER-ALIGNED / STAGE-E L2 ADAPTER COMPLETE / AWAITING CENTRAL L2 RECONCILIATION**
 > CFA: **CFA-09 — Evolution / Compatibility / Self-Maintenance**
 > agent_id: `evolution-compatibility-self-maintenance`
 > Updated: 2026-09-27
@@ -28,7 +28,10 @@
 - M1 peer reconciliation contribution: COMPLETE — `M1-PEER-RECONCILIATION-2026-09-27.md`
 - shared M1 contract/evidence closure: PENDING Architecture Steward convergence
 - Wave 1 boundary baseline: COMPLETE — `BOUNDARY-BASELINE-DECLARATION-2026-09-27.md`
-- Wave 2 boundary reconciliation: PENDING Architecture Steward
+- Wave 2 boundary reconciliation: COMPLETE
+- Wave 3 peer reconciliation: COMPLETE — `WAVE-3-PEER-RECONCILIATION-ADDENDUM-2026-09-27.md`
+- Stage-E L2 Change/compatibility basis adapter: COMPLETE — `STAGE-E-L2-CHANGE-COMPATIBILITY-BASIS-ADAPTER-2026-09-27.md`
+- Stage-E L2 receipt: COMPLETE — `RESULTS/CFA09-20260927-STAGE-E-L2-CHANGE-COMPATIBILITY-ADAPTER.md`
 
 ## Alignment outcome
 
@@ -73,8 +76,8 @@ The minimum Change Envelope has been characterized against D-315 and D-326, then
 
 ## Active frontiers
 
-1. Architecture Steward Wave 2 baseline reconciliation.
-2. Ordered CFA-09 Wave 3 peer reconciliation after Wave 2.
+1. Await Architecture Steward reconciliation of the seven Stage-E L2 owner adapters.
+2. Reconcile any named CFA-09 basis gaps only when the central router requests them.
 2. Reconcile evolution-record persistence with provisional CFA-02.
 3. Define active-Work constraints for plan/capability/realization change with CFA-05/06.
 4. Define authority re-resolution trigger cases with CFA-04.
@@ -158,4 +161,4 @@ Birth test:
 
 ## Next mission
 
-Do not rerun Wave 1. Await Architecture Steward Wave 2. Then execute only the ordered CFA-09 Wave 3 peer reconciliation when its predecessor gate is explicitly complete. Do not infer M2 or a live product slice prematurely.
+The CFA-09 Stage-E L2 Change/compatibility basis adapter is complete. Await the central Steward's L2 reconciliation. Do not start L3 graph-bundle work locally, implement runtime joins, or infer missing Change/compatibility identity/persistence semantics.
