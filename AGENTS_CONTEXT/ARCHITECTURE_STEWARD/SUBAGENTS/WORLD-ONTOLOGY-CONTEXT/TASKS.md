@@ -1,21 +1,21 @@
 ## Open tasks
 
-### WORLD-M2-REFERENCE-CORRESPONDENCE-EVIDENCE-2026-09-27
+### WORLD-M3-CONTEXT-WORLD-PROJECTION-EVIDENCE-2026-09-27
 - **Status:** READY
 - **Priority:** P1
-- **Objective:** Characterize the minimum World reference, correspondence and addressability contract across RESOLVED, AMBIGUOUS, STALE, UNRESOLVABLE and CONFLICTED cases.
-- **Milestone:** M2 — Reference, Correspondence & Addressability.
-- **Dependencies:** M1 semantic kernel evidence; peer reconciliation now AGREED from CFA-02, CFA-03 and CFA-04; unresolved accessible-composite representation remains explicitly bounded.
-- **Peer inputs required:** Existing reconciled World/Data, World/Semantic and World/Authority seam evidence. New peer roadmap outputs are not required to start.
-- **Tooling:** existing repository search/graph and replay/fixture mechanisms; small deterministic correspondence/resolution fixture extension only if needed.
-- **Write scope:** CFA-01 home only; do not activate shared boundaries or implement production resolver mechanics.
-- **Next action:** build an evidence matrix and bounded replay corpus for the five resolution states, source/canonical correspondence states, alias/source identity, and historical/stale references.
-- **Completion condition:** one minimum World reference/result candidate survives all five resolution states; correspondence remains distinct from equivalence/proof; addressability remains distinct from authority; evidence and freshness remain attached; explicit falsifiers are documented.
-- **Stop condition:** owner decision, Ω-law collision, material ownership conflict, or evidence showing M2 requires absorbed peer semantics.
+- **Objective:** Characterize Context as a bounded, explainable projection/selection of World state using the existing D-443 assembly substrate without creating a second semantic store.
+- **Milestone:** M3 — Context & World Projection.
+- **Dependencies:** M1/M2 evidence closure; existing D-443/context substrate; accepted World reference/result seam; World/Authority accessible separation.
+- **Peer inputs required:** Existing CFA-03 semantic continuity evidence, CFA-04 authority/view-scope evidence, CFA-05 Work-context evidence, CFA-08 surface/projection constraints. No new broad roadmap wave required.
+- **Tooling:** existing Context assembly + repository graph/search; deterministic projection/reconstruction fixture extension only if needed.
+- **Write scope:** CFA-01 home only; do not implement a new context engine or activate shared boundaries.
+- **Next action:** produce a bounded evidence matrix for Context scope inputs, projection basis, relevance/selection, freshness, visibility/accessibility separation, reconstruction and omission semantics.
+- **Completion condition:** Context candidates can be explained as bounded World selection with explicit basis/scope/freshness; omission does not imply nonexistence; Context does not become authority, Memory, Intent, Work, or a second canonical World.
+- **Stop condition:** owner decision, Ω-law collision, material ownership conflict, or evidence showing Context semantics require absorbing peer-owned meaning.
 
 ## First bounded actionable task
 
-WORLD-M2-REFERENCE-CORRESPONDENCE-EVIDENCE-2026-09-27 is the only READY task.
+WORLD-M3-CONTEXT-WORLD-PROJECTION-EVIDENCE-2026-09-27 is the only READY task.
 
 ## Completed task history
 
