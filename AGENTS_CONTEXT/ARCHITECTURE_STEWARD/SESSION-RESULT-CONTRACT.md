@@ -60,6 +60,13 @@ A substantive task is not `DONE` until all of these exist:
 
 The receipt is evidence of what the session concluded; it is not semantic authority. The Architecture Steward independently verifies it against the repository.
 
+## Commons convergence and repository attribution
+
+The intended convergence is: a session completion receipt corresponds to a Commons `HANDOFF` that has reached `REPORTED`, while `<AGENT-HOME>/RESULTS/<SESSION_ID>.md` is the durable repository projection/compatibility surface that preserves the handoff lineage. Until Commons is the operational transport, the repository receipt remains the live completion surface.
+
+`COMMIT_SHA` establishes repository lineage only. It does not establish agent identity, semantic authority, or truth. Unless cryptographic agent attribution is separately verified, treat repository artifact authorship as an unattributed claim and verify it against repository evidence. Signed commit or equivalent attribution is a future hardening path, not current proof.
+
+
 ## No chat-only completion
 
 A final ChatGPT message is not the durable result. Returning the report in chat is required for human visibility, but it never substitutes for the repository receipt.

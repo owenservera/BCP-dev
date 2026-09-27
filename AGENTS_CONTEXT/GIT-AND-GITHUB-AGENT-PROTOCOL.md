@@ -76,6 +76,8 @@ Shared implementation files should have one current owner. If two agents need on
 - Lockfile changes require a real dependency change.
 - Generated artifacts are updated by their generator.
 
+A `COMMIT_SHA` proves repository lineage, not agent identity or semantic truth. Git author/committer attribution is not equivalent to Commons identity; when commit signature/agent attribution has not been separately verified, treat artifact authorship as an unattributed claim. Signed-commit or equivalent attribution remains future hardening, not current proof.
+
 ## Synchronization
 
 At task start:

@@ -59,6 +59,8 @@ Commons communication may be promoted into evidence, analysis, decisions, archit
 
 Promotion must preserve source event/message lineage.
 
+The intended session-result convergence is that a completion receipt corresponds to a Commons `HANDOFF` reaching `REPORTED`, with `<AGENT-HOME>/RESULTS/<SESSION_ID>.md` serving as the durable repository projection/compatibility surface for that handoff lineage. Until Commons is the operational transport, the repository receipt remains the live completion surface.
+
 Commons itself does not perform semantic promotion by fiat.
 
 ## 10. Human representation

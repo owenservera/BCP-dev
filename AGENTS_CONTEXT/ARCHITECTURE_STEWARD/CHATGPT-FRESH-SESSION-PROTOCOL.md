@@ -290,6 +290,9 @@ When writes are available:
 - commit to the specified branch/ref;
 - report the exact resulting SHA.
 
+Repository commits and refs establish repository lineage, not agent identity. GitHub username/committer is not agent identity; unless cryptographic attribution is separately verified, repository artifact authorship is an unattributed claim for Steward trust purposes.
+
+
 For parallel sessions, use distinct write surfaces/branches where needed.
 
 `main` is the shared synchronization point.
@@ -356,6 +359,8 @@ See `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md`. This repos
 ## 19. Parallel conversation rule
 
 Multiple sessions may coexist when the execution-strategy assessment establishes compatible independence.
+
+For a given stable `agent_id`, parallel readers are permitted, but by default only one active publishing session may allocate the next Commons stream sequence at a time. This reconciles FSSP parallelism with `AGENTS_CONTEXT/AGENT-COMMONS/IDENTITY-AND-TRUST.md`: a publishing race must fail visibly rather than create competing valid events. Coordinated multi-publisher implementations must preserve one unbroken agent stream.
 
 Each session must:
 - verify current main/ref;
