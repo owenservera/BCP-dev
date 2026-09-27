@@ -8,22 +8,13 @@
 ## Open tasks
 
 ### AUTHORITY-CORRIDOR-EVIDENCE-PACK-2026-09-27
-- **Status:** IN_PROGRESS
+- **Status:** DONE
 - **Priority:** P1
-- **Objective:** Map one existing governed consequential action end-to-end and identify the minimum evidence required to prove live authority, runtime enforcement, and post-hoc reconstruction.
-- **Milestone:** M1 → M3 of `DOMAIN-ROADMAP-2026-09-27.md`.
-- **Dependencies:** Peer intelligence from CFA-05, CFA-06, CFA-10; reconstruction input from CFA-02; Intent reference only where the chosen corridor originates in canonical Intent. These are evidence requests until confirmed by reconciliation.
-- **Tooling:** Existing repository/Ω falsifier evidence; small fixture/replay extension only if required.
-- **Write scope:** Own CFA-04 home only.
-- **Next action:** Instantiate one Authority Case around `message.send@1` (or another already-governed effect if current evidence proves it more suitable), map each corridor field to its owning CFA, and define positive/negative proof criteria.
-- **Completion condition:** One positive corridor and one negative corridor with authority basis, scope/time/revocation semantics, live re-resolution point, runtime seam, evidence ownership, reconstruction requirements, and unresolved gaps explicit.
-- **Stop condition:** Stop at a material cross-CFA ownership conflict, owner-policy question, Ω-law collision, or missing live-evidence capability; record the blocker rather than designing around it.
-
-## Future task intake
-
-Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
-
-## Completed task history
+- **Completed:** 2026-09-27
+- **Result:** `AUTHORITY-CORRIDOR-EVIDENCE-PACK-2026-09-27.md`
+- **Receipt:** `RESULTS/AUTHORITY-CORRIDOR-EVIDENCE-PACK-20260927.md`
+- **Primary evidence-pack commit:** `329f9cfdc31c5b51f9e7ae8849e5a9d92f4bb105`
+- **Receipt commit:** `9eee0f548c452b229a7dab49593b656acc4adce3`
 
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** DONE
