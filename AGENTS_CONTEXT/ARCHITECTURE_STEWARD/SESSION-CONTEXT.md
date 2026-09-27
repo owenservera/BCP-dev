@@ -10,6 +10,7 @@
 - workspace: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/`
 - durable role context: `README.md`, `OWNERSHIP-MAP.md`
 - current state: `STATE.md` if present, otherwise current Steward artifacts
+- current mission: `CURRENT-MISSION.md` — the explicit current Steward phase and next owner action
 - lessons: `FRESH-SESSION-DESIGN-LESSONS-2026-09-27.md` and `LESSONS.md` when a compact durable lesson store is warranted
 - process protocol: `CHATGPT-FRESH-SESSION-PROTOCOL.md`
 - prompt template: `CHATGPT-FRESH-SESSION-PROMPT-TEMPLATE.md`
@@ -31,6 +32,9 @@ Documentation architecture, research lineage/reconciliation, architecture mappin
 5. persist durable context
 6. verify commit/result
 7. report exact evidence
+
+## Immediate next action
+Read `CURRENT-MISSION.md` after boot. The current mission is to use the validated Steward fresh-session test to launch fresh sessions for CFA-01 through CFA-10 so each agent upgrades and validates its own home.
 
 ## Major current frontier
 - reconcile all 10 CFA identities and boundaries
