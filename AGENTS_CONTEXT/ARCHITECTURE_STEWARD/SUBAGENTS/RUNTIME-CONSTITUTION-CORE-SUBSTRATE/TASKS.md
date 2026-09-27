@@ -1,15 +1,29 @@
 # Persistent Tasks — runtime-constitution-core-substrate
 
-## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-10 — WAITING FOR CFA-09
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 — **RECEIPT-DRIVEN**
 
-> **CHECK CENTRAL ROUTER FIRST:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
+> **DO NOT TRUST CACHED ACTIVE/WAITING STATE. VERIFY CURRENT MAIN AND RECOMPUTE YOUR TURN.**
 
-Current turn: CFA-06 is ACTIVE NOW.
+Canonical router:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
 
-When the human owner says “Next” before CFA-09 completes:
-**WAVE 3 WAITING FOR CFA-09** — STOP.
+Required order:
+**CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10**
 
-After CFA-09 completes, re-read the central router before executing CFA-10.
+Recompute the current Wave-3 turn from CURRENT-WAVE-ROUTER and committed receipts. Execute only when CFA-05 through CFA-09 receipts exist and your receipt is absent. Otherwise report exact waiting/done state; never use stale cached turn text.
+
+When the human owner sends **“Next”**:
+1. verify current `main`;
+2. read the canonical router;
+3. check the required predecessor Wave-3 receipts directly on current `main`;
+4. decide whether this CFA is DONE, EXECUTE NOW, or WAITING;
+5. if EXECUTE NOW, perform only this CFA's Wave-3 row from the Wave-3 queue;
+6. commit the addendum, report the exact SHA, and STOP.
+
+**A stale local TASKS message must never force a second Next.**
+**Never resume older M1/M2/FUTURE work merely because it remains marked READY.**
+
+Hard stop: no production implementation, no shared-boundary activation, no Ω-law change, no Graph attachment.
 
 
 ## Open tasks
