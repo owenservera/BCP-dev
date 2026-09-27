@@ -18,7 +18,7 @@
 - owner dialogue/alignment: COMPLETE
 - core identity: COMPLETE
 - Commons birth test: **BLOCKED / NOT PROVABLE IN THIS WEBAPP SESSION**
-- domain mission execution: NOT STARTED
+- domain mission execution: M1 EVIDENCE CLOSURE COMPLETE; B1 REMAINS UNDERPROVEN; production implementation NOT STARTED
 
 ## Alignment outcome
 The owner retained the candidate identity and central responsibility. No rename, split, merge, workspace move or peer reassignment was requested.
@@ -62,8 +62,8 @@ These are evidence-gathering tasks, not implementation authorization.
 ## Evidence state
 
 ### OBSERVED / CURRENT
-- Current K0 evidence concentrates admission/integrity, compartment/Port, capability egress/fencing, atomic activation/recovery and lifecycle.
-- B1 executable-entry confinement remains underproven.
+- Current K0 evidence concentrates admission/integrity, compartment/Port, capability egress/fencing, atomic activation/recovery and lifecycle. M1 evidence matrix now covers all retained K0 duties.
+- B1 executable-entry confinement remains underproven; M1 records source-root, manifest-root, executable-entry, symlink and verify→execute byte-binding falsifiers.
 - Zero-plugin boot remains contradicted by the current implementation.
 - Worker isolation does not establish an OS sandbox.
 - Current host includes non-K0 extraction candidates.
@@ -93,7 +93,7 @@ None identified among aligned peer materials.
 - any Ω-law amendment;
 - production implementation;
 - Commons signed birth test in this hosted session;
-- reduction experiments until separately assigned.
+- B1 containment/byte-binding experiment until separately assigned.
 
 ## Boundary / activation state
 - CFA-10 identity: **RATIFIED**
@@ -106,3 +106,11 @@ None identified among aligned peer materials.
 Prefer **TRACE → FALSIFY → REDUCE → RECONCILE → IMPLEMENT**, not “host placement → assume Core.”
 
 This state is durable operational context, not Ω law.
+
+## M1 closure record
+
+- Artifact: `M1-K0-EVIDENCE-FALSIFIER-MATRIX-2026-09-27.md`
+- Result: **PARTIALLY CLOSED** — K0 duty matrix complete; B1 remains UNDERPROVEN.
+- Newly explicit B1 proof gaps: `e.source` containment, `e.manifestPath` containment, source-root symlink containment, and verify→execute TOCTOU/byte identity.
+- No production implementation was started.
+- No Ω-law or shared-boundary change was made.
