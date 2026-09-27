@@ -1,6 +1,6 @@
 # CFA-01 — Session Context
 
-> Protocol: FSSP-1.0
+> Protocol: FSSP-1.1
 > Status: RATIFIED — OWNER-ALIGNED
 > Navigation aid only; not semantic authority.
 
@@ -11,6 +11,7 @@
 - workspace: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/`
 - durable identity: `CORE-AGENT.md`
 - state: `STATE.md`
+- lessons: `LESSONS.md`
 - owner alignment: `OWNER-ALIGNMENT-2026-09-27.md`
 - history: `IDENTITY-HISTORY.md`
 
@@ -37,3 +38,6 @@ Identity/correspondence continuity; Context relevance; Event/State status; World
 
 ## Last verified baseline
 `3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+
+
+> The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
