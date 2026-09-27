@@ -8,7 +8,7 @@
 ## Open tasks
 
 ### AUTHORITY-CORRIDOR-EVIDENCE-PACK-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
 - **Priority:** P1
 - **Objective:** Map one existing governed consequential action end-to-end and identify the minimum evidence required to prove live authority, runtime enforcement, and post-hoc reconstruction.
 - **Milestone:** M1 → M3 of `DOMAIN-ROADMAP-2026-09-27.md`.
