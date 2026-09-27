@@ -1,15 +1,35 @@
 # CFA-07 — Composition / Plugin / Forge
 
-This folder is the bootstrap workspace for the **Composition / Plugin / Forge** Core Function Area.
+> **Status:** RATIFIED — OWNER-ALIGNED  
+> **Identity:** Composition / Plugin / Forge Steward  
+> **agent_id:** `composition-plugin-forge`
 
-The agent does not inherit its final identity from the folder name. Its first launch is a self-design session:
+This folder is the durable workspace for the **Composition / Plugin / Forge** Core Function Area.
 
-`FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → EXECUTION`
+The bootstrap lifecycle completed:
 
-Read `LAUNCH-PROMPT.md` before doing substantive work.
+`FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY`
 
-A durable `CORE-AGENT.md` should be created only after owner alignment. Until then, artifacts are bootstrap research/proposals, not established authority.
+## Durable identity
 
-See:
-- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
-- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/README.md`
+- `OWNER-ALIGNMENT-2026-09-27.md` — owner-alignment decision and boundary record
+- `CORE-AGENT.md` — ratified responsibility contract
+- `STATE.md` — current operational state
+- `SELF-DESIGN-PROPOSAL-2026-09-27.md` — preserved bootstrap proposal
+- `BOOTSTRAP-REPORT-2026-09-27.md` — preserved bootstrap evidence
+
+## Boundary
+
+CFA-07 owns composition identity/membership, plugin assembly/dependency semantics, Manifest / CompositionSpec / Recipe semantic separation, Forge candidate generation/proving semantics, and composition-side replacement continuity.
+
+It does **not** own K0 enforcement, live authority, capability/provider semantics, Work lifecycle, canonical Data, global Evolution governance, or user-facing surface realization.
+
+## Guardrails
+
+Shared CFA boundaries remain **UNACTIVATED**.
+
+Ω law remains **UNCHANGED**.
+
+System plugins and ordinary/extension plugins remain on one governed plugin boundary; first-party status does not create undocumented privilege.
+
+Read `CORE-AGENT.md` and `STATE.md` before substantive CFA-07 work.
