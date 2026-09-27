@@ -18,3 +18,4 @@ PENDING → VERIFIED → RECONCILED
 |---|---|---|---|---|---|
 | STEWARD-20260927-SESSION-LAUNCH-UPGRADE | 2026-09-27 | ARCHITECTURE_STEWARD | 430aea70f03fe4969e8c09583fab981934fa3768 | VERIFIED | Receipt verified against main at 430aea70f03fe4969e8c09583fab981934fa3768; durable changes are repository-visible. |
 | STEWARD-20260927-OPS-MATURITY | 2026-09-27 | ARCHITECTURE_STEWARD | 96cd96bf346dd6df798cdad06d6e061e16eb065d | VERIFIED | Receipt verified against repository commit 96cd96bf346dd6df798cdad06d6e061e16eb065d; later mainline peer commits were preserved. |
+| STEWARD-20260927-RETURN-TO-MAIN-CYCLE4 | 2026-09-27 | ARCHITECTURE_STEWARD | dbdb24f853a4ce0f92efa8612fd2376994a18719 | VERIFIED | Return-to-main receipt verified against current main at dbdb24f853a4ce0f92efa8612fd2376994a18719; Cycle 4 / RA-5 is the active frontier. |
