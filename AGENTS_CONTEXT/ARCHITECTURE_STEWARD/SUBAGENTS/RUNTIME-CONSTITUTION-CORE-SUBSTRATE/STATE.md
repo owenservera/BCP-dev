@@ -93,7 +93,7 @@ None identified among aligned peer materials.
 - any Ω-law amendment;
 - production implementation;
 - Commons signed birth test in this hosted session;
-- B1 containment/byte-binding experiment until separately assigned.
+- B1 target-runtime closure until a supported local/CI runtime is available.
 
 ## Boundary / activation state
 - CFA-10 identity: **RATIFIED**
@@ -129,3 +129,12 @@ This state is durable operational context, not Ω law.
 - Production implementation: **NOT STARTED**.
 - Ω law: **UNCHANGED**.
 - Shared CFA boundaries: **UNACTIVATED**.
+
+
+## B1 target-runtime closure status
+
+- Queued task: `RUNTIME-M1-B1-TARGET-RUNTIME-CLOSURE-2026-09-27`
+- Status: **BLOCKED-HOSTED-RUNTIME**
+- Handoff: `EXECUTION-HANDOFFS/B1-TARGET-RUNTIME-CLOSURE-2026-09-27.md`
+- Blocker: the hosted execution container cannot resolve `github.com`, so a full BCP-dev checkout and Bun runtime cannot be executed here.
+- No claim of target-runtime replay, B1 closure, production implementation, or Ω-law change is made.
