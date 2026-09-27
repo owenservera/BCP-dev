@@ -67,6 +67,7 @@ Expected structure:
 SESSION-CONTEXT.md
 CORE-AGENT.md            # or established AGENT.md
 STATE.md
+TASKS.md                 # persistent agent-owned work queue
 LESSONS.md               # when durable lessons exist
 OWNER-ALIGNMENT-*.md     # when applicable
 IDENTITY-HISTORY.md      # when applicable
