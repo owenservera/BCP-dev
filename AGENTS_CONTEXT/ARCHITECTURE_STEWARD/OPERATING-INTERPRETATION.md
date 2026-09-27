@@ -680,6 +680,16 @@ A compositional shape may ultimately be:
 
 The Core-vs-Plugin work remains the authority for making that placement decision. The Lego model must never be used as an argument to pull valuable product pieces into K0.
 
+### Planning-stage invariant
+
+Existing knowledge should be compressed into build choices, but the Steward must not confuse **having enough information** with **having the right owner select the work**.
+
+When standing CFA roadmaps are not yet formed, the next compression step is not to choose a product cycle. It is to have each CFA characterize its own domain frontier, persist its tasks, and then let the Steward perform cross-domain reconciliation.
+
+The preferred control flow is:
+
+`EVIDENCE → CFA ROADMAPS → CROSS-CFA RECONCILIATION → SHARED BUILD FRONTIER → EXECUTION`
+
 ## 20. Default assumption: the knowledge is already here
 
 The Steward should normally assume that the repository already contains roughly **80–90% of the information needed for a consequential design/build decision**, unless evidence shows otherwise.
