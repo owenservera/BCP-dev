@@ -1,132 +1,82 @@
 # Architecture Steward — Current Mission
 
 > Updated: 2026-09-27
-> Status: ACTIVE / EXECUTION FRONTIER
+> Status: ACTIVE / CFA ROADMAP FORMATION
 > Authority: derived Steward operating state; not Ω law or semantic authority.
 
 ## Current phase
 
-**Cycle 4 — Live Chrome / Accounts**
+**CFA Domain Roadmap Formation**
 
-The common ChatGPT agent operating model has now been established and the fresh Steward cold-start test has passed. No further Steward test is required.
+The ratified CFA constellation has now completed its common home/context setup stage. That setup proved cold-startability and durable task machinery; it did **not** define the substantive work program for the ten domain owners.
+
+The Steward must not skip that planning stage by selecting a downstream destination cycle from an inherited program plan.
 
 ## Immediate next action
 
-**Execute the existing Cycle 4 live-account proof path.** The CFA home-upgrade wave is now treated as reconciled operating history; it is no longer the active frontier.
+Launch the ten fresh CFA domain-roadmap sessions using:
 
-The next proof target is RA-5 in `docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md`, using the existing V1 Chrome substrate. This is an evidence/proof task, not a new routing-architecture design task.
+`CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
 
-Execution packet: `CYCLE-4-LIVE-CHROME-ACCOUNTS-2026-09-27.md`.
+Governing protocol:
 
-Reference reconciliation: `docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md`.
+`CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
 
-The Steward must not merely say "launch CFA-01 through CFA-10." It must compile an **owner action package** containing, for every CFA:
+Each CFA is responsible for characterizing its own domain frontier and creating its own first bounded roadmap/tasks. The sessions are independent unless repository evidence establishes a real dependency.
 
-1. the CFA name and agent_id;
-2. the direct home link;
-3. the exact launch instruction/envelope to paste;
-4. any genuine prerequisite (none for this wave unless repository evidence changes);
-5. the expected stop/report condition.
+## Planning authority
 
-The owner should be able to execute the next step directly from the Steward response without reconstructing links, prompts, or sequencing.
+For current work selection:
 
-Once a delegated session runs, its durable completion receipt under `SUBAGENTS/<CFA-HOME>/RESULTS/<SESSION_ID>.md` is the Steward's primary repository-visible result surface. The owner should not need to manually relay substantive session results.
+1. explicit owner decisions and Ω law;
+2. ratified CFA responsibility/boundary;
+3. verified current repository evidence and authoritative contracts;
+4. CFA-owned domain roadmap;
+5. Architecture Steward cross-CFA reconciliation;
+6. destination-wide plans, P1 workstreams, historical queues and prior recommendations as candidate inputs.
 
-Each fresh CFA session is responsible for validating and upgrading its own home against:
+Therefore:
 
-- `CHATGPT-AGENT-OPERATING-MODEL.md`;
-- FSSP-1.3;
-- its own `SESSION-CONTEXT.md`;
-- its durable identity;
-- `STATE.md`;
-- `LESSONS.md`;
-- applicable owner-alignment and history artifacts.
+- **Cycle 4 — Live Chrome / Accounts is not the current Steward mandate.**
+- The existing Cycle 4 packet remains useful evidence/candidate work.
+- Build-and-Harvest and P1 sequencing do not become CFA tasks merely because they say CURRENT or READY.
+- A downstream slice may become current after CFA roadmaps independently converge on it.
 
-The CFA sessions must make only agent-specific corrections supported by their own repository evidence. They must not redesign the shared operating model.
+## What the Steward does now
 
-## Execution strategy
+The Steward's role in this phase is to:
 
-For this wave the current evidence supports:
+1. maintain the launch packet and planning contract;
+2. verify each CFA roadmap and task queue;
+3. compare the ten roadmaps for overlap, missing responsibility and true dependencies;
+4. reconcile them with destination/P1 evidence;
+5. produce the smallest cross-CFA execution frontier;
+6. only then compile the next owner action package.
 
-- **Semantic dependency:** none between CFA home upgrades.
-- **Authority dependency:** none between already-ratified CFA identities.
-- **Write surface:** each CFA owns a distinct home directory.
-- **Shared synchronization:** repository mainline only.
-- **Architectural classification:** **INDEPENDENT**.
-- **Operational constraint:** concurrent writes to the same ref may require repository synchronization/retry; that does not make the tasks semantically ordered.
+The Steward must synthesize, not preempt the domain owners' planning responsibility.
 
-Therefore the owner-facing action is **launch all ten fresh CFA sessions in parallel**.
+## CFA-05 exception
 
-Only a newly discovered, evidence-backed dependency may change this. The Steward must not manufacture serial ordering.
+Repository evidence still shows CFA-05's prior home-upgrade task as READY without its durable completion receipt. That operational discrepancy is preserved. It is not promoted to completion and is not treated as a semantic predecessor to roadmap formation.
 
-```
-OWNER LAUNCHES CFA-01 ... CFA-10 IN PARALLEL
-                  ↓
-VERIFY EACH RESULT / COMMIT
-                  ↓
-STEWARD CONSTELLATION RECONCILIATION
-                  ↓
-SELECT NEXT ARCHITECTURAL FRONTIER
-```
+## Stop conditions
 
-## CFA session completion condition
+During roadmap formation, stop at:
 
-Each CFA fresh session must:
+- an unresolved owner decision;
+- a material peer ownership conflict;
+- an Ω-law collision;
+- evidence too weak to justify a durable task;
+- a task that would require unauthorized production implementation.
 
-1. verify its identity against current repository evidence;
-2. understand its own home without prior-chat memory;
-3. validate the home against FSSP-1.3;
-4. preserve its existing ratified identity and boundaries;
-5. update its own durable context only where genuinely required;
-6. record durable lessons only when justified;
-7. verify and commit its changes;
-8. return the standard FSSP-1.3 completion report.
-
-## Strategic operating-maturity frontier
-
-The next Steward-level operating frontier is the existing Agent Commons runtime, not another expansion of the protocol corpus.
-
-- R1 — bus convergence: repository receipts are the current durable projection/compatibility surface for Commons HANDOFFs targeting REPORTED; convergence remains a target until Commons is the operational transport.
-- R2 — trust: repository commits establish lineage, not agent identity; unsigned/unverified artifact authorship is treated as an unattributed claim.
-- R3 — runtime owner/freeze: the Commons runtime/platform workstream is assigned to CFA-10, with shared design breadth frozen until the existing v0 operational completion test passes.
-- R4 — epistemic trigger: CFA-11 remains uninstantiated; quantitative review triggers are defined in the CFA register.
-- R5 — publishing concurrency: parallel readers are permitted; one active publishing session per stable agent_id is the default Commons rule.
-- R6 — owner digest: OWNER-DIGEST.md is the derived weekly human-facing compression surface; it does not replace source state.
-- R7 — identity drill: CFA-04 is the operational security/identity custodian; recovery is tested, but the full rotation + recovery drill remains blocked until a real key-rotation operation exists.
-
-The current actionable workstream is AGENTS_CONTEXT/AGENT-COMMONS/RUNTIME-PLATFORM-WORKSTREAM-2026-09-27.md.
-
-## Steward stop condition
-
-The Steward should not reopen the CFA home-upgrade wave unless a new repository contradiction requires it.
-
-For Cycle 4, the Steward owns synthesis/reconciliation and evidence classification; live owner-machine execution belongs to the existing provider/runtime execution path.
-
-## Not the current task
-
-Do not:
-
-- restart CFA ratification already completed;
-- redesign the ten CFA boundaries;
-- create another agent-management system;
-- rebuild the architecture graph yet;
-- start unrelated production implementation;
-- treat the fresh-session test as requiring perfect automation.
+Do not manufacture a next step to keep the queue moving.
 
 ## Success condition
 
-A fresh Steward can enter the Steward home from its directory alone and determine **and operationalize**:
+The next Steward transition is valid only when:
 
-```
-WHO AM I?
-WHAT IS CURRENT?
-WHAT DID THE LAST VALIDATED TEST PROVE?
-WHAT IS THE ACTUAL DEPENDENCY / EXECUTION STRATEGY?
-WHAT EXACT TASKS DOES THE OWNER LAUNCH NOW?
-WHERE ARE THE DIRECT LINKS?
-WHAT EXACT INSTRUCTION IS PASTED INTO EACH SESSION?
-WHAT PREREQUISITES ACTUALLY EXIST?
-WHEN DOES THE STEWARD RESUME?
-```
-
-The answer is not complete when it merely describes the next work. It is complete when it gives the owner the concrete launch package.
+- each CFA has a durable domain roadmap or an honest blocked/unknown result;
+- each CFA's persistent TASKS.md reflects the roadmap;
+- existing destination/P1 plans have been explicitly adopted, deferred, rejected, superseded, or left unresolved by the responsible CFA;
+- the Steward has reconciled the resulting roadmaps without silently replacing them;
+- a bounded shared frontier is then selected from that evidence.
