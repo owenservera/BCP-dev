@@ -30,7 +30,7 @@ C. Bounded Source-Code Graph pilot — **DONE**.
 D. Proof/evidence attachment — **DONE**.
 E. Runtime self-knowledge joins — **BLOCKED / SEPARATE READINESS GATE**.
 
-The current graph stage is always the first stage whose required receipt is absent.
+The current graph stage is the first stage whose execution gate is not satisfied. A readiness receipt may exist while the stage remains blocked.
 
 ## Required receipts
 
@@ -42,7 +42,9 @@ The current graph stage is always the first stage whose required receipt is abse
   GRAPH-W1-C-SOURCE-CODE-PILOT-RECEIPT-2026-09-27.md — **DONE**
 - Stage D:
   GRAPH-W1-D-PROOF-EVIDENCE-ATTACHMENT-RECEIPT-2026-09-27.md — **DONE**
-- Stage E:
+- Stage E readiness assessment:
+  GRAPH-W1-E-SELF-KNOWLEDGE-READINESS-ASSESSMENT-RECEIPT-2026-09-27.md — **DONE / BLOCKED**
+- Stage E runtime joins:
   **BLOCKED — separate self-knowledge design/evidence readiness gate not yet satisfied.**
 
 Stage D is complete using only already-existing attributable evidence. Stage E must not begin runtime join implementation until its separate readiness condition is explicitly satisfied.
