@@ -1,6 +1,6 @@
 # Session Result Contract
 
-> Version: 1.0
+> Version: 1.1
 > Date: 2026-09-27
 > Status: ACTIVE
 > Authority: process contract only; not Ω law or semantic authority.
@@ -25,9 +25,13 @@ The `RESULTS/` directory may be created by the session when first needed.
 SESSION_STATUS:
 SESSION_ID:
 CFA / AGENT:
+IDENTITY:
+AGENT_ID:
 TARGET_REF:
 BASE_MAIN_SHA:
 TASK:
+EXECUTION_STRATEGY:
+STRATEGY_RATIONALE:
 RESULT:
 FILES_CHANGED:
 COMMIT_SHA:
@@ -67,3 +71,8 @@ If the session cannot persist the receipt because repository write capability is
 ## History
 
 Do not overwrite prior session receipts. Use a new `<SESSION_ID>.md` file for every substantive session.
+
+
+## Changelog
+
+- 1.1 — 2026-09-27: expanded and normalized the canonical receipt schema with IDENTITY, AGENT_ID, EXECUTION_STRATEGY, and STRATEGY_RATIONALE, and removed the duplicate/non-canonical CORE_AGENT field.

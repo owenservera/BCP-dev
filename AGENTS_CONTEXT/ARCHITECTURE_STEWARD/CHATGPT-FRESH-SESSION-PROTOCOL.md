@@ -1,6 +1,6 @@
 # ChatGPT Fresh-Agent Session Protocol
 
-> Version: FSSP-1.2
+> Version: FSSP-1.3
 > Date: 2026-09-27
 > Scope: every new ChatGPT web-app conversation launched as an independent BCP-dev agent session.
 > Status: PROPOSED / Steward operating protocol
@@ -145,6 +145,8 @@ Read:
 5. `LESSONS.md` when present
 6. latest alignment/history artifacts as applicable
 7. task-specific artifacts named by the task envelope
+
+Read RECEIPTS.md; process any receipts whose commit is newer than LAST_VERIFIED_RECEIPTS_SHA; verify each against repository evidence; update status and LAST_VERIFIED_RECEIPTS_SHA.
 
 ### C. Relevant context
 
@@ -337,34 +339,7 @@ Never fabricate:
 
 ## 17. Completion report contract
 
-Every substantive session returns:
-
-```
-SESSION_STATUS:
-SESSION_ID:
-CFA:
-IDENTITY:
-AGENT_ID:
-TARGET_REF:
-BASE_MAIN_SHA:
-PREDECESSOR_VERIFIED:
-TASK:
-EXECUTION_STRATEGY:
-STRATEGY_RATIONALE:
-RESULT:
-FILES_CHANGED:
-COMMIT_SHA:
-OWNER_ALIGNMENT:
-CORE_AGENT:
-LESSONS_UPDATED:
-COMMONS:
-UNRESOLVED:
-BLOCKERS:
-BOUNDARIES_ACTIVATED:
-OMEGA_LAW_CHANGED:
-IMPLEMENTATION_STARTED:
-NEXT_REQUIRED_STEP:
-```
+Every substantive session returns the canonical report defined by AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md v1.1. That contract is the single source of truth for the field list and order. Report exactly those fields; do not add, remove, or reorder fields.
 
 Every value must be evidence-backed.
 
@@ -434,3 +409,8 @@ WHERE DO I STOP?
 ```
 
 That is the cold-start contract.
+
+
+## Changelog
+
+- FSSP-1.3 — 2026-09-27: added the Steward receipt pull/verification loop, standardized launcher-owned SESSION_ID handling, and made Session Result Contract 1.1 the sole completion-report schema.

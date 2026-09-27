@@ -122,7 +122,9 @@ For a fresh ChatGPT session, begin with:
 
 Then continue with the existing architecture/graph reading sequence below.
 
-## Start here
+## Legacy navigation — architecture/depth reference
+
+The following 16-item list is legacy navigation for deeper architecture reading. The FSSP-ordered list above governs fresh sessions.
 
 Read:
 

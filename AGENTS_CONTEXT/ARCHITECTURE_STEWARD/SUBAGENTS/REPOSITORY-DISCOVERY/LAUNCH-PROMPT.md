@@ -289,17 +289,15 @@ Do not claim exhaustive repository coverage unless the available tooling actuall
 
 ## Handoff
 
-Commit the output on:
-
-`research/steward-repository-completeness`
-
-with a clear message such as:
+Commit the output directly to `main` with this clear message:
 
 `research: independent repository completeness sweep`
 
+This prompt follows the current Steward delivery rule: ordinary durable research artifacts go directly to `main`; branch isolation is not required for this output. A different branch is appropriate only when the owner explicitly assigns it for a genuine size or review-isolation need, and the reason must be stated in the prompt.
+
 Report back:
 
-- branch;
+- target ref (`main`);
 - commit;
 - exact output path;
 - 5–10 most important discoveries;

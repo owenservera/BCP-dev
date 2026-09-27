@@ -1,0 +1,19 @@
+# Architecture Steward — Receipt Index
+
+> Status: ACTIVE
+> Purpose: compact Steward-side index of session receipts for verification and reconciliation.
+> Authority: evidence index only; receipts are evidence, not authority.
+
+## Status model
+
+PENDING → VERIFIED → RECONCILED
+
+- **PENDING** — receipt is present and awaiting repository verification.
+- **VERIFIED** — receipt claims have been checked against repository evidence at the recorded commit/ref.
+- **RECONCILED** — the Steward has incorporated any necessary downstream state/view updates.
+
+## Receipt index
+
+| SESSION_ID | DATE | CFA | COMMIT | STATUS | STEWARD NOTE |
+|---|---|---|---|---|---|
+| STEWARD-20260927-SESSION-LAUNCH-UPGRADE | 2026-09-27 | ARCHITECTURE_STEWARD | PENDING | PENDING | New receipt created by this session; verify its recorded commit/ref before advancing status. |

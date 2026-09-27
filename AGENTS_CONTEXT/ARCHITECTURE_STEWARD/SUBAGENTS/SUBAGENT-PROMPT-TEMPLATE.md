@@ -6,6 +6,12 @@
 
 # <TYPE> — <INVESTIGATION NAME>
 
+## SESSION_ID FORMAT
+
+Use: <CFA-or-TYPE>-<YYYYMMDD>-<SHORT-SLUG> — uppercase, for example REPOSITORY-DISCOVERY-20260927-GRAPH-SWEEP.
+
+SESSION_ID uniqueness is the launcher's responsibility. Receipts are keyed by SESSION_ID.
+
 ## Mission
 
 Determine:
@@ -123,6 +129,18 @@ Do not:
 
 
 ## Handoff
+
+A substantive investigation session is complete only when all four conditions are satisfied, in this order:
+
+1. durable changes (if any) exist;
+2. the exact commit/ref is recorded;
+3. a durable completion receipt is persisted at exactly:
+   AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RESULTS/<TYPE>-<SESSION_ID>.md
+4. the persistent task state is updated.
+
+The receipt must use the field schema in AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md v1.1, exactly as defined there and in exactly that order.
+
+If the receipt cannot be persisted, report PARTIAL or BLOCKED; never silently claim completion. A chat-only report never counts as completion.
 
 Commit durable research artifacts directly to `main` unless the owner explicitly assigns another delivery mechanism. Report:
 

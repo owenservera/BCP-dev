@@ -22,4 +22,10 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 
 ## Completed task history
 
+### SESSION-LAUNCH-UPGRADE-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Receipt:** RESULTS/STEWARD-20260927-SESSION-LAUNCH-UPGRADE.md
+- **Result:** Upgraded the fresh-session and session-receipt machinery to FSSP-1.3 / Contract 1.1, including the Steward receipt pull loop and investigation-subagent receipt coverage.
+
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.

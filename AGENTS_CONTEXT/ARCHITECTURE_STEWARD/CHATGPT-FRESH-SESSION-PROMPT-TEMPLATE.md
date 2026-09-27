@@ -1,6 +1,6 @@
 # ChatGPT Fresh-Session Launch Prompt Template
 
-> Protocol: FSSP-1.2
+> Protocol: FSSP-1.3
 > Operating model: `CHATGPT-AGENT-OPERATING-MODEL.md`
 > Use this template when launching any new BCP-dev agent conversation.
 
@@ -15,6 +15,12 @@ IDENTITY: <HUMAN-READABLE NAME>
 AGENT_ID: <AGENT-ID>
 WORKSPACE: <REPOSITORY-RELATIVE WORKSPACE>
 ```
+
+### SESSION_ID FORMAT
+
+Use: <CFA-or-TYPE>-<YYYYMMDD>-<SHORT-SLUG> — uppercase, for example STEWARD-20260927-GRAPH-SWEEP.
+
+SESSION_ID uniqueness is the launcher's responsibility. Receipts are keyed by SESSION_ID.
 
 This conversation has no trusted memory of previous sessions.
 
@@ -38,8 +44,9 @@ Then:
 6. Read `STATE.md`.
 7. Read `TASKS.md`.
 8. Read `LESSONS.md` when present.
-9. Read only relevant owner-alignment, history, peer and authority artifacts.
-9. Verify predecessor commits/artifacts independently.
+9. Read RECEIPTS.md; process any receipts whose commit is newer than LAST_VERIFIED_RECEIPTS_SHA; verify each against repository evidence; update status and LAST_VERIFIED_RECEIPTS_SHA.
+10. Read only relevant owner-alignment, history, peer and authority artifacts.
+11. Verify predecessor commits/artifacts independently.
 
 Before substantive work, establish a boot receipt with SESSION_ID, IDENTITY, AGENT_ID, current MAIN_SHA, identity verification, and predecessor status. This is distinct from the mandatory completion receipt.
 
@@ -98,31 +105,6 @@ Do not:
 
 ## REPORT EXACTLY
 
-```
-SESSION_STATUS:
-SESSION_ID:
-CFA:
-IDENTITY:
-AGENT_ID:
-TARGET_REF:
-BASE_MAIN_SHA:
-PREDECESSOR_VERIFIED:
-TASK:
-EXECUTION_STRATEGY:
-STRATEGY_RATIONALE:
-RESULT:
-FILES_CHANGED:
-COMMIT_SHA:
-OWNER_ALIGNMENT:
-CORE_AGENT:
-LESSONS_UPDATED:
-COMMONS:
-UNRESOLVED:
-BLOCKERS:
-BOUNDARIES_ACTIVATED:
-OMEGA_LAW_CHANGED:
-IMPLEMENTATION_STARTED:
-NEXT_REQUIRED_STEP:
-```
+Use AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md v1.1 as the sole report schema. Output its fields exactly in its defined order; do not add, remove, or reorder fields.
 
 STOP after the task's defined completion gate.

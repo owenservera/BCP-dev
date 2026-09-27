@@ -117,6 +117,8 @@ Examples include an agent's own durable home documentation or deterministic cont
 
 Production runtime changes normally use work branches.
 
+Durable context artifacts and receipts go to `main` per the Steward delivery rule; production code work uses short-lived `work/<AGENT-ID>/<TASK>` branches. Commons refs (`commons/<AGENT-ID>`) are never merged or used for artifact delivery.
+
 ## Force push / deletion
 
 Never force-push main.

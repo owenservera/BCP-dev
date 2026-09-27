@@ -4,6 +4,12 @@
 > Status: ACTIVE / CFA HOME-UPGRADE HANDOFF
 > This is durable Steward operating state; not Ω law or semantic authority.
 
+## Receipt verification state
+
+LAST_VERIFIED_RECEIPTS_SHA: e8a130b40230b0930870ba01e4b51bb0f50bd0e8
+
+No Steward receipt index existed at boot, so the baseline tip is the initial last-verified point. The value is advanced only after a receipt sweep verifies indexed receipts against repository evidence.
+
 ## Current state
 
 The ChatGPT Agent Operating Model 1.0 and FSSP-1.1 are established.
