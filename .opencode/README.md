@@ -1,5 +1,16 @@
 # `.opencode/` — Phase 1 harness pack
 
+> Status: PARKED GREEN — 2026-09-27. Rebased onto `origin/main` 95bbfea3, suite
+> 6/6 green after rebase. No further sandbox work until the resume conditions
+> below hold; `main` is mid-flight (Stage-E L2 wave across CFAs) and this track
+> must not compete with it.
+>
+> Resume when ALL of: (1) the strategic-roadmap round on `main` has reconciled
+> (central synthesis DONE or explicitly parked); (2) two live hosts exist for
+> genuine two-host v0/adapter evidence, or the roadmap yields concrete
+> capability/tool requirements for Phase 3; (3) owner says go. Then: rebase,
+> re-run suite, start Phase 3 (A2A-live adapter + presence loop + MCP mesh).
+
 > Produced by `AUTONOMOUS-AGENTIC-TEAM-DESIGN-2026-09-27-v2.md` §14. Sandbox-only:
 > place on `exp/local-theory-sandbox`, not `main`. No runtime, Ω law, or Commons
 > semantic change is made by adding these files.
