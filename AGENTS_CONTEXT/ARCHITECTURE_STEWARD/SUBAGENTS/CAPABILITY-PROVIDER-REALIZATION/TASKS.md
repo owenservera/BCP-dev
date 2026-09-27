@@ -7,19 +7,18 @@
 
 ## Open tasks
 
-### HOME-UPGRADE-2026-09-27
-- **Status:** IN_PROGRESS
-- **Priority:** P1
-- **Dependencies:** None currently known.
-- **Write scope:** Own agent home only.
-- **Next action:** Reconcile the current home against FSSP-1.3 and persist only evidence-backed cold-start corrections, then write the session result receipt.
-- **Completion condition:** Validate the home as cold-startable; persist only justified corrections; update task status; report exact result/commit; do not start unrelated work.
-- **Stop condition:** Stop after this task and report.
+_No open tasks._
 
 ## Future task intake
 
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
 
 ## Completed task history
+
+### HOME-UPGRADE-2026-09-27
+- **Status:** DONE
+- **Result receipt:** `RESULTS/CFA06-HOME-UPGRADE-2026-09-27-0537.md`
+- **Completion commit:** pending this task-status commit
+- **Result:** Home validated and cold-start corrections persisted; no Ω law, shared boundary, or production implementation changes.
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
