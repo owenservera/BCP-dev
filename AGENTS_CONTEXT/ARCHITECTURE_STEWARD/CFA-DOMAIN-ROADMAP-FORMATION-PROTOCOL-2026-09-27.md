@@ -1,255 +1,490 @@
-# CFA Domain Roadmap Formation Protocol
+# CFA Strategic Roadmap Round — Protocol
 ## 2026-09-27
 
 > Status: ACTIVE
 > Classification: derived operating protocol; not Ω law
-> Purpose: transition ratified CFA homes from context/bootstrap readiness into CFA-owned domain planning without letting the Architecture Steward or an inherited program plan pre-select the work.
+> Purpose: run one independent parallel strategic-planning round across all ratified Core Function Areas before any shared execution frontier is selected.
 
-## 1. Why this stage exists
+## 1. Why this round exists
 
-A ratified CFA home is not a completed work program.
+The ten CFAs are standing domain responsibility owners. Their job is not merely to execute work selected by the Architecture Steward.
 
-The home-upgrade stage establishes:
+The common home upgrade established cold-startable homes. The previous roadmap-formation design correctly added a planning stage, but it was still too task-centric.
 
-- durable identity;
-- current state;
-- lessons;
-- boundaries;
-- persistent task machinery;
-- fresh-session operability.
+This round goes one level higher.
 
-It does **not** determine the CFA's substantive domain roadmap.
+Each CFA must independently answer:
 
-After home setup, each CFA must be allowed to inspect the repository from its own responsibility and decide what work is actually warranted inside that responsibility. The Architecture Steward then reconciles those domain roadmaps into the cross-CFA architecture and dependency picture.
+> **What is the conceptual destination for my responsibility, what are the major milestones needed to get there, how will I know each milestone is successful, what dependencies and tools are required, and what specific intelligence/evidence must I obtain from each peer before making the strategic choices at each stage?**
+
+The round deliberately happens in parallel so that the first-pass plans are not prematurely shaped by one another.
 
 The intended transition is:
 
 ```
 RATIFIED CFA
   ↓
-HOME / CONTEXT READY
+HOME READY
   ↓
-CFA-OWNED DOMAIN ROADMAP
+INDEPENDENT STRATEGIC ROADMAP ROUND
   ↓
-CFA PERSISTENT TASK QUEUE
+LOCAL ROADMAP + LOCAL TASK QUEUE
   ↓
-CROSS-CFA RECONCILIATION
+CENTRAL STEWARD RECONCILIATION
   ↓
-BOUNDED SHARED FRONTIER
+CENTRAL CROSS-CFA ROADMAP
   ↓
-EXECUTION
+SHARED DEPENDENCY / EVIDENCE PLAN
+  ↓
+BOUNDED EXECUTION FRONTIER
 ```
 
-The missing middle stage must not be skipped.
+## 2. Artifact architecture
 
-## 2. Planning ownership
+There are two layers by design.
 
-The planning authority for a CFA's internal work is ordered as follows:
+### Local CFA roadmap — maintained by the CFA
 
-1. explicit owner decisions and applicable Ω law;
-2. the ratified CFA identity, responsibility and non-scope;
-3. verified current repository evidence and existing authoritative destination contracts;
-4. the CFA's own evidence-backed domain roadmap;
-5. cross-CFA reconciliation and dependency analysis by the Architecture Steward;
-6. inherited program plans, delivery cycles, historical launch queues and prior recommendations as candidate inputs.
-
-A destination program plan can identify useful work. It does **not** automatically become a CFA task.
-
-A pre-existing "current cycle" is a hypothesis about sequencing, not proof that the CFA has completed the domain planning needed to enter that cycle.
-
-## 3. Mission
-
-The roadmap-formation session answers:
-
-> **Given what this CFA now owns, what is the smallest evidence-backed body of work that should happen next, in what dependency order, and what should remain unknown or deferred?**
-
-This is a planning and characterization task.
-
-It is not permission to implement the resulting tasks.
-
-## 4. Required inputs
-
-The session must read, at minimum:
-
-1. current `main`;
-2. repository-wide operating agreements;
-3. the CFA's `SESSION-CONTEXT.md`;
-4. the ratified durable identity;
-5. the CFA's `STATE.md`;
-6. the CFA's `TASKS.md`;
-7. the CFA's `LESSONS.md` when present;
-8. owner-alignment/history artifacts;
-9. the strongest relevant Ω and destination evidence for the CFA;
-10. relevant peer artifacts only where needed to test boundaries or dependencies.
-
-The session must distinguish:
-
-- settled authority;
-- observed evidence;
-- derived interpretation;
-- proposal;
-- unknown;
-- contradiction.
-
-## 5. Roadmap work
-
-The CFA must independently:
-
-### A. Reconstruct the real domain frontier
-
-Identify:
-
-- what is already established;
-- what remains unknown;
-- what is under-characterized;
-- what is contradicted;
-- what is already implemented/proven;
-- what is merely described;
-- what could materially change the domain boundary.
-
-Do not optimize for the largest backlog.
-
-### B. Generate a bounded roadmap
-
-Produce a small ordered or conditionally ordered set of domain work items. Prefer the minimum set needed to make the responsibility coherent and testable.
-
-For each proposed item record:
-
-- task ID;
-- concise objective;
-- classification;
-- evidence basis;
-- semantic/authority/read/write/verification dependencies;
-- write scope;
-- next action;
-- completion condition;
-- stop/escalation condition;
-- important peer inputs;
-- whether it is research, reconciliation, proof, design, or later implementation candidate.
-
-### C. Populate the persistent queue
-
-Add the selected domain tasks to the CFA's `TASKS.md`.
-
-Every durable task must state:
-
-- STATUS;
-- PRIORITY;
-- DEPENDENCIES;
-- WRITE SCOPE;
-- NEXT ACTION;
-- COMPLETION CONDITION;
-- STOP CONDITION where useful.
-
-The task queue is the CFA's durable work frontier.
-
-Do not move a task to `IN_PROGRESS` merely because it was discussed.
-
-### D. Identify what should not become work
-
-Explicitly record:
-
-- tempting but unnecessary work;
-- duplicate architecture;
-- implementation already adequately represented by existing mechanisms;
-- issues belonging to neighboring CFAs;
-- questions requiring owner decisions;
-- evidence that is insufficient to justify a task.
-
-## 6. Required durable output
-
-Create exactly:
+Each CFA maintains:
 
 `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/<CFA-HOME>/DOMAIN-ROADMAP-2026-09-27.md`
 
-Use:
+This is the **full internal working roadmap** for that CFA. It may contain more detail than the central set and may evolve independently as new evidence arrives.
+
+It is the authoritative planning artifact **for the CFA's own planning state**, subject to owner decisions, Ω law and later cross-CFA reconciliation.
+
+### Central Steward roadmap — maintained by the Steward
+
+The Steward maintains:
+
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`
+
+This is a **derived cross-CFA synthesis**, not a second planning authority.
+
+It must reference the local CFA roadmaps rather than copy their contents unnecessarily.
+
+Use the central artifact to capture:
+
+- the comparable milestone structure across all CFAs;
+- cross-CFA dependencies;
+- peer intelligence requests;
+- tooling/platform dependencies;
+- strategic decision gates;
+- contradictions and overlaps;
+- central sequencing after reconciliation;
+- the resulting bounded shared execution frontier.
+
+Do not make the central document a lowest-common-denominator rewrite of the local plans.
+
+## 3. "Do not reinvent" rule
+
+Before creating a durable artifact, search the repository for an existing artifact with the same semantic purpose.
+
+If an existing artifact already carries the needed information:
+
+- use it;
+- extend it only where necessary;
+- link it from the roadmap;
+- do not create a second competing representation.
+
+Create a new artifact only when the lifecycle, ownership, audience or structure is genuinely different.
+
+The distinction that justifies the central artifact is:
+
+- local roadmap = CFA-owned strategic working plan;
+- central roadmap = Steward-owned cross-CFA synthesis and reconciliation projection.
+
+## 4. Independent round rule
+
+All ten CFA roadmap sessions are launched in parallel.
+
+During the first-pass planning round:
+
+- do not wait for another CFA's new roadmap;
+- do not copy another CFA's new conclusions;
+- do not coordinate sequencing with peers;
+- do not treat another CFA's absence of an answer as permission to guess.
+
+Existing repository evidence from peers may be read. New peer outputs produced by this same round should be treated as separate results and not consulted merely to converge prematurely.
+
+The purpose is to expose independent models before synthesis.
+
+## 5. Required inputs
+
+Each CFA must read:
+
+1. current `main`;
+2. FSSP-1.3;
+3. its `SESSION-CONTEXT.md`;
+4. its ratified `CORE-AGENT.md`;
+5. its `STATE.md`;
+6. its `TASKS.md`;
+7. its `LESSONS.md` when present;
+8. owner alignment/history;
+9. strongest relevant Ω law/contracts/decisions;
+10. strongest relevant destination contracts, journeys, reconciliations and evidence;
+11. relevant implementation and historical/legacy evidence;
+12. relevant peer artifacts necessary to understand boundaries and dependencies.
+
+Classify claims as:
+
+`OBSERVED | DERIVED | PROPOSED | UNKNOWN | CONFLICTED`
+
+Keep freshness separate:
+
+`CURRENT | STALE | UNRESOLVABLE`
+
+## 6. Required strategic roadmap contents
+
+Each CFA's local roadmap must contain the following.
+
+### A. Strategic objective
+
+State, in conceptual terms, what a successful realization of this CFA would make true for VIVIM.
+
+Do not write a product backlog here.
+
+### B. Conceptual roadmap
+
+Create a small number of major milestones, normally 3–7 unless evidence genuinely requires more.
+
+For every milestone record:
+
+- milestone ID;
+- conceptual outcome;
+- why it matters;
+- evidence basis;
+- current maturity/state;
+- design choices that must be made at this stage;
+- success criteria;
+- falsifiers / failure conditions;
+- prerequisites;
+- dependencies;
+- candidate implementation later, if any;
+- what must remain explicitly unresolved.
+
+Milestones should describe meaningful architectural/product capability states, not individual tickets.
+
+### C. Success criteria
+
+Every milestone needs observable success criteria.
+
+Prefer criteria that can eventually be demonstrated, reconstructed, or falsified.
+
+Separate:
+
+- design validity;
+- implementation validity;
+- integration;
+- live/external proof;
+- user/product proof;
+
+when they differ.
+
+Do not claim a design milestone is implemented because its design is coherent.
+
+### D. Dependency model
+
+For each major dependency identify:
+
+- source CFA / external dependency;
+- subject;
+- dependency kind:
+  - semantic;
+  - data;
+  - authority;
+  - execution;
+  - realization/provider;
+  - surface/UX;
+  - lifecycle/evolution;
+  - runtime/platform;
+  - evidence/proof;
+- current or target;
+- direct or transitive;
+- required or preferred;
+- known vs inferred;
+- what evidence would confirm or falsify it.
+
+Do not invent dependencies simply because two milestones touch the same concept.
+
+### E. Tooling / substrate needed
+
+For each milestone identify tooling that is actually needed to make the strategic decision or prove the milestone.
+
+Examples:
+
+- repository/query/graph tooling;
+- deterministic analyzers;
+- trace/lens tools;
+- fixture/replay tooling;
+- live browser/provider lab;
+- runtime diagnostics;
+- evidence capture;
+- schema/round-trip tooling;
+- surface/prototype tooling;
+- falsification/chaos harnesses.
+
+Distinguish:
+
+`ALREADY EXISTS | NEEDS SMALL EXTENSION | NEW TOOL JUSTIFIED | NOT YET NEEDED`
+
+Do not create tooling just because it would be convenient.
+
+### F. Peer intelligence required at each stage
+
+This is mandatory.
+
+For every milestone, create a **Peer Intelligence Gate** table with:
+
+| Peer CFA | Intelligence / evidence needed | Why the milestone depends on it | Exact decision it informs | Minimum acceptable evidence | Timing |
+|---|---|---|---|---|---|
+
+The CFA must identify what it needs to know from each relevant peer before making its strategic design choice.
+
+Examples of useful peer intelligence:
+
+- boundary contract;
+- canonical data identity/revision rules;
+- authority/revocation semantics;
+- Work lifecycle;
+- provider/realization facts;
+- composition/admission rules;
+- surface constraints;
+- evolution/replacement semantics;
+- runtime invariants;
+- proof/evidence requirements.
+
+Do not merely say "coordinate with CFA-05." State exactly what information is needed and what decision it unlocks.
+
+Classify each requested peer input:
+
+- **BLOCKING** — cannot make the decision responsibly without it;
+- **HIGH-VALUE** — decision can start, but should not be finalized without it;
+- **CONTEXTUAL** — useful evidence but not a decision gate.
+
+### G. Decision gates
+
+For each milestone identify:
+
+- decision to make;
+- alternatives still open;
+- evidence required;
+- owner of the decision;
+- whether owner intent is required;
+- what would falsify the preferred direction.
+
+A roadmap is not complete merely because it recommends something.
+
+### H. Product / strategic consequences
+
+State what the milestone would enable or constrain for VIVIM.
+
+This should connect domain work to journeys and product experience without turning the CFA into the product owner for the whole system.
+
+### I. Deferred / do not do
+
+Explicitly list tempting work that is:
+
+- duplicate;
+- premature;
+- another CFA's responsibility;
+- better deferred until a peer decision;
+- implementation detail that should not be settled yet;
+- unsupported by current evidence.
+
+## 7. Local task queue
+
+After forming the conceptual roadmap, the CFA updates its own `TASKS.md`.
+
+Create READY tasks only for the **first bounded body of work** that is genuinely actionable from current evidence.
+
+For each task include:
+
+- objective;
+- milestone it advances;
+- dependencies;
+- peer inputs required;
+- tooling required;
+- write scope;
+- next action;
+- completion condition;
+- stop condition.
+
+Do not convert every conceptual milestone into a READY task.
+
+A milestone can remain a future planning state with no immediate task when evidence says it is not yet actionable.
+
+## 8. Peer requests are requests, not invented dependencies
+
+The Peer Intelligence Gates identify what the CFA needs to learn from other CFAs.
+
+They do not create an architectural dependency automatically.
+
+A request becomes a real dependency only after:
+
+- the consuming CFA shows the decision it affects;
+- the supplying CFA owns the requested subject;
+- the evidence need is specific;
+- the dependency is confirmed by reconciliation or direct evidence.
+
+This preserves flexibility and prevents dependency inflation.
+
+## 9. Completion artifact
+
+Each CFA must produce/update exactly:
+
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/<CFA-HOME>/DOMAIN-ROADMAP-2026-09-27.md`
+
+and its `TASKS.md`.
+
+The roadmap should use:
 
 ```
-# <CFA> — Domain Roadmap
-
-## Planning Basis
+# <CFA> — Strategic Domain Roadmap
+## Strategic Objective
 ## Responsibility Frontier
-## Current Evidence
-## Roadmap
-### Task 1
-### Task 2
-...
-## Dependencies / Peer Inputs
+## Current Evidence / Maturity
+## Conceptual Roadmap
+### M1 ...
+### M2 ...
+## Dependency Model
+## Tooling / Substrate
+## Peer Intelligence Gates
+## Strategic Decision Gates
+## Product / Strategic Consequences
 ## Deferred / Do Not Do
-## Owner Decisions Required
-## Falsifiers / Stop Conditions
 ## Relationship to Existing Program Plans
 ## Evidence Index
 ```
 
-The section **Relationship to Existing Program Plans** is mandatory. It must classify existing destination cycles, P1 workstreams, Build-and-Harvest phases and historical queues as:
+The existing `DOMAIN-ROADMAP-2026-09-27.md` path is retained specifically to avoid creating another per-CFA roadmap family.
 
-- adopted as a domain task;
-- useful input but not adopted;
-- superseded;
-- blocked;
-- outside CFA scope;
-- or unresolved.
+## 10. Relationship to existing plans
 
-Do not silently inherit them.
+Each CFA must explicitly classify relevant existing material, including:
 
-## 7. Roadmap-to-task integrity
+- Build-and-Harvest;
+- P1 workstreams;
+- destination reconciliation cycles;
+- vertical slices;
+- provider-lab work;
+- prior Steward recommendations;
+- historical bootstrap/implementation plans.
 
-The durable roadmap and `TASKS.md` must agree.
+Possible classifications:
 
-A task may only be promoted from roadmap candidate to persistent READY work when the CFA can state why it belongs to the CFA and what completion means.
+- ADOPTED;
+- ADOPTED WITH MODIFICATION;
+- USEFUL INPUT / NOT ADOPTED;
+- DEFERRED;
+- BLOCKED;
+- OUTSIDE CFA SCOPE;
+- SUPERSEDED;
+- UNRESOLVED.
 
-The existence of a task in a destination-wide plan is not sufficient.
+A plan marked CURRENT or READY elsewhere is not enough to make it a CFA task.
 
-## 8. Cross-CFA discipline
+## 11. Central synthesis after the parallel round
 
-Roadmap formation is local planning first.
+Only after all ten roadmaps have landed does the Architecture Steward produce the central synthesis.
+
+The Steward must:
+
+```
+VERIFY LOCAL ROADMAPS
+→ COMPARE CONCEPTUAL MILESTONES
+→ BUILD CROSS-CFA DEPENDENCY MAP
+→ CONSOLIDATE PEER INTELLIGENCE REQUESTS
+→ IDENTIFY OVERLAPS / GAPS / CONTRADICTIONS
+→ TEST SEQUENCING AGAINST EVIDENCE
+→ MAP TO DESTINATION / P1 / PRODUCT
+→ FORM CENTRAL ROADMAP
+→ SELECT SHARED EXECUTION FRONTIER
+```
+
+The central synthesis should preserve divergence where the evidence does not justify convergence.
+
+It must not average competing plans into a vague compromise.
+
+## 12. Central roadmap contents
+
+Populate:
+
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`
+
+with:
+
+1. Executive strategic synthesis.
+2. One compact milestone view for each CFA.
+3. Cross-CFA dependency matrix.
+4. Consolidated peer-intelligence matrix.
+5. Shared tooling/substrate requirements.
+6. Cross-cutting strategic decision gates.
+7. Contradictions / unresolved alternatives.
+8. Adopted / deferred / rejected inherited plans.
+9. Proposed central sequencing.
+10. First bounded execution frontier.
+11. Source links to all ten local roadmaps.
+12. Explicit divergence notes where local plans remain intentionally different.
+
+The central artifact must link to local source sections whenever more detail is needed instead of copying them wholesale.
+
+## 13. Architecture Steward responsibility
+
+The Steward is responsible for:
+
+- running the round;
+- preserving independence;
+- validating evidence/lineage;
+- reconciling peer boundaries;
+- synthesizing the central plan;
+- identifying true dependencies;
+- selecting the shared frontier only after the round.
+
+The Steward is **not** responsible for deciding each CFA's internal conceptual roadmap before the round.
+
+## 14. Completion gate
+
+The strategic round is complete when:
+
+1. all ten CFA roadmap sessions have returned a durable roadmap or an honest BLOCKED/UNKNOWN result;
+2. each `TASKS.md` contains the first bounded actionable work or explicitly records why none is yet actionable;
+3. each roadmap contains milestone success criteria;
+4. each roadmap contains dependencies;
+5. each roadmap contains tooling/substrate assessment;
+6. each roadmap contains peer-intelligence gates for relevant peers at each milestone;
+7. each roadmap classifies inherited program plans;
+8. all receipts are durable and verified;
+9. the Steward has produced the central synthesis;
+10. the central synthesis preserves meaningful divergence and names the first shared frontier.
+
+## 15. Hard boundaries
 
 Do not:
 
-- redefine another CFA's responsibility;
+- start production implementation during the planning round;
 - activate shared CFA boundaries;
-- create a universal task manager;
-- create a competing ontology, authority, evidence or data store;
-- settle unresolved peer semantics unilaterally;
-- begin production implementation.
+- rewrite Ω law;
+- create a second ontology/data/authority/provenance store;
+- create a second global task manager;
+- turn peer requests into unverified dependencies;
+- force every CFA into one milestone shape merely for symmetry;
+- discard local roadmap detail in favor of the central summary.
 
-When a roadmap item depends on another CFA, record the dependency and the question/hand-off required. Do not manufacture peer agreement.
+Symmetry is required in **questions asked and evidence quality**, not necessarily in the resulting architecture.
 
-## 9. Architecture Steward role after the wave
+## 16. Strategic stopping rule
 
-The Architecture Steward does **not** choose a destination cycle first and ask CFAs to fit themselves into it.
+When the local conceptual roadmap is clear enough, stop expanding it.
 
-After the CFA roadmap wave, the Steward must:
+Do not turn a strategic roadmap into a disguised complete backlog.
 
-```
-VERIFY EACH ROADMAP
-→ COMPARE OVERLAPS
-→ RECONCILE DEPENDENCIES
-→ IDENTIFY CROSS-CFA QUESTIONS
-→ MAP TO DESTINATION / P1
-→ CLASSIFY SHARED FRONTIER
-→ ONLY THEN SELECT / COMPILE NEXT OWNER ACTIONS
-```
+The point of this round is to discover:
 
-The Steward may propose cross-CFA sequencing after reconciliation. It must not erase or replace CFA-owned roadmaps.
+- the shape of the work;
+- the sequence of decisions;
+- the evidence needed;
+- the dependencies and tools required;
+- the boundaries that still matter.
 
-A downstream product program may still be selected first when current CFA roadmaps independently converge on it. That convergence must be evidenced, not assumed.
-
-## 10. Completion gate
-
-The roadmap session is complete only when:
-
-1. the roadmap artifact exists;
-2. `TASKS.md` contains the durable domain work frontier;
-3. existing program plans were explicitly classified;
-4. unknowns and peer dependencies are preserved;
-5. no unrelated implementation was started;
-6. the standard FSSP receipt is persisted and verified;
-7. the session stops.
-
-## 11. Key invariant
-
-> **A CFA is not merely an execution endpoint for Steward-selected work. It is a standing domain responsibility owner that must first characterize and maintain its own work frontier.**
-
-The Architecture Steward owns cross-domain coherence and synthesis. It does not preempt the CFA planning function.
+Execution comes after reconciliation.
