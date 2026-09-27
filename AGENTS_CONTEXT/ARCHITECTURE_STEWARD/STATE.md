@@ -1,7 +1,7 @@
 # Architecture Steward — State
 
 > Updated: 2026-09-27
-> Status: ACTIVE / CFA HOME-UPGRADE HANDOFF
+> Status: ACTIVE / CYCLE 4 LIVE CHROME / ACCOUNTS
 > This is durable Steward operating state; not Ω law or semantic authority.
 
 ## Receipt verification state
@@ -39,17 +39,15 @@ All ten CFA identities are verified as ratified in their current durable identit
 
 ## Immediate next operation
 
-The owner launches/continues the CFA home-upgrade wave in parallel according to the current queue, while the active strategic next operation is the Commons v0 runtime/platform workstream.
+The CFA home-upgrade wave is treated as reconciled operating history. One local exception remains: CFA-05 lacks a durable RESULTS receipt and still has HOME-UPGRADE READY; this is not promoted to a false completion.
 
-Use for the home wave:
+The active strategic next operation is Cycle 4 — Live Chrome / Accounts, specifically RA-5 live account proof using the existing V1 Chrome substrate.
 
-`CFA-HOME-UPGRADE-LAUNCH-QUEUE-2026-09-27.md`
+Use:
 
-Use for the runtime frontier:
+`CYCLE-4-LIVE-CHROME-ACCOUNTS-2026-09-27.md`
 
-`AGENTS_CONTEXT/AGENT-COMMONS/RUNTIME-PLATFORM-WORKSTREAM-2026-09-27.md`
-
-The runtime workstream is deliberately constrained by the current design-freeze line.
+The work remains constrained by the existing destination reconciliation and does not authorize a new router/provider architecture.
 
 ## Steward resume condition
 
