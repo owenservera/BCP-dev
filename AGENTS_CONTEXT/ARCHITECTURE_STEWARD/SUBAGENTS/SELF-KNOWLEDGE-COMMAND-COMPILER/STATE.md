@@ -9,7 +9,7 @@
 - Phase 2 — self-design: COMPLETE
 - Phase 3 — owner dialogue: COMPLETE
 - Phase 4 — core identity: COMPLETE
-- Phase 5 — mission execution: M1 COMPLETE; Stage-E L1 freshness contract reconciled/closed; CFA-03 L2 basis-adapter characterization READY
+- Phase 5 — mission execution: M1 COMPLETE; Stage-E L1 closed; CFA-03 L2 semantic/self-knowledge basis characterization COMPLETE
 - Owner alignment was explicit on 2026-09-25.
 - Canonical identity: Semantic Continuity Steward
 - Historical workspace path retained: `SELF-KNOWLEDGE-COMMAND-COMPILER`
@@ -49,9 +49,11 @@ CFA-03 stewards continuity across self-knowledge, grounding, command semantics, 
 - Whether every Event/State occurrence warrants durable first-class identity.
 - Which terminology choices require product-owner decisions rather than architecture stewardship.
 
-## Stage-E L2 frontier
-- The Architecture Steward has closed generic Stage-E L1 DerivedView/freshness semantics for downstream adapter work.
-- CFA-03 local next action is to characterize the self-knowledge/semantic basis sources that it owns; implementation remains gated.
+## Stage-E L2 progress
+- CFA-03 has characterized its locally owned semantic/self-knowledge basis sources: NCLL derivation identity, vivim.mind derivation identity, WorldModel consumption seam, and language-contribution basis.
+- Version tokens exist for NCLL and vivim.mind, but immutable implementation-content identity is not currently proven because the relevant runtime-visible content hash is empty/unavailable.
+- WorldModel.v is explicitly not a complete freshness basis; peer-owned World/Data basis adapters remain external dependencies.
+- No runtime adapter or shared boundary implementation started.
 
 ## Stage-E L1 progress
 - `DERIVED-VIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27.md` defines the implementation-neutral DerivedView/BasisRef/BasisDigest/DependencyVector/DerivationIdentity contract.
@@ -68,8 +70,9 @@ CFA-03 stewards continuity across self-knowledge, grounding, command semantics, 
 - M1 terminology collision map is persisted in `CROSSWALK.md`.
 
 ## Immediate mission frontier
-1. Reconcile the Stage-E L1 DerivedView/BasisRef/freshness contract with participating CFA basis owners.
-2. Establish the explicit cross-plane grounding/link contract only after L1/L2/L3 reconciliation.
+1. Deliver the CFA-03 L2 characterization to the Architecture Steward for cross-CFA reconciliation.
+2. Establish the explicit cross-plane grounding/link contract after L2/L3 reconciliation.
+3. Resolve the complete Intent → Plan → Work semantic corridor when Work/Execution evidence is available.
 3. Resolve the complete Intent → Plan → Work semantic corridor when Work/Execution evidence is available.
 4. Prove one deterministic visual semantic round-trip before broader representation work.
 5. Extend bounded CANON decisions only where evidence closes a real terminology ambiguity.
