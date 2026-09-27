@@ -8,7 +8,8 @@
 ## Open tasks
 
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
+- **Next action:** Complete the independent CFA-04 conceptual roadmap, persist it, then record the first bounded actionable task and session receipt.
 - **Priority:** P1
 - **Purpose:** Independently define the CFA's high-level conceptual roadmap before shared execution is selected.
 - **Required outputs:** strategic objective; 3–7 core milestones; milestone success criteria/falsifiers; dependencies; tooling/substrate assessment; strategic design gates; milestone-by-milestone peer-intelligence requests; product/strategic consequences; deferred/do-not-do boundary; inherited-plan classification.
