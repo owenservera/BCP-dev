@@ -1,6 +1,6 @@
 # CFA-05–10 Boundary Baseline & Reconciliation — 2026-09-27
 
-> Status: READY — CURRENT PRE-GRAPH GATE
+> Status: WAVE 2 COMPLETE — WAVE 3 CURRENT — GRAPH GATE CLOSED
 > Coordinator: Architecture Steward
 > Scope: CFA-05 through CFA-10
 > Authority: derived coordination protocol; not Ω law and not CFA semantic authority.
