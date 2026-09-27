@@ -115,3 +115,17 @@ This state is durable operational context, not Ω law.
 - Production implementation: **NOT STARTED**.
 - Ω law: **UNCHANGED**.
 - Shared CFA boundaries: **UNACTIVATED**.
+
+
+## B1 bounded experiment update
+
+- Experiment: `EXPERIMENTS/B1-CONTAINMENT-BYTE-BINDING-EXPERIMENT-2026-09-27.md`
+- Result: **PARTIALLY EXECUTED** — primitive behavior was empirically tested; full signed-manifest/Ω-host replay remains open.
+- Confirmed: relative `../` entry traversal escapes under the exact current `join(sourceDir, entry)` launch primitive.
+- Confirmed: the current content-hash walker follows a source-root symlink because the root itself is not lstat-rejected before walking.
+- Confirmed: verify→execute byte binding is absent at the path primitive: a file covered as marker A can be loaded as marker B after mutation at the same path.
+- Corrected interpretation: POSIX absolute, drive-qualified and UNC spellings do not all escape through POSIX `path.join`; Windows-native target behavior remains unverified.
+- M1 remains **PARTIALLY CLOSED / B1 UNDERPROVEN**.
+- Production implementation: **NOT STARTED**.
+- Ω law: **UNCHANGED**.
+- Shared CFA boundaries: **UNACTIVATED**.
