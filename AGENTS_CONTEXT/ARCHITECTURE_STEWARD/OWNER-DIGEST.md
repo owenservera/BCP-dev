@@ -6,53 +6,28 @@
 > Owner: architecture-steward
 > Authority: projection only.
 
-## Current product frontier
+## Current operating frontier
 
-- Cycle 4 — Live Chrome / Accounts is the active destination execution frontier.
-- RA-5 is the current proof target: selected account/session identity, no silent substitution, attributable release/re-authentication, reconstructable evidence.
-- Existing provider/account reconciliation remains the design baseline; no new routing architecture is authorized by this task.
+**CFA Domain Roadmap Formation**
 
-## Home-upgrade wave
+The home-upgrade wave established agent homes. The substantive domain roadmap stage had not yet been run when the Steward previously selected Cycle 4. That selection is now treated as superseded candidate work.
 
-- 9 CFA home-upgrade receipts are durable and task-complete.
-- CFA-05 is the sole repository exception: its task remains READY and no RESULTS receipt is present.
-- The exception is recorded, not fabricated away.
-## Receipts
+## Why the current frontier changed
 
-- Indexed receipts: 2
-- VERIFIED: 2
-- PENDING: 0
-- RECONCILED: not yet tracked for this snapshot
-- Source: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/RECEIPTS.md
-
-## Commons operating frontier
-
-- Runtime/platform workstream: READY, accountable agent runtime-constitution-core-substrate.
-- Design breadth: FROZEN until the Commons v0 operational completion test passes.
-- v0 target: two independent agent runtimes satisfy the existing 10-point test.
-
-## Identity / security
-
-- Recovery/no-silent-fork guard: mechanically tested.
-- Full rotation + recovery drill: BLOCKED until a real key-rotation operation exists.
-- Operational custodian: CFA-04 authority-governance.
-
-## Epistemic integrity
-
-- Dedicated CFA-11: not instantiated.
-- Quantitative review triggers are defined in the CFA register:
-  - more than 10 PENDING receipts;
-  - more than 5 open contradictions;
-  - oldest pending receipt exceeds 7 calendar days.
-
-## Human load reduction
-
-- This digest is the Steward's derived owner-facing compression surface.
-- It must not replace source receipts, Commons history, handoff state, the CFA register, or authority-owned records.
-- Handoff/attention expiry counts are not computed here unless a current folded Commons projection provides the evidence.
+The ten CFAs are standing responsibility owners. Their homes contain domain evidence and active frontiers, but many TASKS.md files were still empty or held only inherited/open local items. The system therefore had enough context to plan, but had not yet allowed the CFA owners to perform the planning step.
 
 ## Current owner actions
 
-1. Execute the existing Cycle 4 RA-5 live account proof on the owner machine using the V1 Chrome substrate.
-2. Capture the evidence envelope and keep code/test evidence distinct from live proof.
-3. Return to the Architecture Steward for proof classification and next-slice selection.
+1. Launch the ten CFA Domain Roadmap Formation sessions using `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`.
+2. Let each CFA independently define its bounded roadmap and persistent TASKS.md entries; do not preselect Cycle 4/5 or a P1 workstream.
+3. Return to the Steward after the roadmaps land for cross-CFA reconciliation and shared-frontier selection.
+
+## CFA-05 exception
+
+CFA-05 still has a repository-visible HOME-UPGRADE READY state without a durable receipt. Preserve that maintenance discrepancy; it is not evidence that its domain roadmap must wait.
+
+## Background
+
+- Commons v0 runtime/platform remains a valid background task.
+- Identity rotation/recovery remains blocked until a real rotation operation exists.
+- Owner Digest remains a derived projection and does not replace source state.
