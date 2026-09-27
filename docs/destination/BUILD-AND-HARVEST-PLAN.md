@@ -2,6 +2,18 @@
 
 > Classification: DERIVED — WORKING PROGRAM PLAN
 > Status: sequenced plan derived from destination mapping and repository evidence.
+> **Program-plan authority:** candidate delivery plan only; it does not assign CFA tasks or override CFA-owned roadmap formation.
+
+## Program-plan authority
+
+This document sequences destination delivery material. Its CURRENT, READY, cycle, wave and priority labels are meaningful inside this program view but are not by themselves mandates for a standing Core Function Area.
+
+The current planning transition is:
+
+`CFA HOME READY → CFA DOMAIN ROADMAP → CFA TASK QUEUE → CROSS-CFA RECONCILIATION → SHARED EXECUTION FRONTIER`
+
+CFAs must explicitly evaluate and adopt relevant Build-and-Harvest work during domain roadmap formation. The Architecture Steward must not skip that stage by promoting a program-plan cycle directly into current execution.
+
 
 ## 1. Program method
 
