@@ -17,15 +17,28 @@
 ## Open tasks
 
 ### STAGE-E-L2-BASIS-ADAPTER-CHARACTERIZATION-2026-09-27
-- **Status:** ACTIVE — DURABLE COMPLETION RECOVERY / 5 CLOSED + 1 PARTIAL + 2 REPORTED-UNVERIFIED
+- **Status:** DONE — 7/7 OWNER INPUTS RECONCILED
 - **Priority:** P0
 - **Packet:** `BOUNDARY-DESIGN-SYSTEM/STAGE-E-L2-SOURCE-RUNTIME-BASIS-ADAPTER-PACKET-2026-09-27.md`
 - **Participants:** CFA-01, CFA-02, CFA-04, CFA-06, CFA-07, CFA-09, CFA-10; CFA-03 is semantic lead/consumer.
-- **Write scope:** owner CFA homes only for adapter characterizations; Steward reconciles after all receipts are available.
-- **Completion condition:** each adapter has canonical source token, resolver, STALE/UNRESOLVABLE behavior, evidence and falsifier, or an explicit blocked/UNKNOWN result with named dependency.
-- **Latest checkpoint:** `RESULTS/STEWARD-20260928-STAGE-E-L2-OWNER-CHARACTERIZATION-CHECKPOINT.md`
-- **Verified state:** CFA-01/CFA-04/CFA-06/CFA-07/CFA-09 have owner-side L2 results on main; CFA-04 retains an explicit PARTIAL/UNKNOWN finding. CFA-02 and CFA-10 have owner-reported completion claims but no matching durable receipt/task closure on current main.
-- **Next action:** for CFA-02 and CFA-10, verify/repair only the durable completion transaction; do not repeat substantive characterization. Then Steward performs L2 consistency/reconciliation.
+- **Result:** All seven owner-scoped Stage-E L2 adapter characterizations have durable receipts/task closure on current `main`. Central consistency reconciliation accepted the common adapter contract while preserving explicit UNKNOWN/UNRESOLVABLE limitations.
+- **Receipt:** `RESULTS/STEWARD-20260928-STAGE-E-L2-7-INPUT-RECONCILIATION.md`
+- **Reconciliation commit:** `47ce0d7c6bb4e90309ea4c9c1d11a57f2aa845f8`
+- **Decision:** L2 owner characterization gate CLOSED / RECONCILED (7/7). This does not make Stage E READY.
+- **Preserved limitations:** CFA-04 runtime immutable policy-source binding UNKNOWN; CFA-01 runtime revision/CID propagation UNKNOWN; CFA-07 logical Composition identity unresolved; CFA-09 universal durable Change identity/revision unresolved; CFA-10 runtime generation binding UNRESOLVABLE and B1 underproven.
+- **Next:** Begin one bounded L3 Steward graph-bundle contract/design action. No runtime join implementation or Ω-law change.
+
+### STAGE-E-L3-GRAPH-BUNDLE-CONTRACT-2026-09-28
+- **Status:** READY
+- **Priority:** P0
+- **Purpose:** Define the deterministic Steward graph-bundle projection required by Stage E without creating a second architecture graph.
+- **Dependencies:** Stage-E L0 readiness contract; Stage-E L1 DerivedView/freshness contract; Stage-E L2 seven-input reconciliation complete.
+- **Write scope:** Architecture Steward central design/control plane only.
+- **Required output:** bounded graph-bundle input set, canonical serialization, deterministic digest, lineage/version handling, bounded trace projection, bundle freshness metadata, validation/failure semantics.
+- **Hard boundaries:** the bundle is a projection/cache of the existing Steward graph; no semantic meaning is invented centrally; no second graph, K0 expansion, runtime join, B1 mechanism selection or Ω-law change.
+- **Completion condition:** an auditable implementation-neutral L3 contract exists with explicit inputs, output shape, digest/lineage rules, freshness interaction and falsifiers; no domain authority is inferred from graph topology.
+- **Next action:** execute exactly one bounded L3 graph-bundle contract/design pass, persist a receipt, then stop for the next routed action.
+
 
 ### MASTER-PORTFOLIO-WORKLOAD-2026-09-27
 - **Status:** ACTIVE — MASTER ROUTER INSTALLED
@@ -95,7 +108,7 @@
 - **Stop condition:** Any requirement to invent domain meaning, authority, identity equivalence, product behavior or Ω-law.
 
 ### GRAPH-ATTACHMENT-WAVE-1-2026-09-27
-- **Status:** ACTIVE — STAGE E READINESS BLOCKED
+- **Status:** ACTIVE — L2 RECONCILED / L3 ENABLED
 - **Priority:** P0
 - **Purpose:** Revalidate the existing documentation-first Architecture Graph, freeze the linked implementation-projection contract, and run one bounded Source-Code Graph pilot.
 - **Packet:** `BOUNDARY-DESIGN-SYSTEM/GRAPH-ATTACHMENT-WAVE-1-2026-09-27.md`
@@ -105,7 +118,7 @@
 - **Stage D:** DONE — receipt `GRAPH-W1-D-PROOF-EVIDENCE-ATTACHMENT-RECEIPT-2026-09-27.md`; commit `3b009ac92a4e312fc73e19d0a5cea3eb1a91d068` (source-identity correction included).
 - **Stage E readiness assessment:** DONE / BLOCKED — receipt `BOUNDARY-DESIGN-SYSTEM/GRAPH-W1-E-SELF-KNOWLEDGE-READINESS-ASSESSMENT-RECEIPT-2026-09-27.md`; commit `5eed9ed10a8b1a38a2237de244debd2d37ba06f9`.
 - **Stage E runtime joins:** BLOCKED — the separate self-knowledge design/evidence gate is not yet satisfied.
-- **Next action:** owner-scoped L2 adapter characterization is active in parallel under `BOUNDARY-DESIGN-SYSTEM/STAGE-E-L2-SOURCE-RUNTIME-BASIS-ADAPTER-PACKET-2026-09-27.md`; runtime joins remain blocked until the full readiness gate passes.
+- **Next action:** execute the central L3 graph-bundle contract/design task; runtime joins remain blocked until the full readiness gate passes.
 - **Stop condition:** any request to create a second graph, infer semantic authority from code topology, or collapse UNKNOWN into dependency.
 
 ### SELECT-GOVERNED-CORRIDOR-AFTER-M1-2026-09-27
