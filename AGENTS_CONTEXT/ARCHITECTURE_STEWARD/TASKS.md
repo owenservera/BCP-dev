@@ -8,13 +8,15 @@
 ## Open tasks
 
 ### STAGE-E-L2-BASIS-ADAPTER-CHARACTERIZATION-2026-09-27
-- **Status:** ACTIVE — PARALLEL OWNER CHARACTERIZATION
+- **Status:** ACTIVE — CHECKPOINT / 4 CLOSED + 1 PARTIAL + 2 OPEN
 - **Priority:** P0
 - **Packet:** `BOUNDARY-DESIGN-SYSTEM/STAGE-E-L2-SOURCE-RUNTIME-BASIS-ADAPTER-PACKET-2026-09-27.md`
 - **Participants:** CFA-01, CFA-02, CFA-04, CFA-06, CFA-07, CFA-09, CFA-10; CFA-03 is semantic lead/consumer.
 - **Write scope:** owner CFA homes only for adapter characterizations; Steward reconciles after all receipts are available.
 - **Completion condition:** each adapter has canonical source token, resolver, STALE/UNRESOLVABLE behavior, evidence and falsifier, or an explicit blocked/UNKNOWN result with named dependency.
-- **Hard stop:** no runtime join implementation, second graph, Ω-law change or semantic ownership transfer.
+- **Latest checkpoint:** `RESULTS/STEWARD-20260928-STAGE-E-L2-OWNER-CHARACTERIZATION-CHECKPOINT.md`
+- **Verified state:** CFA-01/CFA-06/CFA-07/CFA-09 closed; CFA-04 partial; CFA-02/CFA-10 outstanding.
+- **Next action:** owner-scoped closure only for CFA-02, CFA-04 and CFA-10; then Steward L2 consistency/reconciliation.
 
 ### MASTER-PORTFOLIO-WORKLOAD-2026-09-27
 - **Status:** ACTIVE — MASTER ROUTER INSTALLED
