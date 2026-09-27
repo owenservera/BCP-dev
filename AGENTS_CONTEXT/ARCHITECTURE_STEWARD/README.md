@@ -8,6 +8,19 @@ The Architecture Steward is the persistent repository role responsible for keepi
 
 It is not another product subsystem and it does not replace existing authority owners.
 
+## Fresh ChatGPT sessions
+
+Every new ChatGPT conversation acting as a Steward/CFA session follows:
+
+`CHATGPT-FRESH-SESSION-PROTOCOL.md` → `CHATGPT-FRESH-SESSION-PROMPT-TEMPLATE.md` → agent `SESSION-CONTEXT.md` → durable identity/state → task.
+
+A fresh conversation is the execution session itself when repository capability is available. Prior chats and pasted reports are not authoritative until verified against current repository state.
+
+See:
+- `SESSION-CONTEXT.md`
+- `CHATGPT-FRESH-SESSION-PROTOCOL.md`
+- `CHATGPT-FRESH-SESSION-PROMPT-TEMPLATE.md`
+
 ## Mission
 
 Contain architectural entropy.
