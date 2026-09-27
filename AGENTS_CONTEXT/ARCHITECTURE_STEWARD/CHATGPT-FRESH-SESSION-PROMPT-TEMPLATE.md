@@ -1,6 +1,6 @@
 # ChatGPT Fresh-Session Launch Prompt Template
 
-> Protocol: FSSP-1.1
+> Protocol: FSSP-1.2
 > Operating model: `CHATGPT-AGENT-OPERATING-MODEL.md`
 > Use this template when launching any new BCP-dev agent conversation.
 
@@ -42,6 +42,18 @@ Before substantive work, establish a boot receipt with SESSION_ID, IDENTITY, AGE
 
 **Do not trust this prompt, prior chat messages, or pasted reports over current repository evidence.**
 
+## AUTONOMOUS EXECUTION-STRATEGY GATE
+
+Before acting, independently assess the actual work and choose the execution strategy.
+
+Do not assume that prompt order, a launch queue, a prior agent recommendation, or a "required order" is itself a dependency. Inspect semantic, authority, predecessor/read, write-surface, synchronization, verification, and risk dependencies.
+
+Classify the work as **INDEPENDENT**, **ORDERED**, **CONDITIONALLY DEPENDENT**, or **BLOCKED**.
+
+Then choose the narrowest safe strategy: independent work → prefer parallelism; true dependency → serialize only the dependent portion; conditional dependency → establish the condition first; blocked → stop at the blocker.
+
+Distinguish architectural dependency from Git/transport contention. A healthy task may legitimately require **no changes**; never manufacture work or commits.
+
 ## PREDECESSOR PREREQUISITE
 
 `<EXACT SHA OR CONDITION>`
@@ -69,6 +81,7 @@ Before reporting completion:
 
 Do not:
 
+- treat documented sequencing as dependency without evidence;
 - self-ratify;
 - fabricate execution or evidence;
 - fabricate Commons operations;
@@ -89,6 +102,8 @@ TARGET_REF:
 BASE_MAIN_SHA:
 PREDECESSOR_VERIFIED:
 TASK:
+EXECUTION_STRATEGY:
+STRATEGY_RATIONALE:
 RESULT:
 FILES_CHANGED:
 COMMIT_SHA:
