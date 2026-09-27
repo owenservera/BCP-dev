@@ -10,15 +10,24 @@
 
 The ten independent CFA strategic roadmaps are now complete and reconciled. The immediate purpose is to prove the smallest shared seam contracts and evidence packets that make later integration safe.
 
+## Development acceleration overlay
+
+The M1 work is now accompanied by a **Collaboration + Development Acceleration Substrate design**.
+
+This overlay answers a different but complementary question: what shared machinery lets every CFA perform its work quickly without rebuilding context, evidence handling, scaffolding, replay, proof, dependency tracking and handoff mechanics?
+
+Design set:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DEVELOPMENT-ACCELERATION/`
+
+The design is **not yet an implementation mandate**. Central implementation must wait only where the generic mechanism would require a CFA-owned semantic choice. Generic mechanics can be prepared centrally; domain semantics and falsifiers must come from the responsible CFAs.
+
+The overlay does not cancel or replace the existing M1 CFA-owned evidence tasks.
+
 ## Immediate next action
 
-Coordinate and verify the already-queued first bounded CFA tasks. Do not create a second centralized roadmap or replace CFA-local work with a new implementation backlog.
+Route `DEVELOPMENT-ACCELERATION/CFA-INPUT-REGISTER-2026-09-27.md` to all ten CFAs and reconcile the first-pass inputs into central extension points.
 
-Central synthesis:
-`CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`
-
-Governing planning protocol:
-`CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
+In parallel, continue the already-queued M1 evidence tasks. Do not create another roadmap wave.
 
 ## Shared-frontier contract
 
@@ -62,7 +71,8 @@ Do not:
 - activate new shared ownership boundaries;
 - rewrite Ω law;
 - promote historical implementation into authority;
-- claim live/external proof from fixtures.
+- claim live/external proof from fixtures;
+- implement domain-semantic shared tooling before the responsible CFA input is reconciled.
 
 ## Success condition
 

@@ -7,6 +7,17 @@
 
 ## Open tasks
 
+### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
+- **Status:** DESIGN COMPLETE / INPUT REQUIRED
+- **Priority:** P1
+- **Purpose:** Establish the shared collaboration + development-acceleration substrate design before any shared implementation, combining decision/evidence coordination with a fast context→experiment→proof→receipt loop.
+- **Design set:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DEVELOPMENT-ACCELERATION/`
+- **Dependencies:** CFA domain input sections A–D in `CFA-INPUT-REGISTER-2026-09-27.md`; existing FSSP-1.3, Agent Commons and Boundary Protocol remain the baseline.
+- **Write scope:** Steward-owned design/control-plane artifacts only until CFA inputs are reconciled.
+- **Next action:** Route the input register to all ten CFAs; compare canonical terms, seam contracts, evidence sources, falsifiers and automation boundaries; freeze only the generic central schemas that do not require domain-semantic choices.
+- **Completion condition:** The central kernel can be implemented without inventing domain meaning, ownership, authority, or live-proof semantics; every deferred semantic decision has a named CFA owner and input request.
+- **Stop condition:** material ownership conflict, Ω-law collision, or a generic mechanism would need to encode unresolved domain semantics.
+
 ### CROSS-CFA-M1-CONTRACT-EVIDENCE-CLOSURE-2026-09-27
 - **Status:** READY
 - **Priority:** P1
