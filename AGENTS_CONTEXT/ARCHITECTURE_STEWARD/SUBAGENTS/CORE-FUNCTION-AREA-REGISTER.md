@@ -26,14 +26,14 @@ Do not create a permanent agent merely because a useful investigation technique 
 |---|---|---|---|
 | CFA-01 | **World & Context Steward** | What exists in VIVIM's world, what does it mean, how is it related, and how does relevant world state become context? | **RATIFIED — OWNER-ALIGNED** |
 | CFA-02 | **Data Steward** | How are canonical meanings durably represented, identified, versioned, retained, reconstructed, exported, and evolved? | **RATIFIED — OWNER-ALIGNED** |
-| CFA-03 | Self-Knowledge / Language / Command | How does VIVIM maintain semantic continuity from self-knowledge and grounding through command interpretation, canonical Intent/Plan meaning, evidence, and representation? | RATIFIED — FOUNDATION-SEEDED |
+| CFA-03 | Self-Knowledge / Language / Command | How does VIVIM maintain semantic continuity from self-knowledge and grounding through command interpretation, canonical Intent/Plan meaning, evidence, and representation? | **RATIFIED — OWNER-ALIGNED** |
 | CFA-04 | Authority / Governance | What may happen, who may authorize it, under what scope, consent, delegation, risk, and revocation rules? | **RATIFIED — OWNER-ALIGNED** |
-| CFA-05 | Agency / Work / Execution | How does an intent become durable work that can execute, recover, produce outcomes, and leave evidence? | BOOTSTRAP-READY |
-| CFA-06 | Capability / Provider / Realization | What can VIVIM do, and through which valid interchangeable realizations can those capabilities act on the external world? | BOOTSTRAP-READY |
-| CFA-07 | Composition / Plugin / Forge | How does VIVIM assemble, extend, create, replace, and evolve capabilities without recreating a hard-coded monolith? | BOOTSTRAP-READY |
-| CFA-08 | Experience / Interaction / Surfaces | How does a person perceive, navigate, manipulate, configure, and act through VIVIM's world and surfaces? | BOOTSTRAP-READY |
-| CFA-09 | Evolution / Compatibility / Self-Maintenance | How can VIVIM change, migrate, repair, replace, and maintain itself without losing meaning, authority, evidence, or continuity? | BOOTSTRAP-READY — PREEXISTING PEER RESPONSIBILITY |
-| CFA-10 | Runtime Constitution / Core Substrate | What irreducible guarantees must every VIVIM composition and execution obey? | BOOTSTRAP-READY — PREEXISTING PEER RESPONSIBILITY |
+| CFA-05 | Agency / Work / Execution | How does an intent become durable work that can execute, recover, produce outcomes, and leave evidence? | **RATIFIED — OWNER-ALIGNED** |
+| CFA-06 | Capability / Provider / Realization | What can VIVIM do, and through which valid interchangeable realizations can those capabilities act on the external world? | **RATIFIED — OWNER-ALIGNED** |
+| CFA-07 | Composition / Plugin / Forge | How does VIVIM assemble, extend, create, replace, and evolve capabilities without recreating a hard-coded monolith? | **RATIFIED — OWNER-ALIGNED** |
+| CFA-08 | Experience / Interaction / Surfaces | How does a person perceive, navigate, manipulate, configure, and act through VIVIM's world and surfaces? | **RATIFIED — OWNER-ALIGNED** |
+| CFA-09 | Evolution / Compatibility / Self-Maintenance | How can VIVIM change, migrate, repair, replace, and maintain itself without losing meaning, authority, evidence, or continuity? | **RATIFIED — OWNER-ALIGNED** |
+| CFA-10 | Runtime Constitution / Core Substrate | What irreducible guarantees must every VIVIM composition and execution obey? | **RATIFIED — OWNER-ALIGNED** |
 
 ## Cross-cutting concern intentionally not instantiated as a separate Core Agent yet
 
