@@ -9,7 +9,7 @@
 - Phase 2 — self-design: COMPLETE
 - Phase 3 — owner dialogue: COMPLETE
 - Phase 4 — core identity: COMPLETE
-- Phase 5 — mission execution: M1 SEMANTIC BASELINE COMPLETE; deeper milestones remain queued
+- Phase 5 — mission execution: M1 COMPLETE; Stage-E L1 freshness contract PROPOSED; peer reconciliation pending
 - Owner alignment was explicit on 2026-09-25.
 - Canonical identity: Semantic Continuity Steward
 - Historical workspace path retained: `SELF-KNOWLEDGE-COMMAND-COMPILER`
@@ -30,7 +30,7 @@ CFA-03 stewards continuity across self-knowledge, grounding, command semantics, 
 - Intent persists interpretation information and D-411 establishes the canonical intent/law citation seam.
 - VisualSpec exists as a deterministic interpretation projection.
 - CFA-01 Round-2 provides a `WorldReferenceResult`-shaped grounding result separating reference, resolution, correspondence, meaning, evidence/basis and freshness.
-- CFA-03 Round-2 addendum persists RP-01 as AGREED on the CFA-03 side and RP-02 / RP-06 as UNKNOWN pending peer acceptance.
+- CFA-03 Round-2 addendum records the current peer state; RP-02 and RP-06 are now AGREED in the current peer-side reconciliation.
 - No shared CFA boundary has been activated by the Round-2 artifacts.
 
 ## DERIVED
@@ -49,6 +49,12 @@ CFA-03 stewards continuity across self-knowledge, grounding, command semantics, 
 - Whether every Event/State occurrence warrants durable first-class identity.
 - Which terminology choices require product-owner decisions rather than architecture stewardship.
 
+## Stage-E L1 progress
+- `DERIVED-VIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27.md` defines the implementation-neutral DerivedView/BasisRef/BasisDigest/DependencyVector/DerivationIdentity contract.
+- Freshness is computed from current basis comparison with explicit `CURRENT` / `STALE` / `CONFLICTED` / `UNRESOLVABLE` semantics.
+- Restart, external observation, deterministic digest, falsifiers and non-goals are explicit.
+- Runtime joins remain gated pending peer/Steward reconciliation.
+
 ## M1 completed findings
 - Current semantic spine verified through canonical Intent and resolution evidence.
 - Full Intent → Plan → Work continuity remains PARTIAL / UNKNOWN.
@@ -58,9 +64,9 @@ CFA-03 stewards continuity across self-knowledge, grounding, command semantics, 
 - M1 terminology collision map is persisted in `CROSSWALK.md`.
 
 ## Immediate mission frontier
-1. Validate and reconcile M1 findings against future peer roadmap evidence without prematurely activating shared boundaries.
-2. Resolve the complete Intent → Plan → Work semantic corridor when Work/Execution evidence is available.
-3. Establish generalized freshness semantics from evidence-basis comparison.
+1. Reconcile the Stage-E L1 DerivedView/BasisRef/freshness contract with participating CFA basis owners.
+2. Establish the explicit cross-plane grounding/link contract only after L1/L2/L3 reconciliation.
+3. Resolve the complete Intent → Plan → Work semantic corridor when Work/Execution evidence is available.
 4. Prove one deterministic visual semantic round-trip before broader representation work.
 5. Extend bounded CANON decisions only where evidence closes a real terminology ambiguity.
 
