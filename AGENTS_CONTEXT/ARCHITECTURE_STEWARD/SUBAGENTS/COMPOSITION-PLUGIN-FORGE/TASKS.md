@@ -42,7 +42,11 @@ Do not execute the older composition survivor reconciliation first. Do not activ
 - **Stop condition:** Stop on Ω-law collision, material ownership conflict, or missing authority needed to decide a boundary.
 
 ### COMPOSITION-IDENTITY-PEER-RECONCILIATION-2026-09-27
-- **Status:** WAITING
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result:** COMPOSITION-IDENTITY-PEER-RECONCILIATION-2026-09-27.md
+- **Receipt:** RESULTS/COMPOSITION-IDENTITY-PEER-RECONCILIATION-20260927.md
+- **Outcome:** Peer ownership and the exact-installed-vs-logical-composition identity distinction are reconciled; final logical identity and semantic-revision discriminators remain open.
 - **Priority:** P1
 - **Objective:** Reconcile the proposed Composition identity and survivor matrix with peer-owned Work, Evolution, Runtime and Data semantics before any wire/schema change.
 - **Dependencies:** Targeted peer evidence from CFA-05, CFA-09, CFA-10 and CFA-02; no new semantic dependency is assumed before reconciliation.
