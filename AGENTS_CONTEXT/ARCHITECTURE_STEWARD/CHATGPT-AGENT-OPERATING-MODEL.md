@@ -1,6 +1,6 @@
 # ChatGPT Agent Operating Model
 
-> Version: 1.0
+> Version: 1.1
 > Date: 2026-09-27
 > Status: STEWARD DECISION / PROPOSED OPERATING STANDARD
 > Scope: independent ChatGPT web-app conversations acting as BCP-dev agents.
@@ -12,7 +12,9 @@ A ChatGPT conversation is an **agent session instance**.
 
 The repository contains the durable definition and memory of the agent. The launch prompt contains only the task-specific execution envelope.
 
-Instructions and documented sequences are constraints and evidence, not substitutes for reasoning. An agent must assess the actual dependency graph, authority dependencies, write surfaces, and synchronization requirements before choosing how to execute a task.
+**Instructions are constraints, not a substitute for agent judgment.** A documented sequence, checklist, predecessor label, or suggested next step is evidence to assess; it is not automatically proof that the work must be performed literally or serially.
+
+For every non-trivial task, the agent must first determine the actual execution strategy from repository evidence, including dependencies, authority boundaries, write surfaces, risk, and synchronization requirements. The agent may choose a safer or more efficient strategy than the prompt's illustrative sequence when that strategy preserves the governing constraints.
 
 These are deliberately separate:
 
@@ -135,7 +137,7 @@ A fresh session enters through `SESSION-CONTEXT.md`, then follows pointers.
 
 ## 4. Fresh-session boot
 
-The fresh session performs this deterministic sequence:
+The fresh session performs this deterministic boot sequence:
 
 ```
 1. Bind session identity from the launch envelope.
@@ -149,10 +151,11 @@ The fresh session performs this deterministic sequence:
 9. Read only relevant alignment/history/peer context.
 10. Verify predecessor prerequisites.
 11. Read the task envelope's specific task.
-12. Execute.
-13. Verify the result against repository evidence.
-14. Persist required durable state.
-15. Return the machine-checkable completion report.
+12. Assess execution strategy.
+13. Execute the chosen strategy.
+14. Verify the result against repository evidence.
+15. Persist required durable state.
+16. Return the machine-checkable completion report.
 ```
 
 The session does not need the previous conversation transcript.
@@ -191,36 +194,48 @@ The fresh session verifies all three where relevant.
 
 A matching SHA without the expected artifact or semantic condition is insufficient.
 
-## 7. Execution-strategy assessment
+## 7. Autonomous execution-strategy assessment
 
-Before following any documented execution sequence, assess the actual work units:
+Before choosing how to execute any non-trivial task, the agent must inspect the actual work graph rather than inherit an execution order uncritically.
 
-1. semantic dependencies;
-2. authority/governance dependencies;
-3. predecessor/read dependencies;
-4. shared write surfaces;
-5. synchronization/transport constraints;
-6. verification dependencies.
+Assess at minimum:
+
+1. **Semantic dependencies** — does one work unit change meaning required by another?
+2. **Authority dependencies** — does one unit require a prior ratification, permission, or governance result?
+3. **Read/predecessor dependencies** — does one unit require a verified artifact or state produced by another?
+4. **Write-surface conflicts** — can two units safely modify the same durable artifacts?
+5. **Synchronization constraints** — where must work converge or be revalidated?
+6. **Verification dependencies** — can completion be proven independently, or only after another result exists?
+7. **Risk boundaries** — would parallelism increase the chance of irreversible or authority-crossing damage?
 
 Classify the work as **INDEPENDENT**, **ORDERED**, **CONDITIONALLY DEPENDENT**, or **BLOCKED**.
 
-A documented order is not automatically a dependency. When independent work has disjoint write surfaces and no hidden authority dependency, prefer safe parallel execution.
+Then choose the narrowest execution strategy that preserves the repository's governing constraints:
 
-If transport constraints make simultaneous writes unsafe, state that as an operational constraint without inventing a semantic dependency.
+- independent work → prefer safe parallelism;
+- true dependency → serialize only the dependent portion;
+- conditional dependency → establish the condition, then branch execution accordingly;
+- blocked work → stop at the blocker rather than manufacturing progress.
+
+A documented sequence, "required order," launch queue, checklist, or prior agent recommendation is **not itself evidence of dependency**. Historical order may be useful context, but the current repository determines the present dependency graph.
+
+Distinguish architectural dependency from operational transport constraints. For example, two independent edits may still contend for a shared branch/ref without becoming semantically dependent.
+
+When the chosen strategy materially differs from the supplied sequence, state the reason in the session report. When the task is obviously independent and low-risk, the assessment can be concise.
+
+The agent must not create unnecessary work merely to satisfy a prescribed sequence. A healthy target may legitimately require **no changes**.
 
 ## 8. Parallel sessions
 
-Parallel conversations are allowed only when:
+Parallel conversations are allowed when the execution-strategy assessment establishes that they are independent and their write/authority boundaries are compatible.
 
-- authority dependencies are independent;
-- write surfaces do not conflict;
-- the task envelope specifies a distinct branch/ref when necessary.
+Where shared mutable artifacts or authority decisions exist, serialize only those portions that truly depend on one another.
 
 `main` is the synchronization point.
 
 No session may assume uncommitted work from another conversation exists.
 
-For serialized owner alignment or shared-state mutations, the controlling launch sequence decides the order.
+For shared-state mutations, the controlling process may impose additional ordering, but that ordering remains subject to verification against actual repository dependencies.
 
 ## 9. Steward's role
 
@@ -232,9 +247,10 @@ When the owner returns a session report, the Steward:
 REPORT
 → VERIFY REPOSITORY
 → CLASSIFY RESULT
+→ REASSESS CURRENT DEPENDENCIES
 → UPDATE DURABLE CONTEXT
-→ DETERMINE NEXT VALID ACTION
-→ GENERATE NEXT TASK ENVELOPE
+→ DETERMINE NEXT VALID ACTION / EXECUTION STRATEGY
+→ GENERATE NEXT TASK ENVELOPE(S)
 ```
 
 The Steward does not merely copy the previous report into the next prompt.
@@ -321,8 +337,8 @@ WHAT HAVE I LEARNED?
 WHAT IS MY TASK?
 WHAT MUST I NOT DO?
 WHAT PROVES COMPLETION?
+WHAT IS THE ACTUAL DEPENDENCY / EXECUTION STRATEGY?
 WHERE DO I STOP?
 ```
 
 That is the cold-start contract.
-
