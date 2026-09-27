@@ -197,8 +197,47 @@ Authority gate (CFA-04) + safe envelope (CFA-09) on every consequential step
 - Self-rebase tempts history rewrite → falsifier: any lineage break without additive
   repair record blocks integration.
 
-## 12. Evidence & lineage
+## 12. Steward as owner interface (spawn authority)
 
+The owner talks to exactly one agent: the Architecture Steward. The Steward spawns
+the whole team and each sub does its work collaboratively. This resolves the
+spawn-authority gap: spawn power is a standing delegation from owner to Steward,
+not an ambient capability.
+
+- **Standing delegation** (`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OWNER-DELEGATION.md`,
+  NEW): names which agents the Steward may spawn (the 10 CFAs + commons-daemon),
+  step/cost budgets per wave, authority limits (no Ω law changes, no production
+  implementation past the CFA-04/CFA-09 gates, no force-pushes, no peer-home edits),
+  stop conditions, and revocation (owner edits or deletes the file; in doubt the
+  Steward stops and asks). Reviewed whenever the CFA register changes.
+- **Opencode shape:** Steward runs as the primary session; the 10 CFAs are subagents
+  (`mode: subagent`) the Steward may invoke via the Task tool. CFA permissions deny
+  further spawning — a CFA that needs another agent sends a Commons REQUEST/HANDOFF,
+  and the Steward (or daemon) turns it into a spawned session. No sub-sub-trees.
+- **How a goal flows:** owner states goal → Steward assesses the dependency graph
+  (INDEPENDENT / ORDERED / CONDITIONALLY DEPENDENT / BLOCKED per the operating
+  model) → compiles one task envelope per work unit (same contract as FSSP-1.3:
+  identity, prerequisites as SHA+artifact+semantics, read-first paths, completion
+  gate, STOP condition) → spawns wave 1 (parallell where independent) → collects
+  RESULTS receipts → verifies each against the repo (never trusts the report) →
+  reconciles durable context → spawns wave 2 → repeats until the goal's completion
+  condition is met → reports to owner with evidence + refs.
+- **Sub-to-sub collaboration bypasses the Steward at runtime:** CFAs talk directly
+  via Commons rooms/DMs, replies/threads, and handoffs using their CORE-AGENT peer
+  interfaces. The Steward does not relay messages; it reconciles outcomes. A CFA
+  blocked on a peer records BLOCKED + cursor + handoff and ends (PARTIAL); the
+  daemon surfaces the peer's REPORT as attention; the Steward respawns the waiter
+  with the verified prerequisites. Long waits always detach — resumption is a new
+  session, never a held-open one.
+- **Steward team view:** a derived projection (not authority) over TASKS.md files,
+  handoff states, cursors, and receipt lag — one place where the owner sees every
+  goal, wave, blocker, and pending receipt. Feeds the CFA-11 counters automatically.
+- **Failure posture:** if the Steward session itself dies mid-wave, the next Steward
+  session recovers identically to any CFA: read delegation → STATE → TASKS →
+  receipts → re-verify → respawn only the unreported units. No wave is ever assumed
+  complete from a report alone.
+
+## 13. Evidence & lineage
 - Basis: `AGENTS_CONTEXT/` (368 files, read 2026-09-27), Ω/destination authority
   unchanged, local setup verified (node 24.11.1 / bun 1.3.14 / opencode 1.18.4).
 - Research: A2A v0.3.0, MCP 2026-07-28, opencode agents v2 (URLs in §5).
