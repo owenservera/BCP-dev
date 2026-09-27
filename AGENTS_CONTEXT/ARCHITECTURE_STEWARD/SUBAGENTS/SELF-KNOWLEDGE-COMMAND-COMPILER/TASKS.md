@@ -19,7 +19,7 @@
 ## Open tasks
 
 ### STAGE-E-L2-CFA03-SELF-KNOWLEDGE-BASIS-ADAPTER-2026-09-27
-- **Status:** READY — OWNER-BOUNDED CHARACTERIZATION
+- **Status:** DONE — CHARACTERIZED / PARTIAL WHERE SOURCE IDENTITY IS NOT YET IMMUTABLE
 - **Priority:** P0
 - **Objective:** Characterize the CFA-03-owned basis inputs for self-knowledge/semantic derivation under the now-closed generic L1 freshness contract.
 - **Milestone:** Stage-E L2 — Source and runtime basis adapters.
@@ -27,7 +27,9 @@
 - **Write scope:** CFA-03 home documentation only; no runtime adapter or shared contract implementation until owner semantics are reconciled.
 - **Completion condition:** Each CFA-03 basis source names owner, source reference, revision/observation rule, unresolved behavior, and falsifier without inventing universal identity or freshness semantics.
 - **Stop condition:** source semantics owned by another CFA, owner policy ambiguity, Ω-law collision, or evidence insufficiency.
-- **Next action:** Execute this characterization as the next bounded CFA-03 action.
+- **Result:** `STAGE-E-L2-CFA03-BASIS-ADAPTER-CHARACTERIZATION-2026-09-27.md`
+- **Receipt:** `RESULTS/CFA03-20260927-STAGE-E-L2-CFA03-BASIS-ADAPTER.md`
+- **Next action:** Hand to Steward L2 reconciliation; do not implement runtime adapters until owner-side reconciliation closes the required source mappings.
 
 ### STAGE-E-L1-DERIVEDVIEW-BASIS-FRESHNESS-RECONCILIATION-2026-09-27
 - **Status:** DONE — RECONCILED BY STEWARD L1 CLOSURE
@@ -58,6 +60,12 @@
 - **Successor:** M1 and Stage-E tasks above.
 
 ## Completed task history
+
+### STAGE-E-L2-CFA03-SELF-KNOWLEDGE-BASIS-ADAPTER-2026-09-27
+- **Status:** DONE — CHARACTERIZATION COMPLETE
+- **Artifact:** `STAGE-E-L2-CFA03-BASIS-ADAPTER-CHARACTERIZATION-2026-09-27.md`
+- **Outcome:** Characterized NCLL derivation identity, vivim.mind derivation identity, WorldModel consumer basis, and language-contribution basis; explicitly retained unresolved immutable-content and peer-owned basis dependencies.
+
 
 ### STAGE-E-L1-DERIVEDVIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27
 - **Status:** DONE — PROPOSAL PRODUCED
