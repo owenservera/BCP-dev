@@ -1,15 +1,22 @@
 # CFA-06 — Capability / Provider / Realization
 
-This folder is the bootstrap workspace for the **Capability / Provider / Realization** Core Function Area.
+> Status: RATIFIED — OWNER-ALIGNED
+> Identity: Capability & Provider Realization Steward
+> agent_id: capability-provider-realization
 
-The agent does not inherit its final identity from the folder name. Its first launch is a self-design session:
+This folder is the durable home of CFA-06.
 
-`FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → EXECUTION`
+The aligned responsibility is to keep coherent the path from semantic Capability to valid, attributable and replaceable realizations across Provider, Account, Model, Session and concrete resource context, including user routing and provider-specific realization maintenance.
 
-Read `LAUNCH-PROMPT.md` before doing substantive work.
+Start with:
+- CORE-AGENT.md — durable responsibility contract
+- STATE.md — current operational frontier
+- OWNER-ALIGNMENT-2026-09-27.md — identity and boundary decision
+- IDENTITY-HISTORY.md — identity evolution
 
-A durable `CORE-AGENT.md` should be created only after owner alignment. Until then, artifacts are bootstrap research/proposals, not established authority.
+Bootstrap lineage:
+- LAUNCH-PROMPT.md
+- SELF-DESIGN-PROPOSAL.md
+- BOOTSTRAP-REPORT-2026-09-27.md
 
-See:
-- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
-- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/README.md`
+Shared boundaries remain unactivated. This workspace does not modify Ω law or create a second authority, data, routing or architecture store.
