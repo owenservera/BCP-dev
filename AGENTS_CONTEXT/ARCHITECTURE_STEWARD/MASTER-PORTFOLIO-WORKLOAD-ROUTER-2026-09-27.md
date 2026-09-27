@@ -106,7 +106,7 @@ A CFA is enabled for work only when:
 A task is `WAITING` when required evidence/peer input exists but has not landed.
 A task is `BLOCKED` when required execution capability/environment is unavailable.
 A task is `READY` only when the needed evidence and authority to execute are present.
-A task is `DONE` only with a durable, attributable receipt or equivalent evidence.
+A task is DONE only with a durable, attributable receipt or equivalent evidence and a final re-read confirming the receipt plus task-state closure on the actual delivery ref. A chat-reported completion without that verification is REPORTED-UNVERIFIED and cannot advance a gate.
 
 ## 6. Routing rules for `Next`
 
@@ -123,7 +123,13 @@ When the owner sends `Next` to the Steward:
 
 If the highest-priority package is blocked, do not loop on it. Select the next independently enabled package when doing so does not violate its dependencies. Record the block explicitly.
 
-## 7. Current ordering
+## 7. Durable completion routing
+
+When a CFA reports DONE in chat but current main lacks the corresponding receipt or TASKS.md closure, classify it as REPORTED-UNVERIFIED. The next Next for that CFA must repair/verify the durable completion surface; it must not repeat the substantive task.
+
+See AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DURABLE-COMPLETION-GATE-2026-09-28.md.
+
+## 8. Current ordering
 
 1. **WP-E / Stage-E readiness closure** — central gate for runtime self-knowledge joins.
 2. **WP-D / generic development-acceleration kernel** — mechanically independent and useful to all CFAs.
@@ -134,7 +140,7 @@ If the highest-priority package is blocked, do not loop on it. Select the next i
 
 This ordering is not a ranking of the CFAs. It is the order of shared enablement dependencies.
 
-## 8. Hard stops
+## 9. Hard stops
 
 - no second Architecture Graph;
 - no second global task manager;
@@ -146,7 +152,7 @@ This ordering is not a ranking of the CFAs. It is the order of shared enablement
 - no broad product/live implementation before the governed corridor is selected;
 - no silent resurrection of historical local router stages.
 
-## 9. Required synchronization
+## 10. Required synchronization
 
 Each local CFA home should retain its own roadmap/task detail but add a current portfolio-routing pointer to this master router.
 
@@ -155,7 +161,7 @@ The central Steward should periodically reconcile:
 
 Any mismatch is routing drift and should be corrected by updating the projection/pointer, not by rewriting historical receipts.
 
-## 10. Current frontier
+## 11. Current frontier
 
 **Primary shared frontier: WP-E Stage-E readiness closure.**
 

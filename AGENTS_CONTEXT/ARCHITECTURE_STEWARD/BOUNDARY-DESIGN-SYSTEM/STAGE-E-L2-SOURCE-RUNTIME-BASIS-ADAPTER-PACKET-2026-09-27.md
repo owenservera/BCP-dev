@@ -169,13 +169,26 @@ Stop an adapter when:
 
 In these cases record UNKNOWN/BLOCKED with the missing evidence, not a substitute token.
 
-## 11. L2 completion gate
+## 11. Durable completion transaction
+
+For every owner adapter, use the repository completion transaction from AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DURABLE-COMPLETION-GATE-2026-09-28.md.
+
+The owner MUST NOT report the adapter as DONE/COMPLETE until:
+1. the characterization artifact exists;
+2. the canonical <AGENT-HOME>/RESULTS/<SESSION_ID>.md receipt exists;
+3. the exact TASKS.md L2 entry is updated to DONE, PARTIAL, or BLOCKED as justified;
+4. the exact commit/ref is recorded;
+5. current main is re-read and both the receipt and task-state update are verified there.
+
+A chat-only completion claim is REPORTED-UNVERIFIED and does not satisfy the L2 gate. A later Next must first repair/verify the durable completion surface rather than repeat the characterization.
+
+## 12. L2 completion gate
 
 L2 is complete only when the seven owner adapters above each have a durable characterization satisfying Section 6, or are explicitly recorded as blocked with a named owner/environment dependency and Steward accepts the remaining UNKNOWN.
 
 L3 graph bundle design remains behind this gate.
 
-## 12. Human routing
+## 13. Human routing
 
 The central launch step is complete. The next work is parallel CFA-owned adapter characterization.
 
@@ -185,7 +198,7 @@ Send `Next` to:
 
 CFA-03 remains the semantic lead/consumer and should not be made a serial predecessor of the adapter owners.
 
-## 13. Integrity
+## 14. Integrity
 
 - CFA-01 owner characterization: **CLOSED**.
 - Remaining L2 owners: **OPEN**.

@@ -135,12 +135,13 @@ A substantive investigation session is complete only when all four conditions ar
 1. durable changes (if any) exist;
 2. the exact commit/ref is recorded;
 3. a durable completion receipt is persisted at exactly:
-   AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RESULTS/<TYPE>-<SESSION_ID>.md
+   <AGENT-HOME>/RESULTS/<SESSION_ID>.md
 4. the persistent task state is updated.
+5. re-read the current delivery ref (normally main) and verify both the receipt and task-state update are present there.
 
 The receipt must use the field schema in AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md v1.1, exactly as defined there and in exactly that order.
 
-If the receipt cannot be persisted, report PARTIAL or BLOCKED; never silently claim completion. A chat-only report never counts as completion.
+If the receipt cannot be persisted or final delivery-ref verification fails, report PARTIAL, BLOCKED, or REPORTED-UNVERIFIED; never silently claim completion. A chat-only report never counts as completion. See AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DURABLE-COMPLETION-GATE-2026-09-28.md.
 
 Commit durable research artifacts directly to `main` unless the owner explicitly assigns another delivery mechanism. Report:
 

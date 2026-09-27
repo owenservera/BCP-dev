@@ -73,7 +73,9 @@ Hard stop: no production implementation, no shared-boundary activation, no Ω-la
 ## Open L2 task
 
 ### STAGE-E-L2-CFA10-RUNTIME-GENERATION-BASIS-ADAPTER-2026-09-28
-- **Status:** READY — OWNER-BOUNDED CHARACTERIZATION
+- **Status:** REPORTED-UNVERIFIED — DURABLE COMPLETION CHECK
+- **Human report:** owner has reported the bounded task complete, but current main did not yet contain a matching receipt/task closure when the Steward audited it.
+- **Next action:** first verify current main for the canonical characterization, receipt, exact commit/ref, and task-state closure. If the substantive artifact exists but closure is missing, complete only the durable completion transaction; do not repeat the characterization.
 - **Priority:** P0
 - **Objective:** Characterize the CFA-10-owned runtime generation/source basis consumed by Stage-E freshness without promoting experimental runtime machinery into K0 or creating a second runtime authority.
 - **Milestone:** Stage-E L2 — Source and runtime basis adapters.
@@ -82,7 +84,7 @@ Hard stop: no production implementation, no shared-boundary activation, no Ω-la
 - **Write scope:** CFA-10 home documentation only; no K0 rewrite, production mechanism selection, runtime-join implementation, shared-boundary activation, or Ω-law change.
 - **Completion condition:** the adapter identifies the minimum proven runtime source/generation basis and its comparison/failure behavior, or explicitly records the missing target-runtime evidence as UNKNOWN/BLOCKED.
 - **Stop condition:** experimental machinery would be promoted into K0, security/boundary ownership is ambiguous, target-runtime evidence is insufficient, Ω-law collision, or a new authority/store would be required.
-- **Next action:** produce the bounded CFA-10 runtime generation/source basis-adapter characterization, then persist a durable receipt.
+- **Completion gate:** do not report DONE/COMPLETE until the exact result receipt and this task's final state are verified on current main, per DURABLE-COMPLETION-GATE-2026-09-28.md.
 
 ## Open bounded work
 

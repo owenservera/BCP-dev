@@ -41,7 +41,8 @@ When the owner sends **Next**, resolve against the master portfolio router first
 - **Receipt commit:** `7dba038765880f562abc6b4c44769f60af40882a`
 - **Finding:** `law.policy` 1.9.0 + law manifest 0.3.0 are current declared basis identifiers; repository source revisions are available as evidence. Runtime immutable source binding remains UNKNOWN because manifest `contentHash` is empty and `law.describe@1` exposes no policy/source digest.
 - **Boundary:** self-knowledge may describe the governing basis but never interprets it as permission; live authorization remains separately resolved.
-- **Handoff:** CFA-04 L2 characterization is complete on the owner side; next valid step is Steward L2 consistency/reconciliation. Do not add further CFA-04 L2 work unless reconciliation identifies a specific evidence gap.
+- **Handoff:** CFA-04 L2 characterization is complete on the owner side; next valid step is Steward L2 consistency/reconciliation.
+- **Completion verification:** receipt and task closure are durable on current main; no owner re-execution is permitted unless Steward reconciliation identifies a specific evidence gap. Do not add further CFA-04 L2 work unless reconciliation identifies a specific evidence gap.
 
 ### LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27
 - **Status:** WAITING-GOVERNED-CORRIDOR
