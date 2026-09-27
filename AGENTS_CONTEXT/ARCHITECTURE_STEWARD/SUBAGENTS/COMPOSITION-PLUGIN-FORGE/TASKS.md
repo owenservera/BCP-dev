@@ -19,7 +19,7 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 - **Status:** DONE
 - **Completed:** 2026-09-27
 - **Result:** `RESULTS/COMPOSITION-PLUGIN-FORGE-20260927-HOME-UPGRADE.md`
-- **Primary correction commit:** `095ce053c9e2386417144fd92e781600e3f53753`
-- **Receipt commit:** `cc29ed8033d10b5ff0e9857ea532d7c12da434b5`
+- **Main merge commit:** `796db663de00623400f0dd7a4f5c237e4353b7c1`
+- **Final receipt-alignment commit:** `d9b451c3c05b0bee4bd464ed1a91386b00d53079`
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
