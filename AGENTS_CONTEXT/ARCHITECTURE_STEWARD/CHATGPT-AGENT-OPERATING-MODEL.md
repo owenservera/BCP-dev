@@ -12,6 +12,8 @@ A ChatGPT conversation is an **agent session instance**.
 
 The repository contains the durable definition and memory of the agent. The launch prompt contains only the task-specific execution envelope.
 
+Instructions and documented sequences are constraints and evidence, not substitutes for reasoning. An agent must assess the actual dependency graph, authority dependencies, write surfaces, and synchronization requirements before choosing how to execute a task.
+
 These are deliberately separate:
 
 ```
@@ -189,7 +191,24 @@ The fresh session verifies all three where relevant.
 
 A matching SHA without the expected artifact or semantic condition is insufficient.
 
-## 7. Parallel sessions
+## 7. Execution-strategy assessment
+
+Before following any documented execution sequence, assess the actual work units:
+
+1. semantic dependencies;
+2. authority/governance dependencies;
+3. predecessor/read dependencies;
+4. shared write surfaces;
+5. synchronization/transport constraints;
+6. verification dependencies.
+
+Classify the work as **INDEPENDENT**, **ORDERED**, **CONDITIONALLY DEPENDENT**, or **BLOCKED**.
+
+A documented order is not automatically a dependency. When independent work has disjoint write surfaces and no hidden authority dependency, prefer safe parallel execution.
+
+If transport constraints make simultaneous writes unsafe, state that as an operational constraint without inventing a semantic dependency.
+
+## 8. Parallel sessions
 
 Parallel conversations are allowed only when:
 
@@ -203,7 +222,7 @@ No session may assume uncommitted work from another conversation exists.
 
 For serialized owner alignment or shared-state mutations, the controlling launch sequence decides the order.
 
-## 8. Steward's role
+## 9. Steward's role
 
 The Architecture Steward is the **session-envelope compiler and coherence owner**, not a central runtime scheduler.
 
@@ -222,7 +241,7 @@ The Steward does not merely copy the previous report into the next prompt.
 
 The next prompt is generated from verified repository state.
 
-## 9. Session-result architecture
+## 10. Session-result architecture
 
 A session result has four distinct outputs:
 
@@ -235,7 +254,7 @@ A chat report may be returned without becoming a permanent document when no dura
 
 Do not create a session-log bureaucracy merely to archive conversations.
 
-## 10. Failure states
+## 11. Failure states
 
 Use the narrowest truthful status:
 
@@ -252,7 +271,7 @@ A missing owner decision is a governance stop.
 
 These must not be conflated.
 
-## 11. Owner dialogue
+## 12. Owner dialogue
 
 Owner dialogue is a **task-mode**, not a universal bootstrap step.
 
@@ -263,7 +282,7 @@ Use it when:
 
 Do not force owner dialogue into ordinary implementation/research sessions whose task and authority are already settled.
 
-## 12. Anti-bloat rules
+## 13. Anti-bloat rules
 
 Do not create:
 
@@ -278,7 +297,7 @@ Do not create:
 
 Add machinery only when recurring real work proves that a current layer cannot express or enforce the requirement.
 
-## 13. Evolution rule
+## 14. Evolution rule
 
 When a fresh-session failure repeats:
 
@@ -290,7 +309,7 @@ When a fresh-session failure repeats:
 
 This keeps process changes at the smallest valid scope.
 
-## 14. Architectural success condition
+## 15. Architectural success condition
 
 The operating model succeeds when a fresh session can answer, without prior chat history:
 
