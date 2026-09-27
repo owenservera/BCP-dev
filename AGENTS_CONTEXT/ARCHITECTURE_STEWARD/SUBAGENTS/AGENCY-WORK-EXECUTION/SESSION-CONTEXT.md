@@ -46,7 +46,7 @@ Kill the worker between external execution and recording. Restart must not blind
 Verify current main and relevant peer identities before substantive work.
 
 ## Last verified baseline
-`e29cd3068d67ce273a869bdc390afc8f45a12243``3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+`e29cd3068d67ce273a869bdc390afc8f45a12243`
 
 
 > The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
