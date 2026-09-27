@@ -7,16 +7,18 @@
 
 ## Open tasks
 
-### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
+### EVO-R1-M1-01 — Minimum Change Contract Characterization
 - **Status:** READY
 - **Priority:** P1
-- **Purpose:** Independently define the CFA's high-level conceptual roadmap before shared execution is selected.
-- **Required outputs:** strategic objective; 3–7 core milestones; milestone success criteria/falsifiers; dependencies; tooling/substrate assessment; strategic design gates; milestone-by-milestone peer-intelligence requests; product/strategic consequences; deferred/do-not-do boundary; inherited-plan classification.
-- **Dependencies:** Initial pass is independent of the other nine new roadmap sessions. Existing repository evidence may be used; new Round-1 peer outputs must not be consumed before first-pass completion.
-- **Write scope:** Own CFA home, `DOMAIN-ROADMAP-2026-09-27.md`, and own `TASKS.md`.
-- **Next action:** Follow the shared strategic roadmap protocol; preserve existing useful artifacts rather than creating duplicates.
-- **Completion condition:** Full local strategic roadmap persisted; first bounded actionable tasks recorded; peer-intelligence needs are explicit at each milestone; receipt persisted and verified.
-- **Stop condition:** Stop at an owner decision, material peer ownership conflict, Ω-law collision, or insufficient evidence. Do not start production implementation.
+- **Milestone:** M1 — Make Change a First-Class Semantic Unit
+- **Objective:** Characterize the smallest evidence-backed change record + semantic-delta + lifecycle contract reusable across at least two existing domain seams without introducing a second canonical store.
+- **Dependencies:** Initial execution is independent of new Round-1 peer roadmaps. Finalization requires evidence/contract checks with relevant semantic, Data, Authority and Runtime owners as identified in the local roadmap.
+- **Peer inputs required:** CFA-01/03 semantic references; CFA-02 persistence/revision references; CFA-04 authority-result references; CFA-10 activation-state references.
+- **Tooling required:** repository inspection, deterministic fixtures, and a small pure state-transition validator only if current evidence shows it is needed.
+- **Write scope:** Own CFA-09 home only unless a later task explicitly authorizes a destination contract update.
+- **Next action:** Map the minimum change record/state vocabulary against at least two existing mechanisms and record falsifiers/unknowns.
+- **Completion condition:** Compact proposed contract with field semantics, state transitions, semantic-delta rules, evidence/authority reference rules, falsifiers, and a mapping showing two real mechanisms can adopt it without duplicate ownership.
+- **Stop condition:** Canonical-data contradiction, Ω-law collision, unresolved authority policy, or material CFA-boundary change; preserve the contradiction and escalate rather than silently deciding.
 
 ## Future task intake
 
@@ -24,10 +26,17 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 
 ## Completed task history
 
+### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result:** `DOMAIN-ROADMAP-2026-09-27.md`
+- **Receipt:** to be recorded in `RESULTS/` after this session's final verification.
+- **Scope:** Independent CFA-09 strategic planning only; no production implementation, shared-boundary activation, or Ω-law change.
+- **Outcome:** Six-milestone local roadmap established; only the first bounded characterization task promoted to READY.
+
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
 - **Result receipt:** `RESULTS/CFA09-HOME-UPGRADE-20260927-0540.md`
 - **Substantive home commits:** `05503b5c95fe1ec96207852024f0da557390039e`, `dcb241ad9e514d8ffaf49e4285c35a17504b5608`
 - **Scope:** CFA-09 home only; front-door navigation and FSSP-1.3/session-result pointers corrected.
-- **Next:** Await a separately assigned CFA-09 domain task; do not infer one from the completed home-upgrade work.
