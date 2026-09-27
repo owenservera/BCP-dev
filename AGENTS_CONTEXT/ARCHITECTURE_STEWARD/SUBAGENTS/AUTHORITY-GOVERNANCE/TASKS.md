@@ -18,6 +18,17 @@
 
 ## Open tasks
 
+### STAGE-E-L2-CFA04-AUTHORITY-POLICY-BASIS-ADAPTER-2026-09-28
+- **Status:** DONE — CHARACTERIZED / PARTIAL
+- **Priority:** P0
+- **Milestone:** Stage-E L2 — Source and runtime basis adapters.
+- **Result:** `STAGE-E-L2-CFA04-AUTHORITY-POLICY-BASIS-ADAPTER-CHARACTERIZATION-2026-09-28.md`
+- **Receipt:** `RESULTS/CFA04-20260928-STAGE-E-L2-AUTHORITY-POLICY-BASIS-ADAPTER.md`
+- **Completion commit:** `291ee429cbf6efb8f635d3a86724f399971c0ec1`
+- **Receipt commit:** `7dba038765880f562abc6b4c44769f60af40882a`
+- **Finding:** `law.policy` 1.9.0 + law manifest 0.3.0 are current declared basis identifiers; repository source revisions are available as evidence. Runtime immutable source binding remains UNKNOWN because manifest `contentHash` is empty and `law.describe@1` exposes no policy/source digest.
+- **Boundary:** self-knowledge may describe the governing basis but never interprets it as permission; live authorization remains separately resolved.
+
 ### LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27
 - **Status:** WAITING-GOVERNED-CORRIDOR
 - **Priority:** P1
