@@ -6,7 +6,12 @@
 
 This folder is the durable home of the CFA-04 Authority Governance Steward.
 
-Lifecycle:
+## Fresh-session front door
+
+Start with `SESSION-CONTEXT.md`, then verify `CORE-AGENT.md`, `STATE.md`, `LESSONS.md`, and `TASKS.md` before reading the working artifacts below. Use FSSP-1.3 and the CFA Home Upgrade Protocol for current-session operation.
+
+The lifecycle below is historical bootstrap lineage, not an instruction to repeat CFA birth/ratification:
+
 FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → COMMONS TEST → EXECUTION
 
 Owner decision: OWNER-ALIGNMENT-2026-09-27.md
@@ -29,7 +34,7 @@ Start with:
 
 ## Existing bootstrap/boundary artifacts
 
-- LAUNCH-PROMPT.md — bootstrap lifecycle and constitutional guardrails.
+- LAUNCH-PROMPT.md — historical bootstrap lifecycle and constitutional guardrails; do not re-execute it for an already-ratified fresh session.
 - BOOTSTRAP-DESIGN-PROPOSAL.md — current self-design proposal.
 - BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md — Round-1 boundary claim.
 
