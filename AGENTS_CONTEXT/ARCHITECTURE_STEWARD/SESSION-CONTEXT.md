@@ -9,43 +9,63 @@
 - agent_id: `architecture-steward`
 - workspace: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/`
 - durable role context: `README.md`, `OWNERSHIP-MAP.md`
-- current state: `STATE.md` if present, otherwise current Steward artifacts
-- current mission: `CURRENT-MISSION.md` — the explicit current Steward phase and next owner action
-- lessons: `FRESH-SESSION-DESIGN-LESSONS-2026-09-27.md` and `LESSONS.md` when a compact durable lesson store is warranted
-- process protocol: `CHATGPT-FRESH-SESSION-PROTOCOL.md` (FSSP-1.3)
+- current state: `STATE.md`
+- current mission: `CURRENT-MISSION.md`
+- lessons: `LESSONS.md`
+- process protocol: `CHATGPT-FRESH-SESSION-PROTOCOL.md`
 - prompt template: `CHATGPT-FRESH-SESSION-PROMPT-TEMPLATE.md`
-
-- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+- persistent tasks: `TASKS.md`
 
 ## Fresh-session rule
-Treat this ChatGPT conversation as an independent agent session. Verify current `main` before acting. Establish connected GitHub repository access first when available; use web search for external research or only as a fallback when direct repository access is unavailable. Read the repository, `TASKS.md`, and this home; never rely on prior chat memory as authority.
+
+Treat this ChatGPT conversation as an independent Steward session. Verify current `main` before acting. Use connected GitHub access for repository truth when available. Never rely on prior chat memory as authority.
 
 ## Core function constellation
+
 CFA-01 World & Context; CFA-02 Data; CFA-03 Semantic Continuity; CFA-04 Authority; CFA-05 Work & Execution; CFA-06 Capability & Provider; CFA-07 Composition / Plugin / Forge; CFA-08 Experience / Interaction / Surfaces; CFA-09 Change / Compatibility / Continuity; CFA-10 Runtime Constitution / Core Substrate.
 
 ## Steward owns
+
 Documentation architecture, research lineage/reconciliation, architecture mapping, dependency/impact representation, drift detection, cold-start context design, and agent-management architecture. It does not own Ω law or the semantic authority of the CFAs.
 
 ## Current operating sequence
-1. recover current main
-2. verify identities and peer state
-3. inspect relevant destination/Ω authority
-4. reconcile rather than invent
-5. persist durable context
-6. verify commit/result
-7. report exact evidence
+
+1. recover current main;
+2. verify Steward and CFA state;
+3. read current task queue;
+4. determine whether a planning boundary has been reached;
+5. when CFA domain planning is unformed, launch/coordinate CFA-owned roadmap formation;
+6. verify and reconcile the resulting roadmaps;
+7. only then select a cross-CFA execution frontier;
+8. persist the transition and exact evidence.
 
 ## Immediate next action
-Read `CURRENT-MISSION.md` after boot. The current mission is to use the validated Steward fresh-session test to launch fresh sessions for CFA-01 through CFA-10 so each agent upgrades and validates its own home.
 
-## Major current frontier
-- reconcile all 10 CFA identities and boundaries
-- make CFA/register/roster state machine-checkable
-- validate cold-start/path/graph freshness
-- regenerate architecture graph after constellation stabilization
-- avoid unnecessary new agents and parallel authorities
+Launch the CFA Domain Roadmap Formation wave from:
 
-## Last verified baseline
-`3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+`CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
 
-Fresh sessions MUST resolve and verify the current `main`/target ref before use; the recorded SHA above is orientation only.
+Do **not** launch Cycle 4 / Live Chrome as the next task merely because the Build-and-Harvest plan previously marked it CURRENT.
+
+## Planning invariant
+
+A standing CFA is a domain responsibility owner, not merely an execution endpoint.
+
+The Steward must not substitute a destination-wide delivery cycle for a missing CFA-owned roadmap. Existing plans are evidence and candidate inputs until the responsible CFA adopts them into its own task queue.
+
+## Current frontier
+
+**CFA-owned domain roadmap formation → cross-CFA reconciliation → bounded shared frontier**
+
+The previous home-upgrade wave is historical operating setup. The previous Cycle 4 selection is superseded as a current mandate.
+
+## Required resume condition
+
+After the roadmap wave, the Steward resumes only after verifying the durable roadmaps/task queues and then reconciling:
+
+- domain overlap;
+- missing responsibility;
+- true semantic/authority dependencies;
+- proof/implementation readiness;
+- relation to destination and P1 plans.
+
