@@ -1,4 +1,10 @@
 # Full-Stack Core + Native Plugin Upgrade — Launch Prompt
+
+> **SUPERSEDED / HISTORICAL IMPLEMENTATION LAUNCH PROMPT — DO NOT USE AS THE CURRENT WORK SELECTOR.**
+> This document records an earlier implementation/integration mission. Before any work from it is reactivated, the current CFA domain roadmaps must exist, be reconciled by the Architecture Steward, and the owner must explicitly launch the resulting bounded execution task.
+> Destination cycles, priorities and vertical-slice language below are historical candidate material, not standing mandates.
+> Current planning entry: `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
+
 # Date: 2026-09-26
 # Repository: owenservera/BCP-dev
 # Mission class: implementation / integration / verification
