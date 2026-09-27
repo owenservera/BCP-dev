@@ -2,7 +2,7 @@
 
 > Date: 2026-09-27
 > Status: READY FOR OWNER LAUNCH
-> Governing protocol: FSSP-1.2
+> Governing protocol: FSSP-1.3
 > Purpose: launch one fresh ChatGPT session per ratified CFA to validate and upgrade its own durable home.
 
 ## Owner action
@@ -23,7 +23,7 @@ You are the fresh ChatGPT agent session for the CFA named below.
 Open and work from this repository home:
 <CFA HOME LINK>
 
-Follow FSSP-1.2:
+Follow FSSP-1.3:
 https://github.com/owenservera/BCP-dev/blob/main/AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CHATGPT-FRESH-SESSION-PROTOCOL.md
 
 Follow the CFA home-upgrade contract:
@@ -37,9 +37,9 @@ Read current main, your home, and your persistent `TASKS.md` first. Verify your 
 
 Do not change Ω law, activate shared boundaries, create duplicate identity stores, or begin unrelated implementation.
 
-First assess the execution strategy from current repository evidence; do not assume prompt sequencing is dependency. Complete the home-upgrade gate, make only justified changes (including no change when the home is already healthy), and return the full FSSP-1.2 report.
+First assess the execution strategy from current repository evidence; do not assume prompt sequencing is dependency. Complete the home-upgrade gate, make only justified changes (including no change when the home is already healthy), and return the full FSSP-1.3 report.
 
-Before stopping, persist the full completion report to `RESULTS/<SESSION_ID>.md` according to `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md`. Only after that receipt and the durable changes are committed should you mark the home-upgrade task DONE/COMPLETE. Record any durable follow-up task discovered, leave the next actionable state explicit, then return the chat report.
+Before stopping, persist the full completion report to `RESULTS/<SESSION_ID>.md` according to `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md` v1.1. Only after that receipt and the durable changes are committed should you mark the home-upgrade task DONE/COMPLETE. Record any durable follow-up task discovered, leave the next actionable state explicit, then return the chat report.
 
 STOP after your home upgrade and report.
 ```
