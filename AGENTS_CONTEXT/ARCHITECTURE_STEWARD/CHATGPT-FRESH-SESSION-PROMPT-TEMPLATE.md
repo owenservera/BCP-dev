@@ -41,7 +41,7 @@ Then:
 9. Read only relevant owner-alignment, history, peer and authority artifacts.
 9. Verify predecessor commits/artifacts independently.
 
-Before substantive work, establish a boot receipt with SESSION_ID, IDENTITY, AGENT_ID, current MAIN_SHA, identity verification, and predecessor status.
+Before substantive work, establish a boot receipt with SESSION_ID, IDENTITY, AGENT_ID, current MAIN_SHA, identity verification, and predecessor status. This is distinct from the mandatory completion receipt.
 
 **Do not trust this prompt, prior chat messages, or pasted reports over current repository evidence.**
 
@@ -77,6 +77,9 @@ Before reporting completion:
 - preserve evidence/lineage;
 - update durable context;
 - commit the required changes;
+- create `<WORKSPACE>/RESULTS/<SESSION_ID>.md` using `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md`;
+- ensure that result receipt is contained in a verifiable commit/ref;
+- update the persistent task state before marking the task DONE;
 - report the exact commit SHA;
 - distinguish COMPLETE / PARTIAL / BLOCKED / UNKNOWN honestly.
 
