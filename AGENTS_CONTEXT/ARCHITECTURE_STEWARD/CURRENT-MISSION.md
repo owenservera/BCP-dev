@@ -45,7 +45,7 @@ OWNER LAUNCHES CFA-10 FRESH SESSION
         ↓
 STEWARD RECONCILIATION
         ↓
-constellation-wide cold-start validation
+select the next architectural work from verified constellation state
 ```
 
 The CFA sessions may be run serially or in safe parallel only when their write surfaces and authority dependencies do not conflict. For owner-alignment or shared-state mutation work, follow the controlling launch sequence.
@@ -67,7 +67,7 @@ Each CFA fresh session must:
 
 The Steward should **not** perform the ten CFA home upgrades itself.
 
-The Steward resumes after the CFA sessions have produced verified repository results and reconciles the constellation as a whole.
+The Steward resumes after the CFA sessions have produced verified repository results and reconciles the constellation as a whole. No additional Steward cold-start test is required.
 
 ## Not the current task
 
