@@ -248,3 +248,12 @@ When a CFA-05–10 launch produces a novel problem, classify the failure before 
 - implementation issue → do not rewrite the birth protocol merely to accommodate local code.
 
 The reusable protocol is therefore a birth contract with controlled evolution, not a universal architecture script.
+
+## Current applicability guard — 2026-09-27
+
+> IMPORTANT / CURRENT: CFA-05 through CFA-10 now have durable owner-alignment / identity artifacts in current main. This protocol is retained as the reusable birth design for a future genuinely unratified CFA. It is NOT the execution protocol for the current CFA-05–10 wave.
+>
+> For the current wave, use:
+> AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md
+>
+> Current work is boundary baseline → Steward reconciliation → bounded peer reconciliation → completion audit. Do not rerun identity creation, Owner Dialogue, Commons birth, or other bootstrap stages merely because this design contains them.
