@@ -43,6 +43,14 @@ The former root construction/project-management layer is archived under docs/arc
 
 Do not execute archived prompts or trackers.
 
+## Repository access and tool selection
+
+When connected GitHub integration/access is available, use it as the **primary path for repository work**: reading files, resolving current refs/SHAs, inspecting branches/commits, verifying changes, and writing changes.
+
+Do **not** use general web search as a substitute for direct connected GitHub access merely because a GitHub URL was provided. Use web search for external research or independent corroboration. Use it for repository content only when direct GitHub access is genuinely unavailable, and treat that as a fallback rather than repository proof.
+
+At cold start, determine the repository-access capabilities available to the session before choosing the access method.
+
 ## Agent operating rule
 
 For substantive changes:
