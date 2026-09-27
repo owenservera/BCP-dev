@@ -1,7 +1,7 @@
 # Stage E L2 — Source / Runtime Basis Adapter Packet
 ## 2026-09-27
 
-> Status: **L2 LAUNCHED — PARALLEL OWNER CHARACTERIZATION ACTIVE**
+> Status: **L2 LAUNCHED — OWNER CHARACTERIZATION IN PROGRESS**
 > Coordinator: Architecture Steward
 > Semantic lead: CFA-03
 > Scope: characterize domain basis/reference adapters; no runtime-join implementation.
@@ -37,13 +37,15 @@ An adapter may consume existing canonical references but must not create a new c
 
 | Adapter | Owner | Current basis evidence | Required L2 closure | Current status |
 |---|---|---|---|---|
-| World/Object revision | CFA-01 | canonical vault identity/revision exists; WorldReferenceResult already carries basis-oriented fields; exact canonical World/Object revision token remains open | name the canonical World/Object revision/CID token, resolver and stale/unresolvable behavior | OPEN |
+| World/Object revision | CFA-01 | canonical vault identity/revision exists; WorldReferenceResult carries basis-oriented fields; CFA-01 L2 characterized the strongest token as `(ns,id,rev)` with optional CID | owner-scoped canonical token, resolver, STALE/UNRESOLVABLE behavior, evidence and falsifier | **CLOSED — design CHARACTERIZED; runtime propagation UNKNOWN** |
 | Durable continuity / reconstruction | CFA-02 | vault revisions/CIDs, lineage and reconstruction responsibility are established; CFA-02 is ratified but some joins remain unresolved | define which durable record/revision references can serve as basis without creating a second identity store | OPEN |
 | Authority / policy | CFA-04 | authority corridor uses live authority/evidence and policy/law references; exact self-knowledge dependency adapter is not frozen | identify policy/law version or immutable digest basis, resolution rule and refusal/staleness boundary | OPEN |
 | Capability / Provider / Realization | CFA-06 | ProviderRealization and provider-specific evidence are current; exact stable observation basis and live-vs-fixture rule remain partly open | identify stable capability/realization/provider observation token and unresolved behavior | OPEN |
 | Composition / Manifest | CFA-07 | Recipe/Manifest admission evidence includes manifest/content identity and replacement lineage; logical composition survivor semantics remain open | define version + immutable identity basis needed for a derived view; preserve logical-vs-installed identity distinction | OPEN |
 | Change / Compatibility | CFA-09 | Change is a cross-domain relation with subject/state/evidence/history references; exact Data mapping remains open | define the minimum change/revision/compatibility basis a derived view actually depends upon | OPEN |
 | Runtime generation/source | CFA-10 | runtime lifecycle/generation/fencing evidence exists; B1 remains underproven and exact minimum runtime source token is not frozen | define bounded generation/source basis and failure semantics without promoting experimental machinery to K0 | OPEN |
+
+**CFA-01 closure note:** the strongest World/Object freshness basis is the existing canonical vault revision `(ns,id,rev)`, with optional CID where available. Current WorldModel/EntityView shapes do not propagate the exact canonical revision/CID for every derived entity, so runtime token propagation remains UNKNOWN/deferred. This is a characterization result, not a runtime implementation claim.
 
 CFA-03 is the semantic consumer/lead for self-knowledge and grounding; it does not acquire ownership of these domain basis meanings merely because it consumes the adapters.
 
@@ -66,6 +68,8 @@ Every adapter must preserve:
 ### CFA-01 — World/Object
 
 Use the strongest existing canonical revision identity where available. A source observation must not be substituted for canonical World/Object revision merely because it is recent.
+
+**CFA-01 characterized result:** `world.object-revision.basis.v1`; canonical token `(ns,id,rev)` with optional CID; canonicalRef → exact current revision → optional CID/evidence → BasisRef. STALE is a changed current revision/content identity; UNRESOLVABLE is insufficiently resolvable canonical basis; owner-defined World contradiction is CONFLICTED. Runtime propagation through current WorldModel/EntityView remains UNKNOWN.
 
 Falsifier: change the authoritative World/Object revision and verify that a dependent derived view cannot remain CURRENT.
 
@@ -183,6 +187,8 @@ CFA-03 remains the semantic lead/consumer and should not be made a serial predec
 
 ## 13. Integrity
 
+- CFA-01 owner characterization: **CLOSED**.
+- Remaining L2 owners: **OPEN**.
 - no runtime self-knowledge join implemented;
 - no second Architecture Graph;
 - no Ω-law change;
