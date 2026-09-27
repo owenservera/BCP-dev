@@ -7,6 +7,17 @@
 
 ## Open tasks
 
+### CENTRAL-CFA-STRATEGIC-ROADMAP-SYNTHESIS-2026-09-27
+- **Status:** WAITING
+- **Priority:** P1
+- **Purpose:** After the independent ten-CFA round, verify and synthesize the local roadmaps into one central cross-CFA strategic roadmap without erasing local divergence.
+- **Dependencies:** Ten independent local roadmap results and durable receipts.
+- **Write scope:** Steward control plane and `CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`.
+- **Next action:** Verify each local roadmap, compare milestones, consolidate peer-intelligence requests, confirm dependencies, reconcile contradictions, and map the result to destination/P1.
+- **Completion condition:** Central synthesis populated with source links, cross-CFA dependency/intelligence/tooling matrices, decision gates, divergence notes and a justified first shared execution frontier.
+- **Stop condition:** material unresolved owner decision, ownership conflict, or evidence insufficiency.
+
+
 ### CFA-DOMAIN-ROADMAP-WAVE-2026-09-27
 - **Status:** READY
 - **Priority:** P1
