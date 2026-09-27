@@ -151,6 +151,16 @@ Load only the peers and Ω/destination authority needed for the current task.
 
 Do not reconstruct the architecture indiscriminately.
 
+## Repository-access and tool-selection gate
+
+At fresh-session boot, determine whether connected GitHub integration/access is available.
+
+When it is available, use it as the primary path for repository reads, current `main`/ref resolution, SHA verification, branch/commit inspection, and repository writes.
+
+Do **not** use general web search to retrieve repository content merely because the task contains a GitHub URL. Web search is for external research/corroboration, or a repository fallback only when direct GitHub access is genuinely unavailable.
+
+Do not conclude that repository access is unavailable until the connected GitHub capability has been checked.
+
 ## 7. Session identity
 
 Every launch envelope should identify:
