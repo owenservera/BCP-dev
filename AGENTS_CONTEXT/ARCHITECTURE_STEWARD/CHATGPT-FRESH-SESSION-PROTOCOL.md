@@ -94,7 +94,7 @@ Each CFA session context should state:
 - agent_id;
 - current identity status;
 - canonical workspace path;
-- durable identity artifact, if any;
+- durable identity artifact, if any (CORE-AGENT.md or established AGENT.md);
 - current STATE artifact;
 - owner-alignment artifact;
 - identity-history artifact;
