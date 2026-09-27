@@ -23,7 +23,7 @@
 - **Completed:** 2026-09-27
 - **Session:** `CFA05-HOME-UPGRADE-20260927-0645CEST`
 - **Completion receipt:** `RESULTS/CFA05-HOME-UPGRADE-20260927-0645CEST.md`
-- **Home-upgrade commit:** `4b8f3445edffde2b4d66d674370d77030d42bc5f`
+- **Home-upgrade commit:** `a854e792284aa29360ee1f6fa66b5205ce84c57e`
 - **Priority:** P1
 - **Dependencies:** None currently known.
 - **Write scope:** Own agent home only.
