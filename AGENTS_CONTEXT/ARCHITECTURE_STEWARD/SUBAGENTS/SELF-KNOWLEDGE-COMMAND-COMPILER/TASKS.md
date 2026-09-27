@@ -18,30 +18,40 @@
 
 ## Open tasks
 
+### STAGE-E-L1-DERIVEDVIEW-BASIS-FRESHNESS-RECONCILIATION-2026-09-27
+- **Status:** WAITING — PEER / STEWARD RECONCILIATION
+- **Priority:** P0
+- **Objective:** Reconcile the CFA-03 DerivedView/BasisRef/freshness working contract into the Stage-E cross-CFA readiness contract.
+- **Milestone:** Stage-E L1 — Derived-view and freshness contract.
+- **Input produced:** `DERIVED-VIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27.md`
+- **Verified basis:** Architecture Steward Stage-E workload design; current CFA-01 WorldReferenceResult shape; current CFA-02 explicit identity-relation pattern; current CFA-04 separation of semantic package from live authority; current CFA-09 revision/change evidence.
+- **Write scope:** CFA-03 home documentation only until Steward reconciliation authorizes shared contract implementation.
+- **Completion condition:** Participating CFA basis kinds, comparison rules, falsifiers and unresolved owner decisions are reconciled by the Steward without creating universal identity, authority, graph or invalidation semantics.
+- **Stop condition:** owner policy dispute, semantic ownership conflict, Ω-law collision, or evidence insufficiency.
+- **Next action:** Wait for the Stage-E peer characterization/reconciliation wave; do not implement runtime joins from this proposal alone.
+
 ### ROADMAP-M1-SEMANTIC-BASELINE-TRACE-2026-09-27
 - **Status:** DONE
 - **Priority:** P1
 - **Objective:** Produce the evidence-backed M1 semantic continuity baseline and terminology collision map.
 - **Milestone:** M1 — Semantic Continuity Baseline.
-- **Dependencies:** Current Ω code/contracts and existing CFA-03 boundary evidence only; new Round-1 peer roadmap outputs are not required to begin.
-- **Peer inputs required:** Existing peer boundary artifacts may be consulted for orientation; newly produced Round-1 peer roadmaps must not be used during first-pass execution.
-- **Tooling:** Existing GitHub repository search/read plus deterministic tests; add only a small fixture if a concrete gap is demonstrated.
+- **Dependencies:** Current Ω code/contracts and existing CFA-03 boundary evidence only; new Round-1 peer roadmap outputs were not required to begin.
 - **Write scope:** Own CFA-03 home; no production runtime changes.
-- **Next action:** Resume at M2 only after the central Steward has reconciled the independent Round-1 CFA roadmaps, or when a CFA-03-specific launch explicitly authorizes the next milestone.
 - **Completion condition:** M1 findings and crosswalk persisted, verified, and reflected in STATE.md; no shared boundaries activated.
-- **Stop condition:** Stop at genuine owner policy, peer ownership conflict, Ω-law collision, or evidence insufficiency.
 
 ### DEEPER-SEMANTIC-CONTINUITY-MISSION-2026-09-27
 - **Status:** SUPERSEDED
 - **Priority:** P1
-- **Reason:** Replaced by the smaller milestone-scoped M1 task produced by Strategic Roadmap Round 1. Preserve the broader mission shape in the roadmap; re-introduce future work as milestone-bounded tasks when evidence makes it actionable.
-- **Successor:** `ROADMAP-M1-SEMANTIC-BASELINE-TRACE-2026-09-27`
-
-## Future task intake
-
-Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
+- **Reason:** Replaced by milestone-scoped work. Preserve the broader mission shape in the roadmap; re-introduce future work as bounded tasks when evidence makes it actionable.
+- **Successor:** M1 and Stage-E tasks above.
 
 ## Completed task history
+
+### STAGE-E-L1-DERIVEDVIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27
+- **Status:** DONE — PROPOSAL PRODUCED
+- **Receipt:** `RESULTS/CFA03-20260927-STAGE-E-L1-DERIVEDVIEW-BASIS-FRESHNESS-CONTRACT.md`
+- **Artifact:** `DERIVED-VIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27.md`
+- **Outcome:** Defined the implementation-neutral DerivedView/BasisRef/BasisDigest/DependencyVector/DerivationIdentity shape; freshness is recomputed from current basis comparison; restart, external observation, falsifiers and non-goals are explicit. Shared implementation remains gated.
 
 ### ROADMAP-M1-SEMANTIC-BASELINE-TRACE-2026-09-27
 - **Status:** DONE
@@ -50,12 +60,11 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 - **Crosswalk:** `CROSSWALK.md`
 - **Outcome:** Verified current semantic spine through Intent/resolution, recorded the unproven Plan/Work/freshness/visual-write-back seams, and reconciled current Round-2 peer agreements without activating shared boundaries.
 
-
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** DONE
 - **Receipt:** `RESULTS/CFA03-20260927-STRATEGIC-ROADMAP-R1.md`
 - **Roadmap commit:** `d1d3a35ac0aa47347e1e1712538522e6a10acc0e`
-- **Outcome:** Independent five-milestone CFA-03 strategic roadmap persisted with success criteria, dependencies, tooling, peer-intelligence gates, decision gates, product consequences, deferred work and inherited-plan classifications.
+- **Outcome:** Independent five-milestone CFA-03 strategic roadmap persisted.
 
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
