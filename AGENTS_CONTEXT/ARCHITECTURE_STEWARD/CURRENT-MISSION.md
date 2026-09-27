@@ -6,7 +6,7 @@
 
 ## Current phase
 
-**Cross-CFA M1 Contract + Evidence Closure**
+**Central Generic Development Kernel**
 
 The ten independent CFA strategic roadmaps are now complete and reconciled. The immediate purpose is to prove the smallest shared seam contracts and evidence packets that make later integration safe.
 
