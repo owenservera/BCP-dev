@@ -13,7 +13,7 @@ Runtime/bootstrap reads this file instead of requiring each session to hand-type
 | `world-ontology-context` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/WORLD-ONTOLOGY-CONTEXT` | World / Ontology / Context | bootstrap-ready |
 | `data-model` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD` | Data / Identity / Persistence | bootstrap-ready |
 | `semantic-continuity` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER` | Semantic continuity across self-knowledge, language, command, intent, execution meaning, evidence and representation | ratified |
-| `authority-governance` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE` | Authority / Governance | bootstrap-ready |
+| `authority-governance` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE` | Authority Governance Steward — Authority / Governance | **ratified** |
 | `agency-work-execution` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AGENCY-WORK-EXECUTION` | Agency / Work / Execution | bootstrap-ready |
 | `capability-provider-realization` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION` | Capability / Provider / Realization | bootstrap-ready |
 | `composition-plugin-forge` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/COMPOSITION-PLUGIN-FORGE` | Composition / Plugin / Forge | bootstrap-ready |

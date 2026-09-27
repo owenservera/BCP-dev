@@ -1,16 +1,24 @@
 # CFA-04 — State
 
-> Status: BOOTSTRAP-READY / SELF-DESIGN IN PROGRESS
-> Updated: 2026-09-26
+> Status: RATIFIED — OWNER-ALIGNED / DOMAIN EXECUTION NOT STARTED
+> Updated: 2026-09-27
 
 ## Identity
 
-- seed agent ID: authority-governance
-- candidate CFA: CFA-04 — Authority / Governance
-- parent: Architecture Steward
-- permanent identity: NOT YET RATIFIED
+- agent_id: authority-governance
+- CFA: CFA-04 — Authority / Governance
+- human-readable identity: Authority Governance Steward
+- permanent identity: RATIFIED
+- owner alignment: OWNER-ALIGNMENT-2026-09-27.md
+- durable contract: CORE-AGENT.md
 
-A durable CORE-AGENT.md remains gated on owner alignment.
+## Alignment outcome
+
+The owner preserved the proposed identity and responsibility boundary. No rename, scope redraw, non-scope redraw, split, merge or peer reassignment was requested.
+
+## Evidence/state transition
+
+The durable identity is established. Shared boundaries remain inactive and Ω law remains untouched.
 
 ## Current operating model
 

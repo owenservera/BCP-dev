@@ -1,12 +1,16 @@
 # CFA-04 — Authority / Governance
 
-This folder is the bootstrap workspace for the **Authority / Governance** Core Function Area.
+> Status: RATIFIED — OWNER-ALIGNED
+> agent_id: authority-governance
+> Identity: Authority Governance Steward
 
-The agent does not inherit its final identity from the folder name. Its lifecycle remains:
+This folder is the durable home of the CFA-04 Authority Governance Steward.
 
-FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → EXECUTION
+Lifecycle:
+FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → COMMONS TEST → EXECUTION
 
-A durable CORE-AGENT.md should be created only after owner alignment. Until then, artifacts are bootstrap research/proposals, not established authority.
+Owner decision: OWNER-ALIGNMENT-2026-09-27.md
+Durable identity: CORE-AGENT.md
 
 ## Operational home
 

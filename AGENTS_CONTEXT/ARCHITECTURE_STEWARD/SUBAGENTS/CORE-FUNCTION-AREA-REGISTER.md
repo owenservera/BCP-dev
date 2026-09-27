@@ -27,7 +27,7 @@ Do not create a permanent agent merely because a useful investigation technique 
 | CFA-01 | World / Ontology / Context | What exists in VIVIM's world, what does it mean, how is it related, and how does relevant world state become context? | BOOTSTRAP-READY |
 | CFA-02 | Data / Identity / Persistence | How are canonical meanings durably represented, identified, versioned, retained, reconstructed, exported, and evolved? | BOOTSTRAP-READY |
 | CFA-03 | Self-Knowledge / Language / Command | How does VIVIM maintain semantic continuity from self-knowledge and grounding through command interpretation, canonical Intent/Plan meaning, evidence, and representation? | RATIFIED — FOUNDATION-SEEDED |
-| CFA-04 | Authority / Governance | What may happen, who may authorize it, under what scope, consent, delegation, risk, and revocation rules? | BOOTSTRAP-READY |
+| CFA-04 | Authority / Governance | What may happen, who may authorize it, under what scope, consent, delegation, risk, and revocation rules? | **RATIFIED — OWNER-ALIGNED** |
 | CFA-05 | Agency / Work / Execution | How does an intent become durable work that can execute, recover, produce outcomes, and leave evidence? | BOOTSTRAP-READY |
 | CFA-06 | Capability / Provider / Realization | What can VIVIM do, and through which valid interchangeable realizations can those capabilities act on the external world? | BOOTSTRAP-READY |
 | CFA-07 | Composition / Plugin / Forge | How does VIVIM assemble, extend, create, replace, and evolve capabilities without recreating a hard-coded monolith? | BOOTSTRAP-READY |
