@@ -9,7 +9,7 @@
 - Phase 2 — self-design: COMPLETE
 - Phase 3 — owner dialogue: COMPLETE
 - Phase 4 — core identity: COMPLETE
-- Phase 5 — mission execution: M1 COMPLETE; Stage-E L1 freshness contract PROPOSED; peer reconciliation pending
+- Phase 5 — mission execution: M1 COMPLETE; Stage-E L1 freshness contract reconciled/closed; CFA-03 L2 basis-adapter characterization READY
 - Owner alignment was explicit on 2026-09-25.
 - Canonical identity: Semantic Continuity Steward
 - Historical workspace path retained: `SELF-KNOWLEDGE-COMMAND-COMPILER`
@@ -48,6 +48,10 @@ CFA-03 stewards continuity across self-knowledge, grounding, command semantics, 
 - Exact future visual write-back semantics.
 - Whether every Event/State occurrence warrants durable first-class identity.
 - Which terminology choices require product-owner decisions rather than architecture stewardship.
+
+## Stage-E L2 frontier
+- The Architecture Steward has closed generic Stage-E L1 DerivedView/freshness semantics for downstream adapter work.
+- CFA-03 local next action is to characterize the self-knowledge/semantic basis sources that it owns; implementation remains gated.
 
 ## Stage-E L1 progress
 - `DERIVED-VIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27.md` defines the implementation-neutral DerivedView/BasisRef/BasisDigest/DependencyVector/DerivationIdentity contract.
