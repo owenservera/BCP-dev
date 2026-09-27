@@ -6,7 +6,7 @@
 
 ## Receipt verification state
 
-LAST_VERIFIED_RECEIPTS_SHA: e8a130b40230b0930870ba01e4b51bb0f50bd0e8
+LAST_VERIFIED_RECEIPTS_SHA: 430aea70f03fe4969e8c09583fab981934fa3768
 
 No Steward receipt index existed at boot, so the baseline tip is the initial last-verified point. The value is advanced only after a receipt sweep verifies indexed receipts against repository evidence.
 

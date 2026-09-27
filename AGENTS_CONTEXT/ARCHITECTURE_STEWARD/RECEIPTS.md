@@ -16,4 +16,4 @@ PENDING → VERIFIED → RECONCILED
 
 | SESSION_ID | DATE | CFA | COMMIT | STATUS | STEWARD NOTE |
 |---|---|---|---|---|---|
-| STEWARD-20260927-SESSION-LAUNCH-UPGRADE | 2026-09-27 | ARCHITECTURE_STEWARD | PENDING | PENDING | New receipt created by this session; verify its recorded commit/ref before advancing status. |
+| STEWARD-20260927-SESSION-LAUNCH-UPGRADE | 2026-09-27 | ARCHITECTURE_STEWARD | 430aea70f03fe4969e8c09583fab981934fa3768 | VERIFIED | Receipt verified against main at 430aea70f03fe4969e8c09583fab981934fa3768; durable changes are repository-visible. |
