@@ -285,9 +285,15 @@ A session result has four distinct outputs:
 3. **Commit/ref** — the exact durable synchronization point.
 4. **Completion report** — a compact claim about the session, always subject to repository verification.
 
-A chat report may be returned without becoming a permanent document when no durable context is needed.
+For every substantive agent session, the completion report itself must also be persisted in the agent home as:
 
-Do not create a session-log bureaucracy merely to archive conversations.
+`<AGENT-HOME>/RESULTS/<SESSION_ID>.md`
+
+The repository receipt is mandatory because it is the durable handoff surface between independent ChatGPT conversations and the Architecture Steward. A chat report never substitutes for the repository receipt.
+
+A substantive task may be marked `DONE` only when the result receipt exists, the exact durable commit/ref is known, and the persistent `TASKS.md` state is updated accordingly. When repository write capability prevents this, the session must report `PARTIAL` or `BLOCKED`, not silently claim completion.
+
+Do not create a separate transcript archive or logging system. The result receipt is the compact machine-discoverable outcome of the session. See `SESSION-RESULT-CONTRACT.md` for its required fields and naming rule.
 
 ## 11. Failure states
 
