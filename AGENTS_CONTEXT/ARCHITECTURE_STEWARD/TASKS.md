@@ -8,7 +8,7 @@
 ## Open tasks
 
 ### CFA-05-10-BOUNDARY-GATE-BEFORE-GRAPH-2026-09-27
-- **Status:** WAVE 4 CURRENT — STEWARD COMPLETION AUDIT
+- **Status:** DONE — WAVE 4 COMPLETE / GRAPH GATE OPEN
 - **Priority:** P0
 - **Canonical protocol:** `BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`
 - **Canonical router:** `BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
@@ -22,10 +22,10 @@
 - **CFA-09:** DONE — receipt exists; blob `53835c665a098a8b56c706f59f9d6431dc1682e3`.
 - **CFA-10:** DONE — receipt exists; blob `e420ad08854a47c663077ba7c05e6be1c8a6e40f`.
 - **Wave 3:** COMPLETE — all six receipts present on current `main`.
-- **Wave 4:** **NEXT / EXECUTE NOW — Architecture Steward final completion audit**.
-- **Graph Gate:** CLOSED pending Wave-4 decision.
-- **Human workflow:** send exactly **one `Next` to Architecture Steward**. No CFA should receive another Wave-3 `Next`.
-- **Lineage rule:** Wave-4 eligibility is derived from current `main` plus the six committed receipt paths; local cached CFA state is subordinate.
+- **Wave 4:** DONE — receipt `BOUNDARY-DESIGN-SYSTEM/WAVE-4-COMPLETION-AUDIT-2026-09-27.md`; Graph Gate OPEN.
+- **Next wave:** GRAPH-ATTACHMENT-WAVE-1 — Architecture Graph revalidation → linked implementation projection contract → bounded Source-Code Graph pilot.
+- **Human workflow:** send exactly one `Next` to Architecture Steward for Graph Stage A.
+- **Lineage rule:** graph-stage eligibility is derived from current main plus the required stage receipts; local cached state is subordinate.
 
 ### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
 - **Status:** DONE / CENTRAL DESIGN FROZEN
@@ -60,6 +60,15 @@
 - **Next action:** Implement generic schemas/validation, reference/evidence/dependency indexes, bounded context/inspection, deterministic scaffolding, proof/replay bookkeeping, receipt generation, orchestration projection and friction telemetry in independently verifiable slices.
 - **Completion condition:** Synthetic domain-neutral acceptance passes without central code knowing CFA semantics; receipts and derived projections are reproducible.
 - **Stop condition:** Any requirement to invent domain meaning, authority, identity equivalence, product behavior or Ω-law.
+
+### GRAPH-ATTACHMENT-WAVE-1-2026-09-27
+- **Status:** READY
+- **Priority:** P0
+- **Purpose:** Revalidate the existing documentation-first Architecture Graph, freeze the linked implementation-projection contract, and run one bounded Source-Code Graph pilot.
+- **Packet:** `BOUNDARY-DESIGN-SYSTEM/GRAPH-ATTACHMENT-WAVE-1-2026-09-27.md`
+- **Gate:** Graph Gate OPEN from Wave-4 completion audit.
+- **Next action:** Stage A — revalidate current Architecture Graph and commit `GRAPH-W1-A-REVALIDATION-RECEIPT-2026-09-27.md`.
+- **Stop condition:** any request to create a second graph, infer semantic authority from code topology, or collapse UNKNOWN into dependency.
 
 ### SELECT-GOVERNED-CORRIDOR-AFTER-M1-2026-09-27
 - **Status:** WAITING
