@@ -1,6 +1,6 @@
 # Experience / Interaction / Surfaces Steward — State
 
-> Status: RATIFIED — OWNER-ALIGNED / STRATEGIC ROADMAP ROUND 1 COMPLETE / DOMAIN EXECUTION NOT STARTED
+> Status: RATIFIED — OWNER-ALIGNED / M1 DESIGN COMPLETE / DOMAIN EXECUTION ACTIVE
 > CFA: CFA-08
 > agent_id: experience-interaction-surfaces
 > Updated: 2026-09-27
@@ -15,63 +15,76 @@
 - durable contract: `CORE-AGENT.md`
 - identity version: v1.0
 
-## Verification snapshot
-
-- current main verified at start of this Round-1 session: `c09e131a9d0829c16c2f87d7d98d3b237b124f68`
-- round-1 branch base used: `57080e8a0c770d97b544e1172b2231e176e5d5c0`
-- execution strategy: INDEPENDENT
-- write scope: own CFA-08 home only
-- roadmap: `DOMAIN-ROADMAP-2026-09-27.md`
-- roadmap receipt: `RESULTS/CFA08-STRATEGIC-ROADMAP-20260927-0721.md`
-
 ## Strategic planning state
 
 - Strategic Roadmap Round 1: COMPLETE
-- independent first-pass rule satisfied: no new Round-1 peer roadmaps were consumed
-- first bounded actionable task: `SURFACE-VIEW-CONTRACT-2026-09-27`
-- later conceptual milestones remain planning states pending central Steward reconciliation
+- local roadmap: `DOMAIN-ROADMAP-2026-09-27.md`
+- M1 Surface / View Contract: COMPLETE as a bounded PROPOSED design
+- M2 next task: `SPACE-WORKSPACE-RECONSTRUCTION-2026-09-27`
+- shared CFA boundaries: UNACTIVATED
 
-## Bootstrap / alignment state
+## Current M1 result
 
-- context recovery: COMPLETE
-- self-design: COMPLETE
-- owner dialogue/alignment: COMPLETE
-- core identity: COMPLETE
-- home upgrade: COMPLETE
-- strategic roadmap Round 1: COMPLETE
-- Commons birth test: BLOCKED / NOT PROVABLE IN THIS WEBAPP SESSION
-- domain mission execution: NOT STARTED
+The CFA-08 M1 contract is persisted at:
+`SURFACE-VIEW-CONTRACT-2026-09-27.md`
 
-## Current strategic model
+Core model:
+Canonical Subject → Projection → View → Layout / Interaction State → Surface
 
-Five conceptual milestones:
+Write corridor:
+Surface Interaction → Typed Semantic Request / Intent → Owning CFA → Authority / Capability / Work / Data path → Canonical Revision / Evidence → Projection Refresh
 
-1. M1 — Surface / Projection Contract
-2. M2 — Reconstructable Space / Workspace / Canvas
-3. M3 — Interaction Convergence / Direct Manipulation
-4. M4 — Truthful Continuity: Freshness, Evidence, Work, Attention and Re-entry
-5. M5 — Replaceable Multi-Surface Experience and Measured Parity
+M1 deliberately does not settle:
+- final durable Surface/View storage;
+- semantic Space ownership;
+- exact Intent contract details;
+- final authority presentation fields;
+- View/Composition boundary;
+- cross-device continuity;
+- semantic Attention ownership.
 
-The roadmap is deliberately a strategic model, not a complete implementation backlog.
+## Evidence posture
+
+OBSERVED / CURRENT:
+- destination world-surface-core research and falsifiers;
+- destination World/Workspace/Canvas reconciliation;
+- Ω D-383 surface pointer/default decision;
+- Ω D-411 canonical Intent seam;
+- Ω D-436 surface parity/sync;
+- current CFA-01/02/03/04 peer responsibility artifacts.
+
+DERIVED / PROPOSED:
+- Subject Reference, Projection, View, Layout and Interaction State as distinct presentation layers;
+- freshness vocabulary CURRENT / STALE / UNKNOWN / INVALID / REBUILDING;
+- persistence is not canonicalization;
+- surface-originated consequential mutation must leave through the owning semantic path.
+
+UNKNOWN / DEFERRED:
+- final durable data join and storage envelope;
+- exact Space/Workspace semantic/data seam;
+- detailed gesture semantics;
+- minimum evidence presentation;
+- Attention ownership;
+- cross-device presentation continuity;
+- View/Composition boundary.
 
 ## Boundary / activation state
 
 - CFA-08 identity: RATIFIED.
 - Shared CFA boundaries: UNACTIVATED.
 - Ω law: unchanged.
-- Production implementation authorization: NONE.
+- Production frontend/runtime implementation authorization: NONE.
 - Parallel ontology/data/authority/evidence store: NOT CREATED.
 
-## Unresolved strategic seams
+## Commons
 
-- persistent Surface/View/Layout/Interaction state envelope;
-- Space vs Workspace durable join with CFA-01/CFA-02;
-- direct-manipulation World-vs-Intent split;
-- minimum evidence/provenance presentation;
-- semantic Attention ownership;
-- cross-device continuity;
-- View configuration vs user-authored Composition boundary.
+Execution surface: WEBAPP / connector.
+- repository read: AVAILABLE
+- repository write: AVAILABLE
+- local runtime/Git: UNAVAILABLE
+- recoverable Commons signing key: UNAVAILABLE
+- signed Commons publication: NOT CLAIMED
 
 ## Next mission
 
-Proceed from the M1 Surface / View frontier through the persistent task queue. The first bounded task is `SURFACE-VIEW-CONTRACT-2026-09-27`; later milestones remain strategic planning states until the Architecture Steward completes central reconciliation and establishes any shared execution frontier.
+Advance the persistent M2 task `SPACE-WORKSPACE-RECONSTRUCTION-2026-09-27` only as bounded evidence-backed design/reconciliation work. Preserve semantic Space ownership with CFA-01 and durable data/reconstruction ownership with CFA-02. Do not start production implementation.
