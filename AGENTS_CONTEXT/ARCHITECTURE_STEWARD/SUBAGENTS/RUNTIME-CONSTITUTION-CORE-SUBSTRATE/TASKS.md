@@ -50,6 +50,27 @@ Hard stop: no production implementation, no shared-boundary activation, no Ω-la
 - **Completion condition:** Met by durable roadmap, queue update, receipt and verified mainline commit.
 - **Stop condition:** Further execution requires a separately assigned task; this planning stage does not authorize production implementation.
 
+## CURRENT PORTFOLIO ROUTING — 2026-09-28
+
+> **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
+> **CFA:** CFA-10
+> **Portfolio package:** STAGE-E
+> **Current portfolio state:** L2 runtime generation/source basis adapter characterization pending
+
+## Open L2 task
+
+### STAGE-E-L2-CFA10-RUNTIME-GENERATION-BASIS-ADAPTER-2026-09-28
+- **Status:** READY — OWNER-BOUNDED CHARACTERIZATION
+- **Priority:** P0
+- **Objective:** Characterize the CFA-10-owned runtime generation/source basis consumed by Stage-E freshness without promoting experimental runtime machinery into K0 or creating a second runtime authority.
+- **Milestone:** Stage-E L2 — Source and runtime basis adapters.
+- **Required characterization:** minimum proven runtime generation/source token; canonical source location; bounded resolver; comparison rule; STALE condition; UNRESOLVABLE condition; evidence refs; falsifier; explicit UNKNOWN/DEFERRED items.
+- **Primary evidence:** current K0 duties/invariants, runtime lifecycle/generation/fencing evidence, and the persisted B1 containment/byte-binding experiment and target-runtime boundary.
+- **Write scope:** CFA-10 home documentation only; no K0 rewrite, production mechanism selection, runtime-join implementation, shared-boundary activation, or Ω-law change.
+- **Completion condition:** the adapter identifies the minimum proven runtime source/generation basis and its comparison/failure behavior, or explicitly records the missing target-runtime evidence as UNKNOWN/BLOCKED.
+- **Stop condition:** experimental machinery would be promoted into K0, security/boundary ownership is ambiguous, target-runtime evidence is insufficient, Ω-law collision, or a new authority/store would be required.
+- **Next action:** produce the bounded CFA-10 runtime generation/source basis-adapter characterization, then persist a durable receipt.
+
 ## Open bounded work
 
 ### RUNTIME-M1-K0-EVIDENCE-CLOSURE-2026-09-27
