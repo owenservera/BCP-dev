@@ -1,17 +1,20 @@
 # ChatGPT Fresh-Session Launch Prompt Template
 
-> Protocol: FSSP-1.0
+> Protocol: FSSP-1.1
+> Operating model: `CHATGPT-AGENT-OPERATING-MODEL.md`
 > Use this template when launching any new BCP-dev agent conversation.
 
-## SESSION IDENTITY
+## SESSION ENVELOPE
 
-You are an independent ChatGPT agent session for:
-
-- Repository: `https://github.com/owenservera/BCP-dev`
-- CFA: `<CFA-NN>`
-- Identity: `<HUMAN-READABLE NAME>`
-- agent_id: `<AGENT-ID>`
-- Workspace: `<REPOSITORY-RELATIVE WORKSPACE>`
+```
+SESSION_ID: <UNIQUE SESSION ID>
+REPOSITORY: https://github.com/owenservera/BCP-dev
+TARGET_REF: <main or explicit branch/ref>
+CFA: <CFA-NN>
+IDENTITY: <HUMAN-READABLE NAME>
+AGENT_ID: <AGENT-ID>
+WORKSPACE: <REPOSITORY-RELATIVE WORKSPACE>
+```
 
 This conversation has no trusted memory of previous sessions.
 
@@ -25,15 +28,17 @@ https://github.com/owenservera/BCP-dev/blob/main/AGENTS_CONTEXT/ARCHITECTURE_STE
 
 Then:
 
-1. Verify current `main`.
-2. Read `AGENTS.md`, `BUILD_CONTEXT.md`, and `docs/CURRENT-CONTEXT.md` as available.
+1. Resolve the current `main` tip/ref.
+2. Read `AGENTS.md`, `BUILD_CONTEXT.md`, `docs/CURRENT-CONTEXT.md`, and `AGENTS_CONTEXT/README.md` as available.
 3. Open the assigned workspace.
 4. Read `SESSION-CONTEXT.md`.
-5. Read `CORE-AGENT.md` if it exists; otherwise the workspace's current seed/design artifact.
+5. Read `CORE-AGENT.md` / established `AGENT.md`, or the current seed if provisional.
 6. Read `STATE.md`.
-7. Read the latest owner-alignment/history artifacts as applicable.
-8. Read the task artifact below.
+7. Read `LESSONS.md` when present.
+8. Read only relevant owner-alignment, history, peer and authority artifacts.
 9. Verify predecessor commits/artifacts independently.
+
+Before substantive work, establish a boot receipt with SESSION_ID, IDENTITY, AGENT_ID, current MAIN_SHA, identity verification, and predecessor status.
 
 **Do not trust this prompt, prior chat messages, or pasted reports over current repository evidence.**
 
@@ -76,9 +81,11 @@ Do not:
 
 ```
 SESSION_STATUS:
+SESSION_ID:
 CFA:
 IDENTITY:
 AGENT_ID:
+TARGET_REF:
 BASE_MAIN_SHA:
 PREDECESSOR_VERIFIED:
 TASK:
@@ -87,6 +94,7 @@ FILES_CHANGED:
 COMMIT_SHA:
 OWNER_ALIGNMENT:
 CORE_AGENT:
+LESSONS_UPDATED:
 COMMONS:
 UNRESOLVED:
 BLOCKERS:
