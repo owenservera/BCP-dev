@@ -1,6 +1,6 @@
 # CFA-10 — Session Context
 
-> Protocol: FSSP-1.0
+> Protocol: FSSP-1.1
 > Status: RATIFIED — OWNER-ALIGNED
 > Navigation aid only; not Ω authority.
 
@@ -11,6 +11,7 @@
 - workspace: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE/`
 - durable identity: `CORE-AGENT.md`
 - state: `STATE.md`
+- lessons: `LESSONS.md`
 
 ## Mission
 Minimum domain-neutral K0 mechanisms: admission/integrity, compartment/Port isolation, capability egress, revocation/fencing, atomic activation/fail-closed recovery, generic lifecycle and required crypto/canonical primitives.
@@ -26,3 +27,6 @@ Verify current Ω law and current peer contracts before substantive runtime conc
 
 ## Last verified baseline
 `3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+
+
+> The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
