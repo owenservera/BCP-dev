@@ -1,7 +1,7 @@
 # Stage E L2 — Source / Runtime Basis Adapter Packet
 ## 2026-09-27
 
-> Status: **L2 LAUNCHED — OWNER CHARACTERIZATION IN PROGRESS**
+> Status: **L2 CLOSED — 7/7 OWNER INPUTS RECONCILED**
 > Coordinator: Architecture Steward
 > Semantic lead: CFA-03
 > Scope: characterize domain basis/reference adapters; no runtime-join implementation.
@@ -38,16 +38,38 @@ An adapter may consume existing canonical references but must not create a new c
 | Adapter | Owner | Current basis evidence | Required L2 closure | Current status |
 |---|---|---|---|---|
 | World/Object revision | CFA-01 | canonical vault identity/revision exists; WorldReferenceResult carries basis-oriented fields; CFA-01 L2 characterized the strongest token as `(ns,id,rev)` with optional CID | owner-scoped canonical token, resolver, STALE/UNRESOLVABLE behavior, evidence and falsifier | **CLOSED — design CHARACTERIZED; runtime propagation UNKNOWN** |
-| Durable continuity / reconstruction | CFA-02 | vault revisions/CIDs, lineage and reconstruction responsibility are established; owner reports completion but durable receipt/task closure is absent on current main | verify/repair the durable completion transaction; do not repeat substantive characterization unless required artifact is actually absent | REPORTED-UNVERIFIED |
+| Durable continuity / reconstruction | CFA-02 | vault revisions/CIDs, lineage and reconstruction responsibility are established; durable characterization + receipt + task closure verified on current main | central reconciliation completed; no owner re-execution | **CLOSED** |
 | Authority / policy | CFA-04 | authority corridor uses live authority/evidence and policy/law references; owner result is characterized with an explicit partial/UNKNOWN runtime source-binding finding | preserve the partial/UNKNOWN finding for central reconciliation; no additional owner characterization unless a specific gap is assigned | CLOSED — PARTIAL |
 | Capability / Provider / Realization | CFA-06 | ProviderRealization and provider-specific evidence are current; owner L2 characterization receipt is present | none; await central reconciliation | CLOSED |
 | Composition / Manifest | CFA-07 | Recipe/Manifest admission evidence includes manifest/content identity and replacement lineage; owner L2 characterization is present | none; await central reconciliation | CLOSED |
 | Change / Compatibility | CFA-09 | Change is a cross-domain relation with subject/state/evidence/history references; owner L2 characterization is present with residual UNKNOWNs | none; await central reconciliation | CLOSED |
-| Runtime generation/source | CFA-10 | runtime lifecycle/generation/fencing evidence exists; owner reports completion but durable receipt/task closure is absent on current main; B1 remains underproven | verify/repair the durable completion transaction; do not repeat substantive characterization unless required artifact is actually absent | REPORTED-UNVERIFIED |
+| Runtime generation/source | CFA-10 | runtime lifecycle/generation/fencing evidence exists; durable characterization + receipt + task closure verified on current main; B1 remains underproven | central reconciliation completed; no owner re-execution | **CLOSED — runtime basis UNRESOLVABLE / B1 underproven** |
 
 **CFA-01 closure note:** the strongest World/Object freshness basis is the existing canonical vault revision `(ns,id,rev)`, with optional CID where available. Current WorldModel/EntityView shapes do not propagate the exact canonical revision/CID for every derived entity, so runtime token propagation remains UNKNOWN/deferred. This is a characterization result, not a runtime implementation claim.
 
 CFA-03 is the semantic consumer/lead for self-knowledge and grounding; it does not acquire ownership of these domain basis meanings merely because it consumes the adapters.
+
+## 4. Central L2 reconciliation — 2026-09-28
+
+The Architecture Steward verified all seven owner receipt/task surfaces on current `main` and reconciled them against the common L2 adapter contract. See `RESULTS/STEWARD-20260928-STAGE-E-L2-7-INPUT-RECONCILIATION.md`.
+
+**Decision:** L2 owner characterization is **CLOSED / RECONCILED (7/7)**.
+
+The reconciliation preserves these cross-adapter invariants:
+- local CFAs retain canonical domain meaning;
+- semantic, durable-record, representation, realization and authority identities remain distinct;
+- freshness is compared against current basis rather than stored status;
+- missing/ambiguous binding remains `UNRESOLVABLE` or `UNKNOWN`, never guessed `CURRENT`;
+- CFA-04 runtime immutable policy-source binding remains UNKNOWN;
+- CFA-01 runtime revision/CID propagation remains UNKNOWN/deferred;
+- CFA-07 logical Composition identity remains unresolved;
+- CFA-09 durable Change identity/revision remains unresolved;
+- CFA-10 runtime-generation binding remains unproven/UNRESOLVABLE;
+- no runtime join, second graph/store, K0 expansion, B1 mechanism selection or Ω-law change is authorized by this closure.
+
+### L3 enablement
+
+L2 closure enables the next bounded Stage-E work item: **L3 Steward graph-bundle contract/design**. This is readiness work only; Stage E remains NOT READY until later grounding/falsifier/pilot gates pass.
 
 ## 4. Adapter invariants
 
