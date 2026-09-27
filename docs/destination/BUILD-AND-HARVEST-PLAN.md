@@ -335,7 +335,10 @@ Primary artifact: `INTERACTION-INTENT-WORK-RECONCILIATION.md`.
 
 Outputs: universal addressing, durable work envelope, routing integration, authority integration, result/evidence presentation.
 
-### Cycle 4 — CURRENT
+### Cycle 4 — CURRENT WITHIN THIS DOCUMENT ONLY
+
+> This label is a sequence position in this program plan, not a global execution mandate. CFA-owned roadmap formation and current cross-CFA reconciliation must occur before adoption.
+
 Live Chrome / Accounts.
 
 Preceded by the completed D4 reconciliation and consumed by the agency/background work path.
