@@ -1,7 +1,7 @@
 # Architecture Steward — Current Mission
 
 > Updated: 2026-09-27
-> Status: ACTIVE / SHARED FRONTIER — M1 CONTRACT + EVIDENCE CLOSURE
+> Status: ACTIVE / M1 RECONCILED — CENTRAL KERNEL READY
 > Authority: derived Steward operating state; not Ω law or semantic authority.
 
 ## Current phase
@@ -19,15 +19,13 @@ This overlay answers a different but complementary question: what shared machine
 Design set:
 `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DEVELOPMENT-ACCELERATION/`
 
-The design is **not yet an implementation mandate**. Central implementation must wait only where the generic mechanism would require a CFA-owned semantic choice. Generic mechanics can be prepared centrally; domain semantics and falsifiers must come from the responsible CFAs.
+The design is now frozen for **generic implementation only**. Central implementation must stop where a mechanism would require a CFA-owned semantic choice; domain semantics, falsifiers and consequential behavior remain with the responsible CFAs.
 
 The overlay does not cancel or replace the existing M1 CFA-owned evidence tasks.
 
 ## Immediate next action
 
-Route `DEVELOPMENT-ACCELERATION/CFA-INPUT-REGISTER-2026-09-27.md` to all ten CFAs and reconcile the first-pass inputs into central extension points.
-
-In parallel, continue the already-queued M1 evidence tasks. Do not create another roadmap wave.
+Execute `DEVELOPMENT-ACCELERATION/CENTRAL-KERNEL-IMPLEMENTATION-PACKET-2026-09-27.md` using the frozen generic kernel design. In parallel, CFAs may continue only concrete local seam reconciliation where peer evidence is still required. Do not create another roadmap wave.
 
 ## Shared-frontier contract
 
@@ -57,7 +55,7 @@ No peer request is a dependency merely because it appears in a local roadmap.
 
 ## Next integration gate
 
-Once the M1 packets are sufficiently mature, select one narrow consequential corridor and verify:
+After generic-kernel mechanical acceptance, prepare one narrow consequential corridor and verify:
 
 semantic meaning → authority → Work/Attempt → capability/realization → runtime enforcement → evidence → surface projection.
 
@@ -76,4 +74,4 @@ Do not:
 
 ## Success condition
 
-The M1 frontier is complete when each relevant CFA has evidence for its minimum boundary, peer joins are reconciled, and the central Steward can name a single bounded governed corridor whose proof does not require semantic duplication or hidden authority.
+The M1 frontier is reconciled for downstream selection when each relevant CFA has a durable minimum-boundary packet, remaining peer gaps are explicitly named, and the central Steward can describe a bounded governed corridor without inventing semantics. Live/product proof remains a later gate.
