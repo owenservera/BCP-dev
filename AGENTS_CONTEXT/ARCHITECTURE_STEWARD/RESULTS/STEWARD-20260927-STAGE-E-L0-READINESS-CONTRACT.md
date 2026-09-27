@@ -21,3 +21,9 @@ BOUNDARIES_ACTIVATED: NONE
 OMEGA_LAW_CHANGED: NO
 IMPLEMENTATION_STARTED: NO
 NEXT_REQUIRED_STEP: Execute L1 DerivedView/freshness contract closure and characterize the minimum basis adapters in parallel, then proceed through the Stage-E gate only after falsifiers are executable.
+
+## Routing finalization
+- Contract persisted: 7b27c6359f743ac487bf79a37f6d37543a95c839
+- Current Wave Router advanced to L1: a70491c6f5a1f46c18affc440d03d43e83f5ce51
+- Persistent task queue recorded L0 DONE and L1 READY: 02ba4dae32623fc44e183ceb1c014473206903e5
+- The readiness gate remains NOT READY for runtime joins; L1 is the next bounded closure step.
