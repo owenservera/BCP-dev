@@ -22,6 +22,8 @@ CFA-03 owns Intent/Plan meaning; CFA-04 live authority; CFA-06 realization; CFA-
 ## Core falsifier
 Kill the worker between external execution and recording. Restart must not blindly duplicate an uncertain external effect.
 
+- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+
 ## Fresh-session rule
 Verify current main and relevant peer identities before substantive work.
 
