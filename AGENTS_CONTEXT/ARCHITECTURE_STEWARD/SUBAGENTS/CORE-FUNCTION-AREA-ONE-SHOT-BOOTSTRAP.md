@@ -1,7 +1,7 @@
 # CFA-05–10 — One-Shot Core Function Area Bootstrap
 
 > Status: DERIVED / PROPOSED from completed CFA-01–04 Round-2 cycle
-> Fresh-session execution protocol: FSSP-1.1 — `../CHATGPT-FRESH-SESSION-PROTOCOL.md`
+> Fresh-session execution protocol: FSSP-1.2 — `../CHATGPT-FRESH-SESSION-PROTOCOL.md`
 > Date: 2026-09-27
 > Scope: birth/bootstrap procedure only
 > Authority: process contract; not Ω law and not CFA authority
@@ -15,6 +15,12 @@ It does **not** mean one stage.
 `FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → COMMONS TEST → EXECUTION`
 
 Do not skip the Owner Dialogue / Alignment gate merely because the prompt is launched once.
+
+## Autonomy rule
+
+The bootstrap stages are a lifecycle, not a blind execution script. Before choosing how to execute any stage, assess semantic, authority, predecessor/read, write-surface, synchronization, verification, and risk dependencies.
+
+Classify work as **INDEPENDENT / ORDERED / CONDITIONALLY DEPENDENT / BLOCKED**. Prefer safe parallelism for genuinely independent work and serialize only verified dependencies. A documented stage order is not itself proof of dependency. A healthy artifact may require no correction; never manufacture changes merely to satisfy a listed step.
 
 ## Inputs
 
