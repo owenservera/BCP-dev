@@ -1,19 +1,23 @@
 # Persistent Tasks — runtime-constitution-core-substrate
 
-## 🚨 CURRENT EXECUTION ROUTER — WAVE 1 / CFA-10 COMPLETE
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-10 — **WAITING FOR CFA-09**
 
-> **CURRENT STATE — DO NOT RE-RUN WAVE 1. THIS HOME IS WAITING FOR ARCHITECTURE STEWARD WAVE 2.**
+> **CURRENT ROUTING AUTHORITY: THIS CFA IS NOT YET THE ACTIVE WAVE-3 TURN.**
 
-**Wave 1 status:** **DONE**. The required `BOUNDARY-BASELINE-DECLARATION-2026-09-27.md` is present on current `main`.
+Wave 1: DONE.  
+Wave 2 Steward reconciliation: DONE.  
+Wave 3: **WAITING — CFA-09 must complete first.**
 
-Declaration blob SHA: `1b3925af0fc80bb90d0b3c63f8901452af6094c9`
+When the human owner says **“Next”** to this home before CFA-09 completes, do **not** resume an older task and do **not** perform substantive work. Verify the Wave-2 queue and report:
 
-When the human owner says **“Next”**, do **not** choose an older task in this home. Verify the declaration remains on `main`, report **W1 COMPLETE / WAITING FOR STEWARD WAVE 2**, and stop.
+**WAVE 3 WAITING FOR CFA-09**
 
-Do not begin Wave 3 peer reconciliation until the Architecture Steward completes Wave 2 and explicitly routes this CFA.
+Then stop.
 
-Hard stop: **no production implementation, no shared-boundary activation, no Ω-law change, and no graph attachment.**
+After CFA-09 completes and the human router explicitly advances to CFA-10, a bare **“Next”** means execute only this CFA's Wave-3 row in:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md`.
 
+Hard stop: no production implementation, no shared-boundary activation, no Ω-law change, no Graph work.
 
 ## Open tasks
 
