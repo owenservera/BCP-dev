@@ -1,7 +1,7 @@
 # Architecture Steward — State
 
 > Updated: 2026-09-27
-> Status: ACTIVE / SHARED FRONTIER — M1 CONTRACT + EVIDENCE CLOSURE
+> Status: ACTIVE / M1 RECONCILED — CENTRAL KERNEL READY
 > This is durable Steward operating state; not Ω law or semantic authority.
 
 ## Receipt verification state
@@ -25,13 +25,13 @@ The CFA home-upgrade and independent Strategic Roadmap Round 1 stages are comple
 
 ## Current transition
 
-The independent planning round has been reconciled.
+The independent planning round and first bounded M1 evidence packet round are now reconciled.
 
 Current Steward operation:
 
-**Cross-CFA M1 Contract + Evidence Closure**
+**Central Generic Development Kernel + bounded seam continuation**
 
-The Steward now coordinates the already-created first bounded CFA tasks around the minimum semantic, data, authority, work, capability, composition, surface, evolution and runtime contracts needed for later integration.
+The Steward has enough cross-CFA evidence to freeze the generic Layer-1 mechanics without absorbing domain meaning. CFA-local unresolved seams remain explicit and continue only where their owners have identified a concrete next evidence need.
 
 This is not a new centralized backlog and does not transfer CFA ownership.
 
@@ -43,9 +43,9 @@ Central synthesis is a derived cross-CFA reconciliation layer. It may sequence s
 
 Inherited Build-and-Harvest, P1, destination, vertical-slice and Cycle 4 plans remain candidate inputs unless explicitly adopted by the responsible CFA.
 
-## Selected shared frontier
+## Reconciled shared frontier
 
-**CROSS-CFA M1 CONTRACT + EVIDENCE CLOSURE**
+**CROSS-CFA M1 CONTRACT + EVIDENCE CLOSURE — RECONCILED FOR DOWNSTREAM SELECTION**
 
 Initial scope:
 - establish minimum World reference/semantic invariants;
@@ -58,7 +58,7 @@ Initial scope:
 - characterize the minimum Change contract;
 - close K0/B1 evidence and falsifiers.
 
-No production implementation is implied by this frontier.
+Generic central implementation is now separately authorized by the Steward's derived design packet; this does not authorize domain-semantic implementation or live proof.
 
 ## CFA-05 maintenance state
 
@@ -76,6 +76,4 @@ Commons runtime/platform, identity/security and other prior operating tasks rema
 
 ## Resume condition
 
-After the M1 evidence frontier:
-
-**VERIFY → COMPARE → CONFIRM SEAMS → SELECT ONE GOVERNED CORRIDOR → LIVE/EXTERNAL PROOF → RECONSTRUCTION/REPLACEMENT → PRODUCT JOURNEY PROOF**
+**IMPLEMENT GENERIC KERNEL → ADAPTER REFINEMENT → SELECT ONE GOVERNED CORRIDOR → LIVE/EXTERNAL PROOF → RECONSTRUCTION/REPLACEMENT → PRODUCT JOURNEY PROOF**
