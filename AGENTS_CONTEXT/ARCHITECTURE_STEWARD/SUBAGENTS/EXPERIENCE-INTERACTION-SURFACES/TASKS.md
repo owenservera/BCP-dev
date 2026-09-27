@@ -46,7 +46,7 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 - **Design:** `SURFACE-VIEW-CONTRACT-2026-09-27.md`
 - **Receipt:** `RESULTS/CFA08-SURFACE-VIEW-CONTRACT-20260927-0721.md`
 - **Completion:** Bounded M1 contract persisted and verified. It separates Subject Reference, Projection, View, Layout and Interaction State; defines freshness and mutation/reconstruction invariants; preserves peer semantic ownership; and leaves final durable storage and other unresolved seams explicit.
-- **Completion commit:** pending this branch merge
+- **Completion commit:** bcec9ab449ce0012f14b9a98ec2ec943e08bfda4
 
 ## Queue discipline
 
