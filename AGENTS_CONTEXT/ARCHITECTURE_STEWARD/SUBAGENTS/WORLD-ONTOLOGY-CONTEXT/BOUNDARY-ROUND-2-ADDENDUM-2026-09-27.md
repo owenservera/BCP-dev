@@ -351,3 +351,80 @@ The peer declarations are mutually compatible enough to support narrow seam cont
 ## Completion note
 
 This addendum does not activate any shared boundary, redefine Ω law, create a universal identity model, or prescribe CFA-02/CFA-03/CFA-04 internal representations.
+
+
+---
+
+## M1 Peer Evidence Closure — 2026-09-27
+
+> Classification: DERIVED / CURRENT CFA-01 reconciliation result.
+> This section records peer evidence that landed after the original addendum was authored. It does not erase the original proposal history and does not activate a shared boundary.
+
+### RP-01 — World ↔ CFA-03 Semantic Continuity
+
+**AGREED / CURRENT.**
+
+CFA-03 explicitly accepts the minimum World-side WorldReferenceInput shape and the distinction among:
+- reference identity;
+- World meaning;
+- RESOLVED / AMBIGUOUS / STALE / UNRESOLVABLE / CONFLICTED;
+- correspondence state;
+- evidence/source basis;
+- freshness;
+- unresolved/conflict detail.
+
+CFA-03's acceptance is bounded: it consumes the seam contract without dictating CFA-01 internal representation.
+
+Evidence:
+- AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/BOUNDARY-ROUND-2-ADDENDUM-2026-09-27.md
+- AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/RESULTS/CFA03-20260927-M1-SEMANTIC-BASELINE-TRACE.md
+
+### RP-03 — World ↔ CFA-04 Authority
+
+**AGREED / CURRENT.**
+
+CFA-04 accepts that:
+- World may report existence, addressability and projection/view state;
+- authorized remains Authority-owned;
+- authorization outcomes must not rewrite World ontology;
+- accessible is a **composed seam property**, not an Authority synonym and not an unqualified World ontology primitive.
+
+The remaining work is jointly to define the representation of the composed accessible result; this does not block the core non-collapse invariant.
+
+Evidence:
+- AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE/BOUNDARY-ROUND-2-ADDENDUM-2026-09-27.md
+- AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE/AUTHORITY-CORRIDOR-EVIDENCE-PACK-2026-09-27.md
+
+### RP-04 — World ↔ CFA-02 Data
+
+**AGREED / CURRENT.**
+
+CFA-02 accepts the dimensional World/Data crosswalk and anti-collapse rules:
+- World owns semantic identity/correspondence and relationship meaning;
+- Data owns durable record identity, revision, lineage, persistence and reconstruction;
+- merge/split are semantic decisions whose durable genealogy is recorded by Data;
+- alias is address mapping, not a new semantic identity;
+- source identity stays distinct from canonical identity;
+- Event/State remains non-universal;
+- canonical-vs-derived classification remains semantic rather than schema-inferred.
+
+Evidence:
+- AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD/BOUNDARY-ROUND-2-ADDENDUM-2026-09-27.md
+- AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/DATA-MODEL-STEWARD/CONTINUITY-CORRIDOR-1-EVIDENCE-2026-09-27.md
+
+### Reconciliation outcome
+
+All three dependencies required to advance CFA-01 from local M1 evidence into M2 are now peer-evidenced:
+
+| Seam | Status | Remaining qualification |
+|---|---|---|
+| World ↔ CFA-03 | **AGREED** | seam contract only; no boundary activation |
+| World ↔ CFA-04 | **AGREED** | accessible composite representation remains open |
+| World ↔ CFA-02 | **AGREED** | merge/split temporal semantics remain future work |
+
+**Derived conclusion:** CFA-01 may advance to M2 reference/correspondence evidence work without waiting for another broad roadmap round. The unresolved qualifications remain explicitly bounded rather than being treated as blockers to the entire program.
+
+**Boundaries:** UNACTIVATED  
+**Ω law:** UNCHANGED  
+**Production implementation:** NOT STARTED  
+**Human-owner intervention:** NOT REQUIRED for this reconciliation.
