@@ -5,16 +5,17 @@
 > Navigation aid only; not semantic authority.
 > Last reconciled: 2026-09-27
 
-## Current strategic planning assignment
+## Current execution assignment
 
-This CFA is participating in **CFA Strategic Roadmap Round 1 — Independent Parallel Planning**.
+This CFA is currently enabled by the Architecture Steward master portfolio router for **WP-E / Stage-E readiness**, specifically L1 — Derived-view and freshness contract.
 
-Follow the shared protocol:
-`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
+Master routing authority:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
 
-The current assigned task is the strategic roadmap task in `TASKS.md`. Do not infer the substantive roadmap from an archived launch sequence, destination cycle, P1 workstream, or another CFA's new Round-1 result.
+The current bounded output is the CFA-03 working contract:
+`DERIVED-VIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27.md`
 
-This front-door assignment does not prescribe the roadmap's conclusions. The CFA must independently determine its own milestones, success criteria, dependencies, tooling, design gates, and milestone-specific peer-intelligence needs.
+The contract is proposed working evidence only. Do not infer shared runtime implementation authority from it. The next CFA-03 action is peer/Steward reconciliation of basis kinds, comparison rules and falsifiers.
 
 ## Identity
 - CFA: CFA-03 — Semantic Continuity
@@ -48,7 +49,8 @@ Shared boundaries remain unactivated unless a separately verified and authorized
 - Round-2 reconciliation is persisted in `BOUNDARY-ROUND-2-ADDENDUM-2026-09-27.md`.
 - RP-01 is classified AGREED on the CFA-03 side.
 - RP-02 and RP-06 are AGREED in current peer-side Round-2 reconciliation.
-- M1 semantic baseline is complete; deeper milestones remain queued.
+- M1 semantic baseline is complete.
+- Stage-E L1 freshness contract is proposed and persisted; peer/Steward reconciliation is pending.
 
 ## Verified baseline
 `8353bb2db22b6f2e45f628c4c79ed42d5d8a56fb`
@@ -63,6 +65,10 @@ The recorded baseline above is orientation only. Fresh sessions must independent
 - Durable lessons: `LESSONS.md`
 - Completion receipts: `RESULTS/`
 
+
+## Stage-E outputs
+- `DERIVED-VIEW-BASIS-FRESHNESS-CONTRACT-2026-09-27.md` — L1 working contract
+- `RESULTS/CFA03-20260927-STAGE-E-L1-DERIVEDVIEW-BASIS-FRESHNESS-CONTRACT.md` — session receipt
 
 ## M1 outputs
 - `DOMAIN-ROADMAP-2026-09-27.md` — strategic roadmap
