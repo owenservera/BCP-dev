@@ -7,19 +7,21 @@
 
 ## Open tasks
 
-### HOME-UPGRADE-2026-09-27
-- **Status:** IN_PROGRESS
-- **Priority:** P1
-- **Dependencies:** None currently known.
-- **Write scope:** Own agent home only.
-- **Next action:** Read current main, then reconcile this task against `SESSION-CONTEXT.md`, identity, `STATE.md`, `TASKS.md`, `LESSONS.md`, and applicable alignment/history.
-- **Completion condition:** Validate the home as cold-startable; persist only justified corrections; update task status; report exact result/commit; do not start unrelated work.
-- **Stop condition:** Stop after this task and report.
+_None currently._
 
 ## Future task intake
 
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
 
 ## Completed task history
+
+### HOME-UPGRADE-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Primary correction commit:** `2fd549ab79f5a7f6f2f799c71e7ddff9df37819f`
+- **Result receipt:** `RESULTS/CFA01-HOME-UPGRADE-20260927T0337Z.md`
+- **Receipt commit:** `f1b0a252f28d29bd06f538fdc5e256d5a34152f6`
+- **Result:** Ratified front-door metadata reconciled with current identity; session navigation updated to FSSP-1.3; stale bootstrap status removed; completion receipt persisted.
+- **Next actionable state:** Existing Round-2 seam-reconciliation work remains open; no new follow-up task was created by this home-maintenance pass.
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
