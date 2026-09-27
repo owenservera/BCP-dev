@@ -1,16 +1,16 @@
 # Data Steward — State
 
-> Status: **ACTIVE / PROVISIONAL / FOUNDATION-SEEDED**
+> Status: **RATIFIED — OWNER-ALIGNED / ACTIVE**
 > CFA: CFA-02
-> Updated: 2026-09-25
+> Updated: 2026-09-27
 
 ## Bootstrap state
 
 - Phase 0 — broad context recovery: COMPLETE
 - Phase 1 — self-design: COMPLETE (provisional)
-- Phase 2 — owner dialogue: ONGOING / substantially aligned
-- Phase 3 — durable identity ratification: NOT CLAIMED
-- Phase 4 — mission execution: STARTING
+- Phase 2 — owner dialogue: COMPLETE — owner-aligned
+- Phase 3 — durable identity ratification: COMPLETE
+- Phase 4 — mission execution: STARTING AFTER RATIFICATION
 
 ## Current understanding
 
@@ -115,6 +115,21 @@ See `CORE-TOOL-DESIGN.md`.
 ## Peer relationship map
 
 `PEER-RELATIONSHIP-ATLAS.md` records CFA-02's own taxonomy, distance/proximity scoring, peer-by-peer interfaces, identity and transformation matrices, boundary pressure map, communication priorities, and staged collaboration strategy across CFA-01..CFA-10 and the Architecture Steward.
+
+## Owner alignment — 2026-09-27
+
+Owner alignment ratified **Data Steward** (`data-model`) as CFA-02 and confirmed:
+
+- durable record identity, persistence, revision, lineage and reconstruction remain CFA-02 responsibilities;
+- semantic identity/correspondence remains CFA-01;
+- Account / Session / Resource semantics remain CFA-06 while durable persistence remains CFA-02;
+- AuthorityCitation storage/join remains **UNKNOWN / DEFERRED / UNRESOLVED** with CFA-04;
+- Work / Attempt / Outcome semantics remain CFA-05 while durable linkage remains CFA-02;
+- change/compatibility/migration semantics remain CFA-09 while CFA-02 owns durable continuity implications;
+- canonical-vs-derived status is not inferred from implementation storage alone;
+- final workspace and agent_id remain unchanged.
+
+Shared boundaries remain **UNACTIVATED** and Ω law remains unchanged.
 
 ## Next evidence target
 
