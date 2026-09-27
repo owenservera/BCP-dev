@@ -2,64 +2,61 @@
 
 > Status: ACTIVE / RATIFIED / FOUNDATION-SEEDED
 > CFA: CFA-03
-> Updated: 2026-09-25
+> Updated: 2026-09-27
 
-## Bootstrap state
-
+## Identity / lifecycle
 - Phase 1 — context recovery: COMPLETE
 - Phase 2 — self-design: COMPLETE
 - Phase 3 — owner dialogue: COMPLETE
 - Phase 4 — core identity: COMPLETE
-- Phase 5 — mission execution: NOT STARTED
+- Phase 5 — mission execution: ROUND-2 SEAM RECONCILIATION COMPLETE; deeper mission not yet launched
+- Owner alignment was explicit on 2026-09-25.
+- Canonical identity: Semantic Continuity Steward
+- Historical workspace path retained: `SELF-KNOWLEDGE-COMMAND-COMPILER`
 
-Owner alignment was explicit on 2026-09-25.
+## Current repository verification
+- Mainline verified during home-upgrade session: `8353bb2db22b6f2e45f628c4c79ed42d5d8a56fb`
+- FSSP current version: 1.3
+- Session Result Contract current version: 1.1
+- This baseline is informational; future sessions must resolve current `main` independently.
 
-## Identity transition
-
-The provisional role name Self-Knowledge & Command Intelligence Steward / SELF-KNOWLEDGE-COMMAND-COMPILER has been superseded as the canonical identity by Semantic Continuity Steward.
-
-The original folder path is retained for lineage and to avoid premature workspace renaming.
-
-## Context recovered
-
-The bootstrap inspected the Architecture Steward mandate/model/state, Core Function Area register, destination conceptual model and master map, responsibility baseline, current Ω self-knowledge and NCLL implementation, current Intent/D-411 seam, visual representation types, historical symbolic design, self-knowledge/freshness research, and adjacent ownership material.
-
-Peer workspace pattern was also inspected through the Steward subagent directory and Core Function Area register before foundation design.
+## Ratified responsibility
+CFA-03 stewards continuity across self-knowledge, grounding, command semantics, interpretation, canonical Intent/Plan meaning, execution meaning, evidence/provenance and representation without becoming the authority of any participating plane.
 
 ## OBSERVED
-
-- vivim.mind is a read-only runtime self-knowledge plugin deriving a bounded WorldModel from governed evidence.
+- `vivim.mind` is a read-only runtime self-knowledge plugin deriving a bounded WorldModel from governed evidence.
 - NCLL has a deterministic pure interpretation pipeline over WorldModel.
 - The 17 command families are grammar primitives while their natural-language expansions are data.
 - Intent persists interpretation information and D-411 establishes the canonical intent/law citation seam.
-- VisualSpec already exists as a deterministic interpretation projection.
-- The Architecture Steward graph on current main has advanced beyond the older session-handoff count, demonstrating that remembered graph counts must not be treated as current truth.
+- VisualSpec exists as a deterministic interpretation projection.
+- CFA-01 Round-2 provides a `WorldReferenceResult`-shaped grounding result separating reference, resolution, correspondence, meaning, evidence/basis and freshness.
+- CFA-03 Round-2 addendum persists RP-01 as AGREED on the CFA-03 side and RP-02 / RP-06 as UNKNOWN pending peer acceptance.
+- No shared CFA boundary has been activated by the Round-2 artifacts.
 
 ## DERIVED
-
-- Compiler is too overloaded to be the permanent identity of the entire seam.
-- The lasting responsibility is semantic continuity across independently owned transformations.
-- CANON belongs here as a bounded terminology/crosswalk responsibility, not as a second ontology.
-- Visual compilation should remain representation/editing over canonical semantics.
-- Freshness should be derived from evidence basis comparison, not trusted from a cached label.
+- Semantic Continuity is the cross-plane continuity responsibility, not a second semantic authority or universal identity store.
+- Explicit relations between semantic, record, Intent, revision, evidence and representation identities are safer than a shared universal identifier.
+- Grounding result, interpretation, Intent, authorization and execution evidence must remain distinct.
+- The stale local FSSP-1.1 references in the pre-upgrade front door were a real cold-start hazard and required correction.
+- The historical bootstrap launch prompt should remain for lineage but must not be mistaken for the current ratified fresh-session contract.
 
 ## UNKNOWN
+- Exact authority citation and live re-resolution form accepted by CFA-04.
+- Exact durable semantic↔record mapping accepted by CFA-02.
+- Complete multi-step Plan/Work semantic package.
+- Full current grounding implementation boundary.
+- Exact future visual write-back semantics.
+- Whether every Event/State occurrence warrants durable first-class identity.
+- Which terminology choices require product-owner decisions rather than architecture stewardship.
 
-- exact current production shape of multi-step command compilation into Plan and Work;
-- complete current grounding boundary and whether all proposed grounding seams exist;
-- exact ownership of future visual write-back;
-- complete cross-plane identity mapping for every artifact class;
-- which terminology choices require product-level owner decisions rather than architecture-level decisions.
-
-## Immediate mission
-
-1. Trace the live command pipeline from input through D-411 Intent and onward execution/Work.
-2. Trace the live self-knowledge pipeline and evidence/freshness basis.
-3. Reconcile historical symbolic/compiler ideas against current Ω behavior.
-4. Establish the CANON collision map and terminology decisions.
-5. Map semantic/provenance identity across input, Intent, Work, Evidence and representation.
-6. Identify only the smallest evidence-backed implementation seams.
+## Immediate mission frontier
+1. Preserve and reconcile the Round-2 semantic seams as peer evidence changes.
+2. Trace the live command pipeline through canonical Intent and onward Work when the deeper mission is launched.
+3. Trace the live self-knowledge pipeline and evidence/freshness basis.
+4. Reconcile historical symbolic/compiler ideas against current Ω behavior.
+5. Establish the CANON collision map and terminology decisions.
+6. Map semantic/provenance identity across input, Intent, Work, Evidence and representation.
+7. Identify only the smallest evidence-backed implementation seams.
 
 ## Guardrails
-
-Do not redesign Ω law, build a universal graph database, create another architecture graph, rewrite NCLL without evidence, make V1 depend on V2, equate confidence with proof, allow self-knowledge to authorize, or perform broad terminology renaming merely for cleanliness.
+Do not redesign Ω law, build a universal graph database, create another architecture graph, rewrite NCLL without evidence, make V1 depend on V2, equate confidence with proof, allow self-knowledge to authorize, activate shared boundaries, or perform broad terminology renaming merely for cleanliness.
