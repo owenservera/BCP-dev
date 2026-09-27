@@ -96,6 +96,7 @@ Every launch prompt must state:
 - **Output location** — exact repository path(s) where durable outputs belong;
 - **Lineage** — record sources, commits/paths, and important exclusions;
 - **Completion test** — what makes the exploration complete enough to hand back;
+- **Durable result receipt** — exact `<AGENT-HOME>/RESULTS/<SESSION_ID>.md` path and required result contract;
 - **Non-goals** — especially production implementation unless separately authorized.
 
 The prompt should be executable by pointing a fresh agent at the prompt file; it should not depend on the Steward's hidden conversation state.
@@ -109,3 +110,5 @@ When a new subagent type is needed, create its own folder:
 and keep its launch prompt(s), output contract, and any small durable guidance there. Do not create a new type merely for one-off wording changes.
 
 The owner is the launch mechanism: the Steward prepares the prompt and tells the owner where it lives.
+
+Every substantive delegated session must persist its completion receipt in the agent home before stopping. A chat-only report is not sufficient. The governing receipt contract is `SESSION-RESULT-CONTRACT.md`.
