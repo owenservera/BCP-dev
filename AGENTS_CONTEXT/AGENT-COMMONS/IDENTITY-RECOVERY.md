@@ -40,3 +40,26 @@ The runtime now performs the corresponding remote-identity check during creation
 Do not delete the published identity merely to make initialization succeed. Do not reuse an existing `agent_id` with an unrelated private key. Do not treat a changed `key_id` as a harmless session reset.
 
 Identity continuity is recoverability, not merely key generation.
+
+
+## Operational drill readiness — 2026-09-27
+
+### Recovery control already exercised
+
+The runtime has a mechanical recovery guard and smoke test for the published-identity/no-local-key case:
+
+AGENTS_CONTEXT/AGENT-COMMONS/runtime/test/smoke.test.ts
+
+The test verifies that a published remote identity cannot silently fork into a new keypair under the same agent_id.
+
+### Full rotation + recovery drill
+
+The full live-fire drill is BLOCKED because the current runtime has no implemented key-rotation operation. Do not simulate rotation by manually changing identity files or claim that such a drill has passed.
+
+Until a real rotation operation exists:
+- CFA-04 authority-governance is the operational custodian for the drill procedure and roster/key-ceremony review;
+- recovery remains mechanically covered by the existing guard/test;
+- rotation remains an explicit blocked work item;
+- the eventual drill must verify old-key rejection/retirement, new-key attribution, stable agent_id continuity, and authored-stream continuity.
+
+This preserves the distinction between a tested recovery guard and an unimplemented rotation mechanism.
