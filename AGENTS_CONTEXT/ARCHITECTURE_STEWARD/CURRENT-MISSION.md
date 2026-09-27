@@ -6,13 +6,15 @@
 
 ## Current phase
 
-**CFA home-upgrade handoff**
+**Operating-maturity / Commons v0 handoff**
 
 The common ChatGPT agent operating model has now been established and the fresh Steward cold-start test has passed. No further Steward test is required.
 
 ## Immediate next action
 
-**Owner launches the ten CFA home-upgrade sessions. These are architecturally INDEPENDENT and should be launched in parallel unless a fresh session discovers a real dependency.**
+**Owner assigns/launches the Commons v0 runtime/platform workstream. The ten CFA home-upgrade sessions remain a parallel durable-home wave already represented in TASKS.md and the launch queue.**
+
+The current v0 workstream is the next executable frontier because the shared design corpus is intentionally frozen until the existing operational completion test is green.
 
 Launch queue: `CFA-HOME-UPGRADE-LAUNCH-QUEUE-2026-09-27.md`.
 
