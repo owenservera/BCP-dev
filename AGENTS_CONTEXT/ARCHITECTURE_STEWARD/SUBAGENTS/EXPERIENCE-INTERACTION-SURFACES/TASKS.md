@@ -7,24 +7,17 @@
 
 ## Open tasks
 
-## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-08 — **WAITING FOR CFA-07**
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 / CFA-08 — WAITING FOR CFA-07
 
-> **CURRENT ROUTING AUTHORITY: THIS CFA IS NOT YET THE ACTIVE WAVE-3 TURN.**
+> **CHECK CENTRAL ROUTER FIRST:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
 
-Wave 1: DONE.  
-Wave 2 Steward reconciliation: DONE.  
-Wave 3: **WAITING — CFA-07 must complete first.**
+Current turn: CFA-06 is ACTIVE NOW.
 
-When the human owner says **“Next”** to this home before CFA-07 completes, do **not** resume an older task and do **not** perform substantive work. Verify the Wave-2 queue and report:
+When the human owner says “Next” before CFA-07 completes:
+**WAVE 3 WAITING FOR CFA-07** — STOP.
 
-**WAVE 3 WAITING FOR CFA-07**
+After CFA-07 completes, re-read the central router before executing CFA-08.
 
-Then stop.
-
-After CFA-07 completes and the human router explicitly advances to CFA-08, a bare **“Next”** means execute only this CFA's Wave-3 row in:
-`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md`.
-
-Hard stop: no production implementation, no shared-boundary activation, no Ω-law change, no Graph work.
 
 ## Future task intake
 
