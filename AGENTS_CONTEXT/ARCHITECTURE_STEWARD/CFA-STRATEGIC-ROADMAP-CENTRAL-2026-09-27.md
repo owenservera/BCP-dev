@@ -18,11 +18,11 @@ This document is the Steward's derived comparison, reconciliation and sequencing
 | CFA | Local roadmap | Round-1 status | Local receipt | First bounded work |
 |---|---|---|---|---|
 | CFA-01 | `SUBAGENTS/WORLD-ONTOLOGY-CONTEXT/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `RESULTS/CFA01-20260927-STRATEGIC-ROADMAP-R1.md` | World semantic-kernel evidence / invariant matrix |
-| CFA-02 | `SUBAGENTS/DATA-MODEL-STEWARD/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `TASKS.md) + durable roadmap/receipt | Data continuity corridor evidence |
+| CFA-02 | `SUBAGENTS/DATA-MODEL-STEWARD/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `TASKS.md` + durable roadmap/receipt | Data continuity corridor evidence |
 | CFA-03 | `SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `RESULTS/CFA03-20260927-STRATEGIC-ROADMAP-R1.md` | Semantic baseline trace |
 | CFA-04 | `SUBAGENTS/AUTHORITY-GOVERNANCE/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `RESULTS/CFA04-20260927-STRATEGIC-ROADMAP-R1.md` | Authority corridor evidence pack |
 | CFA-05 | `SUBAGENTS/AGENCY-WORK-EXECUTION/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `RESULTS/CFA05-20260927-STRATEGIC-ROADMAP-R1.md` | Canonical Work envelope evidence |
-| CFA-06 | `SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `TASKS.md) + durable roadmap | Capability-to-realization contract |
+| CFA-06 | `SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `TASKS.md` + durable roadmap | Capability-to-realization contract |
 | CFA-07 | `SUBAGENTS/COMPOSITION-PLUGIN-FORGE/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `RESULTS/CFA07-20260927-STRATEGIC-ROADMAP-R1.md` | Composition identity / replacement survivor proof |
 | CFA-08 | `SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `RESULTS/CFA08-STRATEGIC-ROADMAP-20260927-0721.md` | Surface/View contract |
 | CFA-09 | `SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE/DOMAIN-ROADMAP-2026-09-27.md` | DONE | `TASKS.md) + durable roadmap | Minimum change contract characterization |
