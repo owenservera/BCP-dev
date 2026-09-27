@@ -1,181 +1,59 @@
 # Architecture Steward — State
 
 > Updated: 2026-09-27
-> Status: ACTIVE / FRESH-SESSION OPERATING-MODEL VALIDATION
+> Status: ACTIVE / CFA HOME-UPGRADE HANDOFF
 > This is durable Steward operating state; not Ω law or semantic authority.
-
-## Current operating state
-
-The shared ChatGPT agent operating model and FSSP-1.1 are established.
-
-A fresh Steward session has now been empirically tested from the Steward home. The session successfully recovered the new operating model and repository state, but did not infer the immediate next owner action: launch fresh sessions for CFA-01 through CFA-10 so each agent can validate and upgrade its own home.
-
-That missing transition is now made explicit in `CURRENT-MISSION.md`.
-
-## Immediate next action
-
-**Owner launches one fresh ChatGPT session for each CFA-01 through CFA-10, using each CFA home as the seed.**
-
-Those sessions validate and upgrade their own durable homes against FSSP-1.1. The Steward does not perform those agent-specific upgrades centrally.
-
-## Steward resume condition
-
-After the CFA sessions return verified repository results, the Architecture Steward reconciles the constellation-wide state and evaluates the cold-start model again.
 
 ## Current state
 
-The role is established as the repository-wide architectural/documentation custodian.
+The ChatGPT Agent Operating Model 1.0 and FSSP-1.1 are established.
 
-The repository already contains substantial ingredients:
-- destination model;
-- System Intelligence atom/edge/evidence research;
-- Core-vs-Plugin research;
-- destination responsibility matrix;
-- dependency/keystone scorecard;
-- requirement/evidence traceability;
-- vertical-slice registry;
-- Evolution/Reconciliation model;
-- Product Vision and Personal Agent context.
+The fresh Architecture Steward cold-start test has passed. The session recovered identity, current repository state, operating model and the required next action after the Steward home was given as the seed. No further Steward test is required.
 
-The missing capability was a durable role that owns how these materials are continuously integrated into one coherent, editable architectural map.
+The common agent-home substrate is now established across the Steward and all ten CFA homes:
 
-## Current mainline intelligence corpus
+- `SESSION-CONTEXT.md`
+- durable identity (`CORE-AGENT.md` or established `AGENT.md`)
+- `STATE.md`
+- `LESSONS.md`
+- applicable owner-alignment/history artifacts.
 
-System Intelligence source branches:
-- research/system-intelligence-archaeology @ a7971a0557c464786b0db922cff34ae799e91767
-- research/system-intelligence-pass2 @ bc07a9434728dad768ef6bc946bea1264e10b48b
-- research/system-intelligence-pass3 @ 0121570c005112eb8875e9b8a6f484cc732d4e62
-- pack/system-intelligence-pass3 @ 8c7398f4704a4cabfcf746c4a00da909d36d79a2
+All ten CFA identities are verified as ratified in their current durable identity artifacts.
 
-The complete System Intelligence package is present in main under:
-docs/destination/system-intelligence/
+## Immediate next operation
 
-The source branches remain useful for lineage and historical commit detail.
+The owner now launches fresh ChatGPT sessions for CFA-01 through CFA-10 so each agent can validate and upgrade its own home.
 
-## Stewardship baseline
+Use:
 
-Existing canonical/derived views:
-- docs/destination/architecture/README.md
-- docs/destination/DESTINATION-MASTER-MAP.md
-- docs/destination/RECONCILIATION-MAP.md
-- docs/destination/DEPENDENCY-GRAPHS-AND-KEYSTONE-SCORECARD.md
-- docs/destination/system-intelligence/synthesis/DEPENDENCY-MAP.md
-- docs/destination/core-vs-plugin-boundary/DESTINATION-RESPONSIBILITY-MATRIX.md
-- docs/destination/REQUIREMENT-EVIDENCE-TRACEABILITY.md
-- docs/destination/VERTICAL-SLICE-REGISTRY.md
-- docs/destination/EVOLUTION-RECONCILIATION.md
+`CFA-HOME-UPGRADE-LAUNCH-QUEUE-2026-09-27.md`
 
-## First build-out already established
+The CFA home-upgrade protocol is:
 
-The Steward operating context defines:
-- documentation depth;
-- architecture node/edge vocabulary;
-- intake and repull protocol;
-- dependency graph method;
-- drift/repair classes;
-- canonical-view update rules;
-- evidence/lineage rules.
+`CFA-HOME-UPGRADE-PROTOCOL-2026-09-27.md`
 
-No production implementation is required for those controls.
+Run serially unless the owner deliberately chooses safe parallelism with non-conflicting write surfaces.
 
-## First instantiation observation
+## Steward resume condition
 
-The first live Steward session established the repository observation point at:
+After CFA-10, the Architecture Steward resumes and reconciles the complete constellation:
 
-main @ 90d7b9d0f8211da88d8f4f14ed9dfcf79b07fe1a
+- identity and ratification state;
+- session-home quality;
+- owner boundaries;
+- cross-CFA overlaps and gaps;
+- register/roster consistency;
+- architecture/documentation freshness;
+- remaining cold-start failures.
 
-At that point:
-- main was the default branch;
-- there were no open pull requests;
-- the repository had 40 pre-existing branches across coord, research, product-vision, build, design, pack and main;
-- the Steward bootstrap branch is intentionally retained as the first controlled change surface.
+Only then should the next broader architectural work be selected.
 
-Durable records:
-- HOUSEKEEPING-PLAN.md
-- INITIAL-BASELINE-2026-09-25.md
+## Historical Steward context
 
-## First housekeeping sequence
+The prior 2026-09-25 graph-validation and broad architecture-preparation state remains historical context. It is not the current mission.
 
-1. H0 — freeze the observation point.
-2. H1 — register the scope and ownership of existing architecture views.
-3. H2 — seed the existing 125-row responsibility universe.
-4. H3 — map System Intelligence atoms/edges/evidence into that universe.
-5. H4 — reconcile duplicate, stale, contradictory and unplaced knowledge.
-6. H5 — build dependency edges in layers and distinguish direct/transitive/current/target.
-7. H6 — run the first repository-wide drift sweep.
-8. H7 — repair canonical views while preserving source artifacts.
-9. H8 — automate only those stewardship operations whose semantics have become stable.
+See `CURRENT-MISSION.md` for the active phase and next owner action.
 
-## Immediate unresolved architecture-management questions
+## Operating rule
 
-- exact machine-readable registry location and schema;
-- automated extraction versus curated mapping boundary;
-- how much of the dependency graph can be generated versus adjudicated;
-- cadence/trigger for drift sweeps;
-- whether destination maturity and documentation depth need separate visual registries;
-- how workstream-local taxonomies are translated without flattening their semantics;
-- branch-local promotion/archive rules;
-- stable architecture versioning.
-
-## Repository contextualization pass
-
-A repository-scale structural/contextual pass was completed on 2026-09-25 before adding further Steward machinery.
-
-Key findings:
-- docs/ contains about 600 tracked files, with 345 in docs/destination, 125 in docs/agent-system, 20 in docs/archive, 4 in docs/cleanup and 13 in docs/migration;
-- the System Intelligence corpus is 164 files, including Pass 1 findings, large Pass-2 characterization material, Pass 3, indexes and synthesis;
-- the Legacy mine is 3,133 tracked files and is evidence/prototyping history, not destination authority;
-- omega-baseline is 930 tracked files and is the fresh Ω destination/runtime tree;
-- AGENTS_CONTEXT is the specialized cold-start context layer, with this Steward now maintaining a dedicated workspace;
-- ZAI_BUILD_CONTEXT and agent-tools are separate build/utility layers and are not automatically part of Steward control;
-- docs/agent-system is an inherited management apparatus whose useful facts and proven mechanics should be retained, but whose process should not be expanded automatically or allowed to become a second architecture authority;
-- multiple destination research packages repeatedly characterize the same subjects at different depths, so research must be reconciled as lineage rather than flattened into one summary.
-
-A durable working interpretation of these findings is recorded in:
-- OPERATING-INTERPRETATION.md
-
-The operating interpretation establishes the Steward's three working modes (policeman, tutor, hard-hat), triggered stewardship tasks, artifact-creation threshold, research-stratigraphy model and anti-bloat rules.
-
-## Current Steward rule
-
-Do not start by rewriting architecture prose.
-
-Start by making existing knowledge addressable, attributable, connected and repairable.
-
-Add new Steward machinery only when a real recurring need demonstrates that an existing view or lightweight record is no longer sufficient.
-
-
-## Delegated exploration capability
-
-The Steward now has an explicit independent-subagent protocol.
-
-Design rule:
-- independent exploration is used to test repository completeness/contextualization rather than to manufacture certainty;
-- every delegated investigation has a typed prompt folder;
-- prompts specify exploration method, evidence discipline, exact outputs and exact output locations;
-- the owner launches the subagent from that prompt;
-- returned findings remain evidence/research until reconciled.
-
-First likely use: repository-wide completeness/contextualization discovery before treating the existing architecture corpus as the full system picture.
-## 2026-09-25 session continuity
-
-Current session handoff artifacts:
-
-- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-2026-09-25.json` — structured durable extraction;
-- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-HANDOFF-2026-09-25.md` — full narrative context;
-- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/FRESH-SESSION-PROMPT.md` — next-session cold-start.
-
-Current major architectural instrument:
-
-- `research/steward-destination-architecture-graph`;
-- `docs/destination/architecture/graph/NODES.json`;
-- `docs/destination/architecture/graph/EDGES.json`;
-- `docs/destination/architecture/graph/SCHEMA.json`;
-- `docs/destination/architecture/graph/GRAPH-MANIFEST.json`.
-
-The graph is documentation-first and currently reports 354 nodes, 943 typed edges, 99 evidence nodes, 125 responsibilities, 8 journeys, 9 vertical slices, 13 requirements, 44 System Intelligence atoms, 7 reference pieces, 1 composition, and 0 invalid edge endpoints.
-
-Preparation/readiness is GO. The immediate Steward focus is graph validation/targeted repair and using the graph as the architecture-to-build map; broad archaeology is closed unless concrete implementation evidence exposes a material blind spot.
-
-Session continuity rule:
-`A fresh Steward reads the session handoff + graph state first and must not reconstruct this conversation from scratch.`
+Do not add more Steward machinery merely because a fresh session asks what happens next. Put a real current transition in `CURRENT-MISSION.md` when the workflow reaches a handoff boundary.
