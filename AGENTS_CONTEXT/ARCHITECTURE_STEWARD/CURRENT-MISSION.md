@@ -6,9 +6,9 @@
 
 ## Current phase
 
-**CFA-05–10 Boundary Gate — WAVE 4 STEWARD COMPLETION AUDIT**
+**Graph Attachment Gate — WAVE 1**
 
-The ten independent CFA strategic roadmaps are complete and reconciled. Before implementation-node graph attachment, the missing CFA-05–10 boundary-evidence layer must be completed so graph relationships do not infer ownership from incomplete seam evidence.
+The CFA-05–10 boundary gate is complete. Wave 4 explicitly opened the Graph Gate. The next frontier is controlled graph attachment: derive implementation evidence from code while preserving the documentation-first Architecture Graph and never promoting code topology to architecture authority.
 
 ## Development acceleration overlay
 
@@ -25,11 +25,11 @@ The overlay does not cancel or replace the existing M1 CFA-owned evidence tasks.
 
 ## Immediate next action
 
-**Wave 1, Wave 2 and Wave 3 are complete.** All six Wave-3 peer-reconciliation receipts are present on current `main`.
+**Wave 1, Wave 2, Wave 3 and Wave 4 are complete.** The six CFA receipts and the Steward completion audit are durable on current `main`; Graph Gate is OPEN.
 
-**Wave 4:** send exactly one `Next` to Architecture Steward. The Steward must perform the final completion audit, preserve all remaining UNKNOWN / CONFLICTED / DEFERRED states, record owner interventions and later-activation eligibility, and explicitly open or withhold the Graph Gate.
+**Next:** send exactly one `Next` to Architecture Steward for Graph Attachment Wave 1, Stage A. It must revalidate the existing Architecture Graph before any implementation projection or Source-Code Graph pilot.
 
-Do not begin Graph Kernel / Source-Code Graph attachment until the Wave-4 receipt explicitly opens the Graph Gate.
+Do not create a second graph, infer architecture from imports/calls alone, or attach live-proof claims without evidence.
 
 ## Shared-frontier contract
 
@@ -78,4 +78,4 @@ Do not:
 
 ## Success condition
 
-The current frontier is the CFA-05–10 boundary gate. Success requires durable baseline declarations, bounded peer reconciliation, explicit unknowns/conflicts/deferred items, and a Steward decision that the Graph Gate is open. Graph attachment and later governed-corridor work remain downstream.
+The current frontier is Graph Attachment Wave 1. Success requires a current validation receipt for the existing Architecture Graph, an explicit implementation-projection contract, and one bounded Source-Code Graph pilot whose edges remain source-backed and derived. Later proof and runtime self-knowledge joins remain staged.
