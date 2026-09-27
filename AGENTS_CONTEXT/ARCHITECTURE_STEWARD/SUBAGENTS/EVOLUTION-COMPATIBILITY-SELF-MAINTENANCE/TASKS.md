@@ -26,6 +26,16 @@ Do not infer generic evolution authority from historical tooling. Do not start s
 
 _None currently actionable inside CFA-09 while the Architecture Steward completes shared M1 contract/evidence closure._
 
+## Completed task history
+
+### BOUNDARY-BASELINE-WAVE-1-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result:** `BOUNDARY-BASELINE-DECLARATION-2026-09-27.md`
+- **Commit:** `b25c38090c8f2e8d8bbfdb97da0b3d7045d310e8`
+- **Scope:** CFA-09 boundary baseline only; primary seams classified and OWNS/CONTRIBUTES/CONSULTS/OUT-OF-SCOPE preserved.
+- **Outcome:** No shared boundary activation, Ω-law change, or production implementation.
+
 ## Future task intake
 
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
