@@ -21,12 +21,14 @@ Start with:
 5. `SEED-HOME.md`
 6. `SEED-HOME-MANIFEST.json`
 7. `WORLD-OPERATIONAL-CONTEXT.json`
-5. `BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md`
-6. `PEER-RELATIONSHIP-DISTANCE-MAP.json`
-7. `BOUNDARY-ROUTER.json`
-8. `RESEARCH-QUEUE.md`
-9. `COMMUNICATION-HOW-TO.md`
-13. task-specific research artifacts
+8. `BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md`
+9. `BOUNDARY-ROUND-2-TASK-2026-09-27.md`
+10. `BOUNDARY-ROUND-2-ADDENDUM-2026-09-27.md`
+11. `PEER-RELATIONSHIP-DISTANCE-MAP.json`
+12. `BOUNDARY-ROUTER.json`
+13. `RESEARCH-QUEUE.md`
+14. `COMMUNICATION-HOW-TO.md`
+15. task-specific research artifacts
 
 ## Seed-home control plane
 
@@ -39,7 +41,9 @@ Start with:
 
 ## Boundary and routing plane
 
-- `BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md` — current provisional boundary declaration.
+- `BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md` — preserved Round-1 boundary declaration / lineage.
+- `BOUNDARY-ROUND-2-TASK-2026-09-27.md` — current coordinator-assigned seam-reconciliation task.
+- `BOUNDARY-ROUND-2-ADDENDUM-2026-09-27.md` — current CFA-01 reconciliation proposal; not a shared ACTIVE boundary.
 - `PEER-RELATIONSHIP-DISTANCE-MAP.json` — CFA-01's relational model across Architecture Steward + CFA-02..CFA-10.
 - `BOUNDARY-ROUTER.json` — when to involve CFA-01 and what World-side information crosses each seam.
 - `WORLD-BOOTSTRAP-GAP-AUDIT.json` — gap/falsifier/ownership audit.
