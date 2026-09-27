@@ -1,3 +1,24 @@
+## CURRENT PORTFOLIO ROUTING — 2026-09-28
+
+> **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
+> **CFA:** CFA-06
+> **Portfolio package:** STAGE-E
+> **Current portfolio state:** L2 capability/provider/realization basis adapter characterization pending
+
+## Open L2 task
+
+### STAGE-E-L2-CFA06-CAPABILITY-REALIZATION-BASIS-ADAPTER-2026-09-28
+- **Status:** READY — OWNER-BOUNDED CHARACTERIZATION
+- **Priority:** P0
+- **Objective:** Characterize the CFA-06-owned capability/provider/realization observation basis consumed by Stage-E derived-view freshness, without redefining capability semantics or creating a parallel identity store.
+- **Milestone:** Stage-E L2 — Source and runtime basis adapters.
+- **Required characterization:** canonical provider/capability/realization source references; stable revision/observation token available today; bounded resolver; comparison rule; STALE condition; UNRESOLVABLE condition; domain-defined CONFLICTED behavior when applicable; evidence refs; falsifier; explicit UNKNOWN/DEFERRED items.
+- **Primary evidence:** current ProviderRealization/provider-browser evidence, provider-specific observation/session evidence, and existing CFA-06 M1/M2 join research.
+- **Write scope:** CFA-06 home documentation only; no runtime adapter implementation, shared-boundary activation, or capability-semantic rewrite.
+- **Completion condition:** the adapter names the owning source and stable comparison basis, resolver, stale/unresolvable behavior, evidence and falsifier, or explicitly records the missing evidence as UNKNOWN/BLOCKED.
+- **Stop condition:** capability meaning would be redefined centrally, owner-policy ambiguity, Ω-law collision, second identity store, or insufficient evidence.
+- **Next action:** produce the bounded CFA-06 capability/provider/realization basis-adapter characterization, then persist a durable receipt.
+
 # Persistent Tasks — capability-provider-realization
 
 ## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 — **RECEIPT-DRIVEN**
