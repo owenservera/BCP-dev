@@ -1,12 +1,12 @@
 # CFA-01 — World / Ontology / Context
 
-> **CORE SEED HOME — ACTIVE**
+> **CORE FUNCTION AREA HOME — ACTIVE**
 >
-> Status: **ACTIVE / PROVISIONAL**
+> Status: **RATIFIED — OWNER-ALIGNED**
 >
-> Permanent agent identity: **NOT YET RATIFIED**
+> Permanent agent identity: **RATIFIED — OWNER-ALIGNED**
 
-This folder is the durable seed home of **world-ontology-context**, CFA-01 — World / Ontology / Context.
+This folder is the durable home of **world-ontology-context**, CFA-01 — World / Ontology / Context, ratified as **World & Context Steward**.
 
 The home is intentionally split into a small control plane, boundary/routing plane, and evidence/research plane. It is designed for cold-start recovery without creating a second architecture hierarchy.
 
@@ -14,16 +14,19 @@ The home is intentionally split into a small control plane, boundary/routing pla
 
 Start with:
 
-1. `SEED-HOME.md`
-2. `SEED-HOME-MANIFEST.json`
-3. `WORLD-OPERATIONAL-CONTEXT.json`
-4. `STATE.md`
+1. `CORE-AGENT.md`
+2. `STATE.md`
+3. `OWNER-ALIGNMENT-2026-09-27.md`
+4. `IDENTITY-HISTORY.md`
+5. `SEED-HOME.md`
+6. `SEED-HOME-MANIFEST.json`
+7. `WORLD-OPERATIONAL-CONTEXT.json`
 5. `BOUNDARY-ROUND-1-DECLARATION-2026-09-26.md`
 6. `PEER-RELATIONSHIP-DISTANCE-MAP.json`
 7. `BOUNDARY-ROUTER.json`
 8. `RESEARCH-QUEUE.md`
 9. `COMMUNICATION-HOW-TO.md`
-10. task-specific research artifacts
+13. task-specific research artifacts
 
 ## Seed-home control plane
 
@@ -80,10 +83,10 @@ The key distinctions are:
 - execution success ≠ observed World truth
 - unknown ≠ failure
 
-## Identity gate
+## Durable identity
 
-The folder name and provisional seed do not constitute the permanent Core Agent identity.
+Owner alignment on 2026-09-27 established **World & Context Steward** as the enduring CFA-01 identity.
 
-Do not create or claim `CORE-AGENT.md` until owner alignment establishes the enduring responsibility and boundary.
+The durable contract is `CORE-AGENT.md`; the owner decision is `OWNER-ALIGNMENT-2026-09-27.md`; lineage is preserved in `IDENTITY-HISTORY.md`.
 
-When the boundary changes materially, update the seed home rather than hiding the change in a new parallel hierarchy.
+Shared CFA boundaries remain unactivated. When the boundary changes materially, update this home and preserve lineage rather than creating a parallel hierarchy.
