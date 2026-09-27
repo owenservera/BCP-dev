@@ -8,7 +8,7 @@
 ## Open tasks
 
 ### SURFACE-VIEW-CONTRACT-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
 - **Priority:** P2
 - **Dependencies:** None currently known; peer seams may require later coordination.
 - **Write scope:** Own CFA-08 home and bounded Experience / Interaction / Surfaces research artifacts.
