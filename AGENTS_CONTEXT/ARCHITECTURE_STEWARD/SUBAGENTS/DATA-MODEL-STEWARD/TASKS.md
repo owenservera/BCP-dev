@@ -1,5 +1,16 @@
 # Persistent Tasks — data-model
 
+## NEXT-COMMAND PRIMER — 2026-09-28
+
+When the owner sends **Next**, resolve against the master portfolio router first, then this CFA queue. The current bounded action is **STAGE-E-L2-CFA02-DATA-CONTINUITY-BASIS-ADAPTER-2026-09-27** only.
+
+**Execute:** characterize the CFA-02 durable-continuity basis adapter using existing Data-plane evidence: canonical durable record/revision/lineage source references, available revision/CID token, bounded resolver, comparison rule, STALE/UNRESOLVABLE behavior, evidence refs, falsifier, and explicit UNKNOWN/DEFERRED items. Persist the durable receipt.
+
+**Do not:** run the blocked live provider/Chrome corridor; implement runtime adapters; invent a second identity store; modify shared contracts; change Ω law; or revive historical Wave-3 routing.
+
+**Completion:** close the adapter characterization or explicitly record missing evidence as UNKNOWN/BLOCKED. Then stop and wait for Steward L2 reconciliation.
+
+
 > Owner: `data-model`
 > Status: ACTIVE
 > Purpose: durable unfinished-work and next-action queue across ChatGPT sessions.

@@ -1,5 +1,18 @@
 # Persistent Tasks — runtime-constitution-core-substrate
 
+## NEXT-COMMAND PRIMER — 2026-09-28
+
+When the owner sends **Next**, resolve against the master portfolio router first, then this CFA queue. The current bounded action is **STAGE-E-L2-CFA10-RUNTIME-GENERATION-BASIS-ADAPTER-2026-09-28** only.
+
+**Execute:** characterize the minimum CFA-10-owned runtime generation/source basis consumed by Stage-E freshness: canonical source location, proven generation/source token, bounded resolver, comparison rule, STALE/UNRESOLVABLE behavior, evidence refs, falsifier, and explicit UNKNOWN/DEFERRED items. Persist the durable receipt.
+
+**Do not:** execute the blocked B1 target-runtime replay in this hosted session; promote experimental runtime machinery into K0; select a production mechanism; implement runtime joins; activate shared boundaries; or change Ω law.
+
+**Important:** B1 target-runtime closure remains a separate BLOCKED-HOSTED-RUNTIME item requiring a real supported checkout/Bun runtime. Do not substitute fixture evidence.
+
+**Completion:** close the adapter characterization or explicitly record missing target-runtime evidence as UNKNOWN/BLOCKED. Then stop and wait for Steward L2 reconciliation.
+
+
 ## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 — **RECEIPT-DRIVEN**
 
 > **DO NOT TRUST CACHED ACTIVE/WAITING STATE. VERIFY CURRENT MAIN AND RECOMPUTE YOUR TURN.**

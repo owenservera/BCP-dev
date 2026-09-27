@@ -1,5 +1,18 @@
 # Persistent Tasks — authority-governance
 
+## NEXT-COMMAND PRIMER — 2026-09-28
+
+When the owner sends **Next**, resolve against the master portfolio router first, then this CFA queue. **CFA-04 Stage-E L2 authority/policy characterization is already complete on the owner side and intentionally PARTIAL.**
+
+**Execute:** do not perform another L2 characterization pass. Treat the existing result and receipt as the owner handoff and report/wait for **Steward L2 consistency/reconciliation**.
+
+**Current partial finding:** declared policy/law identifiers are available, but runtime immutable source binding remains UNKNOWN because the relevant manifest/source digest is not presently exposed.
+
+**Do not:** locally select the governed corridor; invent a policy digest; interpret self-knowledge freshness as authorization; reopen completed L2 work; change Ω law; or activate shared boundaries.
+
+**Next valid transition:** Steward reconciliation decides whether the PARTIAL/UNKNOWN basis is acceptable for L2 closure or identifies one specific remaining evidence gap.
+
+
 > Owner: `authority-governance`
 > Status: ACTIVE
 > Purpose: durable unfinished-work and next-action queue across ChatGPT sessions.
