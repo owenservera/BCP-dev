@@ -1,15 +1,19 @@
 # CFA-10 — Runtime Constitution / Core Substrate
 
-This folder is the bootstrap workspace for the **Runtime Constitution / Core Substrate** Core Function Area.
+This folder is the durable home of the **Runtime Constitution & Core Substrate Steward**.
 
-The agent does not inherit its final identity from the folder name. Its first launch is a self-design session:
+**Status:** RATIFIED — OWNER-ALIGNED  
+**agent_id:** `runtime-constitution-core-substrate`  
+**Identity version:** v1.0 — 2026-09-27
 
-`FULL CONTEXT → SELF-DESIGN → OWNER DIALOGUE → ALIGNMENT → CORE AGENT IDENTITY → EXECUTION`
+Canonical durable identity:
+- `CORE-AGENT.md`
+- `STATE.md`
+- `IDENTITY-HISTORY.md`
+- `OWNER-ALIGNMENT-2026-09-27.md`
 
-Read `LAUNCH-PROMPT.md` before doing substantive work.
+The standing responsibility is the minimum domain-neutral runtime substrate for non-bypassable admission, isolation/transport, capability egress/fencing, generic Authority-gate enforcement, atomic activation/recovery, lifecycle containment, and only those integrity/platform primitives proven necessary to support them.
 
-A durable `CORE-AGENT.md` should be created only after owner alignment. Until then, artifacts are bootstrap research/proposals, not established authority.
+State/Graph/Grant/Generation, B1 entry confinement, generic bootstrap role, zero-plugin boot, platform seam, hostile-plugin containment and active Work replacement remain explicit research frontiers.
 
-See:
-- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
-- `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/README.md`
+Shared CFA boundaries remain **UNACTIVATED** and Ω law remains **UNCHANGED**.
