@@ -1,4 +1,25 @@
+## CURRENT PORTFOLIO ROUTING — 2026-09-27
+
+> **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
+> **CFA:** CFA-01
+> **Portfolio package:** STAGE-E
+> **Current portfolio state:** M1/M2 evidence complete; Stage-E L2 adapter characterization active
+
+Local TASKS remains CFA-owned execution detail. Historical local routers/prompts are lineage only and cannot override the master portfolio router.
+
 ## Open tasks
+
+### STAGE-E-L2-CFA01-WORLD-BASIS-ADAPTER-2026-09-27
+- **Status:** READY — OWNER-BOUNDED CHARACTERIZATION
+- **Priority:** P0
+- **Objective:** Characterize the CFA-01-owned World/Object basis input for Stage-E derived-view freshness without creating a new identity store or shared semantic contract.
+- **Milestone:** Stage-E L2 — Source and runtime basis adapters.
+- **Required characterization:** canonical World/Object source token; revision/observation identity available today; bounded resolver; comparison rule; STALE condition; UNRESOLVABLE condition; evidence refs; falsifier; explicit UNKNOWN/DEFERRED items.
+- **Primary evidence:** current canonical World/Object identity/revision evidence and the existing WorldReferenceResult-shaped basis/freshness fields.
+- **Write scope:** CFA-01 home documentation only; no runtime adapter implementation or shared-boundary activation.
+- **Completion condition:** the adapter names its owner, canonical source, comparison token, resolver, stale/unresolvable behavior, evidence and falsifier, or explicitly records the missing evidence as UNKNOWN/BLOCKED.
+- **Stop condition:** owner-policy ambiguity, peer-owned semantics, Ω-law collision, or insufficient evidence.
+- **Next action:** produce the bounded CFA-01 World/Object basis-adapter characterization, then persist a durable receipt.
 
 ### WORLD-M3-CONTEXT-WORLD-PROJECTION-EVIDENCE-2026-09-27
 - **Status:** READY
@@ -15,7 +36,7 @@
 
 ## First bounded actionable task
 
-WORLD-M3-CONTEXT-WORLD-PROJECTION-EVIDENCE-2026-09-27 is the only READY task.
+STAGE-E-L2-CFA01-WORLD-BASIS-ADAPTER-2026-09-27 is the current P0 action.
 
 ## Completed task history
 
