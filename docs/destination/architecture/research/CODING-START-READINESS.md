@@ -388,4 +388,7 @@ This fresh pass does not claim VIVIM is complete or productized.
 
 It establishes only that further broad architecture preparation currently has lower information value than implementing the smallest compositional factory experiment and observing where reality falsifies it.
 
+
+> **HISTORICAL RESULT — DO NOT TREAT THE FINAL GO/HOLD LINE AS CURRENT AUTHORIZATION.** Current coding selection requires CFA-owned roadmaps plus current Steward reconciliation.
+
 CODING STATUS: GO
