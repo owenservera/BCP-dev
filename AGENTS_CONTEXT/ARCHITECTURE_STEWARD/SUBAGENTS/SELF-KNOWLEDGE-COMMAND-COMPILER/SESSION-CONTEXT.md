@@ -1,6 +1,6 @@
 # CFA-03 — Session Context
 
-> Protocol: FSSP-1.0
+> Protocol: FSSP-1.1
 > Status: RATIFIED — FOUNDATION-SEEDED
 > Navigation aid only; not semantic authority.
 
@@ -11,6 +11,7 @@
 - workspace: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/`
 - durable identity: `AGENT.md` (existing ratified identity artifact)
 - state: `STATE.md`
+- lessons: `LESSONS.md`
 
 ## Read first
 1. global fresh-session protocol
@@ -30,3 +31,6 @@ If a session finds a ratified identity, verify and reconcile it. Do not invent a
 
 ## Last verified baseline
 `3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+
+
+> The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
