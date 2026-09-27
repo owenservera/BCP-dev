@@ -1,3 +1,7 @@
+> **STATUS: HISTORICAL BOOTSTRAP LINEAGE — DO NOT EXECUTE FOR A RATIFIED FRESH SESSION.**
+>
+> This document records the original CFA birth/self-design bootstrap. The identity is now ratified. Fresh sessions must use the current FSSP-1.3 protocol, the agent home `SESSION-CONTEXT.md`, and the persistent `TASKS.md` queue. Preserve this file for lineage; do not repeat bootstrap or owner ratification unless a genuine new owner decision is required.
+>
 # VIVIM — Architecture Steward Subagent Bootstrap
 ## Self-Knowledge × Command Semantics × Interpreter/Compiler × Grounding × Representation
 
