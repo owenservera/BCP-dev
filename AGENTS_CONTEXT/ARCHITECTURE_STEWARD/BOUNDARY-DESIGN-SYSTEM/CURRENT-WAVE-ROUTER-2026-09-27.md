@@ -14,7 +14,7 @@ Wave 1: **DONE — 6/6 boundary baselines.**
 Wave 2: **DONE — Steward reconciliation + peer queue.**
 Wave 3: **DONE — 6/6 CFA receipts.**
 Wave 4: **DONE — Steward audit; Graph Gate OPEN.**
-Graph Attachment Wave 1: **READY.**
+Graph Attachment Wave 1: **ACTIVE — Stage A/B complete; Stage C current.**
 
 ## Canonical launch packet
 
@@ -25,8 +25,8 @@ AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/GRAPH-ATTACHMENT-WAVE
 **A → B → C → D → E**
 
 A. Architecture Graph revalidation — **DONE**.
-B. Linked implementation-projection contract — **CURRENT**.
-C. Bounded Source-Code Graph pilot.
+B. Linked implementation-projection contract — **DONE**.
+C. Bounded Source-Code Graph pilot — **CURRENT**.
 D. Proof/evidence attachment.
 E. Runtime self-knowledge joins.
 
@@ -37,9 +37,9 @@ The current graph stage is always the first stage whose required receipt is abse
 - Stage A:
   GRAPH-W1-A-REVALIDATION-RECEIPT-2026-09-27.md — **DONE**
 - Stage B:
-  GRAPH-W1-B-IMPLEMENTATION-PROJECTION-CONTRACT-2026-09-27.md
+  GRAPH-W1-B-IMPLEMENTATION-PROJECTION-CONTRACT-2026-09-27.md — **DONE**
 - Stage C:
-  GRAPH-W1-C-SOURCE-CODE-PILOT-RECEIPT-2026-09-27.md
+  GRAPH-W1-C-SOURCE-CODE-PILOT-RECEIPT-2026-09-27.md — **CURRENT**
 
 Stage D/E remain gated by their evidence/design readiness; do not assume completion from topology.
 
@@ -82,4 +82,4 @@ Do not repeat completed stages because local task state is stale.
 
 ## Human action
 
-**Next → Architecture Steward — Graph Stage B**
+**Next → Architecture Steward — Graph Stage C**
