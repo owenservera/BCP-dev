@@ -1,6 +1,6 @@
 # Architecture Steward — ChatGPT Session Context
 
-> Protocol: FSSP-1.1
+> Protocol: FSSP-1.3
 > Status: RATIFIED / ACTIVE
 > This file is a navigation aid, not architectural authority.
 
@@ -12,7 +12,7 @@
 - current state: `STATE.md` if present, otherwise current Steward artifacts
 - current mission: `CURRENT-MISSION.md` — the explicit current Steward phase and next owner action
 - lessons: `FRESH-SESSION-DESIGN-LESSONS-2026-09-27.md` and `LESSONS.md` when a compact durable lesson store is warranted
-- process protocol: `CHATGPT-FRESH-SESSION-PROTOCOL.md`
+- process protocol: `CHATGPT-FRESH-SESSION-PROTOCOL.md` (FSSP-1.3)
 - prompt template: `CHATGPT-FRESH-SESSION-PROMPT-TEMPLATE.md`
 
 - persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
