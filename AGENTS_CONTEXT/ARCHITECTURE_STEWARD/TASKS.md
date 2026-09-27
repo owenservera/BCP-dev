@@ -7,57 +7,65 @@
 
 ## Open tasks
 
-### LAUNCH-CFA-STRATEGIC-ROADMAP-ROUND-1-2026-09-27
+### CROSS-CFA-M1-CONTRACT-EVIDENCE-CLOSURE-2026-09-27
 - **Status:** READY
 - **Priority:** P1
-- **Purpose:** Launch all ten independent CFA strategic-roadmap sessions as the current planning stage.
-- **Dependencies:** None for launch.
-- **Write scope:** Steward control plane only; CFA sessions own their respective roadmap artifacts and task queues.
-- **Next action:** Use `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md` and launch CFA-01 through CFA-10 in parallel.
-- **Completion condition:** All ten sessions have been launched and produce durable roadmap/receipt outcomes, or a session honestly reports BLOCKED/UNKNOWN.
-- **Stop condition:** do not preselect downstream product work; stop the launch wave only for a real owner/security/repository constraint.
+- **Purpose:** Coordinate and verify the first bounded CFA-owned M1 contract/evidence tasks identified by the ten independent roadmaps.
+- **Dependencies:** Local CFA M1 tasks and their peer-information requests; no new centralized semantic ownership.
+- **Write scope:** Steward control plane and central synthesis only; local CFA homes remain owned by their CFAs.
+- **Next action:** Verify each local M1 task/receipt, compare the requested peer intelligence, confirm which requests are real dependencies, and maintain the central evidence/dependency view.
+- **Completion condition:** Minimum M1 contracts/evidence are sufficiently characterized to select one bounded governed end-to-end corridor without inventing missing semantics.
+- **Stop condition:** owner decision, Ω-law collision, material ownership dispute, or insufficient evidence.
 
-
-### CENTRAL-CFA-STRATEGIC-ROADMAP-SYNTHESIS-2026-09-27
+### SELECT-GOVERNED-CORRIDOR-AFTER-M1-2026-09-27
 - **Status:** WAITING
 - **Priority:** P1
-- **Purpose:** After the independent ten-CFA round, verify and synthesize the local roadmaps into one central cross-CFA strategic roadmap without erasing local divergence.
-- **Dependencies:** Ten independent local roadmap results and durable receipts.
-- **Write scope:** Steward control plane and `CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`.
-- **Next action:** Verify each local roadmap, compare milestones, consolidate peer-intelligence requests, confirm dependencies, reconcile contradictions, and map the result to destination/P1.
-- **Completion condition:** Central synthesis populated with source links, cross-CFA dependency/intelligence/tooling matrices, decision gates, divergence notes and a justified first shared execution frontier.
-- **Stop condition:** material unresolved owner decision, ownership conflict, or evidence insufficiency.
+- **Purpose:** After M1 closure, choose one narrow consequential corridor for integration/live proof.
+- **Dependencies:** M1 evidence closure; central dependency reconciliation.
+- **Write scope:** Steward control plane and bounded execution packet.
+- **Next action:** Do not start until the M1 completion condition is met.
+- **Completion condition:** One corridor is justified by evidence and has named semantic, authority, Work, realization, runtime and evidence owners.
+- **Stop condition:** corridor requires unresolved owner policy or unsupported live proof.
 
+### LAUNCH-CFA-STRATEGIC-ROADMAP-ROUND-1-2026-09-27
+- **Status:** DONE
+- **Priority:** P1
+- **Result:** all ten independent CFA strategic roadmap sessions returned durable roadmaps/task updates; see central synthesis and local receipts.
+- **Completion:** reconciled 2026-09-27.
+
+### CENTRAL-CFA-STRATEGIC-ROADMAP-SYNTHESIS-2026-09-27
+- **Status:** DONE
+- **Priority:** P1
+- **Result:** `CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md` populated with ten-roadmap milestone comparison, cross-CFA dependency/intelligence matrices, shared tooling, decision gates, contradictions, inherited-plan reconciliation, central sequencing and the first shared frontier.
+- **Completion:** 2026-09-27.
 
 ### CFA-DOMAIN-ROADMAP-WAVE-2026-09-27
 - **Status:** SUPERSEDED
 - **Priority:** P1
-- **Reason:** Expanded into the full independent Strategic Roadmap Round 1. The active task is the ten-CFA strategic planning round; no second roadmap-generation wave should be run.
-- **Successor:** The strategic work is represented by the ten CFA `STRATEGIC-ROADMAP-ROUND-1-2026-09-27` tasks and the central synthesis task above.
-
+- **Reason:** Expanded into the independent Strategic Roadmap Round 1; no second roadmap-generation wave should be run.
 
 ### CFA-HOME-UPGRADE-WAVE-RECONCILIATION-2026-09-27
-- **Status:** COMPLETE WITH EXCEPTION
+- **Status:** DONE
 - **Priority:** P1
-- **Result:** Nine CFA homes have durable DONE tasks/receipts. CFA-05 remains READY without a durable RESULTS receipt. Preserve the discrepancy; do not relaunch the whole wave.
+- **Result:** historical CFA-05 exception resolved; durable home-upgrade receipt exists and was verified.
 
 ### CYCLE-4-LIVE-CHROME-ACCOUNTS-2026-09-27
-- **Status:** SUPERSEDED
+- **Status:** SUPERSEDED / CANDIDATE
 - **Priority:** P1
-- **Reason:** The Steward selected this downstream product slice before the CFA-owned domain-roadmap stage had been completed. The packet remains valid candidate evidence; it is not a current mandate.
-- **Next:** Re-evaluate only after CFA roadmap reconciliation.
+- **Reason:** valid candidate downstream slice, but not selected before M1 cross-CFA contract/evidence closure.
+- **Next:** reconsider only after a governed corridor is justified.
 
 ### COMMONS-V0-RUNTIME-2026-09-27
 - **Status:** READY / BACKGROUND
 - **Priority:** P1
 - **Operational owner:** runtime-constitution-core-substrate
 - **Source:** `AGENTS_CONTEXT/AGENT-COMMONS/RUNTIME-PLATFORM-WORKSTREAM-2026-09-27.md`
-- **Reason for background status:** durable work remains valid, but current Steward attention is on missing CFA domain planning.
+- **Reason:** durable work remains valid but is not the shared Steward frontier.
 
 ### COMMONS-IDENTITY-DRILL-2026-09-27
 - **Status:** BLOCKED / BACKGROUND
 - **Priority:** P1
-- **Reason:** remains blocked until a real key-rotation operation exists; does not govern CFA roadmap formation.
+- **Reason:** remains blocked until a real key-rotation operation exists.
 
 ### OWNER-DIGEST-2026-09-27
 - **Status:** ACTIVE
@@ -67,32 +75,20 @@
 - **Scope:** receipt verification, pending work, unresolved contradictions, handoff/attention items when computable.
 - **Authority:** projection only.
 
-## Future task intake
-
-Add durable Steward work only with status, priority, verified dependencies, write scope, next action, and completion condition.
-
 ## Completed task history
 
 ### CFA-PLANNING-CONTEXT-INVERSION-FIX-2026-09-27
 - **Status:** DONE
-- **Priority:** P1
 - **Result:** `RESULTS/STEWARD-20260927-CFA-PLANNING-CONTEXT-FIX.md`
-- **Outcome:** Identified and repaired the missing CFA-owned roadmap stage that had allowed a downstream Cycle 4 prescription to become the current Steward mission.
-- **Scope:** Steward control plane and all ten CFA persistent task queues; no Ω law or production implementation.
 
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
-- **Completed:** 2026-09-27
-- **Receipt:** RESULTS/STEWARD-20260927-OPS-MATURITY.md
+- **Receipt:** `RESULTS/STEWARD-20260927-OPS-MATURITY.md`
 
 ### SESSION-LAUNCH-UPGRADE-2026-09-27
 - **Status:** DONE
-- **Completed:** 2026-09-27
-- **Receipt:** RESULTS/STEWARD-20260927-SESSION-LAUNCH-UPGRADE.md
+- **Receipt:** `RESULTS/STEWARD-20260927-SESSION-LAUNCH-UPGRADE.md`
 
 ### AGENT-SYSTEM-OPS-MATURITY-2026-09-27
 - **Status:** DONE
-- **Completed:** 2026-09-27
-- **Receipt:** RESULTS/STEWARD-20260927-OPS-MATURITY.md
-
-Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
+- **Receipt:** `RESULTS/STEWARD-20260927-OPS-MATURITY.md`
