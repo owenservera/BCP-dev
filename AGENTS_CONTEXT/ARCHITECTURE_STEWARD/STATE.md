@@ -39,7 +39,7 @@ All ten CFA identities are verified as ratified in their current durable identit
 
 ## Immediate next operation
 
-The CFA home-upgrade wave is treated as reconciled operating history. One local exception remains: CFA-05 lacks a durable RESULTS receipt and still has HOME-UPGRADE READY; this is not promoted to a false completion.
+The CFA home-upgrade wave is treated as reconciled operating history. Nine CFA homes have durable DONE tasks and receipts. One local exception remains: CFA-05 lacks a durable RESULTS receipt and still has HOME-UPGRADE READY; this is not promoted to a false completion.
 
 The active strategic next operation is Cycle 4 — Live Chrome / Accounts, specifically RA-5 live account proof using the existing V1 Chrome substrate.
 
@@ -51,17 +51,9 @@ The work remains constrained by the existing destination reconciliation and does
 
 ## Steward resume condition
 
-After CFA-10, the Architecture Steward resumes and reconciles the complete constellation:
+After Cycle 4 live-account evidence is captured, the Architecture Steward resumes to classify the proof, reconcile impacted destination/P1 views, and select the next bounded destination slice.
 
-- identity and ratification state;
-- session-home quality;
-- owner boundaries;
-- cross-CFA overlaps and gaps;
-- register/roster consistency;
-- architecture/documentation freshness;
-- remaining cold-start failures.
-
-Only then should the next broader architectural work be selected.
+The CFA home-upgrade wave has already been reconciled as operating history; it is not a prerequisite to repeat.
 
 ## Historical Steward context
 
