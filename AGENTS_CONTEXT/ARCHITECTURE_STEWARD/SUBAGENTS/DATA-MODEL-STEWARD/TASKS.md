@@ -5,6 +5,17 @@
 > Purpose: durable unfinished-work and next-action queue across ChatGPT sessions.
 > Authority: task/work memory only; not Ω law, semantic authority, or proof of dependency.
 
+## CURRENT PORTFOLIO ROUTING — 2026-09-27
+
+> **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
+> **Master structural anchor:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
+> **CFA:** CFA-02
+> **Portfolio package:** EMPIRICAL-BLOCKER
+> **Current portfolio state:** M1 continuity complete; M2 provider/conversation corridor blocked
+>
+> Local TASKS remains CFA-owned execution detail. Historical local routers/prompts are lineage only and cannot override the master portfolio router. Do not resurrect completed Wave-1/Wave-2/Wave-3 or bootstrap stages from stale local routing text.
+> Resolve any new `Next` against the master router first, then this local queue.
+
 ## Open tasks
 
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
