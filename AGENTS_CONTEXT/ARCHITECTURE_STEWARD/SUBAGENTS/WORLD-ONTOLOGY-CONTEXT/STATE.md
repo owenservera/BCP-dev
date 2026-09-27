@@ -255,5 +255,5 @@ Current operating rule:
 
 - A fresh session should recover from SEED-HOME.md first.
 - Peer-distance and boundary-router artifacts guide interaction but do not grant authority.
-- CORE-AGENT.md remains deferred until owner alignment ratifies the enduring identity.
+- CORE-AGENT.md is now the ratified durable identity contract established by owner alignment on 2026-09-27.
 
