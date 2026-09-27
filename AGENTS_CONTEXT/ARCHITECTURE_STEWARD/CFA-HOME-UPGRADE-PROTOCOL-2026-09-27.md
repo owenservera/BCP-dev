@@ -1,10 +1,10 @@
 # CFA Home Upgrade Protocol
 
-> Version: 1.2
+> Version: 1.3
 > Date: 2026-09-27
 > Status: ACTIVE
 > Scope: fresh ChatGPT sessions for CFA-01 through CFA-10 after ratified identity establishment.
-> Governing protocol: FSSP-1.2
+> Governing protocol: FSSP-1.3
 > Purpose: validate and improve each agent's durable home without repeating CFA birth/ratification.
 
 ## Mission
@@ -122,34 +122,11 @@ The session is complete only when:
 6. an exact session result receipt exists at `RESULTS/<SESSION_ID>.md`;
 7. the receipt and durable changes are contained in a verifiable commit/ref;
 8. `TASKS.md` marks the home-upgrade task `DONE` (or a truthful blocked/partial state);
-9. the session returns the FSSP-1.2 completion report.
+9. the session returns the FSSP-1.3 completion report.
 
 ## Report
 
-```
-SESSION_STATUS:
-SESSION_ID:
-CFA:
-IDENTITY:
-AGENT_ID:
-TARGET_REF:
-BASE_MAIN_SHA:
-PREDECESSOR_VERIFIED:
-TASK:
-RESULT:
-FILES_CHANGED:
-COMMIT_SHA:
-OWNER_ALIGNMENT:
-CORE_AGENT:
-LESSONS_UPDATED:
-COMMONS:
-UNRESOLVED:
-BLOCKERS:
-BOUNDARIES_ACTIVATED:
-OMEGA_LAW_CHANGED:
-IMPLEMENTATION_STARTED:
-NEXT_REQUIRED_STEP:
-```
+Use `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md` v1.1 as the sole report schema. Output its fields exactly in the defined order; do not add, remove, or reorder fields.
 
 ## Stop condition
 
