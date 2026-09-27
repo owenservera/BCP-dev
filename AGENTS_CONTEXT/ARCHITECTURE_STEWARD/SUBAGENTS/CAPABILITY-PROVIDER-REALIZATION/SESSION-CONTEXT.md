@@ -5,6 +5,17 @@
 > Navigation aid only; not authority itself.
 > Completion contract: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md` v1.1
 
+## Current strategic planning assignment
+
+This CFA is participating in **CFA Strategic Roadmap Round 1 — Independent Parallel Planning**.
+
+Follow the shared protocol:
+`AGENTS_CONTEXT/ARCHITECTURE_STEWARD/CFA-DOMAIN-ROADMAP-FORMATION-PROTOCOL-2026-09-27.md`
+
+The current assigned task is the strategic roadmap task in `TASKS.md`. Do not infer the substantive roadmap from an archived launch sequence, destination cycle, P1 workstream, or another CFA's new Round-1 result.
+
+This front-door assignment does not prescribe the roadmap's conclusions. The CFA must independently determine its own milestones, success criteria, dependencies, tooling, design gates, and milestone-specific peer-intelligence needs.
+
 ## Identity
 - CFA: CFA-06 — Capability / Provider / Realization
 - identity: Capability & Provider Realization Steward
