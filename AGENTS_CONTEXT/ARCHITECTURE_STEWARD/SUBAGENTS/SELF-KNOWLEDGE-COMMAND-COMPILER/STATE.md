@@ -15,7 +15,7 @@
 - Historical workspace path retained: `SELF-KNOWLEDGE-COMMAND-COMPILER`
 
 ## Current repository verification
-- Mainline verified during home-upgrade session: `8353bb2db22b6f2e45f628c4c79ed42d5d8a56fb`
+- Mainline verified during this home-upgrade session: `221e16a17b8c255b45ad4fc3e81afdb4b783453f`
 - FSSP current version: 1.3
 - Session Result Contract current version: 1.1
 - This baseline is informational; future sessions must resolve current `main` independently.
