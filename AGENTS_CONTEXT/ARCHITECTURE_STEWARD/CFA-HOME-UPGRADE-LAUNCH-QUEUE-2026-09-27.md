@@ -1,9 +1,15 @@
 # CFA Home Upgrade — Owner Launch Queue
 
 > Date: 2026-09-27
-> Status: READY FOR OWNER LAUNCH
+> Status: COMPLETED / HISTORICAL — DO NOT RELAUNCH
 > Governing protocol: FSSP-1.3
 > Purpose: launch one fresh ChatGPT session per ratified CFA to validate and upgrade its own durable home.
+
+## Stage status
+
+This queue was the **operating setup stage** for the CFA constellation. It established/validated durable homes; it was never intended to choose the substantive domain roadmap.
+
+**Do not relaunch this queue.** The active successor is `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`.
 
 ## Owner action
 
@@ -92,7 +98,7 @@ Required task lifecycle: `READY → IN_PROGRESS → DONE` (or `BLOCKED` / `SUPER
 
 ## Owner launch checklist
 
-For each CFA below, open the direct home link in a new ChatGPT conversation and paste the shared launch envelope after replacing `<CFA HOME LINK>` with that home link. These ten sessions are the current owner action package.
+For each CFA below, open the direct home link in a new ChatGPT conversation and paste the shared launch envelope after replacing `<CFA HOME LINK>` with that home link. These sessions were the owner action package for the completed home-maintenance stage. They are no longer the current owner action package.
 
 No CFA waits for another CFA's completion unless its own evidence discovers a real dependency.
 
@@ -104,4 +110,4 @@ The owner does not need to relay the substantive result manually: each session m
 
 The Steward verifies each reported commit/result against current `main` and reconciles the constellation after the wave. No CFA waits for another CFA's completion merely for authorization.
 
-After the ten home upgrades are resolved, the Steward resumes constellation reconciliation.
+After the home-upgrade stage is resolved, the Steward routes to CFA Domain Roadmap Formation. Cross-CFA reconciliation occurs only after the domain roadmaps exist.
