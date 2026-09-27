@@ -7,14 +7,7 @@
 
 ## Open tasks
 
-### HOME-UPGRADE-2026-09-27
-- **Status:** READY
-- **Priority:** P1
-- **Dependencies:** None currently known.
-- **Write scope:** Own agent home only.
-- **Next action:** Read current main, then reconcile this task against `SESSION-CONTEXT.md`, identity, `STATE.md`, `TASKS.md`, `LESSONS.md`, and applicable alignment/history.
-- **Completion condition:** Validate the home as cold-startable; persist only justified corrections; update task status; report exact result/commit; do not start unrelated work.
-- **Stop condition:** Stop after this task and report.
+_None._
 
 ## Future task intake
 
@@ -22,4 +15,10 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 
 ## Completed task history
 
-Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
+### HOME-UPGRADE-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result receipt:** `RESULTS/CFA09-HOME-UPGRADE-20260927-0540.md`
+- **Substantive home commits:** `05503b5c95fe1ec96207852024f0da557390039e`, `dcb241ad9e514d8ffaf49e4285c35a17504b5608`
+- **Scope:** CFA-09 home only; front-door navigation and FSSP-1.3/session-result pointers corrected.
+- **Next:** Await a separately assigned CFA-09 domain task; do not infer one from the completed home-upgrade work.
