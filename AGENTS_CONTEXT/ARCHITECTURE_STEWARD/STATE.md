@@ -39,17 +39,17 @@ All ten CFA identities are verified as ratified in their current durable identit
 
 ## Immediate next operation
 
-The owner now launches fresh ChatGPT sessions for CFA-01 through CFA-10 so each agent can validate and upgrade its own home.
+The owner launches/continues the CFA home-upgrade wave in parallel according to the current queue, while the active strategic next operation is the Commons v0 runtime/platform workstream.
 
-Use:
+Use for the home wave:
 
 `CFA-HOME-UPGRADE-LAUNCH-QUEUE-2026-09-27.md`
 
-The CFA home-upgrade protocol is:
+Use for the runtime frontier:
 
-`CFA-HOME-UPGRADE-PROTOCOL-2026-09-27.md`
+`AGENTS_CONTEXT/AGENT-COMMONS/RUNTIME-PLATFORM-WORKSTREAM-2026-09-27.md`
 
-Run serially unless the owner deliberately chooses safe parallelism with non-conflicting write surfaces.
+The runtime workstream is deliberately constrained by the current design-freeze line.
 
 ## Steward resume condition
 
