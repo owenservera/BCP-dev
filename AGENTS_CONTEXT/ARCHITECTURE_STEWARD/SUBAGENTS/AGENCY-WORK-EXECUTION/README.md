@@ -12,13 +12,17 @@ Lifecycle:
 
 ## Start here
 
-1. `CORE-AGENT.md` — durable responsibility contract.
-2. `STATE.md` — current operating state and unresolved frontier.
-3. `OWNER-ALIGNMENT-2026-09-27.md` — owner decisions that ratified the identity and boundary.
-4. `SELF-DESIGN-PROPOSAL-2026-09-27.md` — preserved predecessor design evidence.
-5. `IDENTITY-HISTORY.md` — identity evolution history.
-6. `COMMUNICATION-HOW-TO.md` — Commons procedure.
-7. `commons/README.md` — local Commons boundary.
+1. `SESSION-CONTEXT.md` — fresh-session front door and navigation.
+2. `CORE-AGENT.md` — durable responsibility contract.
+3. `STATE.md` — current operating state and unresolved frontier.
+4. `TASKS.md` — persistent task/work frontier.
+5. `LESSONS.md` — durable operational lessons, when present.
+6. `RECEIPTS.md` — receipt verification index.
+7. `OWNER-ALIGNMENT-2026-09-27.md` — owner decisions that ratified the identity and boundary.
+8. `IDENTITY-HISTORY.md` — identity evolution history.
+9. `SELF-DESIGN-PROPOSAL-2026-09-27.md` — preserved predecessor design evidence.
+10. `COMMUNICATION-HOW-TO.md` — Commons procedure.
+11. `commons/README.md` — local Commons boundary.
 
 ## Current responsibility
 

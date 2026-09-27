@@ -19,7 +19,9 @@
 - **Stop condition:** Stop at an owner decision, material peer ownership conflict, Ω-law collision, or insufficient evidence. Do not start production implementation.
 
 ### HOME-UPGRADE-2026-09-27
-- **Status:** READY
+- **Status:** IN_PROGRESS
+- **Started:** 2026-09-27
+- **Session:** `CFA05-HOME-UPGRADE-20260927-0645CEST`
 - **Priority:** P1
 - **Dependencies:** None currently known.
 - **Write scope:** Own agent home only.

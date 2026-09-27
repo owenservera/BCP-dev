@@ -1,6 +1,6 @@
 # CFA-05 — Session Context
 
-> Protocol: FSSP-1.1
+> Protocol: FSSP-1.3
 > Status: RATIFIED — OWNER-ALIGNED
 > Navigation aid only; not authority itself.
 
@@ -14,6 +14,13 @@ Follow the shared protocol:
 The current assigned task is the strategic roadmap task in `TASKS.md`. Do not infer the substantive roadmap from an archived launch sequence, destination cycle, P1 workstream, or another CFA's new Round-1 result.
 
 This front-door assignment does not prescribe the roadmap's conclusions. The CFA must independently determine its own milestones, success criteria, dependencies, tooling, design gates, and milestone-specific peer-intelligence needs.
+
+## Fresh-session front door
+
+- Start here: `SESSION-CONTEXT.md`.
+- Then read: `CORE-AGENT.md` → `STATE.md` → `TASKS.md` → `LESSONS.md` when present.
+- Receipt index: `RECEIPTS.md`.
+- Owner alignment/history: `OWNER-ALIGNMENT-2026-09-27.md` → `IDENTITY-HISTORY.md`.
 
 ## Identity
 - CFA: CFA-05 — Agency / Work / Execution
@@ -39,7 +46,7 @@ Kill the worker between external execution and recording. Restart must not blind
 Verify current main and relevant peer identities before substantive work.
 
 ## Last verified baseline
-`3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+`e29cd3068d67ce273a869bdc390afc8f45a12243``3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
 
 
 > The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
