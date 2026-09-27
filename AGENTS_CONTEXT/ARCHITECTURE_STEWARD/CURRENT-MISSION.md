@@ -6,17 +6,19 @@
 
 ## Current phase
 
-**Operating-maturity / Commons v0 handoff**
+**Cycle 4 — Live Chrome / Accounts**
 
 The common ChatGPT agent operating model has now been established and the fresh Steward cold-start test has passed. No further Steward test is required.
 
 ## Immediate next action
 
-**Owner assigns/launches the Commons v0 runtime/platform workstream. The ten CFA home-upgrade sessions remain a parallel durable-home wave already represented in TASKS.md and the launch queue.**
+**Execute the existing Cycle 4 live-account proof path.** The CFA home-upgrade wave is now treated as reconciled operating history; it is no longer the active frontier.
 
-The current v0 workstream is the next executable frontier because the shared design corpus is intentionally frozen until the existing operational completion test is green.
+The next proof target is RA-5 in `docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md`, using the existing V1 Chrome substrate. This is an evidence/proof task, not a new routing-architecture design task.
 
-Launch queue: `CFA-HOME-UPGRADE-LAUNCH-QUEUE-2026-09-27.md`.
+Execution packet: `CYCLE-4-LIVE-CHROME-ACCOUNTS-2026-09-27.md`.
+
+Reference reconciliation: `docs/destination/PROVIDER-ACCOUNT-ROUTING-RECONCILIATION.md`.
 
 The Steward must not merely say "launch CFA-01 through CFA-10." It must compile an **owner action package** containing, for every CFA:
 
@@ -96,9 +98,9 @@ The current actionable workstream is AGENTS_CONTEXT/AGENT-COMMONS/RUNTIME-PLATFO
 
 ## Steward stop condition
 
-The Steward should **not** perform the ten CFA home upgrades itself.
+The Steward should not reopen the CFA home-upgrade wave unless a new repository contradiction requires it.
 
-The Steward resumes after the CFA sessions have produced verified repository results and reconciles the constellation as a whole. No additional Steward cold-start test is required.
+For Cycle 4, the Steward owns synthesis/reconciliation and evidence classification; live owner-machine execution belongs to the existing provider/runtime execution path.
 
 ## Not the current task
 
