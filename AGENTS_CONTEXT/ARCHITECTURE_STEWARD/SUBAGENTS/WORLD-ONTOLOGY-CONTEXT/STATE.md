@@ -201,18 +201,36 @@ The audit identifies eight material gaps. The highest-leverage missing seams are
 
 The operational context packet is the preferred machine-readable cold-start entry point for the next CFA-01 session.
 
-## M1 semantic kernel evidence — 2026-09-27
+## M1 peer reconciliation — 2026-09-27
 
-M1 evidence closure is **COMPLETE at design/evidence level**.
+M1 peer reconciliation is **COMPLETE / AGREED at seam level**.
 
-Durable packet:
-- `M1-SEMANTIC-KERNEL-EVIDENCE-2026-09-27.md`
+Peer evidence now confirms:
+- CFA-03 accepts the minimum World reference/result seam;
+- CFA-04 accepts World-vs-Authority separation and treats accessible as a composed seam property;
+- CFA-02 accepts the dimensional World/Data identity, correspondence, revision and lineage crosswalk.
 
-The packet establishes the smallest current semantic World kernel candidate around World, Object, Relationship, Semantic Identity, Source Identity, Correspondence, Presence/Observation and Evidence/Basis, with Addressability and Projection treated as boundary roles and Context deferred to M3.
+Shared boundaries remain **UNACTIVATED**. These agreements do not ratify peer identity or change Ω law.
 
-It records 18 non-collapse invariants and 10 falsifier cases, plus the central Development Acceleration A–D input contribution.
+The remaining qualifications are deliberately bounded:
+- accessible composite representation;
+- temporal merge/split semantics;
+- observation-to-World assertion envelope;
+- final projection basis/freshness contract;
+- external provider/source realism.
 
-This is not a ratified cross-CFA contract. The next state is peer reconciliation of the M1 seams; no production implementation or shared-boundary activation is authorized from this packet.
+### Next bounded task
+
+WORLD-M2-REFERENCE-CORRESPONDENCE-EVIDENCE-2026-09-27 is READY.
+
+Focus:
+- five World resolution states;
+- correspondence vs equivalence/proof;
+- alias/source identity;
+- stale/historical references;
+- addressability vs authority.
+
+No production resolver implementation is authorized by this task.
 
 ## Immediate next actions
 
