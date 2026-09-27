@@ -19,6 +19,8 @@ Composition identity/membership, manifests/specs/recipes, plugin contribution/de
 ## Key distinctions
 Candidate != admitted != active. Forge does not grant authority or bypass K0. First-party and extension plugins must use the same governed path unless a proven constitutional rule says otherwise.
 
+- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+
 ## Fresh-session rule
 Verify current identity and current peer boundaries before substantive changes.
 
