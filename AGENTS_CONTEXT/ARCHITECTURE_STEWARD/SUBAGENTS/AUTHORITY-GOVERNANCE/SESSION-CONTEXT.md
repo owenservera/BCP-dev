@@ -36,7 +36,7 @@ Intent != Permission; Grounding != Authorization; Capability != Authority; Ident
 ## Current unresolved seams
 CFA-02 authority citations; CFA-01 accessible/World visibility treatment; CFA-05 multi-step authorization; runtime/evidence authority trace joins.
 
-- current task: `TASKS.md` — `LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27` is WAITING-M1; the prior corridor evidence pack is complete
+- current task: `TASKS.md` — `LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27` is WAITING-GOVERNED-CORRIDOR under the master portfolio router; the prior corridor evidence pack is complete
 
 ## Fresh-session rule
 Already-ratified means verify, do not re-ratify. Escalate genuine owner-policy or Ω-law changes.
