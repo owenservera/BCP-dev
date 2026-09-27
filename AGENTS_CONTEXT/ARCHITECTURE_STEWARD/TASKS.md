@@ -8,22 +8,22 @@
 ## Open tasks
 
 ### CFA-05-10-BOUNDARY-GATE-BEFORE-GRAPH-2026-09-27
-- **Status:** WAVE 2 DONE / WAVE 3 CURRENT
+- **Status:** WAVE 3 CURRENT — CFA-06 ACTIVE
 - **Priority:** P0
-- **Purpose:** Close the missing durable boundary-evidence layer for CFA-05 through CFA-10 before Graph Kernel / Source-Code Graph attachment.
-- **Canonical packet:** `BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`
-- **Wave 1:** DONE — all six CFA boundary baselines are present on `main`.
-- **Wave 2:** DONE — Steward reconciliation and bounded peer-reconciliation queue persisted.
-- **Wave 2 artifacts:**
-  - `BOUNDARY-DESIGN-SYSTEM/WAVE-2-BASELINE-RECONCILIATION-2026-09-27.md` — commit `0ab5fbfec0b28937ac4936d44e5c96013b237261`
-  - `BOUNDARY-DESIGN-SYSTEM/WAVE-2-PEER-RECONCILIATION-QUEUE-2026-09-27.md` — commit `0b1e8d78e1f605a9295ac987044191aa2f74e1fd`
-- **Wave 3:** CURRENT — execute **CFA-05 → CFA-06 → CFA-07 → CFA-08 → CFA-09 → CFA-10** sequentially.
-- **Current human-router action:** Send **Next to CFA-05 only**. Wait for its completion before sending Next to CFA-06.
-- **Wave 4:** After CFA-10 completes Wave 3, send **Next to Steward** for the final completion audit and explicit Graph Gate decision.
-- **Graph:** CLOSED until Wave 4 explicitly opens it.
-- **Completion condition:** Six baselines, Steward reconciliation, six peer outputs, and final audit are durably persisted with exact lineage; unresolved items remain UNKNOWN/CONFLICTED/DEFERRED.
-- **Stop condition:** owner-intent conflict, Ω-law collision, material ownership transfer, or pressure to infer semantics from names/implementation.
-
+- **Canonical protocol:** `BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`
+- **Current router:** `BOUNDARY-DESIGN-SYSTEM/CURRENT-WAVE-ROUTER-2026-09-27.md`
+- **Wave 1:** DONE — 6/6 baselines.
+- **Wave 2:** DONE — Steward reconciliation + Wave-3 queue.
+- **CFA-05:** Wave 3 DONE — `a4684afb2b7cb982ba2fc4de903319345ee1506e`.
+- **CFA-06:** **CURRENT / NEXT**.
+- **CFA-07:** WAITING FOR CFA-06.
+- **CFA-08:** WAITING FOR CFA-07.
+- **CFA-09:** WAITING FOR CFA-08.
+- **CFA-10:** WAITING FOR CFA-09.
+- **Current human-router action:** **Next → CFA-06**.
+- **Wave 4:** after CFA-10 Wave 3, Next → Steward.
+- **Graph Gate:** CLOSED until Wave 4 explicitly opens it.
+- **Lineage rule:** agents must verify `origin/main` / current GitHub `main` before acting; stale local task text never outranks the current central router.
 
 ### DESIGN-CFA-COLLABORATION-DEVELOPMENT-ACCELERATION-2026-09-27
 - **Status:** DONE / CENTRAL DESIGN FROZEN
