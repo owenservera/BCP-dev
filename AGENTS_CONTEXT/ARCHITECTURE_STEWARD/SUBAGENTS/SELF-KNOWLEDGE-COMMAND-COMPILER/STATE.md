@@ -9,7 +9,7 @@
 - Phase 2 — self-design: COMPLETE
 - Phase 3 — owner dialogue: COMPLETE
 - Phase 4 — core identity: COMPLETE
-- Phase 5 — mission execution: ROUND-2 SEAM RECONCILIATION COMPLETE; deeper mission not yet launched
+- Phase 5 — mission execution: M1 SEMANTIC BASELINE COMPLETE; deeper milestones remain queued
 - Owner alignment was explicit on 2026-09-25.
 - Canonical identity: Semantic Continuity Steward
 - Historical workspace path retained: `SELF-KNOWLEDGE-COMMAND-COMPILER`
@@ -49,14 +49,20 @@ CFA-03 stewards continuity across self-knowledge, grounding, command semantics, 
 - Whether every Event/State occurrence warrants durable first-class identity.
 - Which terminology choices require product-owner decisions rather than architecture stewardship.
 
+## M1 completed findings
+- Current semantic spine verified through canonical Intent and resolution evidence.
+- Full Intent → Plan → Work continuity remains PARTIAL / UNKNOWN.
+- General freshness remains PARTIAL / UNKNOWN.
+- Visual write-back remains PROPOSED / UNPROVEN.
+- Identity continuity should use explicit relations, not a universal identifier.
+- M1 terminology collision map is persisted in `CROSSWALK.md`.
+
 ## Immediate mission frontier
-1. Preserve and reconcile the Round-2 semantic seams as peer evidence changes.
-2. Trace the live command pipeline through canonical Intent and onward Work when the deeper mission is launched.
-3. Trace the live self-knowledge pipeline and evidence/freshness basis.
-4. Reconcile historical symbolic/compiler ideas against current Ω behavior.
-5. Establish the CANON collision map and terminology decisions.
-6. Map semantic/provenance identity across input, Intent, Work, Evidence and representation.
-7. Identify only the smallest evidence-backed implementation seams.
+1. Validate and reconcile M1 findings against future peer roadmap evidence without prematurely activating shared boundaries.
+2. Resolve the complete Intent → Plan → Work semantic corridor when Work/Execution evidence is available.
+3. Establish generalized freshness semantics from evidence-basis comparison.
+4. Prove one deterministic visual semantic round-trip before broader representation work.
+5. Extend bounded CANON decisions only where evidence closes a real terminology ambiguity.
 
 ## Guardrails
 Do not redesign Ω law, build a universal graph database, create another architecture graph, rewrite NCLL without evidence, make V1 depend on V2, equate confidence with proof, allow self-knowledge to authorize, activate shared boundaries, or perform broad terminology renaming merely for cleanliness.
