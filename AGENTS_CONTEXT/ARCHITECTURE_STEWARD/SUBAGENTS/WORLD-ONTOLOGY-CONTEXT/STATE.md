@@ -201,6 +201,19 @@ The audit identifies eight material gaps. The highest-leverage missing seams are
 
 The operational context packet is the preferred machine-readable cold-start entry point for the next CFA-01 session.
 
+## M1 semantic kernel evidence — 2026-09-27
+
+M1 evidence closure is **COMPLETE at design/evidence level**.
+
+Durable packet:
+- `M1-SEMANTIC-KERNEL-EVIDENCE-2026-09-27.md`
+
+The packet establishes the smallest current semantic World kernel candidate around World, Object, Relationship, Semantic Identity, Source Identity, Correspondence, Presence/Observation and Evidence/Basis, with Addressability and Projection treated as boundary roles and Context deferred to M3.
+
+It records 18 non-collapse invariants and 10 falsifier cases, plus the central Development Acceleration A–D input contribution.
+
+This is not a ratified cross-CFA contract. The next state is peer reconciliation of the M1 seams; no production implementation or shared-boundary activation is authorized from this packet.
+
 ## Immediate next actions
 
 1. Characterize the identity/correspondence seam.
