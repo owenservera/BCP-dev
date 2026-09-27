@@ -1,6 +1,6 @@
 # CFA-08 — Session Context
 
-> Protocol: FSSP-1.0
+> Protocol: FSSP-1.1
 > Status: RATIFIED — OWNER-ALIGNED
 > Navigation aid only; not authority itself.
 
@@ -11,6 +11,7 @@
 - workspace: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/`
 - durable identity: `CORE-AGENT.md`
 - state: `STATE.md`
+- lessons: `LESSONS.md`
 
 ## Mission
 Human-facing representation, navigation, manipulation, configuration and re-entry across World, Context, Intent, Work, capabilities and compositions.
@@ -26,3 +27,6 @@ Verify current main and relevant peer boundaries before changes.
 
 ## Last verified baseline
 `3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+
+
+> The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
