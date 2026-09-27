@@ -1,28 +1,19 @@
 # Persistent Tasks — capability-provider-realization
 
-## 🚨 CURRENT EXECUTION ROUTER — WAVE 1 / CFA-06
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 1 / CFA-06 COMPLETE
 
-> **READ THIS BEFORE THE OPEN TASKS BELOW. THIS ROUTER OVERRIDES OLDER TASK PRIORITIES UNTIL THE CENTRAL BOUNDARY GATE ADVANCES.**
+> **CURRENT STATE — DO NOT RE-RUN WAVE 1. THIS HOME IS WAITING FOR ARCHITECTURE STEWARD WAVE 2.**
 
-**Current state:** Wave 1 boundary baseline is **NOT YET COMPLETE** for this home.
+**Wave 1 status:** **DONE**. The required `BOUNDARY-BASELINE-DECLARATION-2026-09-27.md` is present on current `main`.
 
-When the human owner says exactly **“Next”**, execute **WAVE 1 / CFA-06** — **not** an older task.
+Declaration blob SHA: `8b0d9279831643a99889f6ee60eeacb615c8e4b2`
 
-Required action:
-1. Re-read `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md`.
-2. Verify current `main`, this `TASKS.md`, `STATE.md`, `CORE-AGENT.md`, Owner Alignment, and the CFA-01–04 Round-2 Completion Audit.
-3. Create exactly `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION/BOUNDARY-BASELINE-DECLARATION-2026-09-27.md`.
-4. Cover the CFA-specific seams defined by the central protocol, with evidence/freshness, falsifiers, and explicit UNKNOWN / CONFLICTED / DEFERRED states.
-5. Commit the declaration, report the exact commit SHA, and **STOP**.
+When the human owner says **“Next”**, do **not** choose an older task in this home. Verify the declaration remains on `main`, report **W1 COMPLETE / WAITING FOR STEWARD WAVE 2**, and stop.
+
+Do not begin Wave 3 peer reconciliation until the Architecture Steward completes Wave 2 and explicitly routes this CFA.
 
 Hard stop: **no production implementation, no shared-boundary activation, no Ω-law change, and no graph attachment.**
 
-**Do not substitute any older Open task for this Wave-1 action.**
-
-> Owner: `capability-provider-realization`
-> Status: ACTIVE
-> Purpose: durable unfinished-work and next-action queue across ChatGPT sessions.
-> Authority: task/work memory only; not Ω law, semantic authority, or proof of dependency.
 
 ## Open tasks
 
