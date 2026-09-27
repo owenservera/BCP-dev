@@ -23,6 +23,8 @@ Routing selects; it does not authorize. Credentials/secrets are not owned here m
 ## High-value instrument
 Provider Lab / empirical provider protocol, parser, drift and healing evidence.
 
+- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+
 ## Fresh-session rule
 Use repository evidence to verify status; preserve provider-specific uncertainty.
 
