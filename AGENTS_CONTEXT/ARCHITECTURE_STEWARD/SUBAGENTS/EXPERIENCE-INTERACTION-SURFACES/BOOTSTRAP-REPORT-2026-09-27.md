@@ -1,113 +1,125 @@
 # CFA-08 — One-Shot Bootstrap Report — 2026-09-27
 
-> Status: DESIGNED ONLY
+> Status: RATIFIED — OWNER-ALIGNED / IDENTITY ESTABLISHED / DOMAIN EXECUTION NOT STARTED
 > CFA: CFA-08 — Experience / Interaction / Surfaces
-> Candidate identity: Experience / Interaction / Surfaces Steward
-> Agent slug: experience-interaction-surfaces
+> agent_id: experience-interaction-surfaces
 > Workspace: AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/
-> Main head observed immediately before commit construction: 51b2cb1cd6cad34b029104db376f13cb55d9feaf
+> Alignment: OWNER-ALIGNMENT-2026-09-27.md
+> Identity version: v1.0
 
-## 1. Phase status
+## Phase status
 
-| Phase | Status | Evidence |
-|---|---|---|
-| Full context discovery | IMPLEMENTED + PARTIALLY VERIFIED | Repository, Steward, destination, CFA-05/06/07, CFA-08 launch protocol, Ω/destination evidence and Commons contracts inspected through GitHub connector; native local runtime unavailable. |
-| Self-design | IMPLEMENTED + VERIFIED | SELF-DESIGN-PROPOSAL-2026-09-27.md |
-| Owner Dialogue / Alignment | BLOCKED | Required by the one-shot protocol before durable identity; the launch instruction did not contain explicit boundary alignment. |
-| Durable identity | NOT STARTED | CORE-AGENT.md intentionally withheld. |
-| Commons birth test | NOT REACHED | Requires aligned identity first; recoverable signing key is not safely available in this hosted session. |
-| Domain execution | NOT STARTED | Correctly gated behind identity alignment. |
+| Phase | Status |
+|---|---|
+| Full context discovery | COMPLETE |
+| Self-design | COMPLETE |
+| Owner Dialogue / Alignment | COMPLETE |
+| Durable identity | COMPLETE |
+| Commons birth test | BLOCKED / NOT PROVABLE IN THIS WEBAPP SESSION |
+| Domain mission execution | NOT STARTED |
 
-## 2. Candidate design
+## Final identity
 
-**Candidate name:** Experience / Interaction / Surfaces Steward
+- CFA: CFA-08 — Experience / Interaction / Surfaces
+- agent_id: experience-interaction-surfaces
+- Human-readable identity: Experience / Interaction / Surfaces Steward
+- Identity status: RATIFIED — OWNER-ALIGNED
+- Identity version: v1.0 — 2026-09-27
 
-**Mission:** maintain coherent human-facing representation, interaction and re-entry across VIVIM while preserving canonical semantic ownership elsewhere.
+## Aligned scope
 
-**Proposed scope:** surfaces/views; space/workspace/canvas experience; interaction grammar; attention/focus presentation; interpretation previews; Work/continuity presentation; user-facing configuration.
+CFA-08 owns coherent human-facing representation and interaction:
 
-**Proposed non-scope:** World ontology; canonical Data; semantic Intent/continuity; Authority; durable Work semantics; Capability/Provider/Realization; Composition/Forge; Evolution; K0/K1 enforcement.
+- Surface / View contracts.
+- World / Context perception and navigation.
+- Workspace / layout / canvas realization.
+- Interaction grammar and direct-manipulation experience.
+- Intent inspect/edit/confirm/reject presentation.
+- Work controls/progress/results/approval/re-entry presentation.
+- Capability/provider/realization choice and status presentation.
+- Composition/plugin inspection/editing and Forge UX.
+- Focus/notification/delivery/re-entry presentation.
+- Surface-local configuration experience.
+- Explicit typed write-back/mutation initiation to owning semantic paths.
 
-## 3. Peer interfaces
+## Explicit non-scope
 
-Primary:
-- CFA-01 World
-- CFA-03 Semantic Continuity
-- CFA-05 Agency / Work / Execution
+CFA-08 does not own:
 
-Secondary:
-- CFA-02 Data / Identity / Persistence
-- CFA-04 Authority / Governance
-- CFA-06 Capability / Provider / Realization
-- CFA-07 Composition / Plugin / Forge
-- CFA-09 Evolution / Compatibility / Self-Maintenance
-- CFA-10 Runtime Constitution / Core Substrate
+- World/Space/Context semantics;
+- canonical durable Data;
+- semantic Intent/Plan meaning;
+- live Authority;
+- durable Work/execution;
+- Capability/Provider/Realization semantics or Routing;
+- Composition/Plugin/Forge semantics;
+- general Evolution;
+- K0/K1 runtime enforcement;
+- semantic Attention policy;
+- any parallel ontology/data/authority/evidence/command system.
 
-The proposal defines CFA-08 as the presentation/interaction owner at these seams without taking peer semantic authority.
+## Peer seam decisions
 
-## 4. Predecessor-state verification
+- CFA-01 owns World/Space/Context semantics; CFA-08 owns their experience/projection/navigation realization.
+- CFA-03 owns semantic Intent/Plan; CFA-08 owns presentation/edit/confirm/reject interaction.
+- CFA-05 owns Work; CFA-08 owns controls/progress/results/approval/re-entry presentation.
+- CFA-06 owns capability/provider/account/model/realization/session/resource/routing semantics; CFA-08 owns user-facing choice/status interaction.
+- CFA-07 owns composition/plugin/Forge semantics; CFA-08 owns editing/inspection/Forge UX.
+- Canonical semantic state and presentation state are explicitly distinct.
+- Direct manipulation is not semantic truth; semantic effects use explicit typed handoff.
+- Surface-owned configuration stays surface-local; domain policy semantics remain with domain owners.
+- Semantic Attention remains outside CFA-08; focus/notification/delivery/re-entry presentation is in scope.
+- CFA-02 remains explicitly PROVISIONAL.
 
-**CFA-05:** durable self-design proposal + bootstrap report are present on main; CFA-05 remains DESIGNED ONLY / owner alignment pending.
+## Write-back / mutation initiation
 
-**CFA-06:** durable self-design proposal + bootstrap report are present on main; CFA-06 remains DESIGNED ONLY / owner alignment pending.
+Required corridor:
 
-**CFA-07:** current main contains only its seed README, launch prompt, one-shot wrapper, communication guide and Commons scaffold; no durable self-design, bootstrap report, CORE-AGENT.md or STATE.md was present at inspection time.
+surface gesture/edit → experience action → typed semantic request → owning CFA → authority/work/data path → canonical change → projection
 
-This is an explicit repository-state finding. No missing predecessor artifact was fabricated or inferred.
+CFA-08 may initiate the request. It does not commit canonical state directly.
 
-## 5. Major UNKNOWN / DEFERRED
+## Remaining UNKNOWN / CONFLICTED / DEFERRED
 
-**UNKNOWN**
-- Space semantic ownership.
-- Attention semantic ownership versus presentation/delivery.
-- Direct-manipulation semantic handoff.
-- Durable versus ephemeral surface state.
-- Minimum provenance/evidence cues in presentation.
-- Configuration split across routing/provider/authority/surface concerns.
-- Exact continuity seam among CFA-05 Work, CFA-09 Evolution and CFA-08 re-entry.
+### UNKNOWN
+- persistent vs ephemeral Surface/View state;
+- cross-device workspace/focus continuity;
+- direct-manipulation split between World and Intent;
+- minimum evidence/provenance presentation contract;
+- final semantic Attention owner;
+- surface configuration durable-data join with provisional CFA-02;
+- possible future narrower experience sub-responsibility.
 
-**DEFERRED**
-- Durable identity creation.
-- Commons birth test.
-- Domain execution.
-- Any shared boundary activation.
+### CONFLICTED
+None identified.
 
-**CONFLICTED**
-- None identified in inspected material.
+### DEFERRED
+- shared-boundary activation;
+- Ω-law modification;
+- production implementation;
+- Commons signed PUBLIC introduction/read-back;
+- later peer seam activation/reconciliation.
 
-## 6. Commons state
+## Commons test result
 
-Execution surface: WEBAPP / connector.  
-Repository read: AVAILABLE.  
-Repository write: AVAILABLE.  
-Local runtime/Git process execution: UNAVAILABLE.  
-GitHub API transport: AVAILABLE.  
-Recoverable agent signing key: UNAVAILABLE / not safely available.  
-Commons write: READ-ONLY.
+Identity creation was completed before this test, satisfying the required ordering. The hosted connector session does not expose a recoverable Commons signing key or native Commons write action.
 
-No Commons message ID, signature, or read-back success is claimed.
+Therefore:
+- no PUBLIC message was fabricated;
+- no message_id is claimed;
+- no signature verification is claimed;
+- no durable Commons read-back is claimed;
+- no replacement identity/keypair was created.
 
-## 7. Artifacts produced
+## Not activated
 
-1. AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/SELF-DESIGN-PROPOSAL-2026-09-27.md
-2. AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES/BOOTSTRAP-REPORT-2026-09-27.md
+- Shared CFA boundaries remain UNACTIVATED.
+- Ω law remains UNCHANGED.
+- Production implementation is NOT AUTHORIZED.
+- No second ontology, canonical store, authority store, evidence authority or architecture graph was created.
 
-## 8. Not activated / ratified
+## Completion
 
-- No CORE-AGENT.md.
-- No STATE.md or identity history.
-- No shared boundary activation.
-- No Ω-law modification.
-- No production implementation.
-- No Commons identity/key/message creation.
-- No second ontology, canonical store, authority system or architecture graph.
+**CFA-08 bootstrap/alignment: COMPLETE — RATIFIED / OWNER-ALIGNED.**
 
-## 9. Completion assessment
-
-**DESIGNED ONLY / BLOCKED at Owner Dialogue / Alignment.**
-
-The CFA-08 self-design is durably recorded. The protocol requires explicit owner challenge/alignment before identity creation; this launch instruction did not supply that alignment. The bootstrap therefore stops at the required gate rather than fabricating ratification.
-
-## 10. Resume point
-
-Resume from Owner Dialogue / Alignment. After explicit alignment: create durable identity, perform the Commons birth test if supported, execute the CFA-specific mission, update the report, and record the resulting durable commit SHA.
+**CFA-08 domain mission: NOT STARTED.**
