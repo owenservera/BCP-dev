@@ -14,6 +14,13 @@
 - **Receipt:** RESULTS/STEWARD-20260927-OPS-MATURITY.md
 - **Result:** Steward home and operating-control seams were reconciled; current main was independently re-checked; home-upgrade work is closed.
 
+### CFA-HOME-UPGRADE-WAVE-RECONCILIATION-2026-09-27
+- **Status:** COMPLETE WITH EXCEPTION
+- **Priority:** P1
+- **Completed:** 2026-09-27
+- **Result:** Nine CFA home-upgrade tasks are DONE with durable receipts; CFA-05 remains READY without a RESULTS receipt and is explicitly left unresolved rather than inferred complete.
+- **Next action:** Do not relaunch the wave. Reconcile CFA-05 separately only if needed.
+
 ## Open strategic operating tasks
 
 ### COMMONS-V0-RUNTIME-2026-09-27
