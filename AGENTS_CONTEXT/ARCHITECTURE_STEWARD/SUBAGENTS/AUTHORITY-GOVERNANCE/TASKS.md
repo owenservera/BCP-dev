@@ -36,12 +36,12 @@
 - **Receipt commit:** `1787dd7740da5082307b715a376f0819d9e2cb92`
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive### LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27
-- **Status:** WAITING-M1
+- **Status:** WAITING-GOVERNED-CORRIDOR
 - **Priority:** P1
 - **Objective:** Execute one narrow governed consequential corridor through live Authority resolution, runtime enforcement, attributable realization, and reconstruction.
-- **Prerequisites:** Central M1 contract/evidence closure and explicit corridor selection; CFA-05 Work/Attempt seam; CFA-06 live realization evidence; CFA-10 runtime gate observation; CFA-02 reconstruction join.
+- **Prerequisites:** Central M1 closure (COMPLETE); explicit governed-corridor selection; current WP-E/WP-D shared gates as required by the master router; CFA-05 Work/Attempt seam; CFA-06 live realization evidence; CFA-10 runtime gate observation; CFA-02 reconstruction join.
 - **Write scope:** CFA-04 home and any explicitly assigned bounded execution packet.
-- **Next action:** Remain waiting until the shared M1 completion condition is satisfied. Then select a corridor through the central reconciliation process, not by local preference alone.
+- **Next action:** Remain waiting for the master-router governed-corridor selection gate. Do not select locally. Prepare only evidence needed to execute once the central packet is assigned.
 - **Completion condition:** One positive live corridor and one negative live corridor are proven and reconstructable, with Authority/Work/Capability/Runtime/Evidence ownership explicit.
 - **Stop condition:** owner-policy question, Ω-law collision, material ownership conflict, or missing live-proof capability.
 
