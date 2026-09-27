@@ -25,11 +25,11 @@ The CFA home-upgrade and independent Strategic Roadmap Round 1 stages are comple
 
 ## Current transition
 
-The independent planning round and first bounded M1 evidence packet round are now reconciled.
+All ten CFA strategic roadmaps and the portfolio state reconciliation are now complete. A master portfolio workload router is installed.
 
 Current Steward operation:
 
-**Central Generic Development Kernel + bounded seam continuation**
+**Master Portfolio Workload Routing + Stage-E readiness + generic-kernel enablement + bounded seam continuation**
 
 The Steward has enough cross-CFA evidence to freeze the generic Layer-1 mechanics without absorbing domain meaning. CFA-local unresolved seams remain explicit and continue only where their owners have identified a concrete next evidence need.
 
@@ -45,7 +45,7 @@ Inherited Build-and-Harvest, P1, destination, vertical-slice and Cycle 4 plans r
 
 ## Reconciled shared frontier
 
-**CROSS-CFA M1 CONTRACT + EVIDENCE CLOSURE — RECONCILED FOR DOWNSTREAM SELECTION**
+**MASTER PORTFOLIO WORKLOAD — WP-E STAGE-E READINESS + WP-D GENERIC KERNEL + PARALLEL CFA CLOSURE**
 
 Reconciled scope:
 - establish minimum World reference/semantic invariants;
@@ -77,4 +77,11 @@ Commons runtime/platform, identity/security and other prior operating tasks rema
 
 ## Resume condition
 
-**IMPLEMENT GENERIC KERNEL → ADAPTER REFINEMENT → SELECT ONE GOVERNED CORRIDOR → LIVE/EXTERNAL PROOF → RECONSTRUCTION/REPLACEMENT → PRODUCT JOURNEY PROOF**
+**WP-E STAGE-E READINESS + WP-D GENERIC KERNEL → SEAM/EMPIRICAL CLOSURE → SELECT ONE GOVERNED CORRIDOR → LIVE/EXTERNAL PROOF → RECONSTRUCTION/REPLACEMENT → PRODUCT JOURNEY PROOF**
+
+
+## Master portfolio workload
+
+Current router: `MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
+Current reconciliation: `MASTER-PORTFOLIO-STATE-RECONCILIATION-2026-09-27.md`
+Local CFA queues are subordinate execution projections; historical local routers remain lineage unless explicitly reactivated by the master router.
