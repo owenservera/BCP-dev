@@ -4,6 +4,22 @@
 > Date: 2026-09-25
 > Current main re-grounding: 13fc6c08d4a0583d620bd5baffc259cfb8e6d044
 > Authority: Ω ratified law remains authoritative; this document is a derived coding boundary.
+> **Current-use qualification:** historical preparation result; its GO/HOLD conclusion does not select current CFA work.
+> Before using it as a coding-entry decision, reconcile the current CFA-owned roadmaps and obtain an explicit current owner action.
+
+## Current-use qualification
+
+This artifact remains useful as evidence about factory/coding readiness, but it predates the CFA domain-roadmap formation stage. A previous `CODING STATUS: GO` therefore means only that the prior preparation pass judged broad architecture preparation sufficient at that time.
+
+It does **not** mean:
+- every CFA has adopted the resulting work;
+- the current Steward must launch implementation;
+- Cycle 4 or any other destination cycle is automatically active.
+
+The current planning gate is:
+
+`CFA ROADMAPS → CROSS-CFA RECONCILIATION → CURRENT SHARED FRONTIER`.
+
 > Execution note: the dedicated subagent facility is not exposed in this session, so the required Round 2 convergence was executed directly by the task owner using the exact Round 2 prompt and its required inputs. No subagent run is claimed.
 
 ## 1. Fresh decision
