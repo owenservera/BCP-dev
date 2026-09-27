@@ -12,11 +12,30 @@
 > **CFA:** CFA-04
 > **Portfolio package:** SEAM-CLOSURE
 > **Current portfolio state:** M1 corridor evidence complete; live corridor waiting
->
+
 > Local TASKS remains CFA-owned execution detail. Historical local routers/prompts are lineage only and cannot override the master portfolio router. Do not resurrect completed Wave-1/Wave-2/Wave-3 or bootstrap stages from stale local routing text.
 > Resolve any new `Next` against the master router first, then this local queue.
 
 ## Open tasks
+
+### LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27
+- **Status:** WAITING-GOVERNED-CORRIDOR
+- **Priority:** P1
+- **Objective:** Execute one narrow governed consequential corridor through live Authority resolution, runtime enforcement, attributable realization, and reconstruction.
+- **Prerequisites:** Central M1 closure (COMPLETE); explicit governed-corridor selection; current WP-E/WP-D shared gates as required by the master router; CFA-05 Work/Attempt seam; CFA-06 live realization evidence; CFA-10 runtime gate observation; CFA-02 reconstruction join.
+- **Write scope:** CFA-04 home and any explicitly assigned bounded execution packet.
+- **Next action:** Remain waiting for the master-router governed-corridor selection gate. Do not select locally. Prepare only evidence needed to execute once the central packet is assigned.
+- **Completion condition:** One positive live corridor and one negative live corridor are proven and reconstructable, with Authority/Work/Capability/Runtime/Evidence ownership explicit.
+- **Stop condition:** owner-policy question, Ω-law collision, material ownership conflict, or missing live-proof capability.
+
+## Completed work
+
+### AUTHORITY-DATA-WORK-SEAM-RECONCILIATION-2026-09-28
+- **Status:** DONE
+- **Priority:** P1
+- **Result:** `RESULTS/AUTHORITY-DATA-WORK-SEAM-RECONCILIATION-20260928.md`
+- **Commit:** `abf4c99f407d5c0ef5e655a0280c4d6c12148936`
+- **Finding:** CFA-02 accepts the minimum historical AuthorityCitation reconstruction payload and the live-vs-historical distinction; CFA-05 keeps physical citation/join placement and Work-versus-Attempt attachment UNKNOWN. No schema was frozen.
 
 ### AUTHORITY-CORRIDOR-EVIDENCE-PACK-2026-09-27
 - **Status:** DONE
@@ -35,14 +54,8 @@
 - **Primary roadmap commit:** `9b9dc96ba8e34af071edfaabc6283b77472e25ce`
 - **Receipt commit:** `1787dd7740da5082307b715a376f0819d9e2cb92`
 
-Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive### LIVE-AUTHORITY-CORRIDOR-PROOF-2026-09-27
-- **Status:** WAITING-GOVERNED-CORRIDOR
-- **Priority:** P1
-- **Objective:** Execute one narrow governed consequential corridor through live Authority resolution, runtime enforcement, attributable realization, and reconstruction.
-- **Prerequisites:** Central M1 closure (COMPLETE); explicit governed-corridor selection; current WP-E/WP-D shared gates as required by the master router; CFA-05 Work/Attempt seam; CFA-06 live realization evidence; CFA-10 runtime gate observation; CFA-02 reconstruction join.
-- **Write scope:** CFA-04 home and any explicitly assigned bounded execution packet.
-- **Next action:** Remain waiting for the master-router governed-corridor selection gate. Do not select locally. Prepare only evidence needed to execute once the central packet is assigned.
-- **Completion condition:** One positive live corridor and one negative live corridor are proven and reconstructable, with Authority/Work/Capability/Runtime/Evidence ownership explicit.
-- **Stop condition:** owner-policy question, Ω-law collision, material ownership conflict, or missing live-proof capability.
+## Future task intake
 
-.
+Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
+
+Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
