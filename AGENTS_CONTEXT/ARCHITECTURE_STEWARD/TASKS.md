@@ -55,6 +55,13 @@ Add durable Steward work only with status, priority, verified dependencies, writ
 
 ## Completed task history
 
+### CFA-PLANNING-CONTEXT-INVERSION-FIX-2026-09-27
+- **Status:** DONE
+- **Priority:** P1
+- **Result:** `RESULTS/STEWARD-20260927-CFA-PLANNING-CONTEXT-FIX.md`
+- **Outcome:** Identified and repaired the missing CFA-owned roadmap stage that had allowed a downstream Cycle 4 prescription to become the current Steward mission.
+- **Scope:** Steward control plane and all ten CFA persistent task queues; no Ω law or production implementation.
+
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
 - **Completed:** 2026-09-27
