@@ -1,6 +1,6 @@
 # CFA-04 — Authority Governance Steward — Durable Lessons
 
-> Operating layer: ChatGPT Agent Operating Model 1.0 / FSSP-1.1
+> Operating layer: ChatGPT Agent Operating Model 1.0 / FSSP-1.3
 > Status: ACTIVE
 > Purpose: compact cross-session operational memory.
 > Authority: operational learning only; not Ω law, semantic authority, or current state.
