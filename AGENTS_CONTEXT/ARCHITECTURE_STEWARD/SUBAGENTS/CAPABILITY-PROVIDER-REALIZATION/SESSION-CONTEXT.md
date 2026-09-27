@@ -1,8 +1,9 @@
 # CFA-06 — Session Context
 
-> Protocol: FSSP-1.1
+> Protocol: FSSP-1.3
 > Status: RATIFIED — OWNER-ALIGNED
 > Navigation aid only; not authority itself.
+> Completion contract: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md` v1.1
 
 ## Identity
 - CFA: CFA-06 — Capability / Provider / Realization
@@ -28,8 +29,10 @@ Provider Lab / empirical provider protocol, parser, drift and healing evidence.
 ## Fresh-session rule
 Use repository evidence to verify status; preserve provider-specific uncertainty.
 
-## Last verified baseline
-`3a6cea1b8b2f20cc6dc3a90cdc4f441ffe131bdb`
+## Last verified main
+`02452730000e8f013e55db25f919fd9c7f39364a`
+
+> Verified for this home-upgrade session on 2026-09-27. This is orientation only; it is never a gate.
 
 
 > The recorded baseline above is orientation only. Fresh sessions must resolve and verify the current `main`/target ref; it is not a gate.
