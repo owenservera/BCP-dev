@@ -8,26 +8,41 @@
 
 ## Current operating frontier
 
-**CFA Domain Roadmap Formation**
+**CFA Strategic Roadmap Round 1 — Independent Parallel Planning**
 
-The home-upgrade wave established agent homes. The substantive domain roadmap stage had not yet been run when the Steward previously selected Cycle 4. That selection is now treated as superseded candidate work.
+The immediate objective is to obtain ten independent conceptual roadmaps before selecting any shared execution slice.
 
-## Why the current frontier changed
+## Required owner action
 
-The ten CFAs are standing responsibility owners. Their homes contain domain evidence and active frontiers, but many TASKS.md files were still empty or held only inherited/open local items. The system therefore had enough context to plan, but had not yet allowed the CFA owners to perform the planning step.
+Launch all ten CFA strategic-roadmap sessions in parallel from:
 
-## Current owner actions
+`CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`
 
-1. Launch the ten CFA Domain Roadmap Formation sessions using `CFA-DOMAIN-ROADMAP-LAUNCH-QUEUE-2026-09-27.md`.
-2. Let each CFA independently define its bounded roadmap and persistent TASKS.md entries; do not preselect Cycle 4/5 or a P1 workstream.
-3. Return to the Steward after the roadmaps land for cross-CFA reconciliation and shared-frontier selection.
+Do not preselect or tell the CFAs which product cycle to adopt.
+
+Each CFA should return a local roadmap containing milestones, success criteria, dependencies, tooling, strategic decision gates, and milestone-specific peer intelligence requirements.
+
+## Central synthesis
+
+The Architecture Steward will populate:
+
+`CFA-STRATEGIC-ROADMAP-CENTRAL-2026-09-27.md`
+
+That artifact is the single central cross-CFA synthesis. Local CFA roadmaps remain richer, owner-maintained internal planning artifacts.
+
+## Current candidate material
+
+- Build-and-Harvest remains a destination program plan, not a current CFA mandate.
+- Cycle 4 / Live Chrome remains a candidate downstream slice, paused until roadmaps are reconciled.
+- P1 workstreams remain candidate inputs pending CFA adoption and cross-CFA reconciliation.
+- Prior Coding Start Readiness remains historical preparation evidence.
 
 ## CFA-05 exception
 
-CFA-05 still has a repository-visible HOME-UPGRADE READY state without a durable receipt. Preserve that maintenance discrepancy; it is not evidence that its domain roadmap must wait.
+CFA-05 still has a repository-visible home-upgrade READY state without its durable receipt. Preserve the discrepancy; it does not block the independent roadmap round.
 
-## Background
+## Background operating concerns
 
-- Commons v0 runtime/platform remains a valid background task.
+- Commons v0 runtime/platform remains valid background work.
 - Identity rotation/recovery remains blocked until a real rotation operation exists.
-- Owner Digest remains a derived projection and does not replace source state.
+- These do not displace the current strategic roadmap round.
