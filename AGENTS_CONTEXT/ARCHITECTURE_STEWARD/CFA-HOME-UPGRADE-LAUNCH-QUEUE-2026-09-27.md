@@ -33,11 +33,13 @@ Your task is to validate and upgrade ONLY your own durable agent home against th
 
 Do not repeat CFA birth or ratification. Your identity is already ratified in current main.
 
-Read current main and your home first. Verify your identity, current state, lessons, boundaries, and front-door navigation. Fix only agent-specific gaps supported by repository evidence.
+Read current main, your home, and your persistent `TASKS.md` first. Verify your identity, current state, tasks, lessons, boundaries, and front-door navigation. Fix only agent-specific gaps supported by repository evidence.
 
 Do not change Ω law, activate shared boundaries, create duplicate identity stores, or begin unrelated implementation.
 
 First assess the execution strategy from current repository evidence; do not assume prompt sequencing is dependency. Complete the home-upgrade gate, make only justified changes (including no change when the home is already healthy), and return the full FSSP-1.2 report.
+
+Before stopping, update `TASKS.md`: mark the home-upgrade item DONE/COMPLETE when genuinely finished, record any durable follow-up task discovered, and leave the next actionable state explicit. Then report.
 
 STOP after your home upgrade and report.
 ```
@@ -81,6 +83,12 @@ agent_id: `evolution-compatibility-self-maintenance`
 ## CFA-10 — Runtime Constitution & Core Substrate Steward
 Home: https://github.com/owenservera/BCP-dev/tree/main/AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE
 agent_id: `runtime-constitution-core-substrate`
+
+## Persistent task-list contract
+
+Every CFA home now contains its own `TASKS.md`. The home-upgrade session is itself represented there. The agent owns that queue and must maintain it across future ChatGPT conversations.
+
+Required task lifecycle: `READY → IN_PROGRESS → DONE` (or `BLOCKED` / `SUPERSEDED` when justified). Do not remove unfinished work merely because a conversation ended.
 
 ## Owner launch checklist
 
