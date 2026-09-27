@@ -10,9 +10,20 @@ LAST_VERIFIED_RECEIPTS_SHA: 430aea70f03fe4969e8c09583fab981934fa3768
 
 No Steward receipt index existed at boot, so the baseline tip is the initial last-verified point. The value is advanced only after a receipt sweep verifies indexed receipts against repository evidence.
 
+## Strategic operating state
+
+- Commons/repository receipt convergence is defined; repository receipts remain the live completion surface until Commons is the operational transport.
+- Repository commit lineage is not treated as agent identity; unverified artifact authorship is an unattributed claim for Steward trust purposes.
+- Commons runtime/platform work is assigned to CFA-10 under RUNTIME-PLATFORM-WORKSTREAM-2026-09-27.md.
+- Commons design breadth is frozen until the existing 10-point v0 operational completion test is evidence-backed green across two independent runtimes.
+- Epistemic Integrity remains cross-cutting; quantitative review triggers for a possible dedicated CFA-11 are defined in the CFA register.
+- CFA-04 is the operational custodian for Commons identity/security ceremonies.
+- OWNER-DIGEST.md is the derived weekly owner-facing compression surface.
+- The full key-rotation + identity-recovery drill remains blocked until a real key-rotation operation exists; recovery/no-silent-fork is already smoke-tested.
+
 ## Current state
 
-The ChatGPT Agent Operating Model 1.0 and FSSP-1.1 are established.
+The ChatGPT Agent Operating Model 1.0 and FSSP-1.3 are established.
 
 The fresh Architecture Steward cold-start test has passed. The session recovered identity, current repository state, operating model and the required next action after the Steward home was given as the seed. No further Steward test is required.
 
