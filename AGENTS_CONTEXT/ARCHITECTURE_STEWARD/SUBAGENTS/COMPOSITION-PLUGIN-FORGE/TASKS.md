@@ -7,22 +7,31 @@
 
 ## Open tasks
 
-### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
-- **Status:** IN_PROGRESS
+### COMPOSITION-IDENTITY-SURVIVOR-PROOF-2026-09-27
+- **Status:** READY
 - **Priority:** P1
-- **Purpose:** Independently define the CFA's high-level conceptual roadmap before shared execution is selected.
-- **Required outputs:** strategic objective; 3–7 core milestones; milestone success criteria/falsifiers; dependencies; tooling/substrate assessment; strategic design gates; milestone-by-milestone peer-intelligence requests; product/strategic consequences; deferred/do-not-do boundary; inherited-plan classification.
-- **Dependencies:** Initial pass is independent of the other nine new roadmap sessions. Existing repository evidence may be used; new Round-1 peer outputs must not be consumed before first-pass completion.
-- **Write scope:** Own CFA home, `DOMAIN-ROADMAP-2026-09-27.md`, and own `TASKS.md`.
-- **Next action:** Follow the shared strategic roadmap protocol; preserve existing useful artifacts rather than creating duplicates.
-- **Completion condition:** Full local strategic roadmap persisted; first bounded actionable tasks recorded; peer-intelligence needs are explicit at each milestone; receipt persisted and verified.
-- **Stop condition:** Stop at an owner decision, material peer ownership conflict, Ω-law collision, or insufficient evidence. Do not start production implementation.
+- **Objective:** Establish the smallest semantic Composition identity and falsifiable survivor properties across valid plugin/realization replacement.
+- **Milestone:** M1 / M4 of `DOMAIN-ROADMAP-2026-09-27.md`.
+- **Dependencies:** Initial analysis is independent. Before final survivor rules, obtain targeted evidence from CFA-06; later contract reconciliation with CFA-05, CFA-09 and CFA-02 is expected where their semantic domains are implicated.
+- **Peer inputs required:** CFA-06 replacement semantics first; CFA-05 Work-impact semantics, CFA-09 evolution/rollback semantics, and CFA-02 durable lineage as decision-specific follow-ups.
+- **Tooling required:** Existing composition/Recipe fixtures plus the smallest justified identity/survivor fixture extension; no new runtime subsystem.
+- **Write scope:** Own CFA-07 home and bounded research artifacts only.
+- **Next action:** Inventory current composition/Recipe identity fields and classify candidate survivor properties as semantic, representational, member-specific, or change-specific.
+- **Completion condition:** A compact identity model, replacement-class matrix, falsifiers, evidence lineage, explicit peer handoffs, and truthful UNKNOWN/CONFLICTED items are persisted; no Ω law or peer-owned semantics are rewritten.
+- **Stop condition:** Stop on Ω-law collision, material ownership conflict, or missing authority needed to decide a boundary.
 
 ## Future task intake
 
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
 
 ## Completed task history
+
+### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result:** `RESULTS/CFA07-20260927-STRATEGIC-ROADMAP-R1.md`
+- **Roadmap:** `DOMAIN-ROADMAP-2026-09-27.md`
+- **Commit:** recorded in the session receipt.
 
 ### HOME-UPGRADE-2026-09-27
 - **Status:** DONE
