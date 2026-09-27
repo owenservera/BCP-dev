@@ -1,6 +1,6 @@
 # Architecture Steward — Durable Lessons
 
-> Operating layer: ChatGPT Agent Operating Model 1.0 / FSSP-1.1
+> Operating layer: ChatGPT Agent Operating Model 1.1 / FSSP-1.2
 > Status: ACTIVE
 > Purpose: compact cross-session operational memory for the Architecture Steward.
 > Authority: operational learning only; not Ω law or semantic authority.
@@ -20,6 +20,8 @@ Do not use this file as a transcript archive, task tracker, architecture authori
 5. **Agent homes separate identity, state and lessons.** Do not collapse them into one growing file.
 6. **Steward is the session-envelope compiler.** Determine the next task from verified repository truth rather than replaying chat transcripts.
 7. **Operating-model knowledge is not enough to infer the immediate task.** The Steward home must expose an explicit current mission and next-action artifact when work transitions from shared setup to owner-launched peer sessions.
+8. **Instructions ≠ decisions.** A sequence, checklist, launch queue, predecessor label, or prior agent recommendation is not proof of dependency. Assess the actual semantic, authority, read/predecessor, write-surface, synchronization, verification, and risk dependencies before selecting serial or parallel execution.
+9. **Do not manufacture progress.** A healthy target can require no change; do not create commits merely to satisfy a prescribed sequence.
 
 ## Promotion rule
 
