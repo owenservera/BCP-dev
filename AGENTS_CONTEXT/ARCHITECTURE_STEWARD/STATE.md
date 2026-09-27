@@ -1,7 +1,26 @@
 # Architecture Steward — State
 
-> Updated: 2026-09-25
-> Status: ACTIVE / INITIALIZED / CONTEXTUALIZED / FIRST HOUSEKEEPING CYCLE
+> Updated: 2026-09-27
+> Status: ACTIVE / FRESH-SESSION OPERATING-MODEL VALIDATION
+> This is durable Steward operating state; not Ω law or semantic authority.
+
+## Current operating state
+
+The shared ChatGPT agent operating model and FSSP-1.1 are established.
+
+A fresh Steward session has now been empirically tested from the Steward home. The session successfully recovered the new operating model and repository state, but did not infer the immediate next owner action: launch fresh sessions for CFA-01 through CFA-10 so each agent can validate and upgrade its own home.
+
+That missing transition is now made explicit in `CURRENT-MISSION.md`.
+
+## Immediate next action
+
+**Owner launches one fresh ChatGPT session for each CFA-01 through CFA-10, using each CFA home as the seed.**
+
+Those sessions validate and upgrade their own durable homes against FSSP-1.1. The Steward does not perform those agent-specific upgrades centrally.
+
+## Steward resume condition
+
+After the CFA sessions return verified repository results, the Architecture Steward reconciles the constellation-wide state and evaluates the cold-start model again.
 
 ## Current state
 
