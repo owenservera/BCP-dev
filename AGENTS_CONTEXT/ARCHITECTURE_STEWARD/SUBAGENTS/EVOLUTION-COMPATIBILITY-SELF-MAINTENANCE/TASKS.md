@@ -11,12 +11,21 @@
 > **Master structural anchor:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
 > **CFA:** CFA-09
 > **Portfolio package:** SEAM-CLOSURE
-> **Current portfolio state:** M1 change contract/reconciliation complete; current local router needs portfolio precedence
+> **Current portfolio state:** M1 change contract/reconciliation complete; Stage-E L2 Change/compatibility basis adapter complete; current master router governs next work
 >
 > Local TASKS remains CFA-owned execution detail. Historical local routers/prompts are lineage only and cannot override the master portfolio router. Do not resurrect completed Wave-1/Wave-2/Wave-3 or bootstrap stages from stale local routing text.
 > Resolve any new `Next` against the master router first, then this local queue.
 
 ## Open tasks
+
+### STAGE-E-L2-CHANGE-COMPATIBILITY-BASIS-ADAPTER-2026-09-27
+- **Status:** DONE — OWNER CHARACTERIZATION COMPLETE
+- **Priority:** P0
+- **Artifact:** `STAGE-E-L2-CHANGE-COMPATIBILITY-BASIS-ADAPTER-2026-09-27.md`
+- **Receipt:** `RESULTS/CFA09-20260927-STAGE-E-L2-CHANGE-COMPATIBILITY-ADAPTER.md`
+- **Commit:** `8cdfbb251a6665de79836fae9a53581013e24326`
+- **Result:** Closed the minimum Change/compatibility freshness basis without creating a second Evolution store or compatibility authority. Residual canonical Change persistence, universal revision identity, evaluator identity, semantic-delta, impact and atomicity details remain UNKNOWN.
+
 
 ## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 — **RECEIPT-DRIVEN**
 
@@ -45,6 +54,12 @@ Hard stop: no production implementation, no shared-boundary activation, no Ω-la
 
 
 ## Completed task history
+
+### STAGE-E-L2-CHANGE-COMPATIBILITY-BASIS-ADAPTER-2026-09-27
+- **Status:** DONE
+- **Completed:** 2026-09-27
+- **Result:** owner-scoped Change/compatibility basis adapter characterized.
+- **Receipt:** `RESULTS/CFA09-20260927-STAGE-E-L2-CHANGE-COMPATIBILITY-ADAPTER.md`
 
 ### BOUNDARY-BASELINE-WAVE-1-2026-09-27
 - **Status:** DONE
