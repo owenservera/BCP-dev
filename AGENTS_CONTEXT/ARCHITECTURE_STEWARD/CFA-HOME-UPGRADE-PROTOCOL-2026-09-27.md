@@ -1,10 +1,10 @@
 # CFA Home Upgrade Protocol
 
-> Version: 1.0
+> Version: 1.1
 > Date: 2026-09-27
 > Status: ACTIVE
 > Scope: fresh ChatGPT sessions for CFA-01 through CFA-10 after ratified identity establishment.
-> Governing protocol: FSSP-1.1
+> Governing protocol: FSSP-1.2
 > Purpose: validate and improve each agent's durable home without repeating CFA birth/ratification.
 
 ## Mission
@@ -44,6 +44,12 @@ VERIFY CURRENT IDENTITY
 10. the assigned CFA's `LESSONS.md`
 11. current alignment/history artifacts as applicable
 
+## Persistent task queue
+
+Each CFA home must contain `TASKS.md`. The home-upgrade session must read it, reconcile the seeded home-upgrade task against current repository truth, update its status as work progresses, and leave the next actionable state durable before stopping.
+
+`TASKS.md` is the agent's work queue, not semantic authority or proof of dependency.
+
 ## Required validation
 
 The session must establish:
@@ -58,6 +64,7 @@ The session must establish:
 - current unresolved items;
 - whether the session context points to the correct durable artifacts;
 - whether the recorded baseline SHA is clearly informational rather than a gate;
+- whether `TASKS.md` represents the durable work frontier separately from state, lessons, and authority;
 - whether lessons are separate from state and authority;
 - whether stale or superseded launch material can mislead a fresh session.
 
