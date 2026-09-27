@@ -7,34 +7,24 @@
 
 ## Open tasks
 
-## NEXT routing — current Wave 1 gate
+## 🚨 CURRENT EXECUTION ROUTER — WAVE 1 / CFA-08 COMPLETE
 
-The first actionable task for this home is the CFA-08 boundary baseline in:
-AGENTS_CONTEXT/ARCHITECTURE_STEWARD/BOUNDARY-DESIGN-SYSTEM/CFA-05-10-BOUNDARY-BASELINE-AND-RECONCILIATION-2026-09-27.md
+> **READ THIS BEFORE THE OPEN TASKS BELOW. THIS ROUTER OVERRIDES OLDER TASK PRIORITIES UNTIL THE CENTRAL BOUNDARY GATE ADVANCES.**
 
-When the human owner says "Next", execute **Wave 1 / CFA-08** only:
-- verify current main and this home;
-- read owner alignment plus CFA-01–04 Round-2 Completion Audit;
-- produce BOUNDARY-BASELINE-DECLARATION-2026-09-27.md;
-- explicitly cover World/Space, Semantic/Intent, Work, Composition, Capability/Provider, canonical-vs-presentation, persistence/re-entry and write-back;
-- stop after the declaration is committed and report the exact SHA.
+**Current state:** Wave 1 boundary baseline for **CFA-08 is already present on current `main`**.
 
-Do not execute the older Workspace reconstruction task first. Do not build frontend/runtime code.
+When the human owner says exactly **“Next”**, **DO NOT select or resume any older Open/Future task in this home.** This home is waiting for the Architecture Steward's **Wave 2** reconciliation.
 
+Required response to an early/premature Next:
+- verify the current baseline remains present on `main`;
+- report **W1 COMPLETE / WAITING FOR STEWARD WAVE 2**;
+- do not perform additional substantive CFA work;
+- do not invent or activate a peer-reconciliation task before the Steward opens Wave 3.
 
+Only the Architecture Steward's Wave-2 completion and subsequent Wave-3 routing may advance this CFA.
 
-### SPACE-WORKSPACE-RECONSTRUCTION-2026-09-27
-- **Status:** READY
-- **Priority:** P2
-- **Objective:** Reconcile the semantic Space / presentation Workspace seam and define the smallest reconstructable workspace contract.
-- **Milestone:** M2 — Reconstructable Space / Workspace / Canvas.
-- **Dependencies:** CFA-01 semantic Space/membership meaning; CFA-02 durable presentation-state/reconstruction constraints. These are peer evidence gates, not activated shared boundaries.
-- **Peer inputs required:** Current CFA-01 Space contract and CFA-02 durable record/revision/reconstruction constraints.
-- **Tooling required:** Existing world-surface falsifier blueprint; thin deterministic reconstruction fixture only if the contract can be stated without implementation coupling.
-- **Write scope:** Own CFA-08 home and bounded Workspace/Space design artifacts.
-- **Next action:** Map Space, Workspace, View, Layout and Interaction State into one reconstruction lifecycle while preserving CFA-01 semantic Space ownership and CFA-02 durable-data ownership.
-- **Completion condition:** Evidence-backed bounded seam contract with explicit persistence classification, reconstruction invariant, owner handoffs, falsifiers and remaining unknowns.
-- **Stop condition:** Stop on unresolved semantic ownership, durable-data policy conflict, Ω-law collision, or need for production implementation. Do not build frontend/runtime code.
+Hard stop: **no production implementation, no shared-boundary activation, no Ω-law change, and no graph attachment.**
+
 
 ## Future task intake
 
