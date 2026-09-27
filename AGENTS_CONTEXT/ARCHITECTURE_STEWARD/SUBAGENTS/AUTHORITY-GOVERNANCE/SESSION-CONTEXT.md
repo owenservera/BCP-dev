@@ -1,6 +1,6 @@
 # CFA-04 — Session Context
 
-> Protocol: FSSP-1.1
+> Protocol: FSSP-1.3
 > Status: RATIFIED — OWNER-ALIGNED
 > Navigation aid only; not authority itself.
 
@@ -14,6 +14,7 @@
 - lessons: `LESSONS.md`
 - alignment: `OWNER-ALIGNMENT-2026-09-27.md`
 - history: `IDENTITY-HISTORY.md`
+- persistent task queue: `TASKS.md`
 
 ## Mission
 Authority/permission semantics: principal, actor/deputy, effect, authority basis, consent, delegation, scope, duration, expiry, revocation, authority-to-invocation binding.
@@ -24,7 +25,7 @@ Intent != Permission; Grounding != Authorization; Capability != Authority; Ident
 ## Current unresolved seams
 CFA-02 authority citations; CFA-01 accessible/World visibility treatment; CFA-05 multi-step authorization; runtime/evidence authority trace joins.
 
-- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+- current task: `TASKS.md` — `HOME-UPGRADE-2026-09-27` until completed; durable unfinished-work and next-action queue
 
 ## Fresh-session rule
 Already-ratified means verify, do not re-ratify. Escalate genuine owner-policy or Ω-law changes.
