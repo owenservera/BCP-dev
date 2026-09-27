@@ -8,7 +8,7 @@
 ## Open tasks
 
 ### ROADMAP-M1-SEMANTIC-BASELINE-TRACE-2026-09-27
-- **Status:** IN_PROGRESS
+- **Status:** DONE
 - **Priority:** P1
 - **Objective:** Produce the evidence-backed M1 semantic continuity baseline and terminology collision map.
 - **Milestone:** M1 — Semantic Continuity Baseline.
@@ -16,8 +16,8 @@
 - **Peer inputs required:** Existing peer boundary artifacts may be consulted for orientation; newly produced Round-1 peer roadmaps must not be used during first-pass execution.
 - **Tooling:** Existing GitHub repository search/read plus deterministic tests; add only a small fixture if a concrete gap is demonstrated.
 - **Write scope:** Own CFA-03 home; no production runtime changes.
-- **Next action:** Complete the evidence-backed M1 trace and persist the compact continuity identity/state/terminology crosswalk.
-- **Completion condition:** Persist evidence-backed M1 findings, unknowns, falsifiers and a minimal continuity crosswalk without activating shared boundaries.
+- **Next action:** Resume at M2 only after the central Steward has reconciled the independent Round-1 CFA roadmaps, or when a CFA-03-specific launch explicitly authorizes the next milestone.
+- **Completion condition:** M1 findings and crosswalk persisted, verified, and reflected in STATE.md; no shared boundaries activated.
 - **Stop condition:** Stop at genuine owner policy, peer ownership conflict, Ω-law collision, or evidence insufficiency.
 
 ### DEEPER-SEMANTIC-CONTINUITY-MISSION-2026-09-27
@@ -31,6 +31,14 @@
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
 
 ## Completed task history
+
+### ROADMAP-M1-SEMANTIC-BASELINE-TRACE-2026-09-27
+- **Status:** DONE
+- **Receipt:** `RESULTS/CFA03-20260927-M1-SEMANTIC-BASELINE-TRACE.md`
+- **Findings:** `FINDINGS.md`
+- **Crosswalk:** `CROSSWALK.md`
+- **Outcome:** Verified current semantic spine through Intent/resolution, recorded the unproven Plan/Work/freshness/visual-write-back seams, and reconciled current Round-2 peer agreements without activating shared boundaries.
+
 
 ### STRATEGIC-ROADMAP-ROUND-1-2026-09-27
 - **Status:** DONE
