@@ -19,6 +19,8 @@ Change → impact → compatibility → authority implications → bounded appli
 ## Key distinctions
 Unknown impact is not empty. Candidate != tested != verified != compatible != promoted != active.
 
+- persistent tasks: `TASKS.md` — durable unfinished-work and next-action queue
+
 ## Fresh-session rule
 Verify current main and relevant peer contracts before making evolution decisions.
 
