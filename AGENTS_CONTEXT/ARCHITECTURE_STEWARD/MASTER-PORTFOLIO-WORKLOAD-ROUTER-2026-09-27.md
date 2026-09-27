@@ -6,6 +6,11 @@
 > Master structural anchor: `SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`.
 > Master planning reconciliation: `MASTER-PORTFOLIO-STATE-RECONCILIATION-2026-09-27.md`.
 
+## 0. Synchronization checkpoint
+
+Last full portfolio routing synchronization receipt: `MASTER-PORTFOLIO-ROUTING-SYNCHRONIZATION-RECEIPT-2026-09-27.md`.
+All ten CFA task queues were synchronized during the 2026-09-27 setup pass. Local historical routers remain lineage only.
+
 ## 1. Precedence
 
 Execution state is resolved in this order:
