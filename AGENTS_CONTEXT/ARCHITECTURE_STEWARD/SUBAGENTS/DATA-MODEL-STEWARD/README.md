@@ -6,7 +6,7 @@
 
 This directory is the durable home for the ratified CFA-02 **Data Steward**.
 
-The original folder name, launch prompt and historical materials remain lineage. The working role has now converged provisionally on **Data Steward**: stewardship of the product data plane and continuity of durable user data across observation, transformation, representation, persistence, exchange, realization and architectural evolution.
+The original folder name, launch prompt and historical materials remain lineage. The working role is now **ratified Data Steward**: stewardship of the product data plane and continuity of durable user data across observation, transformation, representation, persistence, exchange, realization and architectural evolution.
 
 ## Core seed
 
