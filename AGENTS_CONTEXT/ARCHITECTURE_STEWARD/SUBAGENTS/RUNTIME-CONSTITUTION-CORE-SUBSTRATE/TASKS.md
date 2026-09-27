@@ -52,14 +52,14 @@ Hard stop: **no production implementation, no shared-boundary activation, no Ω-
 
 ## Future task intake
 ### RUNTIME-M1-B1-TARGET-RUNTIME-CLOSURE-2026-09-27
-- **Status:** READY-LOCAL-RUNTIME-EXECUTION
+- **Status:** BLOCKED-HOSTED-RUNTIME
 - **Priority:** P1
 - **Purpose:** Replay the B1 signed-manifest corpus on an actual supported Ω runtime and close the remaining target-runtime evidence gaps identified by the bounded primitive experiment.
 - **Preconditions:** EXPERIMENTS/B1-CONTAINMENT-BYTE-BINDING-EXPERIMENT-2026-09-27.md persisted; current Ω host and target-runtime checkout available.
-- **Next action:** Run signed-manifest cases for entry/source/manifest containment, symlink/non-file refusal, verify→execute mutation/replacement, and B4 recovery; record exact allow/refuse outcomes and preserve UNKNOWN where platform behavior is unavailable.
+- **Next action:** Execute the persisted handoff `EXECUTION-HANDOFFS/B1-TARGET-RUNTIME-CLOSURE-2026-09-27.md` from a real checkout on a supported Bun runtime; this hosted session cannot perform the runtime replay because GitHub DNS is unavailable to the execution container.
 - **Write scope:** CFA-10 experiment/results only; no Ω-law or production-runtime changes until a later implementation decision.
 - **Completion condition:** Reproducible target-runtime evidence covers the M1 B1 matrix or names the residual unknowns precisely; no uncovered bytes are shown to execute.
-- **Stop condition:** stop on Ω-law collision, boundary/security-tier decision, or need to choose a production mechanism before evidence is sufficient.
+- **Stop condition:** remain blocked here until local/CI runtime evidence exists; stop on Ω-law collision, boundary/security-tier decision, or need to choose a production mechanism before evidence is sufficient.
 
 
 Add durable agent-owned work here with status, priority, verified dependencies, write scope, next action, and completion condition.
