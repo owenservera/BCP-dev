@@ -16,9 +16,9 @@ Runtime/bootstrap reads this file instead of requiring each session to hand-type
 | `authority-governance` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AUTHORITY-GOVERNANCE` | Authority Governance Steward — Authority / Governance | ratified |
 | `agency-work-execution` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/AGENCY-WORK-EXECUTION` | Work & Execution Steward — Agency / Work / Execution | ratified |
 | `capability-provider-realization` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CAPABILITY-PROVIDER-REALIZATION` | Capability & Provider Realization Steward — Capability / Provider / Realization | ratified |
-| `composition-plugin-forge` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/COMPOSITION-PLUGIN-FORGE` | Composition / Plugin / Forge | bootstrap-ready |
-| `experience-interaction-surfaces` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES` | Experience / Interaction / Surfaces | bootstrap-ready |
-| `evolution-compatibility-self-maintenance` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE` | Evolution / Compatibility / Self-Maintenance | bootstrap-ready |
+| `composition-plugin-forge` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/COMPOSITION-PLUGIN-FORGE` | Composition / Plugin / Forge | ratified |
+| `experience-interaction-surfaces` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EXPERIENCE-INTERACTION-SURFACES` | Experience / Interaction / Surfaces | ratified |
+| `evolution-compatibility-self-maintenance` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/EVOLUTION-COMPATIBILITY-SELF-MAINTENANCE` | Evolution / Compatibility / Self-Maintenance | ratified |
 | `runtime-constitution-core-substrate` | `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/RUNTIME-CONSTITUTION-CORE-SUBSTRATE` | Runtime Constitution & Core Substrate Steward — Runtime Constitution / Core Substrate | ratified |
 
 ## Registry rules
