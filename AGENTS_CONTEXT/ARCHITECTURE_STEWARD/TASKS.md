@@ -11,7 +11,7 @@
 - **Purpose:** Fix the observed divergence between chat-reported Stage-E L2 owner completion and durable repository completion state.
 - **Result:** Added the central Durable Completion Gate, strengthened the Session Result Contract and subagent handoff, corrected the Stage-E L2 packet, classified owner-reported-but-unverified work explicitly, and prevented repeat-work loops.
 - **Receipt:** `RESULTS/STEWARD-20260928-DURABLE-COMPLETION-GATE.md`
-- **Completion commit:** `be195d571b49a59afa9addda20b2591446a64ee3`
+- **Completion commit:** `d1f885e186ccf0c75ed9a8b35d4adefccdc87946`
 - **Next:** Pending L2 owners must verify/repair durable completion before the Steward reconciles L2.
 
 ## Open tasks
