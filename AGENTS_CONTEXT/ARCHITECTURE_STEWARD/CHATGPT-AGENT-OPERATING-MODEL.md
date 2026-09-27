@@ -269,6 +269,8 @@ The Steward does not merely copy the previous report into the next prompt.
 
 The next prompt is generated from verified repository state.
 
+When the next action belongs to the human owner (for example, launching independent fresh sessions), the Steward must compile a concrete owner action package rather than merely naming the work. That package should contain direct links, exact launch text, genuine prerequisites, execution strategy, and stop/report conditions.
+
 ## 10. Session-result architecture
 
 A session result has four distinct outputs:
