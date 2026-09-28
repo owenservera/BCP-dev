@@ -8,7 +8,7 @@
   "triggerMode": "manual-referral",
   "reviewLayer": "conceptual-commitment-boundary",
   "activeTask": "VG-0001",
-  "nextTask": "VG-0001",
+  "nextTask": "VG-0003",
   "queueFile": "TASK-QUEUE.md",
   "nextResearchQuestion": "Which orchestration substrate and topology has the smallest evidence-backed coordination cost for the beta mission, and which parts remain unproven on the current runtime?",
   "selfAudit": {
