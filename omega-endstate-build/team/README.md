@@ -75,7 +75,7 @@ Each persistent agent should eventually have a durable definition containing:
 - task/handoff location;
 - supersession/retirement information.
 
-Use AGENT-TEMPLATE.md as a starting shape, not a mandatory schema.
+Use the existing seeded agent definitions as patterns, not mandatory schemas. Keep durable fields aligned with the role actually being operated.
 
 ## Ownership
 
