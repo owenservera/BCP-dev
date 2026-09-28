@@ -22,10 +22,27 @@ VETO-01 is the first explicit trust-chain witness, not the owner of truth or tea
 ## Initial topology
 
 STEW-01 — Local End-State Build Steward
-  - creates specialist agents as needed
-  - creates temporary investigation agents as needed
-  - can create meta/tooling agents when justified
-  - owns integration/replanning unless its own OS later delegates those responsibilities
+  - team-level coordination, roadmap and integration in the current bootstrap shape
+  - creates/retires or delegates roles as evidence justifies them
+
+DEVOPS-01 — Agentic Development Tooling Owner
+  - seeded resident owner of the local development-system / DevOps tooling domain
+  - currently ready for first live bootstrap and self-definition
+  - may propose or create domain specialists only within its delegated scope and established execution mechanisms
+
+PROV-01 — Provider / Live-Environment Investigator
+  - proposed specialist; provision when live-provider workload requires it
+
+VER-01 — Independent Verifier
+  - proposed specialist; provision when independent verification work requires it
+
+VETO-01 — Mission Governor Department
+  - separate experimental governance/audit function
+  - advisory veto proposal only; not a team manager or truth authority
+
+COORD-01 — Architectural / Research Auditor
+  - peer external coordination/audit context where explicitly engaged
+  - not part of STEW-01's local execution topology unless deliberately integrated later
 
 This is a starting topology, not a permanent org chart.
 
