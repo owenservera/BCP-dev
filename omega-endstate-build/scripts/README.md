@@ -2,29 +2,31 @@
 
 These PowerShell scripts are executable helpers for the local Steward and its agents.
 
-They are designed to be run from a normal BCP-dev checkout or from a compatible worktree.
+They are development-system tooling, not project-management material.
 
-They do not replace Git.
-
-They automate the safety protocol.
+They do not replace Git. They automate the safety protocol around isolated execution.
 
 ## Scripts
 
 ### `New-AgentWorkspace.ps1`
 
-Allocates a new isolated agent workspace and owned branch.
+Allocates an isolated local worktree or clone for a task.
 
-Default mode is a Git worktree.
+The agent ID identifies **who is executing the task**. The Git branch identifies **the task/change**, not the agent.
 
-Use `-Mode clone` for higher-risk isolation.
+Default branch form:
+
+`work/omega-endstate/<TASK>`
+
+Default workspace root is a machine-local sibling directory outside the tracked repository. It is operational state, not project-management state.
 
 ### `Verify-AgentWorkspace.ps1`
 
-Checks that an agent is operating in the workspace/branch recorded in its local manifest and reports dirty state and branch/base information.
+Checks that an agent is operating in the workspace recorded in its local manifest and reports dirty state and branch/base information.
 
 ### `PreIntegration.ps1`
 
-Performs a non-mutating integration preflight: verifies the agent workspace is clean, checks the recorded base, fetches current refs, compares the agent branch with the current team integration line, and reports the divergence/change set.
+Performs a non-mutating integration preflight: verifies the workspace is clean, checks the recorded base, fetches current refs, compares the task branch with the current team integration line, and reports divergence/change set.
 
 ### `Retire-AgentWorkspace.ps1`
 
@@ -36,16 +38,19 @@ Convenience wrapper for allocating the first Steward workspace and printing the 
 
 ## Local state
 
-Machine-specific registry and manifests live under:
+Machine-specific registry and manifests live under the configured workspace root. They are never project-management state and must never contain secrets.
 
-`omega-endstate-build/.local/`
+## Workspace model
 
-That directory is gitignored and must never contain secrets.
+One concurrently active agent session gets one isolated execution workspace.
 
-## Safety posture
+That workspace may use a Git worktree or clone.
 
-The scripts fail closed on ambiguous ownership, existing branches, unexpected current branches, or dirty workspaces where destructive cleanup would otherwise be tempting.
+Agent identity is separate from Git branch identity.
 
+Branches are task/change mechanisms and may be created, integrated, renamed or retired independently of the agent that performed the work.
+
+The tooling does not create a permanent agent workspace hierarchy inside the repository.
 
 ## First Steward launch
 
@@ -55,15 +60,7 @@ From a trusted BCP-dev checkout:
 .\omega-endstate-build\scripts\Bootstrap-Steward.ps1
 ```
 
-The script creates:
-
-`<sibling-of-repository>/omega-endstate-workspaces/STEW-01-bootstrap-team/`
-
-and the branch:
-
-`work/omega-endstate/STEW-01/bootstrap-team`
-
-It is safe to run again: it refuses to reuse an existing workspace or branch rather than overwriting it.
+The bootstrap creates a task workspace outside the tracked repository and a task branch based on the exact current `team/omega-endstate` SHA.
 
 Inside the allocated workspace:
 
@@ -72,4 +69,6 @@ Inside the allocated workspace:
 opencode
 ```
 
-The Steward then reads `omega-endstate-build/STEWARD-BOOTSTRAP.md` and takes ownership of designing its own team.
+The Steward then reads:
+
+`omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/control-plane/STEWARD-BOOTSTRAP.md`
