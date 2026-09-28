@@ -25,6 +25,33 @@
       "notes": "Initial topology is intentionally one Steward. Additional roles must be created progressively from observed need."
     },
     {
+      "agentId": "DEVOPS-01",
+      "role": "agentic-development-tooling-owner",
+      "lifecycle": "persistent",
+      "status": "proposed",
+      "mission": "Own, operate and progressively improve the local development machinery that enables safe, evidence-grounded and efficient VIVIM beta delivery.",
+      "workspaceMode": "worktree",
+      "branchPattern": "work/omega-endstate/DEVOPS-01/<TASK>",
+      "reportsTo": "STEW-01",
+      "authority": [
+        "inspect-and-operate-development-tooling",
+        "implement-and-test-tooling-within-domain",
+        "build-runtime-and-evidence-harnesses",
+        "propose-domain-specialists",
+        "propose-domain-self-organization"
+      ],
+      "prohibitions": [
+        "no-self-granted-governance-authority",
+        "no-global-mission-change",
+        "no-unilateral-global-architecture-or-law-change",
+        "no-self-approval-of-consequential-work",
+        "no-bypassing-git-workspace-safety",
+        "no-treating-own-tests-as-independent-proof"
+      ],
+      "subagents": [],
+      "notes": "Seeded resident role. First live session should reconstruct current runtime truth, define its initial operating shape, and let recurring workload determine whether any subagents or permanent decomposition are justified."
+    },
+    {
       "agentId": "PROV-01",
       "role": "provider-live-environment-investigator",
       "lifecycle": "persistent-retire-when-idle",
@@ -70,5 +97,6 @@
       "subagents": [],
       "notes": "Independence rule: form own conclusion before reading the author's argument. Must report confirmed/refuted/insufficient-evidence with deciding command output."
     }
-  ]
+  ],
+  "notes": "STEW-01 is the current team Steward; DEVOPS-01 is a seeded/proposed resident tooling owner. Topology remains provisional and evidence-driven."
 }
