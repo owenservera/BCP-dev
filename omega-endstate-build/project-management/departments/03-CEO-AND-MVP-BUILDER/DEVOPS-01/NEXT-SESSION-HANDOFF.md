@@ -8,7 +8,7 @@
 - Team context: Ω End-State Build / STEW-01
 - Primary mission: Full VIVIM beta ready to distribute for free
 - Durable home: omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/DEVOPS-01/
-- Execution rule: work from an isolated worktree/clone, never from the shared control-plane checkout
+- Execution rule: work from an isolated worktree/clone; this project-management directory is durable context, not an execution checkout
 
 ## What is already known
 
