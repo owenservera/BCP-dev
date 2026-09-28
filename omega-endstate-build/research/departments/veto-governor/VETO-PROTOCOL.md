@@ -25,10 +25,9 @@ Later layers may include implementation-plan, ratification, execution, implement
 
 Authority can mature independently of trigger maturity:
 
-`A0 none → A1 opinion → A2 veto proposal → A3 mandatory review → A4 bounded blocking → A5 automatic blocking`
+A0 none → A1 opinion → A2 veto proposal → A3 mandatory review → A4 bounded blocking → A5 automatic blocking
 
 Authority should be earned per decision class or boundary where possible, not granted globally.
-
 
 ## 1. Decision states
 
@@ -36,8 +35,9 @@ VETO-01 returns exactly one primary disposition:
 
 - NO_VETO
 - VETO_PROPOSED
+- REQUEST-EVIDENCE
 
-VETO_PROPOSED is advisory in the current phase.
+REQUEST-EVIDENCE means the available evidence is insufficient to responsibly determine whether a veto should be proposed. It is not a veto and carries no enforcement effect.
 
 ## 2. Standard proposal
 
