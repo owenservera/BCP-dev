@@ -6,8 +6,9 @@ This queue is the department's durable intake surface.
 
 ## VG-0001 — Audit the entire swarm agent system
 
-- Status: NEW
+- Status: IN_PROGRESS
 - Requester: OWNER
+- Claimed by: VETO-01 / COORD-01 audit session
 - Class: AUDIT, RESEARCH
 - Objective: Independently audit the complete swarm and agent-development substrate relevant to the Ω End-State Build and determine what should be retained, challenged, tested, deferred, or rejected in service of the free full-beta mission.
 - Target: The entire relevant swarm/agent system, including vendored opencode-swarm, the resident-team lab, native OpenCode Task/subagent behavior, existing BCP Agent Commons, existing mainline agent organization, worker model, communication/memory mechanisms, and surrounding organizational research.
