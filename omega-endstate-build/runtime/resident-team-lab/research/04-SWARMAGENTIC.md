@@ -5,7 +5,7 @@ Code: https://github.com/yaoz720/SwarmAgenticCode
 
 ## Main finding
 
-SwarmAgentic treats team organization itself as a search space. Candidate systems are generated, executed, evaluated, diagnosed, refined, and checkpointed through an iterative optimization loop. citeturn777962search0turn884303view3
+SwarmAgentic treats team organization itself as a search space. Candidate systems are generated, executed, evaluated, diagnosed, refined, and checkpointed through an iterative optimization loop.
 
 ## Key mechanisms
 
@@ -15,7 +15,7 @@ SwarmAgentic treats team organization itself as a search space. Candidate system
 - identify failure causes and coordination gaps;
 - modify prompts/roles/topology;
 - checkpoint candidate state and metrics;
-- reuse the selected candidate for later evaluation. citeturn884303view3
+- reuse the selected candidate for later evaluation.
 
 ## Best practices extracted
 
@@ -36,3 +36,5 @@ The live resident team should not continuously mutate itself by optimizer feedba
 ## Important limitation
 
 SwarmAgentic optimizes task performance. Ω also needs sovereignty, identity continuity, authority, evidence, and safe-execution constraints. A higher benchmark score therefore cannot be the sole promotion criterion.
+
+Primary source: https://arxiv.org/html/2506.15672
