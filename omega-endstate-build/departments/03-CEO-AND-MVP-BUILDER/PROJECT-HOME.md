@@ -20,7 +20,7 @@ Department 01 owns research and alignment. Department 02 owns the trust chain an
 
 The shared project home is not a shared autonomous-agent checkout. Concurrent work uses isolated worktrees or clones and owned branches.
 
-For bootstrap and Git safety procedures, see the sibling files and `team/README.md` in this department.
+For bootstrap and Git safety procedures, see `STEWARD-BOOTSTRAP.md`, `GIT-MANAGEMENT.md` and `team/README.md` in this department.
 
 The authoritative VETO corpus is housed inside Department 02 at:
 
