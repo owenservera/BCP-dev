@@ -17,14 +17,15 @@
 ## Open tasks
 
 ### LOCAL-AGENT-M0-M1-UPGRADE-2026-09-28
-- **Status:** ACTIVE — WAVE 1 RECONCILED / CORRIDOR M0M1-CORRIDOR-01 COMMITTED
+- **Status:** DONE — WAVE 1 RECONCILED + CORRIDOR M0M1-CORRIDOR-01 DELIVERED
 - **Priority:** P0
 - **Prompt:** `docs/agent-system/LOCAL-AGENT-M0-M1-UPGRADE-PROMPT-2026-09-28.md` (design tip `24e5b88e`, read-only; baseline `e1818205` == current main HEAD)
 - **Mode/surface:** session DELIBERATE synthesis + bounded EXECUTION corridor (steward-side, central control-plane only)
 - **Wave 1 (4/4 CFA INVESTIGATED, verified vs repo):** CFA-10 runtime ledger (depth+per-tool MECHANICAL-provisional; exact-agent/allowlist/paths/schema/diff/tests/freshness PROCEDURAL-GAP); CFA-04 authority preconditions P1–P8 + exact-agent REJECT rule + 3 owner questions; CFA-02 minimal data extension (8 optional keys, 3 aliases, ENFORCEMENT_LEVEL + commands REJECTED, 6 vetos); CFA-09 compat envelope (additive-only v1.2, per-class C1–C9 matrix, suspend-tolerate-supersede rollback, 8 corridor falsifiers).
 - **Reconciliation decision:** ENFORCEMENT_LEVEL is validator-emitted derived view only, never receipt-authored (CFA-02 owner verdict adopted); v1.2 REQUIRED only for IMPLEMENTED-with-MODE=EXECUTION.
 - **Corridor M0M1-CORRIDOR-01 (MODE=EXECUTION, SURFACE=LOCAL, one writer: steward):** contract v1.1→v1.2 amendment + `tools/Validate-Receipt.ps1` (C1–C9, explicit FAIL, PROCEDURAL labels) + STATE.md note. Allowed paths exact; pre-declared tests: validator runs over 4 CFA receipts (C1/C3/C9 PASS, C8 FAIL-expected pre-commit) + post-commit full PASS re-runs.
-- **Receipts:** 4 CFA receipts (COMMIT_SHA closed by content commit below); steward receipt `RESULTS/STEWARD-20260928-M0M1-CORRIDOR-01.md`.
+- **Receipts:** 4 CFA receipts (closed by content commit `a2c73c6e`); steward receipt `RESULTS/STEWARD-20260928-M0M1-CORRIDOR-01.md` (delivery commit = this ref; final re-read + T4 validator re-runs executed at delivery ref before DONE report — see session chat verification).
+- **Completion commits:** content `a2c73c6e52cafe2f2641d6d188c18cbd77822849`; delivery = HEAD after this commit (receipt + closure).
 - **Next:** Wave-2 D/E (CFA→leaf productive spawn, P2.1 remaining question) + U1 permission-precedence probe before any M1 claim leans on tool-deny; owner answers on CFA-04 questions (IMPLEMENTED proof bar, fallback tolerance, wave expiry).
 
 ### FINISH-FULL-LIST-GOAL-2026-09-28
