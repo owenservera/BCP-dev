@@ -208,3 +208,71 @@ An anti-pattern is a recurring way of reasoning or structuring the system that m
 6. AP-31 — Source/runtime disagreement erased
 
 These are the patterns most likely to create a false impression that resident delegation works when the actual authority/evidence boundary remains bypassable.
+
+
+## Cross-domain organizational runtime anti-patterns
+
+### AP-36 — Organizational-tree-equals-supervision-tree
+**Pattern:** Use the functional organization hierarchy as the failure/restart hierarchy.
+**Why dangerous:** A worker failure can unnecessarily kill unrelated functional capacity; organizational ownership and failure containment have different semantics.
+**Counter-practice:** Separate organizational, execution, and supervision topologies.
+
+### AP-37 — Desired-presence-equals-process
+**Pattern:** Keep an always-running process alive merely so a resident can be called "persistent".
+**Why dangerous:** Process lifetime consumes resources while adding little semantic value.
+**Counter-practice:** Persist identity/subscription/state; activate computation only when needed.
+
+### AP-38 — Event-equals-inference
+**Pattern:** Every observed event launches a model turn.
+**Why dangerous:** Burst activity creates inference storms and destroys attention economics.
+**Counter-practice:** durable queues + deduplication + coalesced wake bundles + attention admission.
+
+### AP-39 — Controller-equals-scheduler
+**Pattern:** A reconciliation loop gradually acquires hidden task allocation and intellectual decomposition responsibilities.
+**Why dangerous:** Infrastructure becomes an opaque decision-maker.
+**Counter-practice:** reconcile declared desired state; leave semantic decomposition to the responsible resident.
+
+### AP-40 — Activation-equals-identity
+**Pattern:** Replacing an OpenCode session is interpreted as replacing the resident.
+**Why dangerous:** Context maintenance becomes identity mutation and encourages eternal sessions.
+**Counter-practice:** durable resident identity + explicit session incarnation/epoch.
+
+### AP-41 — Capability-equals-roster-member
+**Pattern:** Every reusable capability is represented by a permanent agent identity.
+**Why dangerous:** Static populations inflate context, state, and supervision overhead.
+**Counter-practice:** capability catalog -> temporary worker instance.
+
+### AP-42 — Contract-as-prompt-only
+**Pattern:** Scope, resource, time, and evidence limits exist only in natural-language instructions.
+**Why dangerous:** They are not mechanically enforceable or auditable.
+**Counter-practice:** represent worker contracts as explicit runtime data and enforce budgets at admission/execution.
+
+### AP-43 — Background-as-secret-supervisor
+**Pattern:** A background sentinel silently repairs protected state because it is always present.
+**Why dangerous:** Persistent presence turns into an authority bypass.
+**Counter-practice:** observation -> proposal/work request -> authorization -> consequential execution.
+
+### AP-44 — Session-checkpoint-equals-memory
+**Pattern:** A checkpoint merely stores the transcript snapshot.
+**Why dangerous:** It preserves conversation but not necessarily the durable work state needed after session replacement.
+**Counter-practice:** checkpoint explicit objective, state, evidence, ownership, dependencies, and next move.
+
+### AP-45 — Restart-without-intensity-limit
+**Pattern:** Repeated worker failure causes unlimited recreation.
+**Why dangerous:** A systemic defect becomes an inference and side-effect loop.
+**Counter-practice:** bounded restart intensity, backoff, escalation, and recovery-required states.
+
+### AP-46 — Shared-blackboard-equals-shared-trust
+**Pattern:** Anything written to the common state surface is treated as authoritative.
+**Why dangerous:** observation, hypothesis, proposal, and accepted fact collapse.
+**Counter-practice:** every durable item retains provenance/evidence/authority class.
+
+### AP-47 — Global-context-for-coordination
+**Pattern:** The simplest way to coordinate departments is to inject all departments' history into every activation.
+**Why dangerous:** context pollution, stale assumptions, privacy expansion, and unnecessary token cost.
+**Counter-practice:** relevance-selected context projections with explicit cross-department references.
+
+### AP-48 — Background-starvation-by-foreground
+**Pattern:** background maintenance has no bounded budget but can be perpetually displaced by user work.
+**Why dangerous:** neglected maintenance eventually becomes an outage or evidence-integrity problem.
+**Counter-practice:** explicit low-bandwidth reserved attention plus deadline/escalation semantics.
