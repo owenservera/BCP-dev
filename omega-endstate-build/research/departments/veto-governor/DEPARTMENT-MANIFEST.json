@@ -41,7 +41,8 @@
     "instructions": "AGENTS.md",
     "bootstrap": "BOOTSTRAP-PACKET.md",
     "protocol": "SESSION-PROTOCOL.md",
-    "contextProtocol": "CONTEXT-BUNDLE-PROTOCOL.md"
+    "contextProtocol": "CONTEXT-BUNDLE-PROTOCOL.md",
+    "selfAudit": "SELF-AUDIT-PROTOCOL.md"
   },
   "audit": {
     "method": "AUDIT-METHOD.md",
@@ -51,6 +52,7 @@
   },
   "evolution": {
     "selfDefinition": "SELF-DEFINITION-GUIDE.md",
+    "ledger": "SELF-DEFINITION-LEDGER.md",
     "questions": "SELF-DEFINITION-QUESTIONS.md",
     "selfEvolution": "SELF-EVOLUTION-GUIDE.md",
     "experimentTemplate": "SELF-EVOLUTION-EXPERIMENT-TEMPLATE.md",
