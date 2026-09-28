@@ -342,6 +342,8 @@ For delegated work, each child agent gets its own branch following:
 
 `work/omega-endstate/<AGENT_ID>/<TASK>`
 
+Create that branch from the current `team/omega-endstate` integration line unless the task explicitly targets another base. Never accidentally base end-state-team work from `main` merely because `main` is the repository default.
+
 One branch = one clear owner/work unit.
 
 Never have two active agents editing the same work branch.
