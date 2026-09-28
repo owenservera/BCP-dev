@@ -1,38 +1,31 @@
-# Ω End-State Build — Department Structure
+# Ω End-State Build — Project Structure
 
-The Omega end-state build is organized into exactly three conceptual departments.
+The Omega end-state build separates the build/source surface from the project-management surface.
 
 ```text
 omega-endstate-build/
-└── departments/
-    ├── 01-RESEARCH-AND-ALIGNMENT/
-    │   ├── COORD-01/
-    │   ├── PROV-01/
-    │   ├── decisions/
-    │   ├── design/
-    │   └── research/
+│
+├── Vision.md
+├── Motivation.md
+├── Invariants.md
+├── Anti-Patterns.md
+│
+├── runtime/                         # OpenCode / agentic-system implementation
+├── scripts/                         # local development-system tooling
+│
+└── project-management/             # organizational / project-management memory
     │
-    ├── 02-TRUTH-AND-TRUST/
-    │   ├── VETO/
-    │   │   └── governor/
-    │   ├── VER-01/
-    │   ├── gates/
-    │   ├── state/
-    │   ├── AGENTIC-SYSTEM-GATES.md
-    │   ├── TRUTH-CHAIN-SEED.md
-    │   └── TURN-CLOSE-PROTOCOL.md
-    │
-    └── 03-CEO-AND-MVP-BUILDER/
-        ├── STEW-01/
-        ├── DEVOPS-01/
-        ├── team/
-        ├── roadmap/
-        ├── runtime/
-        ├── scripts/
-        ├── AGENTS.md
-        ├── GIT-MANAGEMENT.md
-        ├── PROJECT-HOME.md
-        └── ...
+    └── departments/
+        ├── 01-RESEARCH-AND-ALIGNMENT/
+        ├── 02-TRUTH-AND-TRUST/
+        └── 03-CEO-AND-MVP-BUILDER/
+            ├── AGENTS.md
+            ├── SITREP.md
+            ├── control-plane/
+            ├── STEW-01/
+            ├── DEVOPS-01/
+            ├── team/
+            └── roadmap/
 ```
 
 ## Department boundaries
@@ -47,10 +40,14 @@ Evidence, falsification, independent verification, governance safeguards, gates 
 
 ### 03 — CEO & MVP Builder
 
-Company outcome, product delivery, roadmap, runtime, development machinery, workspace operations and executive coordination.
+Founder-level product ownership, MVP delivery, roadmap, team coordination and project-management state.
+
+03 is not the home of the OpenCode/agentic-system implementation.
 
 ## Structural rule
 
-Every durable artifact belonging specifically to this Omega end-state build should live under exactly one of the three department roots.
+Project-management artifacts belong under `project-management/departments/<DEPARTMENT>/`.
 
-The three departments are organizational boundaries, not substitutes for authority, provenance or Git/workspace isolation.
+Build/runtime implementation belongs under the build root (`runtime/`, `scripts/`, and other source/build surfaces).
+
+Do not create additional execution-workspace hierarchies inside the project-management tree.
