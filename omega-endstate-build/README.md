@@ -6,6 +6,12 @@
 
 This directory is the **active project home and durable control plane** for the independent Ω End-State Build Team.
 
+## Primary company mission for this roadmap phase
+
+> **Full VIVIM beta ready to distribute for free.**
+
+This is the governing outcome for the current phase. The agentic development organization, research program, architecture work and tooling are enabling means. Long-horizon organizational research is valuable only insofar as it can inform or eventually accelerate this mission; it must not displace the mission.
+
 It is intentionally separate from:
 
 - `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OMEGA-ENDSTATE-BUILD-TEAM/` — bootstrap/seed context;
