@@ -116,7 +116,7 @@ Before accepting a workspace, run:
 .\omega-endstate-build\scripts\Verify-AgentWorkspace.ps1
 ```
 
-## Workspace allocation
+## Workspace assignment record
 
 Before assigning work to an agent, record:
 
