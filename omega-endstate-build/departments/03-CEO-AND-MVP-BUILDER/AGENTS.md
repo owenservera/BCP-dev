@@ -38,14 +38,14 @@ The table is a visibility surface, not a second source of truth. Use authoritati
 
 ## Read first
 
-- README.md
-- TRUTH-CHAIN-SEED.md
-- TURN-CLOSE-PROTOCOL.md
-- STEWARD-BOOTSTRAP.md
-- GIT-MANAGEMENT.md
-- PROJECT-STRUCTURE.md
+- control-plane/README.md
+- ../02-TRUTH-AND-TRUST/TRUTH-CHAIN-SEED.md
+- ../02-TRUTH-AND-TRUST/TURN-CLOSE-PROTOCOL.md
+- control-plane/STEWARD-BOOTSTRAP.md
+- control-plane/GIT-MANAGEMENT.md
+- control-plane/PROJECT-STRUCTURE.md
 - team/README.md
-- `../02-TRUTH-AND-TRUST/state/BOOTSTRAP-CHECKLIST.md`
+- ../02-TRUTH-AND-TRUST/state/BOOTSTRAP-CHECKLIST.md
 
 Then read the complete inherited seed corpus under:
 
@@ -81,7 +81,7 @@ It is not a shared autonomous-agent checkout.
 
 Every concurrently active agent must use its own isolated worktree or clone and its own work branch.
 
-Read GIT-MANAGEMENT.md before creating or modifying agent work.
+Read control-plane/GIT-MANAGEMENT.md before creating or modifying agent work.
 
 ## Project state
 

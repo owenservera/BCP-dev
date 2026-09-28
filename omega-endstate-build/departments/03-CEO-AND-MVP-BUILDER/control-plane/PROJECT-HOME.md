@@ -22,10 +22,10 @@ The shared project home is not a shared autonomous-agent checkout.
 
 Department 03 owns and maintains the four root-level constitutional seeds: `../../Vision.md`, `../../Motivation.md`, `../../Invariants.md`, and `../../Anti-Patterns.md`. Concurrent work uses isolated worktrees or clones and owned branches.
 
-For bootstrap and Git safety procedures, see `STEWARD-BOOTSTRAP.md`, `GIT-MANAGEMENT.md` and `team/README.md` in this department.
+For bootstrap and Git safety procedures, see `STEWARD-BOOTSTRAP.md`, `GIT-MANAGEMENT.md` and `../team/README.md` in this department.
 
 The authoritative VETO corpus is housed inside Department 02 at:
 
-`../02-TRUTH-AND-TRUST/VETO/governor/`
+`../../02-TRUTH-AND-TRUST/VETO/governor/`
 
 A fresh Steward should reconstruct the organization from the three department roots, their durable role homes, Git history and the referenced evidence corpus.

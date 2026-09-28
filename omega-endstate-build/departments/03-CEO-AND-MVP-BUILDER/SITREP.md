@@ -25,10 +25,10 @@ STEW-01 is the end-state build Steward. DEVOPS-01 owns development-system toolin
 Department 03 also owns and maintains the four root seeds: `../../Vision.md`, `../../Motivation.md`, `../../Invariants.md`, `../../Anti-Patterns.md`.
 
 ## 4. Required reading — in order
-1. `README.md`
+1. `control-plane/README.md`
 2. `AGENTS.md`
-3. `PROJECT-HOME.md`
-4. `PROJECT-STRUCTURE.md`
+3. `control-plane/PROJECT-HOME.md`
+4. `control-plane/PROJECT-STRUCTURE.md`
 5. `STEW-01/AGENT.md` or `DEVOPS-01/AGENT.md` as applicable
 6. `team/`, `roadmap/`, `runtime/` and `scripts/` material relevant to the task
 7. the four root seeds before changing direction, constraints or mission language
