@@ -144,6 +144,8 @@ resident -> arbitrary-agent
 
 U1's initial worker creation path does not accept `task_id`.
 
+Direct human/session creation of an agent outside the governed Task path is also not treated as a U1 worker. It may exist as an ordinary OpenCode session, but it has no U1 worker authority or lineage until explicitly admitted by a future recovery/adoption protocol.
+
 Resume becomes a separate experiment only after session ownership, identity, parentage, team/work-item binding, directory, and active-incarnation checks are designed and proven.
 
 ### U1-I6 — No background execution in U1
@@ -186,7 +188,15 @@ RECOVERY_REQUIRED
 
 Unknown is not completed.
 
-### U1-I11 — Evidence survives completion
+### U1-I11 — Governed worker binding is stable
+
+Once a worker is admitted, its governed binding is:
+
+`spawn_id + target_agent_id + child_session_id + parent_session_id + team_session_id + work_item_id`.
+
+Any observed agent switch, parent change, workspace/directory divergence, or other binding mutation invalidates the attempt and moves it to `RECOVERY_REQUIRED`. A session that merely happens to have the right agent name is not enough.
+
+### U1-I12 — Evidence survives completion
 
 After a worker disappears or its session is later archived, the spawn lineage remains reconstructable from the durable receipt.
 
@@ -419,6 +429,8 @@ observed_at
 ```
 
 Where possible, the result should point to a repository-visible artifact or other durable evidence.
+
+A parent must also treat worker output as an untrusted report until the referenced evidence is independently observed. A worker's final text cannot authorize the parent to expand its own authority.
 
 The worker may say "done." The runtime proves whether the expected child execution existed and whether the expected artifact exists.
 
