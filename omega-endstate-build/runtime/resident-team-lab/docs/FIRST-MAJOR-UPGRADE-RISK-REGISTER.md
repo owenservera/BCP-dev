@@ -38,6 +38,10 @@
 | U1-R22 | P2 | Permission prompts stall a headless child | A worker can enter an `ask` state that no human responds to | U1 worker tool set is explicit and non-interactive; pending permission is not completion | Force an ask condition |
 | U1-R23 | P3 | Runtime registry becomes a second task manager | Operational state gradually grows into duplicated orchestration | Keep U1 state limited to spawn admission/lineage/evidence | Review registry fields before expansion |
 | U1-R24 | P3 | Long-lived session context contaminates work | A future resident may carry stale instructions into child selection | U1 uses explicit work_item_id and prompt digest; context epochs deferred to resident layer | Context contamination test later |
+| U1-R25 | P0 | Worker bypasses Task through another spawn surface | Shell, swarm CLI, or an agent-control MCP can create agents without invoking native Task | U1 leaf profile must have no alternate agent-creation path; treat Task denial alone as insufficient | Worker attempts alternate spawn; prove no child |
+| U1-R26 | P1 | Default `ask` permission stalls a headless resident/worker | Subagent can wait for a permission response that no human is servicing | U1 profiles explicitly allow/deny all tools needed by the experiment; no required path depends on `ask` | Exercise every required tool path headlessly |
+| U1-R27 | P1 | Overlapping wildcard permission rules change meaning by order | OpenCode permission evaluation is last-match; a later broad rule can reopen a denied target | Treat effective policy as an ordered compiled artifact and test representative overlaps | Swap rule order; expected decision must change/confirm deliberately |
+| U1-R28 | P2 | Background Task path introduces different completion semantics | Background execution changes delivery, parent notification, and permission timing | Exclude `background=true` from U1; qualify it separately | Attempt background flag; U1 rejects/not-used |
 
 ## Highest-risk deductions
 
