@@ -45,7 +45,7 @@ unless the task explicitly names another base.
 
 ## Project home vs workspaces
 
-`omega-endstate-build/` is the shared **tracked project/control-plane home**.
+`omega-endstate-build/` contains the shared tracked project home; this department owns the CEO/MVP execution portion of that control plane.
 
 It must not become the shared working checkout for multiple agents.
 
@@ -53,7 +53,7 @@ Active agent workspaces should normally be separate local worktrees or clones ou
 
 ## What is configured here vs what must happen locally
 
-This project now contains executable PowerShell helpers under `omega-endstate-build/scripts/` for workspace allocation, verification, Steward bootstrap, and retirement.
+This project now contains executable PowerShell helpers under `omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/scripts/` for workspace allocation, verification, Steward bootstrap, and retirement.
 
 From the repository side, we can provide:
 
@@ -95,13 +95,13 @@ Never assume the current checkout or branch is what you intended.
 Use the supplied helper for normal local allocation:
 
 ```powershell
-.\omega-endstate-build\scripts\Bootstrap-Steward.ps1
+.\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\Bootstrap-Steward.ps1
 ```
 
 or for another agent:
 
 ```powershell
-.\omega-endstate-build\scripts\New-AgentWorkspace.ps1 -AgentId PROV-01 -Task provider-lab
+.\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\New-AgentWorkspace.ps1 -AgentId PROV-01 -Task provider-lab
 ```
 
 Use `-Mode clone` for unusually high-risk work where a completely separate Git repository checkout is preferable.
@@ -113,7 +113,7 @@ The allocator records machine-local registry state in that workspace root and wr
 Before accepting a workspace, run:
 
 ```powershell
-.\omega-endstate-build\scripts\Verify-AgentWorkspace.ps1
+.\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\Verify-AgentWorkspace.ps1
 ```
 
 ## Workspace assignment record
