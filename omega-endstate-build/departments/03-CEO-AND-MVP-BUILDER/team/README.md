@@ -97,9 +97,7 @@ Concurrent agents must each have an isolated worktree or clone. See:
 
 ../GIT-MANAGEMENT.md
 
-The local workspace registry is intentionally untracked and lives under:
-
-../.local/
+The machine-local workspace registry is intentionally untracked and lives outside the tracked project home, alongside the isolated workspaces.
 
 ## Truth-chain minimum for consequential work
 
