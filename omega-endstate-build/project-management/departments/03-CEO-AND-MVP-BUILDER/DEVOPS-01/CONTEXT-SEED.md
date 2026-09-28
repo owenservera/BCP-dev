@@ -20,12 +20,12 @@ DEVOPS-01 primarily owns infrastructure and tooling in layer 2, and supports lay
 
 ## Project home and execution workspace
 
-omega-endstate-build/ is the canonical tracked home for this build path.
+omega-endstate-build/ is the canonical tracked build/source home; `omega-endstate-build/project-management/` is the project-management home.
 
-The DEVOPS-01 directory under departments/03-CEO-AND-MVP-BUILDER/ is durable identity/context/control-plane memory. It is not a
+The DEVOPS-01 directory under project-management/departments/03-CEO-AND-MVP-BUILDER/ is durable identity/context/control-plane memory. It is not a
 shared execution checkout.
 
-The autonomous process must execute from an isolated local worktree or clone with an owned branch.
+The autonomous process must execute from an isolated local worktree or clone. The Git branch identifies the task/change, not the agent.
 The exact machine-specific directory belongs in runtime/workspace state, not in this portable seed.
 
 For consequential claims, practical source precedence is:
@@ -53,7 +53,7 @@ Important control-plane surfaces include:
 - research/
 - gates/
 
-Shared project state is not an autonomous multi-agent checkout. Concurrent agents use isolated worktrees/clones and owned branches.
+Shared project-management state is not an autonomous multi-agent checkout. Concurrent agents use isolated worktrees/clones; task branches are change-management state, not agent identity.
 
 ## Current organization
 
