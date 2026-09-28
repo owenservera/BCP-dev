@@ -4,7 +4,7 @@
 > Date: 2026-09-28
 > Integration line: `team/omega-endstate`
 
-This is the active project home and durable control-plane material for the independent Ω End-State Build Team.
+This is the active project-management home and durable control-plane material for the independent Ω End-State Build Team.
 
 The project is now organized into three departments:
 
@@ -20,7 +20,7 @@ Department 01 owns research and alignment. Department 02 owns the trust chain an
 
 The shared project home is not a shared autonomous-agent checkout.
 
-Department 03 owns and maintains the four root-level constitutional seeds: `../../Vision.md`, `../../Motivation.md`, `../../Invariants.md`, and `../../Anti-Patterns.md`. Concurrent work uses isolated worktrees or clones and owned branches.
+Department 03 owns and maintains the four root-level constitutional seeds: `../../../../Vision.md`, `../../../../Motivation.md`, `../../../../Invariants.md`, and `../../../../Anti-Patterns.md`. Concurrent work uses isolated worktrees or clones and owned branches.
 
 For bootstrap and Git safety procedures, see `STEWARD-BOOTSTRAP.md`, `GIT-MANAGEMENT.md` and `../team/README.md` in this department.
 
