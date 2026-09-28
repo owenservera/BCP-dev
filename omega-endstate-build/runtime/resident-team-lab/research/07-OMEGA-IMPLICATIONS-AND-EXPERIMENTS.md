@@ -12,13 +12,13 @@ ClawTeam demonstrates agent-native spawn and OMC demonstrates dynamic task decom
 
 ### A2 — Worker result acceptance should be tested as a separate state
 
-OMC makes completed -> accepted a real quality boundary. citeturn918030view1
+OMC makes completed -> accepted a real quality boundary.
 
 **U1/U2 implication:** after native Task works, introduce a result receipt that distinguishes execution completion from verified acceptance.
 
 ### A3 — Physical worker isolation is not optional long-term
 
-ClawTeam's use of dedicated worktrees/execution surfaces supports physical rather than purely prompt-based separation. citeturn952603view3
+ClawTeam's use of dedicated worktrees/execution surfaces supports physical rather than purely prompt-based separation.
 
 **U1 implication:** the worker profile must not have an alternate agent-control path through shell/MCP.
 
@@ -26,19 +26,19 @@ ClawTeam's use of dedicated worktrees/execution surfaces supports physical rathe
 
 ### B1 — Local context should remain local
 
-Meta-Team's central finding is that collaborative attribution preserves local context while connecting it through cross-agent evidence. citeturn591787view0
+Meta-Team's central finding is that collaborative attribution preserves local context while connecting it through cross-agent evidence.
 
 **Design hypothesis:** each resident should retain its own state/lessons/context and expose compact evidence references, not dump its entire history into a central prompt.
 
 ### B2 — Presence is a runtime fact, identity is a durable fact
 
-OMC's Talent/Container split gives a useful external analogue. citeturn591787view2
+OMC's Talent/Container split gives a useful external analogue.
 
 **Design hypothesis:** one resident identity may survive multiple runtime sessions/containers, while liveness remains an observed runtime property.
 
 ### B3 — Coordination history should become an asset
 
-Swarm Skills treats coordination protocols as portable assets with evolution records. citeturn952603view1
+Swarm Skills treats coordination protocols as portable assets with evolution records.
 
 **Design hypothesis:** recurring successful coordination patterns should eventually be represented as versioned coordination assets rather than copied prompts.
 
@@ -52,13 +52,13 @@ SwarmAgentic demonstrates iterative candidate generation/evaluation; Swarm Skill
 
 ### C2 — Classify the smallest evolution scope first
 
-Meta-Team's three levels provide a strong decomposition: agent, interaction, team. citeturn591787view0
+Meta-Team's three levels provide a strong decomposition: agent, interaction, team.
 
 **Design hypothesis:** an observed failure should first be classified as local, relational, coordination, composition, or constitutional before a broad change is proposed.
 
 ### C3 — Preserve rollback lineage
 
-Swarm Skills explicitly includes REBUILD and ROLLBACK. citeturn918030view3
+Swarm Skills explicitly includes REBUILD and ROLLBACK.
 
 **Design hypothesis:** every promoted evolution must identify its parent version, evidence, evaluator, and rollback target.
 
@@ -110,3 +110,5 @@ Keep these primarily in Forge/research:
 - organization redesign.
 
 The distinction prevents self-evolution machinery from becoming an unbounded production scheduler.
+
+Primary source: https://arxiv.org/html/2605.29790v1
