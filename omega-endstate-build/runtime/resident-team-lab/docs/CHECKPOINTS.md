@@ -44,10 +44,10 @@
 - parent session ID;
 - child session ID;
 - child agent ID;
-- child `parentID) equals the requesting resident session;
+- child `parentID` equals the requesting resident session;
 - worker turn result;
 - no custom spawn API;
-- no `task_id) was used.
+- no `task_id` was used.
 
 **Promotion:** Native Task becomes the experimental worker-creation primitive.
 
@@ -73,11 +73,12 @@
 
 **Question:** Is the leaf boundary mechanically enforced?
 
-**Smallest test:** worker attempts a Task call for any target.
+**Smallest test:** worker attempts a Task call for any target and, where a shell/control path exists, attempts an alternate agent-creation route.
 
 **Required evidence:**
 - Task attempt observed;
 - native permission refusal and/or VIVIM refusal;
+- alternate spawn route is unavailable or governed;
 - no grandchild session;
 - worker remains a leaf.
 
@@ -103,7 +104,7 @@ This is the first behavioral checkpoint for resident autonomy.
 **Question:** Can retry/observer interruption avoid ambiguous double creation?
 
 **Required evidence:**
-- a unique `spawn_id);
+- a unique `spawn_id`;
 - duplicate logical request is detected or reconciled;
 - no unintended second child is created;
 - final state is unambiguous.
@@ -112,7 +113,7 @@ This is the first behavioral checkpoint for resident autonomy.
 
 ## CP-07 — Unsafe Task resume is rejected
 
-**Question:** Does U1 refuse `task_id)-based reuse of an unrelated existing session?
+**Question:** Does U1 refuse `task_id`-based reuse of an unrelated existing session?
 
 **Smallest test:** provide the ID of an existing worker/session while requesting a different governed target.
 
@@ -130,7 +131,7 @@ This is the first behavioral checkpoint for resident autonomy.
 **Question:** Does worker completion remain reconstructable after the immediate turn ends?
 
 **Required evidence:**
-- `spawn_id);
+- `spawn_id`;
 - parent and child IDs;
 - target agent;
 - lifecycle outcome;
