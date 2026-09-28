@@ -1,0 +1,3 @@
+# Local machine / agent runtime state — never commit
+.local/
+tmp/
