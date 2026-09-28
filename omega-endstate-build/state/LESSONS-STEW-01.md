@@ -82,3 +82,31 @@
 18. **Design the runtime from the mechanism, not from the org chart.** Agents-as-sessions with a
     message bus is a different shape from agents-as-config-files, and the shape determines what
     comms are even possible.
+
+## Harness and evidence traps
+
+19. **A green "completed" is not evidence that the agents did anything.** A real 2-agent run
+    reported `status: "completed"` while the database held **zero** memory rows and **zero**
+    messages: the plugin had never been injected, so the tools the agents were told to use did
+    not exist. Nothing errored. Assert on the artifact the task was supposed to produce — rows
+    written, files created — never on the orchestrator's own status field.
+
+20. **Taking over a lifecycle the reference owned means inheriting its wiring.** Starting
+    `opencode serve` myself and attaching with `--server` silently dropped the
+    `OPENCODE_CONFIG_CONTENT` plugin injection that `runSwarm` performs. Bypassing the spawn path
+    bypasses the setup that path performs. When replacing a reference's lifecycle, enumerate what
+    else that path was doing.
+
+21. **Assert on the observable end-state, not on the kill command's exit code.** `taskkill`
+    returned 128 against a server PID and the port kept accepting. Success is "the port is free",
+    re-checked with freshly-read listener PIDs, because killing a parent can leave a child holding
+    the socket under a PID never targeted.
+
+22. **A detached job needs a completion marker.** Without one, "did that run finish?" is
+    unanswerable once the session ends, and the only way to find out is to hunt orphans. Write a
+    marker in a `finally`: present means finished and torn down, absent means running or killed.
+
+23. **An un-awaited write before `process.exit()` truncates your durable artifact.** The reference
+    `writeReport` calls `Bun.write(...)` without awaiting, and the CLI then calls `process.exit()`;
+    the report landed 0 bytes on a completed run. Anything meant to outlive the process must be
+    awaited or flushed.
