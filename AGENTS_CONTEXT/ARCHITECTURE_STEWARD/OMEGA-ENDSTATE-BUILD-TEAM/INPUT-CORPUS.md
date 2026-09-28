@@ -5,7 +5,21 @@
 
 This file distinguishes what the team is intentionally handed from what it is expected to discover itself.
 
+The active project/control-plane home for the local Steward and the new team is `omega-endstate-build/`. The team should place its own durable project artifacts there as it evolves.
+
 ## Primary inputs — start from these
+
+### Operational bootstrap home
+
+Read and use:
+
+- `../omega-endstate-build/README.md`
+- `../omega-endstate-build/STEWARD-BOOTSTRAP.md`
+- `../omega-endstate-build/GIT-MANAGEMENT.md`
+- `../omega-endstate-build/PROJECT-STRUCTURE.md`
+
+These define the active project workspace and local development-system bootstrap. They do not replace the product/destination corpus below.
+
 
 ### Owner-provided destination scaffold
 
