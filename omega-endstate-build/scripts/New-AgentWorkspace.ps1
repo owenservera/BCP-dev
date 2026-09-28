@@ -54,6 +54,7 @@ $workspace = Join-Path $WorkspaceRoot "$AgentId-$Task"
 $workspace = [IO.Path]::GetFullPath($workspace)
 $manifestDir = Join-Path $workspace '.omega-agent'
 $registryPath = Join-Path $WorkspaceRoot 'workspace-registry.json'
+$lockPath = Join-Path $WorkspaceRoot 'workspace-registry.lock'
 
 $repoPrefix = $repoRoot.TrimEnd('\','/') + [IO.Path]::DirectorySeparatorChar
 if ($workspace.StartsWith($repoPrefix, [StringComparison]::OrdinalIgnoreCase)) {
@@ -79,7 +80,30 @@ if (Test-Path $workspace) {
     throw "Workspace path already exists: $workspace. Refusing to overwrite it."
 }
 
-Write-Host "Creating $Mode workspace..."
+$lockStream = $null
+try {
+    $deadline = (Get-Date).AddSeconds(15)
+    do {
+        try {
+            $lockStream = [IO.File]::Open($lockPath,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+            break
+        } catch [IO.IOException] {
+            if ((Get-Date) -ge $deadline) { throw "Timed out acquiring workspace registry lock: $lockPath" }
+            Start-Sleep -Milliseconds 200
+        }
+    } while ($true)
+
+    if (Test-Path $registryPath) {
+        $raw = Get-Content -Raw $registryPath
+        if ($raw.Trim()) { $registry = $raw | ConvertFrom-Json }
+    }
+    if (-not $registry.workspaces) { $registry.workspaces = @() }
+    $existing = @($registry.workspaces | Where-Object { $_.agentId -eq $AgentId -and $_.status -ne 'retired' })
+    if ($existing.Count -gt 0) {
+        throw "Registry already has an active workspace for agent $AgentId."
+    }
+
+    Write-Host "Creating $Mode workspace..."
 if ($Mode -eq 'worktree') {
     Invoke-Git @('worktree','add','-b',$branch,$workspace,$baseSha)
 } else {
@@ -119,27 +143,13 @@ $entry = [ordered]@{
     updatedAt = $now
 }
 
-$registry = [ordered]@{
-    version = 1
-    updatedAt = $now
-    workspaces = @()
-}
-if (Test-Path $registryPath) {
-    $raw = Get-Content -Raw $registryPath
-    if ($raw.Trim()) {
-        $registry = $raw | ConvertFrom-Json
-    }
-}
-if (-not $registry.workspaces) { $registry.workspaces = @() }
-
-$existing = @($registry.workspaces | Where-Object { $_.agentId -eq $AgentId -and $_.status -ne 'retired' })
-if ($existing.Count -gt 0) {
-    throw "Registry already has an active workspace for agent $AgentId."
-}
-
 $registry.workspaces = @($registry.workspaces) + [pscustomobject]$entry
 $registry.updatedAt = $now
 $registry | ConvertTo-Json -Depth 8 | Set-Content -Encoding UTF8 $registryPath
+} finally {
+    if ($null -ne $lockStream) { $lockStream.Dispose() }
+    Remove-Item -LiteralPath $lockPath -Force -ErrorAction SilentlyContinue
+}
 
 Write-Host ""
 Write-Host "ALLOCATED"
