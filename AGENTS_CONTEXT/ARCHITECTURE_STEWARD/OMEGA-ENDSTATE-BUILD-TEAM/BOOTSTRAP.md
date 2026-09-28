@@ -6,6 +6,8 @@
 
 ## Bootstrap mission
 
+A local Steward can bootstrap this path directly with `STEWARD-LOCAL-SETUP-PROMPT.md`. The prompt is intentionally broader than a normal task brief: the Steward is expected to build whatever local development machinery, subagents, research loops, verification tooling, and coordination mechanisms are needed to automate the route to the product.
+
 Do not begin with implementation.
 
 First build an internal answer to:
