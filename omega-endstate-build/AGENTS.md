@@ -2,6 +2,12 @@
 
 This directory is the canonical project/control-plane home for the Ω End-State Build Team.
 
+## Primary company mission for this roadmap phase
+
+**Full VIVIM beta ready to distribute for free.**
+
+Treat this as the governing outcome. Development-system evolution is an enabling objective, not a replacement objective.
+
 ## Read first
 
 - `README.md`
