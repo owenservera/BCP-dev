@@ -101,7 +101,7 @@ That is a critical U1 boundary.
 References:
 
 - https://github.com/anomalyco/opencode/blob/v1.18.4/packages/opencode/src/tool/task.ts
-- https://github.com/anomalyco/opencode/blob/v1.18.4/packages/opencode/src/core/config/permission.ts
+- https://github.com/anomalyco/opencode/blob/v1.18.4/packages/core/src/v1/config/permission.ts
 - https://github.com/anomalyco/opencode/blob/v1.18.4/packages/opencode/src/permission/index.ts
 
 ## 5. U1 invariants
