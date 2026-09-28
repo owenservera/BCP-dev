@@ -25,13 +25,15 @@ The preferred cold-start path is:
 1. AGENTS.md
 2. BOOTSTRAP-PACKET.md
 3. STATE.json
-4. TASK-QUEUE.md
-5. Claim a task from tasks/
-6. Build the smallest sufficient context bundle
-7. Perform an independent audit
-8. Persist the result
-9. Record owner disposition when available
-10. Create follow-up outcome/self-evolution tasks where useful
+4. SELF-AUDIT-PROTOCOL.md
+5. SELF-DEFINITION-LEDGER.md
+6. TASK-QUEUE.md
+7. Claim a task from tasks/
+8. Build the smallest sufficient context bundle
+9. Perform an independent audit
+10. Persist the result
+11. Record owner disposition when available
+12. Create follow-up outcome/self-evolution tasks where useful
 
 If the runtime automatically loads AGENTS.md, that file is the operational entrypoint.
 
@@ -47,7 +49,8 @@ The folder contains:
 - audit method;
 - evidence discipline;
 - anti-pattern catalog;
-- self-definition guide;
+- self-definition guide and ledger;
+- self-audit protocol;
 - self-evolution guide;
 - governance-of-governance guide;
 - research intelligence;
@@ -68,4 +71,4 @@ There is intentionally no:
 - global roster ratification;
 - permanent authority.
 
-Those are future experiments whose justification must come from evidence.
+Those remain future experiments whose justification must come from evidence.
