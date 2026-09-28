@@ -37,11 +37,20 @@ Advisory finding.
 Human decision.
 Outcome review.
 
-## First task
+## Sequencing constraint
 
-VG-0001 — Audit the entire swarm agent system.
+The governance system is an enabling mechanism for the beta mission.
 
-Read the task record in tasks/VG-0001.md and then execute it.
+**Do not make governance completion a prerequisite for VIVIM beta delivery.**
+
+Finish the current swarm audit, establish runtime truth, then test the smallest useful organizational mechanism against real beta work.
+
+## Current task order
+
+1. VG-0001 — Audit the entire swarm agent system.
+2. VG-0003 — Current OpenCode runtime reconciliation.
+3. Select a minimal evidence-backed organizational experiment.
+4. Measure it on real VIVIM beta work before expanding topology, machinery, trigger autonomy or authority.
 
 ## Required operating distinctions
 
