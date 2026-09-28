@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Omega End-State Agent Workspace Registry",
+  "type": "object",
+  "required": ["version", "updatedAt", "workspaces"],
+  "properties": {
+    "version": { "const": 1 },
+    "updatedAt": { "type": "string" },
+    "workspaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["agentId", "task", "mode", "workspacePath", "branch", "baseBranch", "baseSha", "status"],
+        "properties": {
+          "agentId": { "type": "string", "minLength": 1 },
+          "task": { "type": "string", "minLength": 1 },
+          "mode": { "enum": ["worktree", "clone"] },
+          "workspacePath": { "type": "string", "minLength": 1 },
+          "branch": { "type": "string", "minLength": 1 },
+          "baseBranch": { "type": "string", "minLength": 1 },
+          "baseSha": { "type": "string", "minLength": 7 },
+          "status": { "enum": ["active", "handoff", "retired"] },
+          "currentSha": { "type": ["string", "null"] },
+          "createdAt": { "type": "string" },
+          "updatedAt": { "type": "string" }
+        }
+      }
+    }
+  }
+}
