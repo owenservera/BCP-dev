@@ -18,6 +18,16 @@
 
 ## Open tasks
 
+### TOOLSET-TOP10-20260928
+- **Status:** DONE — DELIVERED ON MAIN (see receipt)
+- **Priority:** P0
+- **Objective:** Independent wave-1 unit: identify the TOP 10 TOOLS the full-local-machine agent team must set up, through the CFA-03 semantic-continuity lens, for the shared owner goal.
+- **Write scope:** CFA-03 home documentation only; DELIBERATE, no implementation, no Ω-law change, no peer-home edits.
+- **Completion condition:** `TOOLSET-TOP10-20260928.md` + `RESULTS/CFA03-TOOLSET-20260928.md` present on delivery ref with final re-read verification.
+- **Result:** `TOOLSET-TOP10-20260928.md`
+- **Receipt:** `RESULTS/CFA03-TOOLSET-20260928.md`
+- **Next action:** None locally; Steward-side synthesis (if any) is central, not CFA-03 work.
+
 ### STAGE-E-L2-CFA03-SELF-KNOWLEDGE-BASIS-ADAPTER-2026-09-27
 - **Status:** DONE — CHARACTERIZED / PARTIAL WHERE SOURCE IDENTITY IS NOT YET IMMUTABLE
 - **Priority:** P0
