@@ -18,6 +18,14 @@
 
 ## Open tasks
 
+### CFA09-TOOLSET-TOP10-20260928 — Wave-1 independent toolset ranking (full-local-machine team)
+- **Status:** PARTIAL — content artifact delivered; session receipt pending (two-commit delivery per steward corridor precedent)
+- **Priority:** P0 (owner-delegated wave-1 unit; zero peer prerequisites)
+- **Brief:** Owner goal verbatim: "our local machine agent team just transitioned from webapp-only commit/push to FULL LOCAL MACHINE ACCESS. Identify the TOP 10 TOOLS we must set up to become a fully efficient, state-of-the-art, autonomous goal-execution team." Lens: CFA-09 evolution/compat/self-maintenance; runtime guarantees stay CFA-10, data versioning stays CFA-02.
+- **Envelope:** base ref e18c2005d97c1175ac2be86ec3825056d869b370; CFA-09 home only; DELIBERATE only (no installs, no production implementation, no Ω-law change, no peer-home edits, no force-push)
+- **Artifacts:** `TOOLSET-TOP10-20260928.md` (ranked top-10 + rationale + unknowns); `RESULTS/CFA09-TOOLSET-20260928.md` (v1.2 receipt, MODE=DELIBERATE, SURFACE=LOCAL)
+- **Next:** commit receipt + flip this entry to DONE with content/receipt SHAs + final main re-read per the Durable Completion Gate; then STOP (no synthesis, no peer spawns)
+
 ### W2D3-LEAF-LEG-PROBE-D3-2026-09-28 — Wave-2 unit D3 leaf-leg probe
 - **Status:** INVESTIGATED — leaf returned EMPTY; receipt delivered uncommitted; steward verify + commit pending
 - **Priority:** P0 (bounded steward unit)
