@@ -9,14 +9,21 @@ It is tracked project state. It is **not automatically your execution worktree**
 Your actual work must run in an isolated worktree/clone on an owned branch.
 Seed/control-plane branch at this snapshot: `work/omega-endstate/STEW-01/bootstrap-team`.
 
-## 2. First mandatory workspace check
-Before substantive work, run:
+## 2. First mandatory workspace and Git hygiene check
+Before substantive work, and again when resuming a materially changed session, refresh Git's view of every configured remote and then verify the local workspace:
 `git status --short --branch`
+`git remote -v`
+`git fetch --all --prune`
 `git rev-parse --show-toplevel`
 `git branch --show-current`
 `git rev-parse HEAD`
+`git branch -vv`
 `git worktree list`
-Record workspace path, branch, HEAD SHA, task, owner and base SHA.
+Then re-check:
+`git status --short --branch`
+`git rev-parse HEAD`
+Do not automatically pull, merge, rebase, reset, clean or discard changes merely to make branches look current. Fetching refreshes remote refs; integration remains an explicit, ownership-verified action.
+Record workspace path, branch, HEAD SHA, task, owner, base SHA and relevant upstream/remote refs.
 If this is a shared checkout or shared branch, **stop and resolve workspace ownership first**.
 
 ## 3. Department R&R
