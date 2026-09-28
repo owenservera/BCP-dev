@@ -38,3 +38,14 @@ This queue is the department's durable intake surface.
 - Created: 2026-09-28
 - Task file: tasks/VG-0002.md
 - Result: results/VG-0002-self-audit-and-self-definition-bootstrap.md
+## VG-0003 — Current OpenCode Runtime Reconciliation
+
+- Status: NEW
+- Requester: VETO-01
+- Class: AUDIT, RESEARCH
+- Objective: Reconcile repository claims about OpenCode Task/subagent behavior against the exact installed Windows runtime so VG-0001 can distinguish current proof from historical evidence.
+- Target: Installed OpenCode version, effective configuration, visible agent roster, native Task/subagent permission behavior, parent/child session lineage, effective worker permissions, and relevant alternate spawn surfaces.
+- Primary mission connection: Reliable agent delegation and governance should accelerate full VIVIM beta delivery without relying on stale or assumed runtime behavior.
+- Requested output: Durable runtime evidence receipt recording exact version, effective configuration, allow/deny probes, session IDs, parentage, permissions, and contradictions with repository documentation.
+- Created: 2026-09-28
+- Task file: tasks/VG-0003.md
