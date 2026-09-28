@@ -42,6 +42,8 @@
 | U1-R26 | P1 | Default `ask` permission stalls a headless resident/worker | Subagent can wait for a permission response that no human is servicing | U1 profiles explicitly allow/deny all tools needed by the experiment; no required path depends on `ask` | Exercise every required tool path headlessly |
 | U1-R27 | P1 | Overlapping wildcard permission rules change meaning by order | OpenCode permission evaluation is last-match; a later broad rule can reopen a denied target | Treat effective policy as an ordered compiled artifact and test representative overlaps | Swap rule order; expected decision must change/confirm deliberately |
 | U1-R28 | P2 | Background Task path introduces different completion semantics | Background execution changes delivery, parent notification, and permission timing | Exclude `background=true` from U1; qualify it separately | Attempt background flag; U1 rejects/not-used |
+| U1-R29 | P1 | Direct session creation is mistaken for governed worker creation | OpenCode can expose agent sessions outside the resident's native Task lineage | Only a spawn with a recorded U1 authorization is a governed worker; ordinary sessions are not adopted implicitly | Create target agent outside Task; prove it has no worker lineage |
+| U1-R30 | P0 | Governed session undergoes role/workspace drift after creation | Stored session state may no longer match the original delegated binding | Reconcile agent, parent, workspace/directory and team/work-item metadata throughout the attempt | Mutate binding during execution; attempt becomes RECOVERY_REQUIRED |
 
 ## Highest-risk deductions
 
