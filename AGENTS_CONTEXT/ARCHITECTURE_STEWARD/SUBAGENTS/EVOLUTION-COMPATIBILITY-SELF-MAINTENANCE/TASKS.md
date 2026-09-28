@@ -18,6 +18,15 @@
 
 ## Open tasks
 
+### W1-CFA11-COUNTERS-2026-09-28 — CFA-11 review-trigger counter automation (H.3)
+- **Status:** PARTIAL — script + doc + receipt delivered uncommitted; steward verify + commit pending
+- **Priority:** P0
+- **Artifacts:** `TOOLS/cfa11-counters/Get-CFA11Counters.ps1` (exit 0 on tree at f1c971ad); `docs/agent-system/CFA11-COUNTERS-2026-09-28.md` (definitions, falsifiers, verbatim output)
+- **Receipt:** `RESULTS/W1-evolution-compatibility-self-maintenance-20260928.md`
+- **Commit:** PENDING-STEWARD-COMMIT (DO NOT COMMIT — steward verifies/commits)
+- **Result:** counters 1 (0 PENDING, grep-confirmed) and 3 (N/A, zero pending) mechanical; counter 2 UNKNOWN — no Steward-designated canonical active-reconciliation registry exists; override flags ready for Steward designation (doc §2)
+- **Next:** steward verify (re-run one command + F1 grep) + commit + designate counter-2 source to close H.3 fully; close this entry to DONE/BLOCKED only after that commit lands
+
 ### STAGE-E-L2-CHANGE-COMPATIBILITY-BASIS-ADAPTER-2026-09-27
 - **Status:** DONE — OWNER CHARACTERIZATION COMPLETE
 - **Priority:** P0

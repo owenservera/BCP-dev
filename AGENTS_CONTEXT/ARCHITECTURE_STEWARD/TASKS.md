@@ -16,6 +16,15 @@
 
 ## Open tasks
 
+### FINISH-FULL-LIST-GOAL-2026-09-28
+- **Status:** ACTIVE — WAVE 1 RECONCILED
+- **Priority:** P0
+- **Goal state:** `docs/agent-system/goals/finish-full-list/GOAL.md`
+- **Master list:** `docs/agent-system/FULL-INTEGRATION-TASK-LIST.md` (updated every turn, §9 log)
+- **W1 result:** 3/3 CFA units verified + committed (S.2, N.3, H.3 DONE). P2.1 CLI probe pending.
+- **Owner questions queued:** counter-2 contradiction-registry designation; Phase 3 go (after P2/S.3 green).
+- **Next:** P2.1 steward→CFA→worker full-chain probe with `--auto` (+ P2.3 xhigh validation).
+
 ### LOCAL-GATEB-READINESS-2026-09-28
 - **Status:** DONE
 - **Priority:** P0

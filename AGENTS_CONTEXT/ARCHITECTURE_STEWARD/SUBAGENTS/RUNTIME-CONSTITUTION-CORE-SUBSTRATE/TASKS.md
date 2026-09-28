@@ -70,6 +70,19 @@ Hard stop: no production implementation, no shared-boundary activation, no Ω-la
 - **Completion condition:** Met by durable roadmap, queue update, receipt and verified mainline commit.
 - **Stop condition:** Further execution requires a separately assigned task; this planning stage does not authorize production implementation.
 
+## W1 finish-full-list — S.2 two-process procedure — 2026-09-28
+
+### FULL-LIST-W1-S2-TWO-PROCESS-PROCEDURE-2026-09-28
+- **Status:** PARTIAL — procedure + receipt written, awaiting steward verify + commit
+- **Priority:** P0 (wave W1, unit A; goal `finish-full-list`)
+- **Envelope:** goal `finish-full-list`, wave W1, unit A; base `f1c971ad`; may spawn only `work-*` leaves (none used — none required); S.2 INDEPENDENT of P2.1
+- **Artifact:** `docs/agent-system/TWO-PROCESS-PROCEDURE-2026-09-28.md` — shell A/B setup, per-process clones/worktrees, distinct identities, origin/main rendezvous, one-writer-per-file/stream, fetch-and-inspect, 11-point run procedure (v0's 10 + attention check), falsifiers F1–F13, non-goals, S.3 handoff
+- **Receipt:** `RESULTS/W1-runtime-constitution-core-substrate-20260928.md` (SESSION_STATUS: PARTIAL, COMMIT_SHA: PENDING-STEWARD-COMMIT)
+- **Write scope:** S.2 procedure doc + own receipt + own TASKS.md only; research/documentation only — exchange execution is S.3 (later wave), no production implementation, no Ω-law change, no commit (steward commits after verification)
+- **Next action:** steward verify + commit + S.3 wave
+- **Completion condition:** steward commit lands procedure + receipt + this entry on main; S.2 flips DONE only then, per the Durable Completion Gate
+- **Stop condition:** write path unavailable, authority ambiguity, or any demand for Ω-law change, boundary activation, force-push, peer-home edit, or work outside this envelope
+
 ## CURRENT PORTFOLIO ROUTING — 2026-09-28
 
 > **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`

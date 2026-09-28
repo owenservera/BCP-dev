@@ -44,7 +44,7 @@
 | # | Task | Status | Notes |
 |---|---|---|---|
 | S.1 | Topology rules (own copy, one writer, main rendezvous) | DONE | architecture doc §6 |
-| S.2 | Two-process procedure (shell A/B, clones, identities, remote) | TODO | write-up + exchange script |
+| S.2 | Two-process procedure (shell A/B, clones, identities, remote) | DONE | TWO-PROCESS-PROCEDURE-2026-09-28.md (CFA-10, W1-A) |
 | S.3 | Two-process 10-point exchange run | TODO | needs S.2; same bar as v0 + cross-process attention |
 | S.4 | Multi-session standing practice (N sessions, steward each) | TODO | needs S.3 green |
 
@@ -54,7 +54,7 @@
 |---|---|---|---|
 | N.1 | Worker needs (5 types + contracts) | DONE | catalog |
 | N.2 | Remaining-needs docs (roadmap + requirements + gaps) | DONE | three docs on main |
-| N.3 | Mine roadmaps/M1 packets for Phase 3 inputs | TODO | CFA-06-led bounded pass |
+| N.3 | Mine roadmaps/M1 packets for Phase 3 inputs | DONE | PHASE3-INPUTS-2026-09-28.md (CFA-06-led, W1-B; 10/10 roadmaps + 10 packets) |
 | N.4 | Re-identify needs after each phase | TODO | standing rule, not one-off |
 
 ## Phase 2b — Harden
@@ -63,7 +63,7 @@
 |---|---|---|---|
 | H.1 | Two-host v0 evidence | BLOCKED | no second machine; needs S.3 first anyway |
 | H.2 | Rotation operation + drill | BLOCKED | needs real rotation op (CFA-04) |
-| H.3 | CFA-11 counters automated | TODO | single-host provable |
+| H.3 | CFA-11 counters automated | DONE | CFA11-COUNTERS-2026-09-28.md + Get-CFA11Counters.ps1 (CFA-09, W1-C; re-run green by steward; trigger-2 awaits contradiction-registry designation — owner question, not automation gap) |
 
 ## Phase 3 — Realtime + tools (all TODO, gated)
 
@@ -86,3 +86,8 @@ without additive repair blocks integration.
 
 - 2026-09-28: list created from architecture+gaps+Gate-B evidence; P1 DONE;
   P2 DOING (depth + auto fixes landed, full-chain run pending).
+- 2026-09-28 W1 (`finish-full-list`, base f1c971ad): 3/3 CFA units PARTIAL→
+  steward-verified. S.2 DONE (two-process procedure, CFA-10). N.3 DONE
+  (Phase-3 inputs mined, CFA-06; leaves returned empty, all claims direct-read).
+  H.3 DONE (counters automated + steward re-run green; counter-2 UNKNOWN pending
+  registry designation). P2.1 still DOING (steward CLI probe next).

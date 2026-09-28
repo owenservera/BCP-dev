@@ -5,6 +5,18 @@
 > **Portfolio package:** STAGE-E
 > **Current portfolio state:** L2 capability/provider/realization basis adapter characterization pending
 
+## W1 unit B — Phase-3 inputs mining (finish-full-list, N.3)
+
+### W1-PHASE3-INPUTS-2026-09-28
+- **Status:** PARTIAL — PENDING-STEWARD-COMMIT (doc + receipt written, uncommitted per envelope)
+- **Priority:** P0
+- **Envelope:** steward spawn, goal `finish-full-list`, wave W1, unit B; base `f1c971ad`; mining only, Phase 3 gated (P2/S.3 green + owner go), building nothing
+- **Artifact:** `docs/agent-system/PHASE3-INPUTS-2026-09-28.md` (4 Phase-3 rows: requirements/constraints + exact source refs, unknowns with named owners, non-inputs)
+- **Receipt:** `RESULTS/W1-capability-provider-realization-20260928.md` (v1.1 schema, PARTIAL)
+- **Evidence:** all 10 `DOMAIN-ROADMAP-2026-09-27.md` + 10 M1/evidence packets + 7 Phase-3 masters read directly; 3 spawned work-scout/work-researcher leaves returned empty and were not relied upon
+- **Next action:** steward verify + commit; then N.3 flip per FULL-INTEGRATION-TASK-LIST.md
+- **Boundary:** no commit by this session; no boundary activation, Ω-law change, live proof, other-home edit, or implementation
+
 ## Open L2 task
 
 ### STAGE-E-L2-CFA06-CAPABILITY-REALIZATION-BASIS-ADAPTER-2026-09-28
