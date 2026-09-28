@@ -12,7 +12,7 @@
 Before launching the first autonomous Steward session, run this from any trusted BCP-dev checkout:
 
 ```powershell
-.\omega-endstate-build\scripts\Bootstrap-Steward.ps1
+.\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\Bootstrap-Steward.ps1
 ```
 
 This allocates the Steward's isolated workspace from the exact current remote `team/omega-endstate` SHA, creates the dedicated branch `work/omega-endstate/STEW-01/bootstrap-team`, and records local ownership metadata.
@@ -75,7 +75,7 @@ Then decide what this team actually needs.
 
 You may:
 
-- reuse existing agents;
+- reuse existing department roles;
 - wrap existing agents;
 - create new persistent subagents;
 - create temporary specialist agents;
