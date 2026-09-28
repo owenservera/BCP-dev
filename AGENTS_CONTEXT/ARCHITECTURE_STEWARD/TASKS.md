@@ -16,6 +16,13 @@
 
 ## Open tasks
 
+### LOCAL-GATEB-READINESS-2026-09-28
+- **Status:** DONE
+- **Priority:** P0
+- **Purpose:** Local OpenCode recovery onto integrated main + Gate B verification.
+- **Result:** Checkout is current main da40571f (clean, ff-only from stale local main; sandbox preserved as lineage). Toolchain, 11 agent bindings, spawn direction, and Commons suite (6/6) verified on this tree. No drift.
+- **Receipt:** `RESULTS/LOCAL-20260928-GATEB-READINESS.md`
+
 ### STAGE-E-L2-BASIS-ADAPTER-CHARACTERIZATION-2026-09-27
 - **Status:** DONE — 7/7 OWNER INPUTS RECONCILED
 - **Priority:** P0
