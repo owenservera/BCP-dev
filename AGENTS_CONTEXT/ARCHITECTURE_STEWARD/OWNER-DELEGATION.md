@@ -45,15 +45,21 @@ ten names, and no others, without a fresh owner conversation:
 The list is reconciled against AGENTS_CONTEXT/AGENT-COMMONS/PEER-ROSTER.md before
 each spawning wave. A roster edit alone does not extend this delegation.
 
-A CFA subagent may not itself spawn further sessions (tools.task: false). If a
-CFA needs another agent's work, it sends a Commons REQUEST/HANDOFF; the Steward
-turns that into a spawned session. There are no sub-sub-trees.
+A CFA subagent may spawn only `work-*` leaf workers from the registered catalog
+(`docs/agent-system/WORKER-CATALOG-2026-09-28.md`), bounded by its task envelope.
+Leaves hold no Commons identity, persist nothing, and spawn nothing — depth floor
+is mechanical (`tools.task: false` on all `work-*` bindings). A CFA may never
+spawn another CFA or the Steward. If a CFA needs another CFA's work, it sends a
+Commons REQUEST/HANDOFF; the Steward turns that into a spawned session.
 
 ## Step and cost budgets per wave
 
 - A **wave** is one parallel batch serving one owner-stated goal.
 - Default ceiling: **10 concurrent sessions**, at most one per delegated name.
-- Each session must receive an explicit step/turn budget in its task envelope.
+- Step/turn budgets: DEFERRED by owner direction 2026-09-28 (no budget
+  constraints by default; depth caps, least-privilege, and verification still
+  apply). When the owner activates budgets, each session must receive an explicit
+  budget in its envelope; until then this section is a placeholder, not a gate.
 - The Steward may not silently raise session count or budget. Any exception requires
   explicit owner approval recorded in that wave's SESSION-CONTEXT.md.
 

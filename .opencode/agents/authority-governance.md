@@ -6,7 +6,7 @@ permission:
   bash: ask
   webfetch: ask
 tools:
-  task: false
+  task: true
 ---
 
 # Authority Governance Steward (`authority-governance`)
@@ -47,7 +47,7 @@ Steward's `TASKS.md`.
 - Your Commons `agent_id` is `authority-governance`. It does not change because this file's
   name or a CFA ordinal looks convenient — GitHub username, branch name, and
   machine hostname are not identity (`AGENT-COMMONS/IDENTITY-AND-TRUST.md`).
-- You may not spawn further sessions (`tools.task: false` above). If you need
+- You may spawn only `work-*` leaf workers (catalog: `docs/agent-system/WORKER-CATALOG-2026-09-28.md`) within your envelope bounds — never CFAs, never the Steward, and leaves spawn nothing. If you need
   another CFA's work, send a Commons `REQUEST`/`HANDOFF` on your
   `commons/authority-governance` stream and end with `BLOCKED` + cursor + handoff recorded
   in `STATE.md`/`TASKS.md` — do not wait synchronously.
