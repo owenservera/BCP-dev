@@ -226,7 +226,10 @@ Classify every difference:
 
 ## PHASE 9 — SUCCESS CRITERIA TO ADD TO LOCAL SETUP
 
-When you reach the setup-success-criteria document, add a criterion that the local
+Create or update this exact durable setup-success-criteria file:
+`docs/agent-system/LOCAL-AUTONOMOUS-TEAM-SETUP-SUCCESS-CRITERIA-2026-09-28.md`.
+
+Add a criterion that the local
 team must pass this real-workload test before the autonomous system is considered
 operationally proven.
 
