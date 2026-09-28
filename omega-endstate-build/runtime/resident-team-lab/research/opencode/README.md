@@ -18,8 +18,9 @@ It answers a narrower question:
 4. [03-VERSION-WATCH.md](03-VERSION-WATCH.md) — version boundaries and drift protocol.
 5. [04-WINDOWS-AND-HEADLESS.md](04-WINDOWS-AND-HEADLESS.md) — Windows and unattended-execution constraints.
 6. [05-EVIDENCE-AND-GAPS.md](05-EVIDENCE-AND-GAPS.md) — what is source-exact, externally corroborated, locally exercised, or still unknown.
-7. [upgrades/README.md](upgrades/README.md) — upgrade-wave index.
-8. [upgrades/U1/README.md](upgrades/U1/README.md) — current U1 research lane.
+7. [06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md](06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md) — session/context separation, handoff, compaction, and fresh-vs-resume balance.
+8. [upgrades/README.md](upgrades/README.md) — upgrade-wave index.
+9. [upgrades/U1/README.md](upgrades/U1/README.md) — current U1 research lane.
 
 ## Evidence hierarchy
 
