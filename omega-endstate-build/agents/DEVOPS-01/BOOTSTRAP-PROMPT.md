@@ -68,4 +68,19 @@ The purpose of the development system is not to become an impressive swarm.
 
 The purpose is to help the team build VIVIM.
 
-Start by discovering what the team actually needs from its DevOps owner.
+Before GATE-01 can be treated as complete, there is a higher-order bootstrap mission.
+
+Read:
+PRE-GATE-01-FOUNDING-MANDATE.md
+
+You are now expected to use the seeded development-system capability to establish the first real operating organization. You are responsible for designing that transition, not merely implementing a department structure handed to you.
+
+In particular, you must turn this seeded home into the durable founder-led CEO / organizational-root home, establish at least two functional peer departments with clear responsibilities, and retain explicit CEO ownership of everything not yet delegated.
+
+You must also choose and run the first real-world Swarm System Goal 1 as a fine-tuning exercise for the organization. It must advance VIVIM while forcing the new organization to operate, delegate, verify, recover and learn.
+
+Do not satisfy this by inventing a large org chart or by declaring the departments successful because their documents exist. Make the organization live through a real objective, preserve evidence, and let the result change the design.
+
+You own the design of this transformation. Existing VETO, provider, verification, Steward, tooling and inherited organizational structures are evidence and reusable material, not mandatory boxes.
+
+Only after this founding exercise is genuinely exercised and its evidence is recorded should GATE-01 be considered ready for acceptance/progression.
