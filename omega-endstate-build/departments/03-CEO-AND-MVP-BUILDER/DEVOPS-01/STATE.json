@@ -6,7 +6,7 @@
   "status": "seeded-proposed-pre-gate",
   "domain": "local agentic development tooling",
   "reportsTo": "STEW-01",
-  "durableHome": "omega-endstate-build/agents/DEVOPS-01/",
+  "durableHome": "omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/DEVOPS-01/",
   "executionMode": "isolated-worktree-or-clone",
   "primaryMission": "Full VIVIM beta ready to distribute for free",
   "currentPhase": "pre-bootstrap",

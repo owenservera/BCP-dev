@@ -43,9 +43,9 @@ Then read the complete seed corpus under:
 
 AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OMEGA-ENDSTATE-BUILD-TEAM/
 
-For a specific resident agent, also read its durable home under:
+For a specific resident agent, also read its durable home under its owning department:
 
-agents/<AGENT_ID>/
+departments/<DEPARTMENT>/<AGENT_ID>/
 
 An agent home is durable identity/context/control-plane memory; it is not the agent's execution workspace.
 
@@ -59,11 +59,11 @@ Do not treat legacy VIVIM or current Ω implementation as mandatory architecture
 
 Use them as starting substrate, evidence and reusable material.
 
-## Agent organization
+## Department organization
 
-The local Steward owns progressive creation of the team's agents and development system under:
+The local Steward owns progressive creation of the team's departments and resident roles under:
 
-agents/
+departments/
 
 Start from the current seeded topology in team/AGENT-ROSTER.json. Additional specialists may be proposed, provisioned, combined or retired as observed workload justifies them.
 

@@ -41,13 +41,13 @@ Self-organize through evidence, proposals and bounded experiments; do not self-a
 
 ## Cross-system references
 
-- ../../TRUTH-CHAIN-SEED.md
-- ../../AGENTIC-SYSTEM-GATES.md
-- ../../team/README.md
-- ../../team/AGENT-ROSTER.json
-- ../../state/TEAM-STATE.json
-- ../../roadmap/ROADMAP-V1.md
-- ../../research/departments/veto-governor/
+- ../../../TRUTH-CHAIN-SEED.md
+- ../../../AGENTIC-SYSTEM-GATES.md
+- ../../../team/README.md
+- ../../../team/AGENT-ROSTER.json
+- ../../../state/TEAM-STATE.json
+- ../../../roadmap/ROADMAP-V1.md
+- ../../../research/departments/veto-governor/
 
 ## Transitional status
 

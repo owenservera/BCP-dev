@@ -22,7 +22,7 @@ DEVOPS-01 primarily owns infrastructure and tooling in layer 2, and supports lay
 
 omega-endstate-build/ is the canonical tracked home for this build path.
 
-The DEVOPS-01 directory under agents/ is durable identity/context/control-plane memory. It is not a
+The DEVOPS-01 directory under departments/03-CEO-AND-MVP-BUILDER/ is durable identity/context/control-plane memory. It is not a
 shared execution checkout.
 
 The autonomous process must execute from an isolated local worktree or clone with an owned branch.
@@ -47,7 +47,7 @@ Important control-plane surfaces include:
 - GIT-MANAGEMENT.md
 - PROJECT-STRUCTURE.md
 - AGENTIC-SYSTEM-GATES.md
-- agents/
+- departments/
 - team/
 - runtime/
 - research/

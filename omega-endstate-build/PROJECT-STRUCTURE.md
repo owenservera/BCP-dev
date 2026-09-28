@@ -17,8 +17,8 @@ omega-endstate-build/
 ├── GIT-MANAGEMENT.md
 ├── PROJECT-STRUCTURE.md
 │
-├── team/             # team OS, roster, agent roles, ownership
-├── agents/           # durable agent definitions/prompts/context
+├── team/             # team OS, roster, role ownership
+├── departments/      # durable department homes, role definitions and context
 ├── workstreams/      # active product/workstream definitions
 ├── roadmap/          # strategic and milestone planning
 ├── state/            # current machine-readable and human-readable state
@@ -52,7 +52,7 @@ That is an architectural decision for the team.
 
 Do not duplicate large portions of Ω merely to make the folder look self-contained.
 
-## Agent workspaces
+## Department workspaces
 
 Do not place concurrent agent worktrees inside this tracked project directory unless the team explicitly designs and verifies that arrangement.
 
@@ -65,7 +65,7 @@ Agent workspaces are isolated execution environments.
 The repository already contains:
 
 - `team/AGENT-ROSTER.json` — initial `STEW-01` roster;
-- `agents/STEW-01/AGENT.md` — initial Steward definition;
+- `departments/03-CEO-AND-MVP-BUILDER/STEW-01/AGENT.md` — initial Steward definition;
 - `state/TEAM-STATE.json` — initial team recovery state;
 - `state/WORKSPACE-REGISTRY.schema.json` — machine-local registry contract;
 - `scripts/` — local workspace/bootstrap tooling.

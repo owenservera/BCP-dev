@@ -3,7 +3,7 @@
 > Status: BOOTSTRAP
 > Canonical project home: omega-endstate-build/
 
-This is the durable control plane for the team's own agent organization.
+This is the durable control plane for the team's department organization and resident roles.
 
 ## Foundational trust contract
 
@@ -19,7 +19,7 @@ The team must not treat an agent, role, model, seniority, confidence or consensu
 
 VETO-01 is the first explicit trust-chain witness, not the owner of truth or team authority.
 
-## Initial topology
+## Initial department topology
 
 STEW-01 — Local End-State Build Steward
   - team-level coordination, roadmap and integration in the current bootstrap shape
@@ -46,19 +46,17 @@ COORD-01 — Architectural / Research Auditor
 
 This is a starting topology, not a permanent org chart.
 
-## Agent creation rule
+## Department and role evolution
 
-The Steward should create an agent when a responsibility is recurring, specialized, independently testable, parallelizable, context-heavy, or otherwise worth its coordination cost.
+The Steward should create or reshape a department when a responsibility becomes a durable organizational boundary; resident roles inside departments should exist only where their coordination cost is justified.
 
-Temporary agents are valid.
+Temporary agents remain valid as execution mechanisms.
 
-Agents can be retired.
+Resident roles can be retired, combined, split or replaced.
 
-Roles can be combined, split or replaced.
+The goal is the smallest department topology that can scale to the whole product.
 
-The goal is the smallest topology that can scale to the whole product.
-
-## Durable agent definition
+## Durable resident-role definition
 
 Each persistent agent should eventually have a durable definition containing:
 
@@ -81,9 +79,9 @@ Use the existing seeded agent definitions as patterns, not mandatory schemas. Ke
 
 The Steward owns this team control plane.
 
-Agent-owned durable artifacts should normally live under:
+Resident-role artifacts should normally live under their department:
 
-omega-endstate-build/agents/<AGENT_ID>/
+omega-endstate-build/departments/<DEPARTMENT>/<AGENT_ID>/
 
 Do not use Git author metadata as the agent identity system.
 
