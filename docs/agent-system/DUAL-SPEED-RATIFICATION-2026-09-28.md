@@ -3,90 +3,72 @@
 
 **Status: RATIFIED BY OWNER DIRECTION**
 
-This record ratifies the dual-speed model as the target operating architecture for the agentic system.
+## 1. Core decision
 
-## 1. Ratified principle
+The system has two independent dimensions:
 
-The system must support both:
+MODE = DELIBERATE | EXECUTION
+SURFACE = LOCAL | CHATGPT-WEBAPP | FUTURE GOVERNED SURFACE
 
-**DELIBERATE MODE:** slow, evidence-heavy, cross-CFA architectural reasoning.
+A surface does not own a mode.
 
-**EXECUTION MODE:** fast, bounded, code-oriented local execution after a governed decision.
+The owner may run deep architectural sessions locally or in ChatGPT, switch surfaces during a work item, and use either surface for bounded execution where the necessary evidence and tooling are available.
 
-Neither mode replaces the other.
+## 2. Why the model exists
 
-## 2. Deliberate mode is preserved
+DELIBERATE preserves rich reasoning, multi-CFA participation, evidence, objections, falsification and architectural continuity.
 
-The existing rich CFA/Steward architecture remains valid for:
+EXECUTION reduces avoidable coordination overhead for already-governed work through right-sized context, bounded scope and mechanical completion.
 
-- architecture;
-- ontology;
-- authority and governance;
-- boundary design;
-- major refactors;
-- cross-domain decisions;
-- research and falsification;
-- Ω decisions.
+The goal is not to force every task into execution or every execution task into minimal context.
 
-Multiple CFAs may participate. Commons can carry rich deliberation. Long-lived domain context remains valuable.
+## 3. Deliberate mode
 
-## 3. Execution mode is added
+The rich Steward/CFA/worker/Commons architecture remains first-class.
 
-Execution begins from a governed execution brief.
+A deliberate session may be local or web-based and may be long, deep and multi-CFA.
 
-The runtime selects one active execution CFA and gives it a bounded work envelope. Other CFAs are consulted only when their domain is implicated.
+Large context is acceptable when it contains useful reasoning material. The target is to remove duplicated boilerplate, not to make every context small.
 
-Execution completion requires code/config/test evidence where implementation was promised, plus a machine-valid receipt and commit lineage.
+## 4. Execution mode
 
-## 4. Return path
+A governed execution task uses bounded scope, right-sized context, exact identity, execution safeguards, tests/evidence, durable receipt and commit lineage.
 
-Implementation must return to deliberation when it discovers a material architectural conflict, authority ambiguity, boundary conflict, or evidence that invalidates the governing design assumption.
+A routine task may use a short generated envelope.
 
-The executor is not authorized to silently create new architecture.
+A genuinely complex implementation can expand its context or deliberately pause for multi-CFA reasoning.
 
-## 5. Context policy
+## 5. Surface switching
 
-Rich constitutional homes remain for deliberate reasoning and historical continuity.
+Switching surfaces does not reset the work.
 
-Execution loads compact context: charter, current state, work envelope, and relevant references.
+Continuity is carried through the repository and explicit lineage such as goal_id, work_id, mode, surface, session_id, attempt_id and handoff_id when applicable.
 
-Long homes are harvested and retired only after preservation, not deleted for cosmetic file-count reduction.
+A surface switch may itself be a deliberate architectural step.
 
-## 6. Communication policy
+## 6. Return path
 
-Commons serves both modes.
+Execution returns to deliberate reasoning when it discovers an architectural conflict, authority ambiguity, boundary conflict, falsifying result or material contradiction of the governing design.
 
-Deliberate messages may be rich.
+No surface is authorized to silently invent replacement architecture.
 
-Execution messages should be terse and operational.
+## 7. Completion
 
-Commons never becomes truth, authority, scheduler, ontology, or second task manager.
-
-## 7. Completion policy
-
-Deliberative outputs may legitimately end as INVESTIGATED or FALSIFIED.
+Deliberative outputs may end INVESTIGATED or FALSIFIED.
 
 Execution outputs may be IMPLEMENTED only with implementation evidence.
 
-This distinction is now part of the completion model.
+## 8. Non-goals
 
-## 8. Non-goals of this ratification
-
-This ratification does not:
-- redesign Ω;
-- activate A2A;
-- activate MCP;
-- activate a presence daemon;
-- remove the ten CFA domains;
-- authorize mass document deletion;
-- declare Commons production-ready.
+This ratification does not redesign Ω, activate A2A, activate MCP, activate a presence daemon, remove the ten CFA domains, require local-only execution, require ChatGPT-only deliberation, authorize mass document deletion, or declare Commons production-ready.
 
 ## 9. Next phase
 
-Proceed to M0/M1 implementation:
-- mode classification;
-- execution completion contract;
-- receipt schema/validator;
-- one real bounded implementation corridor.
+Proceed with M0/M1 as a surface-independent implementation:
 
-The architecture should now become quieter while execution becomes more capable.
+1. represent mode and preserve surface/session lineage;
+2. extend the existing completion contract;
+3. validate receipts mechanically;
+4. prove one bounded execution corridor.
+
+> **Mode is how the work is conducted. Surface is where the work is conducted. Keep those concepts separate.**
