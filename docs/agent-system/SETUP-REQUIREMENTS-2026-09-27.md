@@ -6,6 +6,17 @@
 > and acceptance criteria. Nothing is done until its verification command passes
 > and the evidence is committed.
 
+## Current-main integration baseline — 2026-09-28
+
+Before executing these requirements, read
+`docs/agent-system/CURRENT-RECONCILIATION-2026-09-28.md`.
+
+Current `main`: `7ae2460b04df22a949bae0f1478b539129ce8bca`.
+
+These requirements describe the autonomous-team setup track. They do not override
+the current Architecture Steward control plane. Completion claims must also satisfy
+the current Durable Completion Gate and its final delivery-ref verification rule.
+
 ## Environment (all phases)
 
 - bun ≥1.3.14, node ≥24, git ≥2.51, gh ≥2.83, opencode 1.18.4 (re-verify with
