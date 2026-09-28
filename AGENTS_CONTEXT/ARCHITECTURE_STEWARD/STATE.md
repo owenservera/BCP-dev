@@ -35,6 +35,20 @@ The Steward has enough cross-CFA evidence to freeze the generic Layer-1 mechanic
 
 This is not a new centralized backlog and does not transfer CFA ownership.
 
+## M0/M1 slice — 2026-09-28 (EXECUTION corridor M0M1-CORRIDOR-01)
+
+Session Result Contract v1.2 is ACTIVE (additive-only over v1.1: optional
+MODE/SURFACE/WORK_ID/goal_id/attempt_id/REQUESTED_AGENT/ALLOWED_PATHS/
+REQUIRED_TESTS/TEST_RESULTS; v1.1 receipts valid without rewrite).
+`tools/Validate-Receipt.ps1` installs the M1 C1–C9 gate as a procedural
+fail-closed check (all labels PROCEDURAL except spawn-depth MECHANICAL, per the
+CFA-10 ledger). Four CFA evidence inputs reconciled (CFA-02/04/09/10
+INVESTIGATED). ENFORCEMENT_LEVEL stays validator-emitted, never
+receipt-authored. Exact-agent resolution on opencode 1.18.4 is a recorded
+PROCEDURAL-GAP: headless `--agent` silently falls back to the Steward, so the
+chain vehicle remains steward→CFA via the Task tool. Next: Wave-2 D/E leaf-leg
+test + U1 permission-precedence probe.
+
 ## Planning authority invariant
 
 The ten local `DOMAIN-ROADMAP-2026-09-27.md` files remain the source planning artifacts for their own domains.

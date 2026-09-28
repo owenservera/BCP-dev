@@ -36,3 +36,12 @@ verified against the repo per the Durable Completion Gate — never by chat clai
   not directly addressable headless; silent fallback to default_agent. P2.3
   partial: xhigh accepted, no rejection. Identity-confirm probes (work-scout +
   bogus-name, --format json) interrupted before completing — re-run next.
+- 2026-09-28 M0/M1 wave: base `e1818205` (== design-branch baseline
+  `24e5b88e` basis) verified clean (2 known untracked auto-exports left
+  alone). Delegation↔register↔roster 10/10, no drift. Dependency assessment:
+  4 CFA evidence units INDEPENDENT → parallel wave (CFA-02/04/09/10);
+  M0 synthesis + M1 validator + corridor ORDERED after. 4/4 receipts
+  collected, each verified whole-read vs repo (CFA-10: 88 lines; CFA-04: 180;
+  CFA-02: 113; CFA-09: 118). All INVESTIGATED, no implementation, no Ω, no
+  boundary. Corridor M0M1-CORRIDOR-01 (MODE=EXECUTION, SURFACE=LOCAL):
+  contract v1.1→v1.2 additive + Validate-Receipt.ps1. Stall counter: 0.

@@ -16,14 +16,26 @@
 
 ## Open tasks
 
+### LOCAL-AGENT-M0-M1-UPGRADE-2026-09-28
+- **Status:** ACTIVE — WAVE 1 RECONCILED / CORRIDOR M0M1-CORRIDOR-01 COMMITTED
+- **Priority:** P0
+- **Prompt:** `docs/agent-system/LOCAL-AGENT-M0-M1-UPGRADE-PROMPT-2026-09-28.md` (design tip `24e5b88e`, read-only; baseline `e1818205` == current main HEAD)
+- **Mode/surface:** session DELIBERATE synthesis + bounded EXECUTION corridor (steward-side, central control-plane only)
+- **Wave 1 (4/4 CFA INVESTIGATED, verified vs repo):** CFA-10 runtime ledger (depth+per-tool MECHANICAL-provisional; exact-agent/allowlist/paths/schema/diff/tests/freshness PROCEDURAL-GAP); CFA-04 authority preconditions P1–P8 + exact-agent REJECT rule + 3 owner questions; CFA-02 minimal data extension (8 optional keys, 3 aliases, ENFORCEMENT_LEVEL + commands REJECTED, 6 vetos); CFA-09 compat envelope (additive-only v1.2, per-class C1–C9 matrix, suspend-tolerate-supersede rollback, 8 corridor falsifiers).
+- **Reconciliation decision:** ENFORCEMENT_LEVEL is validator-emitted derived view only, never receipt-authored (CFA-02 owner verdict adopted); v1.2 REQUIRED only for IMPLEMENTED-with-MODE=EXECUTION.
+- **Corridor M0M1-CORRIDOR-01 (MODE=EXECUTION, SURFACE=LOCAL, one writer: steward):** contract v1.1→v1.2 amendment + `tools/Validate-Receipt.ps1` (C1–C9, explicit FAIL, PROCEDURAL labels) + STATE.md note. Allowed paths exact; pre-declared tests: validator runs over 4 CFA receipts (C1/C3/C9 PASS, C8 FAIL-expected pre-commit) + post-commit full PASS re-runs.
+- **Receipts:** 4 CFA receipts (COMMIT_SHA closed by content commit below); steward receipt `RESULTS/STEWARD-20260928-M0M1-CORRIDOR-01.md`.
+- **Next:** Wave-2 D/E (CFA→leaf productive spawn, P2.1 remaining question) + U1 permission-precedence probe before any M1 claim leans on tool-deny; owner answers on CFA-04 questions (IMPLEMENTED proof bar, fallback tolerance, wave expiry).
+
 ### FINISH-FULL-LIST-GOAL-2026-09-28
 - **Status:** ACTIVE — WAVE 1 RECONCILED
 - **Priority:** P0
 - **Goal state:** `docs/agent-system/goals/finish-full-list/GOAL.md`
 - **Master list:** `docs/agent-system/FULL-INTEGRATION-TASK-LIST.md` (updated every turn, §9 log)
 - **W1 result:** 3/3 CFA units verified + committed (S.2, N.3, H.3 DONE). P2.1 CLI probe pending.
-- **Owner questions queued:** counter-2 contradiction-registry designation; Phase 3 go (after P2/S.3 green).
-- **Next:** P2.1 steward→CFA→worker full-chain probe with `--auto` (+ P2.3 xhigh validation).
+- **M0/M1 wave result (2026-09-28):** 4/4 CFA evidence units verified (CFA-02/04/09/10 INVESTIGATED) + M1 validator installed + contract v1.2. Exact-agent verdict: PROCEDURAL-GAP (fallback-checked) — headless `--agent` can never address CFA/worker; chain vehicle is steward→CFA via Task tool (proven W1). P2.1 still DOING (Wave-2 D/E leaf-leg test next).
+- **Owner questions queued:** counter-2 contradiction-registry designation; Phase 3 go (after P2/S.3 green); CFA-04 M1 trio (IMPLEMENTED proof bar; Steward fallback tolerance; per-wave expiry).
+- **Next:** P2.1 Wave-2 D/E: (D) CFA spawns one leaf on trivial task, verbatim output; (E) headless steward run spawns one CFA via Task tool (+ P2.3 xhigh validation).
 
 ### LOCAL-GATEB-READINESS-2026-09-28
 - **Status:** DONE

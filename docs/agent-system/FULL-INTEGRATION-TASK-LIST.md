@@ -35,7 +35,7 @@
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| P2.1 | Steward→CFA→worker run with --auto | DOING | depth-1 + auto-reject fixed; NEW: `--agent <subagent-mode>` silently fell back to default_agent (steward refusal quoted steward binding); `--variant xhigh` accepted without rejection; empty-stdout runs observed (known trap); vehicle confirmed as `run` not `serve` |
+| P2.1 | Steward→CFA→worker run with --auto | DOING | depth-1 + auto-reject fixed; NEW: `--agent <subagent-mode>` silently fell back to default_agent (steward refusal quoted steward binding); `--variant xhigh` accepted without rejection; empty-stdout runs observed (known trap); vehicle confirmed as `run` not `serve`. M0/M1 update: CFA-10 ledger confirms fallback is a PROCEDURAL-GAP (no strict flag on 1.18.4) — chain vehicle is steward→CFA via Task tool (W1 proven 3/3); M1 `tools/Validate-Receipt.ps1` installed (C1–C9, fail-closed); Wave-2 D/E leaf-leg test next |
 | P2.2 | Verify chain evidence + record | TODO | needs P2.1 full transcript |
 | P2.3 | Validate `--variant xhigh` on contributor-free | TODO | validity unknown; fallback plain model |
 
@@ -91,3 +91,12 @@ without additive repair blocks integration.
   (Phase-3 inputs mined, CFA-06; leaves returned empty, all claims direct-read).
   H.3 DONE (counters automated + steward re-run green; counter-2 UNKNOWN pending
   registry designation). P2.1 still DOING (steward CLI probe next).
+- 2026-09-28 M0/M1 wave (prompt `LOCAL-AGENT-M0-M1-UPGRADE-PROMPT-2026-09-28`,
+  base `e1818205` == design baseline; delegation↔register↔roster 10/10, no
+  drift): 4/4 CFA evidence units INVESTIGATED + steward-verified whole-read
+  (CFA-10 runtime ledger; CFA-04 authority P1–P8; CFA-02 data extension; CFA-09
+  compat envelope). Contract v1.1→v1.2 additive + `Validate-Receipt.ps1`
+  (C1–C9, fail-closed, PROCEDURAL labels) implemented as corridor
+  M0M1-CORRIDOR-01 (MODE=EXECUTION, SURFACE=LOCAL, one writer). Pre-commit
+  validator: 4/4 C1+C3+C9 PASS, C8 FAIL-expected (uncommitted). Post-commit
+  re-runs pending. P2.1 still DOING (Wave-2 D/E leaf-leg test next).
