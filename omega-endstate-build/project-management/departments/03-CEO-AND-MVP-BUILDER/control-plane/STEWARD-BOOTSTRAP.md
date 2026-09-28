@@ -4,7 +4,8 @@
 > Primary company mission for this roadmap phase: **full VIVIM beta ready to distribute for free**
 > Long-horizon enabling mission: build an increasingly capable development organization that accelerates that beta mission
 > Do not assume the ultimate organization or product architecture will be built during this phase
-> Project home: `omega-endstate-build/`
+> Project-management home: `omega-endstate-build/project-management/`
+> Build/source home: `omega-endstate-build/`
 > Team integration line: `team/omega-endstate`
 
 ## 0. First local-machine action
@@ -12,7 +13,7 @@
 Before launching the first autonomous Steward session, run this from any trusted BCP-dev checkout:
 
 ```powershell
-.\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\Bootstrap-Steward.ps1
+.\omega-endstate-build\scripts\Bootstrap-Steward.ps1
 ```
 
 This allocates the Steward's isolated workspace from the exact current remote `team/omega-endstate` SHA, creates the dedicated branch `work/omega-endstate/STEW-01/bootstrap-team`, and records local ownership metadata.
@@ -45,9 +46,9 @@ You are free to discover a substantially different topology.
 
 Treat:
 
-`omega-endstate-build/`
+`omega-endstate-build/project-management/`
 
-as the canonical tracked home for this development path.
+as the canonical tracked project-management home for this development path. The build/source implementation remains at `omega-endstate-build/`.
 
 Create the project artifacts, team definitions, agent prompts, workstream records, planning state, research, evidence, experiments, tools and product-specific material there.
 
@@ -218,7 +219,7 @@ Design:
 
 Create only the first useful Steward/subagent roles.
 
-Record them under `omega-endstate-build/`.
+Record them under `omega-endstate-build/project-management/`.
 
 ### Phase D — produce the roadmap
 
@@ -369,7 +370,7 @@ A fresh Steward must be able to recover:
 - what was integrated;
 - what the next action is.
 
-Keep this state under `omega-endstate-build/`.
+Keep this project-management state under `omega-endstate-build/project-management/`.
 
 ## 15. First-session deliverables
 
