@@ -2,7 +2,9 @@
 
 This department owns evidence, falsification, verification, governance safeguards, gates and durable trust/state.
 
-Read `README.md` first. For VETO work, use the `VETO/` home and its `governor/` corpus.
+Read `SITREP.md` first. It is the mandatory cold-start orientation for workspace, branch, worktree, scope and reading order.
+
+Then read `README.md`. For VETO work, use the `VETO/` home and its `governor/` corpus.
 
 The governing contract is:
 
