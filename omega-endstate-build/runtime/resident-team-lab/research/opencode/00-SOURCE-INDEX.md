@@ -63,6 +63,7 @@ These are the pinned source references for U1.
 | OC-K02 | https://github.com/lovicho/oh-my-opencode | Current orchestration example using Task, team mode, background children, workflow/DAG concepts, and specialist agents. |
 | OC-K03 | `../../vendor/opencode-swarm/` | Exact locally retained implementation, tests, and Windows adaptations used as the fallback substrate. |
 | OC-R01 | [06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md](06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md) | Session/context separation, compaction, handoff, fresh-vs-resume tradeoff, context-budget model, and experiments. |
+| OC-R02 | [07-RESIDENCY-DEPARTMENT-AND-PRESENCE-KERNEL.md](07-RESIDENCY-DEPARTMENT-AND-PRESENCE-KERNEL.md) | Department identity, dynamic worker capability, dormancy/wake, background sentinels, context epochs, and attention budget. |
 
 ## F. Local lab surfaces
 
