@@ -6,11 +6,11 @@
 > Mission: Full VIVIM beta ready to distribute for free
 
 ## Executive disposition
-REQUEST-EVIDENCE
+AUDIT-IN-PROGRESS / NO DISPOSITION YET
 
-This audit has established several structural facts and material risk candidates, but current installed OpenCode runtime behavior has not yet been re-executed by this session. Remaining live-runtime facts are required before a final NO_VETO or VETO_PROPOSED disposition is responsible.
+This audit has established several structural facts and material risk candidates, but the reconstruction is not yet complete. The absence of a final disposition is a state of unfinished audit work, not a finding that evidence is insufficient to decide a completed case. VG-0001 should finish the broad system reconstruction first. VG-0003 is reserved for concrete runtime-dependent claims discovered by the audit and should sharpen VG-0001 rather than replace it.
 
-No VETO_PROPOSED item is issued at Phase 1.
+No VETO_PROPOSED item is issued while VG-0001 remains unfinished.
 
 ## 1. Current-system map
 ### A. Native OpenCode
@@ -90,10 +90,10 @@ The evidence does support preventing silent promotion of any of these experiment
 6. Coordination-cost measurement: compare a bounded task executed through the native resident model versus the standalone swarm model using the same real workload.
 
 ## 8. VETO_PROPOSED
-None at Phase 1.
+None. VG-0001 is still **AUDIT-IN-PROGRESS / NO DISPOSITION YET**; this is not `REQUEST-EVIDENCE`.
 
-## 9. Required next evidence
-The next audit pass should obtain, from the actual Windows/OpenCode environment:
+## 9. Runtime evidence boundary
+VG-0001 should continue repository/system reconstruction without waiting for VG-0003. When the audit reaches a conclusion that genuinely depends on current Windows/OpenCode behavior and repository evidence cannot responsibly resolve it, record that dependency explicitly and use VG-0003 to obtain:
 - exact OpenCode version;
 - exact effective config;
 - actual visible agent roster;
@@ -104,6 +104,8 @@ The next audit pass should obtain, from the actual Windows/OpenCode environment:
 - current test results;
 - process/worktree behavior;
 - actual use of swarm DB/Commons during the resident experiment.
+
+VG-0003 is therefore a runtime-reconciliation instrument for specific unresolved claims, not a replacement for the broad VG-0001 audit.
 
 ## 10. Current bottom line
 The agent system already contains substantial capability.
