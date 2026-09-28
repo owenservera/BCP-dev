@@ -25,7 +25,12 @@ It does not establish:
 ## Baseline contract
 
 For this gate, the primary contract is the cloned repository itself, currently vendored under:
-omega-endstate-build/runtime/vendor/opencode-swarm/
+omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/runtime/vendor/opencode-swarm/
+
+(PATH CORRECTION: the department restructure moved this tree under
+`departments/03-CEO-AND-MVP-BUILDER/`. The original pointer
+`omega-endstate-build/runtime/vendor/opencode-swarm/` no longer resolves. The vendor tree was
+relocated at 100% content similarity; only the path changed.)
 
 Use, in order:
 1. the vendored README;
@@ -294,7 +299,11 @@ BLOCKED-EVIDENCE means the gate cannot responsibly conclude because required evi
 
 GATE-01 remains a baseline-fidelity gate, but acceptance for progression also requires a bounded real-world advancement exercise using the accepted/in-progress local agentic substrate.
 
-The exercise must be designed and run by the local resident organization under `agents/DEVOPS-01/PRE-GATE-01-FOUNDING-MANDATE.md`.
+The exercise must be designed and run by the local resident organization under
+`departments/03-CEO-AND-MVP-BUILDER/DEVOPS-01/PRE-GATE-01-FOUNDING-MANDATE.md`.
+
+(PATH CORRECTION: previously cited as `agents/DEVOPS-01/...`; that path never resolved after the
+department restructure. Mandate now lives under Department 03.)
 
 At minimum, its durable evidence must show:
 - a real VIVIM-forward objective was selected;

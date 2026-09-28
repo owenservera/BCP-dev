@@ -122,7 +122,11 @@ try {
   # exist: agents asked to use them come back empty-handed with the run still
   # reporting "completed". That is exactly what the first run did, and it is a
   # silent failure, so the injection is asserted here rather than assumed.
-  $pluginPath = Join-Path $RepoRoot 'omega-endstate-build/runtime/vendor/opencode-swarm/plugin/swarm.ts'
+  # WINDOWS/LAYOUT ADAPTATION: this path is repo-relative and the department restructure moved the
+  # whole runtime tree under departments/03-CEO-AND-MVP-BUILDER/. The existence assertion below is
+  # what catches that class of breakage, because a stale path here fails as a silently missing
+  # plugin rather than as a loud error.
+  $pluginPath = Join-Path $RepoRoot 'omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/runtime/vendor/opencode-swarm/plugin/swarm.ts'
   if (-not (Test-Path -LiteralPath $pluginPath)) {
     Write-Log "FAIL: swarm plugin not found at $pluginPath"
     $script:ExitCode = 4
@@ -170,7 +174,7 @@ try {
   # ---- 3. run the swarm against the already-running server ----------------
   # --server means the swarm never spawns or tears down a server itself; this
   # script owns the lifecycle, so teardown cannot race the swarm.
-  $swarmCli = Join-Path $RepoRoot 'omega-endstate-build/runtime/vendor/opencode-swarm/src/cli.ts'
+  $swarmCli = Join-Path $RepoRoot 'omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/runtime/vendor/opencode-swarm/src/cli.ts'
   $swarmArgs = @(
     $swarmCli, 'run', $ConfigPath,
     '--server', $readyUrl,
