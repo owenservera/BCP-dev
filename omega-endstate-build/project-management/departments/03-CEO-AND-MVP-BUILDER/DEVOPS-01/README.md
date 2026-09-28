@@ -35,19 +35,19 @@ Self-organize through evidence, proposals and bounded experiments; do not self-a
 - Project mission: full VIVIM beta ready to distribute for free.
 - Team context: Ω End-State Build / STEW-01.
 - Persistent role, currently seeded/proposed pending first live bootstrap.
-- Execution: isolated worktree/clone with an owned branch.
+- Execution: isolated worktree/clone; the Git branch identifies the task/change, not the agent.
 - Verification: consequential self-authored claims require independent verification where practical.
 - Authority: bounded to the agentic-development-tooling domain; no self-granted governance authority.
 
 ## Cross-system references
 
-- ../../../TRUTH-CHAIN-SEED.md
-- ../../../AGENTIC-SYSTEM-GATES.md
-- ../../../team/README.md
-- ../../../team/AGENT-ROSTER.json
-- ../../../state/TEAM-STATE.json
-- ../../../roadmap/ROADMAP-V1.md
-- ../../../research/departments/veto-governor/
+- ../../02-TRUTH-AND-TRUST/TRUTH-CHAIN-SEED.md
+- ../../02-TRUTH-AND-TRUST/AGENTIC-SYSTEM-GATES.md
+- ../team/README.md
+- ../team/AGENT-ROSTER.json
+- ../../02-TRUTH-AND-TRUST/state/TEAM-STATE.json
+- ../roadmap/ROADMAP-V1.md
+- ../../02-TRUTH-AND-TRUST/VETO/governor/
 
 ## Transitional status
 
