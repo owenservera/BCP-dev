@@ -15,7 +15,7 @@
 | Vendored commit date | 2026-06-11 08:21:04 -0700 | `git log -1` |
 | Vendored commit subject | "Publish as @ibraheem-111/opencode-swarm (bare npm name taken by unrelated package)" | same |
 | Upstream repo | `https://github.com/ibraheem-111/opencode-swarm.git` | same |
-| Vendored path | `omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/runtime/vendor/opencode-swarm/` | corrected from a stale pointer; see gate doc |
+| Vendored path | `omega-endstate-build/runtime/vendor/opencode-swarm/` | corrected from a stale pointer; see gate doc |
 | Declared dependencies | `@modelcontextprotocol/sdk`, `@opencode-ai/plugin`, `@opencode-ai/sdk`, `zod` | same |
 | Lockfile in vendored tree | `bun.lock` present (26,051 b) | **recovered** — see below |
 | Bin entry | `swarm` → `src/cli.ts` | same |
@@ -71,7 +71,7 @@ Current branch `work/omega-endstate/STEW-01/bootstrap-team` at `450e2613`.
 
 The swarm plugin is **not** registered in `.opencode/opencode.json`. It is injected per-spawn via
 `OPENCODE_CONFIG_CONTENT` = `{"plugin":["<abs path>/plugin/swarm.ts"]}` by
-`runtime/scripts/validate-swarm.ps1`.
+`omega-endstate-build/runtime/scripts/validate-swarm.ps1`.
 
 Consequence, and it is a gate-relevant fact: an ordinary interactive `opencode` session in this
 workspace has **no `swarm_*` tools**. Plugin availability is currently a property of the harness,
@@ -143,7 +143,7 @@ Gate "Gate decision integrity": *"The agent or team that implements a capability
 become the sole verifier of its own consequential gate."*
 
 The Windows adaptations in `ff461817` / `f8796860` were authored by STEW-01, which is also the
-agent driving this gate. `team/AGENT-ROSTER.json` records **VER-01 (independent verifier) as
+agent driving this gate. `omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/team/AGENT-ROSTER.json` records **VER-01 (independent verifier) as
 `status: proposed`** — not provisioned — and DEVOPS-01 as `seeded-proposed-pre-gate`.
 
 Consequence: even a fully green campaign cannot by itself produce an accepted GATE-01 result. An
@@ -151,7 +151,7 @@ independent verifier must exist and must not be the implementer. Recorded here a
 structural blocker rather than resolved by self-assertion.
 
 GATE-01 additionally requires a real-world advancement exercise designed and run under
-`departments/03-CEO-AND-MVP-BUILDER/DEVOPS-01/PRE-GATE-01-FOUNDING-MANDATE.md`, whose evidence
+`omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/DEVOPS-01/PRE-GATE-01-FOUNDING-MANDATE.md`, whose evidence
 must show at least two functional peer departments created and exercised. Three departments now
 exist and were created during restructure `450e2613`, but whether that satisfies the mandate is an
 open judgement, not a recorded fact.
