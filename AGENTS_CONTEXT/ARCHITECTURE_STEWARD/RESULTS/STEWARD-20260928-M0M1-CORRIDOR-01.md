@@ -51,7 +51,6 @@ SURFACE: LOCAL
 WORK_ID: M0M1-CORRIDOR-01
 goal_id: finish-full-list (owner objective carrier; corridor serves it)
 attempt_id: 1 (single steward attempt; no retry)
-REQUESTED_AGENT: (absent — steward is the primary session; exact-agent check not applicable to tier-0 execution)
 ALLOWED_PATHS:
 - AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SESSION-RESULT-CONTRACT.md
 - AGENTS_CONTEXT/ARCHITECTURE_STEWARD/tools/Validate-Receipt.ps1
