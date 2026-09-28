@@ -1,30 +1,50 @@
-# Agent System Master Upgrade — Index
+# Agent System Master Upgrade — Ratification Index
 ## 2026-09-28
 
-Status: PROPOSED MASTER DESIGN. No runtime activation is implied by these documents.
-Design branch: design/agent-system-master-upgrade-2026-09-28.
-Baseline: e181820502f1a5ea572ed51b98cebd3af0b9c5ae.
+**Status:** RATIFIED PROPOSED ARCHITECTURE — dual-speed operating model  
+**Design branch:** `design/agent-system-master-upgrade-2026-09-28`  
+**Baseline:** `e181820502f1a5ea572ed51b98cebd3af0b9c5ae`
 
-## Core documents
+## Ratified synthesis
 
-1. MASTER-AGENT-SYSTEM-UPGRADE-2026-09-28.md — target architecture, execution model, migration order and definition of final.
-2. MASTER-COMMUNICATION-SYSTEM-DESIGN-2026-09-28.md — Commons ordering, handoffs, transport, identity, validation and promotion gate.
-3. DELEGATION-AND-CAPABILITY-ENFORCEMENT-2026-09-28.md — exact agent resolution, worker containment, revocation and completion enforcement.
-4. IMPLEMENTATION-MATRIX-CHATGPT-VS-LOCAL-2026-09-28.md — explicit implementation/proof split.
+The agent system will operate in two explicit modes.
 
-## Important synthesis
+### DELIBERATE
+Rich constitutional work remains first-class: COORD-01, Steward, multiple CFAs, specialist workers, Commons, evidence, objections, falsifiers, and durable architectural decisions.
 
-The external corpus review is accepted as identifying a major missing dimension: shipping discipline.
-The previous review concentrated on mechanical correctness of delegation and communication. This master upgrade adds the missing operating-system layer: code as completion, dormant/on-call specialist model, compact homes, generated envelopes, executable gates, execution metrics, and a Commons promotion/fallback decision.
+### EXECUTION
+Local OpenCode performs governed implementation through a bounded active CFA, short generated envelopes, on-call specialist consultation, mechanical permissions/gates, tests, receipts, and commits.
 
-Not accepted as an immediate deletion rule: Commons is not discarded now; it receives an explicit proof deadline and fallback mode. The ten CFAs are not erased; they become a domain coverage map with only the executing corridor active and the rest on-call.
+A material architectural surprise sends work back to DELIBERATE rather than allowing silent executor redesign.
 
-Not accepted as a role collapse: ChatGPT is not reduced to a passive design mailbox. It remains the independent COORD-01 reasoning/audit surface. Local OpenCode is the authoritative execution/proof surface for the user's machine.
+## Durable documents
 
-## Immediate next step
+1. `MASTER-AGENT-SYSTEM-UPGRADE-2026-09-28.md` — complete target architecture.
+2. `MASTER-COMMUNICATION-SYSTEM-DESIGN-2026-09-28.md` — communication semantics and promotion gate.
+3. `DELEGATION-AND-CAPABILITY-ENFORCEMENT-2026-09-28.md` — execution containment.
+4. `IMPLEMENTATION-MATRIX-CHATGPT-VS-LOCAL-2026-09-28.md` — implementation/proof split.
+5. `DUAL-SPEED-RATIFICATION-2026-09-28.md` — this ratification record.
 
-Do not create another architecture layer. Move to M1: implement the completion contract and prove one real bounded code corridor from current main.
+## Decisions
 
-## Historical safety
+- Keep the ten CFA model.
+- Keep rich CFA homes for deliberate work; progressively compact execution context.
+- Do not mass-delete historical artifacts.
+- Keep Commons, but require an executable v0 promotion/fallback gate.
+- Make code/evidence the completion unit for execution while retaining INVESTIGATED/FALSIFIED semantics for deliberate work.
+- Eliminate manual repeated prompt authoring in execution mode through generated envelopes.
+- Require exact-agent resolution; silent fallback is a defect.
+- Fix causal replay, handoff concurrency, transport error visibility, and identity/stream binding before broader realtime/autonomous features.
+- Do not activate A2A, MCP, presence daemon, or broader autonomy as part of this ratification.
 
-Existing large homes and date-stamped documents should be harvested and retired gradually. They are not to be mass-deleted merely to satisfy a target file count.
+## Immediate continuation
+
+The next implementation work is no longer another architecture document.
+
+Start with **M0/M1**:
+1. classify work as DELIBERATE or EXECUTION;
+2. implement the execution completion contract;
+3. validate receipts mechanically;
+4. prove one real bounded execution corridor from current main.
+
+Existing architectural work remains available for deliberate investigations and should be consulted when an execution corridor crosses its domain.
