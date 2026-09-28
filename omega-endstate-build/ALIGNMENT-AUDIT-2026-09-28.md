@@ -59,6 +59,8 @@ No gate is a proxy for the eventual architecture.
 6. Resident-agent continuity gap — DEVOPS-01 lacked a dedicated self-definition ledger and next-session recovery surface. Added both.
 7. Freshness/source-precedence gap — a resident seed could be mistaken for live runtime truth. DEVOPS-01 now explicitly prioritizes current observations and durable evidence.
 8. Stale template reference — team README referenced a template not present in this project home. Replaced with current seeded definitions as patterns.
+9. Resident-home index gap — DEVOPS-01 was described as having a README, but the file had not actually been committed. Added the README and made it the explicit cold-start index.
+10. Resident-home reference-path defect — the new DEVOPS README initially pointed at TRUTH-CHAIN-SEED.md with an incorrect relative path. Corrected and verified the control-plane references.
 
 ## Deliberate unknowns
 
