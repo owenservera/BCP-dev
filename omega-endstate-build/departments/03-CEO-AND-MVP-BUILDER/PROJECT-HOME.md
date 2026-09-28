@@ -18,7 +18,9 @@ The governing product outcome for this roadmap phase is:
 
 Department 01 owns research and alignment. Department 02 owns the trust chain and independent verification boundary. Department 03 owns product execution and CEO/MVP coordination.
 
-The shared project home is not a shared autonomous-agent checkout. Concurrent work uses isolated worktrees or clones and owned branches.
+The shared project home is not a shared autonomous-agent checkout.
+
+Department 03 owns and maintains the four root-level constitutional seeds: `../../Vision.md`, `../../Motivation.md`, `../../Invariants.md`, and `../../Anti-Patterns.md`. Concurrent work uses isolated worktrees or clones and owned branches.
 
 For bootstrap and Git safety procedures, see `STEWARD-BOOTSTRAP.md`, `GIT-MANAGEMENT.md` and `team/README.md` in this department.
 
