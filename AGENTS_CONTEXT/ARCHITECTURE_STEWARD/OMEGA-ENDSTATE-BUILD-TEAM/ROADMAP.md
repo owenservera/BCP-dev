@@ -1,6 +1,6 @@
 # Ω End-State Build Team — Roadmap
 
-> Status: NOT YET FORMED
+> Status: SEED / NOT YET FORMED
 > Owner: Ω End-State Build Team
 > Branch: `team/omega-endstate`
 
@@ -10,7 +10,7 @@ Build the complete VIVIM end state from the Ω starting substrate.
 
 ## Current roadmap state
 
-This roadmap is deliberately unpopulated.
+This seed roadmap is deliberately unpopulated. The canonical active roadmap must be created and maintained under `omega-endstate-build/roadmap/`.
 
 The team must create it from:
 
@@ -55,7 +55,7 @@ What evidence forces roadmap reconsideration?
 
 ## Roadmap authority
 
-This is the team's strategic plan for this branch.
+The eventual roadmap under `omega-endstate-build/` is the team's strategic plan for this branch.
 
 It is not automatically mainline policy, Ω law, or Architecture Steward authority.
 
