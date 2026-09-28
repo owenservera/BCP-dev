@@ -40,7 +40,7 @@ Self-organize through evidence, proposals and bounded experiments; do not self-a
 
 ## Cross-system references
 
-- ../TRUTH-CHAIN-SEED.md
+- ../../TRUTH-CHAIN-SEED.md
 - ../../AGENTIC-SYSTEM-GATES.md
 - ../../team/README.md
 - ../../team/AGENT-ROSTER.json
