@@ -14,7 +14,7 @@ Meta-Team argues that MAS should evolve as a team, preserving agent-local execut
 - agent-level evolution changes individual scaffolds;
 - interaction-level evolution changes teammate understanding/collaboration;
 - team-level evolution changes organization and shared constitution;
-- implementation uses an evolve -> freeze -> holdout-test pipeline. citeturn161442view3
+- implementation uses an evolve -> freeze -> holdout-test pipeline.
 
 ## Best practices extracted
 
@@ -35,3 +35,5 @@ An agent can surface evidence for a team-level change without acquiring unilater
 ## Important limitation
 
 The paper's empirical results support its method under its stated benchmarks and setup; they do not prove the method is appropriate for Ω. The transferable contribution is primarily the evidence organization and multi-scale evolution structure, not the specific prompts or optimizer.
+
+Primary source: https://arxiv.org/html/2605.29790v1
