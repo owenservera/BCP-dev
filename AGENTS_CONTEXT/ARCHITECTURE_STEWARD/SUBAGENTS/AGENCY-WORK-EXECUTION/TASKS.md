@@ -50,6 +50,7 @@ Add durable agent-owned work here with status, priority, verified dependencies, 
 
 ## Completed task history
 
+- `TOOLSET-TOP10-20260928` — DONE 2026-09-28; wave-1 independent tool-needs characterization (CFA-05 lens), artifacts `TOOLSET-TOP10-20260928.md` + `RESULTS/CFA05-TOOLSET-20260928.md`; base `e18c2005`, no peer prerequisites, DELIBERATE-only.
 - `HOME-UPGRADE-2026-09-27` — DONE 2026-09-27; durable home validated/upgraded for FSSP-1.3, receipt `RESULTS/CFA05-HOME-UPGRADE-20260927-0645CEST.md`, home-upgrade changeset `4b8f3445edffde2b4d66d674370d77030d42bc5f`.
 
 Keep completed entries compact. Preserve useful continuity/evidence; do not turn this into a transcript archive.
