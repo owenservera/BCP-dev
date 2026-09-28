@@ -4,7 +4,7 @@ Paper: https://arxiv.org/html/2605.10052v1
 
 ## Main finding
 
-Swarm Skills treats multi-agent coordination as a portable description artifact rather than a runtime. It uses progressive disclosure and attaches evolution experience to the coordination asset itself. citeturn952603view1
+Swarm Skills treats multi-agent coordination as a portable description artifact rather than a runtime. It uses progressive disclosure and attaches evolution experience to the coordination asset itself.
 
 ## Key mechanisms
 
@@ -15,7 +15,7 @@ Swarm Skills treats multi-agent coordination as a portable description artifact 
 - CREATE -> USE -> PATCH forms the evolution lifecycle;
 - friction such as redundant communication, cycles, and premature termination becomes explicit input;
 - Effectiveness, Utilization, and Freshness are used to curate accumulated evolution records;
-- SIMPLIFY, REBUILD, and ROLLBACK prevent evolution history from becoming permanently bloated or unsafe. citeturn952603view2turn918030view3
+- SIMPLIFY, REBUILD, and ROLLBACK prevent evolution history from becoming permanently bloated or unsafe.
 
 ## Best practices extracted
 
@@ -36,4 +36,6 @@ This is particularly relevant to the Ω everything-is-plugin direction: coordina
 
 ## Important limitation
 
-The paper explicitly acknowledges unresolved large-scale conformance testing and open problems around fault tolerance, message routing, and inter-agent isolation. citeturn591787view4 Those are exactly the areas Ω must prove independently.
+The paper explicitly acknowledges unresolved large-scale conformance testing and open problems around fault tolerance, message routing, and inter-agent isolation. Those are exactly the areas Ω must prove independently.
+
+Primary source: https://arxiv.org/html/2605.10052v1
