@@ -13,3 +13,6 @@ omega-baseline/vivim-omega-final.bundle
 # OS noise
 Thumbs.db
 Desktop.ini
+
+# Per-agent local workspace manifests (machine state)
+**/.omega-agent/
