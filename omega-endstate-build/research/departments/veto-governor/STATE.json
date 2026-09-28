@@ -9,8 +9,27 @@
   "reviewLayer": "conceptual-commitment-boundary",
   "activeTask": "VG-0001",
   "nextTask": "VG-0003",
-  "queueFile": "TASK-QUEUE.md",
   "nextResearchQuestion": "Which orchestration substrate and topology has the smallest evidence-backed coordination cost for the beta mission, and which parts remain unproven on the current runtime?",
+  "timingGuidance": {
+    "betaWorkRunsInParallel": true,
+    "governanceIsEnablingMechanism": true,
+    "doNotMakeGovernanceCompletionAPrerequisiteForBetaDelivery": true,
+    "sequence": [
+      "finish VG-0001",
+      "execute VG-0003 runtime reconciliation",
+      "choose the smallest evidence-backed organizational experiment",
+      "test it against real VIVIM beta work",
+      "learn from outcomes before expanding machinery or authority"
+    ],
+    "deferUntilEvidence": [
+      "automatic veto triggering",
+      "stronger veto authority",
+      "large governance engine",
+      "generalized self-modification framework",
+      "large permanent swarm topology",
+      "formal final agent count"
+    ]
+  },
   "selfAudit": {
     "protocol": "SELF-AUDIT-PROTOCOL.md",
     "ledger": "SELF-DEFINITION-LEDGER.md",
