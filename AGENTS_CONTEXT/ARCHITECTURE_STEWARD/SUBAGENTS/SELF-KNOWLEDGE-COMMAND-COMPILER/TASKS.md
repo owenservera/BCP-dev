@@ -18,6 +18,19 @@
 
 ## Open tasks
 
+### REALITY-ENGINE-INPUT-20260928
+- **Status:** DONE — CHARACTERIZATION DELIVERED ON MAIN; receipt + closure verified on delivery ref
+- **Priority:** P0
+- **Objective:** Independent owner-lens unit — produce the CFA-03 semantic-continuity design input for the owner "Reality Engine" corpus (validate the setup prompt's CFA-03 Needs/Queries/Critical sketch; state must-haves, must-nots, scope verdict, acceptance criteria, falsifiers, gotchas; route unknowns with named owners).
+- **Write scope:** CFA-03 home documentation only; DELIBERATE, no code, no Ω-law change, no peer-home edits; `docs/Reality-engine/` read-only owner material, never staged.
+- **Completion condition:** `REALITY-ENGINE-INPUT-20260928.md` + this receipt present on delivery ref with final re-read verification, and `Validate-Receipt.ps1` reporting no failing check.
+- **Content commit:** `4a28a991` (artifact, 721 lines; parent `83eca7a7`).
+- **Receipt:** `RESULTS/CFA03-REALITY-INPUT-20260928.md`
+- **Closure commit:** this entry's commit — the one that adds the receipt and this TASKS.md line.
+- **Result class:** INVESTIGATED. Characterization only; no shared vocabulary was added to, removed from, or renamed.
+- **Vocabulary reconciliation:** UNRESOLVED with named owners, not settled by CFA-03 — UC-01 canonical freshness vocabulary (3 in `boundary.schema.json` vs 4 in Stage-E L1 §5) to the Architecture Steward as contract owner with CFA-04, and BLOCKING for any team-facing freshness field; UC-02 `UNOBSERVABLE` eligibility to Steward + CFA-04; UC-06 mapping owner/version to the Steward. The artifact's §4.3 mapping shape is PROPOSED only.
+- **Next action:** None locally. Steward-side: decide the six asks in artifact §13 and route UC-01 first; any Reality-Engine build work belongs to a separate execution unit with its own envelope and tests.
+
 ### TOOLSET-TOP10-20260928
 - **Status:** DONE — DELIVERED ON MAIN (see receipt)
 - **Priority:** P0
