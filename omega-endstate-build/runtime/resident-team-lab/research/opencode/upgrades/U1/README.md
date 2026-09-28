@@ -8,11 +8,11 @@
 
 The primary U1 design remains in the resident-team lab docs:
 
-- [Design](../../../docs/FIRST-MAJOR-UPGRADE-DESIGN.md)
-- [Research basis](../../../docs/FIRST-MAJOR-UPGRADE-RESEARCH-BASIS.md)
-- [Checkpoints](../../../docs/CHECKPOINTS.md)
-- [Risk register](../../../docs/FIRST-MAJOR-UPGRADE-RISK-REGISTER.md)
-- [Proof log](../../../docs/PROOF-LOG.md)
+- [Design](../../../../docs/FIRST-MAJOR-UPGRADE-DESIGN.md)
+- [Research basis](../../../../docs/FIRST-MAJOR-UPGRADE-RESEARCH-BASIS.md)
+- [Checkpoints](../../../../docs/CHECKPOINTS.md)
+- [Risk register](../../../../docs/FIRST-MAJOR-UPGRADE-RISK-REGISTER.md)
+- [Proof log](../../../../docs/PROOF-LOG.md)
 
 The OpenCode-specific lane here is a **research index and evidence bridge**, not a duplicate law.
 
