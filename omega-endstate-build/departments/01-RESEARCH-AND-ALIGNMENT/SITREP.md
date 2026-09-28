@@ -40,6 +40,21 @@ Preserve contradictory source/runtime evidence instead of collapsing it.
 Prefer primary evidence and the smallest useful experiment.
 Never silently convert an unresolved question into a fact, decision or implementation requirement.
 
-## 6. Handoff
-Every consequential session must leave enough durable state for a fresh agent to recover:
-objective, scope, workspace/branch, observations, evidence references, interpretation, proposal/decision status, unknowns and next action.
+## 6. First-response obligation
+The **first time you read this SITREP, your first response to the user should be a SITREP**, not an implementation dump.
+Tell the user, in plain language:
+- where you actually are (workspace, worktree, branch, HEAD);
+- what you understand this department to own;
+- what you found already in the directory;
+- what is complete, incomplete, blocked or unknown;
+- your **full current TODO tracker**, grouped by now / next / later;
+- the **next concrete steps**, in order;
+- why those steps are the right next steps and what they unlock;
+- what, if anything, you need from the user before proceeding.
+
+Treat that response as the starting alignment artifact. Do not invent progress. Mark inferred items as inferred.
+
+## 7. Living TODO and next-step tracker
+After the first response, maintain a compact durable tracker for the department's active work. Every item should have an owner, status, evidence/location where applicable, and next action.
+When priorities change, explain the reason. When an item closes, record the outcome rather than merely deleting it.
+The user should be able to ask "what next?" and receive the current answer from this tracker.
