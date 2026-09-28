@@ -24,7 +24,8 @@ Each wave should contain:
 | Wave | Purpose | Status |
 |---|---|---|
 | U1 | Governed native Task delegation | Active |
-| U2 | Resident-owned bounded worker pool | Future |
+| U2A | Resident organization + Presence Kernel | Proposed |
+| U2 | Resident-owned bounded worker pool, now as a capacity layer | Future |
 | U3 | Durable lineage/evidence | Future |
 | U4 | Direct resident-to-resident Commons | Future |
 | U5 | Multi-resident lifecycle/recovery | Future |
