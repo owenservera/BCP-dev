@@ -70,7 +70,8 @@ Do not run the blocked live provider/Chrome corridor; do not create a second ide
 - **Receipt:** `RESULTS/CFA02-TOOLSET-20260928.md`
 - **Delivery:** substantive commit `6e4fc4a9`; receipt pointer finalized in
   follow-up (final HEAD verified by re-read before DONE reported).
-- **Write scope:** own home only (toolset artifact + receipt + this entry); no commit by default — steward integrates.
+- **Write scope:** own home only (toolset artifact + receipt + this entry);
+  committed directly to shared main per Durable Completion Gate delivery-ref rule.
 - **Completion condition:** both artifacts exist on the delivery ref, verified by own final re-read of current main; this entry DONE.
 - **Stop condition:** never edit another agent's home; no Ω-law change; no production implementation (DELIBERATE only); no force-push.
 
