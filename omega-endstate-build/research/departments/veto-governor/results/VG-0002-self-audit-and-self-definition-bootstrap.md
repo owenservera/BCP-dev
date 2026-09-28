@@ -5,6 +5,10 @@ NO_VETO
 
 No external work was vetoed. This session evaluated the department itself and applied only bounded, owner-authorized operational evolution.
 
+## Evidence receipts
+- evidence/VG-0002-department-self-audit.md
+- learning/VG-0002-self-definition.md
+
 ## Reality reconstruction
 
 ### OBSERVED
@@ -18,7 +22,7 @@ No external work was vetoed. This session evaluated the department itself and ap
 - Result/evidence/learning/context stores contain no fabricated historical evidence.
 
 ### VERIFIED
-No live runtime execution was available in this repository-only session. Script findings are therefore source-inspection findings, not execution-verified outcomes.
+No live runtime execution was available in this repository-only session. Script findings are source-inspection findings, not execution-verified outcomes.
 
 ### INFERRED
 - The governance model is operationally more mature than its executable self-integrity layer.
@@ -38,18 +42,19 @@ No live runtime execution was available in this repository-only session. Script 
 The next evolution should strengthen self-observation before increasing authority.
 
 ### SD-B — Convert repeated limitations into lineage
-Self-definition needs a durable memory surface that records observation -> hypothesis -> experiment -> result rather than relying on questions alone.
+Self-definition needs durable memory that records observation -> hypothesis -> experiment -> result.
 
 ### SD-C — Repair concrete defects; experiment on speculative infrastructure
-A proven source defect can be repaired immediately. Concurrency machinery should wait for evidence of actual need.
+A concrete source defect can be repaired. Concurrency machinery should wait for evidence of actual need.
 
 ## Activated changes
 1. Added SELF-AUDIT-PROTOCOL.md.
 2. Added SELF-DEFINITION-LEDGER.md.
 3. Normalized the decision vocabulary so REQUEST-EVIDENCE is explicit.
 4. Corrected the queue status parser.
-5. Recorded this bootstrap as VG-0002 with a durable result.
+5. Recorded this bootstrap as VG-0002 with a durable result, evidence receipt and learning receipt.
 6. Added self-audit to the cold-start operating contract.
+7. Registered the new self-audit and ledger surfaces in STATE.json and DEPARTMENT-MANIFEST.json.
 
 No authority increase was activated.
 No runtime blocking was activated.
