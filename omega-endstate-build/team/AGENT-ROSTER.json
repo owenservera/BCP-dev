@@ -22,7 +22,7 @@
         "propose-branch-local-architecture-and-law"
       ],
       "subagents": [],
-      "notes": "Initial topology is intentionally one Steward. Additional roles must be created progressively from observed need."
+      "notes": "Team-level Steward. Current topology includes seeded/proposed resident specialists; further roles remain evidence-driven."
     },
     {
       "agentId": "DEVOPS-01",
