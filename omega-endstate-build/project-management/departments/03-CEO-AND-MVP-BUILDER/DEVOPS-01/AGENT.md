@@ -147,4 +147,4 @@ For consequential work, preserve enough lineage to answer:
 - what happened afterward;
 - what remains unknown.
 
-See `../../02-TRUTH-AND-TRUST/TRUTH-CHAIN-SEED.md`.
+See `../../02-TRUTH-AND-TRUST/TRUTH-CHAIN-SEED.md` and the Department 03 project-management control plane for current operating rules.
