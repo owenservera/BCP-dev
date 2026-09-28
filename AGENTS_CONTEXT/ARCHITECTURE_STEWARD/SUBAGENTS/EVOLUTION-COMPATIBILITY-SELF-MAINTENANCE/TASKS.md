@@ -19,7 +19,7 @@
 ## Open tasks
 
 ### CFA09-TOOLSET-TOP10-20260928 — Wave-1 independent toolset ranking (full-local-machine team)
-- **Status:** DONE — content C1 3bf52e02ae62b7f1d50a64c677e3bc6bc4d086e1; receipt + closure in C2 (this commit — resolve via git log, delivery ref verified by final re-read)
+- **Status:** DONE — content C1 3bf52e02ae62b7f1d50a64c677e3bc6bc4d086e1; receipt + closure in C2 (this commit — resolve via git log, delivery ref verified by final re-read); C3 receipt reclassification IMPLEMENTED→INVESTIGATED per validator C7/C9 true-positive (content unchanged)
 - **Priority:** P0 (owner-delegated wave-1 unit; zero peer prerequisites)
 - **Brief:** Owner goal verbatim: "our local machine agent team just transitioned from webapp-only commit/push to FULL LOCAL MACHINE ACCESS. Identify the TOP 10 TOOLS we must set up to become a fully efficient, state-of-the-art, autonomous goal-execution team." Lens: CFA-09 evolution/compat/self-maintenance; runtime guarantees stay CFA-10, data versioning stays CFA-02.
 - **Envelope:** base ref e18c2005d97c1175ac2be86ec3825056d869b370; CFA-09 home only; DELIBERATE only (no installs, no production implementation, no Ω-law change, no peer-home edits, no force-push)
