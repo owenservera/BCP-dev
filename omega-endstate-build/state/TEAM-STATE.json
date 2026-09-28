@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "team": "omega-endstate-build",
+  "phase": "BOOTSTRAP",
+  "integrationBranch": "team/omega-endstate",
+  "projectHome": "omega-endstate-build/",
+  "technicalStartingSubstrate": "omega-baseline/omega-final/",
+  "seedContext": "AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OMEGA-ENDSTATE-BUILD-TEAM/",
+  "steward": {
+    "agentId": "STEW-01",
+    "status": "bootstrap-pending"
+  },
+  "activeAgents": ["STEW-01"],
+  "activeWorkstreams": [],
+  "roadmapStatus": "not-formed",
+  "firstBuildFrontier": "not-selected",
+  "knownBlockers": [],
+  "nextRequiredState": "team-os-formed"
+}
