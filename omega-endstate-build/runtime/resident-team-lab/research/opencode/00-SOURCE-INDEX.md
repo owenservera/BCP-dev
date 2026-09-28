@@ -84,3 +84,25 @@ A source in this index is not automatically a recommendation.
 For every important claim preserve:
 
 `source -> exact observation -> scope/version -> limitation -> Ω implication -> falsifier`
+
+## G. Cross-domain organizational-runtime references
+
+| ID | Source | Mechanism retained for Ω research | Evidence scope |
+|---|---|---|---|
+| XD-S01 | https://learn.microsoft.com/en-us/dotnet/orleans/grains/grain-lifecycle | logical identity vs temporary activation; activation shedding | Established runtime pattern |
+| XD-S02 | https://learn.microsoft.com/en-us/dotnet/orleans/grains/timers-and-reminders | durable wake/reminder can reactivate inactive logical entity | Established runtime pattern |
+| XD-S03 | https://kubernetes.io/docs/concepts/architecture/controller/ | desired-state vs actual-state reconciliation and event-driven control loop | Established runtime pattern |
+| XD-S04 | https://www.erlang.org/doc/system/sup_princ.html | supervision, restart strategy, restart intensity, dynamic child processes | Established runtime pattern |
+| XD-S05 | https://arxiv.org/abs/2507.01701 | blackboard-style dynamic LLM multi-agent coordination | Research result; reproduction required |
+| XD-S06 | https://www.sciencedirect.com/science/article/abs/pii/S0005109806000057 | capability-based Contract Net task allocation and its evaluation problem | Established MAS literature |
+| XD-S07 | https://arxiv.org/abs/2601.08815 | resource-bounded agent contracts and budget conservation | 2026 preprint; not Ω proof |
+| XD-S08 | https://arxiv.org/abs/2411.04468 | task/progress ledgers and stall-aware multi-agent orchestration | Published research |
+| XD-S09 | https://github.com/langchain-ai/docs/blob/main/src/oss/langgraph/checkpointers.mdx | durable checkpoints and resumable execution | Current framework documentation |
+| XD-S10 | https://docs.temporal.io/child-workflows | partitioning durable execution and explicit child lifecycle | Current framework documentation |
+| XD-S11 | https://github.com/OpenHands/software-agent-sdk/blob/main/openhands-sdk/openhands/sdk/conversation/state.py | persisted agent conversation execution states and resume-oriented state | Current implementation example |
+| XD-S12 | https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents | context as per-turn curation of tools, data, history, and instructions | Industry research guidance |
+| XD-S13 | https://openai.github.io/openai-agents-js/guides/sessions/ | persistent session memory plus explicit compaction controls | Current SDK documentation |
+| XD-S14 | https://github.com/letta-ai/skills/blob/main/letta/agent-development/references/memory-architecture.md | in-context core memory vs archival memory | Current implementation guidance |
+| XD-S15 | https://arxiv.org/abs/2403.16971 | agent-kernel services for scheduling, context, memory, storage, access control | Research prototype |
+
+The cross-domain synthesis is stored in [08-CROSS-DOMAIN-ORGANIZATIONAL-RUNTIME-SYNTHESIS.md](08-CROSS-DOMAIN-ORGANIZATIONAL-RUNTIME-SYNTHESIS.md). These references are mechanism sources, not imported architecture laws.
