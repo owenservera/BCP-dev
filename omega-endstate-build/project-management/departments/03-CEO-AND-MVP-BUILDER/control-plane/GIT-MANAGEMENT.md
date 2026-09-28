@@ -53,7 +53,7 @@ Active agent workspaces should normally be separate local worktrees or clones ou
 
 ## What is configured here vs what must happen locally
 
-This project now contains executable PowerShell helpers under `omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/scripts/` for workspace allocation, verification, Steward bootstrap, and retirement.
+This project now contains executable PowerShell helpers under `omega-endstate-build/scripts/` for workspace allocation, verification, Steward bootstrap, and retirement.
 
 From the repository side, we can provide:
 
@@ -95,13 +95,13 @@ Never assume the current checkout or branch is what you intended.
 Use the supplied helper for normal local allocation:
 
 ```powershell
-.\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\Bootstrap-Steward.ps1
+.\omega-endstate-build\scripts\Bootstrap-Steward.ps1
 ```
 
 or for another agent:
 
 ```powershell
-.\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\New-AgentWorkspace.ps1 -AgentId PROV-01 -Task provider-lab
+.\omega-endstate-build\scripts\New-AgentWorkspace.ps1 -AgentId PROV-01 -Task provider-lab
 ```
 
 Use `-Mode clone` for unusually high-risk work where a completely separate Git repository checkout is preferable.
@@ -113,7 +113,7 @@ The allocator records machine-local registry state in that workspace root and wr
 Before accepting a workspace, run:
 
 ```powershell
-.\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\Verify-AgentWorkspace.ps1
+.\omega-endstate-build\scripts\Verify-AgentWorkspace.ps1
 ```
 
 ## Workspace assignment record
@@ -349,11 +349,11 @@ If the team has to choose between a slightly slower operation that preserves att
 
 Use the tracked helpers rather than hand-assembling repetitive workspace operations:
 
-- `scripts/Bootstrap-Steward.ps1` — allocate the first Steward workspace;
-- `scripts/New-AgentWorkspace.ps1` — allocate an isolated worktree or clone for any agent;
-- `scripts/Verify-AgentWorkspace.ps1` — verify manifest, branch, base ancestry and workspace identity;
-- `scripts/PreIntegration.ps1` — inspect current team divergence and changed files before integration;
-- `scripts/Retire-AgentWorkspace.ps1` — safely retire a completed worktree without implicitly deleting the branch.
+- `../../../scripts/Bootstrap-Steward.ps1` — allocate the first Steward workspace;
+- `../../../scripts/New-AgentWorkspace.ps1` — allocate an isolated worktree or clone for any agent;
+- `../../../scripts/Verify-AgentWorkspace.ps1` — verify manifest, branch, base ancestry and workspace identity;
+- `../../../scripts/PreIntegration.ps1` — inspect current team divergence and changed files before integration;
+- `../../../scripts/Retire-AgentWorkspace.ps1` — safely retire a completed worktree without implicitly deleting the branch.
 
 The allocator uses a machine-local registry lock so concurrent agent allocation cannot silently overwrite registry state. It refuses existing agent branches/workspaces instead of reusing them.
 
