@@ -349,11 +349,11 @@ If the team has to choose between a slightly slower operation that preserves att
 
 Use the tracked helpers rather than hand-assembling repetitive workspace operations:
 
-- `../../../scripts/Bootstrap-Steward.ps1` — allocate the first Steward workspace;
-- `../../../scripts/New-AgentWorkspace.ps1` — allocate an isolated worktree or clone for any agent;
-- `../../../scripts/Verify-AgentWorkspace.ps1` — verify manifest, branch, base ancestry and workspace identity;
-- `../../../scripts/PreIntegration.ps1` — inspect current team divergence and changed files before integration;
-- `../../../scripts/Retire-AgentWorkspace.ps1` — safely retire a completed worktree without implicitly deleting the branch.
+- `omega-endstate-build/scripts/Bootstrap-Steward.ps1` — allocate the first Steward workspace;
+- `omega-endstate-build/scripts/New-AgentWorkspace.ps1` — allocate an isolated worktree or clone for any agent;
+- `omega-endstate-build/scripts/Verify-AgentWorkspace.ps1` — verify manifest, branch, base ancestry and workspace identity;
+- `omega-endstate-build/scripts/PreIntegration.ps1` — inspect current team divergence and changed files before integration;
+- `omega-endstate-build/scripts/Retire-AgentWorkspace.ps1` — safely retire a completed worktree without implicitly deleting the branch.
 
 The allocator uses a machine-local registry lock so concurrent agent allocation cannot silently overwrite registry state. It refuses existing agent branches/workspaces instead of reusing them.
 
