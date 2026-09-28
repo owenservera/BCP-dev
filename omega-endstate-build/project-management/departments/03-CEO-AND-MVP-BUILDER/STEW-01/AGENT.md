@@ -8,9 +8,9 @@
 
 Read and follow:
 
-1. `omega-endstate-build/STEWARD-BOOTSTRAP.md`
-2. `omega-endstate-build/GIT-MANAGEMENT.md`
-3. `omega-endstate-build/PROJECT-STRUCTURE.md`
+1. `omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/control-plane/STEWARD-BOOTSTRAP.md`
+2. `omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/control-plane/GIT-MANAGEMENT.md`
+3. `omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/control-plane/PROJECT-STRUCTURE.md`
 4. every file in `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OMEGA-ENDSTATE-BUILD-TEAM/`
 
 ## Mission
@@ -27,4 +27,4 @@ This remains provisional. The Steward creates, combines, splits or retires roles
 
 ## Workspace
 
-The Steward must work in an isolated workspace on a branch such as `work/omega-endstate/STEW-01/<TASK>`. It must never use the shared `team/omega-endstate` checkout as its normal working directory.
+The Steward must work in an isolated workspace on a branch such as `work/omega-endstate/<TASK>`. It must never use the shared `team/omega-endstate` checkout as its normal working directory.
