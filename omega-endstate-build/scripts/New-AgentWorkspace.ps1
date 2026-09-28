@@ -40,7 +40,7 @@ $repoRoot = (Resolve-Path $repoRoot).Path
 $remoteUrl = Invoke-GitText @('remote','get-url','origin')
 
 if (-not $WorkspaceRoot) {
-    $WorkspaceRoot = Join-Path (Split-Path $repoRoot -Parent) 'omega-endstate-workspaces'
+    $WorkspaceRoot = Join-Path (Split-Path $repoRoot -Parent) 'omega-endstate-worktrees'
 }
 $WorkspaceRoot = [IO.Path]::GetFullPath($WorkspaceRoot)
 New-Item -ItemType Directory -Force -Path $WorkspaceRoot | Out-Null
@@ -49,8 +49,8 @@ Write-Host "Fetching repository refs..."
 Invoke-Git @('fetch','origin','--prune')
 
 $baseSha = Invoke-GitText @('rev-parse',"refs/remotes/origin/$BaseBranch")
-$branch = "work/omega-endstate/$AgentId/$Task"
-$workspace = Join-Path $WorkspaceRoot "$AgentId-$Task"
+$branch = "work/omega-endstate/$Task"
+$workspace = Join-Path $WorkspaceRoot $Task
 $workspace = [IO.Path]::GetFullPath($workspace)
 $manifestDir = Join-Path $workspace '.omega-agent'
 $registryPath = Join-Path $WorkspaceRoot 'workspace-registry.json'
@@ -67,7 +67,7 @@ $localExists = ($LASTEXITCODE -eq 0)
 $remoteExists = (& git ls-remote --heads origin $branch 2>$null)
 if ($LASTEXITCODE -ne 0) { throw "Could not inspect remote branch $branch" }
 if ($localExists -or $remoteExists) {
-    throw "Ref already exists: $branch. Refusing to reuse an existing agent branch."
+    throw "Ref already exists: $branch. Refusing to reuse an existing task branch."
 }
 
 $worktreePorcelain = & git worktree list --porcelain 2>&1
@@ -104,9 +104,12 @@ try {
         if ($raw.Trim()) { $registry = $raw | ConvertFrom-Json }
     }
     if (-not $registry.workspaces) { $registry.workspaces = @() }
-    $existing = @($registry.workspaces | Where-Object { $_.agentId -eq $AgentId -and $_.status -ne 'retired' })
+    $existing = @($registry.workspaces | Where-Object {
+        $_.status -ne 'retired' -and
+        ($_.workspacePath -eq $workspace -or $_.branch -eq $branch)
+    })
     if ($existing.Count -gt 0) {
-        throw "Registry already has an active workspace for agent $AgentId."
+        throw "Registry already has an active workspace or task branch for task $Task."
     }
 
     Write-Host "Creating $Mode workspace..."
@@ -178,5 +181,5 @@ Write-Host "Workspace: $workspace"
 Write-Host ""
 Write-Host "Next:"
 Write-Host ('  Set-Location "' + $workspace + '"')
-Write-Host "  .\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\Verify-AgentWorkspace.ps1"
+Write-Host "  .\omega-endstate-build\scripts\Verify-AgentWorkspace.ps1"
 Write-Host "  opencode"
