@@ -16,7 +16,7 @@ Before launching the first autonomous Steward session, run this from any trusted
 .\omega-endstate-build\scripts\Bootstrap-Steward.ps1
 ```
 
-This allocates the Steward's isolated workspace from the exact current remote `team/omega-endstate` SHA, creates the dedicated branch `work/omega-endstate/STEW-01/bootstrap-team`, and records local ownership metadata.
+This allocates an isolated workspace from the exact current remote `team/omega-endstate` SHA, creates the task branch `work/omega-endstate/bootstrap-team`, and records the agent/task/workspace metadata separately.
 
 Then enter the printed workspace, run `Verify-AgentWorkspace.ps1`, and launch OpenCode there.
 
@@ -147,7 +147,7 @@ For every persistent agent, record at minimum:
 - capabilities;
 - authority/scope;
 - workspace policy;
-- branch naming convention;
+- task/change branch convention;
 - owning Steward/workstream;
 - current status;
 - durable context location;
@@ -165,13 +165,13 @@ Every concurrently active agent must use an isolated Git worktree or clone.
 Minimum unit:
 
 ```
-AGENT
+AGENT SESSION
 +
 ISOLATED WORKSPACE
 +
-OWNED BRANCH
-+
 COHERENT TASK
++
+EXPLICIT GIT STATE
 ```
 
 Never make multiple autonomous agents share one checkout.
@@ -324,7 +324,7 @@ In particular:
 
 - never share a checkout between active autonomous agents;
 - never use `team/omega-endstate` as a general agent workspace;
-- default Ω End-State work branches from `team/omega-endstate`;
+- default Ω End-State task branches start from `team/omega-endstate`;
 - verify exact base SHA;
 - inspect dirty state before editing;
 - do not blindly clean unrelated changes;
