@@ -3,7 +3,7 @@
 > Status: PROPOSED
 > Date: 2026-09-28
 > Scope: resident-team execution model only
-> Baseline: vendored `opencode-swarm` + OpenCode 1.18.4 behavior exercised on Windows
+> Baseline: vendored `opencode-swarm` + OpenCode v1.18.4 behavior exercised on Windows
 
 ## 1. Design intent
 
@@ -19,9 +19,16 @@ The lab therefore separates:
 - **VIVIM governance** — identity, delegation, evidence, Commons relationships, and durable authority;
 - **durable truth** — repository artifacts and receipts.
 
+The first major upgrade is U1, documented in:
+
+- [FIRST-MAJOR-UPGRADE-DESIGN.md](./FIRST-MAJOR-UPGRADE-DESIGN.md)
+- [FIRST-MAJOR-UPGRADE-RISK-REGISTER.md](./FIRST-MAJOR-UPGRADE-RISK-REGISTER.md)
+
+U1 is intentionally not the full resident runtime. It is the smallest proof of resident-owned delegated execution.
+
 ## 2. Target shape
 
-```text
+```
 Owner / COORD-01
         |
         v
@@ -35,7 +42,7 @@ Owner / COORD-01
      native Task           native Task
         v                      v
     workers                 workers
-        \                      /
+                              /
          +---- Commons -------+
                    |
               repository
@@ -100,6 +107,8 @@ The plugin should not become a second task manager.
 
 OpenCode's native `Task` remains the spawning primitive. The plugin is the deterministic guard/observer around it.
 
+For U1, the plugin's most important new responsibility is **pre-execution gating**: a denied Task must fail before child creation, while a permitted Task is allowed to continue through OpenCode's own permission system.
+
 ## 5. Resident versus worker
 
 ### Resident
@@ -125,6 +134,8 @@ A worker has:
 
 A worker disappearing after completion must not erase lineage.
 
+For the first upgrade, worker creation is intentionally narrower still: target profiles are pre-registered leaf workers, fresh child creation is required, and `task_id`-based resume is not admitted.
+
 ## 6. Communication
 
 Residents should be able to communicate laterally without going through the Steward.
@@ -134,6 +145,8 @@ The vocabulary proposed for later Commons integration is:
 `OBSERVATION`, `FINDING`, `HYPOTHESIS`, `OPINION`, `PROPOSAL`, `OBJECTION`, `REQUEST`, `HANDOFF`, `DECISION`.
 
 An agent's opinion is not authority. Repetition, status, or message volume never creates authority.
+
+U1 does not depend on peer-to-peer Commons wake-up. That remains a later upgrade.
 
 ## 7. Scaling
 
@@ -147,35 +160,51 @@ The runtime should enforce global resource ceilings, but it should not become th
 
 This gives three distinct powers:
 
-```text
+```
 resident decides demand
-        ↓
+        |
+        v
 policy decides authorization
-        ↓
+        |
+        v
 runtime decides resource admission
 ```
+
+U1 intentionally uses tiny experimental limits so that runaway fan-out cannot obscure whether the semantics work.
 
 ## 8. Migration sequence
 
 The migration is intentionally one-way only after proof:
 
-```text
+```
 known-working swarm
-        ↓
+        |
+        v
 observability
-        ↓
-native Task child creation
-        ↓
-mechanical delegation gating
-        ↓
+        |
+        v
+U1: governed native Task delegation
+        |
+        v
 resident-owned worker pool
-        ↓
+        |
+        v
 durable lineage + evidence
-        ↓
+        |
+        v
 resident-to-resident Commons
-        ↓
+        |
+        v
+multi-resident lifecycle/recovery
+        |
+        v
+ten-resident admission
+        |
+        v
 Ω-native governance
 ```
+
+U1 is the first major upgrade because it crosses the central autonomy boundary while still touching only one resident and a bounded leaf worker.
 
 At every stage the previous working mechanism remains available as a fallback until the replacement has its own evidence.
 
@@ -188,6 +217,8 @@ Do not build yet:
 - a custom session implementation;
 - a replacement message bus;
 - a full resident registry service;
+- arbitrary Task resume;
+- dynamic resident creation;
 - a general-purpose agent operating system.
 
 Those are future questions. The immediate purpose of this lab is to prove whether the smallest resident behavior works on the substrate already installed.
