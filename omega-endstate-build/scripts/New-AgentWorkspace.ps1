@@ -81,6 +81,7 @@ if (Test-Path $workspace) {
 }
 
 $lockStream = $null
+$workspaceCreated = $false
 $registry = [ordered]@{
     version = 1
     updatedAt = (Get-Date).ToUniversalTime().ToString('o')
@@ -116,6 +117,7 @@ if ($Mode -eq 'worktree') {
     Invoke-GitText @('-C',$workspace,'fetch','origin',$BaseBranch) | Out-Null
     Invoke-Git @('-C',$workspace,'switch','-c',$branch,$baseSha)
 }
+$workspaceCreated = $true
 
 New-Item -ItemType Directory -Force -Path $manifestDir | Out-Null
 $now = (Get-Date).ToUniversalTime().ToString('o')
@@ -151,6 +153,16 @@ $entry = [ordered]@{
 $registry.workspaces = @($registry.workspaces) + [pscustomobject]$entry
 $registry.updatedAt = $now
 $registry | ConvertTo-Json -Depth 8 | Set-Content -Encoding UTF8 $registryPath
+} catch {
+    if ($workspaceCreated) {
+        if ($Mode -eq 'worktree') {
+            & git worktree remove $workspace 2>$null
+            & git branch -D $branch 2>$null
+        } else {
+            Remove-Item -LiteralPath $workspace -Recurse -Force -ErrorAction SilentlyContinue
+        }
+    }
+    throw
 } finally {
     if ($null -ne $lockStream) { $lockStream.Dispose() }
 }
