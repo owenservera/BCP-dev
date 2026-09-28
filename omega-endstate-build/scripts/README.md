@@ -22,6 +22,10 @@ Use `-Mode clone` for higher-risk isolation.
 
 Checks that an agent is operating in the workspace/branch recorded in its local manifest and reports dirty state and branch/base information.
 
+### `PreIntegration.ps1`
+
+Performs a non-mutating integration preflight: verifies the agent workspace is clean, checks the recorded base, fetches current refs, compares the agent branch with the current team integration line, and reports the divergence/change set.
+
 ### `Retire-AgentWorkspace.ps1`
 
 Safely removes a completed agent worktree after verification. Branch deletion is never implicit.
