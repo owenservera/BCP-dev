@@ -18,6 +18,9 @@ Repository/source evidence establishes that OpenCode v1.18.4 has target-pattern 
 ### U1 research hardening
 **Status:** DESIGN UPDATED.
 
+Durable research basis: `docs/FIRST-MAJOR-UPGRADE-RESEARCH-BASIS.md`.
+Risk register: `docs/FIRST-MAJOR-UPGRADE-RISK-REGISTER.md`.
+
 Pre-implementation research identified the following items as explicit U1 gates:
 
 - `task_id` resume is excluded from fresh governed spawn;
