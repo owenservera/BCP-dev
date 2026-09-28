@@ -18,6 +18,15 @@
 
 ## Open tasks
 
+### CFA07-TOOLSET-TOP10-20260928
+- **Status:** DONE
+- **Priority:** P0
+- **Completed:** 2026-09-28
+- **Artifact:** `TOOLSET-TOP10-20260928.md`
+- **Receipt:** `RESULTS/CFA07-TOOLSET-20260928.md`
+- **Result:** CFA-07-lensed ranked top-10 for the full-machine local team delivered (machine governability 1–5, existing composition/Forge substrate 6–9, one justified new build 10: replacement-survivor falsifier harness). Base ref e18c2005 verified = HEAD at survey. No Ω-law change, no implementation, no peer dependency consumed.
+- **Hard stop respected:** no runtime join, K0 change, Ω-law amendment, second store, shared-boundary activation, or peer-home edit.
+
 ### STAGE-E-L2-CFA07-COMPOSITION-MANIFEST-ADAPTER
 - **Status:** DONE
 - **Priority:** P0
