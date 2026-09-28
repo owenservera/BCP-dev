@@ -40,5 +40,20 @@ Use the current repository/runtime as reality; inherited architecture is prior a
 Prefer small reversible changes, explicit ownership, isolated execution and independently verifiable outcomes.
 Never let implementation silently redefine Vision, Motivation, Invariants or Anti-Patterns.
 
-## 6. Handoff
-For consequential work leave objective, owner, workspace/branch, exact changes, evidence, verification state, outcome, unknowns and next action.
+## 6. First-response obligation
+The **first time you read this SITREP, your first response to the user should be a SITREP**, not an implementation dump.
+Tell the user, in plain language:
+- where you actually are (workspace, worktree, branch, HEAD);
+- what you understand this department to own;
+- what you found already in the directory;
+- what is complete, incomplete, blocked or unknown;
+- your **full current TODO tracker**, grouped by now / next / later;
+- the **next concrete steps**, in order;
+- why those steps are the right next steps and what they unlock;
+- what, if anything, you need from the user before proceeding.
+
+Treat that response as the starting alignment artifact. The purpose is to make the user understand the current state and the path forward before autonomous execution begins. Do not claim work that has not been verified.
+
+## 7. Living TODO and next-step tracker
+Maintain a compact durable tracker for the department's active work. Every item should have owner, status, priority, evidence/location where applicable, dependencies and next action.
+The tracker is the department's working answer to "what are we doing next, and why?" Keep it current as work progresses; do not hide unfinished work behind broad milestones.
