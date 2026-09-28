@@ -35,6 +35,17 @@ Use, in order:
 
 Do not import requirements from later forks, unrelated versions, or the desired Omega end state.
 
+## Evidence freshness and decision lineage
+
+For each acceptance claim, distinguish:
+- source contract: what the cloned repository says it promises;
+- implementation observation: what the local tree contains;
+- runtime observation: what the supported environment actually does;
+- independent verification, where required;
+- acceptance decision: who ratified the gate result.
+
+Prefer fresh reproducible runtime evidence over stale reports. Never let a later green artifact silently erase a known regression.
+
 ## Environment receipt
 
 Record:
@@ -265,7 +276,11 @@ GATE-01 passes only when:
 
 "The cloned agent system is implemented and fully tested on our supported environment according to what its own repository promised."
 
-## Gate result
+## Gate result and acceptance record
+
+The gate evaluator must not silently become the sole authority for acceptance of its own consequential implementation.
+
+Record evaluator, independent verifier (if applicable), ratifying decision-maker, evidence references, exact environment scope, and unresolved conditions.
 
 Use exactly one:
 - PASS
