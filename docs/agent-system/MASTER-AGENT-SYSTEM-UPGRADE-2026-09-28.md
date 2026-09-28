@@ -1,337 +1,245 @@
 # Master Agent-System Upgrade — Final Target Design
 ## 2026-09-28
 
-**Status:** RATIFIED PROPOSED ARCHITECTURE — dual-speed operating model  
-**Baseline reviewed:** `e181820502f1a5ea572ed51b98cebd3af0b9c5ae`  
-**Scope:** agentic operating system, execution, communication, documentation, completion, observability  
-**Explicitly out of scope:** Ω law redesign, product implementation, A2A activation, MCP activation, persistent daemon activation, new authority store, new ontology.
+**Status:** RATIFIED PROPOSED ARCHITECTURE — dual-speed, surface-independent operating model
+**Baseline reviewed:** e181820502f1a5ea572ed51b98cebd3af0b9c5ae
 
 ## 1. Executive decision
 
-The corpus review identified a missing dimension: the system needs to preserve deliberate architectural work while gaining a much faster local execution mode.
+The system needs two improvements at once:
 
-The ratified target is therefore a **dual-speed agentic operating system**:
+1. preserve the rich deliberate architecture already built; and
+2. make governed execution much faster and less dependent on hand-authored context.
 
-### Slow lane — Deliberation
-For architecture, ontology, authority, governance, boundary design, cross-domain research, difficult refactors, and decisions where premature implementation is costly.
+The key correction is that **speed/mode and execution surface are independent dimensions**.
 
-This lane keeps the rich Steward + CFA + worker + Commons model.
+There are multiple work surfaces, including the local OpenCode environment and ChatGPT web applications. The owner may choose either surface for a deep session, a bounded implementation session, a research pass, an audit, or a transition between them.
 
-### Fast lane — Execution
-For implementing an already-governed decision.
+MODE = DELIBERATE | EXECUTION
+SURFACE = LOCAL | CHATGPT-WEBAPP | OTHER-GOVERNED-SURFACE
 
-This lane uses one active execution CFA, compact context, generated work envelopes, bounded workers, mechanical completion gates, automatic verification, and minimal coordination overhead.
+A surface does not inherently own a mode.
 
-The two lanes are not competing architectures. They are two operating modes of the same system.
+### Deliberate mode
+For architecture, ontology, authority, governance, boundary design, cross-domain research, difficult refactors, falsification, or any question where reasoning quality and evidence gathering matter more than throughput.
+
+### Execution mode
+For implementing an already-governed decision with bounded scope, right-sized context, mechanical checks, and durable completion evidence.
+
+The two modes are operating states of the same system, not two separate agent organizations.
 
 ## 2. Mode transition
 
-The canonical transition is:
+DELIBERATION -> DESIGN DECISION -> EXECUTION BRIEF -> IMPLEMENTATION -> VERIFIED RESULT
 
-```
-DELIBERATION
-   ↓
-DESIGN DECISION
-   ↓
-EXECUTION BRIEF
-   ↓
-IMPLEMENTATION
-   ↓
-VERIFIED RESULT
-   ↓
-architectural surprise?
-   ├─ no → continue execution
-   └─ yes → return to DELIBERATION
-```
+If implementation discovers a material architectural surprise, authority conflict, boundary conflict, or falsifying evidence, the work returns to DELIBERATION.
 
-An executor must not silently redesign a constitutional decision. When implementation discovers a material architectural conflict, it returns the issue to deliberation.
+The transition may happen entirely locally, entirely through ChatGPT web sessions, or across surfaces.
 
-## 3. Target topology
+For example, the owner may deliberate deeply with local OpenCode, transfer durable state to ChatGPT for independent challenge, return locally for implementation, and then use ChatGPT for audit. The repository is the continuity bridge.
 
-```
-                           OWNER
-                             │
-                             ▼
-                       COORD-01 / ChatGPT
-                             │
-                 ┌───────────┴───────────┐
-                 │                       │
-           DELIBERATE MODE         EXECUTION MODE
-                 │                       │
-        rich Steward + CFAs          Steward
-        + workers + Commons             │
-                 │                  active CFA
-                 │                       │
-                 └────────────┬──────────┘
-                              ▼
-                        CODE / EVIDENCE
-                              │
-                              ▼
-                             MAIN
-```
+## 3. Surface roles
 
-### Roles
+### Local OpenCode
+Local OpenCode is capable of both DELIBERATE and EXECUTION work.
 
-**COORD-01 / ChatGPT**
-- architectural research;
-- independent audit;
-- design briefs;
-- falsifier design;
-- cross-domain synthesis;
-- review of local receipts;
-- repository documentation and bounded edits where tooling permits;
-- no claim of local-runtime proof without local execution.
+It can perform deep architectural reasoning, read the full local corpus and runtime, coordinate multiple CFA sessions, run local experiments, implement code, test it, and produce machine evidence.
 
-**Architecture Steward**
-- owns coordination within the selected mode;
-- in deliberation, convenes and reconciles domain reasoning;
-- in execution, compiles the bounded work envelope, selects the execution CFA, and enforces completion;
-- is not a second product authority.
+It is the authoritative proof surface for claims that intrinsically depend on the actual local runtime, but it is not restricted to implementation.
 
-**Active execution CFA**
-- owns one bounded implementation corridor;
-- edits code/config/tests;
-- delegates workers;
-- produces machine-valid completion evidence.
+### ChatGPT web applications
+ChatGPT web sessions are also capable of both DELIBERATE and EXECUTION work where repository tooling permits.
 
-**On-call CFA**
-- preserves domain expertise and constitutional memory;
-- participates when its domain is implicated;
-- can review, constrain, challenge, or falsify;
-- does not need to continuously generate work.
+They are useful for deep reasoning, research, cross-CFA synthesis, adversarial review, falsifier design, bounded repository changes, and independent audit of local results.
 
-**Leaf worker**
-- disposable bounded capability;
-- scout/research/draft/verify/run;
-- no authority and no persistent task ownership.
+A ChatGPT session must not claim local-runtime proof it did not obtain.
 
-## 4. Ten CFAs remain
+It is not restricted to design.
 
-The ten CFA architecture is retained as the **domain coverage map and deliberative specialist system**.
+### General rule
+The owner may switch surfaces without changing the work semantics.
 
-We are not deleting CFAs.
+A surface switch is a continuity operation, not a role change.
 
-During deliberate work, multiple CFAs can be actively engaged.
+## 4. Target topology
 
-During execution work, normally one CFA owns the corridor and the remaining CFAs become on-call unless the work explicitly requires a multi-CFA deliberation.
+OWNER -> CHATGPT WEBAPP and/or LOCAL OPENCODE -> SHARED MAIN -> AGENT SYSTEM
 
-This is a role-mode distinction, not a loss of domain authority.
+The same ten CFA domains, worker tier, Steward, Commons and durable repository can participate in either mode.
 
-## 5. Completion semantics
+DELIBERATE normally engages rich Steward + multiple CFAs + specialists + evidence.
+EXECUTION normally engages Steward + one active CFA + bounded workers, with specialist consultation when needed.
+
+## 5. Ten CFAs remain
+
+The ten CFA architecture is retained.
+
+In DELIBERATE mode, multiple CFAs may be deeply active.
+
+In EXECUTION mode, one CFA normally owns the implementation corridor, while other CFAs remain available for consultation. An execution task may deliberately pause and invoke multi-CFA reasoning when the work becomes architecturally uncertain.
+
+Active-CFA narrowing is an execution optimization, not a permanent restriction on local or web sessions.
+
+## 6. Completion semantics
 
 Receipts use explicit completion classes:
 
-- **IMPLEMENTED** — actual code/config/test delta plus verification and commit SHA.
-- **FALSIFIED** — concrete hypothesis tested and disproven with evidence.
-- **INVESTIGATED** — bounded research complete; no implementation claimed.
-- **BLOCKED** — execution cannot proceed for explicit external/authority reason.
-- **SUPERSEDED** — replaced by governed work.
-- **PARKED** — intentionally deferred.
+- IMPLEMENTED — actual code/config/test delta plus verification and commit SHA.
+- FALSIFIED — concrete hypothesis tested and disproven with evidence.
+- INVESTIGATED — bounded research complete; no implementation claimed.
+- BLOCKED — execution cannot proceed for explicit external or authority reason.
+- SUPERSEDED — replaced by governed work.
+- PARKED — intentionally deferred.
 
-Deliberative completion and implementation completion are distinct.
+Deliberative work may legitimately complete as INVESTIGATED or FALSIFIED.
+Execution work claiming IMPLEMENTED requires implementation evidence.
 
-A deliberation may legitimately finish without code. An implementation may not be called IMPLEMENTED without implementation evidence.
+## 7. One work item, flexible depth
 
-## 6. One work item, one corridor
+Every work item should identify:
 
-Every execution item has:
-
-```
 work_id
+mode
+surface
 objective
-execution_cfa
-allowed_paths
-prohibited_paths
+owner/agent
+allowed paths when applicable
+prohibited paths when applicable
 prerequisites
 authority boundary
 required tests/evidence
 completion contract
 canonical references
-```
 
-The envelope is the execution contract, not another architecture document.
+The work envelope is the execution contract when the work is EXECUTION.
 
-## 7. Context architecture
+Deep work does not have to be forced into a tiny envelope. A deliberate task can intentionally use a large, rich context package when the reasoning problem warrants it.
 
-The rich CFA homes remain valuable for slow deliberation and historical continuity.
+The optimization target is right-sized context, not minimal context at all costs.
 
-The **execution context** is intentionally smaller:
+## 8. Context architecture
 
-```
-CFA CHARTER
-+
-CURRENT STATE
-+
-WORK ENVELOPE
-+
-RELEVANT REFERENCES
-```
+Rich CFA homes remain valuable as constitutional, historical and domain memory.
 
-The long homes are not mass-deleted.
+Execution contexts should normally be compact:
+CFA CHARTER + CURRENT STATE + WORK ENVELOPE + RELEVANT REFERENCES
 
-The eventual canonical compact target remains:
+Deliberate sessions may additionally load historical receipts, peer-CFA research, competing hypotheses, broader architecture documents, evidence packs and prior objections.
 
-1. **CHARTER.md** — identity, mission, authority, boundaries, consultation triggers.
-2. **STATE.md** — current truth, active work, blockers, next action, last verified revision.
-3. **LESSONS.md** — durable mistakes and discoveries.
+There is no rule that large prompt equals bad. The rule is that copied boilerplate should not be mistaken for useful reasoning context.
 
-Existing additional files are harvested and retired only after their information is safely represented elsewhere.
+## 9. Prompt architecture
 
-## 8. Prompt architecture
+Preserve rich constitutional prompts for deep work.
 
-The rich constitutional prompts remain available for deliberate mode.
+Add a canonical reusable protocol plus generated work envelopes for routine execution.
 
-For execution mode, repeated 19–37 KB launch prompts are replaced by:
+Do not destroy long prompts merely to reduce token count.
 
-```
-AGENT-PROTOCOL
-+
-CFA CHARTER
-+
-generated WORK ENVELOPE
-```
+Instead separate constitutional context, task-specific context, and execution envelope when applicable.
 
-Routine execution envelopes target approximately 1–2 KB and reference canonical material instead of copying it.
+A routine envelope may be 1–2 KB. A genuinely complex task may require more context.
 
-Thus we preserve the intellectual constitution while eliminating unnecessary execution context.
+## 10. Mechanical enforcement
 
-## 9. Mechanical enforcement
-
-Required:
+Required where the runtime can enforce it:
 - exact requested-agent resolution or hard failure;
 - CFA-to-worker allowlist;
 - depth cap;
-- resource/path/command bounds wherever the runtime supports them;
+- resource/path/command bounds;
 - receipt schema validation;
 - changed-path verification;
 - required-test verification;
 - STATE freshness;
 - no silent capability inflation.
 
-Prompt text explains constraints. Runtime permissions and validators enforce them.
+These controls apply primarily to EXECUTION.
 
-## 10. Commons
+DELIBERATE work still has identity, authority, provenance and completion controls, but should not inherit unnecessary execution constraints.
 
-Commons remains the communication substrate for both modes.
+## 11. Commons
 
-In deliberation, it supports rich questions, objections, evidence, hypotheses, handoffs and synthesis.
+Commons remains the communication substrate for both modes and across surfaces.
 
-In execution, normal traffic should be compact: REQUEST, STATUS, BLOCKED, HANDOFF, RESULT and relevant evidence references.
+In DELIBERATE mode it supports rich questions, objections, evidence, hypotheses, handoffs and synthesis.
+
+In EXECUTION mode routine messages should be compact: REQUEST, STATUS, BLOCKED, HANDOFF, RESULT and evidence references.
 
 Commons is not a scheduler, ontology, authority store, task manager or product provenance authority.
 
-It receives a promotion gate covering identity/recovery, signatures, stream continuity, duplicate delivery, concurrent append, causal replay, concurrent handoff claims, visible transport failures, rebuildable views, and privacy boundaries.
+Promotion still requires proof of identity/recovery, signatures, stream continuity, duplicate delivery, concurrent append, causal replay, concurrent handoff claims, visible transport failures, rebuildable views and privacy boundaries.
 
-If the owner-defined acceptance deadline is reached without green proof, fallback is simple per-agent inbox artifacts plus Git until Commons is repaired.
+## 12. Communication semantics
 
-## 11. Communication semantics
-
-The protocol remains:
-
-```
 MESSAGE != TRUTH
 CONVERSATION != CANON
 ASSERTION != AUTHORITY
 SIGNATURE != TRUTH
 ACKNOWLEDGEMENT != AGREEMENT
-```
 
 Event IDs are identifiers, not causal order.
-
 Concurrent events remain concurrent until explicit protocol semantics resolve them.
 
-Handoff acceptance requires explicit claim resolution.
+Surface continuity should preserve, where applicable:
+goal_id, work_id, mode, surface, session_id, attempt_id, handoff_id.
 
-Invalid peer state must be visible as INVALID or UNAVAILABLE, not silently represented as EMPTY.
+A surface switch must not silently fork authority or create a competing task.
 
-## 12. Metrics
+## 13. Metrics
 
-Measure:
-- deliberative sessions versus execution sessions;
-- code-changing sessions / execution sessions;
+Measure the system by mode and surface, for example:
+- DELIBERATE versus EXECUTION sessions;
+- local versus ChatGPT-web sessions;
+- code-changing execution sessions;
 - implementation completion rate;
-- docs-only and investigation rate;
+- investigation/falsification rate;
 - task-to-verified-commit time;
-- cold-start context cost by mode;
-- receipt validation failures;
+- context size by mode;
+- surface-switch count;
+- manual continuation interventions;
+- receipt failures;
 - wrong-agent attempts;
 - blocked-work age;
 - worker containment failures;
 - Commons acceptance rate;
-- current STATE coverage.
+- STATE freshness.
 
-Metrics diagnose system behavior; they do not rank people or CFAs.
+Metrics diagnose workflow behavior; they do not rank people, agents or CFAs.
 
-## 13. Operating loops
+## 14. Operating loops
 
-### Deliberation loop
+### Deliberation
+QUESTION -> SELECT SURFACE(S) -> RICH RESEARCH / MULTI-CFA REASONING -> EVIDENCE / OBJECTIONS / FALSIFIERS -> DESIGN DECISION -> EXECUTION BRIEF when needed
 
-```
-OWNER QUESTION
-  ↓
-COORD-01 / STEWARD
-  ↓
-MULTI-CFA RESEARCH
-  ↓
-EVIDENCE / OBJECTIONS / FALSIFIERS
-  ↓
-DESIGN DECISION
-  ↓
-EXECUTION BRIEF
-```
+### Execution
+EXECUTION BRIEF -> SELECT SURFACE -> CURRENT MAIN VERIFICATION -> BOUNDED CORRIDOR -> RIGHT-SIZED CONTEXT -> ACTIVE CFA / OPTIONAL SPECIALIST CONSULTATION -> CODE / TEST / FALSIFIER -> MACHINE-VALIDATED RECEIPT -> STATE UPDATE -> COMMIT -> RE-READ DELIVERY REF
 
-### Execution loop
+The owner may execute either loop locally, through ChatGPT-supported repository work, or across both surfaces.
 
-```
-EXECUTION BRIEF
-  ↓
-CURRENT MAIN VERIFICATION
-  ↓
-ONE BOUNDED CORRIDOR
-  ↓
-SHORT GENERATED ENVELOPE
-  ↓
-ACTIVE CFA
-  ↓
-OPTIONAL ON-CALL CONSULTATION
-  ↓
-CODE / TEST / FALSIFIER
-  ↓
-MACHINE-VALIDATED RECEIPT
-  ↓
-STATE UPDATE
-  ↓
-COMMIT
-  ↓
-RE-READ MAIN
-```
+## 15. Migration order
 
-The manual "Next" choreography is acceptable in deliberate mode. Routine execution should not depend on it.
+M0 — Mode/surface distinction without creating a second task system.
 
-## 14. Migration order
+M1 — Completion contract: receipt schema, validator and code-change gate.
 
-**M0 — Mode split.** Record and implement explicit DELIBERATE versus EXECUTION work classification.
+M2 — Envelope generation for routine execution.
 
-**M1 — Completion contract.** Receipt schema, validator, code-change gate.
+M3 — Execution containment: exact-agent fail-closed behavior and worker resource bounds.
 
-**M2 — Envelope generation.** Canonical protocol + generator; migrate one execution corridor.
+M4 — Context right-sizing while preserving rich deliberate context.
 
-**M3 — Execution containment.** Exact-agent fail-closed behavior and worker resource bounds.
+M5 — Commons hardening: causal fold, handoff claims, visible transport failures, stream binding.
 
-**M4 — Context reduction.** Establish compact execution context and begin safe harvest/retirement of redundant standing artifacts.
+M6 — Metrics by mode and surface.
 
-**M5 — Commons hardening.** Causal fold, handoff claims, visible transport failures, stream binding.
+M7 — Real end-to-end execution proof.
 
-**M6 — Metrics.** Measure both modes separately.
+M8 — Commons promotion/fallback.
 
-**M7 — Real proof.** Complete one real execution corridor end-to-end.
+M9 — Only then consider A2A, MCP, presence daemon or broader autonomy.
 
-**M8 — Commons promotion/fallback.**
+## 16. Definition of final
 
-**M9 — Only then consider A2A, MCP, presence daemon, or broader autonomy.**
+The final system lets the owner move fluidly between local and ChatGPT surfaces without losing continuity, choose deep or fast work according to the problem, preserve the ten-domain deliberative architecture, accelerate routine execution with mechanical controls, and return implementation surprises to deep reasoning.
 
-## 15. Definition of final
-
-The final system can deliberately think deeply when the problem warrants it, execute quickly when the design is already settled, return architectural surprises from execution to deliberation, preserve the ten-domain CFA model, mechanically enforce execution boundaries, produce machine-valid evidence, keep main as durable memory, and keep communication subordinate to execution and authority.
-
-> **Slow when thinking matters. Fast when the decision is already made. Never confuse the two.**
+> **Deep when needed. Fast when ready. Surface-independent. Evidence stays durable.**
