@@ -16,6 +16,10 @@
 | OC-D08 | https://opencode.ai/v2/docs/permissions | V2 permission model; useful as migration/watch material, not V1 proof. |
 | OC-D09 | https://opencode.ai/v2/docs/build/plugins | V2 plugin/hook model; use to detect future migration changes. |
 | OC-D10 | https://opencode.ai/v2/docs/commands | V2 command/subagent semantics. |
+| OC-D11 | https://opencode.ai/docs/sdk/ | V1 JS/TS SDK for server/client control and programmatic session orchestration. |
+| OC-D12 | https://dev.opencode.ai/docs/mcp-servers/ | MCP as an additional tool/execution surface and context expansion risk. |
+| OC-D13 | https://dev.opencode.ai/docs/tools/ | Tool inventory and permission model; useful for alternate-surface closure. |
+| OC-D14 | https://opencode.ai/v2/docs/agents | V2 agent model, subagent capability, hidden agents, and V2 permission vocabulary. |
 
 ## B. Exact OpenCode v1.18.4 source
 
