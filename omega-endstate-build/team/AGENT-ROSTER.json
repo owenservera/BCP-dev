@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": 1,
+  "team": "omega-endstate-build",
+  "status": "bootstrap",
+  "agents": [
+    {
+      "agentId": "STEW-01",
+      "role": "local-endstate-build-steward",
+      "lifecycle": "persistent",
+      "status": "bootstrap-pending",
+      "mission": "Build the complete VIVIM end state and progressively build the local agent/subagent organization and tooling capable of automating that build.",
+      "workspaceMode": "worktree",
+      "branchPattern": "work/omega-endstate/STEW-01/<TASK>",
+      "authority": [
+        "create-and-retire-team-agents",
+        "create-development-tools",
+        "define-team-operating-system",
+        "define-roadmap",
+        "coordinate-and-verify-work",
+        "integrate-coherent-team-work",
+        "propose-branch-local-architecture-and-law"
+      ],
+      "subagents": [],
+      "notes": "Initial topology is intentionally one Steward. Additional roles must be created progressively from observed need."
+    }
+  ]
+}
