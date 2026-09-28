@@ -1,28 +1,52 @@
 # Task Queue Runbook
 
+## Queue source of truth
+
+The durable queue is the set of files under:
+
+`tasks/VG-*.md`
+
+TASK-QUEUE.md is the human-readable index and starting view.
+
+A task file is authoritative for its own state.
+
+This permits multiple participants to add work without requiring every participant to edit one central mutable task record.
+
 ## Add work
 
-Any authorized participant can add work directly to TASK-QUEUE.md using TASK-FORMAT.md.
+Any authorized participant can add a task by:
 
-For larger tasks, also create a dedicated task file under tasks/.
+1. creating a new `tasks/VG-XXXX.md` file using TASK-FORMAT.md;
+2. giving it Status: NEW;
+3. optionally adding an index entry to TASK-QUEUE.md.
 
-Do not require an orchestration service merely to enqueue work.
+The department's Add-VetoTask.ps1 convenience tool does both.
 
 ## Claim work
 
 A fresh session should:
 
-1. inspect the queue;
-2. choose the highest-value unclaimed task it is authorized to perform;
-3. record a claim;
-4. create or update the durable task record;
+1. inspect TASK-QUEUE.md;
+2. inspect tasks/ for authoritative task records;
+3. choose one unclaimed task it is authorized to perform;
+4. record a claim in the task file;
 5. begin work.
 
-The first task may be explicitly requested by the owner even if other work exists.
+For concurrent work, two agents should use distinct task IDs.
+
+## Claim safety
+
+Do not overwrite another agent's claim.
+
+Before changing a task from NEW to CLAIMED, verify the current task contents.
+
+A task with an existing claimant should be treated as owned unless its state explicitly permits parallel independent audits.
 
 ## Parallel independence
 
-If a task benefits from independent audits, create distinct task IDs for each audit rather than having multiple agents silently edit one result.
+When a task benefits from independent audits, create distinct task IDs for each audit.
+
+Do not have multiple agents silently edit one result.
 
 ## Blocked work
 
@@ -34,13 +58,13 @@ Use UNKNOWN or REQUEST-EVIDENCE where appropriate.
 
 ## Completion
 
-Every task must point to a durable result.
+Every completed task must point to a durable result.
 
 Keep the original task and claim history.
 
 ## Learning
 
-After the outcome becomes available, add an OUTCOME-REVIEW task.
+After an outcome becomes available, add an OUTCOME-REVIEW task.
 
 The queue is therefore both intake and longitudinal organizational memory.
 
@@ -48,6 +72,14 @@ The queue is therefore both intake and longitudinal organizational memory.
 
 VETO-01 may discover useful follow-up work.
 
-It should add the task to the same queue rather than maintaining a hidden private backlog.
+Add it to the same queue rather than maintaining a hidden private backlog.
 
 Self-generated tasks must state the beta mission connection.
+
+## Index drift
+
+If TASK-QUEUE.md differs from tasks/, tasks/ wins.
+
+Rebuild or repair the index as a low-priority maintenance action.
+
+Do not block useful audit work because the convenience index is stale.
