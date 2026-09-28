@@ -9,6 +9,15 @@ Local TASKS remains CFA-owned execution detail. Historical local routers/prompts
 
 ## Open tasks
 
+### WAVE1-LOCAL-TEAM-TOOLSET-CFA01-2026-09-28
+- **Status:** DONE
+- **Completed:** 2026-09-28
+- **Objective:** Wave-1 independent unit — top-10 local-machine-team tools from the CFA-01 lens (World meaning, relationships, observation/projection, addressability/query, world-state-becomes-context). Characterization only; no install, no peer prerequisite.
+- **Artifact:** `TOOLSET-TOP10-20260928.md` (commit `0ccee79`)
+- **Receipt:** `RESULTS/CFA01-TOOLSET-20260928.md` (MODE=DELIBERATE, SURFACE=LOCAL)
+- **Result:** Ranked 10 tools (search → observation → bounded assembly → 5-state resolution → correspondence → replay harness → basis recorder → relationship view → epistemic query → scoped-view filter, descriptive); per-tool peer-boundary notes; U-1–U-7 preserved; non-top-10 exclusions justified. No Ω change, no implementation, own home only.
+- **Next:** Steward central synthesis across ten per-domain lists (Steward-owned).
+
 ### WORLD-M3-CONTEXT-WORLD-PROJECTION-EVIDENCE-2026-09-27
 - **Status:** READY
 - **Priority:** P1
