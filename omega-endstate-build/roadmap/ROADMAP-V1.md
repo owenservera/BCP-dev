@@ -116,33 +116,35 @@ complexity map's numbering.
 
 ## 4. Development organization (smallest that scales)
 
-Evidence says: one bottleneck — the Steward's own context — plus one verification asymmetry.
+Evidence currently supports a small team with distinct coordination, live-environment, verification and development-tooling ownership.
 
 | Role | Why it earns its place | Workspace |
 |---|---|---|
-| **STEW-01** Steward | Owns strategy, evidence standards, integration | `work/omega-endstate/STEW-01/*` |
+| **STEW-01** Steward | Team-level strategy, evidence standards and integration in the current bootstrap shape | `work/omega-endstate/STEW-01/*` |
+| **DEVOPS-01** agentic tooling owner | Seeded resident owner for the development-system machinery; its workload will determine whether it decomposes further | `work/omega-endstate/DEVOPS-01/*` |
 | **PROV-01** provider investigator | Live browser work is serial, session-bound and slow; isolating it protects Steward context and lets it run while the Steward thinks | `work/omega-endstate/PROV-01/*` |
 | **VER-01** independent verifier | A self-verifying Steward verifies its own assumptions. Real friction, small cost | `work/omega-endstate/VER-01/*` |
 
-Deliberately **not** created yet: architecture agents, tooling agents, evolution agents,
-product/journey agents, context specialists. Each waits for observed recurrence. The complexity
-map is a map of the *product's* difficulty, not a staffing table.
+DEVOPS-01 is seeded/proposed, not yet a claim of active runtime provisioning.
 
-`COORD-01` already exists on `work/omega-endstate/COORD-01/opencode-research`; treat it as a peer,
-inspect its ref directly, do not merge to converse.
+Architecture, evolution, product/journey and context-specialist roles remain deliberately unseeded unless recurring workload earns them. The complexity map is a map of the *product's* difficulty, not a staffing table.
+
+`COORD-01` already exists on `work/omega-endstate/COORD-01/opencode-research`; treat it as a peer, inspect its ref directly, and do not merge to converse.
 
 ## 5. Tooling that earns its place
 
-Only two are justified before F1 completes. Both are small and both are reusable.
+DEVOPS-01 owns evaluation and implementation of this tooling frontier, but it must revalidate the candidates against current runtime/workload before committing to them.
+
+The initial candidates remain:
 
 1. **`truth.sh` / a current-evidence probe** — runs the scoped test targets and emits a
    *fresh* pass/fail count with toolchain and SHA. Directly fixes the failure mode in audit §3,
-   where a four-day-stale artifact was readable as current truth. Highest value per line of any
-   candidate.
+   where a four-day-stale artifact was readable as current truth.
 2. **Duplicate-binding / module-load guard** — prevents the F0 class of break recurring silently.
 
-Explicitly deferred: task graphs, dependency analysis, context generators, drift dashboards,
-roadmap tooling. A framework built before the workload recurs is a liability.
+Explicitly deferred as permanent machinery unless workload re-justifies them: task graphs, dependency analysis, context generators, drift dashboards and broad roadmap tooling.
+
+The tooling owner should favor small, measurable improvements over building an agent-management framework for its own sake.
 
 ## 6. Change triggers
 
