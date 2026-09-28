@@ -21,8 +21,8 @@ It answers a narrower question:
 7. [06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md](06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md) — session/context separation, handoff, compaction, and fresh-vs-resume balance.
 8. [07-RESIDENCY-DEPARTMENT-AND-PRESENCE-KERNEL.md](07-RESIDENCY-DEPARTMENT-AND-PRESENCE-KERNEL.md) — functional departments, master/resident identity, worker capability, dormancy, background presence, context epochs, and attention budgets.
 9. [upgrades/README.md](upgrades/README.md) — upgrade-wave index.
-9. [upgrades/U2A/README.md](upgrades/U2A/README.md) — proposed residency/presence upgrade lane.
-10. [upgrades/U1/README.md](upgrades/U1/README.md) — current U1 research lane.
+11. [upgrades/U2A/README.md](upgrades/U2A/README.md) — proposed residency/presence upgrade lane.
+12. [upgrades/U1/README.md](upgrades/U1/README.md) — current U1 research lane.
 
 ## Evidence hierarchy
 
