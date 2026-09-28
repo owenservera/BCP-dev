@@ -69,8 +69,7 @@
     "results": "results/",
     "evidence": "evidence/",
     "learning": "learning/",
-    "context": "context/",
-    "decisions": "decisions/"
+    "context": "context/"
   },
   "firstTask": "tasks/VG-0001.md",
   "protectedInExperimentalPhase": [
