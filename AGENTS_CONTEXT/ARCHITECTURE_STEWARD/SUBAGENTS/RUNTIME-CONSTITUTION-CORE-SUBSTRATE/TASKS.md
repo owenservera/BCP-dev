@@ -83,6 +83,18 @@ Hard stop: no production implementation, no shared-boundary activation, no Ω-la
 - **Completion condition:** steward commit lands procedure + receipt + this entry on main; S.2 flips DONE only then, per the Durable Completion Gate
 - **Stop condition:** write path unavailable, authority ambiguity, or any demand for Ω-law change, boundary activation, force-push, peer-home edit, or work outside this envelope
 
+## W3 finish-full-list — S.3a two-process harness authorship — 2026-09-28
+
+### FULL-LIST-W3-S3a-SCRIPTS-2026-09-28
+- **Status:** PARTIAL — 3 scripts + receipt authored, unexecuted; awaiting steward S.3b run + verify + commit
+- **Priority:** P0 (wave W3, unit S.3a; goal `finish-full-list`)
+- **Envelope:** base `e18c2005`; MODE=DELIBERATE, SURFACE=LOCAL; write scope was the 3 exact test paths + own receipt + this entry; zero src changes; no commits by author
+- **Artifacts:** `AGENTS_CONTEXT/AGENT-COMMONS/runtime/test/s3-procA.ts` (initiator + verify phase), `s3-procB.ts` (responder, fold-discovery), `s3-lib.ts` (shared helpers + compare CLI)
+- **Receipt:** `RESULTS/W3S3a-scripts-20260928.md` (RESULT=INVESTIGATED, COMMIT_SHA=PENDING-STEWARD-COMMIT; holds the exact S.3b command list steps 0–5)
+- **Next action:** steward executes S.3b steps (0)–(5) from the receipt, then verify + commit + S.3a flips DONE only then, per the Durable Completion Gate
+- **Stop condition:** any demand for Ω-law change, boundary activation, peer-home edit, origin push/merge, or execution beyond the receipt's S.3b list
+- **Predecessor note:** re-scoped from the owner-terminated authorship+execution attempt (zero residue verified at S.3a start); execution lives in S.3b, not here
+
 ## CURRENT PORTFOLIO ROUTING — 2026-09-28
 
 > **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`
@@ -108,6 +120,16 @@ Hard stop: no production implementation, no shared-boundary activation, no Ω-la
 - **Completion gate:** satisfied by the durable characterization, receipt, and task-state closure on current `main`.
 
 ## Open bounded work
+
+### CFA10-TOOLSET-TOP10-20260928
+- **Status:** DONE
+- **Priority:** P0 (owner-delegated wave-1 unit; goal: full-local-machine-access top-10 tools, CFA-10 lens)
+- **Envelope:** base `e18c2005`; INDEPENDENT — zero peer prerequisites; may spawn only `work-*` leaves (none used — none required); DELIBERATE only (no installs, no Ω-law change, no boundary activation, no production implementation)
+- **Artifacts:** `TOOLSET-TOP10-20260928.md` (ranked top-10 table + rationale + unknowns + ledger verdict) + `RESULTS/CFA10-TOOLSET-20260928.md` (v1.2 receipt, MODE=DELIBERATE, SURFACE=LOCAL)
+- **Write scope:** CFA-10 home only (this entry + two artifacts)
+- **Result:** Ranked sandboxing → identity gating → precedence probe → spawn discipline → B1 admission → activation/recovery → egress/revocation → quotas → completion-gate tooling; ledger verdict restated (name-scoped restriction PROCEDURAL until wired).
+- **Completion condition:** Met by durable artifacts + receipt + this closure verified on delivery ref.
+- **Stop condition:** None fired.
 
 ### RUNTIME-M1-K0-EVIDENCE-CLOSURE-2026-09-27
 - **Status:** DONE

@@ -18,6 +18,14 @@
 
 ## Open tasks
 
+### TOOLSET-TOP10-20260928
+- **Status:** DONE
+- **Priority:** P1 (owner-delegated Wave-1 independent unit)
+- **Artifact:** `TOOLSET-TOP10-20260928.md`
+- **Receipt:** `RESULTS/CFA08-TOOLSET-20260928.md`
+- **Result:** CFA-08-lensed ranked Top-10 local-machine tool substrate delivered (DELIBERATE only — recommended, not installed). No peer prerequisites consumed; no Ω law, shared boundary, or production implementation changes.
+- **Completion:** verified on delivery ref per Durable Completion Gate (see receipt).
+
 ## 🚨 CURRENT EXECUTION ROUTER — WAVE 3 — **RECEIPT-DRIVEN**
 
 > **DO NOT TRUST CACHED ACTIVE/WAITING STATE. VERIFY CURRENT MAIN AND RECOMPUTE YOUR TURN.**
