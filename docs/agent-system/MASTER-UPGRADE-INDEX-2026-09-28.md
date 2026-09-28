@@ -1,50 +1,57 @@
 # Agent System Master Upgrade — Ratification Index
 ## 2026-09-28
 
-**Status:** RATIFIED PROPOSED ARCHITECTURE — dual-speed operating model  
-**Design branch:** `design/agent-system-master-upgrade-2026-09-28`  
-**Baseline:** `e181820502f1a5ea572ed51b98cebd3af0b9c5ae`
+**Status:** RATIFIED PROPOSED ARCHITECTURE — dual-speed, surface-independent model
+**Design branch:** design/agent-system-master-upgrade-2026-09-28
+**Baseline:** e181820502f1a5ea572ed51b98cebd3af0b9c5ae
 
 ## Ratified synthesis
 
-The agent system will operate in two explicit modes.
+The agent system has two independent dimensions:
 
-### DELIBERATE
-Rich constitutional work remains first-class: COORD-01, Steward, multiple CFAs, specialist workers, Commons, evidence, objections, falsifiers, and durable architectural decisions.
+MODE = DELIBERATE | EXECUTION
+SURFACE = LOCAL | CHATGPT-WEBAPP | FUTURE GOVERNED SURFACE
 
-### EXECUTION
-Local OpenCode performs governed implementation through a bounded active CFA, short generated envelopes, on-call specialist consultation, mechanical permissions/gates, tests, receipts, and commits.
+The owner can run deep work locally or in ChatGPT, switch surfaces during a work item, and use either surface for bounded execution where the necessary evidence and tooling are available.
 
-A material architectural surprise sends work back to DELIBERATE rather than allowing silent executor redesign.
+### What the corpus critique changed
+
+The corpus critique is accepted primarily as an **execution-system optimization lesson**, not as a reason to dismantle the deliberate architecture.
+
+Accepted:
+- right-sized execution context;
+- less duplicated boilerplate;
+- generated routine envelopes;
+- mechanical completion gates;
+- exact-agent fail-closed behavior;
+- worker containment;
+- clearer metrics;
+- stronger communication semantics.
+
+Not accepted:
+- reducing local work to shallow execution;
+- reducing ChatGPT to a design mailbox;
+- mass-deleting the CFA corpus;
+- forcing every task into short context;
+- making Commons the source of authority;
+- replacing deep deliberation with shipping-only behavior.
 
 ## Durable documents
 
-1. `MASTER-AGENT-SYSTEM-UPGRADE-2026-09-28.md` — complete target architecture.
-2. `MASTER-COMMUNICATION-SYSTEM-DESIGN-2026-09-28.md` — communication semantics and promotion gate.
-3. `DELEGATION-AND-CAPABILITY-ENFORCEMENT-2026-09-28.md` — execution containment.
-4. `IMPLEMENTATION-MATRIX-CHATGPT-VS-LOCAL-2026-09-28.md` — implementation/proof split.
-5. `DUAL-SPEED-RATIFICATION-2026-09-28.md` — this ratification record.
-
-## Decisions
-
-- Keep the ten CFA model.
-- Keep rich CFA homes for deliberate work; progressively compact execution context.
-- Do not mass-delete historical artifacts.
-- Keep Commons, but require an executable v0 promotion/fallback gate.
-- Make code/evidence the completion unit for execution while retaining INVESTIGATED/FALSIFIED semantics for deliberate work.
-- Eliminate manual repeated prompt authoring in execution mode through generated envelopes.
-- Require exact-agent resolution; silent fallback is a defect.
-- Fix causal replay, handoff concurrency, transport error visibility, and identity/stream binding before broader realtime/autonomous features.
-- Do not activate A2A, MCP, presence daemon, or broader autonomy as part of this ratification.
+1. MASTER-AGENT-SYSTEM-UPGRADE-2026-09-28.md
+2. MASTER-COMMUNICATION-SYSTEM-DESIGN-2026-09-28.md
+3. DELEGATION-AND-CAPABILITY-ENFORCEMENT-2026-09-28.md
+4. IMPLEMENTATION-MATRIX-CHATGPT-VS-LOCAL-2026-09-28.md
+5. DUAL-SPEED-RATIFICATION-2026-09-28.md
+6. LOCAL-AGENT-M0-M1-UPGRADE-PROMPT-2026-09-28.md
 
 ## Immediate continuation
 
-The next implementation work is no longer another architecture document.
+Proceed with M0/M1:
+1. represent DELIBERATE versus EXECUTION;
+2. preserve surface/session lineage;
+3. extend the existing completion contract rather than creating a second task system;
+4. prove exact-agent resolution;
+5. execute one real bounded corridor.
 
-Start with **M0/M1**:
-1. classify work as DELIBERATE or EXECUTION;
-2. implement the execution completion contract;
-3. validate receipts mechanically;
-4. prove one real bounded execution corridor from current main.
-
-Existing architectural work remains available for deliberate investigations and should be consulted when an execution corridor crosses its domain.
+No new architecture layer is required before this work.
