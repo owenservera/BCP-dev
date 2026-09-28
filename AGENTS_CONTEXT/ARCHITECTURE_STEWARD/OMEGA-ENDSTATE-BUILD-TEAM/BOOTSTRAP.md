@@ -4,6 +4,14 @@
 > Date: 2026-09-28
 > Branch: `team/omega-endstate`
 
+## Canonical project home
+
+The active project/control-plane home for this development path is:
+
+`omega-endstate-build/`
+
+Use `omega-endstate-build/STEWARD-BOOTSTRAP.md` as the executable local Steward bootstrap and `omega-endstate-build/GIT-MANAGEMENT.md` as the Git/workspace safety protocol. This folder remains the seed/context corpus from which the project home is bootstrapped.
+
 ## Bootstrap mission
 
 A local Steward can bootstrap this path directly with `STEWARD-LOCAL-SETUP-PROMPT.md`. The prompt is intentionally broader than a normal task brief: the Steward is expected to build whatever local development machinery, subagents, research loops, verification tooling, and coordination mechanisms are needed to automate the route to the product.
@@ -51,9 +59,9 @@ Extract:
 - performance/scale expectations;
 - explicit and implicit falsifiers.
 
-## Phase 3 — design the development system
+## Phase 3 — design the development organization
 
-The team itself must decide how it wants to build.
+The team must design its own development organization and development system.
 
 It should determine:
 
@@ -77,7 +85,11 @@ It may reuse the repository's existing Agent Commons and useful shared protocols
 
 It is not required to copy the current Architecture Steward operating model.
 
-## Phase 4 — create the roadmap
+## Phase 4 — establish the minimum useful team
+
+Create only the first useful persistent/temporary Steward and specialist roles. Expand the organization progressively when recurring workload, specialization, parallelism, verification, or coordination bottlenecks justify it. Record the agent definitions and ownership under `omega-endstate-build/`.
+
+## Phase 5 — create the roadmap
 
 Create:
 
@@ -101,7 +113,7 @@ It should contain:
 - explicit non-goals;
 - conditions that would cause the roadmap to be rewritten.
 
-## Phase 5 — establish the first build frontier
+## Phase 6 — establish the first build frontier
 
 Populate:
 
@@ -116,12 +128,14 @@ Do not import a mainline task list merely to make the queue look populated.
 Bootstrap is complete when:
 
 1. the team understands Ω independently;
-2. the team understands the end-state independently;
+2. the team understands the end state independently;
 3. the team has explicitly characterized major gaps and tensions;
-4. the team has designed its own development system;
-5. the team has produced its own full-product roadmap;
-6. the team has selected an initial build frontier;
-7. the team records what evidence would make it change course.
+4. the team has designed its development organization/system;
+5. the minimum useful agent topology exists;
+6. isolated workspace/branch management is established;
+7. the team has produced its own full-product roadmap;
+8. the team has selected an initial build frontier;
+9. the team records what evidence would make it change course.
 
 ## Non-goals
 
