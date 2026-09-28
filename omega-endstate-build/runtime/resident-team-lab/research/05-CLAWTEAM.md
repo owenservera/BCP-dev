@@ -13,7 +13,7 @@ ClawTeam is a practical example of agent-native orchestration: a leader can spaw
 - task dependencies can automatically unblock downstream work;
 - inbox communication is directly available to workers;
 - a board exposes team state;
-- execution capacity can be killed/recycled while work artifacts remain isolated. citeturn952603view3turn161442view4
+- execution capacity can be killed/recycled while work artifacts remain isolated.
 
 ## Best practices extracted
 
@@ -38,3 +38,5 @@ ClawTeam intentionally favors autonomous operational control. Ω requires the st
 `agent decides` != `agent is authorized`
 
 Its spawn/inbox/worktree mechanisms are useful execution patterns, not an Ω authority model.
+
+Primary source: https://github.com/HKUDS/ClawTeam
