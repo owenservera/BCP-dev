@@ -18,6 +18,16 @@ Local TASKS remains CFA-owned execution detail. Historical local routers/prompts
 - **Result:** Ranked 10 tools (search → observation → bounded assembly → 5-state resolution → correspondence → replay harness → basis recorder → relationship view → epistemic query → scoped-view filter, descriptive); per-tool peer-boundary notes; U-1–U-7 preserved; non-top-10 exclusions justified. No Ω change, no implementation, own home only.
 - **Next:** Steward central synthesis across ten per-domain lists (Steward-owned).
 
+### REA-ENGINE-INPUT-CFA01-2026-09-28
+- **Status:** DONE
+- **Completed:** 2026-09-28
+- **Objective:** Owner goal *"design the version we need of the Reality Engine"* — CFA-01 design input from the World/Context lens. Independent unit, zero peer prerequisites. DELIBERATE: no code, no implementation, no central synthesis.
+- **Artifact:** `REALITY-ENGINE-INPUT-20260928.md`
+- **Receipt:** `RESULTS/CFA01-REALITY-INPUT-20260928.md` (MODE=DELIBERATE, SURFACE=LOCAL)
+- **Result:** CFA-01 sketch in the setup prompt validated as framing / rejected as specification — "basis currency" must split into workspace / repository / evidence-revision, each with its own basis plus an explicit `lineageRelation` to the delivery ref; a file digest is not a World object revision; `reality for cfa-01` is unimplemented (CLI `for` case absent, `cfaProfiles: []`) and its "file/revision basis" is a category error, so a refined contract was proposed. Scope verdict = **hybrid** with the ordering inverted: truthfulness floor (canonical path identity, basis engine, freshness engine, exit codes, presence triple, conflict preservation) in increment 1a gating 1b/1c; daemon, recursive watcher, backpressure, schema migration deferred; 11 defect-class items cut outright. Delivered 13 must-haves, 11 must-nots, 10 acceptance additions, 19 falsifier additions (W-01..W-19), 12 gotcha additions (G-06..G-17), and 14 unknowns routed to named owners (U-01..U-14). Required — did not decide unilaterally — reconciliation of the engine's 5+3 epistemic/freshness vocabulary against the team's 5+4, recording divergences D-1..D-5 (notably `CONFLICTED` in the wrong axis, `PROPOSED` unreachable, `AMBIGUOUS` homeless). Live delivery-path finding: spawn base `edfe49b1` is an ancestor of main but **not** of the session worktree branch (`team/omega-endstate`, 52/5 diverged from main) — delivered via a main-based worktree so peer uncommitted work stayed untouched; this event is itself falsifier W-17. Owner material `docs/Reality-engine/` read only, never staged; `.dev-reality/` absence and the live `git add .` hazard (G-14) recorded.
+- **Boundaries:** No Ω law change, no implementation, no shared-boundary activation, no central synthesis, own home only.
+- **Next:** Steward decides (1) hybrid increment order, (2) the cut list, (3) the vocabulary reconciliation shape, (4) routes U-05 mechanical `subjectId` namespace vs World address, (5) assigns U-03/U-07/U-08 before increment 1a is implemented.
+
 ### WORLD-M3-CONTEXT-WORLD-PROJECTION-EVIDENCE-2026-09-27
 - **Status:** READY
 - **Priority:** P1
