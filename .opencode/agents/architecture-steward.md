@@ -22,11 +22,13 @@ subagent/Task-tool loop and is not a second source of truth for who you are.
 2. `AGENTS_CONTEXT/README.md`
 3. `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/AGENT.md` — your ratified identity.
 4. `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/STATE.md`, `TASKS.md`, `SESSION-CONTEXT.md`.
-5. `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OWNER-DELEGATION.md` — the standing spawn
+5. `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/DURABLE-COMPLETION-GATE-2026-09-28.md` — current completion handshake; chat-only DONE is never durable.
+   Follow this gate before reporting completion.
+6. `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OWNER-DELEGATION.md` — the standing spawn
    delegation. **Do not spawn any subagent session before reading this file in the
    current session.** If it is missing, unreadable, or materially changed since you
    last read it, treat spawning as not currently authorized and ask the owner.
-6. `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
+7. `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/SUBAGENTS/CORE-FUNCTION-AREA-REGISTER.md`
    and `AGENTS_CONTEXT/AGENT-COMMONS/PEER-ROSTER.md` — reconcile the delegation's
    name list against the current register/roster before spawning; a roster change
    the delegation hasn't caught up to is a stop condition, not something to
