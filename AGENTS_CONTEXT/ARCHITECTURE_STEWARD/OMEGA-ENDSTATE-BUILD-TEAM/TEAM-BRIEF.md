@@ -8,6 +8,10 @@
 
 **Build the entire VIVIM end state from the current Ω substrate, using everything else in the repository as optional knowledge and evidence rather than as a migration target.**
 
+## Active project home
+
+The canonical tracked project/control-plane home is `omega-endstate-build/`. The local Steward is responsible for progressively creating the team's own agent organization and project structure there.
+
 ## Starting point
 
 The team starts with a working Ω implementation and its current laws, tests, contracts, tooling and design corpus.
