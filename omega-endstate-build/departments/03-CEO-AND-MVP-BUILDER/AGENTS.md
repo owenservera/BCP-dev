@@ -10,7 +10,7 @@ Treat this as the governing outcome. Development-system evolution is an enabling
 
 ## Foundational trust contract
 
-Read: TRUTH-CHAIN-SEED.md
+Read: `../02-TRUTH-AND-TRUST/TRUTH-CHAIN-SEED.md`
 
 This is the first workspace-wide seed contract for truth, provenance, authority, execution and outcome lineage.
 
@@ -22,7 +22,7 @@ The central rule is:
 
 ## Turn close
 
-Read: TURN-CLOSE-PROTOCOL.md
+Read: `../02-TRUTH-AND-TRUST/TURN-CLOSE-PROTOCOL.md`
 
 Every turn/session operating in this workspace should end by publishing the current visible task queue as a detailed Markdown table.
 
@@ -37,9 +37,9 @@ The table is a visibility surface, not a second source of truth. Use authoritati
 - GIT-MANAGEMENT.md
 - PROJECT-STRUCTURE.md
 - team/README.md
-- state/BOOTSTRAP-CHECKLIST.md
+- `../02-TRUTH-AND-TRUST/state/BOOTSTRAP-CHECKLIST.md`
 
-Then read the complete seed corpus under:
+Then read the complete inherited seed corpus under:
 
 AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OMEGA-ENDSTATE-BUILD-TEAM/
 
@@ -61,9 +61,7 @@ Use them as starting substrate, evidence and reusable material.
 
 ## Department organization
 
-The local Steward owns progressive creation of the team's departments and resident roles under:
-
-departments/
+The local Steward owns progressive creation of the team's three departments and their resident roles. The department roots are siblings under `omega-endstate-build/departments/`.
 
 Start from the current seeded topology in team/AGENT-ROSTER.json. Additional specialists may be proposed, provisioned, combined or retired as observed workload justifies them.
 
