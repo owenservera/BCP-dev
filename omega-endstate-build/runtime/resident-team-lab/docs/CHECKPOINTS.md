@@ -16,9 +16,9 @@
 
 ---
 
-## CP-01 — Task permission matching
+## CP-01 — Native Task permission matching
 
-**Question:** Does the installed OpenCode build mechanically enforce agent-profile-specific `permission.task` patterns?
+**Question:** Does OpenCode v1.18.4 mechanically enforce agent-profile-specific `permission.task` patterns?
 
 **Smallest test:**
 - root may target `resident-*`;
@@ -29,100 +29,152 @@
 **Required evidence:**
 - allowed Task reaches the intended child session;
 - denied Task produces an explicit permission refusal;
-- no child session is created for the denied request.
+- no child session is created for the denied request;
+- actual effective permission is inspected rather than inferred from the Task tool schema.
 
 **Failure:** Treat the permission layer as unproven. Do not design around assumed pattern enforcement.
 
 ---
 
-## CP-02 — Native resident → worker creation
+## CP-02 — Real native resident → worker creation
 
-**Question:** Can a real resident session create a real worker through native `Task`?
+**Question:** Can a real resident session create a real fresh worker through native `Task`?
 
 **Required evidence:**
 - parent session ID;
 - child session ID;
 - child agent ID;
-- parent/child relationship;
+- child `parentID) equals the requesting resident session;
 - worker turn result;
-- no custom spawn API.
+- no custom spawn API;
+- no `task_id) was used.
 
-**Promotion:** The native Task tree becomes the experimental execution primitive.
-
----
-
-## CP-03 — Plugin observes the delegation boundary
-
-**Question:** Does the VIVIM plugin reliably observe Task calls and child lifecycle events?
-
-**Required evidence:**
-- Task call ID;
-- caller session;
-- target agent;
-- created child session;
-- lifecycle timestamps;
-- correlation record that survives the parent turn.
-
-**Failure:** Improve instrumentation before adding policy semantics.
+**Promotion:** Native Task becomes the experimental worker-creation primitive.
 
 ---
 
-## CP-04 — Deterministic delegation refusal
+## CP-03 — Plugin preflight gate actually blocks
 
-**Question:** Can the VIVIM layer deny a spawn that configuration/native permissions should not authorize?
+**Question:** Can the VIVIM plugin reject a disallowed Task before the native Task creates a child?
 
 **Required evidence:**
-- explicit refusal;
-- caller identity;
-- target;
-- delegation reason;
-- no child created.
+- explicit policy decision;
+- caller stable identity;
+- requested target;
+- refusal reason;
+- plugin hook failure/denial is observed;
+- no child session is created.
 
-**Promotion:** Only then add richer delegation grants.
+**Failure:** The plugin is only advisory. Do not add richer delegation semantics.
 
 ---
 
-## CP-05 — Resident chooses worker count/type
+## CP-04 — Worker leafness
 
-**Question:** Can a resident independently decide that it needs multiple workers?
+**Question:** Is the leaf boundary mechanically enforced?
+
+**Smallest test:** worker attempts a Task call for any target.
 
 **Required evidence:**
-- resident's reasoning identifies separate work units;
-- multiple children created from the resident;
-- distinct worker roles;
-- resident receives and synthesizes results;
-- Steward did not enumerate the workers.
-
-This is the first behavioral checkpoint for genuine resident autonomy.
+- Task attempt observed;
+- native permission refusal and/or VIVIM refusal;
+- no grandchild session;
+- worker remains a leaf.
 
 ---
 
-## CP-06 — Durable lineage and evidence
+## CP-05 — Resident chooses worker demand
 
-**Question:** Does worker disappearance leave a durable, verifiable lineage?
+**Question:** Can a resident independently choose whether one or two workers are warranted?
 
 **Required evidence:**
+- resident's actual decision identifies separate work units;
+- one or two children created accordingly;
+- worker types are selected from the registered catalog;
+- Steward did not enumerate the children;
+- runtime enforces the ceiling without choosing the intellectual decomposition.
+
+This is the first behavioral checkpoint for resident autonomy.
+
+---
+
+## CP-06 — Duplicate/idempotency boundary
+
+**Question:** Can retry/observer interruption avoid ambiguous double creation?
+
+**Required evidence:**
+- a unique `spawn_id);
+- duplicate logical request is detected or reconciled;
+- no unintended second child is created;
+- final state is unambiguous.
+
+---
+
+## CP-07 — Unsafe Task resume is rejected
+
+**Question:** Does U1 refuse `task_id)-based reuse of an unrelated existing session?
+
+**Smallest test:** provide the ID of an existing worker/session while requesting a different governed target.
+
+**Required evidence:**
+- deterministic refusal before unsafe reuse;
+- existing session remains owned by its original lineage;
+- no cross-owner prompt is executed.
+
+**Promotion:** No resume support enters the resident runtime until a separate resume qualification passes.
+
+---
+
+## CP-08 — Durable lineage/evidence
+
+**Question:** Does worker completion remain reconstructable after the immediate turn ends?
+
+**Required evidence:**
+- `spawn_id);
 - parent and child IDs;
-- execution outcome;
+- target agent;
+- lifecycle outcome;
 - evidence receipt;
-- repository-visible or otherwise canonical durable record.
+- repository-visible durable record.
 
 ---
 
-## CP-07 — Resident-to-resident Commons
+## CP-09 — Controlled failure semantics
 
-**Question:** Can two residents communicate laterally without the Steward relaying messages?
+**Question:** Are refusal, creation failure, execution failure, timeout, and unknown state distinguishable?
 
-**Required evidence:**
-- sender/recipient durable identities;
-- typed communication;
-- persisted message;
-- explicit distinction between opinion/finding and authority.
+**Required evidence:** one fixture or live test for each class.
+
+A green process exit cannot collapse these into `completed`.
 
 ---
 
-## CP-08 — End-state governance migration
+## CP-10 — U1 promotion
 
-Only after CP-01 through CP-07 pass should we decide which substrate mechanisms are absorbed, replaced, or retired in the Ω runtime.
+Promote U1 only when CP-01 through CP-09 pass.
 
-Until then, `opencode-swarm` remains a valid fallback baseline.
+U1 promotion means:
+
+- resident-owned fresh worker creation is real;
+- authorization is narrower than model intent;
+- worker leafness is mechanical;
+- unsafe resume is excluded;
+- lineage and evidence survive the turn;
+- retry/failure states are explicit.
+
+U1 promotion does not mean the ten-resident system is operational.
+
+---
+
+## Later checkpoints
+
+The following remain downstream:
+
+- resident-owned worker pool at meaningful scale;
+- direct resident-to-resident Commons;
+- supervisor and resident recovery;
+- ten-CFA resource admission;
+- surface continuity;
+- Ω-native governance migration.
+
+No later checkpoint should be marked proven from design documents alone.
