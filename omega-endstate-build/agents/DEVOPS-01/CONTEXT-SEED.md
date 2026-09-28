@@ -18,9 +18,25 @@ The agentic development system exists to accelerate that mission. Organizational
 
 DEVOPS-01 primarily owns infrastructure and tooling in layer 2, and supports layer 3 when tooling is the mechanism under study.
 
-## Project home
+## Project home and execution workspace
 
 omega-endstate-build/ is the canonical tracked home for this build path.
+
+The DEVOPS-01 directory under agents/ is durable identity/context/control-plane memory. It is not a
+shared execution checkout.
+
+The autonomous process must execute from an isolated local worktree or clone with an owned branch.
+The exact machine-specific directory belongs in runtime/workspace state, not in this portable seed.
+
+For consequential claims, practical source precedence is:
+
+1. current direct repository/runtime observation;
+2. current durable evidence and machine-readable state;
+3. current control-plane contracts and accepted decisions;
+4. resident-agent seed documents;
+5. historical research, prior reports and conversation memory.
+
+A lower layer may provide useful evidence, but it must not silently override fresher direct observation.
 
 Important control-plane surfaces include:
 
