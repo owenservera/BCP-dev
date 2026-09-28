@@ -95,6 +95,30 @@ Hard stop: no production implementation, no shared-boundary activation, no Ω-la
 - **Stop condition:** any demand for Ω-law change, boundary activation, peer-home edit, origin push/merge, or execution beyond the receipt's S.3b list
 - **Predecessor note:** re-scoped from the owner-terminated authorship+execution attempt (zero residue verified at S.3a start); execution lives in S.3b, not here
 
+## W3 finish-full-list — S.3c F9 scope fix (harness-only, static) — 2026-09-28
+
+### FULL-LIST-W3-S3c-F9-SCOPE-FIX-2026-09-28
+- **Status:** PARTIAL — fix authored, unexecuted; awaiting steward S.3b-retry (fresh remote) + verify + commit
+- **Priority:** P0 (wave W3, unit S.3c; goal `finish-full-list`)
+- **Envelope:** base `edfe49b1`; MODE=DELIBERATE, SURFACE=LOCAL; write scope was the 3 exact s3-*.ts F9-scope lines + own receipt + this entry; zero src changes; no commits by author; no exchange execution
+- **Root cause:** `ensureOwnBranch` creates `commons/<id>` via `git branch <branch> HEAD` (inherits all mainline history) while `mergeCommits` ran unscoped `git log --merges <branch>` → mainline integration merges false-fired F9 in S.3b step (2)
+- **Fix:** `mergeCommits(repoRoot, branch, baseline)` scans `baseline..branch` only (fail-closed on empty baseline); call sites pass already-recorded `baselineHead` (procA init, procB) / `b.baselineHead ?? detached HEAD` (procA verify); S.3b command list UNCHANGED (step (2) expectation flips from STOP-on-F9 to green)
+- **Receipt:** `RESULTS/W3S3c-fix-20260928.md` (RESULT=INVESTIGATED, COMMIT_SHA=PENDING-STEWARD-COMMIT)
+- **Next action:** steward re-runs S.3b steps (0)–(5) from `RESULTS/W3S3a-scripts-20260928.md` §4 against a FRESH bare remote, then verify + commit + S.3a/S.3c flip DONE only then, per the Durable Completion Gate
+- **Stop condition:** any demand for Ω-law change, boundary activation, peer-home edit, origin push/merge, or execution by this author
+
+## W3 finish-full-list — S.3d harness hardening: fresh-branch guard + read observability (static) — 2026-09-28
+
+### FULL-LIST-W3-S3d-HARDENING-20260928
+- **Status:** PARTIAL — hardening authored, unexecuted; awaiting steward S.3b-retry (with §4 ref-hygiene deltas) + verify + commit
+- **Priority:** P0 (wave W3, unit S.3d; goal `finish-full-list`)
+- **Envelope:** base `edfe49b1`; MODE=DELIBERATE, SURFACE=LOCAL; write scope was s3-*.ts guard/assert lines + own receipt + this entry; zero src changes; no commits by author; no exchange execution
+- **Root cause (confirmed in code):** stale `commons/S3-ALPHA` ref reused across runs (refs are repo-global) → two seq-1 event blobs on one ref → `verifyEventChain` fails → `read()` `catch {}` swallows → silent empty → F3 false-fire
+- **Hardening:** `ensureOwnBranch(repoRoot, branch, baseline, home)` fails CLOSED on stale reuse (`S3_STALE_BRANCH_REUSE`); post-sync `assertRefSynced` / `assertEventBlobs` / `assertIdentityBlob` name ref-state before `read()` is trusted; setup/teardown S3-ref hygiene deltas in receipt §4; transport `catch {}` OBSERVED for CFA-09 (P2-8-adjacent), not fixed here
+- **Receipt:** `RESULTS/W3S3d-hardening-20260928.md` (RESULT=INVESTIGATED, COMMIT_SHA=PENDING-STEWARD-COMMIT)
+- **Next action:** steward runs S.3b steps (0)–(5) from `RESULTS/W3S3a-scripts-20260928.md` §4 WITH the S.3d §4 hygiene deltas, then verify + commit + S.3a/S.3c/S.3d flip DONE only then, per the Durable Completion Gate
+- **Stop condition:** any demand for Ω-law change, boundary activation, peer-home edit, origin push/merge, src/ change, or execution by this author
+
 ## CURRENT PORTFOLIO ROUTING — 2026-09-28
 
 > **Master routing authority:** `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/MASTER-PORTFOLIO-WORKLOAD-ROUTER-2026-09-27.md`

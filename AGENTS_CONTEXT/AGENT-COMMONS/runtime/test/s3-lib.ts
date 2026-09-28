@@ -133,15 +133,95 @@ export function ensureS3Remote(repoRoot: string, barePath: string): { url: strin
 // stay detached at the baseline SHA; the transport moves refs via update-ref).
 // F9: this helper and every caller use only branch/fetch/show/update-ref/push
 // of the OWN commons/<id> ref — merge/rebase/cherry-pick appear nowhere.
-export function ensureOwnBranch(repoRoot: string, branch: string): void {
-  const ok = trySh(repoRoot, "rev-parse", "--verify", `refs/heads/${branch}`);
-  if (!ok) sh(repoRoot, "branch", branch, "HEAD");
+// NOTE the branch starts AT the baseline HEAD and therefore inherits ALL
+// mainline history; F9 mergeCommits() must scan only baseline..branch, never
+// the whole branch history (S.3b F9 false-fire, fixed S.3c).
+// S.3d fresh-branch guard: stream branch refs are REPO-GLOBAL (shared across
+// all worktrees of the repo), so a stale `commons/<id>` ref left by a prior
+// run is silently reused by `git branch X HEAD`-when-absent logic and mixes
+// foreign history/identity into this run (S.3b-retry: TWO seq-1 event blobs
+// on one ref → verifyEventChain fails → read()'s catch{} swallows → silent
+// empty → F3 false-fire). Fail CLOSED: a pre-existing ref survives ONLY when
+// its tip is exactly this run's baseline AND it carries zero event blobs
+// under the home prefix; anything else throws S3_STALE_BRANCH_REUSE.
+// SETUP CONTRACT (S.3b step 1, steward-owned): delete stale
+// `commons/S3-ALPHA` / `commons/S3-BETA` refs in the MAIN repo BEFORE worktree
+// creation and verify absence (`git branch --list "commons/S3*"` prints
+// nothing). TEARDOWN CONTRACT (S.3b step 5, steward-owned): delete them AFTER
+// the run — the main repo must never retain S3 stream refs.
+// S.3e guard (S.3b-retry-2 root cause): the transport's `append()` picks its
+// parent as `remoteHead ?? localHead ?? main` where remoteHead is
+// `refs/remotes/<remote>/<branch>`. That TRACKING ref is repo-global, survives
+// both `worktree remove` and deletion of the bare-remote directory, and is
+// invisible to `git branch --list` (which lists only local heads). A surviving
+// tracking ref made append() build on the prior run's history — importing its
+// identity blob, so this run's events were signed by a key the ref did not
+// carry → verifyEventChain threw → read()'s catch{} swallowed → silent empty →
+// F3 false-fire, then S3_IDENTITY_BLOB_MISMATCH once the ref was visible. The
+// S.3d guard above only inspected LOCAL heads and therefore missed it. This
+// check makes stale tracking state impossible rather than merely unlikely.
+export function assertNoStaleTrackingRefs(repoRoot: string, remote: string): void {
+  const tracking = (trySh(repoRoot, "for-each-ref", "--format=%(refname)", `refs/remotes/${remote}`) ?? "")
+    .split("\n").map((s) => s.trim()).filter((s) => s !== "");
+  if (tracking.length !== 0) {
+    throw new Error(`S3_STALE_TRACKING_REFS:${remote} has ${tracking.length} stale tracking ref(s): ${tracking.join(",")} (delete the remote with \`git remote remove ${remote}\` before a fresh run; append() would inherit that history)`);
+  }
 }
 
-// F9 evidence: any merge commit reachable on the stream branch invalidates.
-export function mergeCommits(repoRoot: string, branch: string): string[] {
-  const out = trySh(repoRoot, "log", "--merges", "--format=%H", branch) ?? "";
+export function ensureOwnBranch(repoRoot: string, branch: string, baseline: string, home: string): void {
+  if (!baseline) throw new Error("S3_BASELINE_MISSING:fresh-branch guard requires baselineHead");
+  if (!home) throw new Error("S3_HOME_MISSING:fresh-branch guard requires agent home prefix");
+  assertNoStaleTrackingRefs(repoRoot, S3_REMOTE_NAME);
+  const existing = trySh(repoRoot, "rev-parse", "--verify", `refs/heads/${branch}`);
+  if (!existing) {
+    const head = sh(repoRoot, "rev-parse", "HEAD");
+    if (head !== baseline) throw new Error(`S3_BASELINE_MISMATCH:worktree HEAD ${head} !== baseline ${baseline}`);
+    sh(repoRoot, "branch", branch, "HEAD");
+    return;
+  }
+  if (existing !== baseline) throw new Error(`S3_STALE_BRANCH_REUSE:${branch} tip ${existing} !== baseline ${baseline} (prior-run ref reused; delete commons/S3-* before retry)`);
+  const prefix = `${home}/commons/stream/events`;
+  const names = trySh(repoRoot, "ls-tree", "-r", "--name-only", existing, "--", prefix) ?? "";
+  const blobs = names.split("\n").map((s) => s.trim()).filter((s) => s.endsWith(".json"));
+  if (blobs.length !== 0) throw new Error(`S3_STALE_BRANCH_REUSE:${branch} carries ${blobs.length} pre-existing event blobs at tip==baseline (stale reuse forbidden)`);
+}
+
+// F9 evidence: any merge commit UNIQUE to the stream branch invalidates.
+// The scan MUST be scoped to the baseline..branch range: an unscoped
+// `git log --merges <branch>` walks the inherited mainline history and
+// false-fires on mainline integration merges (S.3b F9 false-fire, fixed S.3c).
+// Fail-closed: an empty baseline throws instead of silently scanning unscoped.
+export function mergeCommits(repoRoot: string, branch: string, baseline: string): string[] {
+  if (!baseline) throw new Error("S3_BASELINE_MISSING:F9 scan requires baseline..branch scope");
+  const out = trySh(repoRoot, "log", "--merges", "--format=%H", `${baseline}..${branch}`) ?? "";
   return out.split("\n").map((s) => s.trim()).filter(Boolean);
+}
+
+// Read-observability asserts (S.3d hardening, harness-side only — NO src/
+// changes): after sync, BEFORE trusting read(), prove via direct git commands
+// that the ref state is what this run just wrote. Transport read() swallows
+// per-ref verification failure via `catch {}` (OBSERVED defect, flagged for
+// CFA-09 — see S.3d receipt; not fixed here), so a future silent-empty trips
+// a NAMED assert here instead of a mystery F3 downstream. All three checks
+// are feasible without src/ changes (pure rev-parse / ls-tree / show).
+export function assertRefSynced(repoRoot: string, branch: string): void {
+  const local = trySh(repoRoot, "rev-parse", "--verify", `refs/heads/${branch}`);
+  const tracking = trySh(repoRoot, "rev-parse", "--verify", `refs/remotes/${S3_REMOTE_NAME}/${branch}`);
+  if (!local || !tracking) throw new Error(`S3_SYNC_REF_MISSING:${branch} local=${local ?? "ABSENT"} tracking=${tracking ?? "ABSENT"} (do not trust read())`);
+  if (local !== tracking) throw new Error(`S3_SYNC_DIVERGED:${branch} local ${local} !== tracking ${tracking} (push/sync did not converge; do not trust read())`);
+}
+
+export function assertEventBlobs(repoRoot: string, ref: string, home: string, minCount: number, label: string): void {
+  const names = trySh(repoRoot, "ls-tree", "-r", "--name-only", ref, "--", `${home}/commons/stream/events`) ?? "";
+  const n = names.split("\n").map((s) => s.trim()).filter((s) => s.endsWith(".json")).length;
+  if (n < minCount) throw new Error(`S3_EVENT_BLOBS_MISSING:${label}: ${n} < ${minCount} under ${home}/commons/stream/events at ${ref}`);
+}
+
+export function assertIdentityBlob(repoRoot: string, ref: string, home: string, pubkey: string, label: string): void {
+  const raw = trySh(repoRoot, "show", `${ref}:${home}/commons/identity/agent.json`);
+  if (!raw) throw new Error(`S3_IDENTITY_BLOB_MISSING:${label}: no ${home}/commons/identity/agent.json at ${ref}`);
+  const pem = (JSON.parse(raw) as { public_key_pem?: string }).public_key_pem;
+  if (pem !== pubkey) throw new Error(`S3_IDENTITY_BLOB_MISMATCH:${label}: ref identity is not this run's pubkey (stale-run identity mixed in?)`);
 }
 
 // ---------------------------------------------------------------------------
@@ -256,8 +336,8 @@ export function compareEvidence(a: any, b: any, baseline: string): { pass: boole
   ck("attention-room-agree", a?.ids?.attentionRoom === b?.ids?.attentionRoom, `attention room ${a?.ids?.attentionRoom}`);
   ck("F4/room-len-2", b?.roomLenAfterReply === 2, `B room history len ${b?.roomLenAfterReply} (A obs + B reply)`);
   ck("F4/room-members", JSON.stringify(b?.foldSummary?.rooms?.[b?.ids?.room]?.members) === JSON.stringify([a?.agentId, b?.agentId].sort()), `members ${JSON.stringify(b?.foldSummary?.rooms?.[b?.ids?.room]?.members)}`);
-  ck("F5/dm-len-2", b?.dmLen === 2, `B dm ${b?.dmId} len ${b?.dmLen}`);
-  ck("F5/dm-single-id", b?.dmId === `direct:${[a?.agentId, b?.agentId].sort().join(":")}`, `deterministic id ${b?.dmId}`);
+  ck("F5/dm-len-2", b?.dmLen === 2, `B dm ${b?.ids?.dmId} len ${b?.dmLen}`);
+  ck("F5/dm-single-id", b?.ids?.dmId === `direct:${[a?.agentId, b?.agentId].sort().join(":")}`, `deterministic id ${b?.ids?.dmId}`);
 
   const aInbox: string[] = (a?.inbox ?? []).map((e: InboxEntry) => e.message_id);
   const bInbox: string[] = (b?.inbox ?? []).map((e: InboxEntry) => e.message_id);

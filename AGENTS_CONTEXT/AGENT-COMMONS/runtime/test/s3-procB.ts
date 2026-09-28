@@ -37,6 +37,7 @@ import { buildContextPackage } from "../src/compaction.js";
 import {
   parseArgs, needInitArgs, sh, toolchain, ensureS3Remote, ensureOwnBranch,
   mergeCommits, summarizeFold, snapshotInbox, scanForSecrets, writeEvidence,
+  assertRefSynced, assertEventBlobs, assertIdentityBlob,
   S3_REMOTE_NAME,
 } from "./s3-lib.js";
 
@@ -61,7 +62,9 @@ async function main(): Promise<void> {
   const versions = toolchain(); // §2.2 per-process record (F13)
   const { url: remoteUrl, originUrl } = ensureS3Remote(root, remote);
   const branch = agentBranch(SELF);
-  ensureOwnBranch(root, branch);
+  // S.3d: fresh-branch guard (baseline + home) — stale commons/S3-BETA reuse
+  // from a prior run fails CLOSED here (S3_STALE_BRANCH_REUSE), never silently.
+  ensureOwnBranch(root, branch, baselineHead, HOME);
 
   // §8.1 stable identities (F2 self-half).
   const idDir = join(root, HOME, "commons", "identity");
@@ -82,6 +85,13 @@ async function main(): Promise<void> {
   // §8.3 synchronize through git, then prove both streams are visible (F3).
   // F12: every peer event must validate HERE exactly as it did on procA.
   await transport.sync();
+  // S.3d read-observability (same rationale as procA: transport catch{} is
+  // OBSERVED, CFA-09; prove ref state via direct git BEFORE trusting read()).
+  assertRefSynced(root, branch);
+  assertEventBlobs(root, branch, HOME, 1, "procB-own-post-sync");
+  assertIdentityBlob(root, branch, HOME, pubkey, "procB-own-post-sync");
+  // Peer-side visibility at the ref layer too: procA pushed in S.3b step (2).
+  assertEventBlobs(root, `${S3_REMOTE_NAME}/${agentBranch(PEER)}`, PEER_HOME, 1, "procB-peer-post-sync");
   const posted = await transport.read({ event_types: ["message.posted"] });
   const seenAgents = [...new Set(posted.map((e) => e.agent_id))].sort();
   assert(seenAgents.includes(SELF) && seenAgents.includes(PEER), `F3:sync-blindness:${seenAgents.join(",")}`);
@@ -178,10 +188,10 @@ async function main(): Promise<void> {
   const raw1 = (await transport.read({})).length;
   assert(raw1 === raw0, `F8:view-mutated-history:${raw0}->${raw1}`);
 
-  // F10 standing falsifier + F9 evidence.
+  // F10 standing falsifier + F9 evidence (scoped to baseline..branch, S.3c fix).
   const secretHits = scanForSecrets(await transport.read({}));
   assert(secretHits.length === 0, `F10:credential-leak:${secretHits.join(",")}`);
-  const merges = mergeCommits(root, branch);
+  const merges = mergeCommits(root, branch, baselineHead);
   assert(merges.length === 0, `F9:merge-to-communicate:${merges.join(",")}`);
 
   const evidence = {

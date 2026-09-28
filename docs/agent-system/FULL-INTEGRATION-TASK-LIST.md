@@ -46,8 +46,8 @@
 |---|---|---|---|
 | S.1 | Topology rules (own copy, one writer, main rendezvous) | DONE | architecture doc §6 |
 | S.2 | Two-process procedure (shell A/B, clones, identities, remote) | DONE | TWO-PROCESS-PROCEDURE-2026-09-28.md (CFA-10, W1-A) |
-| S.3 | Two-process 10-point exchange run | TODO | needs S.2; same bar as v0 + cross-process attention. W3: full-scope attempt owner-terminated (no residue); re-scoped → S.3a harness DONE (s3-procA/B/lib.ts test-only, CFA-10, 245-line receipt) → S.3b steward-run next per receipt §4 commands (re-point $SHA to delivery HEAD) |
-| S.4 | Multi-session standing practice (N sessions, steward each) | TODO | needs S.3 green |
+| S.3 | Two-process 10-point exchange run | DONE | 11-point run GREEN at baseline `edfe49b1`: `S3_PROCA_INIT_OK` → `S3_PROCB_OK` (B rediscovered A's room/attention-room/DM ids by fold, no side channel) → `S3_COMPARE_PASS` (24/24 checks) → `S3_PROCA_VERIFY_OK` (messages 8, room 2, attention 2, dm 2). F1–F13 all green; strict teardown verified zero residue. 3 harness defects found+fixed first (see §9) incl. repo-global stale tracking ref that made `append()` inherit prior-run identity |
+| S.4 | Multi-session standing practice (N sessions, steward each) | TODO | unblocked by S.3; needs owner go + separate working copies per S.1 (shared-worktree flicker observed twice) |
 
 ## N — Setup-needs identification (continuous)
 
@@ -132,3 +132,30 @@ without additive repair blocks integration.
   coord/research branches surveyed and LEFT as lineage (ahead-counts are not
   merge signals; many already integrated via different SHAs). Receipt:
   `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/RESULTS/STEWARD-20260928-MERGE-ALL-01.md`.
+
+- 2026-09-28 S.3b (base `edfe49b1`) - **S.3 GREEN after three harness defects,
+  one of them a real transport hazard**:
+  1. `core.longpaths` false on Windows - worktree checkout stalled at 129/5073
+     files (repo-local fix applied; retry clean 5073/5073).
+  2. F9 false-fire: stream branch inherits mainline history, so an unscoped
+     `git log --merges` saw mainline integration merges. Fixed (S.3c): scan
+     scoped to `baseline..branch`.
+  3. Stale remote-tracking ref (retry-2 root cause): `refs/remotes/s3remote/
+     commons/*` is repo-global, survives `worktree remove` AND deletion of the
+     bare-remote dir, and is invisible to `git branch --list`. Transport
+     `append()` picks parent `remoteHead ?? localHead ?? main` - inherited the
+     prior run's history AND its identity blob - so new events were signed by a
+     key the ref did not carry - `verifyEventChain` threw - `read()`'s `catch {}`
+     swallowed - silent empty - F3 false-fire, then `S3_IDENTITY_BLOB_MISMATCH`.
+     Guard added (S.3e) and proven to fire on a poisoned ref.
+  4. `tsc --noEmit` adjudicated as pre-existing env gap (missing `@types/node`
+     repo-wide, incl. `src/`) - NOT a harness defect.
+  5. Compare-path bug: F5 read `b.dmId` (top-level) instead of `b.ids.dmId`;
+     the evidence itself was correct. Fixed.
+  Run: `S3_PROCA_INIT_OK` - `S3_PROCB_OK` - `S3_COMPARE_PASS` (24/24) -
+  `S3_PROCA_VERIFY_OK` (messages 8 / room 2 / attention 2 / dm 2). Teardown:
+  worktrees, bare dir, `s3remote` remote, local heads, tracking refs all
+  removed; residue verified 0; `runtime/src/` untouched. The transport
+  `catch {}` swallow is recorded for CFA-09/CFA-10 (no `src/` change made).
+  H.1 (two-host) still BLOCKED - single host only, no partition/clock-skew or
+  cross-machine key-custody claim.

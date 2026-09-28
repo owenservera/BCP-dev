@@ -39,7 +39,8 @@ import { buildContextPackage } from "../src/compaction.js";
 import {
   parseArgs, needInitArgs, sh, toolchain, ensureS3Remote, ensureOwnBranch,
   mergeCommits, summarizeFold, snapshotInbox, scanForSecrets, writeEvidence,
-  loadEvidence, S3_REMOTE_NAME,
+  loadEvidence, assertRefSynced, assertEventBlobs, assertIdentityBlob,
+  S3_REMOTE_NAME,
 } from "./s3-lib.js";
 
 const SELF = "S3-ALPHA";
@@ -70,7 +71,9 @@ async function main(): Promise<void> {
   const versions = toolchain(); // §2.2 per-process record (F13)
   const { url: remoteUrl, originUrl } = ensureS3Remote(root, remote);
   const branch = agentBranch(SELF);
-  ensureOwnBranch(root, branch);
+  // S.3d: fresh-branch guard (baseline + home) — stale commons/S3-ALPHA reuse
+  // from a prior run fails CLOSED here (S3_STALE_BRANCH_REUSE), never silently.
+  ensureOwnBranch(root, branch, baselineHead, HOME);
 
   // §8.1 stable identities (F2 self-half): load twice → identical key material.
   const idDir = join(root, HOME, "commons", "identity");
@@ -92,6 +95,12 @@ async function main(): Promise<void> {
   // Peer events are EXPECTED absent (procB has not run) — not F3; F3 is
   // asserted by procB + compare after both sides have synced.
   await transport.sync();
+  // S.3d read-observability: prove ref state via direct git BEFORE trusting
+  // read() — transport read() swallows per-ref verify failure (OBSERVED,
+  // CFA-09; no src/ change here), so any silent-empty trips a NAMED assert.
+  assertRefSynced(root, branch);
+  assertEventBlobs(root, branch, HOME, 1, "procA-post-own-sync");
+  assertIdentityBlob(root, branch, HOME, pubkey, "procA-post-own-sync");
   const seenAgents = [...new Set((await transport.read({ event_types: ["message.posted"] })).map((e) => e.agent_id))].sort();
   assert(seenAgents.includes(SELF), "F3:self-event-missing-after-own-sync");
 
@@ -151,7 +160,8 @@ async function main(): Promise<void> {
   assert(secretHits.length === 0, `F10:credential-leak:${secretHits.join(",")}`);
 
   // F9 evidence: no merges performed to communicate (none exist in code).
-  const merges = mergeCommits(root, branch);
+  // Scoped to baseline..branch: the branch inherits mainline history (S.3c fix).
+  const merges = mergeCommits(root, branch, baselineHead);
   assert(merges.length === 0, `F9:merge-to-communicate:${merges.join(",")}`);
 
   const evidence = {
@@ -186,6 +196,10 @@ async function verifyPhase(args: ReturnType<typeof parseArgs>): Promise<void> {
   if (!root || !run || !evidenceB) throw new Error("S3_ARGS_MISSING:verify needs --root --run --evidence-b");
   const b = await loadEvidence(evidenceB);
   const branch = agentBranch(SELF);
+  // S.3c: F9 scan scope. Primary source is B's recorded baselineHead (F13:
+  // both sides ran at the same baseline); fallback is this worktree's detached
+  // HEAD, which stays at the baseline (transport moves refs, never checkout).
+  const baselineHead = b?.baselineHead ?? sh(root, "rev-parse", "HEAD");
   ensureS3Remote(root, b.remoteBare ?? "");
   const idDir = join(root, HOME, "commons", "identity");
   const ia = await loadOrCreateIdentity(idDir, SELF, { repoRoot: root, remote: S3_REMOTE_NAME, branch });
@@ -228,7 +242,7 @@ async function verifyPhase(args: ReturnType<typeof parseArgs>): Promise<void> {
   assert(inboxIds.has(b.ids.attention), "F11:attention-missing-in-A-inbox-after-sync");
   assert(inboxIds.has(b.ids.attentionReply), "F11:ack-reply-missing-in-A-inbox-after-sync");
 
-  assert(mergeCommits(root, branch).length === 0, "F9:merge-to-communicate");
+  assert(mergeCommits(root, branch, baselineHead).length === 0, "F9:merge-to-communicate");
   console.log(JSON.stringify({ S3_PROCA_VERIFY_OK: true, messages: sum.messageCount, room: roomHist.length, attentionRoom: attHist.length, dm: dmHist.length }));
 }
 
