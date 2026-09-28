@@ -5,9 +5,9 @@
 
 ## Core rule
 
-**Branch isolation is necessary; workspace isolation is mandatory.**
+**Workspace isolation is mandatory. Git branches are change-management state, not agent identity.**
 
-A branch isolates commit lineage.
+A branch may isolate a task's commit lineage, but no branch is owned by an agent.
 
 A worktree or clone isolates the actual filesystem and Git index.
 
@@ -16,8 +16,8 @@ Therefore:
 ```
 normal autonomous work
 = isolated worktree or clone
-+ owned work branch
 + coherent task
++ explicit Git state
 ```
 
 Never let concurrently active autonomous agents share a checkout.
@@ -31,8 +31,8 @@ main
 team/omega-endstate
     = Ω End-State Build Team integration line
 
-work/omega-endstate/<AGENT_ID>/<TASK>
-    = autonomous work branch
+work/omega-endstate/<TASK>
+    = task/change branch
 ```
 
 The repository default branch must never be used as an implicit task base.
@@ -45,7 +45,7 @@ unless the task explicitly names another base.
 
 ## Project home vs workspaces
 
-`omega-endstate-build/` contains the shared tracked project home; this department owns the CEO/MVP execution portion of that control plane.
+`omega-endstate-build/project-management/` contains the shared tracked project-management home. `omega-endstate-build/` also contains the build/source and development-tooling surfaces.
 
 It must not become the shared working checkout for multiple agents.
 
@@ -106,7 +106,7 @@ or for another agent:
 
 Use `-Mode clone` for unusually high-risk work where a completely separate Git repository checkout is preferable.
 
-The default workspace root is a sibling directory named `omega-endstate-workspaces`, outside the tracked repository. This prevents agent workspaces from becoming nested tracked project state.
+The default workspace root is a sibling directory named `omega-endstate-worktrees`, outside the tracked repository. This prevents agent workspaces from becoming nested tracked project state.
 
 The allocator records machine-local registry state in that workspace root and writes a machine-local `.omega-agent/manifest.json` into each allocated workspace. Those manifests are gitignored.
 
@@ -334,7 +334,7 @@ Never force the integration line into a desired state.
 
 ## Project bootstrap invariant
 
-The first local Steward should normally be launched from an isolated workspace created by `Bootstrap-Steward.ps1`, on a branch such as `work/omega-endstate/STEW-01/bootstrap-team`, based from the exact current `team/omega-endstate` remote SHA.
+The first local Steward should normally be launched from an isolated workspace created by `Bootstrap-Steward.ps1`, on a task branch such as `work/omega-endstate/bootstrap-team`, based from the exact current `team/omega-endstate` remote SHA. The existing `work/omega-endstate/STEW-01/bootstrap-team` branch is a historical bootstrap artifact; it is not the ongoing branch-naming model.
 
 The Steward must not operate day-to-day from the shared `team/omega-endstate` checkout.
 
@@ -357,4 +357,4 @@ Use the tracked helpers rather than hand-assembling repetitive workspace operati
 
 The allocator uses a machine-local registry lock so concurrent agent allocation cannot silently overwrite registry state. It refuses existing agent branches/workspaces instead of reusing them.
 
-The scripts are helpers, not authority replacements: the local Steward remains responsible for semantic ownership, task assignment and integration decisions.
+The scripts are helpers, not authority replacements: the local Steward remains responsible for semantic ownership, task assignment and integration decisions. Agent identity is recorded separately from Git branch identity.
