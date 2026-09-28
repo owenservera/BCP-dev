@@ -290,6 +290,22 @@ Use exactly one:
 
 BLOCKED-EVIDENCE means the gate cannot responsibly conclude because required evidence is unavailable. It is not equivalent to FAIL.
 
+## Real-world advancement exercise before progression
+
+GATE-01 remains a baseline-fidelity gate, but acceptance for progression also requires a bounded real-world advancement exercise using the accepted/in-progress local agentic substrate.
+
+The exercise must be designed and run by the local resident organization under `agents/DEVOPS-01/PRE-GATE-01-FOUNDING-MANDATE.md`.
+
+At minimum, its durable evidence must show:
+- a real VIVIM-forward objective was selected;
+- the emerging organization was exercised against that objective;
+- at least two functional peer departments/organizations were established with explicit responsibilities;
+- a founder/CEO organizational root remained the default owner of all unassigned responsibilities;
+- delegation, execution, communication, verification and learning were exercised;
+- the resulting organizational/tooling changes are recorded with lineage.
+
+This exercise is not proof of GATE-02 usefulness, GATE-03 governed delegation, or later self-evolution by itself. It is the first real-world bridge between inherited capability and the next evaluation layer.
+
 ## Explicit non-criteria
 
 Do not require for GATE-01:
