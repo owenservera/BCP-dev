@@ -72,18 +72,21 @@ Ordered by how much the answer would change the plan:
 5. **How much of the 125-row responsibility matrix is load-bearing for the first honest proof?**
    My working answer is: very little. That is a claim I should be willing to lose.
 
-## 5. Development organization I think is needed
+## 5. Development organization
 
-Three roles, not ten. Justified by observed bottleneck, not by the complexity map:
+The current seeded topology is intentionally small and evidence-driven:
 
-- **STEW-01** — strategy, evidence standards, integration. Owns context; must stay small.
-- **PROV-01** — provider investigator. Live browser work is serial, session-bound and slow.
-  Isolating it protects Steward context and lets it proceed in parallel with Steward reasoning.
-- **VER-01** — independent verifier. A Steward that verifies its own work is not verifying.
-  The cheapest possible check against my own bias, and the F0 repair is a perfect first proof.
+- **STEW-01** — team-level strategy, evidence standards and integration in the current bootstrap shape.
+- **DEVOPS-01** — seeded resident owner of agentic development tooling; its internal decomposition is intentionally not yet defined.
+- **PROV-01** — proposed provider investigator for serial/session-bound live browser work.
+- **VER-01** — proposed independent verifier for falsification and verification.
 
-Retire-when-idle applies to all three. No architecture, tooling, evolution or journey agents until
-a responsibility actually recurs.
+DEVOPS-01 is the result of a newly recognized recurring responsibility: the development machinery
+itself now needs an explicit owner. Its existence is not evidence that a larger tooling organization
+is justified. It should earn any further decomposition through observed workload.
+
+The topology remains provisional. Roles may be combined, split, created, provisioned or retired as
+evidence changes the coordination-cost equation.
 
 ## 6. Tools worth building
 
