@@ -8,7 +8,7 @@ This directory is the canonical project/control-plane home for the Ω End-State 
 
 ## Core constitutional-document ownership
 
-Department 03 owns and maintains the four root-level Omega seeds: `../../Vision.md`, `../../Motivation.md`, `../../Invariants.md`, and `../../Anti-Patterns.md`. Changes should preserve lineage, reflect current evidence and decisions, and remain compact enough to serve as the workspace's primary orientation layer.
+Department 03 owns and maintains the four root-level Omega seeds: `../../../Vision.md`, `../../../Motivation.md`, `../../../Invariants.md`, and `../../../Anti-Patterns.md`. Changes should preserve lineage, reflect current evidence and decisions, and remain compact enough to serve as the workspace's primary orientation layer.
 
 ## Primary company mission for this roadmap phase
 
@@ -53,7 +53,7 @@ AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OMEGA-ENDSTATE-BUILD-TEAM/
 
 For a specific resident agent, also read its durable home under its owning department:
 
-departments/<DEPARTMENT>/<AGENT_ID>/
+../<DEPARTMENT>/<AGENT_ID>/
 
 An agent home is durable identity/context/control-plane memory; it is not the agent's execution workspace.
 
@@ -69,7 +69,7 @@ Use them as starting substrate, evidence and reusable material.
 
 ## Department organization
 
-The local Steward owns progressive creation of the team's three departments and their resident roles. The department roots are siblings under `omega-endstate-build/departments/`.
+The local Steward owns progressive creation of the team's three departments and their resident roles. The department roots are siblings under `omega-endstate-build/project-management/departments/`.
 
 Start from the current seeded topology in team/AGENT-ROSTER.json. Additional specialists may be proposed, provisioned, combined or retired as observed workload justifies them.
 
