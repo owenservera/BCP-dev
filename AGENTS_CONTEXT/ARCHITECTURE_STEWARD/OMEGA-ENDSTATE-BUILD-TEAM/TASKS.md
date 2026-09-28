@@ -1,7 +1,9 @@
 # Ω End-State Build Team — Tasks
 
+> Status: SEED / BOOTSTRAP-ONLY
 > Owner: Ω End-State Build Team
 > Branch: `team/omega-endstate`
+> Canonical active task state: `omega-endstate-build/`
 
 ## OPEN
 
@@ -18,6 +20,8 @@ Create the first route from Ω to the entire VIVIM solution.
 Choose the first implementation slice from the team's own roadmap.
 
 ## Rules
+
+These initial tasks are bootstrap prompts only. The canonical active task system should be created and progressively managed under `omega-endstate-build/`; this file must not become a second competing queue.
 
 These initial tasks are bootstrap tasks, not a copied program backlog.
 
