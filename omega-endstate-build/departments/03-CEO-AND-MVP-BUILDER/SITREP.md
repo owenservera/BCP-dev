@@ -22,7 +22,7 @@ If this is a shared checkout or shared branch, **stop and resolve workspace owne
 ## 3. Department R&R
 Own: CEO/Steward coordination, MVP delivery, roadmap, runtime, development tooling, workspace operations and product execution.
 STEW-01 is the end-state build Steward. DEVOPS-01 owns development-system tooling and organizational-root evolution.
-Department 03 also owns and maintains the four root seeds: `../../Vision.md`, `../../Motivation.md`, `../../Invariants.md`, `../../Anti-Patterns.md`.
+Department 03 also owns and maintains the four root seeds: `../../../Vision.md`, `../../../Motivation.md`, `../../../Invariants.md`, `../../../Anti-Patterns.md`.
 
 ## 4. Required reading — in order
 1. `control-plane/README.md`
