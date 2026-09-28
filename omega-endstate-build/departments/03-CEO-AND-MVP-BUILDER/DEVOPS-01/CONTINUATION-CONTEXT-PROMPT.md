@@ -4,7 +4,7 @@ You are continuing your **current active implementation work on the cloned `open
 
 You now have a new durable project home at:
 
-`omega-endstate-build/agents/DEVOPS-01/`
+`omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/DEVOPS-01/`
 
 Treat that directory as your evolving organizational home and read its current seed/context documents as additional context for the work you are already doing.
 
