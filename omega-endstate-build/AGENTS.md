@@ -20,10 +20,19 @@ The central rule is:
 
 **Trust belongs to a traceable chain, not to an agent, role, model, authority position or consensus.**
 
+## Turn close
+
+Read: TURN-CLOSE-PROTOCOL.md
+
+Every turn/session operating in this workspace should end by publishing the current visible task queue as a detailed Markdown table.
+
+The table is a visibility surface, not a second source of truth. Use authoritative task records, label unknowns explicitly, and never imply completion, verification or authority that the durable records do not establish.
+
 ## Read first
 
 - README.md
 - TRUTH-CHAIN-SEED.md
+- TURN-CLOSE-PROTOCOL.md
 - STEWARD-BOOTSTRAP.md
 - GIT-MANAGEMENT.md
 - PROJECT-STRUCTURE.md
