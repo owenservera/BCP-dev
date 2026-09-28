@@ -17,6 +17,10 @@ U2A adds four abstractions above native OpenCode sessions:
 
 It also introduces the bounded background-sentinel pattern.
 
+## Research basis
+
+See [RESEARCH-BASIS.md](RESEARCH-BASIS.md) and [cross-domain synthesis](../../08-CROSS-DOMAIN-ORGANIZATIONAL-RUNTIME-SYNTHESIS.md) for the external convergence behind the proposed architecture.
+
 ## Why this is needed
 
 The prior U2 framing focused on a larger worker pool. Research shows that capacity is downstream of a more fundamental runtime question: what persists, what sleeps, what wakes, what context is assembled, and what happens when an OpenCode session must be replaced.
