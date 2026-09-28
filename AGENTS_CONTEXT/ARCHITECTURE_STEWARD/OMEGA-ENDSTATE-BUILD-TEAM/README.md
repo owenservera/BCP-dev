@@ -114,6 +114,24 @@ Shared access is deliberately broad.
 
 Shared obligations are not.
 
+## Active project home
+
+The canonical tracked project/control-plane home for this path is:
+
+`omega-endstate-build/`
+
+The `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OMEGA-ENDSTATE-BUILD-TEAM/` directory remains the seed/bootstrap context and corpus index.
+
+Durable team-owned project artifacts created after bootstrap should live under `omega-endstate-build/` unless the team deliberately establishes a better boundary.
+
+The project home is shared tracked state, **not** a shared agent checkout. Concurrent agents must use isolated worktrees or clones.
+
+See:
+
+- `omega-endstate-build/STEWARD-BOOTSTRAP.md`
+- `omega-endstate-build/GIT-MANAGEMENT.md`
+- `omega-endstate-build/PROJECT-STRUCTURE.md`
+
 ## Relationship to the other path
 
 Neither path is the parent of the other.
@@ -136,7 +154,9 @@ Integration, if eventually desired, is its own explicit engineering/reconciliati
 
 ## Start here
 
-For the local autonomous Steward session, use `STEWARD-LOCAL-SETUP-PROMPT.md` as the executable bootstrap prompt. It grants broad authority to build the team's development automation, create or retire subagents, and evolve the team's operating system while preserving repository and branch safety.
+For the local autonomous Steward session, use `omega-endstate-build/STEWARD-BOOTSTRAP.md` as the canonical executable bootstrap. It grants broad authority to build the team's development automation, create or retire subagents, and evolve the team's operating system while preserving repository and branch safety.
+
+The older `STEWARD-LOCAL-SETUP-PROMPT.md` remains as a seed/compatibility entrypoint; the root project-home prompt is canonical.
 
 
 - `TEAM-BRIEF.md`
