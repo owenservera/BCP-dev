@@ -2,6 +2,10 @@
 
 This directory is the canonical project/control-plane home for the Ω End-State Build Team.
 
+## Core constitutional-document ownership
+
+Department 03 owns and maintains the four root-level Omega seeds: `../../Vision.md`, `../../Motivation.md`, `../../Invariants.md`, and `../../Anti-Patterns.md`. Changes should preserve lineage, reflect current evidence and decisions, and remain compact enough to serve as the workspace's primary orientation layer.
+
 ## Primary company mission for this roadmap phase
 
 **Full VIVIM beta ready to distribute for free.**
