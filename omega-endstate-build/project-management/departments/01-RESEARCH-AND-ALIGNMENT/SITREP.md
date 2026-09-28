@@ -4,9 +4,9 @@
 **Mission:** turn uncertainty into useful research, investigation, architectural reasoning and alignment that advances VIVIM.
 
 ## 1. Where you are
-This directory is the durable Department 01 control-plane home inside `omega-endstate-build/`.
+This directory is the durable Department 01 control-plane home inside `omega-endstate-build/project-management/`.
 It is tracked project state. It is **not automatically your execution worktree**.
-Your actual work must run in an isolated worktree/clone on an owned branch.
+Your actual work runs in an isolated worktree/clone; this directory is project-management state.
 Seed/control-plane branch at this snapshot: `work/omega-endstate/STEW-01/bootstrap-team`.
 
 ## 2. First mandatory workspace check
@@ -16,7 +16,7 @@ Before doing substantive work, run:
 `git branch --show-current`
 `git rev-parse HEAD`
 `git worktree list`
-Record: workspace path, branch, HEAD SHA, task, owner and base SHA.
+Record: project-management path, execution workspace, Git state, task, owner and base SHA.
 If this is a shared checkout or shared branch, **stop and resolve workspace ownership first**.
 
 ## 3. Department R&R
