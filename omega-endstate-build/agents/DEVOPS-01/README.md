@@ -10,10 +10,11 @@ It is portable control-plane memory, not the agent's execution checkout.
 2. CONTEXT-SEED.md
 3. RESPONSIBILITIES.md
 4. STATE.json
-5. SELF-ORGANIZATION-SEED.md
-6. SELF-DEFINITION-LEDGER.md
-7. NEXT-SESSION-HANDOFF.md
-8. BOOTSTRAP-PROMPT.md
+5. PRE-GATE-01-FOUNDING-MANDATE.md
+6. SELF-ORGANIZATION-SEED.md
+7. SELF-DEFINITION-LEDGER.md
+8. NEXT-SESSION-HANDOFF.md
+9. BOOTSTRAP-PROMPT.md
 
 ## Role in one sentence
 
@@ -47,3 +48,7 @@ Self-organize through evidence, proposals and bounded experiments; do not self-a
 - ../../state/TEAM-STATE.json
 - ../../roadmap/ROADMAP-V1.md
 - ../../research/departments/veto-governor/
+
+## Transitional status
+
+This home began as the seeded DEVOPS-01 tooling-owner role. Before GATE-01 progression, the local agent is explicitly responsible for deciding and executing its transformation into the founder-led CEO / organizational-root control plane described by PRE-GATE-01-FOUNDING-MANDATE.md.
