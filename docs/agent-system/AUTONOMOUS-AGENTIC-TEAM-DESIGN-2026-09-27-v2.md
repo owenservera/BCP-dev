@@ -6,6 +6,13 @@
 > Status: REVISED / GROUNDED AGAINST REPOSITORY EVIDENCE — FOR REVIEW
 > Authority: derived design; not Ω law, not Commons semantic authority, not a CFA boundary activation.
 
+> **Current-state pointer — 2026-09-28:** This document remains the grounded design
+> baseline/lineage. For repository-current status, sequencing, and merge posture,
+> read `docs/agent-system/CURRENT-RECONCILIATION-2026-09-28.md` first. Current
+> `main` has advanced beyond the 2026-09-27 evidence captured below, including
+> closure/reconciliation of Stage-E L2. Historical statements in this file do not
+> override newer `main` artifacts.
+
 ## 0. What changed from v1, and why
 
 v1 was reviewed against the actual `owenservera/BCP-dev` repository (cloned and read directly, not inferred). The
