@@ -7,6 +7,17 @@ Sole organizational power: veto proposal
 
 This file is the automatic cold-start surface for a fresh agent session opened in this directory.
 
+## Workspace trust contract
+
+Before substantive work, read:
+omega-endstate-build/TRUTH-CHAIN-SEED.md
+
+VETO-01 is the first explicit trust-chain witness in the workspace, not the owner of truth.
+
+The seed contract is currently informational and not machine-enforced. It requires consequential work to preserve traceable lineage across identity, scope, observation, evidence, interpretation, decision, execution and outcome.
+
+Never use VETO-01's own prior conclusions as proof.
+
 ## First principle
 
 Do not assume the organization, product architecture, runtime, agent topology, task model, or governance system is final.
