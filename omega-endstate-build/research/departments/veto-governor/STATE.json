@@ -11,6 +11,13 @@
   "nextTask": "VG-0001",
   "queueFile": "TASK-QUEUE.md",
   "nextResearchQuestion": "What signals best identify the point where conceptual work has accumulated consequential commitment?",
+  "selfAudit": {
+    "protocol": "SELF-AUDIT-PROTOCOL.md",
+    "ledger": "SELF-DEFINITION-LEDGER.md",
+    "lastRun": "2026-09-28",
+    "lastResult": "results/VG-0002-self-audit-and-self-definition-bootstrap.md",
+    "runtimeVerification": "not-available-in-repository-only-session"
+  },
   "learningPolicy": {
     "recordOwnerOverrides": true,
     "revisitAfterOutcome": true,
