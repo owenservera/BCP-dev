@@ -36,6 +36,20 @@ Do not run the blocked live provider/Chrome corridor; do not create a second ide
 
 ## Open tasks
 
+### REA-ENGINE-INPUT-CFA02-2026-09-28
+- **Status:** DONE
+- **Priority:** P1 (owner-delegated design-input unit, Data/Identity/Persistence lens)
+- **Purpose:** Validate/refine/reject the setup prompt's CFA-02 sketch (physical schema/migration state, artifact freshness, `reality for cfa-02`); give a scope verdict; specify must-haves (snapshot schema + canonical serialization review, storage-layout verdict from gotcha #4, retention/pruning, restart lineage, export/reconstruction), must-nots (never a second canonical store or identity registry), acceptance/falsifier additions (TRUTH-T16..T23, DUR-01..DUR-16, STOR_* codes), gotcha additions (G-18..G-28), and unknowns with named owners. DELIBERATE — no code.
+- **Result:** `REALITY-ENGINE-INPUT-20260928.md`
+- **Receipt:** `RESULTS/CFA02-REALITY-INPUT-20260928.md`
+- **Delivery:** substantive commit `9de33bc9e1342346f32047d568af2c5089be8478` on `work/data-model/CFA02-REALITY-INPUT` branched from `main` at `83eca7a721d28387913e9f8ec3ba21218e8fa52e`; `main` advanced by fast-forward only; verified by own final re-read of current main.
+- **Addendum (durable completion, resumed session):** the substantive commit above stayed on `work/data-model/CFA02-REALITY-INPUT`; `main` has since advanced past `83eca7a7`, so this unit was landed on current `main` by an explicit-path commit carrying `REALITY-ENGINE-INPUT-20260928.md` (byte-identical to `9de33bc9`, blob `2c4a2645`) plus this entry, followed by the receipt commit. The "fast-forward only" wording in **Delivery** describes the branch-side plan and is superseded by this addendum; no force-push, no history rewrite.
+- **Why a main-based worktree:** the session worktree was on `team/omega-endstate` at `ff8e141a`, which does **not** contain `main` and is not descended from the spawn base `edfe49b1`; the mandated verify-on-delivery-ref step would have been impossible from there. Peer uncommitted work (`M omega-baseline/omega-final/build/status.json` and untracked files incl. `docs/Reality-engine/`) left untouched.
+- **Key findings carried:** (a) the spec's storage section is a directory listing — no atomicity, fsync, replay, reference integrity, retention semantics, export, read-side schema validation, or engine-instance identity, and storage is scheduled as Slice 6 of 9; (b) a workspace-identity fork is already present in the scaffold (corpus 1218 vs 1819); (c) gotcha #4 is right about concurrency and silent about durability — `conflict-index` is only an index if unresolved conflicts are journal events; (d) the engine has no field able to carry a canonical record revision reference, so it cannot describe this team's own durable data (this unit claims CFA-01's routed `U-01` and answers it: rename + explicit adapter seam); (e) `ENFORCEMENT_LEVEL` standing verdict reaffirmed and extended to three engine sites.
+- **Write scope:** own home only (`REALITY-ENGINE-INPUT-20260928.md`, `RESULTS/CFA02-REALITY-INPUT-20260928.md`, this entry). Explicit-path staging only; `docs/Reality-engine/` never staged.
+- **Completion condition:** both artifacts exist on the delivery ref, verified by own final re-read of current main; this entry DONE.
+- **Stop condition:** never edit another agent's home; no Ω-law change; no production implementation (DELIBERATE only); no force-push; no central synthesis.
+
 ### W2-UNIT-D-LEAF-LEG-TEST-20260928
 - **Status:** DONE (probe executed; receipt written; commit pending steward)
 - **Result:** `RESULTS/W2-data-model-20260928.md`
