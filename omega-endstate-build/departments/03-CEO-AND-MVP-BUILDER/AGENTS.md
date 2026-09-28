@@ -1,3 +1,7 @@
+# Cold-start requirement
+
+Read `SITREP.md` before substantive work.
+
 # omega-endstate-build — Local Project Instructions
 
 This directory is the canonical project/control-plane home for the Ω End-State Build Team.
