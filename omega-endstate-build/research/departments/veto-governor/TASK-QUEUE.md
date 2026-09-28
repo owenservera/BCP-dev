@@ -25,6 +25,7 @@ This queue is the department's durable intake surface.
   - omega-baseline/omega-final/
 - Created: 2026-09-28
 - Claiming rule: Independent audit should not be performed by the proposing implementation team alone.
+- Sequencing rule: Finish the broad VG-0001 reconstruction before executing VG-0003, unless VG-0001 discovers a concrete runtime dependency that repository evidence cannot responsibly resolve. VG-0003 must sharpen VG-0001, not replace it.
 
 ## VG-0002 — Self-Audit and Self-Definition Bootstrap
 
