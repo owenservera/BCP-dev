@@ -146,25 +146,29 @@ U1's initial worker creation path does not accept `task_id`.
 
 Resume becomes a separate experiment only after session ownership, identity, parentage, team/work-item binding, directory, and active-incarnation checks are designed and proven.
 
-### U1-I6 — Parentage is evidence
+### U1-I6 — No background execution in U1
+
+U1 uses foreground Task execution only. The experimental `background=true` path is excluded until asynchronous completion, notification, and permission behavior are separately qualified.
+
+### U1-I7 — Parentage is evidence
 
 A successful worker must be observable as a real child of the requesting resident session.
 
 A result that merely names a child is not proof.
 
-### U1-I7 — Leafness is mechanical
+### U1-I8 — Leafness is mechanical
 
 The worker must have no effective Task permission.
 
 The configuration is defense in depth, not the sole proof. The runtime must observe the effective child binding.
 
-### U1-I8 — One invocation has one correlation identity
+### U1-I9 — One invocation has one correlation identity
 
 Every governed spawn attempt receives a unique `spawn_id`.
 
 Retries of an HTTP/runtime operation do not create a new logical spawn unless a new `spawn_id` is deliberately issued.
 
-### U1-I9 — Failure is explicit
+### U1-I10 — Failure is explicit
 
 The system distinguishes at least:
 
@@ -182,7 +186,7 @@ RECOVERY_REQUIRED
 
 Unknown is not completed.
 
-### U1-I10 — Evidence survives completion
+### U1-I11 — Evidence survives completion
 
 After a worker disappears or its session is later archived, the spawn lineage remains reconstructable from the durable receipt.
 
@@ -249,6 +253,7 @@ Before native Task executes, the VIVIM plugin should evaluate:
 
 3. **delegation scope**
    - caller is permitted to spawn this exact target;
+   - the applicable rule set is compiled/recorded with rule order intact, because OpenCode permission evaluation uses last-match wildcard semantics;
    - requested depth remains within the experiment boundary;
    - current work item has not exceeded child-count limits.
 
@@ -315,7 +320,14 @@ U1 deliberately uses several independent controls.
 - creates spawn correlation;
 - records denial/allow decisions.
 
-### Layer D — evidence
+### Layer D — execution-surface closure
+
+- worker has no Task permission;
+- worker has no shell capability that can launch OpenCode/swarm;
+- worker has no agent-control MCP/tool capability;
+- worker cannot create a second execution surface outside the governed path.
+
+### Layer E — evidence
 
 - verify actual child session;
 - verify `parentID`;
@@ -560,11 +572,12 @@ U1 is promoted only when the evidence shows:
 1. native Task is the actual execution primitive;
 2. resident autonomy selected the worker demand;
 3. the VIVIM gate prevented unauthorized targets;
-4. worker leafness was mechanically enforced;
+4. worker leafness was mechanically enforced, including alternate spawn-surface closure;
 5. no unsafe resume path is used;
-6. parent/child lineage is observable;
-7. duplicate attempts do not create ambiguous lineage;
-8. completion is based on observed state, not model assertion.
+6. U1 did not rely on background Task execution;
+7. parent/child lineage is observable;
+8. duplicate attempts do not create ambiguous lineage;
+9. completion is based on observed state, not model assertion.
 
 Until then, the installed `opencode-swarm` substrate remains a valid fallback.
 
