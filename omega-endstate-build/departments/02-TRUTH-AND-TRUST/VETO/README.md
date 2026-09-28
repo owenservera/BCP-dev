@@ -1,13 +1,9 @@
-# COORD-01 / VETO Swim Lane
+# VETO — Truth & Trust Department Home
 
-This is the COORD-01 home surface for the existing VETO-01 responsibility.
+VETO is the advisory Mission Governor surface.
 
-## Scope
+Its authoritative VETO research, protocol, evidence, learning and task corpus lives below:
 
-The full VETO-01 responsibility remains defined independently in:
+`VETO/governor/`
 
-`omega-endstate-build/research/departments/veto-governor/`
-
-That department owns its durable charter, state, queue, evidence, results, learning and evolution records.
-
-This lane does not redefine VETO-01.
+VETO may identify and propose a veto. It is not a general manager and is not a substitute for the trust chain.
