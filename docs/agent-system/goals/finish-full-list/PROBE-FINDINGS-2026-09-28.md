@@ -84,3 +84,20 @@ driver's spawn path).
   transport-wide — work-runner OK 1/1; work-scout EMPTY 2/2 (CFA-02, CFA-09);
   work-drafter EMPTY 1/1. P2.1 DONE on the runner chain; scout/drafter anomaly
   tracked as P2.4 (diagnose empty leg), blocking U1.
+
+## Wave-3 D5 + P2.4 verdict (2026-09-28, base `e18c2005`)
+
+- **D5 SCOUT-READ-EMPTY:** CFA-03 spawned exactly one work-scout
+  (`ses_f19eae95dffe3JRMdnm45s6F39`, completed) with a FORCED-READ brief (read
+  the contract file, quote Version+Date lines, state how obtained); task_result
+  0 non-whitespace chars. Receipt
+  `SUBAGENTS/SELF-KNOWLEDGE-COMMAND-COMPILER/RESULTS/W3D5-continuity-20260928.md`
+  (71 lines, whole-read). Note: that home has no `CORE-AGENT.md` (uses
+  `AGENT.md` + `CORE-AGENT-IDENTITY.md`) — envelope path imprecision, no impact.
+- **P2.4 BLOCKED-with-evidence:** scout EMPTY 3/3 across three CFAs INCLUDING a
+  forced tool-read brief; drafter EMPTY 1/1; runner OK 1/1. Favors a worker-type
+  defect (read-only legs drop results inside the opencode Task transport) over
+  text-only-drop. No further black-box variant available (no-tool, forced-read,
+  deny-attempt all exhausted). Unblock path: opencode version with working
+  read-only legs, or vendor diagnosis of empty task_result. U1 stays BLOCKED
+  (needs P2.4 green).

@@ -54,7 +54,21 @@ verified against the repo per the Durable Completion Gate — never by chat clai
   (receipt 64 lines whole-read); E headless steward→data-model spawn
   VALIDATED (verbatim echo, no fallback in stderr, exit 0, no repo writes;
   sessions ses_f19f48039 / ses_f19f397c8). P2.1 DONE (runner chain + E);
-  P2.2 DONE (PROBE-FINDINGS Wave-2 + receipts + validator); P2.3 DONE-caveat
+  P2.2 DONE (PROBE-FINDINGS Wave-2 + receipts + validator);   P2.3 DONE-caveat
   (xhigh accepted w/o rejection, effect UNKNOWN); new P2.4 TODO (scout/
   drafter empty leg); U1 BLOCKED (needs observable deny leg via P2.4).
   Stall counter: 0 (tree changed).
+- 2026-09-28 W3 (base `e18c2005`): D5 CFA-03→work-scout FORCED-READ brief
+  (quote Version+Date lines) → SCOUT-READ-EMPTY (`ses_f19eae95d…`, 0 chars;
+  71-line receipt whole-read) — favors worker-type defect over text-only-drop;
+  P2.4 BLOCKED-with-evidence (scout 3/3 EMPTY incl. forced read; drafter 1/1;
+  runner 1/1 OK; root cause internal to opencode; unblock = version/vendor).
+  S.3 full-scope attempt owner-terminated (long, no progress, ZERO residue
+  verified) → re-scoped S.3a CFA-10 AUTHORSHIP-ONLY → DONE (s3-procA/B/lib.ts
+  + 245-line receipt w/ falsifier map + exact S.3b commands; imports/src/
+  origin verified clean). Parallel sibling toolset wave observed landing
+  30+ CFA-home files across 6+ main commits mid-turn (disjoint from this
+  wave; S.3a TASKS entry closed via peer commit `21df28e1`, verified
+  present; shared-main concurrency rule applied: refresh→re-read→same
+  additive change→commit). Delivery on fresh HEAD. Next: S.3b steward-run.
+  Stall counter: 0.

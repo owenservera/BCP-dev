@@ -38,7 +38,7 @@
 | P2.1 | Steward→CFA→worker run with --auto | DONE | D2 full chain (steward→CFA-05→work-runner, verbatim stdout + exit 0, ses_f19f483de) + E headless steward→data-model spawn (verbatim echo, no stderr fallback, exit 0, ses_f19f48039/ses_f19f397c8). Chain vehicle = Task tool, never headless --agent |
 | P2.2 | Verify chain evidence + record | DONE | PROBE-FINDINGS Wave-2 section + 4 CFA receipts (W2-D/D2/D3/D4) + validator PASS at delivery ref |
 | P2.3 | Validate `--variant xhigh` on contributor-free | DONE (caveat) | xhigh accepted without rejection (probe 1); semantic effect UNKNOWN; E ran default variant |
-| P2.4 | Diagnose work-scout/work-drafter empty leaf leg | TODO | runner OK 1/1; scout EMPTY 2/2 (CFA-02/09); drafter EMPTY 1/1; blocks U1 deny-precedence probe |
+| P2.4 | Diagnose work-scout/work-drafter empty leaf leg | BLOCKED | D5 forced-read scout EMPTY (scouts 3/3, drafter 1/1; runner 1/1 OK) → worker-type defect favored, cause inside opencode; unblock = version with working read-only legs or vendor diagnosis; U1 stays BLOCKED |
 
 ## S — Parallel opencode sessions
 
@@ -46,7 +46,7 @@
 |---|---|---|---|
 | S.1 | Topology rules (own copy, one writer, main rendezvous) | DONE | architecture doc §6 |
 | S.2 | Two-process procedure (shell A/B, clones, identities, remote) | DONE | TWO-PROCESS-PROCEDURE-2026-09-28.md (CFA-10, W1-A) |
-| S.3 | Two-process 10-point exchange run | TODO | needs S.2; same bar as v0 + cross-process attention |
+| S.3 | Two-process 10-point exchange run | TODO | needs S.2; same bar as v0 + cross-process attention. W3: full-scope attempt owner-terminated (no residue); re-scoped → S.3a harness DONE (s3-procA/B/lib.ts test-only, CFA-10, 245-line receipt) → S.3b steward-run next per receipt §4 commands (re-point $SHA to delivery HEAD) |
 | S.4 | Multi-session standing practice (N sessions, steward each) | TODO | needs S.3 green |
 
 ## N — Setup-needs identification (continuous)
@@ -107,3 +107,9 @@ without additive repair blocks integration.
   steward→data-model spawn VALIDATED (verbatim echo, no fallback, exit 0, no
   writes). P2.1 DONE, P2.2 DONE, P2.3 DONE-caveat, new P2.4 TODO (empty-leg
   diagnosis, blocks U1). U1 BLOCKED. Next: S.3 Wave-3 + P2.4.
+- 2026-09-28 W3 (base `e18c2005`, delivery on fresh main past sibling toolset
+  wave): D5 forced-read scout EMPTY → P2.4 BLOCKED-with-evidence, U1 stays
+  BLOCKED. S.3 full-scope attempt terminated (zero residue) → S.3a harness
+  DONE (s3-procA/B/lib.ts + 245-line receipt; imports/src/origin clean).
+  Sibling wave landed 30+ disjoint CFA-home files mid-turn (validator reuse
+  observed); shared-main rule applied, no contention. Next: S.3b run.
