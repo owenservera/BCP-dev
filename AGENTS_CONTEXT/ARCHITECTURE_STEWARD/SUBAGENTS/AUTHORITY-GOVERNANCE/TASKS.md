@@ -31,6 +31,18 @@ When the owner sends **Next**, resolve against the master portfolio router first
 
 ## Open tasks
 
+### LOCAL-MACHINE-TOOLSET-TOP10-20260928
+- **Status:** DONE
+- **Priority:** P0
+- **Objective:** Independent wave-1 unit: top-10 local-machine toolset from the CFA-04 authority/governance lens (owner goal: full-local-machine-access autonomous team).
+- **Result:** `TOOLSET-TOP10-20260928.md`
+- **Receipt:** `RESULTS/CFA04-TOOLSET-20260928.md`
+- **Completion commit:** PENDING (artifact commit)
+- **Receipt commit:** PENDING (receipt commit)
+- **Finding:** Ranked enforcement → liveness → custody → verification; standing/consent ledger, per-attempt live re-resolution gate, revocation/fencing kill-switch, delegation attenuation, receipt-validation gate. Exact-agent/permission verdict: PROCEDURAL-GAP (never unbypassable until CFA-10-verified name-scoped mechanism).
+- **Boundary:** DELIBERATE proposal only; no Ω-law change, no production implementation, no tool installation, no peer-home edits, no peer prerequisites consumed.
+- **Completion verification:** receipt + task closure to be verified on delivery ref (local main) by final re-read before DONE is reported.
+
 ### STAGE-E-L2-CFA04-AUTHORITY-POLICY-BASIS-ADAPTER-2026-09-28
 - **Status:** DONE — CHARACTERIZED / PARTIAL
 - **Priority:** P0
