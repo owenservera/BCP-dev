@@ -249,3 +249,80 @@ Operational performance is only one dimension of Ω validity.
 > **A self-evolving resident team should not be one giant mutable agent system. It should be a set of durable identities operating through replaceable capabilities and bounded runtimes, connected by explicit coordination, producing evidence, and evolving through versioned, evaluable, reversible changes.**
 
 That is the research pattern most compatible with Ω.
+## Layer 13 — Presence
+
+The cross-domain research adds a distinction missing from the earlier synthesis:
+
+`resident identity` must be able to exist while `session` and `model inference` do not.
+
+**Best practice:** define residency as durable organizational state and model execution as an activation/incarnation.
+
+## Layer 14 — Organization versus execution
+
+Virtual-actor, controller, and durable-execution systems converge on a control-plane/data-plane separation.
+
+**Best practice:** keep durable organizational intent, work, policy, subscriptions, budgets, and evidence separate from ephemeral OpenCode sessions, worker instances, and tool execution.
+
+**Ω consequence:**
+
+`organizational topology != execution topology != supervision topology`
+
+## Layer 15 — Reconciliation rather than hidden scheduling
+
+Kubernetes controllers reconcile desired state with observed state; Erlang supervisors reconcile child health with restart policy. Neither requires every worker process to own the global scheduler.
+
+**Best practice:** Ω should reconcile desired organizational posture with actual runtime state rather than hiding task allocation inside infrastructure.
+
+## Layer 16 — Activation economics
+
+Always-on presence creates a new scarce resource: model attention.
+
+**Best practice:** every wake should have a cause, admission decision, bounded budget, coalesced trigger set, and terminal disposition.
+
+**Ω consequence:** background presence must be able to remain dormant most of the time.
+
+## Layer 17 — Context compilation
+
+Current agent systems increasingly treat context as an engineered projection rather than permanent conversation history. Long-running systems use compaction, memory tiers, checkpoints, and durable artifacts to bridge sessions.
+
+**Best practice:** compile task-specific context from durable state; do not use a session transcript as canonical department memory.
+
+## Layer 18 — Capability cells
+
+Dynamic task-allocation research and current agent teams both show value in matching work to capabilities. The cross-domain synthesis adds an important distinction:
+
+**Best practice:** a capability is a reusable specification; a worker is an instantiated capacity lease against a work item.
+
+## Layer 19 — Supervision domains
+
+Erlang shows that failure containment should have explicit restart semantics and restart intensity. This should not be confused with functional ownership.
+
+**Best practice:** define a separate supervision topology and failure budget.
+
+## Layer 20 — Background is not authority
+
+Blackboards and controllers show how agents can react to shared state. Ω must add the missing authority distinction.
+
+**Best practice:** observation, proposal, work creation, authorization, and consequential mutation remain separate states/transitions.
+
+## Layer 21 — Reincarnation is normal
+
+Orleans activations, checkpointed graph execution, OpenHands conversation persistence, and OpenAI session compaction all support the idea that execution instances can be replaced while durable state survives.
+
+**Best practice:** session rollover should be a routine lifecycle operation governed by a context epoch, not a semantic identity change.
+
+## Layer 22 — New Ω runtime synthesis
+
+The accumulated research now points toward:
+
+`durable organization`
+  -> `presence declarations`
+  -> `reconciliation`
+  -> `attention admission`
+  -> `context compilation`
+  -> `activation`
+  -> `worker capacity`
+  -> `evidence/state`
+  -> `reconciliation`
+
+This is a stronger architectural target than a resident team or worker pool alone.
