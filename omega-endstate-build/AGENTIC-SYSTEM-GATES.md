@@ -133,6 +133,22 @@ Focus:
 
 This is a long-horizon target, not a prerequisite to begin shipping beta work.
 
+## Gate decision integrity
+
+A gate result is an evidence-based assessment, not authority by itself.
+
+Each gate result should identify:
+- evaluator/producer;
+- independent verifier, when required by the gate or evidence risk;
+- decision-maker / ratifying authority;
+- exact scope and runtime;
+- durable evidence;
+- unresolved UNKNOWNs and applicable conditions.
+
+The agent or team that implements a capability must not silently become the sole verifier of its own consequential gate.
+
+VETO-01 may challenge progression through its experimental advisory role, but it does not own gate acceptance.
+
 ## Promotion rules
 
 1. Do not mark a runtime-dependent gate PASS from documentation alone.
