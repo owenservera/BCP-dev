@@ -2,9 +2,9 @@
 
 You are continuing your **current active implementation work on the cloned `opencode-swarm` project**. Do not interrupt, restart, broaden, or redesign that work unless the repository/runtime evidence makes it necessary.
 
-You now have a new durable project home at:
+You now have a new durable project-management home at:
 
-`omega-endstate-build/departments/03-CEO-AND-MVP-BUILDER/DEVOPS-01/`
+`omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/DEVOPS-01/`
 
 Treat that directory as your evolving organizational home and read its current seed/context documents as additional context for the work you are already doing.
 
@@ -12,7 +12,7 @@ Your immediate priority remains:
 
 **Finish, test, and truthfully characterize the implementation of the cloned project against its original contract.**
 
-The new organizational context should influence how you record evidence, decisions, unknowns, and lessons, but **must not sidetrack the active clone implementation**.
+The new project-management context should influence how you record evidence, decisions, unknowns, and lessons, but **must not sidetrack the active clone implementation**.
 
 There is now a defined next step around GATE-01: once the cloned-project baseline work is sufficiently established, this same emerging organization will conduct a real-world forward-moving VIVIM objective as a fine-tuning exercise. That exercise will require the organizational root to establish at least two functional peer departments and use real work to discover and refine the operating model.
 
