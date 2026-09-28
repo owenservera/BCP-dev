@@ -68,6 +68,8 @@ Do not run the blocked live provider/Chrome corridor; do not create a second ide
 - **Purpose:** Independently characterize the top-10 data/state/persistence/identity tools the full-local-machine agent team must set up, from the CFA-02 lens.
 - **Result:** `TOOLSET-TOP10-20260928.md`
 - **Receipt:** `RESULTS/CFA02-TOOLSET-20260928.md`
+- **Delivery:** substantive commit `6e4fc4a9`; receipt pointer finalized in
+  follow-up (final HEAD verified by re-read before DONE reported).
 - **Write scope:** own home only (toolset artifact + receipt + this entry); no commit by default — steward integrates.
 - **Completion condition:** both artifacts exist on the delivery ref, verified by own final re-read of current main; this entry DONE.
 - **Stop condition:** never edit another agent's home; no Ω-law change; no production implementation (DELIBERATE only); no force-push.
