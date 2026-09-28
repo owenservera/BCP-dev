@@ -13,8 +13,14 @@
     "branch": "work/omega-endstate/STEW-01/bootstrap-team",
     "baseSha": "ff8e141a4a611ddaa6a35315e71557832cef2a5d"
   },
-  "activeAgents": ["STEW-01"],
-  "proposedAgents": ["PROV-01", "VER-01"],
+  "activeAgents": [
+    "STEW-01"
+  ],
+  "proposedAgents": [
+    "PROV-01",
+    "VER-01",
+    "DEVOPS-01"
+  ],
   "activeWorkstreams": [],
   "roadmapStatus": "V1-active",
   "roadmap": "omega-endstate-build/roadmap/ROADMAP-V1.md",
@@ -36,5 +42,9 @@
   "decisions": [
     "omega-endstate-build/decisions/STEW-D-001-browser-live-parser-reconciliation.md"
   ],
-  "nextRequiredState": "f0-verified"
+  "nextRequiredState": "f0-verified",
+  "seededAgents": [
+    "DEVOPS-01"
+  ],
+  "currentTopologyNote": "DEVOPS-01 is seeded/proposed as the agentic development tooling owner; its first live session should self-define its operating shape from current workload."
 }
