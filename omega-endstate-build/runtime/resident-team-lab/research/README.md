@@ -20,6 +20,10 @@ Collect research on long-lived resident teams, heterogeneous agent organization,
 
 See `00-SOURCE-INDEX.md` for primary links.
 
+### OpenCode implementation track
+
+The OpenCode-specific substrate and working-example research now lives under [`opencode/`](opencode/). Start with [`opencode/README.md`](opencode/README.md). It separates exact v1.18.4 substrate evidence, current-version watch material, known-working OpenCode examples, Windows/headless concerns, and upgrade-wave research.
+
 ## Extraction model
 
 Each source is read at four levels:
