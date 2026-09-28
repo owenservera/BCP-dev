@@ -1,9 +1,9 @@
 # Ω End-State Build Team — Decisions
 
-> Status: SEED
+> Status: SEED / TEMPLATE
 > Purpose: lightweight durable decision lineage for this development path.
 
-The team should record consequential choices that materially alter the route to the end state.
+The team should record consequential choices in its canonical project home under `omega-endstate-build/decisions/`. This file is only a bootstrap template. that materially alter the route to the end state.
 
 Suggested fields:
 
