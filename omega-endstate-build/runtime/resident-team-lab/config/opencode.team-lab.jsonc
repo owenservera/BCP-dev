@@ -3,7 +3,8 @@
 
   // Experimental resident-team configuration.
   // This file is intentionally isolated from the repository's normal OpenCode config.
-  "plugins": [
+  "default_agent": "team-root",
+  "plugin": [
     "../plugin/resident-team.ts"
   ],
 
