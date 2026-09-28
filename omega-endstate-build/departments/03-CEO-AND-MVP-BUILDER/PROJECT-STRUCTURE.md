@@ -1,73 +1,56 @@
-# Ω End-State Build — Project Structure
+# Ω End-State Build — Department Structure
 
-> Status: STARTING STRUCTURE
-> Purpose: give the local Steward a safe place to grow the team without prescribing its final architecture.
+The Omega end-state build is organized into exactly three conceptual departments.
 
-The directory `omega-endstate-build/` is the canonical durable project home.
-
-The Steward may change this structure as evidence accumulates.
-
-## Recommended initial areas
-
-```
+```text
 omega-endstate-build/
-├── AGENTS.md
-├── README.md
-├── STEWARD-BOOTSTRAP.md
-├── GIT-MANAGEMENT.md
-├── PROJECT-STRUCTURE.md
-│
-├── team/             # team OS, roster, role ownership
-├── departments/      # durable department homes, role definitions and context
-├── workstreams/      # active product/workstream definitions
-├── roadmap/          # strategic and milestone planning
-├── state/            # current machine-readable and human-readable state
-├── decisions/        # consequential branch-local product/architecture decisions
-├── research/         # research outputs and investigations
-├── evidence/         # proof, verification, receipts and falsifiers
-├── experiments/      # bounded experiments and live-system probes
-├── scripts/           # local development/workspace automation
-├── tools/            # tooling built specifically for this path
-├── product/          # end-state product implementation when the team establishes it
-└── integration/      # integration, release, compatibility and reconciliation records
+└── departments/
+    ├── 01-RESEARCH-AND-ALIGNMENT/
+    │   ├── COORD-01/
+    │   ├── PROV-01/
+    │   ├── decisions/
+    │   ├── design/
+    │   └── research/
+    │
+    ├── 02-TRUTH-AND-TRUST/
+    │   ├── VETO/
+    │   │   └── governor/
+    │   ├── VER-01/
+    │   ├── gates/
+    │   ├── state/
+    │   ├── AGENTIC-SYSTEM-GATES.md
+    │   ├── TRUTH-CHAIN-SEED.md
+    │   └── TURN-CLOSE-PROTOCOL.md
+    │
+    └── 03-CEO-AND-MVP-BUILDER/
+        ├── STEW-01/
+        ├── DEVOPS-01/
+        ├── team/
+        ├── roadmap/
+        ├── runtime/
+        ├── scripts/
+        ├── AGENTS.md
+        ├── GIT-MANAGEMENT.md
+        ├── PROJECT-HOME.md
+        └── ...
 ```
 
-Only create an area when it is useful.
+## Department boundaries
 
-The team may replace this taxonomy.
+### 01 — Research & Alignment
 
-## Ownership
+Discovery, research, architectural reasoning, design, investigation and alignment.
 
-Artifacts belonging to this Ω End-State Build Team should prefer this directory over unrelated repository locations.
+### 02 — Truth & Trust
 
-The team may read and reuse other repository areas, but it should not scatter its own durable project state across them.
+Evidence, falsification, independent verification, governance safeguards, gates and durable trust/state.
 
-## Production source
+### 03 — CEO & MVP Builder
 
-The `product/` area is the default home for newly created end-state product source if the team chooses to maintain a self-contained product tree.
+Company outcome, product delivery, roadmap, runtime, development machinery, workspace operations and executive coordination.
 
-The team may instead determine that some existing Ω boundaries should remain the implementation home.
+## Structural rule
 
-That is an architectural decision for the team.
+Every durable artifact belonging specifically to this Omega end-state build should live under exactly one of the three department roots.
 
-Do not duplicate large portions of Ω merely to make the folder look self-contained.
-
-## Department workspaces
-
-Do not place concurrent agent worktrees inside this tracked project directory unless the team explicitly designs and verifies that arrangement.
-
-The tracked project home is shared state.
-
-Agent workspaces are isolated execution environments.
-
-## Current seeded control plane
-
-The repository already contains:
-
-- `team/AGENT-ROSTER.json` — initial `STEW-01` roster;
-- `departments/03-CEO-AND-MVP-BUILDER/STEW-01/AGENT.md` — initial Steward definition;
-- `state/TEAM-STATE.json` — initial team recovery state;
-- `state/WORKSPACE-REGISTRY.schema.json` — machine-local registry contract;
-- `scripts/` — local workspace/bootstrap tooling.
-
-The Steward is expected to grow or replace these structures as evidence warrants.
+The three departments are organizational boundaries, not substitutes for authority, provenance or Git/workspace isolation.
