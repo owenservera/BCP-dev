@@ -11,6 +11,7 @@ The Steward may change this structure as evidence accumulates.
 
 ```
 omega-endstate-build/
+├── AGENTS.md
 ├── README.md
 ├── STEWARD-BOOTSTRAP.md
 ├── GIT-MANAGEMENT.md
@@ -25,6 +26,7 @@ omega-endstate-build/
 ├── research/         # research outputs and investigations
 ├── evidence/         # proof, verification, receipts and falsifiers
 ├── experiments/      # bounded experiments and live-system probes
+├── scripts/           # local development/workspace automation
 ├── tools/            # tooling built specifically for this path
 ├── product/          # end-state product implementation when the team establishes it
 └── integration/      # integration, release, compatibility and reconciliation records
@@ -57,3 +59,15 @@ Do not place concurrent agent worktrees inside this tracked project directory un
 The tracked project home is shared state.
 
 Agent workspaces are isolated execution environments.
+
+## Current seeded control plane
+
+The repository already contains:
+
+- `team/AGENT-ROSTER.json` — initial `STEW-01` roster;
+- `agents/STEW-01/AGENT.md` — initial Steward definition;
+- `state/TEAM-STATE.json` — initial team recovery state;
+- `state/WORKSPACE-REGISTRY.schema.json` — machine-local registry contract;
+- `scripts/` — local workspace/bootstrap tooling.
+
+The Steward is expected to grow or replace these structures as evidence warrants.
