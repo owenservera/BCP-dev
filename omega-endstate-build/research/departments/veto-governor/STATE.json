@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "departmentId": "VETO-01",
+  "name": "Mission Governor Department",
+  "lifecycle": "experimental",
+  "authority": "advisory-veto-proposal",
+  "primaryMission": "Full VIVIM beta ready to distribute for free",
+  "triggerMode": "manual-referral",
+  "reviewLayer": "conceptual-commitment-boundary",
+  "activeTask": "VG-0001",
+  "queueFile": "TASK-QUEUE.md",
+  "nextResearchQuestion": "What signals best identify the point where conceptual work has accumulated consequential commitment?",
+  "learningPolicy": {
+    "recordOwnerOverrides": true,
+    "revisitAfterOutcome": true,
+    "separateEvidenceFromInference": true,
+    "neverTreatPriorGovernorOutputAsEvidence": true
+  },
+  "evolutionPolicy": {
+    "selfMutation": "forbidden",
+    "evolutionProposals": "allowed",
+    "ownerRatification": "required",
+    "rollbackRequiredForOperationalChanges": true
+  }
+}
