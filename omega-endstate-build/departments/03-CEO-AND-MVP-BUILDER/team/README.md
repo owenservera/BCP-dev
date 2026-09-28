@@ -7,7 +7,7 @@ This is the durable control plane for the team's department organization and res
 
 ## Foundational trust contract
 
-All team participants are subject to ../TRUTH-CHAIN-SEED.md
+All team participants are subject to `../../02-TRUTH-AND-TRUST/TRUTH-CHAIN-SEED.md`
 
 The contract is currently informational and not machine-enforced. It exists so every participant starts with the same epistemic and governance boundary.
 
