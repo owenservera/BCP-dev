@@ -15,7 +15,9 @@ $required = @(
   "AUDIT-METHOD.md",
   "EVIDENCE-GUIDE.md",
   "SELF-DEFINITION-GUIDE.md",
+  "SELF-DEFINITION-LEDGER.md",
   "SELF-EVOLUTION-GUIDE.md",
+  "SELF-AUDIT-PROTOCOL.md",
   "GOVERNANCE-OF-GOVERNANCE-GUIDE.md",
   "INTELLIGENCE-MAP.md",
   "CURRENT-SYSTEM-PRIMER.md",
@@ -40,3 +42,4 @@ Write-Output ("Authority: " + $state.authority)
 Write-Output ("Trigger: " + $state.triggerMode)
 Write-Output ("Review layer: " + $state.reviewLayer)
 Write-Output ("Active task: " + $state.activeTask)
+Write-Output ("Self-audit: " + $state.selfAudit.protocol)
