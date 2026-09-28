@@ -8,5 +8,5 @@ test("peer roster parses and rejects duplicate identities",()=>{
     {agent_id:"world",home:"AGENTS/WORLD",role:"World",status:"bootstrap-ready"},
     {agent_id:"data",home:"AGENTS/DATA",role:"Data",status:"ratified"}
   ]);
-  assert.throws(()=>parsePeerRoster(markdown+"| data | AGENTS/OTHER | Other | retired |\n"),/COMMONS_PEER_ROSTER_DUPLICATE:data/);
+  assert.throws(()=>parsePeerRoster(markdown+"\n| data | AGENTS/OTHER | Other | retired |\n"),/COMMONS_PEER_ROSTER_DUPLICATE:data/);
 });
