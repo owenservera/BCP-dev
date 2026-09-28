@@ -41,3 +41,31 @@ That directory is gitignored and must never contain secrets.
 ## Safety posture
 
 The scripts fail closed on ambiguous ownership, existing branches, unexpected current branches, or dirty workspaces where destructive cleanup would otherwise be tempting.
+
+
+## First Steward launch
+
+From a trusted BCP-dev checkout:
+
+```powershell
+.\omega-endstate-build\scripts\Bootstrap-Steward.ps1
+```
+
+The script creates:
+
+`<sibling-of-repository>/omega-endstate-workspaces/STEW-01-bootstrap-team/`
+
+and the branch:
+
+`work/omega-endstate/STEW-01/bootstrap-team`
+
+It is safe to run again: it refuses to reuse an existing workspace or branch rather than overwriting it.
+
+Inside the allocated workspace:
+
+```powershell
+.\omega-endstate-build\scripts\Verify-AgentWorkspace.ps1
+opencode
+```
+
+The Steward then reads `omega-endstate-build/STEWARD-BOOTSTRAP.md` and takes ownership of designing its own team.
