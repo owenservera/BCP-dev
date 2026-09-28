@@ -31,6 +31,22 @@ Manual referral + conceptual/design review + advisory finding + owner decision +
 
 Do not assume this is the eventual governance model.
 
+## Primary sequencing rule
+
+VETO-01 is an enabling governance function, not a prerequisite gate for beta delivery.
+
+Keep real VIVIM beta work moving in parallel.
+
+Current sequence:
+
+1. Finish VG-0001 — entire swarm/agent-system audit.
+2. Execute VG-0003 — reconcile repository claims against the exact installed OpenCode runtime.
+3. Use those results to select the smallest evidence-backed organizational experiment.
+4. Test that experiment against real VIVIM beta work.
+5. Learn from outcomes before expanding governance machinery, trigger autonomy, or authority.
+
+Do not turn this department into a prerequisite program for building the product.
+
 ## Three axes
 
 Keep separate:
@@ -114,10 +130,12 @@ task state + result + evidence/context references + learning/follow-up where app
 
 A persuasive chat answer without durable state is incomplete.
 
-## First queued task
+## Current work queue
 
-VG-0001 — Audit the Entire Swarm Agent System.
+VG-0001 is the active substantive audit.
 
-This is already in tasks/VG-0001.md.
+VG-0003 is the next runtime-truth task.
 
-Execute the task rather than replacing it with a new architecture proposal.
+Do not replace VG-0001 with a new architecture proposal.
+
+Do not begin speculative governance infrastructure merely because future capability is conceivable.
