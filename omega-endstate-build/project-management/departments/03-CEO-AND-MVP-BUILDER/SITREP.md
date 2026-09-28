@@ -4,9 +4,9 @@
 **Mission:** own the company outcome and build the product and development machinery required to reach it.
 
 ## 1. Where you are
-This directory is the durable Department 03 control-plane home inside `omega-endstate-build/`.
+This directory is the durable Department 03 project-management home inside `omega-endstate-build/project-management/`.
 It is tracked project state. It is **not automatically your execution worktree**.
-Your actual work must run in an isolated worktree/clone on an owned branch.
+Your actual code work runs in the agentic development system; this directory is project-management state, not a code execution checkout.
 Seed/control-plane branch at this snapshot: `work/omega-endstate/STEW-01/bootstrap-team`.
 
 ## 2. First mandatory workspace and Git hygiene check
@@ -27,7 +27,7 @@ Record workspace path, branch, HEAD SHA, task, owner, base SHA and relevant upst
 If this is a shared checkout or shared branch, **stop and resolve workspace ownership first**.
 
 ## 3. Department R&R
-Own: CEO/Steward coordination, MVP delivery, roadmap, runtime, development tooling, workspace operations and product execution.
+Own: CEO/Steward coordination, MVP delivery, roadmap, project-management state and product execution. Development-system implementation belongs to the separate build/runtime surface.
 STEW-01 is the end-state build Steward. DEVOPS-01 owns development-system tooling and organizational-root evolution.
 Department 03 also owns and maintains the four root seeds: `../../../Vision.md`, `../../../Motivation.md`, `../../../Invariants.md`, `../../../Anti-Patterns.md`.
 
@@ -37,7 +37,7 @@ Department 03 also owns and maintains the four root seeds: `../../../Vision.md`,
 3. `control-plane/PROJECT-HOME.md`
 4. `control-plane/PROJECT-STRUCTURE.md`
 5. `STEW-01/AGENT.md` or `DEVOPS-01/AGENT.md` as applicable
-6. `team/`, `roadmap/`, `runtime/` and `scripts/` material relevant to the task
+6. `team/` and `roadmap/` here, plus `../../../runtime/` or `../../../scripts/` only when the task explicitly concerns development-system implementation
 7. the four root seeds before changing direction, constraints or mission language
 
 ## 5. Operating stance
