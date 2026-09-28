@@ -1,5 +1,15 @@
 # Runtime Design V1 — VIVIM end-state team runtime
 
+> **SUPERSEDED 2026-09-28 by `omega-endstate-build/runtime/DOCS/`.**
+> Read that set instead. This document was written before the opencode API was verified, and
+> three of its claims turned out to be wrong: that `session.prompt` is non-blocking (it blocks
+> for the turn), that server config should be edited into `.opencode/opencode.json` (it must be
+> injected per-spawn via `OPENCODE_CONFIG_CONTENT`), and that message delivery needs an external
+> idle-detecting watcher (it is a bounded loop inside each agent's own turn sequence).
+> Kept for lineage. The corrections are itemised in
+> `runtime/DOCS/10-reference-findings.md`.
+
+
 > Agent: STEW-01
 > Date: 2026-09-28
 > Status: APPROVED DIRECTION — build VIVIM's own, on the opencode-swarm architecture

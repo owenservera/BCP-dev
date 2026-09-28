@@ -95,6 +95,11 @@ CREATE TABLE IF NOT EXISTS messages (
 CREATE INDEX IF NOT EXISTS idx_messages_pending
   ON messages (runId, toAgent, deliveredAt);
 
+-- The plugin resolves the calling agent from ctx.sessionID on every tool call,
+-- so this lookup is hot.
+CREATE INDEX IF NOT EXISTS idx_agents_session
+  ON agents (sessionId);
+
 CREATE TABLE IF NOT EXISTS memory (
   runId        TEXT NOT NULL,
   key          TEXT NOT NULL,
@@ -115,8 +120,30 @@ export class Store {
     // WAL lets the plugin's in-process tool calls and the orchestrator's
     // external writes interleave without a second coordination layer.
     if (path !== ":memory:") this.db.exec("PRAGMA journal_mode = WAL;");
-    this.db.exec("PRAGMA foreign_keys = ON;");
+    // The DB has two independent writers: the plugin inside the opencode server
+    // process, and the orchestrator in this process. Without a busy timeout a
+    // concurrent write fails with SQLITE_BUSY instead of waiting its turn.
+    this.db.exec("PRAGMA busy_timeout = 5000;");
     this.db.exec(SCHEMA);
+    this.migrate();
+  }
+
+  /**
+   * Additive-only schema evolution, applied on open.
+   *
+   * Nothing destructive. If a change cannot be expressed additively that is a
+   * signal the schema was designed wrong — add a column rather than rewriting
+   * rows under a running agent.
+   */
+  private migrate(): void {
+    const cols = (
+      this.db.query(`PRAGMA table_info(agents)`).all() as Array<{ name: string }>
+    ).map((c) => c.name);
+    for (const col of ["verdict", "receipt", "workspace", "branch", "baseSha"]) {
+      if (!cols.includes(col)) {
+        this.db.exec(`ALTER TABLE agents ADD COLUMN ${col} TEXT`);
+      }
+    }
   }
 
   close(): void {
@@ -169,22 +196,37 @@ export class Store {
 
   // ---- agents -----------------------------------------------------------
 
+  /**
+   * Insert-or-update an agent WITHOUT clobbering omitted fields.
+   *
+   * Two traps, both real:
+   *
+   *  1. A naive full overwrite silently erases any column the caller did not
+   *     mention. `upsertAgent(rec)` from a caller holding a stale read would
+   *     blank the verdict and the session id.
+   *
+   *  2. On INSERT the status column is NOT NULL. Binding `COALESCE(?, 'created')`
+   *     there gives a partial insert a sane default, while the conflict branch
+   *     binds the SAME raw parameter through `COALESCE(?, agents.status)` — never
+   *     `excluded.status`, which would carry the 'created' default into the
+   *     UPDATE and reset a running agent to 'created' on any partial update.
+   */
   upsertAgent(rec: AgentRecord): void {
     this.db
       .query(
         `INSERT INTO agents
            (runId, name, sessionId, workspace, branch, baseSha, task, evidenceBar,
             tools, status, verdict, receipt, error, updatedAt)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, COALESCE(?, 'created'), ?, ?, ?, ?)
          ON CONFLICT(runId, name) DO UPDATE SET
-           sessionId   = excluded.sessionId,
-           workspace   = excluded.workspace,
-           branch      = excluded.branch,
-           baseSha     = excluded.baseSha,
-           status      = excluded.status,
-           verdict     = excluded.verdict,
-           receipt     = excluded.receipt,
-           error       = excluded.error,
+           sessionId   = COALESCE(?, agents.sessionId),
+           workspace   = COALESCE(?, agents.workspace),
+           branch      = COALESCE(?, agents.branch),
+           baseSha     = COALESCE(?, agents.baseSha),
+           status      = COALESCE(?, agents.status),
+           verdict     = COALESCE(?, agents.verdict),
+           receipt     = COALESCE(?, agents.receipt),
+           error       = COALESCE(?, agents.error),
            updatedAt   = excluded.updatedAt`,
       )
       .run(
@@ -202,7 +244,29 @@ export class Store {
         rec.receipt,
         rec.error,
         this.now(),
+        rec.sessionId,
+        rec.workspace,
+        rec.branch,
+        rec.baseSha,
+        rec.status,
+        rec.verdict,
+        rec.receipt,
+        rec.error,
       );
+  }
+
+  /**
+   * Resolve which agent a given opencode session belongs to.
+   *
+   * This is the plugin's identity lookup and the only thing preventing an agent
+   * from impersonating a peer. Indexed; hit on every tool call.
+   */
+  findAgentBySession(sessionId: string): AgentRecord | null {
+    return (
+      (this.db
+        .query(`SELECT * FROM agents WHERE sessionId = ? LIMIT 1`)
+        .get(sessionId) as AgentRecord | null) ?? null
+    );
   }
 
   getAgent(runId: string, name: string): AgentRecord | null {

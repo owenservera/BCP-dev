@@ -169,3 +169,63 @@ test("message history is retained after delivery, so a run is auditable", () => 
   expect(hist.every((m) => m.deliveredAt !== null)).toBe(true);
   s.close();
 });
+
+test("partial agent update preserves omitted fields (no clobber)", () => {
+  const s = freshStore();
+  s.createRun("r10", "n", "{}", "C:/repo");
+  const full = {
+    runId: "r10", name: "base-01", sessionId: "ses_abc",
+    workspace: "C:/ws/base-01", branch: "work/omega-endstate/base-01/sw_1",
+    baseSha: "ff8e141a", task: "t", evidenceBar: "bar", tools: "{}",
+    status: "running", verdict: null, receipt: "runs/r10/RECEIPT.md", error: null,
+    updatedAt: "",
+  };
+  s.upsertAgent(full);
+  // A later caller holding a partial record must not blank session/workspace/verdict.
+  s.upsertAgent({ ...full, sessionId: null, workspace: null, verdict: "CONFIRMED", status: "done" });
+  const a = s.getAgent("r10", "base-01")!;
+  expect(a.sessionId).toBe("ses_abc");
+  expect(a.workspace).toBe("C:/ws/base-01");
+  expect(a.branch).toBe("work/omega-endstate/base-01/sw_1");
+  expect(a.status).toBe("done");
+  expect(a.verdict).toBe("CONFIRMED");
+  s.close();
+});
+
+test("status is never silently reset to the insert default", () => {
+  const s = freshStore();
+  s.createRun("r11", "n", "{}", "C:/repo");
+  const rec = {
+    runId: "r11", name: "arch-01", sessionId: "ses_x", workspace: null, branch: null,
+    baseSha: null, task: "t", evidenceBar: "b", tools: "{}", status: "running",
+    verdict: null, receipt: null, error: null, updatedAt: "",
+  };
+  s.upsertAgent(rec);
+  expect(s.getAgent("r11", "arch-01")!.status).toBe("running");
+  // An update that does not mention status must leave it alone. On INSERT the
+  // default is 'created'; binding excluded.status would carry that default into
+  // the conflict branch and silently demote a running agent.
+  s.upsertAgent({ ...rec, status: undefined as unknown as string, error: "boom" });
+  const a = s.getAgent("r11", "arch-01")!;
+  expect(a.status).toBe("running");
+  expect(a.error).toBe("boom");
+  s.close();
+});
+
+test("session id resolves to exactly one agent, and unknown ids resolve to nothing", () => {
+  const s = freshStore();
+  s.createRun("r12", "n", "{}", "C:/repo");
+  const mk = (name: string, sessionId: string) => ({
+    runId: "r12", name, sessionId, workspace: null, branch: null, baseSha: null,
+    task: "t", evidenceBar: "b", tools: "{}", status: "running", verdict: null,
+    receipt: null, error: null, updatedAt: "",
+  });
+  s.upsertAgent(mk("base-01", "ses_1"));
+  s.upsertAgent(mk("ver-01", "ses_2"));
+
+  // This is the plugin's identity lookup and the only thing stopping an agent
+  // impersonating a peer.
+  expect(s.findAgentBySession("ses_2")!.name).toBe("ver-01");
+  expect(s.findAgentBySession("ses_nonexistent")).toBeNull();
+  s.close();
+});
