@@ -81,11 +81,16 @@ if (Test-Path $workspace) {
 }
 
 $lockStream = $null
+$registry = [ordered]@{
+    version = 1
+    updatedAt = (Get-Date).ToUniversalTime().ToString('o')
+    workspaces = @()
+}
 try {
     $deadline = (Get-Date).AddSeconds(15)
     do {
         try {
-            $lockStream = [IO.File]::Open($lockPath,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+            $lockStream = [IO.File]::Open($lockPath,[IO.FileMode]::OpenOrCreate,[IO.FileAccess]::ReadWrite,[IO.FileShare]::None)
             break
         } catch [IO.IOException] {
             if ((Get-Date) -ge $deadline) { throw "Timed out acquiring workspace registry lock: $lockPath" }
@@ -148,7 +153,6 @@ $registry.updatedAt = $now
 $registry | ConvertTo-Json -Depth 8 | Set-Content -Encoding UTF8 $registryPath
 } finally {
     if ($null -ne $lockStream) { $lockStream.Dispose() }
-    Remove-Item -LiteralPath $lockPath -Force -ErrorAction SilentlyContinue
 }
 
 Write-Host ""
