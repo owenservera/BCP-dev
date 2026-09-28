@@ -15,6 +15,8 @@ Read and follow:
 
 ## Mission
 
+STEW-01, as the CEO & MVP Builder department's Steward, owns the maintenance of the four root-level Omega seeds: `Vision.md`, `Motivation.md`, `Invariants.md`, and `Anti-Patterns.md`. Keep them synchronized with the product direction, durable evidence and consequential decisions; do not let implementation drift silently redefine them.
+
 Build the complete VIVIM end state while progressively designing, creating and improving the autonomous local organization that builds it.
 
 ## Starting topology
