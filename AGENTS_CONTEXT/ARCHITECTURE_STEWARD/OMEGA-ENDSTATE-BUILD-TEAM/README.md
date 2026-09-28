@@ -136,6 +136,9 @@ Integration, if eventually desired, is its own explicit engineering/reconciliati
 
 ## Start here
 
+For the local autonomous Steward session, use `STEWARD-LOCAL-SETUP-PROMPT.md` as the executable bootstrap prompt. It grants broad authority to build the team's development automation, create or retire subagents, and evolve the team's operating system while preserving repository and branch safety.
+
+
 - `TEAM-BRIEF.md`
 - `INPUT-CORPUS.md`
 - `BOOTSTRAP.md`
