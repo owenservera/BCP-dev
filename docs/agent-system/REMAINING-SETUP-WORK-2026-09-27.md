@@ -4,6 +4,21 @@
 > Companion: `SETUP-REQUIREMENTS-2026-09-27.md` (the exact bill of materials).
 > Authority: derived plan; not Ω law, not a boundary activation.
 
+## Current reconciliation — 2026-09-28
+
+Before using the task sequence below, read
+`docs/agent-system/CURRENT-RECONCILIATION-2026-09-28.md`.
+
+Current `main` is `7ae2460b04df22a949bae0f1478b539129ce8bca`. The prior
+"main is mid-flight / Stage-E L2" condition is stale: Stage-E L2 owner
+characterization is now CLOSED / RECONCILED (7/7), and the next shared Stage-E
+action on `main` is L3 graph-bundle contract/design.
+
+The autonomous-team setup remains an independent track. Its branch-local
+Phase-1/v0 evidence is retained, while Phase 2b/3 work below remains future
+work unless separately re-authorized and re-verified against current `main`.
+
+
 ## Where we stand
 
 Done and proven (evidence in repo, all on sandbox unless noted):
