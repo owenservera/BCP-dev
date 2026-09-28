@@ -39,6 +39,22 @@ Create the smallest useful design hypothesis or falsifying experiment.
 ### 9. Persist
 Update source notes, synthesis, anti-patterns, and research questions as appropriate.
 
+
+### Cross-domain synthesis
+
+When the question concerns architecture, runtime organization, lifecycle, memory, scheduling, or coordination, perform an orthogonal scan of adjacent mature systems before converging. Useful analogy domains include operating systems, actor/supervision runtimes, controller/reconciliation systems, distributed durable execution, blackboard architectures, multi-agent task allocation, and context/memory systems.
+
+Do not import a mechanism merely because it exists elsewhere. Record:
+
+- source mechanism;
+- exact problem it solves;
+- assumptions that make it work;
+- failure modes / tradeoffs;
+- what Ω can borrow;
+- what Ω must deliberately keep different.
+
+The goal is mechanism convergence, not framework imitation.
+
 ## Output contract
 
 Every substantive update should leave:
