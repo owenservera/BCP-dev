@@ -343,3 +343,18 @@ The Steward must not operate day-to-day from the shared `team/omega-endstate` ch
 The Git system must make autonomous parallel development **recoverable**.
 
 If the team has to choose between a slightly slower operation that preserves attribution/isolation and a faster ambiguous operation, preserve isolation and recoverability.
+
+
+## Executable safety helpers
+
+Use the tracked helpers rather than hand-assembling repetitive workspace operations:
+
+- `scripts/Bootstrap-Steward.ps1` — allocate the first Steward workspace;
+- `scripts/New-AgentWorkspace.ps1` — allocate an isolated worktree or clone for any agent;
+- `scripts/Verify-AgentWorkspace.ps1` — verify manifest, branch, base ancestry and workspace identity;
+- `scripts/PreIntegration.ps1` — inspect current team divergence and changed files before integration;
+- `scripts/Retire-AgentWorkspace.ps1` — safely retire a completed worktree without implicitly deleting the branch.
+
+The allocator uses a machine-local registry lock so concurrent agent allocation cannot silently overwrite registry state. It refuses existing agent branches/workspaces instead of reusing them.
+
+The scripts are helpers, not authority replacements: the local Steward remains responsible for semantic ownership, task assignment and integration decisions.
