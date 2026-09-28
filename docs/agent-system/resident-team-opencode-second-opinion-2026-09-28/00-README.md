@@ -107,6 +107,7 @@ The governance graph establishes enduring responsibility and owner delegation. T
 | `07-SECOND-OPINION-QUESTIONS.md` | Questions that should be independently challenged before build |
 | `08-SECOND-OPINION-RECONCILIATION.md` | Reconciled second-opinion findings and revised proof gates |
 | `10-FIRST-LOCAL-AGENTIC-SYSTEM-CLEANUP-AND-MIGRATION.md` | Cleanup and migration plan for the first local agentic attempt |
+| `11-DEEP-REVIEW-AND-GAPS-2026-09-28.md` | Second deep pass: cross-document contradictions, runtime fencing, authority, determinism, and lifecycle gaps |
 
 ## External evidence consulted
 
