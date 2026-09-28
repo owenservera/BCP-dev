@@ -113,6 +113,16 @@ without additive repair blocks integration.
   DONE (s3-procA/B/lib.ts + 245-line receipt; imports/src/origin clean).
   Sibling wave landed 30+ disjoint CFA-home files mid-turn (validator reuse
   observed); shared-main rule applied, no contention. Next: S.3b run.
+- 2026-09-28 UPGRADE-DOCS (owner-directed, base `53e0cfb3`): non-technical
+  goals doc + solo independent steward design doc committed (no CFA
+  delegation — independence is the point). Findings: residency = cache, not
+  identity (miss cost already low via proven spawns; M2 envelopes cut it
+  further); `run -c/-s/--fork/--attach` + `session/export/stats` OBSERVED on
+  1.18.4 → cheap continuity path (resume probe still open); dossier §04
+  splits into adopt-now inbox-at-boot vs deferred no-spawn. Verdict: ratify
+  warm-standby now, gate residency behind R0-serve probe + caps; B faster to
+  set up, easier to maintain; A wins only on interactive latency if it
+  qualifies. Next: S.3b run.
 - 2026-09-28 MERGE-ALL (owner-directed, base `986c7d9c`): 3 reviewed merges,
   all docs-only, zero dry-run conflicts, zero dangerous paths (no Ω/src/
   config): (1) origin/main sync `afd6a1e1` (6 test-doc commits, 4 files);
