@@ -24,19 +24,19 @@ Relevant: Swarm Skills. citeturn952603view1turn918030view3
 
 What is the smallest explicit DAG/Work representation needed alongside OpenCode session parentage?
 
-Relevant: OMC DAG execution and ClawTeam dependency chains. citeturn918030view1turn884303view4
+Relevant: OMC DAG execution and ClawTeam dependency chains.
 
 ## 5. Acceptance
 
 What evidence is sufficient to move a child result from completed to accepted without conflating reviewer judgment with Ω authority?
 
-Relevant: OMC acceptance gate. citeturn918030view1
+Relevant: OMC acceptance gate.
 
 ## 6. Causal communication
 
 How should Commons preserve not only what one resident told another, but whether and how the recipient relied on that information?
 
-Relevant: Meta-Team endogenous feedback. citeturn132580view0
+Relevant: Meta-Team endogenous feedback.
 
 ## 7. Evolution safety
 
@@ -48,16 +48,18 @@ Relevant: Meta-Team freeze/test; Swarm Skills rollback; SwarmAgentic candidate e
 
 Can the same coordination asset run on OpenCode native Task, another CLI runtime, and a non-recursive host while preserving its semantic contract?
 
-Relevant: Swarm Skills explicitly identifies broad conformance as an open problem. citeturn591787view4
+Relevant: Swarm Skills explicitly identifies broad conformance as an open problem.
 
 ## 9. Failure attribution
 
 When several residents jointly cause an outcome, what evidence structure allows attribution without blaming the most visible agent?
 
-Relevant: Meta-Team's motivation and collaborative attribution. citeturn132580view0
+Relevant: Meta-Team's motivation and collaborative attribution.
 
 ## 10. Resource admission
 
 Can resident-selected fan-out be enforced by machine resource limits without turning the runtime into the semantic allocator?
 
 Relevant: ClawTeam resource recycling and OMC cost/scheduling model. citeturn161442view4turn918030view0
+
+Primary source: https://arxiv.org/html/2605.29790v1
