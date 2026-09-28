@@ -35,8 +35,9 @@
 - **Master list:** `docs/agent-system/FULL-INTEGRATION-TASK-LIST.md` (updated every turn, §9 log)
 - **W1 result:** 3/3 CFA units verified + committed (S.2, N.3, H.3 DONE). P2.1 CLI probe pending.
 - **M0/M1 wave result (2026-09-28):** 4/4 CFA evidence units verified (CFA-02/04/09/10 INVESTIGATED) + M1 validator installed + contract v1.2. Exact-agent verdict: PROCEDURAL-GAP (fallback-checked) — headless `--agent` can never address CFA/worker; chain vehicle is steward→CFA via Task tool (proven W1). P2.1 still DOING (Wave-2 D/E leaf-leg test next).
+- **W2 result (2026-09-28, base `e5ce9aac`):** D2 CFA-05→work-runner LEAF-LEG-OK (verbatim stdout + exit 0; first non-empty depth-2 leg — full chain proven); D3 CFA-09→work-scout EMPTY; D4 CFA-07→work-drafter EMPTY, U1 UNTESTABLE-THIS-LEG; E headless steward→data-model spawn VALIDATED (verbatim echo, no stderr fallback, exit 0, no writes). All receipts whole-read vs repo. P2.1 DONE, P2.2 DONE, P2.3 DONE-caveat (xhigh accepted, effect UNKNOWN). New P2.4 TODO (scout/drafter empty-leg diagnosis, blocks U1). U1 BLOCKED (needs observable deny leg; unblock via P2.4 or newer opencode).
 - **Owner questions queued:** counter-2 contradiction-registry designation; Phase 3 go (after P2/S.3 green); CFA-04 M1 trio (IMPLEMENTED proof bar; Steward fallback tolerance; per-wave expiry).
-- **Next:** P2.1 Wave-2 D/E: (D) CFA spawns one leaf on trivial task, verbatim output; (E) headless steward run spawns one CFA via Task tool (+ P2.3 xhigh validation).
+- **Next:** S.3 two-process exchange Wave-3 + P2.4 scout/drafter diagnosis (+ P2.3 xhigh validation).
 
 ### LOCAL-GATEB-READINESS-2026-09-28
 - **Status:** DONE

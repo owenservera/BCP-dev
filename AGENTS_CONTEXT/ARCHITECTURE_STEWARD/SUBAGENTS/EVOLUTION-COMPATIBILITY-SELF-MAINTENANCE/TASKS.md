@@ -18,6 +18,15 @@
 
 ## Open tasks
 
+### W2D3-LEAF-LEG-PROBE-D3-2026-09-28 — Wave-2 unit D3 leaf-leg probe
+- **Status:** INVESTIGATED — leaf returned EMPTY; receipt delivered uncommitted; steward verify + commit pending
+- **Priority:** P0 (bounded steward unit)
+- **Brief (verbatim):** "Reply with exactly this string and nothing else: LEAF-LEG-PROBE-D3. Use no tools. Write nothing."
+- **Envelope:** task id ses_f19f489c0ffeqiAvC6lzxFM6MD, state completed, task_result 0 chars → EMPTY; verdict LEAF-LEG-EMPTY; exactly one spawn, no retry, no substitution
+- **Receipt:** `RESULTS/W2D3-evolution-20260928.md`
+- **Commit:** PENDING-STEWARD-COMMIT (DO NOT COMMIT — steward verifies/commits)
+- **Next:** steward verify + commit; close this entry to DONE only after that commit lands
+
 ### W1-CFA11-COUNTERS-2026-09-28 — CFA-11 review-trigger counter automation (H.3)
 - **Status:** PARTIAL — script + doc + receipt delivered uncommitted; steward verify + commit pending
 - **Priority:** P0

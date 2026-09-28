@@ -35,9 +35,10 @@
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| P2.1 | Steward→CFA→worker run with --auto | DOING | depth-1 + auto-reject fixed; NEW: `--agent <subagent-mode>` silently fell back to default_agent (steward refusal quoted steward binding); `--variant xhigh` accepted without rejection; empty-stdout runs observed (known trap); vehicle confirmed as `run` not `serve`. M0/M1 update: CFA-10 ledger confirms fallback is a PROCEDURAL-GAP (no strict flag on 1.18.4) — chain vehicle is steward→CFA via Task tool (W1 proven 3/3); M1 `tools/Validate-Receipt.ps1` installed (C1–C9, fail-closed); Wave-2 D/E leaf-leg test next |
-| P2.2 | Verify chain evidence + record | TODO | needs P2.1 full transcript |
-| P2.3 | Validate `--variant xhigh` on contributor-free | TODO | validity unknown; fallback plain model |
+| P2.1 | Steward→CFA→worker run with --auto | DONE | D2 full chain (steward→CFA-05→work-runner, verbatim stdout + exit 0, ses_f19f483de) + E headless steward→data-model spawn (verbatim echo, no stderr fallback, exit 0, ses_f19f48039/ses_f19f397c8). Chain vehicle = Task tool, never headless --agent |
+| P2.2 | Verify chain evidence + record | DONE | PROBE-FINDINGS Wave-2 section + 4 CFA receipts (W2-D/D2/D3/D4) + validator PASS at delivery ref |
+| P2.3 | Validate `--variant xhigh` on contributor-free | DONE (caveat) | xhigh accepted without rejection (probe 1); semantic effect UNKNOWN; E ran default variant |
+| P2.4 | Diagnose work-scout/work-drafter empty leaf leg | TODO | runner OK 1/1; scout EMPTY 2/2 (CFA-02/09); drafter EMPTY 1/1; blocks U1 deny-precedence probe |
 
 ## S — Parallel opencode sessions
 
@@ -100,3 +101,9 @@ without additive repair blocks integration.
   M0M1-CORRIDOR-01 (MODE=EXECUTION, SURFACE=LOCAL, one writer). Pre-commit
   validator: 4/4 C1+C3+C9 PASS, C8 FAIL-expected (uncommitted). Post-commit
   re-runs pending. P2.1 still DOING (Wave-2 D/E leaf-leg test next).
+- 2026-09-28 W2 (base `e5ce9aac`, clean): D2 CFA-05→work-runner LEAF-LEG-OK
+  (91 chars, exit 0 — full chain proven); D3 CFA-09→work-scout EMPTY;
+  D4 CFA-07→work-drafter EMPTY, U1 UNTESTABLE-THIS-LEG; E headless
+  steward→data-model spawn VALIDATED (verbatim echo, no fallback, exit 0, no
+  writes). P2.1 DONE, P2.2 DONE, P2.3 DONE-caveat, new P2.4 TODO (empty-leg
+  diagnosis, blocks U1). U1 BLOCKED. Next: S.3 Wave-3 + P2.4.

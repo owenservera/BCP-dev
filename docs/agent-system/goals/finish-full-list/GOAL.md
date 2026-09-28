@@ -45,3 +45,16 @@ verified against the repo per the Durable Completion Gate — never by chat clai
   CFA-02: 113; CFA-09: 118). All INVESTIGATED, no implementation, no Ω, no
   boundary. Corridor M0M1-CORRIDOR-01 (MODE=EXECUTION, SURFACE=LOCAL):
   contract v1.1→v1.2 additive + Validate-Receipt.ps1. Stall counter: 0.
+- 2026-09-28 W2 (base `e5ce9aac`, clean): dependency — D2/D3/D4/E mutually
+  INDEPENDENT (different CFAs/leaves, own-home receipts; E steward-executed,
+  no shared files) → one wave (2 Task spawns + E + 1 Task spawn); U1 verdict
+  ORDERED after. Results: D2 CFA-05→work-runner LEAF-LEG-OK (91 chars, exit
+  0, receipt 55 lines whole-read); D3 CFA-09→work-scout EMPTY (receipt 31
+  lines whole-read); D4 CFA-07→work-drafter EMPTY, U1 UNTESTABLE-THIS-LEG
+  (receipt 64 lines whole-read); E headless steward→data-model spawn
+  VALIDATED (verbatim echo, no fallback in stderr, exit 0, no repo writes;
+  sessions ses_f19f48039 / ses_f19f397c8). P2.1 DONE (runner chain + E);
+  P2.2 DONE (PROBE-FINDINGS Wave-2 + receipts + validator); P2.3 DONE-caveat
+  (xhigh accepted w/o rejection, effect UNKNOWN); new P2.4 TODO (scout/
+  drafter empty leg); U1 BLOCKED (needs observable deny leg via P2.4).
+  Stall counter: 0 (tree changed).

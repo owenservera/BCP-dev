@@ -83,25 +83,38 @@ $fullPath = (Resolve-Path -LiteralPath $ReceiptPath).Path
 $text = Get-Content -Raw -LiteralPath $fullPath
 $relPath = [System.IO.Path]::GetRelativePath($RepoRoot, $fullPath).Replace('\', '/')
 
-# --- parse KEY: value lines (merge all fenced text blocks; fall back to whole file)
-$fenceBlocks = [regex]::Matches($text, '```text(.*?)```', [System.Text.RegularExpressions.RegexOptions]::Singleline)
-$scanText = if ($fenceBlocks.Count -gt 0) {
-  ($fenceBlocks | ForEach-Object { $_.Groups[1].Value }) -join "`n"
-} else { $text }
-
-$fields = @{}
-$currentKey = ""
-foreach ($line in ($scanText -split "`r?`n")) {
-  if ($line -match '^\s*$') { $currentKey = ""; continue }  # blank line ends a value; headers below never attach
-  $m = [regex]::Match($line, '^([A-Z][A-Z0-9 /_-]*):\s*(.*)$')
-  if ($m.Success) {
-    $currentKey = $m.Groups[1].Value.Trim()
-    $fields[$currentKey] = $m.Groups[2].Value.Trim()
-  } elseif ($currentKey -ne "" -and $line -match '^(\s+|-\s+)\S') {
-    # continuation line: indented text or markdown list item ("- ...")
-    $fields[$currentKey] += "`n" + $line.Trim()
+# --- parse KEY: value lines.
+# Two-phase: (1) non-fenced text — the canonical field home for unfenced
+# receipts; (2) fenced ```text blocks in order, filling only keys still
+# missing — the canonical home for fenced receipts. Either phase alone may
+# carry all fields; neither may invent them. A fenced leaf-output block (e.g.
+# a D2-style stdout transcript) therefore never shadows real fields, and an
+# unfenced field list is never drowned by a fenced transcript.
+function Get-FieldsFromText {
+  param([string]$Chunk, [hashtable]$Into)
+  $currentKey = ""
+  foreach ($line in ($Chunk -split "`r?`n")) {
+    if ($line -match '^\s*$') { $currentKey = ""; continue }  # blank ends a value
+    if ($line -match '^#{1,6}\s') { $currentKey = ""; continue }  # markdown header ends a value
+    $m = [regex]::Match($line, '^([A-Z][A-Z0-9 /_-]*):\s*(.*)$')
+    if ($m.Success) {
+      $currentKey = $m.Groups[1].Value.Trim()
+      $v = $m.Groups[2].Value.Trim()
+      if (-not $Into.ContainsKey($currentKey)) { $Into[$currentKey] = $v }
+      elseif ([string]::IsNullOrWhiteSpace($Into[$currentKey]) -and -not [string]::IsNullOrWhiteSpace($v)) { $Into[$currentKey] = $v }
+      else { $currentKey = "" }  # duplicate key: keep first non-empty, do not append transcript lines into it
+    } elseif ($currentKey -ne "" -and $line -match '^(\s+|-\s+)\S') {
+      # continuation line: indented text or markdown list item ("- ...")
+      $Into[$currentKey] += "`n" + $line.Trim()
+    }
   }
 }
+
+$fields = @{}
+$noFenceText = [regex]::Replace($text, '```text.*?```', '', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+Get-FieldsFromText -Chunk $noFenceText -Into $fields
+$fenceBlocks = [regex]::Matches($text, '```text(.*?)```', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+foreach ($b in $fenceBlocks) { Get-FieldsFromText -Chunk $b.Groups[1].Value -Into $fields }
 
 # --- C1: structural validity (23 canonical v1.1 fields)
 $v11Keys = @(
