@@ -30,6 +30,7 @@ here about opencode was read out of a working reference implementation
 | 08 | [testing.md](08-testing.md) | What must be proven, and how, without a model |
 | 09 | [implementation-plan.md](09-implementation-plan.md) | Ordered build steps with exit criteria |
 | 10 | [reference-findings.md](10-reference-findings.md) | What the reference taught us, including its own traps |
+| 11 | [bootstrap-reconciliation.md](11-bootstrap-reconciliation.md) | How our runtime relates to the "generic bootstrap" proposal, and what we take from it |
 
 ## The four things that make this VIVIM's and not a copy
 

@@ -47,21 +47,93 @@ This is a hard operating rule, learned the hard way (see `10-reference-findings.
   long-running logic is never inside an interactive tool call.
 - `vivim_swarm_wait` (MCP) is capped at 120 s and returns current status on timeout.
 
-## Server lifecycle
+## Server lifecycle — Windows-first, and it is not the reference's default
 
-Spawned per run:
+### The reference's owned-server path does not work here
+
+The reference runner spawns its own server and tears it down with **POSIX process-group
+signalling**:
+
+```ts
+// opencode-swarm/src/runner.ts  (verified in the clone)
+detached: true, proc.unref(),
+process.kill(-proc.pid, "SIGTERM"),
+process.kill(-proc.pid, "SIGKILL"),
+```
+
+Windows has no POSIX process group, so negative-PID signalling has no useful meaning there. Our
+own experience matches: the launcher PID is not the listener PID, and killing the launcher left a
+live server still holding the port.
+
+**Therefore, on Windows, we do not use the owned-server path.** We use the reference's external
+server path, which the runner already supports and which is explicitly *not* owned by the run:
 
 ```
-spawn("opencode", ["serve","--hostname=127.0.0.1","--port=<port>"], {
-  env: { ...process.env, VIVIM_SWARM_DB, OPENCODE_CONFIG_CONTENT: … },
-  detached: true, stdio: ["ignore","pipe","pipe"]
-})
+opencode serve --hostname 127.0.0.1 --port 4096       # started explicitly, long-lived
+vivim-swarm run swarm.json --server http://127.0.0.1:4096
 ```
 
-Teardown kills the **process group**, not the direct child. The SDK's own
-`createOpencodeServer` only signals the child and opencode survives it — a documented
-production failure ("leaked CPU-burning servers"). On Windows, take the tree with
-`taskkill /T /F /PID <pid>`; on POSIX, `process.kill(-pid, …)`.
+When `--server` is supplied the runner does not start or close a server, and the server survives
+the run. That is the model our long-lived setup uses.
+
+### A long-lived server must be preconfigured
+
+`--server` only changes where the SDK client connects. It does **not** inject the plugin, and it
+does **not** set the DB environment on that server. So the long-lived server must already have:
+
+- the swarm plugin loaded;
+- `VIVIM_SWARM_DB` (or `OPENCODE_SWARM_DB`) pointing at the **same** database the controller uses.
+
+Getting this wrong produces a run that completes with agents unable to talk, and no error — the
+symptom is a run that "works" but where every shared-memory read misses and no message is ever
+delivered. Assert it, do not assume it.
+
+The plugin's resolution order is `OPENCODE_SWARM_PLUGIN` → source-relative `plugin/swarm.ts` →
+`swarm-plugin.js` beside the executable. Discovery is not automatic everywhere.
+
+**Config is read once at boot.** A long-lived server will not pick up a later edit to
+`opencode.json`. This is exactly what bit me: I edited the config, restarted only the launcher
+process, and a stale server answered with the old config. After any config change, confirm the
+port is actually free before restarting, and confirm the resolved config afterwards.
+
+### Auth when binding beyond loopback
+
+We bind `127.0.0.1`, so no password is required. If anyone binds wider, set
+`OPENCODE_SERVER_PASSWORD` first. Documented here so it is not discovered by exposure.
+
+### Windows interrupt caveat — check health, do not assume
+
+An upstream issue reports that on Windows an **attached TUI can terminate `opencode serve`** with
+`STATUS_CONTROL_C_EXIT` on certain interrupt/exit paths (Escape, Ctrl+C; reported against
+1.18.16). We run **1.18.4**, so whether we are affected is **unverified**.
+
+Treat it as a runtime caveat, not a swarm semantic. After any TUI interrupt:
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:4096/global/health
+```
+
+and prefer a graceful TUI exit over an interrupt where a long-lived server matters.
+
+### Windows path rules
+
+- JSON config paths: use forward slashes (`C:/work/plugin.swarm.ts`). PowerShell accepts normal
+  Windows paths.
+- WSL translation: `C:` → `/mnt/c`. Never hand a WSL path to a native Windows opencode, or the
+  reverse.
+- `notify-send` does not exist here. Desktop notification cannot be assumed; a portable channel
+  (ntfy) or nothing is the correct default. The reference helper catches failures, so its absence
+  must not wedge a run.
+
+### Resume must reconcile config, or refuse
+
+The reference CLI takes a config file independently of the stored one, and the orchestrator skips
+completed agents *by name*. A changed config can alter roster, tasks, models, tool maps, rounds
+and budgets, and persisted rows absent from the new config are never deleted — so a resume can
+silently run a different swarm than the one recorded.
+
+We therefore compare the supplied config against the stored `config_json` and **refuse an
+unacknowledged mismatch**. "Resume" must never be a way to quietly change what a run means.
 
 ### Windows PID discipline
 

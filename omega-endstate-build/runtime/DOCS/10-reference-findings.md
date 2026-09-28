@@ -75,7 +75,57 @@ listening socket.
 | Notification channels are individually timeout-capped | A hung `notify-send` (headless, no dbus) must never wedge the agent loop. |
 | `notify-send` is Linux-only | On Windows that spawn fails. A portable channel (ntfy, or nothing) is the correct default for this machine. |
 
-## Gaps and defects in the reference that we must handle ourselves
+## Facts contributed by the `OPENCODE-SWARM-BOOTSTRAP` second-pass audit
+
+An independent audit on `origin/work/generic-opencode-swarm-bootstrap`
+(`10-REFERENCE-AUDIT-CAVEATS.md`, 15 findings) confirmed three of my corrections above and added
+seven facts I did not have. Merged here.
+
+### Confirmations
+
+- *"The implementation does not contain a continuously running bus watcher"* — delivery is
+  *"automatic delivery at turn boundaries plus final sweep."* Identical to correction 1.
+- Agent identity comes from the `ctx.sessionID` lookup, and there is **no runtime dependency on
+  `OPENCODE_SWARM_AGENT`**, contrary to the dated design doc.
+- *"Treat the executable implementation and current tests as authoritative; keep fixtures under
+  review rather than designing new semantics around the stale sample."* Identical to my
+  conclusion on the `round: -1` fixture.
+- Also confirmed: `permission.updated` is the real event name (docs say `permission.asked`);
+  exactly seven coordination tools, force-enabled; single-machine by design; `budgetUsd` is a soft
+  brake, not a spend guarantee.
+
+### New to me
+
+1. **`--server` does not inject the plugin or the DB env into an existing server.** It only
+   changes where the SDK client connects. A long-lived server must be *preconfigured* with the
+   plugin and `OPENCODE_SWARM_DB`. This is the single most consequential fact for our deployment,
+   and it explains my earlier "I edited opencode.json and it silently did nothing" failure: a
+   long-lived server reads that config **once at boot**.
+
+2. **`SwarmConfig.notify` exists but is not wired.** The runner's notification helper reads
+   `OPENCODE_NOTIFY_DESKTOP` / `OPENCODE_NOTIFY_NTFY_TOPIC` / `OPENCODE_NOTIFY_NTFY_URL`. A
+   `notify` block in `swarm.json` is inert. Do not put it there and expect a desktop popup.
+
+3. **MCP `swarm_wait` state is process-local.** `mcp.ts` holds active run promises in an
+   in-memory `Map`. `swarm_status` and `swarm_logs` read persisted state and therefore survive a
+   server restart; `swarm_wait` can only await a promise held by the *current* process.
+   Persistence covers state and results, not an immortal await handle.
+
+4. **Resume has no config reconciliation.** The CLI passes the supplied config alongside a swarm
+   id; the orchestrator skips completed agents *by name*. A changed config can alter roster,
+   tasks, models, tool maps, rounds and budgets, and persisted agent rows absent from the new
+   config are never deleted. A resume can therefore silently run a different swarm than the one
+   recorded. We must detect and refuse this.
+
+5. **Release packaging is Linux-only** — `opencode-swarm-<version>-linux-x64.tar.gz` built with
+   Unix shell tooling. On Windows the install is `bun install && bun link` from a checkout.
+
+6. **Plugin resolution order** is `OPENCODE_SWARM_PLUGIN` → source/package-relative
+   `plugin/swarm.ts` → `swarm-plugin.js` adjacent to the executable. Plugin discovery is not
+   automatic in every deployment, so it must be asserted rather than assumed.
+
+7. **`process.kill(-pid)` teardown is not Windows-safe.** See `07-operations.md`; this one is
+   load-bearing enough that it changed the implementation plan.
 
 ### Its committed events fixture is stale
 

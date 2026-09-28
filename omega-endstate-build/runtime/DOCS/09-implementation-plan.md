@@ -103,8 +103,10 @@ a partial run exits 1.
 The actual point of the runtime: run the four F0/F1 agents concurrently, each in its own
 worktree, and produce committed receipts.
 
-Preconditions: steps 1–6 green; port free; owner has restarted opencode so the plugin is
-available; model available and free-tier.
+Preconditions: steps 1–6 green; **a long-lived `opencode serve` already running and
+preconfigured with the plugin and `VIVIM_SWARM_DB`** (we do not use the reference's owned-server
+path — its `process.kill(-pid)` teardown is not Windows-safe, see `07`); the plugin confirmed
+loaded in that server; port free of stale servers; model available and free-tier.
 
 Sequence:
 1. Dry-run allocation only — no sessions — and inspect the four worktrees.
@@ -139,4 +141,7 @@ that is the finding.
 | Four agents on a free local model saturate the machine | `maxConcurrent: 2` first. |
 | An agent commits to the wrong branch | Isolation is allocation-enforced and the branch is in the receipt; the Steward reviews before integrating. |
 | Wall-clock budget too tight for slow agents | Deliberately too strict, then extend. Never unbounded. |
+| Long-lived server lacks the plugin | Symptom is a run that completes with no messages and no memory hits. Assert the tools are present, not that the run succeeded. |
+| Stale server answers after a "restart" | Config is read at boot only. Confirm the port is free, restart, then read back the resolved config. |
 | We ship a runtime whose own metrics are stale | The same discipline applies to the runtime: re-derive, record the date, never cite an inherited number. |
+| Core divergence silently rots | We own the execution semantics, so equivalence with the reference must be *tested*, not assumed. See `11`. |
