@@ -1,12 +1,12 @@
 # Ω End-State Build Team — Development Operating System
 
-> Status: TEAM-OWNED DESIGN SURFACE
+> Status: SEED / STARTER DESIGN SURFACE
 > Initial state: SELF-DESIGN REQUIRED
 > Date: 2026-09-28
 
 ## Purpose
 
-This is intentionally a **blank canvas for the team's development system**.
+This is intentionally a **starting question set for the team's development system**. The live team operating system should be created and maintained under `omega-endstate-build/`.
 
 The existing BCP-dev operating system is available as reference.
 
