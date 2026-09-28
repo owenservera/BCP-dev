@@ -46,3 +46,33 @@ The strongest convergence is not simply "use more agents." It is:
 > **Make organization, execution context, coordination history, evaluation, and evolution explicit enough that the team can improve without repeatedly reconstructing how it worked.**
 
 The key Ω tension is that external systems often give a supervisor or optimizer broad control over allocation and evolution. Ω needs that power split carefully between resident judgment, governed authorization, native execution, and durable evidence.
+
+## Explicit anti-pattern layer
+
+The library maintains an explicit catalog of failure patterns:
+
+`09-ANTI-PATTERN-CATALOG.md`
+
+Anti-patterns are treated as reusable design intelligence. They should be checked before a research conclusion becomes a design proposal and should grow when new evidence reveals a recurring failure mode.
+
+The catalog currently covers identity, delegation, alternate spawn surfaces, work graphs, acceptance, persistence, recovery, self-evolution, research methodology, and observability.
+
+## Seeded resident: resident-research
+
+This research directory is also the seed/home-in-formation of a proposed resident agent:
+
+`research/agent/`
+
+The seed contains:
+
+- `CORE-IDENTITY.md`
+- `BOOTSTRAP-PROMPT.md`
+- `RESEARCH-CONTRACT.md`
+- `RUNBOOK.md`
+- `STATE.md`
+- `TASKS.md`
+- `LESSONS.md`
+
+Its responsibility is to perform the research loop that created this library and keep the knowledge surface current.
+
+The seed is deliberately **not** added to the ratified Commons roster yet. Agent creation, identity ratification, runtime qualification, and Commons registration remain separate governance steps.
