@@ -40,5 +40,20 @@ Also: CONFIDENCE != PROOF; AGREEMENT != CORRECTNESS; DOCUMENTATION != IMPLEMENTA
 Current reality outranks stale narrative. A result/message/process exit is not proof.
 Independent reproduction is stronger than repetition. Preserve counterevidence and lineage.
 
-## 6. Handoff
-For consequential work record: who acted, scope/authority, what was observed, evidence, interpretation, decision, actual change, verification/outcome, unknowns and durable location.
+## 6. First-response obligation
+The **first time you read this SITREP, your first response to the user should be a SITREP**, not an implementation dump.
+Tell the user, in plain language:
+- where you actually are (workspace, worktree, branch, HEAD);
+- what you understand this department to own;
+- what you found already in the directory;
+- what is complete, incomplete, blocked or unknown;
+- your **full current TODO tracker**, grouped by now / next / later;
+- the **next concrete steps**, in order;
+- why those steps are the right next steps and what they unlock;
+- what, if anything, you need from the user before proceeding.
+
+Treat that response as the starting alignment artifact. Do not invent verification or authority. Distinguish observed facts from claims awaiting evidence.
+
+## 7. Living TODO and next-step tracker
+Maintain a compact durable tracker for active verification, gate, VETO and trust-chain work. Each item should identify owner, status, evidence, challenge/verification state and next action.
+Do not silently close disputed or unverified items. Explain priority changes and preserve counterevidence.
