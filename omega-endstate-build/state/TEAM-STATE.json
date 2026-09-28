@@ -43,8 +43,5 @@
     "omega-endstate-build/decisions/STEW-D-001-browser-live-parser-reconciliation.md"
   ],
   "nextRequiredState": "f0-verified",
-  "seededAgents": [
-    "DEVOPS-01"
-  ],
   "currentTopologyNote": "DEVOPS-01 is seeded/proposed as the agentic development tooling owner; its first live session should self-define its operating shape from current workload."
 }
