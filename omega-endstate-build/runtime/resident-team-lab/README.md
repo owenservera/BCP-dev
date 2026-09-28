@@ -14,24 +14,38 @@ The repository deliberately keeps two things distinct:
 
 Do not replace the vendor implementation here. When a new behavior is proposed, first prove it against the installed substrate, then add the smallest VIVIM layer required.
 
-## Current experiment
+## Current upgrade: U1
 
-The first experiment is intentionally small:
+U1 is the first major upgrade:
 
-`team-root` is a primary agent.
-`research-resident` is a durable-role-shaped subagent.
-`research-worker` is a disposable leaf.
+> **governed resident-owned worker delegation through native OpenCode Task.**
 
-The resident should be able to use OpenCode's native `Task` primitive to request a worker, while configuration and the lab plugin observe the delegation.
+The minimal topology is:
 
-This is an observability-first checkpoint. The plugin does not yet invent a custom spawn API and does not yet enforce the full Ω delegation law.
+```
+team-root -> research-resident -> research-worker
+```
+
+The resident must be able to make the decision to request bounded worker capacity.
+
+The runtime must decide whether that request is authorized and admitted.
+
+The plugin must not become a second scheduler.
+
+U1 deliberately excludes `task_id` resume. Resume is treated as a separate future capability because v1.18.4's native Task path does not itself establish sufficient ownership/lineage checks for an arbitrary existing session.
+
+See:
+
+- `docs/FIRST-MAJOR-UPGRADE-DESIGN.md`
+- `docs/FIRST-MAJOR-UPGRADE-RISK-REGISTER.md`
+- `docs/CHECKPOINTS.md`
 
 ## Layout
 
 - `plugin/` — VIVIM plugin integration/observation code.
 - `config/` — isolated OpenCode configs and resident/worker profiles for experiments.
 - `scripts/` — Windows PowerShell probes and repeatable test entry points.
-- `docs/` — evolving proposals, decisions, and checkpoint definitions.
+- `docs/` — evolving proposals, decisions, risks, and checkpoint definitions.
 - `artifacts/` — local experiment output; ignored by Git when present.
 
 ## Running the first probe
