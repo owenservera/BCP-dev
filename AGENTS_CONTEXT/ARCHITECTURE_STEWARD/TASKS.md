@@ -16,6 +16,16 @@
 
 ## Open tasks
 
+### LOCAL-TEAM-TOOLSET-SYNTHESIS-2026-09-28
+- **Status:** DONE — CROSS-CFA SYNTHESIS DELIVERED + VERIFIED
+- **Priority:** P0
+- **Goal:** owner 2026-09-28 — clean full document: all wave-1 tool rows listed, organized, scored, matrixed.
+- **Result:** `LOCAL-TEAM-TOOLSET-SYNTHESIS-20260928.md` — 100 rows listed (per-CFA table + pointers), 38-tool canonical union in 6 themes, M1 theme×CFA matrix, M2 /12 score matrix with NOW/NEXT/LATER phases, M3 phased plan (owners/gates), 6 tensions, carried unknowns. Demand OBSERVED; scores/phases DERIVED proposal.
+- **Receipt:** `RESULTS/STEWARD-20260928-TOOLSET-SYNTHESIS.md`
+- **Completion commit:** synthesis base `53e0cfb3`; closure commit titled `STEWARD-20260928-TOOLSET-SYNTHESIS` (see git log).
+- **Headline:** C1 receipt-validator demand 6/10 (12/12); verification theme 9/10 CFAs; OS-sandbox + revocation + crash-harness = load-bearing NEXT behind owner decisions.
+- **Next:** owner approve/adjust phases → authorize Phase-NOW EXECUTION corridor(s) past CFA-04/CFA-09 gates.
+
 ### LOCAL-TEAM-TOOLSET-WAVE1-2026-09-28
 - **Status:** DONE — 10/10 CFA TOOLSET UNITS VERIFIED + CLOSED
 - **Priority:** P0
