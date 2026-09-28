@@ -31,8 +31,10 @@ Done and proven (evidence in repo, all on sandbox unless noted):
 | 3 | Parallel-spawn drill: 3 CFA waves, 3/3 reports verified vs repo | Session record 2026-09-27 (no repo change; read-only) | DONE, PROVEN |
 | 4 | Sandbox rebased onto `origin/main` 95bbfea3, suite re-proven, parked | `.opencode/README.md` PARKED notice, commit `7ef8094b` | DONE |
 
-`main` is mid-flight (Stage-E L2 adapter wave across CFAs; strategic-roadmap round
-in progress). This track stays parked — no competition with the live P1.
+`main` has advanced past the branch snapshot: Stage-E L2 is closed/reconciled (7/7)
+and the next shared Stage-E action is L3 graph-bundle design. The autonomous-team
+track is now being integrated into that current main rather than kept as a competing
+long-lived baseline.
 
 ## Remaining work, in order
 
@@ -81,13 +83,14 @@ in progress). This track stays parked — no competition with the live P1.
    own home/tool diff, Steward reconciles, rollback path mandatory. First real
    task of the proven team. Owner: all; Steward orchestrates.
 
-### Phase 5 — Operations + integration
+### Phase 5 — Operations + shared-main continuation
 
 9. **Operations wave.** Digest automation, receipt sweep, then re-evaluation of the
    SUPERSEDED Cycle 4 packet against the now-proven team.
-10. **Integration toward `main`.** Coherent units per the Git protocol (pack →
-    delegation → tests → adapters), never commons refs, only when the resume
-    conditions in `.opencode/README.md` hold.
+10. **Integration to `main`.** The owner-approved shared-main decision now targets one
+    integrated `main` for both ChatGPT and local OpenCode. PR #68 is the reviewed
+    integration vehicle. After merge, re-run Gate B from `.opencode/README.md` on the
+    resulting main before local autonomous continuation. Never merge commons refs.
 
 ## Explicit non-goals (still)
 
