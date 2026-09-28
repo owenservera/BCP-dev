@@ -16,6 +16,17 @@
 
 ## Open tasks
 
+### LOCAL-TEAM-TOOLSET-WAVE1-2026-09-28
+- **Status:** DONE — 10/10 CFA TOOLSET UNITS VERIFIED + CLOSED
+- **Priority:** P0
+- **Goal:** owner 2026-09-28 — full-machine-access local team; each of the 10 CFAs identifies its domain-lensed top-10 setup tools, report saved in its home folder.
+- **Wave:** single INDEPENDENT wave, 10 parallel CFA sessions (one per OWNER-DELEGATION.md name; delegation + roster + register reconciled pre-spawn, no drift). Base `e18c2005`; wave content HEAD `adb3b76a`.
+- **Result:** 10/10 artifacts (`SUBAGENTS/<HOME>/TOOLSET-TOP10-20260928.md`) + 10 v1.2 receipts + 10 home TASKS closures, steward-verified vs repo (whole-reads of CFA-01/CFA-07 receipts; validator OVERALL PASS 10/10 — 9 direct, CFA-07 after format-only C1 repair `dd2577ff`+`adb3b76a`, artifact byte-identical).
+- **Receipt:** `RESULTS/STEWARD-20260928-LOCAL-TEAM-TOOLSET-WAVE1.md`
+- **Completion commit:** wave content HEAD `adb3b76a`; steward receipt + this TASKS entry closed in the wave-1 closure commit titled `STEWARD-20260928-LOCAL-TEAM-TOOLSET-WAVE1` (see git log).
+- **Noted:** parallel-wave cross-home byte collisions (content-correct, attribution opaque) + index.lock retries; pre-existing untracked files untouched; no Ω-law/boundary/install activity (DELIBERATE throughout).
+- **Next:** owner decision — (a) Steward cross-CFA synthesis into one prioritized setup plan, and/or (b) EXECUTION setup corridor(s) past CFA-04/CFA-09 gates.
+
 ### LOCAL-AGENT-M0-M1-UPGRADE-2026-09-28
 - **Status:** DONE — WAVE 1 RECONCILED + CORRIDOR M0M1-CORRIDOR-01 DELIVERED
 - **Priority:** P0
