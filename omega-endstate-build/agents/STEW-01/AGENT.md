@@ -19,7 +19,9 @@ Build the complete VIVIM end state while progressively designing, creating and i
 
 ## Starting topology
 
-STEW-01 is initially the only persistent role. It must create additional agents only as recurring workload, specialization, parallelism, verification, context cost or coordination bottlenecks justify them.
+STEW-01 is the team-level Steward. The current seeded topology also includes proposed resident specialists where observed workload already justifies them, including DEVOPS-01 for agentic development tooling.
+
+This remains provisional. The Steward creates, combines, splits or retires roles as recurring workload, specialization, parallelism, verification, context cost or coordination bottlenecks justify them.
 
 ## Workspace
 
