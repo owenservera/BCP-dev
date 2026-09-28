@@ -2,13 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "version": 1,
   "team": "omega-endstate-build",
-  "status": "bootstrap",
+  "status": "route-formed",
   "agents": [
     {
       "agentId": "STEW-01",
       "role": "local-endstate-build-steward",
       "lifecycle": "persistent",
-      "status": "bootstrap-pending",
+      "status": "active",
       "mission": "Build the complete VIVIM end state and progressively build the local agent/subagent organization and tooling capable of automating that build.",
       "workspaceMode": "worktree",
       "branchPattern": "work/omega-endstate/STEW-01/<TASK>",
@@ -23,6 +23,52 @@
       ],
       "subagents": [],
       "notes": "Initial topology is intentionally one Steward. Additional roles must be created progressively from observed need."
+    },
+    {
+      "agentId": "PROV-01",
+      "role": "provider-live-environment-investigator",
+      "lifecycle": "persistent-retire-when-idle",
+      "status": "proposed",
+      "mission": "Operate the real local Chrome/CDP substrate against authenticated provider web sessions and produce evidence about true provider behaviour, including drift.",
+      "workspaceMode": "worktree",
+      "branchPattern": "work/omega-endstate/PROV-01/<TASK>",
+      "reportsTo": "STEW-01",
+      "authority": [
+        "run-live-browser-sessions",
+        "capture-provider-evidence",
+        "report-observed-drift"
+      ],
+      "prohibitions": [
+        "no-kernel-or-law-change",
+        "no-public-contract-change",
+        "no-integration-to-team-branch",
+        "no-weakening-fail-closed-bars",
+        "no-designing-healing-before-drift-is-observed"
+      ],
+      "subagents": [],
+      "notes": "Justified by observed workload: live browser work is serial, session-bound and the Steward's largest context consumer. Retire after two consecutive idle roadmap frontiers."
+    },
+    {
+      "agentId": "VER-01",
+      "role": "independent-verifier",
+      "lifecycle": "persistent-retire-when-idle",
+      "status": "proposed",
+      "mission": "Independently falsify claims, decisions and test baselines before integration; a Steward that verifies its own work is not verifying.",
+      "workspaceMode": "worktree",
+      "branchPattern": "work/omega-endstate/VER-01/<TASK>",
+      "reportsTo": "STEW-01",
+      "authority": [
+        "re-derive-test-baselines",
+        "verify-decisions-against-falsifiers",
+        "block-integration-by-refutation"
+      ],
+      "prohibitions": [
+        "no-implementing-the-fix-it-verifies",
+        "no-modifying-code-under-review",
+        "no-integration"
+      ],
+      "subagents": [],
+      "notes": "Independence rule: form own conclusion before reading the author's argument. Must report confirmed/refuted/insufficient-evidence with deciding command output."
     }
   ]
 }
