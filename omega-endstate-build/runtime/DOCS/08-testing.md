@@ -61,10 +61,47 @@ fakeClient({
 | 16 | A message is delivered exactly once | No replay, no double-spend |
 | 17 | `swarm_send` to an unknown agent returns the roster, writes nothing | VIVIM |
 | 18 | A tool call from a non-swarm session writes nothing | Identity safety |
+| 19 | `round >= 0` on every `agent-turn` and `agent-turn-done` | Guards the final-sweep ordinal regression the reference fixture still exhibits |
+| 20 | `agent-settled` cost includes sweep turns; `agent-done` does not | Two distinct cost reports for the same agent |
+| 21 | Budget: 4 agents, $1/turn, budget $2, serialised → 2 `done`, 2 `skipped`, status `stopped`, cost exactly $2, **one** `budget-exceeded` | Deterministic brake semantics |
+| 22 | `maxConcurrent: 2` with 6 agents never exceeds 2 concurrent prompts; with no cap all 5 run at once | The limiter is real, not decorative |
+| 23 | `validateConfig` rejects missing name/model/agents, an agent with no task, duplicate names, and the reserved name `*` | Fail before any session exists |
+| 24 | `parseModel` splits on the first slash only, so `modelID` may contain slashes | Provider/model boundary |
+| 25 | `migrate()` adds a column to a hand-built legacy table | Additive migration is real, not assumed |
+| 26 | The MCP tool surface is asserted as an exact sorted list | A silently-added or renamed tool is a contract change |
+| 27 | Broadcast excludes the sender; `inbox(all:true)` keeps history after `markDelivered` | Delivery accounting |
 
-Already passing (9): state isolation, exactly-once delivery, broadcast fan-out, self/empty
-message rejection, per-run memory isolation, delivery-prompt rendering, retained history,
-verdict storage including `UNRESOLVED`.
+Already passing (12): state isolation between runs, exactly-once delivery, broadcast fan-out,
+self/empty message rejection, per-run memory isolation, delivery-prompt rendering, retained
+history, verdict storage including `UNRESOLVED`, partial-update no-clobber, status never reset to
+the insert default, `findAgentBySession` unambiguous with unknown ids resolving to nothing.
+
+## MCP testing without a subprocess
+
+The reference does not shell out to test its MCP server. It links a real client and server over
+an in-memory transport:
+
+```ts
+import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js"
+const [clientTransport, serverTransport] = InMemoryTransport.createLinkedPair()
+await Promise.all([server.connect(serverTransport), client.connect(clientTransport)])
+const tools = await client.listTools()
+```
+
+That gives real protocol coverage — including `isError` on an unknown swarm and on a bad config —
+with no process, port or model. We do the same, and inject a fake runner so `swarm_run` completes
+deterministically.
+
+## Do not use the reference's events fixture as a schema
+
+`tests/fixtures/events.sample.jsonl` is **stale**. It was captured before two fixes and contradicts
+the current code and its own tests:
+
+- it contains `"round": -1` from a final-sweep delivery, which current code cannot produce and a
+  current test explicitly forbids;
+- its `tokens` objects carry a `total` field the current `TurnTokens` type does not declare.
+
+Derive the event schema from `orchestrator.ts` and `02-orchestration.md`, never from the fixture.
 
 ## Workspace isolation tests
 

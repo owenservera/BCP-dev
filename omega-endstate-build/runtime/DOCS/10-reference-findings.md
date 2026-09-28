@@ -75,7 +75,27 @@ listening socket.
 | Notification channels are individually timeout-capped | A hung `notify-send` (headless, no dbus) must never wedge the agent loop. |
 | `notify-send` is Linux-only | On Windows that spawn fails. A portable channel (ntfy, or nothing) is the correct default for this machine. |
 
-## Gaps in the reference that we must close ourselves
+## Gaps and defects in the reference that we must handle ourselves
+
+### Its committed events fixture is stale
+
+`tests/fixtures/events.sample.jsonl` was captured before two later fixes and now **contradicts the
+code and the test suite**:
+
+- it contains `"round": -1` on a final-sweep `agent-turn-done`. The current `promptAgent` only
+  ever increments a counter from 0, so `-1` is unreachable — and
+  `tests/cost-budget.test.ts` asserts `round >= 0` on every turn event specifically to prevent it.
+- its `tokens` objects include a `total` field that the current `TurnTokens` type does not declare.
+
+So: derive the event schema from `orchestrator.ts`, never from the fixture. We regenerate our own
+fixture as part of step 6 and add a test that keeps it honest.
+
+Its ping-pong is still instructive though. The sample run shows two agents acknowledging each other
+for three rounds, the last turn being nothing but a courtesy reply. That is precisely the waste the
+`maxRounds` guard and the "never send acknowledgement-only messages" instruction exist to bound — and
+it is direct evidence that the guard is doing real work rather than defending a hypothetical.
+
+### Five genuine gaps
 
 1. **No workspace isolation.** All agents share one directory. This is unacceptable here and is
    our primary divergence (`05-workspace-isolation.md`).

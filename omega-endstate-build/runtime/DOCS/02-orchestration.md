@@ -50,12 +50,19 @@ consumers of the same `delivered_at` column would race and silently drop message
 
 | Limit | Default | Rationale |
 |---|---|---|
-| `maxConcurrent` | 4 | Caps simultaneous turns. A free local model still has real CPU/RAM cost, and 25 agents at once is a self-DoS. |
+| `maxConcurrent` | 4 | Caps simultaneous turns, via a real counting semaphore. A free local model still has real CPU/RAM cost, and 25 agents at once is a self-DoS. Asserted exactly: 6 agents with `maxConcurrent: 2` must never exceed 2 concurrent prompts, and with no cap all 5 must run at once. |
 | `maxRounds` | 6 | Hard guard on the in-loop + sweep message cycles. Bounds total turns per agent. |
 | `budgetSeconds` (per run) | 1200 | **Wall clock.** The reference's `budgetUsd` cannot protect us: a free provider reports zero cost, so a hung run is unbounded. Wall clock is the limit that actually binds. |
 | `budgetSeconds` (per agent) | 600 | An individual agent that is wedged fails alone. |
-| `budgetUsd` | unset | Carried for parity and future paid models. Reported per turn. |
+| `budgetUsd` | unset | Carried for parity and future paid models. Reported per turn, accumulated per agent. |
 | retries | 3, quadratic backoff | Transient provider errors are common; three attempts with `500ms·(n+1)²` recovers the common cases without masking a real failure. |
+
+### `budgetUsd` behaviour, verified against the reference's tests
+
+4 agents at $1/turn with `budgetUsd: 2` and `maxConcurrent: 1` produces exactly: 2 agents `done`,
+2 agents `skipped`, swarm status `stopped`, total cost exactly `2`, and **one** `budget-exceeded`
+event. That determinism only holds because the budget is checked *before* work is issued rather
+than accumulated during it.
 
 **Budget semantics:** exceeding a limit is `UNRESOLVED`, not failure and not success. In-flight
 turns are allowed to finish; no new turns are issued. A run that hits its budget still produces
@@ -118,18 +125,70 @@ a `cli-exit` sentinel:
 
 ```
 run-start
-agent-allocated { agent, branch, baseSha, workspace }
-agent-session  { agent, sessionId }
-agent-turn     { agent, round }
-agent-turn-done{ agent, round, model, costUsd, tokens }
+agent-allocated { agent, branch, baseSha, workspace }   ← VIVIM only
+agent-spawned   { agent, sessionId }
+agent-turn      { agent, round }
+agent-turn-done { agent, round, model, costUsd, tokens, totalCostUsd }
 messages-delivered { agent, count }
-agent-verdict  { agent, verdict }
-agent-failed   { agent, error }
-budget-exceeded
-swarm-done     { runId, status }
-cli-exit       { code }
+agent-verdict   { agent, verdict }                      ← VIVIM only
+agent-done      { agent, result, costUsd }
+agent-settled   { agent, status, costUsd, result }
+agent-skipped   { agent, reason }
+agent-failed    { agent, error }
+budget-exceeded { spentUsd, budgetUsd }
+swarm-done      { runId, status, totalCostUsd }
+cli-exit        { code }                                ← written by the CLI, not the orchestrator
 ```
 
-The `cli-exit` sentinel exists so a consumer can distinguish "the run finished and the process is
-exiting" from "the writer hung". Without it, an events-file tailer has no way to tell those apart
-— which is the same class of problem as trusting an exit code.
+### `agent-done` and `agent-settled` are different events
+
+`agent-done` fires when the agent's own loop ends. `agent-settled` fires once per agent **after
+the final sweep**, so its `costUsd` and `result` include the sweep's extra turns. A consumer
+that reports cost must use `agent-settled`; one that reports progress can use `agent-done`.
+
+### Turn ordinals
+
+`round` is a monotonic per-agent counter starting at 0. It is **never negative** — including for
+final-sweep deliveries. A current test asserts `round >= 0` for every `agent-turn` and
+`agent-turn-done`. See `10-reference-findings.md`: the reference's own committed events fixture
+predates that fix and still contains a `round: -1`, so the fixture is stale and must not be used
+as a schema reference.
+
+### Token shape
+
+```ts
+type TurnTokens = {
+  input: number; output: number; reasoning: number;
+  cache: { read: number; write: number };
+  // the provider may also report `total`; treat it as optional
+}
+```
+
+`totalCostUsd` on `agent-turn-done` is cumulative across the whole swarm, not per agent. Per-agent
+accumulation lives in the `agents` row.
+
+### The sentinel
+
+`cli-exit` is written by the CLI, not the orchestrator, because the orchestrator cannot know when
+its host process will exit. A tailer reading the events file cannot otherwise distinguish "run
+finished, process exiting" from "the writer died mid-run" — the same ambiguity as trusting an
+exit code.
+
+## Status values are a five-way distinction, not two
+
+`allocated` → `running` → one of `done` / `failed` / `skipped`, plus `blocked` for a VIVIM agent
+held by a peer question. `skipped` (budget exhausted before start) is deliberately **not** the
+same as `failed` (something went wrong). Collapsing them loses the only signal that distinguishes
+"we chose not to run this" from "this broke".
+
+## Where the budget is checked
+
+The budget is consulted at exactly three points, and being explicit about them is what makes the
+behaviour predictable:
+
+1. **Before starting an agent** → it becomes `skipped` and is never prompted.
+2. **Before each delivery prompt inside an agent's loop** → the loop breaks.
+3. **Before each final-sweep prompt** → that delivery is dropped.
+
+It is never checked mid-turn, so in-flight turns always complete. `budget-exceeded` is emitted
+**once**, not per check — a one-shot event, asserted by test.

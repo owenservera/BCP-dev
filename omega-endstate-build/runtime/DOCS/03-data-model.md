@@ -100,14 +100,40 @@ durable evidence without knowing the DB layout.
 
 ## Migration
 
-Additive only, applied on open:
+Additive only, applied on open, and **exported so it can be tested directly** — the reference
+tests it by hand-building a pre-0.2 `agents` table (no `cost_usd`) in an in-memory database,
+calling `migrate()` on it, and asserting the column appears with default `0`. That is a better
+test than "open a new DB and hope".
 
 ```
-PRAGMA table_info(agents) -> if no cost_usd: ALTER TABLE agents ADD COLUMN cost_usd ...
+PRAGMA table_info(agents) -> if no cost_usd: ALTER TABLE agents ADD COLUMN cost_usd REAL NOT NULL DEFAULT 0
 ```
 
 No destructive migrations. If a future change cannot be additive, that is a signal the schema
 was designed wrong, and it should be fixed by adding a column rather than by rewriting rows.
+
+## Two schema details that are easy to get wrong
+
+**`upsertAgent` partial updates.** Covered above. The exact behaviour to test is: insert with
+`status: "done", result: "v1"`, then update with `result: "v2"` only — the status must remain
+`"done"`. That is the regression the reference pins, and it is the same bug I hit and fixed.
+
+**`memory.search` ordering.** The reference orders by `updated_at DESC` (most recently written
+first). My first implementation ordered by `key`, which is more stable for humans reading a list
+but wrong for "what did we just learn". We order by `updated_at DESC, key` so ties are
+deterministic.
+
+## Model strings
+
+Not a schema concern, but a parsing rule that belongs here because it is easy to get wrong:
+
+```
+parseModel splits on the FIRST slash only.
+  "openrouter/openai/gpt-4o-mini"  ->  providerID "openrouter", modelID "openai/gpt-4o-mini"
+  "anthropic/claude-sonnet-4-6"    ->  providerID "anthropic", modelID "claude-sonnet-4-6"
+```
+
+So `modelID` legitimately contains slashes. Rejects `no-slash`, `/leading`, and `trailing/`.
 
 ## What is deliberately absent
 
