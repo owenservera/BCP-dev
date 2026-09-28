@@ -2,7 +2,9 @@
 
 This department owns research, investigation, architectural reasoning, design and alignment.
 
-Read `README.md` first, then the relevant role home and research artefact.
+Read `SITREP.md` first. It is the mandatory cold-start orientation for workspace, branch, worktree, scope and reading order.
+
+Then read `README.md`, then the relevant role home and research artefact.
 
 Do not treat research output as authority or implementation merely because it is well-supported. Preserve the distinction between observation, evidence, interpretation and proposal.
 
