@@ -20,9 +20,10 @@ It answers a narrower question:
 6. [05-EVIDENCE-AND-GAPS.md](05-EVIDENCE-AND-GAPS.md) — what is source-exact, externally corroborated, locally exercised, or still unknown.
 7. [06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md](06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md) — session/context separation, handoff, compaction, and fresh-vs-resume balance.
 8. [07-RESIDENCY-DEPARTMENT-AND-PRESENCE-KERNEL.md](07-RESIDENCY-DEPARTMENT-AND-PRESENCE-KERNEL.md) — functional departments, master/resident identity, worker capability, dormancy, background presence, context epochs, and attention budgets.
-9. [upgrades/README.md](upgrades/README.md) — upgrade-wave index.
-11. [upgrades/U2A/README.md](upgrades/U2A/README.md) — proposed residency/presence upgrade lane.
-12. [upgrades/U1/README.md](upgrades/U1/README.md) — current U1 research lane.
+10. [08-CROSS-DOMAIN-ORGANIZATIONAL-RUNTIME-SYNTHESIS.md](08-CROSS-DOMAIN-ORGANIZATIONAL-RUNTIME-SYNTHESIS.md) — cross-domain synthesis from virtual actors, controllers, supervision, blackboards, capability allocation, durable execution, and context engineering.
+11. [upgrades/README.md](upgrades/README.md) — upgrade-wave index.
+12. [upgrades/U2A/README.md](upgrades/U2A/README.md) — proposed residency/presence upgrade lane.
+13. [upgrades/U1/README.md](upgrades/U1/README.md) — current U1 research lane.
 
 ## Evidence hierarchy
 
