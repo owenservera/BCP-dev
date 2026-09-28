@@ -39,10 +39,13 @@ The branch-local evidence verified against opencode 1.18.4 established:
 
 1. all eleven agent bindings resolve;
 2. the Steward is primary and has task: true;
-3. each CFA is a subagent with task: false;
+3. each CFA is a subagent with task: true scoped to `work-*` leaves only
+   (flipped from task:false for P1; leaves stay task:false — verified);
 4. flat per-tool permission configuration loads;
 5. the Commons runtime suite was green in the recorded sandbox run;
 6. the v0 completion test was green in the recorded sandbox run.
+7. `subagent_depth: 2` is set (one nested level for CFA→leaf; default 1
+   blocks it — proven live 2026-09-28).
 
 Those results remain branch-local until the integrated current-main tree is
 re-executed. They do **not** prove two-host live operation, A2A-live, presence-loop,
@@ -59,6 +62,22 @@ Before local autonomous work resumes on main:
 5. confirm the current Durable Completion Gate and Steward routing remain intact.
 
 Only after that gate should Phase 2b/Phase 3 setup continue.
+
+## Headless run discipline (proven 2026-09-28)
+
+- Model `opencode/muse-spark-1.3-contributor-free` is correct and the only free
+  Muse Spark (paid: `opencode/muse-spark-1.3`). Variant `xhigh` is real for
+  contributor models; pass via `--variant xhigh`.
+- `opencode run` without `--agent` uses this repo's `default_agent`
+  (architecture-steward) — a trivial prompt triggers a full boot. Always pass
+  `--agent` explicitly.
+- Empty stdout ≠ model failure. Diagnose with `--format json` (typed `error`
+  events), `--print-logs --log-level DEBUG`, logs at
+  `%USERPROFILE%\.local\share\opencode\log`. Known trap: auto-rejected
+  permissions yield exit-0 zero-byte output — use `--auto` (denies still hold)
+  and never trust exit code alone.
+- Contributor-free models have documented Zen-side 500 flakiness; on
+  `Unexpected server error`, retry once before redesigning.
 
 ## Deliberately not included yet
 
