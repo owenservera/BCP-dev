@@ -2,3 +2,4 @@
 .local/
 tmp/
 runs/
+node_modules/

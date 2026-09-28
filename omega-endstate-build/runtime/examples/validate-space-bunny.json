@@ -1,0 +1,18 @@
+{
+  "name": "vivim-swarm-validate",
+  "model": "opencode/space-bunny-free",
+  "maxRounds": 3,
+  "maxConcurrent": 2,
+  "agents": [
+    {
+      "name": "scout",
+      "task": "Use swarm_memory_set to store the value BLUE-42 under the key secret-code. Then use swarm_send to tell the agent named analyst: 'the code is in shared memory under secret-code'. Then state you are done.",
+      "tools": { "*": false }
+    },
+    {
+      "name": "analyst",
+      "task": "You are waiting for instructions from your teammate scout. Check swarm_inbox. If you have no messages yet, just say WAITING. When a message tells you about a shared memory key, read it with swarm_memory_get and state the exact value you found.",
+      "tools": { "*": false }
+    }
+  ]
+}

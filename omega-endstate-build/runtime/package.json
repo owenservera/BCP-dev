@@ -1,0 +1,17 @@
+{
+  "name": "@vivim/endstate-team-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "VIVIM omega end-state build team: team design + provisioning on top of the proven opencode-swarm execution core.",
+  "scripts": {
+    "swarm": "bun run src/cli.ts",
+    "test": "bun test test/"
+  },
+  "dependencies": {
+    "opencode-swarm": "file:./vendor/opencode-swarm"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14"
+  }
+}
