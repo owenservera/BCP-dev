@@ -43,6 +43,12 @@ Then read the complete seed corpus under:
 
 AGENTS_CONTEXT/ARCHITECTURE_STEWARD/OMEGA-ENDSTATE-BUILD-TEAM/
 
+For a specific resident agent, also read its durable home under:
+
+agents/<AGENT_ID>/
+
+An agent home is durable identity/context/control-plane memory; it is not the agent's execution workspace.
+
 ## Scope
 
 This project is an independent end-to-end VIVIM build path.
@@ -59,7 +65,7 @@ The local Steward owns progressive creation of the team's agents and development
 
 agents/
 
-Start with the seeded STEW-01 role and add specialists only when justified by observed workload.
+Start from the current seeded topology in team/AGENT-ROSTER.json. Additional specialists may be proposed, provisioned, combined or retired as observed workload justifies them.
 
 ## Workspace safety
 
