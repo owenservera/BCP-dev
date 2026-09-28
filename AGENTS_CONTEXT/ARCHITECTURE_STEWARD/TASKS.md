@@ -16,6 +16,15 @@
 
 ## Open tasks
 
+### LANE-DISCIPLINE-PARALLEL-LANE-2026-09-28
+- **Status:** DONE — LANE RECORDED IN CORE CONTEXT
+- **Priority:** P0
+- **Owner instruction (2026-09-28):** a parallel Ω End-State dev lane is set up and running; ensure the Steward and its agents stay in their own lane and are aware it exists. Nothing more.
+- **Result:** lane identity, verified worktree/branch evidence, in-lane write rule, peer-home prohibition, cross-lane STOP conditions recorded in `STATE.md` § Lane and `SESSION-CONTEXT.md`; `lane` added as a mandatory task-envelope field in `CHATGPT-AGENT-OPERATING-MODEL.md` Layer D so the rule reaches every spawned CFA.
+- **Receipt:** `RESULTS/STEWARD-20260928-LANE-DISCIPLINE.md`
+- **Overlap finding:** owner-stated Path B opencode-swarm build is **plausible but unproven** — Path B's opencode research has zero `opencode-swarm`/`ibraheem` references (verified 2026-09-28). Re-verify before any cross-lane decision.
+- **Not adopted (out of lane):** building a custom port/reimplementation of `ibraheem-111/opencode-swarm` or any third-party swarm runtime for this team. Owner narrowed this request to lane discipline only. Reviving it requires a fresh owner instruction. Rationale: Path A already has a ratified coordination substrate in `AGENTS_CONTEXT/AGENT-COMMONS/`; a second one would be the parallel bureaucracy the lane rule forbids.
+
 ### LOCAL-TEAM-TOOLSET-SYNTHESIS-2026-09-28
 - **Status:** DONE — CROSS-CFA SYNTHESIS DELIVERED + VERIFIED
 - **Priority:** P0

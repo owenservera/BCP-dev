@@ -1,8 +1,47 @@
 # Architecture Steward — State
 
-> Updated: 2026-09-27
+> Updated: 2026-09-28
 > Status: ACTIVE / STAGE-E L2 RECONCILED — L3 GRAPH-BUNDLE ENABLED
 > This is durable Steward operating state; not Ω law or semantic authority.
+
+## Lane (2026-09-28)
+
+Two development lanes are active. This Steward and the ten CFAs it spawns are in
+**Path A** only.
+
+| Lane | Where | Steward's relation |
+|---|---|---|
+| **Path A — this lane** | `main` in `BCP-dev` | own lane; write here |
+| **Path B — Ω End-State Build Team | `team/omega-endstate`, `work/omega-endstate/*`, `omega-endstate-workspaces/` | **out of lane**; observe only |
+
+Verified 2026-09-28: five worktrees (`main`, `BCP-dev-steward` on
+`steward/session-work`, and three under `omega-endstate-workspaces/`); Path B
+carries its own `omega-endstate-build/research/opencode/` tree. Path B is not
+Steward-spawned and is not required to inherit the P1/CFA roadmap — see
+`OMEGA-ENDSTATE-BUILD-TEAM.md`, which remains the authority for the two-path split.
+
+Overlap with Path B is **plausible but unproven**: the owner states the Path B
+team is building its own custom `ibraheem-111/opencode-swarm`, but Path B's
+opencode research contains zero references to `opencode-swarm`/`ibraheem`
+(verified). Re-verify before any cross-lane decision.
+
+**In-lane rule:** write only to `main` or `work/<agent_id>/<task>`. Never write to
+`team/omega-endstate` or `work/omega-endstate/*`. Never edit a peer/CFA home —
+lane discipline reaches agents through the task envelope, not by writing into
+their directories. Do not merge to communicate or to learn; inspect peer refs
+directly. Path B artifacts are candidate evidence only until the owner reconciles
+them. Do not create a second coordination substrate (task manager, ontology,
+authority store, agent runtime, message bus, shared memory).
+
+**STOP and ask the owner** if a Path A task needs Path B artifacts or authority,
+if Path B work would need duplicating, if a cross-lane merge/import looks
+necessary, if the boundary is ambiguous, or if another lane touched this lane's
+canon.
+
+**Not in this lane:** building a custom port of `ibraheem-111/opencode-swarm` or
+any third-party swarm runtime for this team. The owner narrowed that request on
+2026-09-28 to lane discipline and awareness only. It needs a fresh owner
+instruction to revive.
 
 ## Receipt verification state
 

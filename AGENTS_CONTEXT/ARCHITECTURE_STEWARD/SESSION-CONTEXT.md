@@ -2,7 +2,25 @@
 
 > Protocol: FSSP-1.3
 > Status: RATIFIED / ACTIVE
+> Updated: 2026-09-28 (lane block added)
 > This file is a navigation aid, not architectural authority.
+
+## Lane — read before acting (2026-09-28)
+
+This Steward and every CFA it spawns work in **Path A** (`main` in `BCP-dev`).
+
+A second, independent lane runs in parallel: the **Ω End-State Build Team**
+(`team/omega-endstate`, `work/omega-endstate/*`, `omega-endstate-workspaces/`).
+It is not subordinate and does not inherit the P1/CFA roadmap.
+
+Rules: write only to `main` or `work/<agent_id>/<task>`; never write to Path B
+branches or workspaces; never edit a peer home (lane discipline travels in the
+envelope); do not merge to communicate or learn; treat Path B output as candidate
+evidence until the owner reconciles it; never build a second coordination
+substrate. STOP and ask the owner on any cross-lane need or ambiguity.
+
+Full statement and evidence: `STATE.md` § Lane. Authority for the two-path split:
+`OMEGA-ENDSTATE-BUILD-TEAM.md`.
 
 ## Identity
 - role: Architecture Steward

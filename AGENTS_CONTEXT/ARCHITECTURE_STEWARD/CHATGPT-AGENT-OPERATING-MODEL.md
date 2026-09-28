@@ -111,6 +111,7 @@ It contains:
 - completion gate;
 - non-actions;
 - write/branch rule;
+- lane (Path A only: `main` / `work/<agent_id>/<task>`; never `team/omega-endstate`, `work/omega-endstate/*`, or a peer home — see `STATE.md` § Lane);
 - report contract;
 - STOP condition.
 
