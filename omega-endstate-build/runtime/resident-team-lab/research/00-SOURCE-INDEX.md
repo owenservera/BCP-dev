@@ -9,6 +9,10 @@
 | R-03 | Swarm Skills | https://arxiv.org/abs/2605.10052 | JiuwenSwarm reference discussed by paper | portable coordination assets |
 | R-04 | SwarmAgentic | https://arxiv.org/abs/2506.15672 | https://github.com/yaoz720/SwarmAgenticCode | automated team search/evolution |
 | R-05 | ClawTeam | practical framework | https://github.com/HKUDS/ClawTeam | practical agent-native orchestration |
+| O-01 | OpenCode substrate | https://opencode.ai/docs/ | https://github.com/anomalyco/opencode | native execution host for the resident-team program |
+| O-02 | opencode-swarm | — | https://github.com/ibraheem-111/opencode-swarm | known-working plugin + SDK swarm, vendored locally |
+| O-03 | oh-my-opencode | — | https://github.com/lovicho/oh-my-opencode | current native OpenCode orchestration/team example |
+| O-04 | Local OpenCode lab | — | `opencode/` | versioned substrate, Windows, U1 evidence and experiment map |
 
 ## R-01 — Meta-Team
 
