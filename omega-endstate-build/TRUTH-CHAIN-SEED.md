@@ -318,6 +318,27 @@ Its existence demonstrates the principle:
 
 The chain should eventually be useful even if VETO-01 is retired.
 
+## Turn-close visibility rule
+
+Every participant operating in this workspace should end each turn or session by publishing its current visible task queue as a detailed table.
+
+The publication should include, at minimum:
+
+- task ID;
+- class;
+- status;
+- owner/claimant;
+- objective;
+- target;
+- mission connection;
+- requested output;
+- blocker or next action.
+
+The authoritative task record remains the source of truth. The published table is a visibility surface only.
+
+Do not omit known tasks merely because they are inactive. Do not invent missing fields. Do not use publication to imply authority, verification or completion.
+
+See: TURN-CLOSE-PROTOCOL.md
 ## Minimal participant obligation
 
 Every participant should be able to answer these questions for consequential work:
