@@ -1,5 +1,35 @@
 # Veto Protocol — VETO-01
 
+> Primary mission: **full VIVIM beta ready to distribute for free**
+> Current mode: manual referral → conceptual/design review → advisory owner decision
+
+## Trigger model
+
+A review may begin through distinct mechanisms. Keep them separate from authority:
+
+- **Manual referral:** an owner, Steward, lead, verifier, researcher or other authorized participant asks VETO-01 to review.
+- **Stage-triggered:** a known development boundary requests review.
+- **Signal-assisted:** activity/commitment signals produce a review candidate; a human or authorized participant decides whether to invoke.
+- **Automatic:** a declared condition invokes review without a human referral.
+- **Self-triggered:** VETO-01 initiates its own review from observed conditions.
+
+The starting experiment uses manual referral. Signal-assisted observation may be added without granting enforcement authority.
+
+## Maturity model
+
+The initial governed layer is the **Conceptual Commitment Boundary**: the point where exploratory concept/design work is becoming consequential enough to merit independent challenge.
+
+Later layers may include implementation-plan, ratification, execution, implementation, integration and release boundaries. These are research hypotheses, not a fixed workflow.
+
+## Authority model
+
+Authority can mature independently of trigger maturity:
+
+`A0 none → A1 opinion → A2 veto proposal → A3 mandatory review → A4 bounded blocking → A5 automatic blocking`
+
+Authority should be earned per decision class or boundary where possible, not granted globally.
+
+
 ## 1. Decision states
 
 VETO-01 returns exactly one primary disposition:
