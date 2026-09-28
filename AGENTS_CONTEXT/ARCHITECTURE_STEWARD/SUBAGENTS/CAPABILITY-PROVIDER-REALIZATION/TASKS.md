@@ -5,6 +5,16 @@
 > **Portfolio package:** STAGE-E
 > **Current portfolio state:** L2 capability/provider/realization basis adapter characterization pending
 
+## Owner-delegated toolset unit — 2026-09-28 (INDEPENDENT wave-1)
+
+### CFA06-TOOLSET-TOP10-2026-09-28
+- **Status:** DONE — DELIBERATE characterization delivered
+- **Priority:** P0
+- **Envelope:** owner goal shared identically by all 10 CFAs (full-local-machine team top-10 tools), CFA-06 domain lens only; base `e18c2005`; zero peer prerequisites; INDEPENDENT — no peer output read or awaited
+- **Artifact:** `TOOLSET-TOP10-20260928.md` (ranked top-10 table with rank/tool/what/why-domain/gap-closed/setup-note/risk-authority-note + rationale + deferred Cycle-4 note + unknowns + lineage)
+- **Receipt:** `RESULTS/CFA06-TOOLSET-20260928.md` (v1.2, MODE=DELIBERATE, SURFACE=LOCAL)
+- **Boundary:** no tool installed, no live account touched, no Ω-law change, no production implementation, no other-home edit, no force-push; no `work-*` leaves spawned (none needed)
+
 ## W1 unit B — Phase-3 inputs mining (finish-full-list, N.3)
 
 ### W1-PHASE3-INPUTS-2026-09-28
