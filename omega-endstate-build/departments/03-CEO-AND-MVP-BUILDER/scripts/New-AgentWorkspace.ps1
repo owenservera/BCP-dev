@@ -178,5 +178,5 @@ Write-Host "Workspace: $workspace"
 Write-Host ""
 Write-Host "Next:"
 Write-Host ('  Set-Location "' + $workspace + '"')
-Write-Host "  .\omega-endstate-build\scripts\Verify-AgentWorkspace.ps1"
+Write-Host "  .\omega-endstate-build\departments\03-CEO-AND-MVP-BUILDER\scripts\Verify-AgentWorkspace.ps1"
 Write-Host "  opencode"
