@@ -113,3 +113,12 @@ without additive repair blocks integration.
   DONE (s3-procA/B/lib.ts + 245-line receipt; imports/src/origin clean).
   Sibling wave landed 30+ disjoint CFA-home files mid-turn (validator reuse
   observed); shared-main rule applied, no contention. Next: S.3b run.
+- 2026-09-28 MERGE-ALL (owner-directed, base `986c7d9c`): 3 reviewed merges,
+  all docs-only, zero dry-run conflicts, zero dangerous paths (no Ω/src/
+  config): (1) origin/main sync `afd6a1e1` (6 test-doc commits, 4 files);
+  (2) design master-upgrade `3b617e9f` (29 commits, 19 files — dual-speed
+  ratification + M0/M1 prompt + resident-team second opinion now on main);
+  (3) test branch `28850105` (2 commits, fixture alignment). 25 stale
+  coord/research branches surveyed and LEFT as lineage (ahead-counts are not
+  merge signals; many already integrated via different SHAs). Receipt:
+  `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/RESULTS/STEWARD-20260928-MERGE-ALL-01.md`.
