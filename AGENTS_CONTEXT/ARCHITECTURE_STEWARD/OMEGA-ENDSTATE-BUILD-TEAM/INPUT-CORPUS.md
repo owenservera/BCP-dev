@@ -7,6 +7,15 @@ This file distinguishes what the team is intentionally handed from what it is ex
 
 ## Primary inputs — start from these
 
+### Owner-provided destination scaffold
+
+Before forming its roadmap, the team must read:
+
+- `END-STATE-SEED.md` — minimum product/destination goals supplied by the owner;
+- `KNOWN-COMPLEXITY-AREAS.md` — known engineering/design frontiers that are likely to remain difficult regardless of implementation choice.
+
+These files are deliberately **guidance, not architecture or backlog**. The team must preserve the stated destination while independently deciding how to realize it.
+
 ### A. Current Ω
 
 Use the current contents of:
