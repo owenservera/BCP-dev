@@ -51,6 +51,22 @@ It must not become the shared working checkout for multiple agents.
 
 Active agent workspaces should normally be separate local worktrees or clones outside the tracked project directory.
 
+## What is configured here vs what must happen locally
+
+This project now contains executable PowerShell helpers under `omega-endstate-build/scripts/` for workspace allocation, verification, Steward bootstrap, and retirement.
+
+From the repository side, we can provide:
+
+- the safety policy;
+- branch naming and ownership rules;
+- workspace allocation logic;
+- local agent manifests;
+- workspace registry schema;
+- verification/retirement tooling;
+- durable team scaffolding.
+
+The actual Windows filesystem operations still occur in the local session. The first Steward session must run the bootstrap helper locally rather than assuming that the GitHub branch itself creates isolation.
+
 ## Required startup inspection
 
 Before substantive work:
@@ -73,6 +89,32 @@ git rev-parse HEAD
 ```
 
 Never assume the current checkout or branch is what you intended.
+
+## Workspace allocation
+
+Use the supplied helper for normal local allocation:
+
+```powershell
+.\omega-endstate-build\scripts\Bootstrap-Steward.ps1
+```
+
+or for another agent:
+
+```powershell
+.\omega-endstate-build\scripts\New-AgentWorkspace.ps1 -AgentId PROV-01 -Task provider-lab
+```
+
+Use `-Mode clone` for unusually high-risk work where a completely separate Git repository checkout is preferable.
+
+The default workspace root is a sibling directory named `omega-endstate-workspaces`, outside the tracked repository. This prevents agent workspaces from becoming nested tracked project state.
+
+The allocator records machine-local registry state in that workspace root and writes a machine-local `.omega-agent/manifest.json` into each allocated workspace. Those manifests are gitignored.
+
+Before accepting a workspace, run:
+
+```powershell
+.\omega-endstate-build\scripts\Verify-AgentWorkspace.ps1
+```
 
 ## Workspace allocation
 
@@ -289,6 +331,12 @@ Before changing `team/omega-endstate`:
 6. record the resulting SHA.
 
 Never force the integration line into a desired state.
+
+## Project bootstrap invariant
+
+The first local Steward should normally be launched from an isolated workspace created by `Bootstrap-Steward.ps1`, on a branch such as `work/omega-endstate/STEW-01/bootstrap-team`, based from the exact current `team/omega-endstate` remote SHA.
+
+The Steward must not operate day-to-day from the shared `team/omega-endstate` checkout.
 
 ## Final invariant
 
