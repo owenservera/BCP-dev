@@ -15,7 +15,7 @@ Inspect, qualify and operate the local agent/runtime: installation, configuratio
 Build or improve mechanisms for agents to be safely created, identified, isolated, started, stopped, resumed, observed and retired.
 
 ### Workspace and Git mechanics
-Own development-system automation for isolated workspaces, branch ownership, worktree safety checks, integration mechanics and recovery. Existing Git safety rules remain higher-level constraints.
+Own development-system automation for isolated execution workspaces, task-branch mechanics, worktree safety checks, integration mechanics and recovery. Agent identity is separate from Git branch identity; existing Git safety rules remain higher-level constraints.
 
 ### Execution and delegation plumbing
 Turn declared work into actual bounded agent execution with lineage, task binding, status, receipts, retries where justified and accurate failure handling.
