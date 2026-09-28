@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "departmentId": "VETO-01",
+  "name": "Mission Governor Department",
+  "status": "experimental",
+  "primaryMission": "Full VIVIM beta ready to distribute for free",
+  "role": "independent-audit-governor",
+  "power": "veto",
+  "authority": {
+    "level": "A2",
+    "mode": "advisory-veto-proposal",
+    "enforcement": false
+  },
+  "trigger": {
+    "mode": "manual-referral",
+    "futureModes": [
+      "signal-assisted",
+      "stage-triggered",
+      "automatic",
+      "self-triggered"
+    ]
+  },
+  "review": {
+    "currentLayer": "conceptual-commitment-boundary",
+    "futureLayers": [
+      "implementation-plan",
+      "ratified-plan",
+      "execution",
+      "implementation",
+      "integration",
+      "release"
+    ]
+  },
+  "queue": {
+    "index": "TASK-QUEUE.md",
+    "sourceOfTruth": "tasks/VG-*.md",
+    "format": "TASK-FORMAT.md",
+    "runbook": "QUEUE-RUNBOOK.md"
+  },
+  "session": {
+    "instructions": "AGENTS.md",
+    "bootstrap": "BOOTSTRAP-PACKET.md",
+    "protocol": "SESSION-PROTOCOL.md",
+    "contextProtocol": "CONTEXT-BUNDLE-PROTOCOL.md"
+  },
+  "audit": {
+    "method": "AUDIT-METHOD.md",
+    "evidence": "EVIDENCE-GUIDE.md",
+    "resultTemplate": "RESULT-TEMPLATE.md",
+    "reviewPacket": "REVIEW-PACKET-TEMPLATE.md"
+  },
+  "evolution": {
+    "selfDefinition": "SELF-DEFINITION-GUIDE.md",
+    "questions": "SELF-DEFINITION-QUESTIONS.md",
+    "selfEvolution": "SELF-EVOLUTION-GUIDE.md",
+    "experimentTemplate": "SELF-EVOLUTION-EXPERIMENT-TEMPLATE.md",
+    "governanceOfGovernance": "GOVERNANCE-OF-GOVERNANCE-GUIDE.md",
+    "promotion": "PROMOTION-CRITERIA.md"
+  },
+  "intelligence": {
+    "map": "INTELLIGENCE-MAP.md",
+    "primer": "CURRENT-SYSTEM-PRIMER.md",
+    "researchSeed": "RESEARCH-SEED.md",
+    "antiPatterns": "ANTI-PATTERN-CATALOG.md"
+  },
+  "storage": {
+    "results": "results/",
+    "evidence": "evidence/",
+    "learning": "learning/",
+    "context": "context/",
+    "decisions": "decisions/"
+  },
+  "firstTask": "tasks/VG-0001.md",
+  "protectedInExperimentalPhase": [
+    "primaryMission",
+    "advisoryOnlyAuthority",
+    "independence",
+    "evidenceTraceability",
+    "recoverability",
+    "explicitOwnerDecision"
+  ]
+}
