@@ -62,6 +62,7 @@ These are the pinned source references for U1.
 | OC-K01 | https://github.com/ibraheem-111/opencode-swarm | OpenCode plugin + SDK swarm with shared memory, persistence, messaging, notifications; vendored locally. |
 | OC-K02 | https://github.com/lovicho/oh-my-opencode | Current orchestration example using Task, team mode, background children, workflow/DAG concepts, and specialist agents. |
 | OC-K03 | `../../vendor/opencode-swarm/` | Exact locally retained implementation, tests, and Windows adaptations used as the fallback substrate. |
+| OC-R01 | [06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md](06-CONTEXT-ARCHITECTURE-AND-SPAWN-BALANCE.md) | Session/context separation, compaction, handoff, fresh-vs-resume tradeoff, context-budget model, and experiments. |
 
 ## F. Local lab surfaces
 
