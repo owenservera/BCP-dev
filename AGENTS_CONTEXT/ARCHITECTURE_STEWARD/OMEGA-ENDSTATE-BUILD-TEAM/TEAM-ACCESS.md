@@ -21,6 +21,10 @@ The team gets the same practical repository and agent access available to the ex
 - research/documentation;
 - external tools available in the connected development environment.
 
+## Active team project home
+
+The canonical durable project/control-plane home is `omega-endstate-build/`. Team-owned agent definitions, prompts, workstreams, roadmap, state, decisions, research, evidence, experiments, tools, product-specific material and integration records should prefer this location.
+
 ## Use of peer agents
 
 The team may request help from existing agents or have those agents participate in this branch.
@@ -52,6 +56,14 @@ This team owns its own:
 - operating system;
 - decisions;
 - implementation lineage.
+
+## Team-owned agent organization
+
+The local Steward is explicitly authorized to create and progressively manage a new agent/subagent organization for this path. Existing agents may be reused as useful, but the current ten-CFA arrangement is not mandatory.
+
+## Workspace safety
+
+Each concurrently active agent must use its own isolated worktree or clone. Shared repository access does not permit shared autonomous checkouts.
 
 ## Security
 
