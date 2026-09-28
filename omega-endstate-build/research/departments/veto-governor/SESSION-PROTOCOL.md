@@ -80,8 +80,16 @@ Use labels:
 - UNKNOWN
 - REFUTED
 
+## Turn-close publication
+
+Before ending every turn or session, publish the current visible task queue as a detailed Markdown table using TURN-CLOSE-PROTOCOL.md.
+
+The table must be derived from authoritative task records. Include every known task when practical, preserve status and claimant information, mark unknowns as UNKNOWN, and identify the next action or blocker.
+
+The publication is informational and does not create authority, completion or verification.
+
 ## Completion
 
 A session is not complete because the model produced a good answer.
 
-It is complete when durable state is updated and the next session can understand what happened without hidden context.
+It is complete when durable state is updated, the next session can understand what happened without hidden context, and the turn-close task-queue publication is present.
