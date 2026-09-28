@@ -24,7 +24,7 @@ receipt quality, state transitions, and completion correctness.
 
 At test creation:
 - repository: owenservera/BCP-dev
-- known main: e181820502f1a5ea572ed51b98cebd3af0b9c5ae
+- known main / test-branch base: c4c369461fa5a2d77428d13279eb212b5a7301df
 - master task list blob SHA: 1124b0c7fe8bd0b70b9a7ed9c0bc8ad393289736
 - goal blob SHA: 341b7037e5e8df76b1f23b79f25422f4490bc1f6
 - goal: finish-full-list
