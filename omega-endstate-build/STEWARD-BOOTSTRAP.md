@@ -5,6 +5,20 @@
 > Project home: `omega-endstate-build/`
 > Team integration line: `team/omega-endstate`
 
+## 0. First local-machine action
+
+Before launching the first autonomous Steward session, run this from any trusted BCP-dev checkout:
+
+```powershell
+.\omega-endstate-build\scripts\Bootstrap-Steward.ps1
+```
+
+This allocates the Steward's isolated workspace from the exact current remote `team/omega-endstate` SHA, creates the dedicated branch `work/omega-endstate/STEW-01/bootstrap-team`, and records local ownership metadata.
+
+Then enter the printed workspace, run `Verify-AgentWorkspace.ps1`, and launch OpenCode there.
+
+Do not launch the Steward from a shared `team/omega-endstate` checkout.
+
 ## 1. Your mandate
 
 You are the bootstrap Steward for an independent end-to-end VIVIM product-development path.
