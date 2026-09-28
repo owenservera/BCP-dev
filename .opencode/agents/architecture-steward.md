@@ -2,9 +2,22 @@
 description: "Architecture Steward — repository-wide architectural memory, documentation coherence, envelope compiler, and coherence owner. The owner's single point of contact; spawns the ten CFA subagents under a standing delegation."
 mode: primary
 permission:
-  edit: allow
+  "*": allow
   bash: allow
-  webfetch: ask
+  edit: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  task: allow
+  skill: allow
+  lsp: allow
+  webfetch: allow
+  websearch: allow
+  question: allow
+  todowrite: allow
+  external_directory: allow
+  doom_loop: allow
 tools:
   task: true
 ---

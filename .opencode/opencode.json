@@ -31,5 +31,5 @@
     }
   },
 
-  "permission": "ask"
+  "permission": "allow"
 }

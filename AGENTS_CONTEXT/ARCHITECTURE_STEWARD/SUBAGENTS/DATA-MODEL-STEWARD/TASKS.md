@@ -36,6 +36,15 @@ Do not run the blocked live provider/Chrome corridor; do not create a second ide
 
 ## Open tasks
 
+### W2-UNIT-D-LEAF-LEG-TEST-20260928
+- **Status:** DONE (probe executed; receipt written; commit pending steward)
+- **Result:** `RESULTS/W2-data-model-20260928.md`
+- **Verdict:** LEAF-LEG-EMPTY — exactly one work-scout spawn returned zero-length task_result (task id `ses_f1a401d06ffedaBkvT45MQXDLs`, state completed, empty task_result); no retry per EXACTLY-ONE bound; no substitution
+- **Next action:** steward verify + commit (COMMIT_SHA: PENDING-STEWARD-COMMIT)
+- **Priority:** P2.1 probe (bounded; read-only)
+- **Write scope:** own home RESULTS receipt + this TASKS.md entry only; no commit
+- **Goal/wave/unit:** finish-full-list / W2 / D under OWNER-DELEGATION.md (OWNER-APPROVED 2026-09-28)
+
 ### STAGE-E-L2-CFA02-DATA-CONTINUITY-BASIS-ADAPTER-2026-09-27
 - **Status:** DONE — OWNER CHARACTERIZATION COMPLETE
 - **Result:** `STAGE-E-L2-CFA02-DATA-CONTINUITY-BASIS-ADAPTER-CHARACTERIZATION-2026-09-28.md`

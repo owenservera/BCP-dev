@@ -30,3 +30,9 @@ verified against the repo per the Durable Completion Gate — never by chat clai
   direct-read — relevant to P2 leaf-mechanism expectations). Counter-2 registry
   designation deferred to owner (no countable registry exists; inventing one
   would violate no-invented-semantics). Stall counter: 0 (wave changed the tree).
+- 2026-09-28 P2.1 probe 1: `run --auto --variant xhigh --agent
+  agency-work-execution` executed but ran as architecture-steward (refusal
+  quoted steward binding line 46) → hypothesis: `mode: subagent` bindings are
+  not directly addressable headless; silent fallback to default_agent. P2.3
+  partial: xhigh accepted, no rejection. Identity-confirm probes (work-scout +
+  bogus-name, --format json) interrupted before completing — re-run next.

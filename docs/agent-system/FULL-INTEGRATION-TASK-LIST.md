@@ -35,7 +35,7 @@
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| P2.1 | Steward→CFA→worker run with --auto | DOING | first attempts hit depth-1 limit (fixed), permission auto-reject (fixed via --auto), then owner-interrupted |
+| P2.1 | Steward→CFA→worker run with --auto | DOING | depth-1 + auto-reject fixed; NEW: `--agent <subagent-mode>` silently fell back to default_agent (steward refusal quoted steward binding); `--variant xhigh` accepted without rejection; empty-stdout runs observed (known trap); vehicle confirmed as `run` not `serve` |
 | P2.2 | Verify chain evidence + record | TODO | needs P2.1 full transcript |
 | P2.3 | Validate `--variant xhigh` on contributor-free | TODO | validity unknown; fallback plain model |
 
