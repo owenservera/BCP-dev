@@ -3,14 +3,14 @@
   "agentId": "DEVOPS-01",
   "role": "agentic-development-tooling-owner",
   "lifecycle": "persistent",
-  "status": "seeded-proposed",
+  "status": "seeded-proposed-pre-gate",
   "domain": "local agentic development tooling",
   "reportsTo": "STEW-01",
   "durableHome": "omega-endstate-build/agents/DEVOPS-01/",
   "executionMode": "isolated-worktree-or-clone",
   "primaryMission": "Full VIVIM beta ready to distribute for free",
   "currentPhase": "pre-bootstrap",
-  "currentObjective": "Reconstruct actual development-system runtime and workload before fixing the role's internal topology.",
+  "currentObjective": "Complete the pre-GATE-01 founding-system exercise: transform this seeded home into the founder-led CEO organizational root, establish at least two peer functional departments, and run the first real-world Swarm System Goal 1.",
   "nextActions": [
     "read project control-plane and current runtime state",
     "reconstruct what development machinery is actually present",
@@ -22,5 +22,6 @@
   "selfOrganization": "allowed-as-proposals-and-bounded-experiments",
   "independentVerification": "required-for-consequential-self-authored-claims",
   "sourceOfTruth": "repository-runtime-and-durable-evidence",
-  "lastSeeded": "2026-09-28"
+  "lastSeeded": "2026-09-28",
+  "requiredBeforeGate1Acceptance": "PRE-GATE-01-FOUNDING-MANDATE.md"
 }
