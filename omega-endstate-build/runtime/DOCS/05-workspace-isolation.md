@@ -83,8 +83,8 @@ as a mistake and "fix" it by moving work.
 **Still open as of the `work/omega-endstate/STEW-01/bootstrap-team` reorg.** The allocator's
 *default root name* was changed from `omega-endstate-workspaces` to `omega-endstate-worktrees`
 (§11: agent identity is not branch identity; the workspace root is machine-local), but the
-derivation itself was **not** changed. Because the live worktree still lives at
-`omega-endstate-workspaces\STEW-01-bootstrap-team`, the default still computes to:
+derivation itself was **not** changed. Because the live worktree still lived at
+`omega-endstate-workspaces\STEW-01-bootstrap-team`, the default still computed to:
 
 ```
 repoRoot = C:\.../omega-endstate-workspaces\STEW-01-bootstrap-team
@@ -92,8 +92,26 @@ repoRoot = C:\.../omega-endstate-workspaces\STEW-01-bootstrap-team
 -> workspace     = C:\.../omega-endstate-workspaces/omega-endstate-worktrees/<TASK>
 ```
 
-So the defect is **renamed, not fixed**. The isolation property is unaffected; only the
-confusing duplicate-name shape remains.
+So the defect was **renamed, not fixed**. The isolation property was never affected; only the
+confusing duplicate-name shape remained.
+
+### RESOLVED — root is now anchored to the main worktree
+
+`New-AgentWorkspace.ps1` no longer derives the default root from the parent of the current
+worktree. It resolves the **main** worktree from the shared git directory
+(`rev-parse --path-format=absolute --git-common-dir`, whose parent is the canonical checkout for
+any linked worktree) and takes *that* checkout's sibling. The result is now independent of where
+the script is invoked from:
+
+```
+invoked from the linked worktree -> C:\...\Vivim-omega\omega-endstate-worktrees
+invoked from the main checkout   -> C:\...\Vivim-omega\omega-endstate-worktrees
+```
+
+It also now refuses, with a clear error, a `-WorkspaceRoot` that would sit inside the repository,
+inside the main checkout, or inside any other registered worktree, so the nesting shape cannot be
+reintroduced by an explicit argument. `omega-endstate-workspaces` is obsolete and is no longer an
+execution location.
 
 **Mitigation, immediate:** the orchestrator passes an explicit `-WorkspaceRoot`, so nesting never
 happens under our control.

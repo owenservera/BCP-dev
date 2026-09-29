@@ -39,11 +39,44 @@ $repoRoot = Invoke-GitText @('rev-parse','--show-toplevel')
 $repoRoot = (Resolve-Path $repoRoot).Path
 $remoteUrl = Invoke-GitText @('remote','get-url','origin')
 
+# ALLOCATION-ROOT FIX: the default workspace root must not be derived from the parent of the
+# *current* worktree. That derivation is caller-dependent: run this script from a worktree that
+# itself lives under a workspace root and the parent IS that workspace root, so the result nests
+# (e.g. omega-endstate-workspaces\omega-endstate-worktrees). Renaming the folder did not fix
+# that; it only changed the duplicated segment.
+#
+# Instead, resolve the MAIN worktree from the shared git directory. For any linked worktree,
+# `rev-parse --git-common-dir` returns the primary repository's .git (not .git/worktrees/<name>),
+# so its parent is the canonical checkout regardless of where this script was invoked from.
+# Sibling of the main checkout is therefore always the intended machine-local root.
+$gitCommonDir = Invoke-GitText @('rev-parse','--path-format=absolute','--git-common-dir')
+$mainWorktree = (Resolve-Path (Split-Path $gitCommonDir -Parent)).Path
+
 if (-not $WorkspaceRoot) {
-    $WorkspaceRoot = Join-Path (Split-Path $repoRoot -Parent) 'omega-endstate-worktrees'
+    $WorkspaceRoot = Join-Path (Split-Path $mainWorktree -Parent) 'omega-endstate-worktrees'
 }
 $WorkspaceRoot = [IO.Path]::GetFullPath($WorkspaceRoot)
 New-Item -ItemType Directory -Force -Path $WorkspaceRoot | Out-Null
+
+# Guard against the nesting defect recurring via an explicit -WorkspaceRoot. Refuse a root that
+# sits inside the repository, or inside another worktree's location, instead of silently creating
+# a nested hierarchy that a later agent may read as a mistake and "fix" by moving work.
+foreach ($knownRoot in @($repoRoot, $mainWorktree)) {
+    $knownPrefix = $knownRoot.TrimEnd('\','/') + [IO.Path]::DirectorySeparatorChar
+    if ($WorkspaceRoot.StartsWith($knownPrefix, [StringComparison]::OrdinalIgnoreCase)) {
+        throw "WorkspaceRoot must be outside the repository and outside the main checkout: $WorkspaceRoot"
+    }
+}
+$worktreesPorcelain = Invoke-GitText @('worktree','list','--porcelain')
+foreach ($line in ($worktreesPorcelain -split "`r?`n")) {
+    if (-not $line.StartsWith('worktree ')) { continue }
+    $other = [IO.Path]::GetFullPath($line.Substring('worktree '.Length).Trim())
+    if ($other.TrimEnd('\','/') -ieq $repoRoot.TrimEnd('\','/')) { continue }
+    $otherPrefix = $other.TrimEnd('\','/') + [IO.Path]::DirectorySeparatorChar
+    if ($WorkspaceRoot.StartsWith($otherPrefix, [StringComparison]::OrdinalIgnoreCase)) {
+        throw "WorkspaceRoot must not nest inside an existing worktree ($other): $WorkspaceRoot"
+    }
+}
 
 Write-Host "Fetching repository refs..."
 Invoke-Git @('fetch','origin','--prune')
