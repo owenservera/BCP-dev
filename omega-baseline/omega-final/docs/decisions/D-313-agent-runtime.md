@@ -32,6 +32,13 @@ alive) is the worst outcome. See `ARCHITECTURE-NEXT-STEPS.md` G2.
 - B1a must ledger like a director tick and reuse the existing grant grammar (no new capability machinery to justify the loop's existence).
 - If B1a evidence shows principal traversal breaking any layer invariant, the fallback is (b) with enforcement moved to composition grants — recorded here as a live alternative, not a defeat.
 - Owner confirmation still required: this record is PROPOSED until then.
+- **SUPERSEDED-AS-OF 2026-09-30 (owner-directed annotation; the line above is kept
+  verbatim as dated history and is not rewritten).** The line above stated this record's
+  own pre-ratification status. This record has since ratified: the index row in
+  `docs/BUILD-DECISIONS.md` reads **RATIFIED** · directive, and this record's own Evidence
+  section below records owner confirmation on 2026-09-16. No sentence, status value,
+  section or Evidence citation in this record was changed. Disclosed here as a deviation
+  from the append-only law, not a checker-demanded evidence repair.
 
 ## Evidence
 

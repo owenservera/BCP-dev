@@ -88,6 +88,33 @@ What it deliberately does NOT check: whether the decision was *wise*. That is th
 owner's job and the reviewer's job. The contract guarantees the decision is
 *legible* — options visible, criteria explicit, evidence cited — so wisdom is auditable.
 
+## Provenance boundary: where Evidence SHAs resolve
+
+The "RATIFIED has a resolvable commit SHA" rule is enforced in
+`tooling/gates/decisions.ts`: the `## Evidence` body of every `RATIFIED` record is
+scanned for 7-to-40-character hex tokens, and each candidate is looked up with
+`git cat-file -t <token>`, expecting `commit`. That lookup runs against the **local
+repository**, not against a named remote.
+
+`omega-baseline/omega-final` carries no nested `.git`, so "the local repository" is the
+BCP-dev checkout that contains it. This tree's history for `docs/decisions/` and for
+`docs/ROADMAP.md` is a single commit — `e724a517`, "BCP-dev full snapshot 2026-09-22".
+The landing SHAs that records cite were minted in the canonical Ω repository history,
+which this checkout does not contain.
+
+The consequence is an **environment condition, not unratified law**: in this checkout
+`bun run omega:decisions` reports `RATIFIED with no resolvable commit SHA in ## Evidence`
+for records that are genuinely ratified, and exits non-zero. Such a finding means
+"the citation does not resolve *from this working copy*" — it says nothing about whether
+the decision was ratified, whether it has evidence, or whether it was wise. Do not
+"repair" those records in response to it.
+
+The restoration path present in the tree is `omega-baseline/vivim-omega-final.bundle`
+(2,788,360 bytes), which carries the full history. Its presence is asserted here; its
+cloneability was **not** verified in this checkout — `git bundle verify` was not run.
+No checker behaviour is changed by this section; it only documents the boundary the
+checker already has.
+
 ## Decision classes (D-364)
 
 From **D-360** on, every index row declares its class in the status cell — one tag,

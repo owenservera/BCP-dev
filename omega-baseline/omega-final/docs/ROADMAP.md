@@ -1,5 +1,21 @@
 # VIVIM-Ω — Roadmap (the road from setup day to cutover)
 
+> **SUPERSEDED as a plan (banner dated 2026-09-30).** The authoritative sequencing is
+> **D-410** (core-first) plus `docs/forge/BACKLOG.md`; the parallel CDP lane is
+> **D-419** (`provider.browser`, attach-only). Everything below this banner is the
+> pre-re-sequencing historical map, kept for the record — read it as history, not
+> as the plan. Stale figures in it are marked in place, not deleted.
+>
+> **Governance disclosure (2026-09-30, owner-directed).** Dated `SUPERSEDED-AS-OF`
+> annotations have been appended beneath stale narrative lines in five RATIFIED
+> records — D-313, D-323, D-327, D-372, D-391. No ratified sentence, `## Status`
+> value, section or Evidence citation was rewritten; the original lines stay
+> verbatim as dated history. This is a **disclosed deviation** from the
+> append-only law in the discipline list below (item 6, "RATIFIED records are
+> never edited"), **not** a sanctioned D-390-class evidence repair — the D-390
+> precedent covers one mechanical additive Evidence re-citation line per record,
+> not narrative annotations in Context/Consequences/Evidence.
+
 > **Re-sequenced 2026-09-20 by D-410 (core-first):** the Core Phase (S1
 > canonical-intent seam → S2 principal-identity seam → S3 evidence-store
 > choicepoint) precedes all plugin work; all plugin design is parked until
@@ -20,6 +36,12 @@ authority doc, that doc wins over this summary; this file is the map, not the la
 (903/903 tests, all stages), host **1039/1100** (B5 held), 16 compositions (D-370 freeze,
 matrix-managed), 13 vault namespaces, 21 plugin dirs, W0 + W1 **CLOSED**, migration tracker
 (`docs/migration/STATUS.md`) current. See §2 for what setup changed and why.
+
+**SUPERSEDED-AS-OF 2026-09-30:** `1039/1100` and `16 compositions` above are the
+setup-day 2026-09-18 readings and stay as the dated baseline. Present-day: **18 specs**
+(the D-370 freeze as amended by D-391 and D-406 — `docs/decisions/CURRENT-INVARIANTS.md`
+composition-freeze row; `docs/KNOWN-LIMITS.md` L-16 already records the same correction)
+and **host 1500/1500, zero headroom** (B5 row, budget-watch row).
 
 ---
 
@@ -46,9 +68,15 @@ inherits:
 2. **Existence = booted proof.** The gate is the spec; claims carry no weight. Every wave
    lands its falsifier (a named test or probe that could have failed) before ratification,
    and `build/status.json` refreshes only from a green run (D-362).
-3. **The host does not grow (B5, D-365 frozen).** `host/src` ≤ 1,100 LOC with removal in
+3. **The host does not grow (B5, D-365 frozen).** ~~`host/src` ≤ 1,100 LOC with removal in
    the same commit for any new surface. At 1039, headroom is 61 lines — treat the wall as
-   a design smell detector, not a budget.
+   a design smell detector, not a budget.~~ **SUPERSEDED-AS-OF 2026-09-30:** the 1,100
+   ceiling is the *setup-day* freeze; it was re-frozen once and loudly at **1,500** by the
+   D-391 merge amendment (`docs/decisions/CURRENT-INVARIANTS.md`, B5 row), and the wall now
+   stands at **1,500/1,500 flat, zero headroom** since the Core Phase (same B5 row and the
+   budget-watch row; the D-406 landing row records the same flat 1500/1500). The 1,100
+   figure and the 61-line headroom are kept above as the dated setup-day record. D-365's
+   removal-in-the-same-commit rule carries unchanged at the new number.
 4. **Fail closed, ledger everything.** Unknown ops REFUSED, over-budget BUDGET, broken
    handler DEGRADED, oversized captures refused (never truncated); refusals and evictions
    are queryable rows, never silent.
@@ -60,7 +88,7 @@ inherits:
 
 ---
 
-## 2. Setup day — Phase R remediation (DONE, awaiting owner ratification)
+## 2. Setup day — Phase R remediation (DONE, awaiting owner ratification — **SUPERSEDED-AS-OF 2026-09-30: this whole section is the setup-day 2026-09-18 record, and D-389 and D-390 have since ratified**; `docs/BUILD-DECISIONS.md` reads D-389 **RATIFIED** · evidence and D-390 **RATIFIED** · directive. The pre-ratification wording in the table row, in the D-390 "filed (PROPOSED)" cell and in the Phase R exit paragraph was true on that date and is left verbatim as dated history)
 
 The clone of `main` @ `cb022ad` arrived with a red gate: `omega:quick` failed the
 `decisions` and `compositions` stages, one host-lane test (the decisions checker
@@ -139,7 +167,9 @@ consumers from the W2 realizations — scoreboards inform, they never auto-decid
 scoreboard-driven auto-routing stays blocked behind L-12/L-13 (calibration corpus + SLO
 objectives) per the standing budget watch. The D-389 intent mechanism finds its consumers
 here: the `vivim.intent` composition entry under the 16-spec freeze (generate-one or
-delete-one), the `IntentContext` consumer, and the projection consumer (`plan:<type>@2`)
+delete-one) [SUPERSEDED-AS-OF 2026-09-30: 16 is the setup-day count — the freeze is the
+18-spec matrix era per D-391/D-406], the `IntentContext` consumer, and the projection
+consumer (`plan:<type>@2`)
 when a real workflow needs data-only input mapping and output chaining. Compensation stays
 evidence-only — implying rollback without fresh consent is worse than stating the limit.
 
@@ -186,7 +216,10 @@ and each addition makes the system more legible, not larger.
 
 ## 5. Decision points ahead (owner forks, likely order)
 
-1. **Ratify D-389 + D-390** — records ready; cite the setup-day green gate in the flip.
+1. ~~**Ratify D-389 + D-390** — records ready; cite the setup-day green gate in the flip.~~
+   **SPENT (marked 2026-09-30):** both rows now read RATIFIED — `docs/BUILD-DECISIONS.md`
+   D-389 **RATIFIED** · evidence and D-390 **RATIFIED** · directive. The fork is closed;
+   the row and its ordering stay in place as the record of the call.
 2. **`vivim.intent` composition entry** under the D-370 freeze — first real multi-step
    intent workflow picks the timing; matrix regen keeps byte-identity.
 3. **Windows Job Objects containment probe** — gives W2-c/W4-B1b a second `enforced`

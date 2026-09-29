@@ -28,6 +28,12 @@ proposal twice (see Options).
 ## Consequences
 
 - Prerequisite: V2.2 green (proves execution exists before routing to it); D-315 finish-then-halt decided first (hard blocker on `agent.exec` code, still PROPOSED).
+- **SUPERSEDED-AS-OF 2026-09-30 (owner-directed annotation; the line above is kept verbatim
+  as dated history and is not rewritten).** The "still PROPOSED" clause above is about the
+  prerequisite record D-315, not about this record's own status. D-315 has since ratified
+  — its index row in `docs/BUILD-DECISIONS.md` reads **RATIFIED**. This record's own
+  status is unchanged, and no sentence, status value, section or Evidence citation here
+  was changed.
 - No new plugin, no composition edits, no host/law/vault changes — `git diff --stat` reviewer check.
 - Scoreboards inform, never decide (no auto-actions until a consumer with thresholds ships).
 - Tests: rule-table branches + real-boot classify→report→scorecard round trip with exact arithmetic.

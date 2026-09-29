@@ -24,6 +24,16 @@ Two lineages diverged at turn-009 (`4a108d7`): the **kernel lineage** (`omega` b
 ## Consequences
 
 - The merge commit is the landing citation; D-340 keeps RATIFIED (its SHAs resolve through the second parent); D-341 stays PROPOSED and carries forward on the open board.
+- **SUPERSEDED-AS-OF 2026-09-30 (owner-directed annotation; the line above is kept verbatim
+  as dated history and is not rewritten).** Its subject is the carried-forward record
+  **D-341**, not this record: D-341 has since landed and ratified, and its index row in
+  `docs/BUILD-DECISIONS.md` reads **RATIFIED** with the landing SHA cited. This record's
+  own status is unchanged, and no sentence, status value, section or Evidence citation here
+  was changed. The sibling decision-time facts elsewhere in this record — the 16 → 17 spec
+  move this merge performed, the 1,450/1,500 host count *at* that landing, and the D-370 "16"
+  freeze amendment — are **not** stale: they record what this merge did on 2026-09-18, and
+  the host wall has since reached 1500/1500 during the Core Phase. The count has since
+  moved on to 18 under D-406; that is a later amendment, not a correction of this record.
 - Host LOC 1,450/1,500 — 50 lines headroom under the re-frozen ceiling; D-365's removal-in-same-commit rule applies unchanged at the new number.
 - The composition count leaves D-370's "16" — recorded here as the freeze amendment: the 17th spec is matrix-authored (the freeze's target was hand-maintained drift, and matrix rows carry none).
 - CURRENT-INVARIANTS B5/budget-watch rows updated in the same commit; the kernel-lens manifest rides the D-389-era optional-field schema unchanged.

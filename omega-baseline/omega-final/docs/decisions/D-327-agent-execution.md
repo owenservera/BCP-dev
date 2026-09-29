@@ -12,6 +12,12 @@ its own principal. Everything downstream (routing, discovery, evolution)
 depends on execution existing first. Hard prerequisite: D-315 (quarantine
 semantics) must be decided before `agent.exec` code is written — currently
 PROPOSED, not RATIFIED.
+- **SUPERSEDED-AS-OF 2026-09-30 (owner-directed annotation; the sentence above is kept
+  verbatim as dated history and is not rewritten).** The sentence above is about the
+  *prerequisite* record D-315, not about this record's own status. D-315 has since
+  ratified — its index row in `docs/BUILD-DECISIONS.md` reads **RATIFIED**. This record's
+  own status is unchanged. No sentence, status value, section or Evidence citation here
+  was changed; the annotation is disclosed as a deviation from the append-only law.
 
 ## Options
 

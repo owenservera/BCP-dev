@@ -57,10 +57,22 @@ which is the build instruction for the follow-up phases.
   `compositions/chat.json` boot on Windows resolving its vault under the real
   `%TEMP%` (observed `...\Temp\omega-chat\vault-data\canonical.sqlite`, no
   `C:\tmp` leak). D-372 stays PROPOSED until Phases 3–5 meet the acceptance list.
+- **SUPERSEDED-AS-OF 2026-09-30 (owner-directed annotation; the sentence above is kept
+  verbatim as dated history and is not rewritten).** The sentence above stated this
+  record's own pre-ratification status. This record has since ratified: the index row in
+  `docs/BUILD-DECISIONS.md` reads **RATIFIED** · directive, and this record's own Evidence
+  below records the acceptance list met and ratification on 2026-09-16. No sentence,
+  status value, section or Evidence citation in this record was changed. Disclosed as a
+  deviation from the append-only law, not a checker-demanded evidence repair.
 - Phase 3 implemented on this branch: 42 test/tooling files migrated to
   `omegaTmp()` scratch + 25 `package.json` platform dep edges + `bun.lock`;
   `omega:quick` green (structural six, host 1014/1100); MCP spawn-retry
   hardening + Windows-serial/macOS-informational CI lanes. D-372 stays
   PROPOSED pending the acceptance list (same-commit green matrix + refreshed
   status.json carrying `os-surface`).
+- **SUPERSEDED-AS-OF 2026-09-30 (owner-directed annotation; the sentence above is kept
+  verbatim as dated history and is not rewritten).** The sentence above is a second
+  statement of the same pre-ratification status, written at the Phase 3 landing. It was
+  true on that date; this record has since ratified on the same terms as the annotation
+  above. Placed at the end of its bullet so no Evidence bullet is split.
 - Acceptance list met and ratified 2026-09-16: os-surface green and carried in build/status.json (mechanical zero-literals proof), Phases 1–3 landed on the line, Windows-serial + macOS informational lanes green on the landing lineage (2d5b7f7, CI-observed), Linux full gate green at 377c4ed (776/776, host 999/1100). The soak-flake retirement-by-observation note stays honest in docs/WINDOWS.md; D-374's platformSpawn extends the seam without adding a second OS-aware file.
