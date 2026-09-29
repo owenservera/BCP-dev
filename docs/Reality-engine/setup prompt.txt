@@ -1,0 +1,845 @@
+# Legacy Intel Disposition
+
+The legacy materials are **evidence, not authority**. Here's how to use them:
+
+| Material | Use As | Do NOT Use As |
+|---|---|---|
+| `vivim-original-baseline/` | Anti-patterns (phantom workers, stale state) | Implementation reference |
+| `AGENTS_CONTEXT/` | CFA requirements (already synthesized) | Runtime authority |
+| `docs/destination/` | Architectural intent | Implementation spec |
+| `omega-baseline/` | Constitutional invariants | Ω runtime code |
+| 51 devops scripts | Observation patterns to extract | Direct reuse |
+| `TOOLS/TOP10` artifacts | Demand evidence (synthesis already done) | Re-derive requirements |
+
+**Key insight:** The LOCAL-TEAM-TOOLSET-SYNTHESIS already harvested the 10 CFA homes. Don't re-read them. Use the synthesis scores directly.
+
+---
+
+# Reality Engine — Full Setup Prompt
+
+```markdown
+# MISSION: Build the Complete Reality Engine
+
+You are implementing Phase 1 of the VIVIM development intelligence stack:
+a local-only observation substrate that makes machine truth mechanical,
+attributable, and freshness-aware.
+
+## BOUNDARY
+
+**YOU MUST PROVIDE:**
+- Git/workspace/process/filesystem/OpenCode/toolchain/verification observation
+- Basis tracking and staleness detection
+- Conflict preservation (never silently resolve)
+- Deterministic snapshots with canonical serialization
+- Event journal (append-only audit trail)
+- CLI: status, snapshot, observe, changes, stale, conflicts, explain, divergence, preclosure, health
+- Programmatic API for agent integration
+- CFA profile projections (reality for <cfa-id>)
+- Execution envelope model (bounded command execution)
+- Identity collision detection (PID reuse, workspace mismatch)
+- Mainline drift detection
+- Writer contention observation
+- Pre-closure mechanical checks
+- Degradation state machine
+- Self-observation (engine health)
+
+**YOU MUST NOT PROVIDE:**
+- Source code semantic graph (Phase 2)
+- Architecture inference (no ownership from folders/imports/names)
+- Task scheduling or work queue (Phase 4)
+- Semantic closure decisions (Phase 5)
+- Ω law changes (K0 is off-limits)
+- Cloud/telemetry/external APIs
+- AI/LLM integration (mechanical observation only)
+- Receipt validation logic (you provide facts, Phase 5 validates)
+- Governance/authority (you observe, CFA-04/10 govern)
+
+## THE 10 CFAs YOU SERVE
+
+Your engine provides the factual floor for 10 CFA agents. Each has specific needs:
+
+### CFA-01 World Ontology
+- **Needs:** workspace/repository basis currency, source revision freshness
+- **Queries:** `reality for cfa-01` → file/revision basis, staleness
+- **DO NOT:** implement World semantics
+
+### CFA-02 Data Model
+- **Needs:** physical schema/migration state, artifact freshness
+- **Queries:** `reality for cfa-02` → schema files, migration drift, client freshness
+- **DO NOT:** interpret schema meaning
+
+### CFA-03 Semantic Continuity
+- **Needs:** trustworthy continuity basis, stale pointer detection
+- **Queries:** `reality for cfa-03` → protocol refs, launch material, source-vs-doc drift
+- **Critical:** detect "ratified identity = current but local pointer = stale"
+
+### CFA-04 Authority Governance
+- **Needs:** exact state for authority claims
+- **Queries:** `reality for cfa-04` → law files, policy files, verification runs
+- **CRITICAL:** you may prove "policy file changed" but NEVER "therefore policy changed semantically"
+
+### CFA-05 Agency & Work
+- **Needs:** live worker/process/workspace state
+- **Queries:** `reality for cfa-05` → process liveness, empty-result detection, drift, contention
+- **High leverage:** worker liveness, phantom detection, mainline drift
+
+### CFA-06 Capability & Provider
+- **Needs:** physical artifact/process existence
+- **Queries:** `reality for cfa-06` → provider processes, build artifacts, adapters
+- **DO NOT:** decide provider semantics
+
+### CFA-07 Composition/Plugin
+- **Needs:** plugin/manifest/build artifact existence and staleness
+- **Queries:** `reality for cfa-07` → plugin files, manifests, build outputs
+- **DO NOT:** decide semantic admissibility
+
+### CFA-08 Experience/Surfaces
+- **Needs:** implementation/build artifact presence
+- **Queries:** `reality for cfa-08` → surface files, build output, dev server
+- **DO NOT:** interpret visual meaning
+
+### CFA-09 Evolution/Compatibility
+- **Needs:** precise change tracking
+- **Queries:** `reality for cfa-09` → commit graph, changed files, divergence, dependencies
+- **Highest value consumer:** provides trustworthy change basis for semantic impact
+
+### CFA-10 Runtime Constitution
+- **Needs:** actual runtime/process/toolchain state
+- **Queries:** `reality for cfa-10` → runtime process, build target, test execution
+- **Critical:** avoid claims stronger than observed runtime
+
+## NON-NEGOTIABLE INVARIANTS
+
+### 1. Observation ≠ Interpretation
+```typescript
+// VALID
+{ kind: "git.branch.ahead", value: 3 }
+{ kind: "process.exit_code", value: 0 }
+
+// FORBIDDEN
+{ kind: "branch.safe_to_merge", value: true }
+{ kind: "task.succeeded", value: true }
+```
+
+### 2. CURRENT Is Earned
+A snapshot may claim CURRENT only when:
+- Required basis freshly observed within freshness window, OR
+- Valid freshness proof exists (basis digest match)
+- NEVER because "we cached it 5 minutes ago"
+
+### 3. Unknown Is Valid
+Comfortably return:
+- UNKNOWN (not yet observed)
+- UNOBSERVABLE (cannot observe with available tools)
+- STALE (basis changed since observation)
+- UNRESOLVABLE (attempted, could not determine)
+- CONFLICTED (contradictory observations exist)
+
+### 4. Execution Success ≠ Semantic Success
+```typescript
+type ExecutionAxis = "EXIT_0" | "EXIT_NONZERO" | "TIMEOUT" | "KILLED";
+type ResultAxis = "RESULT_PRESENT" | "RESULT_EMPTY" | "RESULT_MALFORMED";
+
+// EXIT_0 + RESULT_EMPTY is NOT "success"
+// No layer may collapse these into generic SUCCESS
+```
+
+### 5. Branch State ≠ Mainline State
+A commit on feature branch ≠ commit reachable from current main.
+All three (onCurrentBranch, onLocalMain, onRemoteMain) can differ.
+
+### 6. Reported Fact ≠ Durable Fact
+Agent output is an observation about what agent CLAIMS happened.
+You must reconcile against machine state.
+
+### 7. Never Silently Repair Semantic State
+You may mechanically regenerate stale caches.
+You must NOT rewrite: architectural meaning, CFA ownership, authority decisions, Ω law, task intent, canonical identity.
+
+### 8. No Second Authority System
+If Git says X and cached snapshot says Y:
+- Git remains authoritative for Git state
+- You report CONFLICTED
+- You do NOT become authoritative over Git
+
+### 9. Speed Lives Inside Envelopes
+Speed comes from fast observation, not from skipping verification.
+Make observation so cheap that verification gates never become bottlenecks.
+
+## CORE TYPE SYSTEM
+
+```typescript
+// Schema version: reality/1.0.0
+
+export type EpistemicStatus = "OBSERVED" | "DERIVED" | "UNKNOWN" | "UNOBSERVABLE" | "CONFLICTED";
+export type FreshnessStatus = "CURRENT" | "STALE" | "UNRESOLVABLE";
+
+export interface BasisRef {
+  source: "git" | "filesystem" | "os-process-table" | "executable-resolution" 
+        | "opencode-runtime" | "command-execution" | "reality-cache";
+  ref: string;
+  revision?: string;
+  digest?: string;
+  generation?: string;
+  confirmedAt: string; // ISO 8601
+}
+
+export interface Observation<T = unknown> {
+  id: `obs:${string}`; // UUID v7
+  kind: string; // dot-delimited: "git.branch.state"
+  observedAt: string;
+  source: ObserverId;
+  subjectId: string;
+  status: EpistemicStatus;
+  freshness: FreshnessStatus;
+  basis: BasisRef[];
+  value?: T;
+  error?: ObservationError;
+  scope: ObservationScope;
+  previousObservationId?: string;
+  schemaVersion: string;
+}
+
+export type RealityEventType =
+  | "WORKSPACE_OPENED" | "WORKSPACE_CLOSED"
+  | "FILE_CREATED" | "FILE_CHANGED" | "FILE_DELETED" | "FILE_RENAMED"
+  | "GIT_HEAD_CHANGED" | "GIT_REF_CHANGED"
+  | "GIT_WORKTREE_DIRTIED" | "GIT_WORKTREE_CLEANED" | "GIT_MAIN_ADVANCED"
+  | "PROCESS_STARTED" | "PROCESS_EXITED" | "PROCESS_STATE_CHANGED"
+  | "OPENCODE_SESSION_STARTED" | "OPENCODE_SESSION_HEARTBEAT"
+  | "OPENCODE_SESSION_RESULT" | "OPENCODE_SESSION_EXITED"
+  | "OPENCODE_SESSION_IDENTITY_MISMATCH"
+  | "TOOLCHAIN_CHANGED"
+  | "VERIFICATION_STARTED" | "VERIFICATION_FINISHED"
+  | "ARTIFACT_CREATED" | "ARTIFACT_CHANGED" | "ARTIFACT_REMOVED"
+  | "MAINLINE_DRIFT_DETECTED" | "WRITER_CONTENTION_DETECTED"
+  | "IDENTITY_COLLISION_DETECTED"
+  | "SNAPSHOT_CREATED" | "SNAPSHOT_INVALIDATED"
+  | "OBSERVER_DEGRADED" | "OBSERVER_RECOVERED"
+  | "BUFFER_OVERFLOW"
+  | "ENGINE_STARTED" | "ENGINE_STOPPED"
+  | "PRECLOSURE_CHECK_PERFORMED";
+
+export interface RealityEvent {
+  eventId: `evt:${string}`;
+  type: RealityEventType;
+  occurredAt: string;
+  observedAt: string;
+  source: ObserverId;
+  subjectId: string;
+  payload: Record<string, unknown>;
+  basis: BasisRef[];
+  seq: number; // monotonic within session
+}
+
+export interface ConflictRecord {
+  id: `cfl:${string}`;
+  subjectId: string;
+  observations: Array<{
+    observationId: string;
+    value: unknown;
+    observedAt: string;
+    source: ObserverId;
+  }>;
+  status: "UNRESOLVED" | "RESOLVED" | "SUPERSEDED";
+  resolution?: {
+    resolvedAt: string;
+    rule: string;
+    winningObservation: string;
+    basis: BasisRef[];
+  };
+  recommendedAction?: string;
+}
+
+export interface RealitySnapshot {
+  snapshotId: `snap:${string}`;
+  schemaVersion: string;
+  captureStartedAt: string;
+  captureFinishedAt: string;
+  workspace: WorkspaceSnapshot;
+  repository: RepositorySnapshot;
+  filesystem: FilesystemSnapshot;
+  processes: ProcessSnapshot;
+  opencode: OpenCodeSnapshot;
+  toolchain: ToolchainSnapshot;
+  verification: VerificationSnapshot;
+  generators: GeneratorSnapshot;
+  divergence: DivergenceState;
+  identityCollisions: IdentityCollision[];
+  basisDigest: string;
+  freshness: FreshnessStatus;
+  conflicts: ConflictRecord[];
+  unavailable: Array<{ kind: string; reason: string; code: RealityErrorCode }>;
+  engineHealth: EngineHealthSnapshot;
+}
+
+export interface DivergenceState {
+  agentWorkStartCommit?: string;
+  agentAssumedMainCommit?: string;
+  currentMainCommit: string;
+  mainAdvanced: boolean;
+  commitsAdvanced: number;
+  driftStatus: "NO_DRIFT" | "STALE_MAIN_BASIS" | "UNKNOWN";
+  detectedAt: string;
+}
+
+export interface IdentityCollision {
+  type: "PID_REUSE" | "PATH_AMBIGUITY" | "WORKSPACE_OVERLAP" 
+      | "SESSION_GHOST" | "BRANCH_MULTI_WRITER";
+  subjectA: string;
+  subjectB: string;
+  detectedAt: string;
+  resolution: string;
+  severity: "INFO" | "WARNING" | "CONFLICT";
+}
+
+export interface ExecutionEnvelope {
+  command: string;
+  cwd: string;
+  timeoutMs: number;
+  maxStdoutBytes: number;
+  maxStderrBytes: number;
+  allowedExitCodes: number[];
+  resourceLimits?: {
+    maxMemoryMb?: number;
+    maxCpuPercent?: number;
+  };
+}
+
+export interface PreClosureChecks {
+  artifactExists: boolean;
+  receiptExists: boolean;
+  commitExists: boolean;
+  commitContainsArtifact: boolean;
+  branchContainsCommit: boolean;
+  currentMainContainsCommit: boolean;
+  worktreeClean: boolean;
+  mainDriftSinceStart: boolean;
+  conflictsUnresolved: number;
+  checkedAt: string;
+}
+```
+
+## OBSERVER MODULES
+
+### Observer Interface (ALL observers follow this)
+```typescript
+export interface Observer {
+  readonly id: ObserverId;
+  readonly name: string;
+  init(): Promise<void>;
+  observe(options?: ObserveOptions): Promise<Observation[]>;
+  getStatus(): Promise<ObserverStatus>;
+  dispose(): Promise<void>;
+}
+```
+
+### Git Observer (reality-git)
+**Commands:**
+```bash
+git rev-parse --show-toplevel
+git branch --show-current
+git rev-parse HEAD
+git rev-parse refs/heads/main
+git rev-parse refs/remotes/origin/main
+git merge-base HEAD origin/main
+git rev-list --left-right --count HEAD...origin/main
+git status --porcelain=v2 -z
+git remote -v
+git --version
+```
+**Rules:**
+- Use `--porcelain=v2` and `-z` for machine output
+- Treat origin/main, local main, current branch as SEPARATE identities
+- Never reimplement Git graph logic
+
+### Filesystem Observer (reality-fs)
+**Tiered strategy:**
+- Level A: metadata (path, size, mtime, type) — every cycle
+- Level B: content digest (SHA-256) — on mtime/size change or explicit request
+- Level C: full content — explicit expensive operation only
+
+**Flow:** watcher event → mark dirty → metadata re-read → optional digest
+**Never treat watcher event as final state.**
+
+### Process Observer (reality-process)
+**Identity:** PID + startTime as generation token (PID alone insufficient)
+**Classification patterns:**
+```typescript
+[
+  { pattern: /opencode.*--agent/i, classification: "opencode-agent" },
+  { pattern: /opencode.*worker/i, classification: "opencode-worker" },
+  { pattern: /bun(\.exe)?\s/i, classification: "bun-runtime" },
+  { pattern: /node(\.exe)?\s/i, classification: "node-runtime" },
+  { pattern: /tsc(\.exe)?\s/i, classification: "typescript-compiler" },
+  { pattern: /vitest|jest|mocha/i, classification: "test-runner" },
+]
+```
+
+### OpenCode Observer (reality-opencode)
+**Critical: phantom worker detection**
+```typescript
+if (session.state === "RUNNING" && !processExists(session.processIdentity)) {
+  emitConflict({
+    subjectId: session.sessionId,
+    observations: [
+      { source: "opencode-session", value: "RUNNING" },
+      { source: "process-table", value: "NOT_FOUND" },
+    ],
+  });
+  // Mark STALE, not RUNNING
+}
+```
+
+### Toolchain Observer (reality-toolchain)
+**Probes:** bun, node, npm, pnpm, typescript, git, powershell, opencode, python
+**Rule:** Never consider a command reproducible because tool name exists in docs. Must resolve to actual executable path.
+
+### Verification Observer (reality-verify)
+**Execution envelope model:**
+Every verification runs inside bounded envelope (timeout, resource limits, expected exit codes).
+Separates executionAxis from resultAxis.
+
+## STORAGE DESIGN
+
+```
+.dev-reality/
+├── schema/
+│   └── reality-1.0.0.json
+├── snapshots/
+│   ├── latest.json
+│   └── snap_<id>.json
+├── events/
+│   └── journal_YYYYMMDD.jsonl  # append-only audit trail
+├── observations/
+│   └── obs_<id>.json
+├── indexes/
+│   ├── basis-to-observation.json
+│   ├── subject-history.json
+│   └── conflict-index.json
+├── locks/
+│   ├── engine.lock
+│   └── snapshot.lock
+├── logs/
+│   ├── engine.log (redacted)
+│   └── observer-<name>.log
+├── tmp/
+└── config.json
+```
+
+**Formats:**
+- JSONL for append-only events
+- Canonical JSON for snapshots
+- Small JSON for indexes
+- File-based locking (PID + timestamp)
+
+## REALTIME STRATEGY
+
+### Observation Loops
+
+| Loop | Interval | Observes | Budget |
+|---|---|---|---|
+| Fast | sub-second to 2s | fs events, OpenCode heartbeat, Git HEAD/index | < 5ms |
+| Medium | 5-15s | process inventory, branch/ref state, toolchain, verification, divergence | < 200ms |
+| Slow | 30-60s | full fs metadata, full git status, artifacts, orphans, integrity, identity collisions | < 5s |
+| Explicit | on-demand (--fresh) | any scope, bypasses cache | < 1s single, < 5s all |
+
+### Backpressure
+```typescript
+interface BackpressureConfig {
+  maxBufferSize: 10000;
+  fsBatchWindowMs: 500;
+  maxConcurrency: 4;
+  dropPolicy: "oldest";
+  coalesce: true;
+  maxEventsPerSubjectPerSec: 10;
+}
+```
+**Rule:** No event silently dropped. Drops emit BUFFER_OVERFLOW event.
+
+## CLI CONTRACT
+
+```bash
+reality status [--json] [--compact] [--agent]
+reality snapshot [--scope <list>] [--fresh] [--json]
+reality observe [--scope <list>] [--fresh] [--json]
+reality git [--fresh] [--json]
+reality workspace [--fresh] [--json]
+reality processes [--fresh] [--json]
+reality agents [--fresh] [--json]
+reality toolchain [--fresh] [--json]
+reality verify <command> [--timeout <ms>] [--json]
+reality changes [--since <snapshot-id>] [--json]
+reality stale [--json]
+reality conflicts [--json]
+reality explain <observation-id> [--json]
+reality divergence [--json]
+reality preclosure [--json]
+reality collisions [--json]
+reality health [--json]
+reality for <cfa-id> [--json]
+```
+
+### Exit Codes
+- 0 = observation successful, state fully resolved
+- 1 = state observed but has conflicts/unknowns
+- 2 = observer unavailable / unresolvable
+- 3 = invocation/configuration error
+- 4 = storage error
+- 5 = lock contention
+
+## CANONICAL SERIALIZATION
+
+```typescript
+const CANONICAL_RULES = {
+  propertyOrder: "alphabetical",
+  arrayOrder: "sorted-by-serialized-element",
+  nulls: "omit-absent",
+  encoding: "utf-8",
+  numbers: "json-standard", // no NaN, Infinity, -0
+  dates: "iso-8601-with-offset-ms",
+  strings: "nfc-normalized",
+  maps: "sorted-entries-array",
+};
+```
+
+## ERROR TAXONOMY
+
+```typescript
+type RealityErrorCode =
+  // Git
+  | "GIT_NOT_FOUND" | "GIT_NOT_A_REPO" | "GIT_COMMAND_FAILED"
+  | "GIT_REF_NOT_FOUND" | "GIT_REMOTE_UNREACHABLE" | "GIT_PARSE_ERROR"
+  // Filesystem
+  | "FS_NOT_FOUND" | "FS_PERMISSION_DENIED" | "FS_WATCHER_FAILED"
+  | "FS_WATCHER_OVERFLOW" | "FS_IO_ERROR"
+  // Process
+  | "PROC_QUERY_FAILED" | "PROC_NOT_FOUND" | "PROC_PERMISSION_DENIED"
+  // OpenCode
+  | "OC_NOT_DETECTED" | "OC_SESSION_NOT_FOUND"
+  | "OC_INTEGRATION_UNAVAILABLE" | "OC_HEARTBEAT_TIMEOUT"
+  // Toolchain
+  | "TC_NOT_FOUND" | "TC_VERSION_PARSE_FAILED" | "TC_EXECUTION_FAILED"
+  // Verification
+  | "VER_COMMAND_FAILED" | "VER_TIMEOUT" | "VER_RESULT_PARSE_FAILED"
+  // Storage
+  | "STOR_WRITE_FAILED" | "STOR_READ_FAILED" | "STOR_CORRUPT" | "STOR_LOCK_HELD"
+  // Engine
+  | "ENG_SCHEMA_MISMATCH" | "ENG_SERIALIZATION_FAILED"
+  | "ENG_OBSERVER_FAILED" | "ENG_CONFIG_INVALID"
+  | "ENG_BUFFER_OVERFLOW" | "ENG_INTERNAL"
+  // Identity
+  | "ID_COLLISION_DETECTED" | "ID_PID_REUSE" | "ID_WORKSPACE_MISMATCH"
+  // Divergence
+  | "DIV_MAIN_DRIFT" | "DIV_WRITER_CONTENTION"
+  // Envelope
+  | "ENV_TIMEOUT" | "ENV_RESOURCE_EXCEEDED" | "ENV_UNEXPECTED_EXIT";
+```
+
+## DEGRADATION STATE MACHINE
+
+```
+HEALTHY → observer error → DEGRADED
+DEGRADED → multiple failures → CRITICAL
+CRITICAL → storage failure → FAILED
+```
+
+**Per-observer degradation:**
+- Git commands fail → use last good, mark STALE
+- Watcher fails → poll-only mode
+- Process query fails → last good list, mark STALE
+- OpenCode unavailable → process-only observation
+- Tool not found → report available, mark missing UNAVAILABLE
+- Execution impaired → queue commands, report NOT_RUN
+
+**NEVER substitute stale cache silently.**
+
+## WINDOWS IMPLEMENTATION
+
+| Concern | Choice |
+|---|---|
+| Runtime | Bun (primary), Node (fallback) |
+| FS watching | fs.watch (ReadDirectoryChangesW) |
+| Process table | PowerShell Get-CimInstance Win32_Process |
+| Git | Git CLI (structured output) |
+| Storage | Filesystem (JSONL + JSON) |
+| Locking | Lock files (PID + timestamp) |
+| IDs | UUID v7 |
+
+**Windows rules:**
+- Forward-slash in identity/serialization
+- Case-insensitive path comparison
+- PID + CreationDate (never PID alone)
+- Watcher events are hints — always re-stat
+- Expect antivirus lock errors, retry with backoff
+
+## SECURITY
+
+**Redaction rules:**
+- NEVER log: env vars (except PATH), credentials, API keys, tokens, private keys
+- REDACT: user profile paths → <USERPROFILE>, URLs with auth → strip userinfo
+- ALLOW: file paths (relative), PIDs, SHAs, versions, exit codes, byte counts
+
+**Invariants:**
+- Local-first, always
+- No telemetry, no cloud, no third-party
+- No source-code transmission
+- No code execution on observed data (never eval/require/import)
+- Opt-in debugging
+
+## PERFORMANCE BUDGETS
+
+| Operation | Target (warm) | Target (cold) |
+|---|---|---|
+| reality status | < 250 ms | < 1 s |
+| reality snapshot --scope git | < 500 ms | < 2 s |
+| reality snapshot --scope all | < 2 s | < 5 s |
+| reality divergence | < 100 ms | < 500 ms |
+| reality preclosure | < 500 ms | < 2 s |
+| File change to indexed observation | < 1-2 s | — |
+| Git status refresh | < 500 ms | < 1 s |
+| Event processing (per event) | < 5 ms | — |
+
+## TESTING STRATEGY
+
+### Truthfulness Tests (CRITICAL)
+```
+TRUTH-T01: Stale main detection
+  Setup: cache origin/main = X, advance actual to Y
+  Assert: freshness === "STALE", NOT "CURRENT"
+
+TRUTH-T02: Empty result != success
+  Setup: exit 0, result empty
+  Assert: executionAxis="EXIT_0", resultAxis="RESULT_EMPTY", NOT generic "SUCCESS"
+
+TRUTH-T03: Phantom worker detection
+  Setup: session RUNNING, process NOT_FOUND
+  Assert: conflict emitted, session STALE
+
+TRUTH-T04: Branch commit != mainline durability
+  Setup: commit on feature branch, not on main
+  Assert: onCurrentBranch=true, onRemoteMain=false
+
+TRUTH-T05: Artifact claimed but missing
+  Setup: receipt says exists, filesystem says no
+  Assert: conflict emitted, exists=false
+
+TRUTH-T06: Cached state != current truth
+  Setup: cached observation, basis changed
+  Assert: STALE, NOT served as CURRENT
+
+TRUTH-T07: Unknown != failure
+  Setup: observer cannot reach tool
+  Assert: UNKNOWN or UNRESOLVABLE, NOT crash
+
+TRUTH-T08: Conflict preservation
+  Setup: two contradictory observations
+  Assert: BOTH preserved, CONFLICTED, no silent pick
+
+TRUTH-T09: Restart lineage
+  Setup: snapshot, restart
+  Assert: lineage intact, stale marked
+
+TRUTH-T10: Identity mismatch
+  Setup: agent binds workspace A, process in B
+  Assert: IDENTITY_MISMATCH emitted
+
+TRUTH-T11: Engine self-observation
+  Setup: kill watcher
+  Assert: OBSERVER_DEGRADED emitted
+
+TRUTH-T12: PID reuse detection
+  Setup: PID appears with different startTime
+  Assert: ID_COLLISION_DETECTED with type PID_REUSE
+
+TRUTH-T13: Mainline drift detection
+  Setup: agent assumes main=X, main advances to Y
+  Assert: MAINLINE_DRIFT_DETECTED, driftStatus=STALE_MAIN_BASIS
+
+TRUTH-T14: Writer contention detection
+  Setup: two agents write same branch
+  Assert: WRITER_CONTENTION_DETECTED
+
+TRUTH-T15: Pre-closure checks accuracy
+  Setup: commit exists but not on main
+  Assert: currentMainContainsCommit=false
+```
+
+### Failure Injection Tests
+```
+FAIL-F01: Kill filesystem watcher → OBSERVER_DEGRADED
+FAIL-F02: Kill daemon → restart → stale marked correctly
+FAIL-F03: Remove Git ref → GIT_REF_NOT_FOUND, not crash
+FAIL-F04: Buffer overflow → oldest dropped, BUFFER_OVERFLOW emitted
+FAIL-F05: PID reuse → ID_COLLISION_DETECTED
+FAIL-F06: Main advances → MAINLINE_DRIFT_DETECTED
+FAIL-F07: Envelope timeout → ENV_TIMEOUT, execution axis correct
+```
+
+## ACCEPTANCE CRITERIA
+
+Phase 1 is accepted when a fresh OpenCode session can start and, **without manual archaeology**, obtain a truthful snapshot containing:
+
+- [ ] Workspace identity
+- [ ] Repository root
+- [ ] Current branch
+- [ ] HEAD commit
+- [ ] Current remote/main basis
+- [ ] Worktree cleanliness
+- [ ] Git divergence (ahead/behind)
+- [ ] Changed files list
+- [ ] Relevant active processes
+- [ ] OpenCode agent/session state
+- [ ] Actual toolchain availability
+- [ ] Recent verification results
+- [ ] Stale observations
+- [ ] Conflicts
+- [ ] Identity collisions
+- [ ] Mainline drift state
+- [ ] Observation timestamp
+- [ ] Engine health
+
+## FALSIFIERS (engine is broken if ANY is true)
+
+1. Reports cached Git state as CURRENT after ref changes
+2. Cannot distinguish feature-branch commits from mainline-reachable
+3. Reports process alive solely because old observation exists
+4. Cannot detect phantom worker
+5. Calls exit 0 + empty result a successful task result
+6. Silently replaces UNKNOWN with stale cache
+7. Loses observation lineage after restart
+8. Silently collapses contradictory observations
+9. Requires cloud service for correctness
+10. Forces domain-semantic decision from any CFA
+11. Becomes a second architecture graph
+12. Cannot serve fresh session without manual archaeology
+13. Cannot detect its own observer degradation
+14. Serialization is non-deterministic
+15. Silently drops events without recording the drop
+16. Cannot recover from schema version mismatch
+17. Performance degrades unboundedly with workspace size
+18. Cannot detect mainline drift during agent work
+19. Cannot detect writer contention on same branch
+20. Cannot detect identity collisions
+21. Pre-closure checks return incorrect mechanical facts
+
+## IMPLEMENTATION SEQUENCE
+
+```
+SLICE 1 (Week 1-2): Core Schema + Git/Workspace Truth
+  Types, serialization, schema validation, git observer, 30 fixtures
+  Proof: workspace state reproducible, stale-cache detected
+
+SLICE 2 (Week 2-3): Filesystem Observer + Bounded Search
+  Windows watcher, metadata, digest, changed-path index, backpressure
+  Proof: file change detected < 2s, coalescing works
+
+SLICE 3 (Week 3-4): Process Observer + Identity Collision
+  PowerShell adapter, generation tokens, classification, PID reuse detection
+  Proof: start/exit tracked, PID reuse handled, collisions detected
+
+SLICE 4 (Week 4-5): OpenCode Observer + Identity Binding
+  Session detection, phantom worker, heartbeat, identity binding/mismatch
+  Proof: phantom detected, empty result NOT collapsed, mismatch detected
+
+SLICE 5 (Week 5-6): Toolchain + Verification + Execution Envelopes
+  Tool probing, version capture, execution/result axis, envelope model
+  Proof: toolchain change detected, axis separation proven, envelopes bounded
+
+SLICE 6 (Week 6-7): Storage + Restart + Audit Trail
+  JSONL journal, snapshots, indexes, locks, restart recovery, pruning
+  Proof: restart preserves lineage, stale marked, journal replayable
+
+SLICE 7 (Week 7-8): CLI + Agent Integration + CFA Projections
+  All commands, --json/--agent, exit codes, CFA profiles
+  Proof: fresh agent gets full truth < 1s
+
+SLICE 8 (Week 8-9): Divergence Monitor + Pre-Closure + Contention
+  Mainline drift, writer contention, pre-closure checks, identity collisions
+  Proof: drift detected < 15s, preclosure accurate, contention reported
+
+SLICE 9 (Week 9-10): Daemon + Continuous Operation + Self-Observation
+  Long-lived daemon, on-demand mode, loops, health, degradation
+  Proof: 24h run without leak, degradation detected, self-observed
+```
+
+## ANTI-GOALS
+
+| Refused | Why |
+|---|---|
+| Source-code semantic graph | Phase 2 |
+| Architecture inference | Not from folders, imports, names |
+| Autonomous task scheduling | Engine is NOT the task router |
+| Semantic closure | Engine does NOT decide task completeness |
+| Ω law changes | Do NOT move into K0 |
+| Cloud/telemetry | Local and sovereign |
+| Giant dependencies | Small TS/Bun + system adapters |
+| Universal database | Until measured evidence requires |
+| Second authority system | Projection of reality, not authority over it |
+| AI/LLM integration | Mechanical observation only |
+| Receipt validation logic | RE provides facts; validation is Phase 5 |
+| Work queue management | RE observes workers; scheduling is Phase 4 |
+| Governance/authority | RE observes; governance is CFA-04/CFA-10 |
+
+## DESIGN JUDGMENT
+
+> **The most important design choice is to resist making Phase 1 "smart."**
+>
+> It should be boringly factual. A highly reliable factual substrate will later make sophisticated intelligence much safer and much faster. An intelligent but unreliable reality layer would multiply false context, stale reasoning, and agent rework.
+>
+> Speed lives inside envelopes, never by skipping verification. Observation is so cheap that gates never become bottlenecks.
+
+```
+FIRST:    observe reality reliably
+THEN:     understand source
+THEN:     join source to architecture
+THEN:     reason over the joined evidence
+FINALLY:  make the resulting self-knowledge native to Ω
+```
+
+This preserves:
+
+```
+EVIDENCE ≠ REPRESENTATION ≠ DESCRIPTION ≠ AUTHORITY
+confidence ≠ proof
+candidate ≠ realization
+selector ≠ canonical truth
+LLM output ≠ authority
+unknown ≠ failure
+```
+
+**The Reality Engine becomes the factual floor beneath all later development intelligence.**
+
+---
+
+## EXECUTION INSTRUCTIONS
+
+1. Clone BCP-dev repository
+2. Create `dev-reality/` directory at repository root
+3. Implement according to this specification
+4. Run truthfulness tests after each slice
+5. Document deviations with rationale
+6. Commit each slice with clear status
+
+**DO NOT:**
+- Re-read the 10 CFA homes (synthesis already done)
+- Re-derive requirements (use synthesis scores)
+- Implement Phase 2+ features (stay in Phase 1 boundary)
+- Make "smart" decisions (stay mechanical and factual)
+- Skip tests (truthfulness tests are load-bearing)
+
+**DO:**
+- Follow the implementation sequence exactly
+- Prove each invariant with tests
+- Measure performance against budgets
+- Document all deviations
+- Ask before expanding scope
+
+---
+
+This prompt is complete and self-contained. Execute it to build the full Reality Engine.
+```
+
+---
+
+This prompt gives an agent everything needed to implement the complete Reality Engine while respecting all boundaries and serving all 10 CFAs appropriately.

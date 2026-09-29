@@ -1,0 +1,341 @@
+I'll clone the repository and explore what exists, then design a pragmatic v1 that maximizes value while minimizing complexity.
+
+
+Based on my analysis of the BCP-dev repository, here's what I found and my pragmatic v1 design:
+
+## Current State Analysis
+
+**The Legacy System:**
+- 51 devops scripts in `vivim-original-baseline/vivim-final-enhanced/devops/`
+- Each script does its own Git/filesystem/process observation
+- React/Tauri desktop app with Bun backend
+- No unified observation substrate
+
+**The Current Agent Team:**
+- 10+ CFA agents configured in `.opencode/agents/`
+- Extensive AGENTS_CONTEXT documentation
+- Fragmented tooling - each agent discovers reality independently
+
+**The Core Problem:** The blueprint nailed it - agents repeatedly rediscover mutable machine truth instead of querying a single trustworthy source.
+
+---
+
+# Pragmatic v1 Reality Engine: Maximal Value, Minimal Complexity
+
+## Design Philosophy
+
+**Build only what delivers immediate value. Defer everything else.**
+
+The full blueprint is correct but over-engineered for wave 1. Here's the pragmatic version:
+
+---
+
+## Wave 0: Foundation (1-2 days)
+
+### What: Single-file Git workspace observer
+
+**Why:** 80% of agent friction comes from Git state uncertainty. This alone delivers massive value.
+
+**Implementation:**
+```
+dev-reality/
+  reality.ts          # Single file, ~500 lines
+  package.json        # Minimal: bun only
+  README.md
+```
+
+**Core Features:**
+```typescript
+// reality.ts - Git workspace truth
+interface GitTruth {
+  repositoryRoot: string;
+  branch: string;
+  head: string;
+  main: string;              // local main
+  originMain: string;        // origin/main
+  ahead: number;
+  behind: number;
+  dirty: boolean;
+  changedFiles: string[];
+  untrackedFiles: string[];
+  observedAt: string;        // ISO timestamp
+  basis: {                   // What this depends on
+    head: string;
+    main: string;
+    originMain: string;
+  };
+}
+
+// CLI
+// bun run reality.ts status --json
+// bun run reality.ts snapshot --json
+// bun run reality.ts changes --since <sha>
+```
+
+**Git Commands Used (batch where possible):**
+```bash
+git rev-parse --show-toplevel
+git branch --show-current
+git rev-parse HEAD
+git rev-parse refs/heads/main
+git rev-parse refs/remotes/origin/main
+git rev-list --left-right --count HEAD...origin/main
+git status --porcelain=v2 -z
+```
+
+**Output Example:**
+```json
+{
+  "branch": "impl-04/feature-x",
+  "head": "abc1234",
+  "main": "def5678",
+  "originMain": "def5678",
+  "ahead": 3,
+  "behind": 0,
+  "dirty": true,
+  "changedFiles": ["src/foo.ts", "tests/foo.test.ts"],
+  "observedAt": "2026-09-28T04:35:22.000Z",
+  "freshness": "CURRENT"
+}
+```
+
+**Success Criteria:** Any agent can run `bun run reality.ts status --json` and get truthful Git state in < 250ms.
+
+---
+
+## Wave 1: Core Value (1 week)
+
+### What: Add filesystem observation + stale detection + mainline drift
+
+**Why:** Agents need to know what changed and whether their cached state is still valid.
+
+**Add to Wave 0:**
+
+```typescript
+// Filesystem observation (metadata only, no content hashing yet)
+interface FilesystemObservation {
+  path: string;
+  exists: boolean;
+  size?: number;
+  mtime?: string;
+  type?: "file" | "directory" | "symlink";
+}
+
+// Stale detection
+interface StaleCheck {
+  cachedBasis: {
+    main: string;
+    head: string;
+  };
+  currentBasis: {
+    main: string;
+    head: string;
+  };
+  stale: boolean;
+  whatChanged: string[];
+}
+
+// Mainline drift (THE high-value feature from webapp sessions)
+interface MainlineDrift {
+  agentStartedAt: string;
+  agentAssumedMain: string;
+  currentMain: string;
+  mainAdvanced: boolean;
+  commitsAdvanced: number;
+  recommendation: string;
+}
+```
+
+**New Commands:**
+```bash
+reality stale                    # What's stale since last snapshot?
+reality drift                    # Has main moved since I started?
+reality changes --since <sha>    # What changed?
+reality explain <observation>    # Why is this stale/current?
+```
+
+**Storage:** Simple JSON files in `.dev-reality/`
+```
+.dev-reality/
+  snapshots/
+    latest.json
+  events.jsonl              # Append-only event log
+  basis-cache.json          # Last known basis for stale detection
+```
+
+**Key Insight:** No daemon yet. On-demand is fine. Agents call `reality` when they need truth.
+
+---
+
+## Wave 2: Agent Integration (1 week)
+
+### What: Process observation + OpenCode sessions + toolchain
+
+**Why:** Agents need to know what's running and what tools are available.
+
+**Add:**
+
+```typescript
+// Process observation (simplified)
+interface ProcessObservation {
+  pid: number;
+  command: string;
+  classification: "opencode" | "bun" | "node" | "test" | "build" | "other";
+  startTime: string;
+  status: "running" | "exited";
+  exitCode?: number;
+}
+
+// OpenCode session observation
+interface OpenCodeSession {
+  sessionId: string;
+  agent: string;
+  workspace: string;
+  branch: string;
+  state: "running" | "idle" | "exited" | "stale";
+  lastHeartbeat?: string;
+}
+
+// Toolchain observation
+interface ToolchainObservation {
+  tools: Array<{
+    name: string;           // bun, node, git, tsc
+    available: boolean;
+    version?: string;
+    path?: string;
+  }>;
+}
+```
+
+**New Commands:**
+```bash
+reality processes              # What's running?
+reality agents                 # OpenCode sessions
+reality toolchain              # What tools are available?
+reality for cfa-05             # CFA-scoped view
+```
+
+**Phantom Worker Detection (from webapp sessions):**
+```typescript
+// If session says RUNNING but process doesn't exist
+if (session.state === "RUNNING" && !processExists(session.pid)) {
+  session.state = "STALE";
+  emitConflict("phantom-worker", session);
+}
+```
+
+---
+
+## Wave 3: Verification + Closure Support (1 week)
+
+### What: Command execution observation + pre-closure checks
+
+**Why:** Agents need to know if commands succeeded and if work is durable.
+
+**Add:**
+
+```typescript
+// Execution observation
+interface ExecutionObservation {
+  command: string;
+  exitCode: number;
+  stdout: string;
+  stderr: string;
+  duration: number;
+  success: boolean;
+  resultPresent: boolean;  // Separate from success!
+}
+
+// Pre-closure mechanical checks (C1 from synthesis)
+interface PreClosureChecks {
+  artifactExists: boolean;
+  commitExists: boolean;
+  commitOnMain: boolean;
+  worktreeClean: boolean;
+  mainDrift: boolean;
+}
+```
+
+**New Commands:**
+```bash
+reality verify <command>       # Run and observe
+reality preclosure             # Mechanical completion checks
+```
+
+---
+
+## What I'm DEFERRING (and why)
+
+| Feature | Why Defer |
+|---|---|
+| **Full daemon mode** | On-demand works fine at small scale. Add when agents complain about latency. |
+| **Complex backpressure** | Not needed with < 100 events/minute. Add when buffer overflows. |
+| **Schema versioning** | Start with `schemaVersion: "1.0"`. Add migration when schema actually changes. |
+| **Elaborate degradation state machine** | "Fail loudly" is sufficient. Add states when failures become patterns. |
+| **Full canonical serialization** | `JSON.stringify` with sorted keys is fine. Add complexity when digests matter. |
+| **Content hashing (Level B/C)** | Metadata is enough initially. Add when agents need content verification. |
+| **Event replay/recovery** | Append-only log is enough. Add replay when restarts cause problems. |
+| **Multi-workspace support** | Single workspace is enough. Add when agents work across worktrees. |
+| **Cloud/telemetry** | Never. This is local-first. |
+| **Source intelligence (Phase 2)** | Different phase. Reality Engine provides facts, not interpretation. |
+
+---
+
+## Pragmatic Principles
+
+1. **One file, one responsibility** - Wave 0 is literally one TypeScript file
+2. **Zero dependencies** - Bun only. No frameworks.
+3. **JSON files, not databases** - Simple, observable, debuggable
+4. **On-demand, not daemon** - Agents call when they need truth
+5. **Fail loudly** - Errors are better than stale lies
+6. **Measure before optimizing** - Don't add complexity until agents hit real limits
+
+---
+
+## Implementation Sequence (Pragmatic)
+
+```
+Week 1:
+  Day 1-2: Wave 0 (Git truth + CLI)
+  Day 3-5: Wave 1 (filesystem + stale + drift)
+  Day 6-7: Testing + agent integration
+
+Week 2:
+  Day 1-3: Wave 2 (processes + OpenCode + toolchain)
+  Day 4-7: Wave 3 (verification + preclosure)
+
+Week 3:
+  Buffer for bugs, agent feedback, refinements
+```
+
+---
+
+## Success Metrics (Wave 0-3)
+
+1. **Agent startup time** decreases (no manual Git archaeology)
+2. **Stale state errors** decrease (agents don't trust lies)
+3. **Phantom worker hangs** eliminated (stale sessions detected)
+4. **Mainline drift conflicts** prevented (drift detected early)
+5. **Zero "what branch am I on?" questions** from agents
+
+---
+
+## What This is NOT
+
+- **Not a framework** - It's a tool agents call
+- **Not a database** - It's JSON files
+- **Not a daemon** (initially) - It's on-demand
+- **Not smart** - It's boring and factual
+- **Not authoritative** - It observes Git, not overrides it
+
+---
+
+## The Key Insight
+
+The blueprint is correct but over-scoped for v1. The pragmatic version delivers 80% of the value with 20% of the complexity. 
+
+**Build the minimal thing that makes agents stop rediscovering reality. Add complexity only when agents hit real limits.**
+
+---
+
+Want me to start implementing Wave 0 (the single-file Git observer)?

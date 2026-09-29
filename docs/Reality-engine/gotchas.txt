@@ -1,0 +1,77 @@
+Yes. The blueprint, the code scaffold, and the master prompt cover the *what* and the *how*. But when an LLM agent team actually executes this on a local Windows/Bun environment, they will hit **five operational traps** that aren't obvious in the design documents but will break the system in Week 2.
+
+Here are the final **Execution Safeguards & Gotchas** you must append to the agent team's instructions before they write a single line of code.
+
+---
+
+### 1. The Silent Hash Killer: Windows Path Canonicalization
+Windows file paths are notoriously non-deterministic (`C:\dev\BCP-dev` vs `c:/dev/BCP-dev` vs `\\?\C:\dev\BCP-dev`). If the Filesystem Observer and the Git Observer hash these differently, the **Basis Digests will never match**, and the engine will perpetually report `STALE` or `CONFLICTED`.
+
+**The Rule:** Every path must pass through a strict canonicalizer *before* it touches an identity hash or basis ref.
+```typescript
+// src/core/path-canonicalizer.ts
+export function canonicalizePath(rawPath: string): string {
+  return rawPath
+    .replace(/\\/g, "/")             // Forward slashes only
+    .replace(/^\\\\\?\\/, "")        // Strip Windows long-path prefix
+    .replace(/^([A-Z]):/, (_, c) => `${c.toLowerCase()}:`) // Lowercase drive letter
+    .replace(/\/+/g, "/")            // Collapse duplicate slashes
+    .replace(/\/$/, "");             // Strip trailing slash
+}
+```
+*Agent Instruction:* "No raw `process.cwd()` or `fs.stat` path may enter the `BasisRef` or `subjectId` fields without passing through `canonicalizePath()`."
+
+### 2. Context Window Protection (Agent Output Bounding)
+When an agent runs `reality status --agent` at startup, the output is injected into the LLM's context window. If the worktree has 400 changed files, or there are 50 stale observations, dumping them all will nuke the agent's context window and cause hallucinations.
+
+**The Rule:** The `--agent` output must be strictly bounded.
+*   **Changed files:** Show the first 10, then `... and 42 more (run reality changes --json)`.
+*   **Stale observations:** Show count and top 3 critical, then pointer.
+*   **Conflicts:** Show count and top 1, then pointer.
+*   **Hard Limit:** The `--agent` text block must never exceed **800 tokens**.
+
+### 3. Eliminating Polling Latency: The Git Hook Accelerator
+The blueprint relies on a "Medium Loop" (every 5-15s) to check if `HEAD` or `origin/main` changed. This means an agent might wait 15 seconds to realize a commit just happened. 
+
+**The Rule:** The Reality Engine should install local Git hooks on bootstrap to push events instantly.
+```bash
+# .git/hooks/post-commit (installed by reality init)
+#!/bin/sh
+# Ping the reality daemon or append directly to the event journal
+echo '{"type":"GIT_HEAD_CHANGED","source":"git-hook"}' >> .dev-reality/events/hooks.jsonl
+```
+*Agent Instruction:* "Do not rely solely on polling for Git state. Implement `reality hooks install` to wire `post-commit`, `post-checkout`, and `post-merge` to the event journal for sub-millisecond Git state awareness."
+
+### 4. Concurrent CLI Invocation Safety (The Lock File Trap)
+Agents work in parallel. CFA-05 might run `reality verify` while CFA-09 runs `reality snapshot`. If both try to write to `.dev-reality/snapshots/latest.json` or update the `basis-to-observation.json` index simultaneously, the JSON will corrupt.
+
+**The Rule:** 
+1.  **JSONL is safe** for concurrent appends (use `O_APPEND` flag in Bun).
+2.  **JSON Indexes are NOT safe**. 
+3.  *Solution:* Do not use JSON files for indexes. Use **SQLite** (via `bun:sqlite`) for the indexes (`basis-to-observation`, `subject-history`). SQLite handles concurrent read/write locking natively and is built into Bun with zero dependencies. Keep JSONL for the event journal, and JSON for immutable snapshot archives.
+
+### 5. The Phase 2 Bleed Guard (AST Parsing Ban)
+LLM agents love to be "helpful." When building the Filesystem Observer, an agent might think: *"I'll just use the TypeScript compiler API to parse the files and extract imports, so Phase 2 is already halfway done!"*
+
+**This violates the core invariant.** Phase 1 must remain mechanically boring. Parsing ASTs introduces semantic interpretation, massive CPU overhead, and crashes on malformed files.
+
+**The Rule:** 
+*   The Filesystem Observer may **only** use `fs.stat`, `fs.readdir`, and `crypto.createHash('sha256')`.
+*   It must **never** read file contents unless explicitly requested via a Level C (Full Content) explicit command.
+*   *Agent Instruction:* "If your Filesystem Observer imports `typescript`, `@babel/parser`, or `tree-sitter`, the PR is rejected. Phase 1 observes bytes and metadata. Phase 2 observes semantics."
+
+---
+
+### The Final Handoff Checklist for the Agent Team
+
+Give this exact checklist to the Architecture Steward or the implementing agent before they start Slice 1:
+
+- [ ] **Path Canonicalization:** Is every path normalized to lowercase-drive, forward-slash, no-trailing-slash before hashing?
+- [ ] **Bounded Agent Output:** Does `reality status --agent` guarantee < 800 tokens regardless of workspace size?
+- [ ] **SQLite for Indexes:** Are we using `bun:sqlite` for mutable indexes instead of race-prone JSON files?
+- [ ] **No AST Parsing:** Is the Filesystem observer strictly limited to `fs` and `crypto`?
+- [ ] **Cold Start Failsafe:** If `.dev-reality/` doesn't exist, does `reality status` gracefully bootstrap it in < 2 seconds without crashing?
+- [ ] **Execution Envelopes:** Does `reality verify` strictly enforce the timeout and stdout byte limits, killing the child process if it exceeds them?
+- [ ] **Ghost Worker Detection:** Does the OpenCode observer cross-reference session PIDs against the live process table to detect phantoms?
+
+You now have the **Blueprint** (the law), the **Scaffold** (the bones), the **Prompt** (the mission), and the **Safeguards** (the operational reality). The Reality Engine is ready to be built.
