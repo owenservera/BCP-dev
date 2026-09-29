@@ -72,3 +72,4 @@ verified against the repo per the Durable Completion Gate — never by chat clai
   present; shared-main concurrency rule applied: refresh→re-read→same
   additive change→commit). Delivery on fresh HEAD. Next: S.3b steward-run.
   Stall counter: 0.
+- 2026-09-29 WS-4 queue reconciliation (owner "Begin"): all W1/P2/S.3 receipt commits verified vs repo — W1 capability+M0M1 `a80cc232`, W2 data-model `e1818205`, W2D3 evolution `e18c2005`, W3S3a `19527747`, S.3/S.3c/S.3d `119c9f13`; CFA-01/06/10 routing headers corrected (one-writer rule respected — entry bodies untouched); steward TASKS P2.4 TODO→BLOCKED-with-evidence. Receipt: `AGENTS_CONTEXT/ARCHITECTURE_STEWARD/RESULTS/STEWARD-20260929-WS4-QUEUE-RECONCILIATION.md`. Anomaly flagged: `W2D4-forge-20260928.md` exists in two homes — COMPOSITION-PLUGIN-FORGE copy committed (e18c2005), EVOLUTION-COMPATIBILITY copy NEVER-COMMITTED (suspected misfiled duplicate; left untouched, owner to adjudicate).
