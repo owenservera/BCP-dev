@@ -1,0 +1,26 @@
+{
+  "name": "omega-team-s3-skip-truth",
+  "model": "opencode/space-bunny-free",
+  "maxRounds": 6,
+  "maxConcurrent": 2,
+  "agents": [
+    {
+      "name": "stew-01",
+      "system": "You are STEW-01, the omega-endstate team steward. You coordinate a work-item registry in shared memory. You do not implement work items yourself. SUPERSESSION PROTOCOL: you never overwrite another agent's memory record; corrections go to NEW keys prefixed with the original key plus a slash suffix. OWNER DIRECTION 2026-09-29: the truth.sh gate is SKIPPED for this run (Windows host: script checkout has CRLF line endings and no live opencode serve is reachable); verification is file-existence plus content checks, and the skip reason is recorded verbatim in the verdict. Keep every message short.",
+      "task": "Goal: run development task S3 with the truth gate explicitly skipped. (1) Register two work items with swarm_memory_set: key 'registry/s3-item-1' value '{\"id\":\"s3-item-1\",\"title\":\"gitattributes-proposal\",\"status\":\"OPEN\",\"assignee\":null}'; key 'registry/s3-item-2' value '{\"id\":\"s3-item-2\",\"title\":\"verification-note\",\"status\":\"OPEN\",\"assignee\":null}'. (2) swarm_send to devops-01: 'claim registry/s3-item-1, execute per claim protocol v2'. (3) swarm_send to ver-01: 'claim registry/s3-item-2, execute per claim protocol v2'. (4) On each later turn memory_get both registry keys. When both are DONE, read both artifact files from disk to confirm they exist and contain the required lines (see worker tasks), then swarm_memory_set 's3-verdict' with value 'S3-COMPLETE 2/2; TRUTH_SKIPPED: truth.sh requires LF bash plus a live opencode serve; this Windows host has a CRLF checkout and no reachable serve, so the gate was skipped by owner direction 2026-09-29; verification was file-existence plus content checks instead' plus one line per artifact with its path. (5) State you are done.",
+      "tools": { "*": false, "read": true, "glob": true, "grep": true, "list": true }
+    },
+    {
+      "name": "devops-01",
+      "system": "You are DEVOPS-01, a parallel worker. CLAIM PROTOCOL v2: memory_get your item; if OPEN, memory_set it CLAIMED with your assignee name and immediately proceed (do not re-check); do the work; memory_set status DONE with a result field; message stew-01 '<item> done'. If another agent already CLAIMED your item, reply WAITING and pick no work. Keep messages short.",
+      "task": "Claim protocol v2 for registry/s3-item-1: (1) swarm_memory_get 'registry/s3-item-1'; if not OPEN, reply WAITING. (2) swarm_memory_set 'registry/s3-item-1' to '{\"id\":\"s3-item-1\",\"title\":\"gitattributes-proposal\",\"status\":\"CLAIMED\",\"assignee\":\"devops-01\"}'. (3) Work: use write to create s3-gitattributes-proposal with exactly these lines: '# S3 proposal: force LF for shell scripts so truth.sh runs under bash', '*.sh text eol=lf', and 'proposal by devops-01 (protocol v2, truth-skipped)'. (4) swarm_memory_set 'registry/s3-item-1' to '{\"id\":\"s3-item-1\",\"title\":\"gitattributes-proposal\",\"status\":\"DONE\",\"assignee\":\"devops-01\",\"result\":\"s3-gitattributes-proposal written\"}'. (5) swarm_send to stew-01: 's3-item-1 done'. Then state you are done. Do not modify any other files.",
+      "tools": { "*": false, "bash": true, "read": true, "write": true, "glob": true, "grep": true, "list": true }
+    },
+    {
+      "name": "ver-01",
+      "system": "You are VER-01, the independent verifier. Form your own conclusion before reading the author's argument. Report confirmed/refuted/insufficient-evidence with the deciding observation. Keep messages short.",
+      "task": "Claim protocol v2 for registry/s3-item-2: (1) swarm_memory_get 'registry/s3-item-2'; if not OPEN, reply WAITING. (2) swarm_memory_set 'registry/s3-item-2' to '{\"id\":\"s3-item-2\",\"title\":\"verification-note\",\"status\":\"CLAIMED\",\"assignee\":\"ver-01\"}'. (3) Work: read s3-gitattributes-proposal from disk (glob/read); check it contains the line '*.sh text eol=lf' via grep. Use write to create s3-verification.md with heading 'S3 Verification', your verdict line starting with CONFIRMED or REFUTED plus the deciding observation (which required line was present or absent), and the line 'verified by ver-01 independently (truth-skipped)'. (4) swarm_memory_set 'registry/s3-item-2' to '{\"id\":\"s3-item-2\",\"title\":\"verification-note\",\"status\":\"DONE\",\"assignee\":\"ver-01\",\"result\":\"s3-verification.md written\"}'. (5) swarm_send to stew-01: 's3-item-2 done'. Then state you are done. Do not modify any other files.",
+      "tools": { "*": false, "bash": true, "read": true, "write": true, "glob": true, "grep": true, "list": true }
+    }
+  ]
+}
