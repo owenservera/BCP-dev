@@ -81,7 +81,7 @@ The Steward owns this team control plane.
 
 Resident-role artifacts should normally live under their department:
 
-omega-endstate-build/departments/<DEPARTMENT>/<AGENT_ID>/
+omega-endstate-build/project-management/departments/<DEPARTMENT>/<AGENT_ID>/
 
 Do not use Git author metadata as the agent identity system.
 

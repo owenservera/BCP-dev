@@ -80,6 +80,21 @@ result is still isolated and outside the repository, so this is **not a safety b
 confusing, and a future agent could reasonably read `omega-endstate-workspaces/omega-endstate-workspaces`
 as a mistake and "fix" it by moving work.
 
+**Still open as of the `work/omega-endstate/STEW-01/bootstrap-team` reorg.** The allocator's
+*default root name* was changed from `omega-endstate-workspaces` to `omega-endstate-worktrees`
+(§11: agent identity is not branch identity; the workspace root is machine-local), but the
+derivation itself was **not** changed. Because the live worktree still lives at
+`omega-endstate-workspaces\STEW-01-bootstrap-team`, the default still computes to:
+
+```
+repoRoot = C:\.../omega-endstate-workspaces\STEW-01-bootstrap-team
+-> WorkspaceRoot = C:\.../omega-endstate-workspaces/omega-endstate-worktrees       <-- still nested
+-> workspace     = C:\.../omega-endstate-workspaces/omega-endstate-worktrees/<TASK>
+```
+
+So the defect is **renamed, not fixed**. The isolation property is unaffected; only the
+confusing duplicate-name shape remains.
+
 **Mitigation, immediate:** the orchestrator passes an explicit `-WorkspaceRoot`, so nesting never
 happens under our control.
 
