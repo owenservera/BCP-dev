@@ -129,6 +129,25 @@ async function spawnOpencodeServer(opts: {
   })
   proc.unref()
 
+  // WINDOWS ADAPTATION: teardown delegates to terminateTree(), which takes the whole tree and
+  // also targets the process that owns the listening socket. Upstream's inline
+  // process.kill(-pid) version is retained only for POSIX, inside terminateTree().
+  //
+  // ORDERING FIX (VIVIM): this cleanup function is declared here, BEFORE the Promise below that
+  // schedules the startup timeout, instead of after it. The timeout callback references `close`,
+  // so when `close` was declared below the await it sat in the temporal dead zone for the whole
+  // startup window. On a startup timeout the callback threw
+  // `ReferenceError: Cannot access 'close' before initialization` *instead of cleaning up*,
+  // which orphaned the detached `opencode serve` tree. That orphan then held swarm.db open, and
+  // the caller's `rmSync(dir)` in the finally failed with EBUSY on Windows — so one leaked handle
+  // surfaced as an unrelated-looking cleanup error. Declaring the cleanup first means the timeout
+  // path can actually reach it. The error handler and exit handler below also clean up for the
+  // same reason.
+  const close = async (): Promise<void> => {
+    if (!proc.pid) return
+    await terminateTree(proc.pid, opts.port, opts.log ?? (() => {}))
+  }
+
   const url = await new Promise<string>((resolvePromise, reject) => {
     const timeout = setTimeout(() => {
       reject(new Error(`timeout waiting for opencode serve to start after ${opts.timeoutMs ?? 30_000}ms`))
@@ -147,21 +166,16 @@ async function spawnOpencodeServer(opts: {
     proc.stderr?.on("data", onData)
     proc.on("error", (err) => {
       clearTimeout(timeout)
+      void close()
       reject(err)
     })
     proc.on("exit", (code) => {
       clearTimeout(timeout)
+      void close()
       reject(new Error(`opencode serve exited with code ${code}${output.trim() ? `\n${output}` : ""}`))
     })
   })
 
-  // WINDOWS ADAPTATION: teardown delegates to terminateTree(), which takes the whole tree and
-  // also targets the process that owns the listening socket. Upstream's inline
-  // process.kill(-pid) version is retained only for POSIX, inside terminateTree().
-  const close = async (): Promise<void> => {
-    if (!proc.pid) return
-    await terminateTree(proc.pid, opts.port, opts.log ?? (() => {}))
-  }
   return { url, close }
 }
 
@@ -214,7 +228,7 @@ export async function runSwarm(config: SwarmConfig, opts: RunOptions = {}): Prom
   // calls rmSync(dir). The close is placed after writeReport (which still reads through it) and
   // inside a finally so a throwing notify cannot keep the handle either.
   try {
-    const reportPath = writeReport(dir, db, result.swarmId)
+    const reportPath = await writeReport(dir, db, result.swarmId)
     if (!opts.quiet) {
       await sendNotification(
         `swarm · ${config.name}`,
@@ -227,7 +241,14 @@ export async function runSwarm(config: SwarmConfig, opts: RunOptions = {}): Prom
   }
 }
 
-export function writeReport(dir: string, db: ReturnType<typeof openDb>, swarmId: string): string {
+// DURABILITY FIX (VIVIM), not a Windows adaptation — this is a real upstream defect on every
+// platform. Upstream called `Bun.write(...)` and discarded the promise, returning the path
+// immediately, and src/cli.ts then calls `process.exit()`. `process.exit` does not wait for
+// pending writes, so the report is truncated. Observed, not theorised: on run
+// sw_9695d4c9c66246f3 the run completed and this function returned a path, yet the file was
+// 0 bytes. The report is the run's human-readable evidence, so a silently empty evidence artifact
+// is worse than a loud failure. Now awaited, and the function is async so callers cannot forget.
+export async function writeReport(dir: string, db: ReturnType<typeof openDb>, swarmId: string): Promise<string> {
   const state = new SwarmState(db)
   const swarm = state.getSwarm(swarmId)
   const agents = state.getAgents(swarmId)
@@ -259,6 +280,6 @@ export function writeReport(dir: string, db: ReturnType<typeof openDb>, swarmId:
   const reportsDir = `${dir}/.swarm/reports`
   mkdirSync(reportsDir, { recursive: true })
   const path = `${reportsDir}/${swarmId}.md`
-  Bun.write(path, lines.join("\n"))
+  await Bun.write(path, lines.join("\n"))
   return path
 }

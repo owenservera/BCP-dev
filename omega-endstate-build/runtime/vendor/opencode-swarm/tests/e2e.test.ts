@@ -72,7 +72,24 @@ test.skipIf(!enabled)(
       expect(entry?.value).toContain("BLUE-42")
       expect(entry?.updatedBy).toBe("scout")
     } finally {
-      rmSync(dir, { recursive: true, force: true })
+      // DIAGNOSTIC FIX (VIVIM): rmSync throwing here replaced whatever the test body actually
+      // failed with, so a real failure surfaced as an unrelated-looking "EBUSY: resource busy or
+      // locked" and the actual cause was unrecoverable from the run. On Windows the temp dir can
+      // legitimately still be held for a moment after the swarm closes its handles, so retry
+      // briefly; if cleanup still cannot complete, keep the directory and report its path instead
+      // of masking the original error.
+      let removed = false
+      for (let attempt = 0; attempt < 5 && !removed; attempt++) {
+        try {
+          rmSync(dir, { recursive: true, force: true })
+          removed = true
+        } catch {
+          Bun.sleep(200)
+        }
+      }
+      if (!removed) {
+        console.warn(`[e2e] could not remove ${dir}; left in place so the failure stays diagnosable`)
+      }
     }
   },
   240_000,
