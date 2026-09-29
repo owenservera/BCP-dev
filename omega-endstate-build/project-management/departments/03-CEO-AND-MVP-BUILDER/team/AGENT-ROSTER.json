@@ -22,13 +22,17 @@
         "propose-branch-local-architecture-and-law"
       ],
       "subagents": [],
-      "notes": "Team-level Steward. Current topology includes seeded/proposed resident specialists; further roles remain evidence-driven."
+      "notes": "Team-level Steward. Current topology includes seeded/proposed resident specialists; further roles remain evidence-driven.",
+      "runtimeProvisioning": {
+        "status": "provisioned-2026-09-29",
+        "evidence": "Local runtime provisioning: opencode agent `.opencode/agents/stew-01.md` (repo-local adaptation) + swarm role `stew-01` exercised in live team run sw_6ec0854ec5444812 (see DEVOPS01-TRUTH-PROBE-SWARM-2026-09-29.md)."
+      }
     },
     {
       "agentId": "DEVOPS-01",
       "role": "agentic-development-tooling-owner",
       "lifecycle": "persistent",
-      "status": "proposed",
+      "status": "active",
       "mission": "Own, operate and progressively improve the local development machinery that enables safe, evidence-grounded and efficient VIVIM beta delivery.",
       "workspaceMode": "worktree",
       "branchPattern": "work/omega-endstate/DEVOPS-01/<TASK>",
@@ -49,13 +53,17 @@
         "no-treating-own-tests-as-independent-proof"
       ],
       "subagents": [],
-      "notes": "Seeded resident role. First live session should reconstruct current runtime truth, define its initial operating shape, and let recurring workload determine whether any subagents or permanent decomposition are justified."
+      "notes": "Seeded resident role. First live session should reconstruct current runtime truth, define its initial operating shape, and let recurring workload determine whether any subagents or permanent decomposition are justified.",
+      "runtimeProvisioning": {
+        "status": "provisioned-and-exercised-2026-09-29",
+        "evidence": "opencode agent `.opencode/agents/devops-01.md`; swarm role `devops-01` implemented omega-endstate-build/scripts/truth.sh in live run sw_6ec0854ec5444812; deliverable independently verified by ver-01 (see DEVOPS01-TRUTH-PROBE-SWARM-2026-09-29.md)."
+      }
     },
     {
       "agentId": "PROV-01",
       "role": "provider-live-environment-investigator",
       "lifecycle": "persistent-retire-when-idle",
-      "status": "proposed",
+      "status": "active",
       "mission": "Operate the real local Chrome/CDP substrate against authenticated provider web sessions and produce evidence about true provider behaviour, including drift.",
       "workspaceMode": "worktree",
       "branchPattern": "work/omega-endstate/PROV-01/<TASK>",
@@ -73,13 +81,17 @@
         "no-designing-healing-before-drift-is-observed"
       ],
       "subagents": [],
-      "notes": "Justified by observed workload: live browser work is serial, session-bound and the Steward's largest context consumer. Retire after two consecutive idle roadmap frontiers."
+      "notes": "Justified by observed workload: live browser work is serial, session-bound and the Steward's largest context consumer. Retire after two consecutive idle roadmap frontiers. On 2026-09-29 exercised in its adapted scope (local runtime/environment characterization; no Chrome substrate on this host) in run sw_6ec0854ec5444812.",
+      "runtimeProvisioning": {
+        "status": "provisioned-and-exercised-2026-09-29",
+        "evidence": "opencode agent `.opencode/agents/prov-01.md`; swarm role `prov-01` produced env-baseline evidence in sw_6ec0854ec5444812 (shared memory key env-baseline)."
+      }
     },
     {
       "agentId": "VER-01",
       "role": "independent-verifier",
       "lifecycle": "persistent-retire-when-idle",
-      "status": "proposed",
+      "status": "active",
       "mission": "Independently falsify claims, decisions and test baselines before integration; a Steward that verifies its own work is not verifying.",
       "workspaceMode": "worktree",
       "branchPattern": "work/omega-endstate/VER-01/<TASK>",
@@ -95,7 +107,11 @@
         "no-integration"
       ],
       "subagents": [],
-      "notes": "Independence rule: form own conclusion before reading the author's argument. Must report confirmed/refuted/insufficient-evidence with deciding command output."
+      "notes": "Independence rule: form own conclusion before reading the author's argument. Must report confirmed/refuted/insufficient-evidence with deciding command output.",
+      "runtimeProvisioning": {
+        "status": "provisioned-and-exercised-2026-09-29",
+        "evidence": "opencode agent `.opencode/agents/ver-01.md`; swarm role `ver-01` returned independent CONFIRMED verdict with SHA comparison in sw_6ec0854ec5444812 (shared memory key verification-verdict)."
+      }
     }
   ],
   "notes": "STEW-01 is the current team Steward; DEVOPS-01 is a seeded/proposed resident tooling owner. Topology remains provisional and evidence-driven."
