@@ -15,8 +15,12 @@ Thumbs.db
 Desktop.ini
 
 # WS-4 reconciliation 2026-09-29: parked heavy artifacts + session exports (owner-designated Steward class)
-"BCP-dev-omega-endstate-full-history (1).bundle"
-BCP-dev-omega-endstate-worktree-2026-09-29.zip
+BCP-dev-omega-endstate-full-history*.bundle
+BCP-dev-omega-endstate-worktree*.zip
 local-team.md
 session-ses_*.md
 OmegaBuildBootstrap.txt
+
+# Windows device-name accidents from Git Bash redirects
+nul
+**/nul
