@@ -78,6 +78,49 @@ results are narrow typed objects, and fan-out joins only at synthesis — the mo
 the discipline is what keeps runs lean. If the free tiers come back, the per-role split in git
 history of this file can be restored.
 
+## Model fallback ladder (owner directive 2026-09-30)
+
+Runs carry one model for all their subagents, and ZCode has **no in-script model fallback** —
+provider errors never reach the script. Two classes, handled differently:
+
+- **Transient** (network error, timeout, rate limit, overload) — the runtime retries without limit
+  and adapts the fan-out. Do nothing; a run stalled on these is *waiting*, not broken.
+- **Deterministic** (quota cap, model not in plan, invalid request) — the run stops with
+  `stop_reason: provider`. **This is the ladder's trigger.**
+
+**Ladder** — applied only on the deterministic class, one rung at a time:
+
+| Rung | Model | Notes |
+|---|---|---|
+| 1 | `openrouter/free` | OpenRouter free-model routing — configured in the host registry |
+| 2 | `openrouter/auto` | OpenRouter automatic routing |
+| 3 | `openrouter/stealth/space-bunny-alpha` | last resort; known to complete |
+
+**Rules:** relaunch with `AmendWorkflow` changing only `subagent_model` — finished work imports as
+cache, so a rung change re-pays only the unfinished steps. Never touch a run stopped
+`reason: user`. Never apply the ladder to a *script* error (e.g. `args.task is required`) — those
+need a script fix, not a different model. Record each rung change in the run's lineage.
+
+**Watchdog:** a scheduled automation applies the ladder automatically (every 30 minutes). This
+session holds its one automation, so create it from a fresh chat — prompt preserved below.
+UNKNOWN until first fire: whether `openrouter/free` is actually serving (it is configured, but
+unverified in this workspace) — the watchdog's first live action is also its test.
+
+<details><summary>Prompt for the model-fallback watchdog automation (create from a new chat)</summary>
+
+> You are the model-fallback watchdog for the VIVIM Ω workspace C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev.
+> Every 30 minutes: (1) call ListWorkflowRuns and inspect runs that are `stopped` with stop_reason
+> `provider`, or `errored` with a model/provider condition (quota cap, model not in plan, invalid
+> request) rather than a script error. (2) For each qualifying run, apply the next rung of the
+> fallback ladder with AmendWorkflow — run id, the run's script `path`, and the new
+> `subagent_model`: `openrouter/free` first, then `openrouter/auto`, then
+> `openrouter/stealth/space-bunny-alpha`. (3) Never touch a run stopped `reason: user`; never apply
+> the ladder to a ScriptError — those need a script fix. (4) Report one line per run touched (run
+> id, old model, new rung, cache imported), or "no action". Modify no file, commit nothing, message
+> nobody.
+
+</details>
+
 ## Scheduled duty cycles (cron automations)
 
 | Automation | Schedule | Duty |
