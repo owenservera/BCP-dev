@@ -9,7 +9,7 @@
   "steward": {
     "agentId": "STEW-01",
     "status": "active",
-    "workspace": "C:/0-BlackBoxProject-0/Vivim-omega/omega-endstate-workspaces/STEW-01-bootstrap-team",
+    "workspace": "C:/0-BlackBoxProject-0/Vivim-omega/omega-endstate-worktrees/STEW-01-bootstrap-team",
     "branch": "work/omega-endstate/STEW-01/bootstrap-team",
     "baseSha": "ff8e141a4a611ddaa6a35315e71557832cef2a5d"
   },

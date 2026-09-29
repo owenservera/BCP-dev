@@ -2,7 +2,8 @@
 
 > Agent: STEW-01
 > Date: 2026-09-28
-> Workspace: `C:\0-BlackBoxProject-0\Vivim-omega\omega-endstate-workspaces\STEW-01-bootstrap-team`
+> Workspace at time of audit: `C:\0-BlackBoxProject-0\Vivim-omega\omega-endstate-workspaces\STEW-01-bootstrap-team`
+> Workspace now: `C:\0-BlackBoxProject-0\Vivim-omega\omega-endstate-worktrees\STEW-01-bootstrap-team` (relocated 2026-09-29; `omega-endstate-workspaces` is obsolete and is no longer an execution location)
 > Branch: `work/omega-endstate/STEW-01/bootstrap-team`
 > Base SHA: `ff8e141a4a611ddaa6a35315e71557832cef2a5d` (= remote `team/omega-endstate` tip at allocation)
 > Status: COMPLETE — first bootstrap cycle
