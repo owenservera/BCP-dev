@@ -1,0 +1,6 @@
+{
+  "identifier": "default",
+  "description": "OpenCode OS main window: needs core APIs (invoke/events). All privileged work happens in Rust commands.",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}

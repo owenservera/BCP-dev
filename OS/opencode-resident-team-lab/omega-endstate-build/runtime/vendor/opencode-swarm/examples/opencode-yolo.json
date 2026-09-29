@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "*": "allow",
+    "bash": {
+      "*": "allow",
+      "rm -rf *": "deny",
+      "git push *": "ask"
+    }
+  },
+  "plugin": ["/path/to/opencode-swarm/plugin/notify.ts"]
+}

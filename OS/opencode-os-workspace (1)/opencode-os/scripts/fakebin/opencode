@@ -1,0 +1,142 @@
+#!/usr/bin/env node
+// Fake `opencode` CLI for deterministic end-to-end tests of OpenCode OS.
+// Implements the three entry points the OS uses:
+//   opencode --version
+//   opencode serve --hostname H --port P     (session store via HTTP+basic auth)
+//   opencode run --format json [-s SID] -m MODEL TEXT
+//
+// State dir: $OCOS_MOCK_DIR (default /tmp/ocos-mock)
+
+import http from "node:http";
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
+
+const DIR = process.env.OCOS_MOCK_DIR || "/tmp/ocos-mock";
+fs.mkdirSync(DIR, { recursive: true });
+const SESSIONS = path.join(DIR, "sessions.json");
+
+function loadSessions() {
+  try { return JSON.parse(fs.readFileSync(SESSIONS, "utf8")); } catch { return []; }
+}
+function saveSessions(list) { fs.writeFileSync(SESSIONS, JSON.stringify(list, null, 2)); }
+
+const args = process.argv.slice(2);
+
+// ---- version ----
+if (args[0] === "--version") {
+  console.log("1.0.0-mock");
+  process.exit(0);
+}
+
+// ---- serve ----
+if (args[0] === "serve") {
+  const get = (flag, dflt) => {
+    const i = args.indexOf(flag);
+    return i >= 0 ? args[i + 1] : dflt;
+  };
+  const port = Number(get("--port", 14099));
+  const user = process.env.OPENCODE_SERVER_USERNAME || "opencode";
+  const pass = process.env.OPENCODE_SERVER_PASSWORD || "mockpass";
+
+  const server = http.createServer((req, res) => {
+    const auth = req.headers.authorization || "";
+    const expect = `Basic ${Buffer.from(`${user}:${pass}`).toString("base64")}`;
+    if (auth !== expect) { res.writeHead(401); return res.end('{"error":"unauthorized"}'); }
+    if (req.method === "GET" && req.url === "/session") {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify(loadSessions()));
+    }
+    if (req.method === "POST" && req.url === "/session") {
+      let body = "";
+      req.on("data", (c) => { body += c; });
+      req.on("end", () => {
+        let title = "mock session";
+        try { title = JSON.parse(body).title ?? title; } catch {}
+        const s = {
+          id: `ses_${crypto.randomBytes(8).toString("hex")}`,
+          slug: title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 24) || "mock",
+          title,
+          directory: process.cwd(),
+          time: { created: Date.now(), updated: Date.now() },
+          tokens: { input: 0, output: 0, reasoning: 0, cache: { read: 0, write: 0 } },
+          cost: 0,
+          version: "1.0.0-mock",
+          projectID: "mock",
+          path: "",
+        };
+        const list = loadSessions();
+        list.push(s);
+        saveSessions(list);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(s));
+      });
+      return;
+    }
+    res.writeHead(404); res.end("{}");
+  });
+
+  server.listen(port, "127.0.0.1", () => {
+    console.log(`opencode server listening on http://127.0.0.1:${port}`);
+  });
+  // keep alive
+  setInterval(() => {}, 10_000);
+} else if (args[0] === "run") {
+  // ---- run ----
+  const isFlag = (a) => a.startsWith("-");
+  let sessionId = null;
+  for (let i = 0; i < args.length; i += 1) {
+    if (args[i] === "-s") { sessionId = args[i + 1]; }
+  }
+  const textArgs = [];
+  for (let i = 1; i < args.length; i += 1) { // skip args[0] = "run"
+    if (args[i] === "--format") { i += 1; continue; }
+    if (args[i] === "--dir") { i += 1; continue; }
+    if (args[i] === "-m") { i += 1; continue; }
+    if (args[i] === "-s") { i += 1; continue; }
+    if (!isFlag(args[i])) textArgs.push(args[i]);
+  }
+  const text = textArgs.join(" ");
+  const sid = sessionId || `ses_${crypto.randomBytes(8).toString("hex")}`;
+
+  // register session for listing (only when new)
+  if (!sessionId) {
+    const list = loadSessions();
+    list.push({
+      id: sid,
+      slug: text.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 24) || "chat",
+      title: text.slice(0, 40) || "mock chat",
+      directory: process.cwd(),
+      time: { created: Date.now(), updated: Date.now() },
+      tokens: { input: 0, output: 0, reasoning: 0, cache: { read: 0, write: 0 } },
+      cost: 0,
+      version: "1.0.0-mock",
+      projectID: "mock",
+      path: "",
+    });
+    saveSessions(list);
+  }
+
+  if (process.env.OCOS_MOCK_AUTH_FAIL === "1") {
+    console.error("Error: 401 Unauthorized — missing or invalid OPENCODE_API_KEY");
+    process.exit(1);
+  }
+
+  const reply = text.toUpperCase().includes("ERRORPLZ")
+    ? null
+    : `MOCK-REPLY: you said "${text}"`;
+
+  process.stdout.write(`${JSON.stringify({ type: "message.updated", info: { sessionID: sid } })}\n`);
+  if (reply) {
+    for (const chunk of [reply.slice(0, 12), reply.slice(12, 24), reply.slice(24)]) {
+      process.stdout.write(`${JSON.stringify({ type: "message.part.updated", part: { type: "text", text: chunk } })}\n`);
+    }
+  } else {
+    process.stdout.write(`${JSON.stringify({ type: "session.error", error: { message: "Mock provider failure (ERRORPLZ)" } })}\n`);
+  }
+  process.stdout.write(`${JSON.stringify({ type: "session.idle" })}\n`);
+  process.exit(reply ? 0 : 2);
+} else {
+  console.error("mock opencode: unsupported subcommand", args[0] ?? "(none)");
+  process.exit(64);
+}

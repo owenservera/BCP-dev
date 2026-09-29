@@ -1,0 +1,521 @@
+diff --git a/README.md b/README.md
+index 5f280b2..53944f6 100644
+--- a/README.md
++++ b/README.md
+@@ -58,6 +58,8 @@ e2e/run.mjs             real-browser e2e (Playwright/agent-browser driven)
+ 
+ ## Run from source
+ 
++> **Windows?** See [WINDOWS.md](WINDOWS.md) for the PowerShell setup.
++
+ Prereqs: Node 22+, Rust stable, and on Linux `libwebkit2gtk-4.1-dev` etc.
+ ([Tauri prerequisites](https://tauri.app/start/prerequisites/)), plus the
+ [OpenCode CLI](https://opencode.ai) (`curl -fsSL https://opencode.ai/install | bash`).
+diff --git a/WINDOWS.md b/WINDOWS.md
+new file mode 100644
+index 0000000..7be47d9
+--- /dev/null
++++ b/WINDOWS.md
+@@ -0,0 +1,61 @@
++# OpenCode OS on Windows 10/11
++
++## Just want the app?
++
++Grab the installer from **GitHub → Actions → "Windows Installer"** (or a Release for a `v*` tag):
++`OpenCode OS_0.1.0_x64-setup.exe` (per-user NSIS, no admin needed) or the `.msi`.
++On first launch the setup wizard installs the OpenCode CLI and links your free
++[Zen key](https://opencode.ai/auth).
++
++## Build it yourself (PowerShell)
++
++1. **Node.js 22+** — `winget install OpenJS.NodeJS.LTS`
++2. **Rust** — `winget install Rustlang.Rustup`, then `rustup default stable-msvc`
++3. **MSVC Build Tools** — `winget install Microsoft.VisualStudio.2022.BuildTools --override "--quiet --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"`
++4. **WebView2** — already present on Windows 10 (recent) and 11; otherwise https://developer.microsoft.com/microsoft-edge/webview2/
++
++Open a **new** PowerShell after installing so PATH is refreshed, then:
++
++```powershell
++npm ci
++npm run tauri:dev      # native window, hot reload of ui/
++npm run tauri:build    # installers -> src-tauri\target\release\bundle\{nsis,msi}\
++npm start              # browser mode at http://127.0.0.1:8787 (no Rust needed)
++npm test               # unit + bridge tests
++npm run test:rust      # opencode-core tests
++```
++
++## OpenCode CLI
++
++The wizard runs `irm https://opencode.ai/install.ps1 | iex` for you. To do it by hand:
++run that line in PowerShell, or `npm i -g opencode-ai` (creates an `opencode.cmd` shim —
++the desktop app handles that; browser mode `npm start` needs a native `opencode.exe`,
++or set `OPENCODE_BIN` to it).
++
++Check your key: 
++
++```powershell
++$env:OPENCODE_API_KEY = "sk-..."
++npm run zen:check
++```
++
++## Where things live
++
++| What | Windows path |
++|------|--------------|
++| Settings + API key | `%APPDATA%\opencode-os\settings.json` |
++| Default workspace | `%USERPROFILE%\OpenCodeWorkspace` |
++| Trash | `<workspace>\.Trash` |
++
++## What changed vs the Linux setup
++
++- Sandbox check now canonicalises the workspace (Windows returns `\\?\C:\…` paths, which broke the
++  `starts_with` test — every file operation would have been rejected).
++- CLI is launched without flashing a console window; `opencode.cmd` shims are found; PATH is
++  reloaded after the installer runs, so no app restart is needed.
++- `zen-check.sh` → cross-platform `scripts/zen-check.mjs`; `gen:icons` points at the real script.
++- Tests no longer depend on a shebang + `:`-separated PATH (`OPENCODE_BIN` / `OPENCODE_BIN_PREFIX`).
++- `npm test` lists files explicitly (`node --test tests` fails on Node 22, and cmd.exe doesn't expand globs).
++- The Rust symlink test is `#[cfg(unix)]`; the settings test no longer writes to your real `%APPDATA%`.
++- `npm run e2e` / `gates:verify` e2e layer needs POSIX shell quoting: run in WSL or CI
++  (skipped on native Windows unless `FORCE_E2E=1`).
+diff --git a/bridge-server/server.mjs b/bridge-server/server.mjs
+index 498ba43..f79c537 100644
+--- a/bridge-server/server.mjs
++++ b/bridge-server/server.mjs
+@@ -20,9 +20,25 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
+ const UI_DIR = path.resolve(__dirname, "../ui");
+ const PORT = Number(process.env.PORT || 8787);
+ 
++// The OpenCode CLI to launch. OPENCODE_BIN (+ optional JSON array
++// OPENCODE_BIN_PREFIX) overrides it — the tests use this to run the fake CLI
++// through `node`, which behaves the same on Windows, Linux and macOS.
++// Note: on Windows an npm-installed CLI is a .cmd shim that Node cannot spawn
++// without a shell; use the native opencode.exe or set OPENCODE_BIN to it.
++function ocCommand(args) {
++  if (process.env.OPENCODE_BIN) {
++    const prefix = process.env.OPENCODE_BIN_PREFIX ? JSON.parse(process.env.OPENCODE_BIN_PREFIX) : [];
++    return [process.env.OPENCODE_BIN, [...prefix, ...args]];
++  }
++  return ["opencode", args];
++}
++
+ // ---------- settings ----------
++// Same layout as the Rust core: %APPDATA%\opencode-os on Windows, ~/.config elsewhere.
+ const CONFIG_DIR = process.env.OPENCODE_OS_CONFIG_DIR
+-  || path.join(os.homedir(), ".config", "opencode-os");
++  || (process.platform === "win32"
++    ? path.join(process.env.APPDATA || path.join(os.homedir(), "AppData", "Roaming"), "opencode-os")
++    : path.join(os.homedir(), ".config", "opencode-os"));
+ const SETTINGS_PATH = path.join(CONFIG_DIR, "settings.json");
+ 
+ function defaultWorkspace() {
+@@ -63,8 +79,9 @@ function resolveWithin(workspace, rel) {
+     if (p === "..") throw new FsError("outside", "operation outside the workspace was blocked");
+     if (p.includes("\\")) throw new FsError("outside", "operation outside the workspace was blocked");
+   }
+-  const abs = path.resolve(workspace, ...parts);
+-  if (abs !== workspace && !abs.startsWith(workspace + path.sep)) {
++  const root = path.resolve(workspace);
++  const abs = path.resolve(root, ...parts);
++  if (abs !== root && !abs.startsWith(root + path.sep)) {
+     throw new FsError("outside", "operation outside the workspace was blocked");
+   }
+   return abs;
+@@ -128,10 +145,11 @@ async function startServer(state) {
+     OPENCODE_SERVER_PASSWORD: password,
+   };
+   if (settings.zen_api_key) env.OPENCODE_API_KEY = settings.zen_api_key;
+-  const child = spawn("opencode", ["serve", "--hostname", "127.0.0.1", "--port", String(port)], {
++  const child = spawn(...ocCommand(["serve", "--hostname", "127.0.0.1", "--port", String(port)]), {
+     cwd: settings.workspace,
+     env,
+     stdio: "ignore",
++    windowsHide: true,
+   });
+   // Missing binary etc. must not crash the server — surface via readiness loop.
+   let spawnError = null;
+@@ -280,7 +298,7 @@ const streamCommands = {
+     cliArgs.push(args.text ?? "");
+     const env = { ...process.env };
+     if (settings.zen_api_key) env.OPENCODE_API_KEY = settings.zen_api_key;
+-    const child = spawn("opencode", cliArgs, { cwd: settings.workspace, env });
++    const child = spawn(...ocCommand(cliArgs), { cwd: settings.workspace, env, windowsHide: true });
+     let buf = "";
+     let seenSession = null;
+     let done = false;
+@@ -352,7 +370,7 @@ const streamCommands = {
+       : ["sh", ["-c", "curl -fsSL https://opencode.ai/install | bash"]];
+     yield { task, ev: { line: `Running installer: ${cmd[0]} ${cmd[1].join(" ")}`, done: false, ok: true } };
+     const out = await new Promise((resolve) => {
+-      const p = spawn(cmd[0], cmd[1], { stdio: ["ignore", "pipe", "pipe"] });
++      const p = spawn(cmd[0], cmd[1], { stdio: ["ignore", "pipe", "pipe"], windowsHide: true });
+       let stdout = ""; let stderr = "";
+       p.stdout.on("data", (d) => { stdout += d; });
+       p.stderr.on("data", (d) => { stderr += d; });
+@@ -377,7 +395,7 @@ async function hasOpencode() {
+ }
+ async function opencodeVersion() {
+   return new Promise((resolve) => {
+-    const p = spawn("opencode", ["--version"]);
++    const p = spawn(...ocCommand(["--version"]), { windowsHide: true });
+     let out = "";
+     p.stdout.on("data", (d) => { out += d; });
+     p.on("error", () => resolve(null));
+diff --git a/e2e/run.mjs b/e2e/run.mjs
+index e9ce9a5..0b1145a 100644
+--- a/e2e/run.mjs
++++ b/e2e/run.mjs
+@@ -61,7 +61,7 @@ async function waitFor(fn, timeoutMs = 15_000, interval = 250) {
+ async function startBridge(env) {
+   const port = 8900 + Math.floor(Math.random() * 90);
+   const proc = spawn("node", [path.join(ROOT, "bridge-server", "server.mjs")], {
+-    env: { ...process.env, PORT: String(port), PATH: `${path.join(ROOT, "scripts", "fakebin")}:${process.env.PATH}`, ...env },
++    env: { ...process.env, PORT: String(port), OPENCODE_BIN: process.execPath, OPENCODE_BIN_PREFIX: JSON.stringify([path.join(ROOT, "scripts", "fakebin", "opencode")]), ...env },
+     stdio: ["ignore", "ignore", "pipe"],
+   });
+   let stderr = "";
+diff --git a/package.json b/package.json
+index 65ff7aa..cd2d459 100644
+--- a/package.json
++++ b/package.json
+@@ -1,7 +1,7 @@
+ {
+   "name": "opencode-os",
+   "version": "0.1.0",
+-  "description": "OpenCode OS — a Windows-style desktop shell for the OpenCode CLI (Tauri v2)",
++  "description": "OpenCode OS \u2014 a Windows-style desktop shell for the OpenCode CLI (Tauri v2)",
+   "private": true,
+   "license": "MIT",
+   "type": "module",
+@@ -10,12 +10,12 @@
+     "tauri": "tauri",
+     "tauri:dev": "tauri dev",
+     "tauri:build": "tauri build",
+-    "test": "node --test tests",
++    "test": "node --test tests/unit.test.mjs tests/bridge.test.mjs",
+     "test:rust": "cargo test -p opencode-core --manifest-path src-tauri/crates/opencode-core/Cargo.toml",
+     "e2e": "node e2e/run.mjs",
+     "gates:verify": "node scripts/gates-verify.mjs",
+-    "zen:check": "bash scripts/zen-check.sh",
+-    "gen:icons": "node scripts/gen-icons.mjs"
++    "zen:check": "node scripts/zen-check.mjs",
++    "gen:icons": "python scripts/gen-icons.py"
+   },
+   "devDependencies": {
+     "@tauri-apps/cli": "^2.0.0"
+diff --git a/scripts/fakebin/opencode b/scripts/fakebin/opencode
+index 3f6bdf4..9b76bfd 100755
+--- a/scripts/fakebin/opencode
++++ b/scripts/fakebin/opencode
+@@ -5,14 +5,15 @@
+ //   opencode serve --hostname H --port P     (session store via HTTP+basic auth)
+ //   opencode run --format json [-s SID] -m MODEL TEXT
+ //
+-// State dir: $OCOS_MOCK_DIR (default /tmp/ocos-mock)
++// State dir: $OCOS_MOCK_DIR (default <os tmpdir>/ocos-mock)
+ 
+ import http from "node:http";
+ import fs from "node:fs";
+ import path from "node:path";
+ import crypto from "node:crypto";
++import os from "node:os";
+ 
+-const DIR = process.env.OCOS_MOCK_DIR || "/tmp/ocos-mock";
++const DIR = process.env.OCOS_MOCK_DIR || path.join(os.tmpdir(), "ocos-mock");
+ fs.mkdirSync(DIR, { recursive: true });
+ const SESSIONS = path.join(DIR, "sessions.json");
+ 
+diff --git a/scripts/gates-verify.mjs b/scripts/gates-verify.mjs
+index 3390926..1dd6ff8 100644
+--- a/scripts/gates-verify.mjs
++++ b/scripts/gates-verify.mjs
+@@ -34,6 +34,10 @@ layer("Frontend + bridge unit tests", () => {
+ });
+ 
+ layer("Browser end-to-end (Scenarios A + B)", () => {
++  if (process.platform === "win32" && process.env.FORCE_E2E !== "1") {
++    console.log("Skipped on native Windows (the e2e driver uses POSIX shell quoting) — run it in WSL or CI, or set FORCE_E2E=1.");
++    return;
++  }
+   const r = spawnSync("node", ["e2e/run.mjs"], { cwd: ROOT, stdio: "inherit" });
+   if (r.status !== 0) throw new Error("e2e suite failed");
+ });
+diff --git a/scripts/gen-icons.py b/scripts/gen-icons.py
+index eefee33..0da9ad0 100644
+--- a/scripts/gen-icons.py
++++ b/scripts/gen-icons.py
+@@ -31,6 +31,7 @@ def rounded_gradient(size):
+     dr = ImageDraw.Draw(img)
+     font = None
+     for fp in [
++        "C:/Windows/Fonts/arialbd.ttf",
+         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+         "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+     ]:
+diff --git a/scripts/zen-check.mjs b/scripts/zen-check.mjs
+new file mode 100644
+index 0000000..d79f73b
+--- /dev/null
++++ b/scripts/zen-check.mjs
+@@ -0,0 +1,38 @@
++#!/usr/bin/env node
++// Cross-platform live check (Windows / macOS / Linux): verify a Zen API key can
++// round-trip through the installed OpenCode CLI.
++//
++// Usage:
++//   PowerShell:  $env:OPENCODE_API_KEY="sk-..."; npm run zen:check
++//   cmd.exe:     set OPENCODE_API_KEY=sk-... && npm run zen:check
++//   bash:        OPENCODE_API_KEY=sk-... npm run zen:check
++// Optional model: npm run zen:check -- opencode/nemotron-3-ultra-free
++import { spawnSync } from "node:child_process";
++
++const model = process.argv[2] || "opencode/space-bunny-free";
++if (!process.env.OPENCODE_API_KEY) {
++  console.error("OPENCODE_API_KEY is not set. Get a free key at https://opencode.ai/auth");
++  process.exit(2);
++}
++console.log(`Model: ${model}`);
++console.log("Asking the model to identify itself...");
++
++// On Windows an npm-installed CLI is opencode.cmd; try both names (args are fixed, no user text).
++const names = process.platform === "win32" ? ["opencode", "opencode.cmd"] : ["opencode"];
++let res;
++for (const name of names) {
++  res = spawnSync(name, ["run", "-m", model, "Reply with exactly: ZEN_OK"], {
++    encoding: "utf8",
++    timeout: 90_000,
++    shell: name.endsWith(".cmd"),
++  });
++  if (!res.error) break;
++}
++if (res.error) {
++  console.error(`Could not run the opencode CLI: ${res.error.message}`);
++  process.exit(127);
++}
++const out = `${res.stdout || ""}${res.stderr || ""}`.trim().split(/\r?\n/).slice(-5).join("\n");
++console.log(out);
++console.log("If the output above contains ZEN_OK, your zen key works.");
++process.exit(out.includes("ZEN_OK") ? 0 : 1);
+diff --git a/scripts/zen-check.sh b/scripts/zen-check.sh
+deleted file mode 100755
+index 7a888fd..0000000
+--- a/scripts/zen-check.sh
++++ /dev/null
+@@ -1,20 +0,0 @@
+-#!/usr/bin/env bash
+-# Live check: verify a zen API key can round-trip through the installed
+-# OpenCode CLI. Used by consumers (and CI smoke) after first-run setup.
+-#
+-# Usage: OPENCODE_API_KEY=sk-... bash scripts/zen-check.sh [model]
+-set -euo pipefail
+-
+-MODEL="${1:-opencode/space-bunny-free}"
+-
+-if [ -z "${OPENCODE_API_KEY:-}" ]; then
+-  echo "OPENCODE_API_KEY is not set. Get a free key at https://opencode.ai/auth"
+-  exit 2
+-fi
+-
+-export OPENCODE_API_KEY
+-echo "Model: $MODEL"
+-echo "Asking the model to identify itself..."
+-timeout 90 opencode run -m "$MODEL" "Reply with exactly: ZEN_OK" 2>&1 | tail -5
+-
+-echo "If the output above contains ZEN_OK, your zen key works."
+diff --git a/src-tauri/crates/opencode-core/src/fs_engine.rs b/src-tauri/crates/opencode-core/src/fs_engine.rs
+index ad160fa..0fa79fb 100644
+--- a/src-tauri/crates/opencode-core/src/fs_engine.rs
++++ b/src-tauri/crates/opencode-core/src/fs_engine.rs
+@@ -64,6 +64,10 @@ fn name_is_valid(name: &str) -> bool {
+ 
+ impl FsEngine {
+     pub fn new(workspace: PathBuf) -> Self {
++        // Canonicalise once so the `starts_with` sandbox check compares like
++        // with like. On Windows `canonicalize()` returns verbatim `\\?\C:\…`
++        // paths, which never start with the plain `C:\…` workspace string.
++        let workspace = workspace.canonicalize().unwrap_or(workspace);
+         FsEngine { workspace }
+     }
+ 
+@@ -439,6 +443,7 @@ mod tests {
+         assert!(fs.trash_delete("../../etc").is_err());
+     }
+ 
++    #[cfg(unix)]
+     #[test]
+     fn symlink_escape_is_blocked() {
+         let (fs, tmp) = engine();
+diff --git a/src-tauri/crates/opencode-core/src/oc_server.rs b/src-tauri/crates/opencode-core/src/oc_server.rs
+index 37de2ce..d8b72e6 100644
+--- a/src-tauri/crates/opencode-core/src/oc_server.rs
++++ b/src-tauri/crates/opencode-core/src/oc_server.rs
+@@ -51,6 +51,61 @@ fn random_token(len: usize) -> String {
+     out
+ }
+ 
++/// Keep background CLI processes from flashing a console window. The release
++/// build of the app uses the Windows GUI subsystem, so every child console
++/// program would otherwise pop up its own window. No-op on other platforms.
++pub fn hide_console(cmd: &mut Command) -> &mut Command {
++    #[cfg(windows)]
++    {
++        use std::os::windows::process::CommandExt;
++        cmd.creation_flags(0x0800_0000); // CREATE_NO_WINDOW
++    }
++    cmd
++}
++
++/// The program name to launch for the OpenCode CLI. On Windows the native
++/// installer provides `opencode.exe`, but an npm install provides an
++/// `opencode.cmd` shim, which `Command::new("opencode")` cannot find without
++/// the extension — so fall back to it. Unchanged on other platforms.
++pub fn resolve_bin(bin: &str) -> String {
++    #[cfg(windows)]
++    {
++        let mut probe = Command::new(bin);
++        probe
++            .arg("--version")
++            .stdin(Stdio::null())
++            .stdout(Stdio::null())
++            .stderr(Stdio::null());
++        hide_console(&mut probe);
++        if probe.status().is_err() {
++            return format!("{bin}.cmd");
++        }
++    }
++    bin.to_string()
++}
++
++/// Windows: pick up PATH changes made by an installer (which updates the
++/// user/machine PATH in the registry, not this process). No-op elsewhere.
++pub fn refresh_path() {
++    #[cfg(windows)]
++    {
++        let mut cmd = Command::new("powershell");
++        cmd.args([
++            "-NoProfile",
++            "-Command",
++            "[Environment]::GetEnvironmentVariable('Path','User') + ';' + [Environment]::GetEnvironmentVariable('Path','Machine')",
++        ]);
++        hide_console(&mut cmd);
++        if let Ok(out) = cmd.output() {
++            let fresh = String::from_utf8_lossy(&out.stdout).trim().to_string();
++            if !fresh.is_empty() {
++                let current = std::env::var("PATH").unwrap_or_default();
++                std::env::set_var("PATH", format!("{fresh};{current}"));
++            }
++        }
++    }
++}
++
+ /// Pick a free TCP port by binding port 0 and releasing it (small race, acceptable
+ /// on loopback; the readiness probe validates the real outcome).
+ pub fn pick_free_port() -> std::io::Result<u16> {
+@@ -81,13 +136,14 @@ impl Default for SpawnConfig {
+ /// Spawn `opencode serve` and wait until it answers an authenticated JSON call.
+ pub fn spawn_server(cfg: &SpawnConfig, extra_env: &[(String, String)]) -> Result<ManagedServer, String> {
+     let port = pick_free_port().map_err(|e| format!("no free port: {e}"))?;
+-    let mut cmd = Command::new(&cfg.bin);
++    let mut cmd = Command::new(resolve_bin(&cfg.bin));
+     cmd.args(["serve", "--hostname", "127.0.0.1", "--port", &port.to_string()])
+         .current_dir(&cfg.workdir)
+         .env("OPENCODE_SERVER_USERNAME", &cfg.username)
+         .env("OPENCODE_SERVER_PASSWORD", &cfg.password)
+         .stdout(Stdio::null())
+         .stderr(Stdio::null());
++    hide_console(&mut cmd);
+     for (k, v) in extra_env {
+         cmd.env(k, v);
+     }
+@@ -242,7 +298,10 @@ pub fn list_sessions(endpoint: &ServerEndpoint) -> Result<serde_json::Value, Str
+ 
+ /// Best-effort `opencode --version` for setup checks.
+ pub fn cli_version(bin: &str) -> Option<String> {
+-    let out = Command::new(bin).arg("--version").output().ok()?;
++    let mut cmd = Command::new(resolve_bin(bin));
++    cmd.arg("--version");
++    hide_console(&mut cmd);
++    let out = cmd.output().ok()?;
+     let s = String::from_utf8_lossy(&out.stdout).trim().to_string();
+     if s.is_empty() {
+         None
+diff --git a/src-tauri/crates/opencode-core/src/settings.rs b/src-tauri/crates/opencode-core/src/settings.rs
+index f7aec6f..2f28a13 100644
+--- a/src-tauri/crates/opencode-core/src/settings.rs
++++ b/src-tauri/crates/opencode-core/src/settings.rs
+@@ -110,6 +110,7 @@ mod tests {
+         let dir = tempfile::tempdir().unwrap();
+         // Tests touching env vars are merged into one test to avoid parallel races.
+         std::env::set_var("XDG_CONFIG_HOME", dir.path());
++        std::env::set_var("APPDATA", dir.path()); // config_dir() prefers APPDATA (Windows)
+         let s = Settings {
+             workspace: "/tmp/ws".into(),
+             zen_api_key: "sk-zen-test".into(),
+@@ -127,5 +128,6 @@ mod tests {
+         let fallback = load();
+         assert!(!fallback.wizard_done);
+         std::env::remove_var("XDG_CONFIG_HOME");
++        std::env::remove_var("APPDATA");
+     }
+ }
+diff --git a/src-tauri/src/lib.rs b/src-tauri/src/lib.rs
+index d6daafa..4dceda6 100644
+--- a/src-tauri/src/lib.rs
++++ b/src-tauri/src/lib.rs
+@@ -236,7 +236,7 @@ fn oc_send(
+     let task = state.task_seq.fetch_add(1, Ordering::SeqCst);
+     let workspace = settings.workspace.clone();
+ 
+-    let mut cmd = Command::new("opencode");
++    let mut cmd = Command::new(opencode_core::oc_server::resolve_bin("opencode"));
+     cmd.current_dir(&workspace)
+         .arg("run")
+         .arg("--format")
+@@ -253,6 +253,7 @@ fn oc_send(
+         cmd.env("OPENCODE_API_KEY", &settings.zen_api_key);
+     }
+     cmd.stdout(Stdio::piped()).stderr(Stdio::piped());
++    opencode_core::oc_server::hide_console(&mut cmd);
+ 
+     let mut child = cmd.spawn().map_err(|e| format!("cannot run opencode: {e}"))?;
+     let stdout = child.stdout.take().ok_or("no stdout")?;
+@@ -442,11 +443,13 @@ fn setup_install_opencode(app: AppHandle, state: State<'_, SharedState>) -> Resu
+             ("sh", vec!["-c", "curl -fsSL https://opencode.ai/install | bash"])
+         };
+         emit(&format!("Running installer: {program} {}", args.join(" ")), false, true);
+-        let result = Command::new(program)
++        let mut install = Command::new(program);
++        install
+             .args(&args)
+             .stdout(Stdio::piped())
+-            .stderr(Stdio::piped())
+-            .output();
++            .stderr(Stdio::piped());
++        opencode_core::oc_server::hide_console(&mut install);
++        let result = install.output();
+         match result {
+             Ok(out) => {
+                 let ok = out.status.success();
+@@ -458,6 +461,8 @@ fn setup_install_opencode(app: AppHandle, state: State<'_, SharedState>) -> Resu
+                 if !ok && !tail.trim().is_empty() {
+                     emit(tail.trim(), false, false);
+                 }
++                // The installer edits PATH in the registry; reload it so we can find the CLI now.
++                opencode_core::oc_server::refresh_path();
+                 let version = opencode_core::oc_server::cli_version("opencode");
+                 emit(
+                     &match &version {
+diff --git a/tests/bridge.test.mjs b/tests/bridge.test.mjs
+index 34a7e3e..6578f07 100644
+--- a/tests/bridge.test.mjs
++++ b/tests/bridge.test.mjs
+@@ -46,7 +46,8 @@ test.before(async () => {
+       ...process.env,
+       PORT: String(PORT),
+       OPENCODE_OS_CONFIG_DIR: path.join(tmp, "cfg"),
+-      PATH: `${fakebin}:${process.env.PATH}`,
++      OPENCODE_BIN: process.execPath,
++      OPENCODE_BIN_PREFIX: JSON.stringify([path.join(fakebin, "opencode")]),
+       OCOS_MOCK_DIR: path.join(tmp, "mock"),
+     },
+     stdio: ["ignore", "pipe", "pipe"],

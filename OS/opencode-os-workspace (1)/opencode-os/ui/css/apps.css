@@ -1,0 +1,125 @@
+/* ==========================================================================
+   OpenCode OS — apps (File Explorer, Notepad, Recycle Bin, Settings)
+   ========================================================================== */
+
+/* ---- File Explorer ---- */
+.explorer { display: flex; flex-direction: column; height: 100%; background: #fff; }
+.exp-toolbar {
+  flex: 0 0 44px; display: flex; align-items: center; gap: 4px; padding: 0 8px;
+  border-bottom: 1px solid #e6e6e6; background: #fafafa;
+}
+.exp-btn {
+  height: 32px; min-width: 32px; border: none; border-radius: 6px; background: transparent;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px;
+  color: #333; font-size: 12.5px;
+}
+.exp-btn:hover { background: #ececec; }
+.exp-btn:disabled { opacity: .4; cursor: default; }
+.exp-btn svg { width: 16px; height: 16px; }
+.exp-sep { width: 1px; height: 22px; background: #e0e0e0; margin: 0 4px; }
+.exp-addr {
+  flex: 1; height: 30px; display: flex; align-items: center; padding: 0 8px;
+  background: #fff; border: 1px solid #e0e0e0; border-radius: 6px;
+  font-size: 12.5px; overflow: hidden; gap: 2px; min-width: 140px;
+}
+.crumb { padding: 3px 7px; border-radius: 4px; cursor: pointer; white-space: nowrap; }
+.crumb:hover { background: #ececec; }
+.crumb-sep { color: #999; font-size: 11px; }
+.exp-search {
+  width: 150px; height: 30px; border: 1px solid #e0e0e0; border-radius: 6px;
+  padding: 0 10px; font-size: 12.5px; outline: none;
+}
+.exp-search:focus { border-color: var(--accent); }
+.exp-main { flex: 1; display: flex; min-height: 0; }
+.exp-side {
+  width: 168px; flex: 0 0 168px; border-right: 1px solid #ececec;
+  padding: 10px 6px; background: #fbfbfb; overflow: auto;
+}
+.side-item {
+  display: flex; align-items: center; gap: 8px; padding: 7px 10px;
+  border-radius: 6px; cursor: pointer; font-size: 12.5px; color: #333;
+}
+.side-item:hover { background: #efefef; }
+.side-item.active { background: #e5effc; color: #0b4da2; }
+.side-item svg { width: 16px; height: 16px; }
+.exp-grid {
+  flex: 1; overflow: auto; padding: 10px; display: flex;
+  flex-wrap: wrap; align-content: flex-start; gap: 4px;
+}
+.exp-item {
+  width: 108px; padding: 10px 6px; border-radius: 6px; border: 1px solid transparent;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: default;
+}
+.exp-item:hover { background: #f2f7fd; }
+.exp-item.selected { background: #e5effc; border-color: #b9d3f5; }
+.exp-item .ei-glyph svg { width: 42px; height: 42px; }
+.exp-item .ei-name {
+  font-size: 12px; text-align: center; line-height: 1.3; word-break: break-word;
+  max-width: 100%; max-height: 32px; overflow: hidden;
+}
+.exp-item .ei-rename {
+  width: 96px; font: inherit; font-size: 12px; text-align: center;
+  border: 1px solid var(--accent); border-radius: 4px; padding: 2px; outline: none;
+}
+.exp-empty {
+  margin: 30px auto; color: #9a9a9a; font-size: 13px; text-align: center; line-height: 1.8;
+}
+.exp-statusbar {
+  flex: 0 0 26px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 12px; border-top: 1px solid #ececec; background: #fafafa;
+  font-size: 11.5px; color: #666;
+}
+
+/* ---- Notepad ---- */
+.notepad { display: flex; flex-direction: column; height: 100%; background: #fff; }
+.np-menu {
+  flex: 0 0 34px; display: flex; align-items: center; gap: 2px; padding: 0 6px;
+  border-bottom: 1px solid #ececec; background: #fafafa;
+}
+.np-menu-btn {
+  border: none; background: transparent; padding: 5px 10px; border-radius: 5px;
+  font-size: 12.5px; color: #333; cursor: pointer; position: relative;
+}
+.np-menu-btn:hover, .np-menu-btn.open { background: #ececec; }
+.np-dropdown {
+  position: absolute; top: 100%; left: 0; min-width: 170px; z-index: 50;
+  background: #fff; border: 1px solid #ddd; border-radius: 7px; padding: 4px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, .18);
+}
+.np-dropdown .ctx-item { color: #222; }
+.notepad textarea {
+  flex: 1; resize: none; border: none; outline: none; padding: 12px 14px;
+  font-family: "Cascadia Mono", Consolas, "Sarasa Mono SC", monospace;
+  font-size: 13.5px; line-height: 1.55; color: #1b1b1b; background: #fff;
+  user-select: text; white-space: pre; overflow: auto;
+}
+.np-statusbar {
+  flex: 0 0 24px; display: flex; justify-content: flex-end; gap: 16px;
+  padding: 0 12px; border-top: 1px solid #ececec; font-size: 11.5px; color: #777;
+  align-items: center; background: #fafafa;
+}
+
+/* ---- Recycle Bin ---- */
+.recycler { display: flex; flex-direction: column; height: 100%; background: #fff; }
+.rec-toolbar { flex: 0 0 44px; display: flex; align-items: center; gap: 6px; padding: 0 10px; border-bottom: 1px solid #e6e6e6; background: #fafafa; }
+.rec-list { flex: 1; overflow: auto; }
+.rec-row { display: flex; align-items: center; gap: 10px; padding: 8px 14px; border-bottom: 1px solid #f2f2f2; font-size: 12.5px; }
+.rec-row:hover { background: #f5f9ff; }
+.rec-row svg { width: 18px; height: 18px; }
+.rec-row .rr-name { flex: 1; }
+.rec-row .rr-del { border: none; background: transparent; color: #c33; cursor: pointer; padding: 4px 8px; border-radius: 5px; font-size: 12px; }
+.rec-row .rr-del:hover { background: #fde8e8; }
+.rec-empty { margin: 40px auto; color: #9a9a9a; font-size: 13px; }
+
+/* ---- Settings ---- */
+.settings-app { padding: 22px 26px; overflow: auto; height: 100%; background: #fff; user-select: text; }
+.settings-app h2 { font-size: 19px; margin-bottom: 4px; }
+.settings-app .sec { margin-top: 22px; }
+.settings-app .sec h3 { font-size: 13.5px; color: #555; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .4px; }
+.set-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f1f1; font-size: 13.5px; gap: 20px; }
+.set-row .val { color: #555; font-size: 12.5px; text-align: right; word-break: break-all; }
+.set-row .val code { background: #f4f4f4; border-radius: 4px; padding: 1px 6px; font-size: 11.5px; }
+.status-pill { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 11.5px; }
+.status-pill.ok { background: #e2f7e8; color: #0d7a35; }
+.status-pill.warn { background: #fdeede; color: #a05a00; }
+.settings-app .hint { font-size: 12px; color: #888; line-height: 1.6; margin-top: 8px; }

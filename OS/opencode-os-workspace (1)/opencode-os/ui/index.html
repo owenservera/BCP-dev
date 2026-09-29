@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenCode OS</title>
+  <link rel="stylesheet" href="css/desktop.css" />
+  <link rel="stylesheet" href="css/apps.css" />
+</head>
+<body>
+  <!-- Desktop environment -->
+  <div id="os">
+    <div id="desktop">
+      <div id="icons"></div>
+      <div id="windows"></div>
+      <div id="chat-layer"></div>
+    </div>
+
+    <!-- Taskbar -->
+    <div id="taskbar">
+      <button id="start-btn" class="tb-btn" title="Start" aria-label="Start"></button>
+      <div id="tb-search" title="Search your files">Search</div>
+      <div id="tb-apps"></div>
+      <div id="tb-tray">
+        <span id="tb-chat-indicator" title="OpenCode Chat"></span>
+        <div id="clock"><div id="clock-time">--:--</div><div id="clock-date">---</div></div>
+      </div>
+    </div>
+
+    <!-- Start menu -->
+    <div id="startmenu" class="hidden">
+      <div class="sm-apps"></div>
+      <div class="sm-footer">
+        <div class="sm-user"><span class="sm-avatar">U</span> <span>User</span></div>
+        <button id="sm-shutdown" class="sm-power" title="Shut down"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- First-run setup wizard -->
+  <div id="setup" class="hidden"></div>
+
+  <!-- Boot / shutdown screens -->
+  <div id="boot">
+    <div class="boot-logo">OC</div>
+    <div class="boot-name">OpenCode OS</div>
+    <div class="boot-spinner"></div>
+    <div class="boot-msg">Starting up…</div>
+  </div>
+  <div id="shutdown" class="hidden">
+    <div class="sd-icon"></div>
+    <div>It is now safe to close this window.</div>
+    <div class="sd-sub">OpenCode OS has shut down.</div>
+  </div>
+
+  <!-- Context menu portal -->
+  <div id="ctx-root"></div>
+  <div id="toast-root"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

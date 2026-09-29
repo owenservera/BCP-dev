@@ -1,0 +1,2 @@
+1.18.33
+opencode-ai npm package, installed 2026-09-28T15:55:50Z

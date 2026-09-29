@@ -1,0 +1,23 @@
+{
+  "name": "opencode-os",
+  "version": "0.1.0",
+  "description": "OpenCode OS — a Windows-style desktop shell for the OpenCode CLI (Tauri v2)",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node bridge-server/server.mjs",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "test": "node --test tests/unit.test.mjs tests/bridge.test.mjs",
+    "test:rust": "cargo test -p opencode-core --manifest-path src-tauri/crates/opencode-core/Cargo.toml",
+    "e2e": "node e2e/run.mjs",
+    "gates:verify": "node scripts/gates-verify.mjs",
+    "zen:check": "bash scripts/zen-check.sh",
+    "gen:icons": "node scripts/gen-icons.mjs"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0"
+  }
+}
