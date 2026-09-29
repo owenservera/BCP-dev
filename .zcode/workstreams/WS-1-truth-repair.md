@@ -1,12 +1,11 @@
 # WS-1 — Truth Repair (gates + corpus)
 
 > Status: **ACTIVE** — owner "Begin" 2026-09-29.
-> Done: **items 2, 3, 6 committed `dab1f7db`** (ROADMAP demotion, D-record annotations,
-> provenance boundary) — docs corridor WS-1.2/3/6.
-> Item 1 (genome fold): a **parallel session regenerated the fold in this worktree** (uncommitted
-> at the time of writing) and its own D-459 lane also fixed the open-questions board; the WS-1.1
-> corridor is still running and will confirm `omega:quick` green.
-> Item 4 (D-213) and item 5 (verify-status `/1100`) remain queued behind the running corridors.
+> Done: **items 1, 2, 3, 6** — item 1 fold committed `b6e3cad5` (parallel session; fold now reads
+> 163 decision rows / 151 test files / 27 plugins / 19 compositions, and D-456's citation was
+> repaired); items 2/3/6 committed `dab1f7db` (docs corridor WS-1.2/3/6).
+> Item 4 (D-213) and item 5 (verify-status `/1100`) in flight as corridor WS-1.4/5 — scoped to
+> `tooling/gates/decisions.ts` and `tooling/ci/verify-status.ts`, files no other writer holds.
 > **Concurrency finding (for METHODS-01):** two corridors writing one worktree make a gate result
 > unattributable to either change — the docs corridor's green ran on a tree another session had
 > already altered. One corridor per worktree, or worktree-per-corridor, is the fix to consider.
