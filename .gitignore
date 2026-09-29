@@ -17,3 +17,7 @@ Desktop.ini
 # Per-agent local workspace manifests (machine state)
 **/.omega-agent/
 .swarm/
+.swarm-s2/
+*.db-shm
+*.db-wal
+*.db-journal
