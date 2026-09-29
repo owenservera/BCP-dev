@@ -1,0 +1,63 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Ω Resident Team Lab — Linux/headless adaptation of opencode.team-lab.jsonc.
+  // Local adaptation (GATE-01 section N allows recorded local adaptations):
+  // identical agent topology and permission rules as the original Windows lab
+  // config, plus an explicit default model (opencode/space-bunny-free via the
+  // zen provider) so headless SDK probes resolve a model without TUI setup.
+  "default_agent": "team-root",
+  "model": "opencode/space-bunny-free",
+  "plugin": [
+    "../plugin/resident-team.ts"
+  ],
+
+  // Native Task depth: root -> resident -> worker.
+  "subagent_depth": 2,
+
+  // Global ceiling for the experiment. Agent-specific rules below narrow this.
+  // FINDING 2026-09-29 (probe run 1): the original lab patterns `resident-*` /
+  // `worker-*` do NOT match the actual agent names `research-resident` /
+  // `research-worker` (patterns are prefix-anchored). Fixed here to exact-name
+  // least-privilege allows; the original Windows config retains its mismatch.
+  "permission": {
+    "task": {
+      "*": "deny",
+      "research-resident": "allow"
+    }
+  },
+
+  "agent": {
+    "team-root": {
+      "description": "Experimental Ω team root. Coordinates at owner/workstream level and may create registered residents.",
+      "mode": "primary",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "research-resident": "allow"
+        }
+      }
+    },
+
+    "research-resident": {
+      "description": "Experimental durable-shaped resident for research work. Forms its own judgment and may recruit bounded research workers.",
+      "mode": "subagent",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "research-worker": "allow"
+        }
+      }
+    },
+
+    "research-worker": {
+      "description": "Experimental leaf worker. Performs bounded research only and cannot recruit other agents.",
+      "mode": "subagent",
+      "permission": {
+        "task": "deny",
+        "edit": "deny",
+        "write": "deny"
+      }
+    }
+  }
+}

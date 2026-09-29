@@ -1,0 +1,32 @@
+{
+  "name": "omega-team-s2-parallel",
+  "model": "opencode/space-bunny-free",
+  "maxRounds": 6,
+  "maxConcurrent": 3,
+  "agents": [
+    {
+      "name": "stew-01",
+      "system": "You are STEW-01, the omega-endstate team steward. You coordinate a work-item registry in shared memory. You do not implement work items yourself. Keep every message short.",
+      "task": "Goal: prove parallel workers over a shared-memory work-item registry. Do these steps in order. (1) Register three work items with swarm_memory_set, one key per item, value is a JSON string: key 'registry/item-1' value '{\"id\":\"item-1\",\"title\":\"env-manifest\",\"status\":\"OPEN\",\"assignee\":null}'; key 'registry/item-2' value '{\"id\":\"item-2\",\"title\":\"repo-inventory\",\"status\":\"OPEN\",\"assignee\":null}'; key 'registry/item-3' value '{\"id\":\"item-3\",\"title\":\"roadmap-frontiers\",\"status\":\"OPEN\",\"assignee\":null}'. (2) Use swarm_send to tell agent devops-01 exactly: 'claim registry/item-1 from shared memory and execute it per the claim protocol'. (3) Use swarm_send to tell agent prov-01 exactly: 'claim registry/item-2 from shared memory and execute it per the claim protocol'. (4) Use swarm_send to tell agent ver-01 exactly: 'claim registry/item-3 from shared memory and execute it per the claim protocol'. (5) On each later turn, use swarm_memory_get on registry/item-1, registry/item-2, registry/item-3. When all three have status DONE, use swarm_memory_set to store under key 's2-parallel-verdict' the value 'PARALLEL-PROVEN 3/3 items DONE via maxConcurrent=3 registry protocol' if all three are DONE, otherwise 'INCOMPLETE <n>/3 DONE'. (6) State you are done.",
+      "tools": { "*": false, "read": true, "glob": true, "grep": true, "list": true }
+    },
+    {
+      "name": "devops-01",
+      "system": "You are DEVOPS-01, a parallel worker. Claim protocol: memory_get your item; if status is OPEN you own it; memory_set it to CLAIMED with assignee devops-01; do the work; memory_set status DONE with a result field; message stew-01 'item-1 done'. Keep messages short.",
+      "task": "Claim protocol for registry/item-1: (1) Use swarm_memory_get on key 'registry/item-1'. If missing or not OPEN, reply WAITING and check swarm_inbox next turn. (2) Use swarm_memory_set on 'registry/item-1' with value '{\"id\":\"item-1\",\"title\":\"env-manifest\",\"status\":\"CLAIMED\",\"assignee\":\"devops-01\"}'. (3) Work: with bash run these four commands and capture exact outputs: bun --version ; node --version ; git rev-parse HEAD ; uname -s -m. Then use write to create the file omega-endstate-build/scripts/evidence/s2-item-1-env-manifest.md containing a heading, the four commands with their outputs, and the line 'item-1 executed by devops-01'. (4) Use swarm_memory_set on 'registry/item-1' with value '{\"id\":\"item-1\",\"title\":\"env-manifest\",\"status\":\"DONE\",\"assignee\":\"devops-01\",\"result\":\"s2-item-1-env-manifest.md written\"}'. (5) Use swarm_send to tell agent stew-01: 'item-1 done'. Then state you are done. Do not modify any other files.",
+      "tools": { "*": false, "bash": true, "read": true, "write": true, "glob": true, "grep": true, "list": true }
+    },
+    {
+      "name": "prov-01",
+      "system": "You are PROV-01, a parallel worker. Claim protocol: memory_get your item; if status is OPEN you own it; memory_set it to CLAIMED with assignee prov-01; do the work; memory_set status DONE with a result field; message stew-01 'item-2 done'. Keep messages short.",
+      "task": "Claim protocol for registry/item-2: (1) Use swarm_memory_get on key 'registry/item-2'. If missing or not OPEN, reply WAITING and check swarm_inbox next turn. (2) Use swarm_memory_set on 'registry/item-2' with value '{\"id\":\"item-2\",\"title\":\"repo-inventory\",\"status\":\"CLAIMED\",\"assignee\":\"prov-01\"}'. (3) Work: with bash run `ls omega-endstate-build` and `ls omega-endstate-build/project-management` and count markdown files with `find omega-endstate-build/project-management -maxdepth 2 -name '*.md' | wc -l`. Then use write to create the file omega-endstate-build/scripts/evidence/s2-item-2-repo-inventory.md containing a heading, the three command outputs, a one-sentence observation about the tree structure, and the line 'item-2 executed by prov-01'. (4) Use swarm_memory_set on 'registry/item-2' with value '{\"id\":\"item-2\",\"title\":\"repo-inventory\",\"status\":\"DONE\",\"assignee\":\"prov-01\",\"result\":\"s2-item-2-repo-inventory.md written\"}'. (5) Use swarm_send to tell agent stew-01: 'item-2 done'. Then state you are done. Do not modify any other files.",
+      "tools": { "*": false, "bash": true, "read": true, "write": true, "glob": true, "grep": true, "list": true }
+    },
+    {
+      "name": "ver-01",
+      "system": "You are VER-01, a parallel worker for this exercise (not verifying here — executing item-3). Claim protocol: memory_get your item; if status is OPEN you own it; memory_set it to CLAIMED with assignee ver-01; do the work; memory_set status DONE with a result field; message stew-01 'item-3 done'. Keep messages short.",
+      "task": "Claim protocol for registry/item-3: (1) Use swarm_memory_get on key 'registry/item-3'. If missing or not OPEN, reply WAITING and check swarm_inbox next turn. (2) Use swarm_memory_set on 'registry/item-3' with value '{\"id\":\"item-3\",\"title\":\"roadmap-frontiers\",\"status\":\"CLAIMED\",\"assignee\":\"ver-01\"}'. (3) Work: read omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/roadmap/ROADMAP-V1.md and extract the names/titles of the frontiers F0 through F5. Then use write to create the file omega-endstate-build/scripts/evidence/s2-item-3-roadmap-frontiers.md containing a heading, the six frontier identifiers with their titles as found in the document, and the line 'item-3 executed by ver-01'. (4) Use swarm_memory_set on 'registry/item-3' with value '{\"id\":\"item-3\",\"title\":\"roadmap-frontiers\",\"status\":\"DONE\",\"assignee\":\"ver-01\",\"result\":\"s2-item-3-roadmap-frontiers.md written\"}'. (5) Use swarm_send to tell agent stew-01: 'item-3 done'. Then state you are done. Do not modify any other files.",
+      "tools": { "*": false, "read": true, "write": true, "glob": true, "grep": true, "list": true }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "feature-swarm",
+  "model": "openrouter/openai/gpt-4o-mini",
+  "agents": [
+    {
+      "name": "researcher",
+      "task": "Survey the codebase, summarize architecture and key files into shared memory under 'architecture'. Tell coder when done.",
+      "tools": {
+        "*": false,
+        "read": true,
+        "glob": true,
+        "grep": true
+      }
+    },
+    {
+      "name": "coder",
+      "task": "Wait for the researcher's findings (check swarm_inbox / shared memory), then propose an implementation plan in shared memory under 'plan'.",
+      "tools": {
+        "*": false,
+        "read": true,
+        "glob": true,
+        "grep": true
+      }
+    }
+  ]
+}

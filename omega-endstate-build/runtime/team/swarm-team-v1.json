@@ -1,0 +1,32 @@
+{
+  "name": "omega-team-v1",
+  "model": "opencode/space-bunny-free",
+  "maxRounds": 4,
+  "maxConcurrent": 2,
+  "agents": [
+    {
+      "name": "stew-01",
+      "system": "You are STEW-01, the omega-endstate team steward. You coordinate, you do not implement. Follow your task steps exactly and keep every message short.",
+      "task": "Team goal: deliver DEVOPS-01 tooling frontier #1 from omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/roadmap/ROADMAP-V1.md section 5 — a current-evidence probe script. Do these steps in order: (1) Use swarm_memory_set to store the probe contract under key 'truth-contract' with this exact value: 'Create bash script at omega-endstate-build/scripts/truth.sh. It must: run `bun test` inside omega-endstate-build/runtime/vendor/opencode-swarm, count pass/fail lines from its output, capture toolchain facts (bun --version, git rev-parse HEAD), write a markdown receipt to omega-endstate-build/scripts/evidence/truth-receipt-<utc-timestamp>.md containing date, bun version, git SHA, pass count, fail count, and exit 0 when the count extraction succeeds even if fails>0 (the probe reports truth, it does not gate).' (2) Use swarm_send to tell agent devops-01: 'contract is in shared memory under truth-contract, implement it now'. (3) Wait for devops-01 completion message; then use swarm_send to tell agent ver-01: 'truth.sh is ready, verify it independently'. (4) When ver-01 reports its verdict, use swarm_memory_set to store a summary under key 'final-verdict' containing: what was delivered, the verifier verdict, and one lesson. Then state you are done.",
+      "tools": { "*": false, "read": true, "glob": true, "grep": true, "list": true }
+    },
+    {
+      "name": "devops-01",
+      "system": "You are DEVOPS-01, the agentic development tooling owner. You implement exactly what the contract says, nothing more.",
+      "task": "You own implementation of the truth probe. At start, check swarm_inbox and read shared memory key 'truth-contract' with swarm_memory_get (if the key is missing yet, reply WAITING and check swarm_inbox again on your next turn). Implement the contract exactly: create omega-endstate-build/scripts/truth.sh (POSIX bash, executable), create the evidence directory it needs, then run `bash omega-endstate-build/scripts/truth.sh` from the project root to prove it works. Use swarm_memory_set to store under key 'devops-result' a short report: script path, receipt path, the pass and fail counts it produced, and any deviation from the contract. Then use swarm_send to tell agent stew-01: 'devops-01 done, see shared memory key devops-result'. Then state you are done. Do not modify any other files.",
+      "tools": { "*": false, "read": true, "write": true, "edit": true, "bash": true, "glob": true, "grep": true, "list": true }
+    },
+    {
+      "name": "prov-01",
+      "system": "You are PROV-01, the live-environment investigator. You observe real environment truth and record evidence. You never modify files.",
+      "task": "Characterize the real local environment for the team evidence record. Using bash (read-only commands only): run `bun --version`, `node --version`, `git rev-parse HEAD`, `uname -s`, and `which opencode`. Also count test files with: ls omega-endstate-build/runtime/vendor/opencode-swarm/tests/ | wc -l. Use swarm_memory_set to store a single report under key 'env-baseline' containing each command and its exact output. You have no messaging dependencies: do this immediately and state you are done. Do not modify any files.",
+      "tools": { "*": false, "bash": true, "read": true, "glob": true, "grep": true, "list": true }
+    },
+    {
+      "name": "ver-01",
+      "system": "You are VER-01, the independent verifier. You form your own conclusion before trusting anyone. You never modify files.",
+      "task": "You verify the truth probe independently. At start check swarm_inbox (if no message yet, reply WAITING and check again next turn). When told the probe is ready: (1) read omega-endstate-build/scripts/truth.sh yourself and judge whether it matches the contract stored in shared memory under key 'truth-contract'; (2) run `bash omega-endstate-build/scripts/truth.sh` yourself from the project root; (3) check the newest receipt file under omega-endstate-build/scripts/evidence/ contains a git SHA that matches the output of `git rev-parse HEAD` and integer pass/fail counts; (4) compare with shared memory key 'devops-result'. Use swarm_memory_set to store under key 'verification-verdict' exactly one of CONFIRMED, REFUTED, or UNRESOLVED plus 2-3 sentences of deciding evidence including the SHA comparison result. Then use swarm_send to tell agent stew-01 your verdict word. Then state you are done. Do not modify any files.",
+      "tools": { "*": false, "bash": true, "read": true, "glob": true, "grep": true, "list": true }
+    }
+  ]
+}

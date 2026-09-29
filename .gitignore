@@ -16,3 +16,4 @@ Desktop.ini
 
 # Per-agent local workspace manifests (machine state)
 **/.omega-agent/
+.swarm/
