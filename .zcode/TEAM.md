@@ -83,16 +83,7 @@ history of this file can be restored.
 | Automation | Schedule | Duty |
 |---|---|---|
 | Ω daily standup | daily 09:00 | Read-only sweep of queues, authority docs and git state; report drift + one recommended next action. Modifies nothing. **Created** (automation-85b0ebf5). |
-| Completion gate audit | Mondays 09:30 | Sample-verifies recent DONE claims in agent TASKS homes against repo evidence; flags UNVERIFIED. Read-only. **Not yet created** — ZCode allows one scheduled task per session; start a fresh chat and ask for "completion gate audit Mondays 09:30" (prompt text preserved below). |
-
-<details><summary>Prompt for the completion gate audit (create it from a new session)</summary>
-
-> You are the completion-gate auditor for the VIVIM Ω project in the workspace C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev. Weekly audit of whether recently claimed-completed work is durably present in the repository. READ-ONLY — modify nothing, commit nothing.
-> 1. Glob AGENTS_CONTEXT/*/TASKS.md. In each, identify entries marked DONE (or closed) whose dated work falls in the last 14 days.
-> 2. For each entry check its cited completion evidence: does the cited commit exist (`git log`, `git show --stat <hash>` — no Select-Object truncation; redirect long output to a temp file and read it)? Does the cited receipt/artifact file exist and plausibly contain the claimed result?
-> 3. Classify each entry: VERIFIED / PARTIAL / UNVERIFIED. Report a short table: entry, home, verdict, what you checked. Highlight UNVERIFIED items.
-
-</details>
+| Completion gate audit | Mondays 09:30 | Sample-verifies recent DONE claims in agent TASKS homes against repo evidence; flags UNVERIFIED. Read-only. **Created** 2026-09-30 (automation-cdeac028). |
 
 ## Operating rhythm
 
