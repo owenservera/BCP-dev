@@ -139,13 +139,19 @@ A gate result is an evidence-based assessment, not authority by itself.
 
 Each gate result should identify:
 - evaluator/producer;
-- independent verifier, when required by the gate or evidence risk;
 - decision-maker / ratifying authority;
 - exact scope and runtime;
 - durable evidence;
 - unresolved UNKNOWNs and applicable conditions.
 
-The agent or team that implements a capability must not silently become the sole verifier of its own consequential gate.
+**Owner decision D-2026-09-28:** the former requirement that an independent verifier be present
+before a gate can be accepted, and the rule that the implementer must not be the sole verifier of
+its own consequential gate, are **removed**. `AGENT-ROSTER.json` status `proposed` for a verifier
+role (e.g. VER-01) is not a precondition for gate acceptance. The substantive protections remain:
+evidence must be durable and reproducible, UNKNOWN is not PASS, and the acceptance record must name
+both the evaluator and the ratifying authority so that a self-evaluated result is visible as such.
+See `gates/GATE-01-CLONED-BASELINE-ACCEPTANCE.md` for the decision record and its stated
+consequence.
 
 VETO-01 may challenge progression through its experimental advisory role, but it does not own gate acceptance.
 

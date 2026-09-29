@@ -137,18 +137,25 @@ not skipped** — a failure there is a real failure, not an environment skip. It
 failing at ~30s in earlier work and the cause was never established. It remains **unresolved** and
 must be reported as neither PASS nor N/A.
 
-## Structural constraint on this gate's acceptance
+## Independence requirement — REMOVED by owner decision
 
-Gate "Gate decision integrity": *"The agent or team that implements a capability must not silently
-become the sole verifier of its own consequential gate."*
+Originally recorded here as a structural blocker: the gate forbade the implementer from being the
+sole verifier of its own consequential gate, STEW-01 authored the Windows adaptations in
+`ff461817` / `f8796860` and is driving this gate, and
+`omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/team/AGENT-ROSTER.json` records VER-01 as
+`proposed`.
 
-The Windows adaptations in `ff461817` / `f8796860` were authored by STEW-01, which is also the
-agent driving this gate. `omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/team/AGENT-ROSTER.json` records **VER-01 (independent verifier) as
-`status: proposed`** — not provisioned — and DEVOPS-01 as `seeded-proposed-pre-gate`.
+**Removed 2026-09-28 by owner decision D-2026-09-28** (recorded in both
+`AGENTIC-SYSTEM-GATES.md` and `gates/GATE-01-CLONED-BASELINE-ACCEPTANCE.md`). VER-01's `proposed`
+status is not a precondition for acceptance. Rationale: the owner, not the agent, is the ratifying
+authority, and requiring an unprovisioned verifier made the gate uncloseable rather than merely
+unproven.
 
-Consequence: even a fully green campaign cannot by itself produce an accepted GATE-01 result. An
-independent verifier must exist and must not be the implementer. Recorded here as a known
-structural blocker rather than resolved by self-assertion.
+This is **not** a weakening that goes unrecorded: a GATE-01 PASS now rests on owner ratification
+of self-evaluated evidence, which is explicitly a weaker guarantee than independent verification.
+The protections that prevent a false PASS are retained — durable reproducible evidence, UNKNOWN is
+not PASS, no unobserved capability may be asserted, and the acceptance record names both evaluator
+and ratifying authority.
 
 GATE-01 additionally requires a real-world advancement exercise designed and run under
 `omega-endstate-build/project-management/departments/03-CEO-AND-MVP-BUILDER/DEVOPS-01/PRE-GATE-01-FOUNDING-MANDATE.md`, whose evidence

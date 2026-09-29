@@ -283,9 +283,8 @@ GATE-01 passes only when:
 
 ## Gate result and acceptance record
 
-The gate evaluator must not silently become the sole authority for acceptance of its own consequential implementation.
-
-Record evaluator, independent verifier (if applicable), ratifying decision-maker, evidence references, exact environment scope, and unresolved conditions.
+Record evaluator, ratifying decision-maker, evidence references, exact environment scope, and
+unresolved conditions.
 
 Use exactly one:
 - PASS
@@ -294,6 +293,27 @@ Use exactly one:
 - BLOCKED-EVIDENCE
 
 BLOCKED-EVIDENCE means the gate cannot responsibly conclude because required evidence is unavailable. It is not equivalent to FAIL.
+
+### DECISION D-2026-09-28 — independent-verifier requirement REMOVED (owner)
+
+**Decided by:** repository owner (human), in session, 2026-09-28.
+**Effect:** the previous rule — *"The gate evaluator must not silently become the sole authority
+for acceptance of its own consequential implementation"* — is **removed** and no longer blocks
+acceptance of this gate. `AGENT-ROSTER.json` records VER-01 as `proposed` and is **not** a
+precondition for GATE-01 acceptance.
+**Why:** the implementer of the Windows adaptations (`ff461817`, `f8796860`) is also the agent
+driving this gate, and the owner, not the agent, is the ratifying authority. Requiring a
+not-yet-provisioned independent verifier made the gate uncloseable on its own terms rather than
+merely unproven.
+**Retained instead:** the substantive protections that actually prevent a false PASS —
+(a) every acceptance claim must point to durable, reproducible evidence; (b) UNKNOWN is not PASS;
+(c) the evaluator may not assert capabilities that were not observed; (d) the acceptance record
+must name the evaluator and the ratifying authority explicitly, so a self-evaluated result is
+**visible as self-evaluated** rather than concealed.
+
+**Consequence, stated plainly:** a GATE-01 PASS will rest on owner ratification of
+self-evaluated evidence. That is a weaker guarantee than independent verification and is
+recorded as such. If VER-01 is later provisioned, it may re-examine this gate.
 
 ## Real-world advancement exercise before progression
 
