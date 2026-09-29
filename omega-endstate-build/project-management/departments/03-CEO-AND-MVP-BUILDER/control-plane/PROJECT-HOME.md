@@ -18,9 +18,19 @@ The governing product outcome for this roadmap phase is:
 
 Department 01 owns research and alignment. Department 02 owns the trust chain and independent verification boundary. Department 03 owns product execution and CEO/MVP coordination.
 
-The shared project home is not a shared autonomous-agent checkout.
+## Project location
 
-Department 03 owns and maintains the four root-level constitutional seeds: `../../../../Vision.md`, `../../../../Motivation.md`, `../../../../Invariants.md`, and `../../../../Anti-Patterns.md`. Concurrent work uses isolated worktrees or clones and owned branches.
+The canonical tracked Ω project root is:
+
+`BCP-dev/omega-endstate-build/`
+
+When an Ω branch is checked out in the canonical `BCP-dev` checkout, that project materializes physically as:
+
+`<BCP-dev checkout>/omega-endstate-build/`
+
+Autonomous agents do not share that checkout. They work in isolated local Git worktrees or clones. Those execution locations are operational machinery, not additional Ω project roots.
+
+Department 03 owns and maintains the four root-level constitutional seeds: `../../../../Vision.md`, `../../../../Motivation.md`, `../../../../Invariants.md`, and `../../../../Anti-Patterns.md`. Concurrent work uses isolated worktrees or clones; Git branches identify task/change lineage and are not agent ownership.
 
 For bootstrap and Git safety procedures, see `STEWARD-BOOTSTRAP.md`, `GIT-MANAGEMENT.md` and `../team/README.md` in this department.
 
