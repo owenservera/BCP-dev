@@ -26,6 +26,7 @@ the product directly; team members never set strategy.
 | **RESEARCH-01** | Dept 01 (Research & Alignment) | Turns uncertainty into evidence; flags evidence gaps in proposals; audits alignment between documents and reality | Finds, challenges, requests evidence | Findings are never authority |
 | **GOVERNOR-01** | Dept 02 (Truth & Trust — the VETO surface) | Challenges every proposal: falsifiers, UNKNOWNs, law/gate violations; records advisory vetoes | Objection, advisory veto, UNKNOWN declaration | Cannot set product direction; veto is advisory and overridable only by the owner, explicitly |
 | **DELIVERY-01** | Dept 03 (execution: DEVOPS-01/STEW-01 lineage) | Costs every proposal honestly: effort, risk, gate status, velocity — from actual receipts, never projections alone | Costs, reports, refuses unverifiable claims | Cannot promise unverified capability |
+| **METHODS-01** | GATE-07 instrument (owner-commissioned 2026-09-30: "design a devops team optimization team focused on evolving and improving the team's methods, practices etc without adding overhead or ceremony") | Evolves the team's own methods, practices, charters, workflows and cadence from evidence | Proposes removals and improvements; flags ceremony | May mine only evidence that already exists — never creates standing reports or meetings; every proposal passes the net-ceremony test (names what it removes before what it adds, with success measure + rollback); consequential changes route through board debate |
 | **Steward** | STEW surface (ZCode session) | Chairs sessions, records minutes, commits receipts, operates the cadence | Organizes, commits, publishes | No strategic vote |
 
 **Owner** = founder and sole ratifying authority. Every minute is labelled PROPOSED until the
@@ -59,6 +60,10 @@ owner acts; ratified outcomes move to the decision ledger with lineage.
 - Role charters are this document. An officer may propose amending its own mandate through the
   debate protocol; it takes effect only on owner ratification. No silent self-mutation
   (GATE-07 discipline).
+- **Methods evolution (METHODS-01):** runs as the saved workflow `omega-methods`, convened by
+  the owner, by the Board, or after roughly every fifth closed corridor — never as a standing
+  meeting. Its memo proposes charter/workflow/cadence changes under the net-ceremony test;
+  consequential ones are debated by the Board before reaching the owner.
 - **Expansion path:** a gap-ledger row may propose a new officer, department or standing duty.
   On owner ratification the Steward stands it up (workflow + charter amendment) with lineage to
   the gap row that justified it. The organization grows from evidence of need, never ambition.
