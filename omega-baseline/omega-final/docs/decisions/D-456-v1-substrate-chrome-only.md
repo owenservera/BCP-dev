@@ -48,7 +48,7 @@ Blocks: none
   - F-CHROME-ONLY.3 — strategy strata and triage rows go browser-first (strategy voided with marker; ledger and registry name no Ollama pilot)
   - F-CHROME-ONLY.4 — the extended banners point at this record (roadmap, wave-2, invariants, consolidation)
 - Analysis citations, all file:line at this tree: vision §3 list plus Frank, `04-WAVE-MAP.md` W2, `STRATEGY-OMEGA-PLUGIN-REBUILD.md` §3, `TRIAGE-LEDGER.md` T-02, `05-GAP-REGISTRY.md` carry, the three extended banners, the `CURRENT-INVARIANTS.md` v1 bullet.
-- Ratified on measured evidence (directive-class, same-day per D-364): PROPOSED landing commit d678dd0; full gate 1409/18 twice pre-fix plus confirmatory 1410/17 post-fix — the delta is F-GOV-CI.7 going green on the F-CHROME-ONLY citation, and every remaining red lane is proven pre-existing on the clean tree by stash proof, Windows-informational with Linux CI the merge arbiter; decisions, compositions, genome, and quick green throughout; zero host LOC; anvil untouched; compositions unchanged.
+- Ratified on measured evidence (directive-class, same-day per D-364): PROPOSED landing commit d678dd0 (the omega-final standalone lineage; carried into this repo by the 2026-09-22 full snapshot commit e724a517); full gate 1409/18 twice pre-fix plus confirmatory 1410/17 post-fix — the delta is F-GOV-CI.7 going green on the F-CHROME-ONLY citation, and every remaining red lane is proven pre-existing on the clean tree by stash proof, Windows-informational with Linux CI the merge arbiter; decisions, compositions, genome, and quick green throughout; zero host LOC; anvil untouched; compositions unchanged.
 
 ## Index
 

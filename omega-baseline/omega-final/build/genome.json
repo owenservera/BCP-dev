@@ -12,13 +12,13 @@
     "externalAssumed": 0,
     "ratifiedUnimplemented": 0,
     "queued": 0,
-    "decisions": 162,
+    "decisions": 163,
     "ratified": 161,
-    "proposed": 1,
-    "records": 136,
-    "testFiles": 144,
+    "proposed": 2,
+    "records": 137,
+    "testFiles": 151,
     "gateStages": 15,
-    "plugins": 25,
+    "plugins": 27,
     "compositions": 19
   },
   "layers": [
@@ -1619,6 +1619,11 @@
       "n": 456,
       "status": "RATIFIED",
       "file": "docs/decisions/D-456-v1-substrate-chrome-only.md"
+    },
+    {
+      "n": 459,
+      "status": "PROPOSED",
+      "file": "docs/decisions/D-459-world-work-contract-reservation.md"
     }
   ],
   "falsifiers": [
@@ -1945,6 +1950,7 @@
   ],
   "tests": {
     "files": [
+      "examples\\plugin-echo2\\test\\substitution.test.ts",
       "examples\\plugin-notes\\test\\notes.test.ts",
       "host\\test\\adversarial.test.ts",
       "host\\test\\canon.test.ts",
@@ -1972,7 +1978,11 @@
       "plugins\\discovery-verification\\test\\verify.test.ts",
       "plugins\\forge-author\\test\\happy\\self-host.test.ts",
       "plugins\\forge-author\\test\\refusal\\init-refusals.test.ts",
+      "plugins\\parser-claude-sse-v2\\test\\differential.test.ts",
+      "plugins\\parser-claude-sse-v2\\test\\parsers.test.ts",
+      "plugins\\parser-claude-sse\\test\\parsers.test.ts",
       "plugins\\provider-browser\\test\\browser-falsifier.test.ts",
+      "plugins\\provider-browser\\test\\live-send.test.ts",
       "plugins\\provider-browser\\test\\m13-containment.test.ts",
       "plugins\\provider-browser\\test\\parsers.test.ts",
       "plugins\\provider-email-file\\test\\integration.test.ts",
@@ -2010,6 +2020,8 @@
       "plugins\\vivim-run\\test\\integration.test.ts",
       "plugins\\vivim-run\\test\\process-broker.test.ts",
       "plugins\\vivim-run\\test\\run.test.ts",
+      "plugins\\vivim-run\\test\\work.runtime.test.ts",
+      "plugins\\vivim-run\\test\\work.test.ts",
       "plugins\\vivim-vault\\test\\d387-perf.test.ts",
       "plugins\\vivim-vault\\test\\driver-conformance.test.ts",
       "plugins\\vivim-vault\\test\\integration.test.ts",
