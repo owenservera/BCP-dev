@@ -66,6 +66,132 @@ For substantive changes:
 4. keep research/documentation and production-code changes explicit;
 5. commit coherent changes with a clear status.
 
+## Windows / PowerShell command execution (non-hanging protocol)
+
+This machine is Windows 11 with PowerShell 7 (`pwsh`). A hung tool call is a **session-ending event**: the agent cannot recover, and the user must terminate `opencode.exe` manually, losing all in-memory context. Treat every command as a potential hang source and verify the risk class before running it.
+
+### Why commands hang — mechanism, not folklore
+
+The `bash` tool gates completion on **stdout/stderr pipe EOF**, not on process exit (`core/src/process.ts`: `Effect.all([collectStream(handle.all), handle.exitCode])`). If any child, grandchild, or daemon still holds the inherited write-end of the pipe, EOF never arrives and the tool stays `status: "running"` **forever**.
+
+Windows makes this materially worse than POSIX:
+
+- `cross-spawn-spawner.ts` uses **overlapped** pipes on `win32`, which fail to emit `end` when a grandchild inherits the handle.
+- The Windows pipe buffer is **8KB** (vs 64KB on Linux), so a producer blocks on write far sooner — a full-pipe deadlock.
+- Children inherit the parent's **Job Object**. `detached: true` + `unref()` in Node/Python is **not a real detach on Windows**; the shell tool waits on the whole Job Object. Measured: parent exits in 0.05s, tool returns *never* for an infinite-lived child.
+
+**The `timeout` parameter does not fire on a silent held-open pipe.** It is insurance for slow-but-producing commands, not a fix for this class. Never treat "I set a timeout" as "this cannot hang".
+
+PowerShell adds its own distinct failure:
+
+- `Select-Object -First` / `-Last` (and `Select-Object` generally) **abort the upstream pipeline** via `StopUpstreamCommandsException`. PowerShell stops draining the producer's stdout; the producer then blocks writing into the full 8KB pipe; the pipeline is wedged in a state that will never self-resolve.
+
+Tracking: anomalyco/opencode #20902, #24731, #24784, #29822, #32504, #36799, #37838, #42524. Fixes landed in PR #29831, #42756, #44601, #46085; startup package-manager probe timeouts in PR #11724. Still not fully closed — assume the bug is present.
+
+### The five hard bans
+
+1. **Never `Select-Object -First`, `-Last`, or any output-truncation cmdlet on a command's stdout.** The shell tool already captures full output and persists overflow to a file. Truncation is never necessary and is a direct hang trigger.
+2. **Never `-NoNewWindow` on `Start-Process`.** It lets the child inherit the tool's stdout/stderr handles.
+3. **Never spawn a background/daemon/long-lived process and chain `;`-separated synchronous commands after it in the same call.** Split into two tool calls: one to spawn, one to verify.
+4. **Never use `&` / `Start-Job` to background a dev server, watcher, or `npm run dev`.** `Start-Job` has its own CPU-bound hang signature (~140% CPU, unbounded memory growth).
+5. **Never run a test or script that spawns a server/daemon as an ordinary tool call** without first stating the kill step and confirming it exists in the code.
+
+### Output discipline — the default pattern
+
+Redirect to a file, then read the file with the Read/Grep tools. This yields **more** information than truncation, at **zero** hang risk.
+
+```powershell
+<command> *> "$env:TEMP\<name>.log"
+```
+
+Then `Read` / `Grep` the log. Do not chain a summary echo after it. If you need the exit code, capture it in the same call *inside* the redirect target, or accept that the log plus tool-reported status is sufficient.
+
+If output must be bounded at the source, bound it in the **producing command** (e.g. a test's own reporter flag, `--reporter`, `head -n` inside a `cmd`/WSL context) — never in the receiving PowerShell pipeline.
+
+### Spawn discipline — if you must background something
+
+```powershell
+# correct: no pipe inheritance, stdio goes to files
+Start-Process -FilePath "node" -ArgumentList "server.js" `
+    -WorkingDirectory "C:\path\to\project" `
+    -WindowStyle Hidden `
+    -RedirectStandardOutput "C:\Temp\app.log" `
+    -RedirectStandardError  "C:\Temp\app.err" `
+    -PassThru
+```
+
+Then in a **separate** tool call, poll for readiness. Do not sleep-and-check in the same call.
+
+> Evidence note: community reports conflict on whether `-RedirectStandard*` alone is sufficient — #32504 measured an immediate return, while #37838 and #33028 reproduced hangs with the same construct. Treat redirect-to-file as **necessary but not sufficient**. The split-call rule is what actually holds.
+
+### Prefer cmdlets over native commands for inspection
+
+`Get-Process`, `Get-CimInstance`, `Get-ChildItem`, `Select-Object`, `Get-Content` are in-process cmdlets. They create **no OS child process and hold no pipe**, so they cannot hang the tool. Use them for all state inspection.
+
+```powershell
+Get-Process -Name opencode,bun -ErrorAction SilentlyContinue |
+    Format-Table Id,ProcessName,StartTime,CPU -AutoSize
+
+Get-CimInstance Win32_Process -Filter "Name = 'opencode.exe'" |
+    Select-Object ProcessId,ParentProcessId,CreationDate,CommandLine | Format-List
+```
+
+Reserve native executables (`git`, `bun`, `npm`, `dotnet`, `python`) for work that genuinely requires them, and always redirect their output.
+
+### Test discipline
+
+- Assume a test that spawns a long-lived child **leaks it** until the source proves otherwise.
+- Read the teardown path before running. Confirm the child is actually killed on the failure path, not just the success path.
+- On Windows, a cleanup that relies on `process.kill(-pid)` is a **no-op** — negative-PID signalling is POSIX process-group semantics. `taskkill /T /F /PID <pid>` is the only reliable tree kill. Suspect any `src/` teardown using `process.kill(-pid)` without a `win32` branch.
+- A `const` referenced inside a callback defined *before* its declaration is a temporal-dead-zone leak: the async callback throws `ReferenceError` and the resource is never released. This exact defect was observed at `runtime/vendor/opencode-swarm/src/runner.ts:135` (`void close()` referencing a `const close` declared at line 161), orphaning `opencode serve --port=27082` on 2026-09-28. Verify cleanup runs on the **timeout/reject** path, not only the happy path.
+- If a run may leak, capture the PIDs **before** running (`Get-CimInstance ... | Select-Object ProcessId,CommandLine`) so you can prove what was left behind.
+
+### Recovery from an existing hang
+
+1. `Esc` aborts the stuck tool fiber. The agent resumes normally; the model is not stuck, only the tool layer was.
+2. `opencode resume` restores the session with its context intact.
+3. Identify orphans by `CommandLine`, not by name — `--auto` processes are live sessions and must **not** be killed:
+
+```powershell
+Get-CimInstance Win32_Process -Filter "Name = 'opencode.exe'" |
+    Select-Object ProcessId,ParentProcessId,CommandLine | Format-List
+```
+
+**Preferred: use the repo cleanup tool.** It applies every gate automatically and re-verifies afterwards.
+
+```powershell
+pwsh tools/Cleanup-OpencodeServe.ps1             # report only, side-effect free, exit 1 if dirty
+pwsh tools/Cleanup-OpencodeServe.ps1 -Kill       # terminate confirmed orphans, then verify
+pwsh tools/Cleanup-OpencodeServe.ps1 -Json       # machine-readable, for agent/CI assertions
+```
+
+It only ever considers processes carrying a `serve` token (never `--auto`), classifies a serve as ORPHANED only when its supervisor PID is absent from the process table, hard-excludes its own ancestor chain, kills tree-wide, and re-reads the process table to confirm rather than assume. A serve whose supervisor is alive is reported `ATTACHED` and needs both `-IncludeAttached` and `-Kill` to touch. Requires `-Kill` to terminate anything. Exit 0 = clean, 1 = orphans present or survived the kill.
+
+Manual fallback, only for a process the tool did not classify:
+
+```powershell
+taskkill /T /F /PID <pid>
+```
+
+4. `EBUSY` on a temp-dir cleanup is corroborating evidence of a live handle — treat it as proof of a leak, not as a flaky test.
+
+### OpenCode CLI startup hangs (distinct root causes)
+
+Diagnose with `opencode --print-logs` or `opencode --log-level DEBUG` before assuming anything else. Logs: `%USERPROFILE%\.local\share\opencode\log\`.
+
+- `error code 126` loading `opentui-*.dll` — **Windows Security/antivirus is blocking the unpacked native binary.** Allow it. This is not npm, not fnm, not a TTY problem.
+- Window title stuck on `npm list` / `npm config get registry` — `%TEMP%`/`%TMP%` points at a **RAM disk** (OSFMount and similar). Repoint to real NTFS.
+- Stuck on "Loading plugin..." — pin **exact** plugin versions (never `@latest`, which forces an npm resolve every startup), do not run multiple opencode instances concurrently, and be aware of the two competing `node_modules` layers: `~/.cache/opencode/packages/` vs `~/.config/opencode/node_modules/`.
+- `0xC000001D STATUS_ILLEGAL_INSTRUCTION` — pre-Haswell CPU; the binary requires AVX2. Roll back to a build without it.
+- Desktop app blank window — install/update the **Microsoft Edge WebView2 Runtime**.
+- Desktop app hangs on launch — set `"plugin": []`, then clear `%USERPROFILE%\.cache\opencode`. Unset `OPENCODE_PORT` if set.
+- Plugin misbehaviour — move `%USERPROFILE%\.config\opencode\plugins` aside, and check `<project>/.opencode/plugins/`.
+
+Keep the CLI current (`opencode upgrade`); several hang classes are version-fixed. Note the project auto-updates on some installs, so a version regression can arrive without a deliberate action.
+
+### Durable fix
+
+The real remedy is **WSL**. It is the officially recommended environment and eliminates this entire bug class. When a task is hang-sensitive or long-running, run it under WSL rather than accumulating workarounds.
 
 ## Agent Git / GitHub / Commons
 
