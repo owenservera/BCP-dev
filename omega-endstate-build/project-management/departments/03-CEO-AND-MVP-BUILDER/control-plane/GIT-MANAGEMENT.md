@@ -22,6 +22,25 @@ normal autonomous work
 
 Never let concurrently active autonomous agents share a checkout.
 
+## Canonical Ω checkout vs agent execution
+
+The Ω project is a tracked subtree of the repository:
+
+```
+BCP-dev/
+└── omega-endstate-build/
+```
+
+When an Ω branch is checked out in the canonical `BCP-dev` working tree, the expected physical project path is:
+
+`<BCP-dev checkout>/omega-endstate-build/`
+
+That is the project filesystem.
+
+Autonomous agent execution is different: an agent may receive an isolated Git worktree or clone elsewhere on the machine. That worktree contains a checkout of the same repository tree; it does not create another Ω project hierarchy.
+
+The machine-local execution root `omega-endstate-worktrees/` is therefore tooling state only. It must remain outside the tracked repository and must never be mistaken for the project root.
+
 ## Repository lines
 
 ```
@@ -43,29 +62,29 @@ For Ω End-State work, default from:
 
 unless the task explicitly names another base.
 
-## Project home vs workspaces
+## Project home vs agent workspaces
 
-`omega-endstate-build/project-management/` contains the shared tracked project-management home. `omega-endstate-build/` also contains the build/source and development-tooling surfaces.
+`omega-endstate-build/project-management/` is the shared tracked project-management home and `omega-endstate-build/` contains the build/source and development-tooling surfaces.
 
-It must not become the shared working checkout for multiple agents.
+The canonical `BCP-dev` checkout may materialize the Ω project when an Ω branch is checked out there, but it must not be used as the shared execution checkout for multiple autonomous agents.
 
-Active agent workspaces should normally be separate local worktrees or clones outside the tracked project directory.
+Active autonomous agent workspaces should normally be separate local worktrees or clones outside the tracked project directory.
 
 ## What is configured here vs what must happen locally
 
-This project now contains executable PowerShell helpers under `omega-endstate-build/scripts/` for workspace allocation, verification, Steward bootstrap, and retirement.
+This project contains executable PowerShell helpers under `omega-endstate-build/scripts/` for workspace allocation, verification, Steward bootstrap, and retirement.
 
-From the repository side, we can provide:
+From the repository side, we provide:
 
 - the safety policy;
-- branch naming and ownership rules;
+- branch naming and non-ownership rules;
 - workspace allocation logic;
 - local agent manifests;
 - workspace registry schema;
 - verification/retirement tooling;
 - durable team scaffolding.
 
-The actual Windows filesystem operations still occur in the local session. The first Steward session must run the bootstrap helper locally rather than assuming that the GitHub branch itself creates isolation.
+The actual Windows filesystem operations still occur in the local session.
 
 ## Required startup inspection
 
@@ -343,7 +362,6 @@ The Steward must not operate day-to-day from the shared `team/omega-endstate` ch
 The Git system must make autonomous parallel development **recoverable**.
 
 If the team has to choose between a slightly slower operation that preserves attribution/isolation and a faster ambiguous operation, preserve isolation and recoverability.
-
 
 ## Executable safety helpers
 
