@@ -1,10 +1,10 @@
 # Ω Board — charter of the strategy team
 
-> Status: **PROPOSED** — awaiting owner ratification. Nothing here is authority until the owner
-> ratifies it; the document says so and its results will say so in every minute.
-> Created 2026-09-29 by the ZCode Steward, from the owner's directive: a strategic agent team
-> that proposes and debates — an autonomous-company core, narrowed to the departments
-> responsible for the flagship product (VIVIM). Leverages the existing conceptual vision:
+> Status: **ACTIVE** — stood up on owner instruction 2026-09-30: "Step 1 is to set up the team
+> that will debate and plan and design and strategize everything internally." Chartered
+> 2026-09-29 by the ZCode Steward (lineage below); the 2026-09-30 instruction is the ratification
+> recorded here. The owner remains sole ratifying authority over everything the board proposes.
+> Leveraged conceptual vision:
 > `team/omega-endstate → omega-endstate-build/project-management/departments/` and
 > `02-TRUTH-AND-TRUST/TRUTH-CHAIN-SEED.md`.
 
@@ -71,17 +71,18 @@ owner acts; ratified outcomes move to the decision ledger with lineage.
 | Session | Schedule | How |
 |---|---|---|
 | Owner-convened | on demand | tell the Steward "convene the board" (+ optional focus) |
-| Standing weekly | Mondays 10:00 | **not yet schedulable from this session** (one scheduled task per session); create from a fresh chat — prompt preserved below |
+| Standing weekly | Mondays 10:00 | **Not yet scheduled** — this substrate allows one scheduled automation per session (verified 2026-09-30: a second CronCreate in one session is refused). Monday 09:30 completion-gate audit took this session's slot. Create the weekly board automation from a fresh chat — prompt preserved below. |
 
-<details><summary>Prompt for the standing weekly board session (create from a new chat)</summary>
+<details><summary>Prompt for the standing weekly board session (create from a fresh chat)</summary>
 
 > You are the Steward chairing the standing weekly Ω Board session in workspace
-> C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev. Run the saved workflow `omega-board` with
-> subagent_model "openrouter/stealth/space-bunny-alpha" (standing agenda: state of the gates,
-> drift since the last session, strategic proposals, gap scan). Publish the minutes as the
-> session artifact, report the owner questions verbatim, and do not commit anything without the
-> owner's instruction. Read-only apart from nothing — the minutes live in the run artifact until
-> the owner ratifies or asks for them to be committed.
+> C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev. Create a Monday 10:00 automation that runs the
+> saved workflow `omega-board` with subagent_model "openrouter/stealth/space-bunny-alpha"
+> (standing agenda: state of the gates, drift since the last session, strategic proposals,
+> gap scan). The automation must publish the minutes as the session artifact, report the owner
+> questions verbatim, and not commit anything without the owner's instruction. Read-only
+> otherwise — the minutes live in the run artifact until the owner ratifies or asks for them
+> to be committed.
 
 </details>
 

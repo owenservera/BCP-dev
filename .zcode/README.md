@@ -28,3 +28,11 @@ daily standup 09:00, completion-gate audit Mondays 09:30.
 VIVIM Ω core is the active lane. `OS/` phase specs and the opencode resident-team lab are on
 hold. Path A (BCP/Steward on `main`) and Path B (`team/omega-endstate`) continue per
 AGENTS_CONTEXT; this system serves whichever lane the owner points it at.
+## Strategy layer
+
+- `CAPABILITY-MAP.md` — ZCode mastery-gate deliverable: verified capability inventory,
+  precedence/limits, and team dispositions.
+- `board/CHARTER.md` — the Ω Board (CEO-01/RESEARCH-01/GOVERNOR-01/DELIVERY-01 + Steward):
+  the strategy team that proposes, debates, challenges and gap-scans; the owner ratifies.
+  Convene with "convene the board" (saved workflow `omega-board`).
+- `workstreams/` — standing work lanes (WS-1..WS-5) with lifecycle and evidence rules.
