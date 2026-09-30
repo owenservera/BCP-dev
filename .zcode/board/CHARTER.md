@@ -100,7 +100,7 @@ Minutes therefore read DECIDED (effective) + OWNER-INFORM — never "awaiting ra
 
 > You are the Steward chairing the standing weekly Ω Board session in workspace
 > C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev. Create a Monday 10:00 automation that runs the
-> saved workflow `omega-board` with subagent_model "openrouter/stealth/space-bunny-alpha"
+> saved workflow `omega-board` with subagent_model "new-provider/space-bunny-free"
 > (standing agenda: state of the gates, drift since the last session, decisions, gap scan).
 > The automation publishes the minutes as the session artifact, records each decision in
 > `.zcode/board/DECISIONS.md` with severity/reason/evidence/alternatives/rollback/revisit

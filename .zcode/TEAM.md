@@ -64,23 +64,32 @@ protocol), which the daily standup automation performs on schedule.
 
 ## Model assignment (per workflow run)
 
-ZCode sets one model per run for all that run's subagents (`subagent_model`). Owner directive
-2026-09-29: the Zen free tiers are not working — **all roles run on `openrouter/stealth/space-bunny-alpha`**:
+ZCode sets one model per run for all that run's subagents (`subagent_model`). **Owner directive
+2026-09-30: every agent — subagents, workflow runs, automations — runs on the session model,
+`new-provider/space-bunny-free`.** (Supersedes the 2026-09-29 "Zen free tiers are broken"
+directive and the `openrouter/stealth/space-bunny-alpha` assignment; the Zen-tier failures that
+prompted the earlier directive — network_error/timeout observed live on WS-1.1 — are now
+historical.) The model table is therefore uniform:
 
 | Role (workflow) | Model |
 |---|---|
-| `omega-build` | `openrouter/stealth/space-bunny-alpha` |
-| `omega-verify` | `openrouter/stealth/space-bunny-alpha` |
-| `omega-boundary-audit` | `openrouter/stealth/space-bunny-alpha` |
-| `omega-reality-check` | `openrouter/stealth/space-bunny-alpha` |
-| `omega-research` | `openrouter/stealth/space-bunny-alpha` |
+| `omega-build` | `new-provider/space-bunny-free` |
+| `omega-verify` | `new-provider/space-bunny-free` |
+| `omega-boundary-audit` | `new-provider/space-bunny-free` |
+| `omega-reality-check` | `new-provider/space-bunny-free` |
+| `omega-research` | `new-provider/space-bunny-free` |
+| `omega-board` | `new-provider/space-bunny-free` |
+| `omega-methods` | `new-provider/space-bunny-free` |
+
+Every `CreateWorkflow`/`AmendWorkflow` invocation from every session passes
+`subagent_model: "new-provider/space-bunny-free"`. The model is never hardcoded in a workflow
+script — it is always a per-run setting, so the policy lives here, not in the scripts.
 
 Token economy still applies at the workflow design level: workers receive paths not contents,
 results are narrow typed objects, and fan-out joins only at synthesis — the model is strong, so
-the discipline is what keeps runs lean. If the free tiers come back, the per-role split in git
-history of this file can be restored.
+the discipline is what keeps runs lean.
 
-## Model fallback ladder (owner directive 2026-09-30)
+## Model fallback ladder (owner directive 2026-09-30; updated for the session-model switch)
 
 Runs carry one model for all their subagents, and ZCode has **no in-script model fallback** —
 provider errors never reach the script. Two classes, handled differently:
@@ -90,13 +99,14 @@ provider errors never reach the script. Two classes, handled differently:
 - **Deterministic** (quota cap, model not in plan, invalid request) — the run stops with
   `stop_reason: provider`. **This is the ladder's trigger.**
 
-**Ladder** — applied only on the deterministic class, one rung at a time:
+**Ladder** — applied only on the deterministic class, one rung at a time. The session model is
+the default; these rungs are what a *stopped* run falls back to, so a dead run never blocks a lane:
 
 | Rung | Model | Notes |
 |---|---|---|
 | 1 | `openrouter/free` | OpenRouter free-model routing — configured in the host registry |
 | 2 | `openrouter/auto` | OpenRouter automatic routing |
-| 3 | `openrouter/stealth/space-bunny-alpha` | last resort; known to complete |
+| 3 | `new-provider/space-bunny-free` | the session model; the default everything returns to |
 
 **Rules:** relaunch with `AmendWorkflow` changing only `subagent_model` — finished work imports as
 cache, so a rung change re-pays only the unfinished steps. Never touch a run stopped
@@ -116,7 +126,7 @@ unverified in this workspace) — the watchdog's first live action is also its t
 > request) rather than a script error. (2) For each qualifying run, apply the next rung of the
 > fallback ladder with AmendWorkflow — run id, the run's script `path`, and the new
 > `subagent_model`: `openrouter/free` first, then `openrouter/auto`, then
-> `openrouter/stealth/space-bunny-alpha`. (3) Never touch a run stopped `reason: user`; never apply
+> `new-provider/space-bunny-free`. (3) Never touch a run stopped `reason: user`; never apply
 > the ladder to a ScriptError — those need a script fix. (4) Report one line per run touched (run
 > id, old model, new rung, cache imported), or "no action". Modify no file, commit nothing, message
 > nobody.

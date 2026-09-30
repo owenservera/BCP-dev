@@ -143,7 +143,7 @@
 
 ### D-TEAM-013 — Model policy and fallback
 - **Severity:** S2 · **Status:** TEAM-DECIDED
-- **Decision:** Workflow subagents default to `openrouter/stealth/space-bunny-alpha`. On a **deterministic** provider stop only, relaunch via `AmendWorkflow` (settings-only) down the ladder `openrouter/free` → `openrouter/auto` → `space-bunny-alpha`. Transient errors (network, timeout, rate limit) get no action — the runtime retries. Never touch a run stopped `reason: user`; never apply the ladder to a script error.
+- **Decision:** Workflow subagents default to `new-provider/space-bunny-free`. On a **deterministic** provider stop only, relaunch via `AmendWorkflow` (settings-only) down the ladder `openrouter/free` → `openrouter/auto` → `space-bunny-alpha`. Transient errors (network, timeout, rate limit) get no action — the runtime retries. Never touch a run stopped `reason: user`; never apply the ladder to a script error.
 - **Reason:** the free tiers have been observed failing live (network errors/timeouts on WS-1.1), and the ladder converts a dead run into a resumable one without losing cached work.
 - **Evidence:** TEAM.md model-policy observation 2026-09-29/30; live Zen-tier failures.
 - **Alternatives:** hard-pin one model (rejected: single point of failure); per-role tuning (deferred: no evidence yet that a role needs a different model).
