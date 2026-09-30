@@ -66,11 +66,21 @@ describe("D-351 — risk parity net: manifest-declared risk === policy classific
     expect(mismatches, `D-351 parity violated — the manifest gate-trigger and the policy gate-truth disagree:\n${table}\nFix the policy table (exact rows outrank prefixes) or the manifest declaration; never let the two sources drift silently.`).toEqual([]);
   });
 
-  test("policy version carries the parity amendments (1.8.0, D-351 + D-356 + D-358 + D-374 + Wave 0 + D-411 + D-412 + D-416)", () => {
-    expect(LAW_POLICY_V1.version).toBe("1.8.0");
+  test("policy version carries the parity amendments (1.10.0, D-351 + D-356 + D-358 + D-374 + Wave 0 + D-411 + D-412 + D-416 + P1-06 + durable Work)", () => {
+    expect(LAW_POLICY_V1.version).toBe("1.10.0");
     // D-416 (S3): law.audit.drain@1 — the manifest declares MUTATION, the policy
     // carries the exact row (never default-riding; the parity net's whole point).
     expect(classifyRisk(LAW_POLICY_V1, "law.audit.drain@1")).toBe("MUTATION");
+    // P1-06: agency.execute@1 — governed single-action orchestration (1.9.0).
+    expect(classifyRisk(LAW_POLICY_V1, "agency.execute@1")).toBe("MUTATION");
+    // Durable Work family (1.10.0): the vivim-run manifest declares MUTATION;
+    // the exact rows below (work.get@1/work.list@1 are READ, never gated).
+    for (const op of [
+      "work.create@1", "work.transition@1", "work.attempt.start@1", "work.attempt.finish@1",
+      "work.reconcile@1", "work.verify@1", "work.cancel@1", "work.recover@1",
+    ]) {
+      expect(classifyRisk(LAW_POLICY_V1, op)).toBe("MUTATION");
+    }
   });
 
   test("the three repaired rows classify as declared, standalone of any composition", () => {

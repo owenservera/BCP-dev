@@ -65,4 +65,12 @@ if (a !== b) {
 const { compareToolchain } = await import("../gates/status.ts");
 const tc = compareToolchain(committed.toolchain, fresh.toolchain);
 console.log(`${tc.same ? "✓" : "○"} verify-status: ${tc.line}`);
-console.log(`✓ verify-status: committed status.json reproduces (stamped @ ${committed.head}, carrying HEAD ${fresh.head}; tests ${fresh.tests?.pass}/${(fresh.tests?.pass ?? 0) + (fresh.tests?.fail ?? 0)}, host ${structural(fresh).hostLoc}/1100)`);
+// D-391 re-froze the boredom budget at 1500; the gate's own host-loc check
+// records the number it actually enforced. Read it from the fresh run — a
+// literal here (the old `/1100`, from before D-391) can silently drift from the
+// gate and print a ratio the tree never produced. Absent detail → `?`, never a
+// guessed fallback figure.
+const hostLocDetail = (fresh.gate?.checks as Record<string, any> | undefined)?.["host-loc"]?.detail as
+  { loc?: number; budget?: number } | undefined;
+const shown = (v: unknown): string => (typeof v === "number" ? String(v) : "?");
+console.log(`✓ verify-status: committed status.json reproduces (stamped @ ${committed.head}, carrying HEAD ${fresh.head}; tests ${fresh.tests?.pass}/${(fresh.tests?.pass ?? 0) + (fresh.tests?.fail ?? 0)}, host ${shown(hostLocDetail?.loc)}/${shown(hostLocDetail?.budget)})`);

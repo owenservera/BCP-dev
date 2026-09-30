@@ -55,6 +55,42 @@ const CALL_SITE_ALLOWLIST: Record<string, string> = {
   PlanStepTemplate: "D-389 deferred-by-design: plan-step template row (rides PlanTemplate); projection consumer lands with plan:<type>@2",
   PlanTemplateV2: "D-389 Phase-3 reservation: InputMapping-carrying template shape; consumer is the deferred projection mapping (plan:<type>@2 trigger)",
   SagaEvidenceRef: "D-389 Phase-4 reservation: consent-gated compensation evidence ref; saga/rollback engine explicitly out of scope (D-389 deferred list)",
+  // D-459 reservations (PROPOSED): the canonical World (world.ts) and durable
+  // Work (work.ts) contract vocabularies landed 2026-09-25 (d0ebea0a, ce33ab45)
+  // as committed wire shapes ahead of their consumers — the durable-Work lane's
+  // manifests (vivim-run work.* ops) and the ns `work` VAULT-NAMESPACES row are
+  // live, but the consuming lanes are unsequenced (BACKLOG.md lanes unranked,
+  // BQ-9 open). Same posture as D-373/D-389 above: remove an entry the day its
+  // export gains a real call site.
+  CanonicalObject: "D-459 reservation: canonical World object shape; consumer is the world-mapping lane",
+  CanonicalObjectRef: "D-459 reservation: canonical object ref {ns,id}; consumer is the world-mapping lane",
+  CanonicalRevisionRef: "D-459 reservation: canonical revision ref {ns,id,rev}; consumer is the world-mapping lane",
+  CanonicalWorkRef: "D-459 reservation: canonical Work ref; consumer is the durable-Work consumer lane",
+  GateKind: "D-459 reservation: Work gate kind union; consumer is the durable-Work consumer lane",
+  GateState: "D-459 reservation: Work gate state union; consumer is the durable-Work consumer lane",
+  ObjectLifecycle: "D-459 reservation: canonical object lifecycle union; consumer is the world-mapping lane",
+  ObjectOrigin: "D-459 reservation: canonical object origin union; consumer is the world-mapping lane",
+  RelationshipState: "D-459 reservation: canonical relationship state union; consumer is the world-mapping lane",
+  SourceIdentity: "D-459 reservation: external-source identity rows; consumer is the acquisition/import lane",
+  SourceIdentityMapping: "D-459 reservation: source-identity mapping rows; consumer is the acquisition/import lane",
+  StepState: "D-459 reservation: Work step state union; consumer is the durable-Work consumer lane",
+  StepVerification: "D-459 reservation: Work step verification shape; consumer is the durable-Work consumer lane",
+  TERMINAL_WORK_STATES: "D-459 reservation: terminal Work state set; consumer is the durable-Work consumer lane",
+  WaitKind: "D-459 reservation: Work wait kind union; consumer is the durable-Work consumer lane",
+  WorkBudget: "D-459 reservation: Work budget shape; consumer is the durable-Work consumer lane",
+  WorkGate: "D-459 reservation: Work gate shape; consumer is the durable-Work consumer lane",
+  WorkPlanRef: "D-459 reservation: Work→Plan ref shape; consumer is the durable-Work consumer lane",
+  WorkWait: "D-459 reservation: Work wait shape; consumer is the durable-Work consumer lane",
+  WorldRelationship: "D-459 reservation: canonical relationship shape; consumer is the world-mapping lane",
+  WORLD_OBJECT_NS: "D-459 reservation: canonical object namespace constant; consumer is the world-mapping lane",
+  WORLD_RELATIONSHIP_NS: "D-459 reservation: canonical relationship namespace constant; consumer is the world-mapping lane",
+  isObjectLifecycleTransitionAllowed: "D-459 reservation: lifecycle transition predicate; consumer is the world-mapping lane",
+  isRelationshipTransitionAllowed: "D-459 reservation: relationship transition predicate; consumer is the world-mapping lane",
+  attemptIdShape: "D-459 reservation: attempt id shape predicate; consumer is the durable-Work consumer lane",
+  gateIdShape: "D-459 reservation: gate id shape predicate; consumer is the durable-Work consumer lane",
+  planIdShape: "D-459 reservation: plan id shape predicate; consumer is the durable-Work consumer lane",
+  stepIsSideEffecting: "D-459 reservation: step side-effect classifier; consumer is the durable-Work consumer lane",
+  workIdShape: "D-459 reservation: work id shape predicate; consumer is the durable-Work consumer lane",
 };
 
 const SKIP_DIRS = new Set(["node_modules", ".git", "dev-vault", "build"]);

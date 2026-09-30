@@ -1,9 +1,9 @@
 // tooling/gates — test/decisions.test.ts: the Decision Contract checker, unit-tested
 // on inline fixtures (no repo I/O) plus one self-hosting run against the real tree.
 import { describe, test, expect } from "bun:test";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { checkDecisions, parseIndexRows, parseRecord, validateRecord, listOpenQuestions, renderOpenQuestionsBoard, boardFreshness, decisionBody, BLOCKS_VOCAB, KNOWN_TRACK_COLLISIONS, computeOpenQuestions, generateIndexRow, parseIndexMeta, regenerateIndexRows, scanTrackCollisions } from "../decisions.ts";
+import { checkDecisions, parseIndexRows, parseRecord, validateRecord, listOpenQuestions, renderOpenQuestionsBoard, boardFreshness, decisionBody, BLOCKS_VOCAB, KNOWN_TRACK_COLLISIONS, computeOpenQuestions, generateIndexRow, parseIndexMeta, regenerateIndexRows, scanTrackCollisions, indexOnlyOpenQuestions, INDEX_ONLY_TITLE_CAP } from "../decisions.ts";
 
 const GOOD = `# D-999 — Example
 
@@ -132,6 +132,17 @@ describe("open-questions board — team surface over PROPOSED records", () => {
       readFileSync(join(root, "docs/decisions/D-315-quarantine-semantics.md"), "utf-8")).status).toBe("RATIFIED");
     // everything listed is genuinely PROPOSED in its record (no ratified stragglers on the board)
     for (const q of qs) {
+      if (q.indexOnly === true) {
+        // index-only row: no record file exists to read, by construction. It must
+        // still be legible — bounded Question cell, a recommended position, an
+        // owner as the next actor — and it must say it is index-only.
+        expect(q.file).toBe("");
+        expect(q.title.length).toBeGreaterThan(0);
+        expect(q.title.length).toBeLessThanOrEqual(INDEX_ONLY_TITLE_CAP + 1); // +1 for the ellipsis
+        expect(q.recommended.length).toBeGreaterThan(0);
+        expect(q.awaiting).toMatch(/Owner/);
+        continue;
+      }
       const text = readFileSync(join(root, q.file), "utf-8");
       expect(parseRecord(q.n, q.file, text).status).toBe("PROPOSED");
       expect(q.title.length).toBeGreaterThan(0);
@@ -158,6 +169,74 @@ describe("open-questions board — team surface over PROPOSED records", () => {
     // before generation the board file is absent → missing (informational, never failing)
     const fresh = boardFreshness(root);
     expect(["fresh", "stale", "missing"]).toContain(fresh.state);
+  });
+});
+
+// The index-only era (CURRENT-INVARIANTS.md:184 — rows < D-313 have no record
+// file and never did). Such a row is surfaced on the board from the index alone,
+// WITHOUT ever reaching validateRecord: the record-shape rules and the
+// SHA-evidence rule are record-only, and a "no record file" issue is only raised
+// for rows at/above D-313.
+describe("index-only open questions (pre-D-313 rows, no record file)", () => {
+  const LONG = "Ω0 composition includes a law-stub plugin occupying the vivim.law slot. ".repeat(4);
+  const INDEX = [
+    "| ID | Decision | Status | Rationale |",
+    "|---|---|---|---|",
+    `| **D-213** | ${LONG}| PROPOSED | Keeps the µhost honest without the full law plugin in wave 0. |`,
+    "| **D-100** | settled long ago | **RATIFIED** | done |",
+    "| **D-101** | TBD while open | PROPOSED | TBD — still the owner's call. |",
+  ].join("\n");
+
+  test("a PROPOSED row with no record file becomes exactly one index-only question", () => {
+    // D-101 HAS a record file and D-100 is RATIFIED — D-213 is the only survivor.
+    const qs = indexOnlyOpenQuestions(INDEX, [101]);
+    expect(qs.map((q) => q.n)).toEqual([213]);
+    const d213 = qs[0];
+    expect(d213.indexOnly).toBe(true);
+    expect(d213.file).toBe("");
+    expect(d213.blocks).toBe("none");
+    expect(d213.hasTbd).toBe(false);
+    expect(d213.recommended).toBe("Keeps the µhost honest without the full law plugin in wave 0.");
+    expect(d213.awaiting).toMatch(/Owner/);
+    expect(d213.awaiting).toMatch(/no record file/);
+    // the Question cell is bounded with a trailing ellipsis — a whole-paragraph
+    // Decision cell must never render as one board row (round-close's 100 cap).
+    expect(d213.title.length).toBeLessThan(LONG.length);
+    expect(d213.title.length).toBeLessThanOrEqual(INDEX_ONLY_TITLE_CAP + 1);
+    expect(d213.title.endsWith("…")).toBe(true);
+  });
+
+  test("a RATIFIED index-only row is NOT surfaced; a PROPOSED row WITH a record is not duplicated", () => {
+    // no record files at all → both PROPOSED rows surface, in index order; the
+    // RATIFIED D-100 never does.
+    expect(indexOnlyOpenQuestions(INDEX, []).map((q) => q.n)).toEqual([213, 101]);
+    // a status word in the prose cell cannot promote a settled row to the board
+    const trap = "| **D-102** | this was PROPOSED once, now settled | **RATIFIED** | done |";
+    expect(indexOnlyOpenQuestions(trap, []).map((q) => q.n)).toEqual([]);
+    // D-213 gains a record file → it drops off the index-only path entirely
+    // (listOpenQuestions would then carry it as a record question, once).
+    const qs = indexOnlyOpenQuestions(INDEX, [213]);
+    expect(qs.map((q) => q.n)).toEqual([101]);
+    // a TBD rationale still reads as semantically open
+    expect(qs[0].hasTbd).toBe(true);
+    expect(qs[0].awaiting).toMatch(/TBD open/);
+  });
+
+  test("the real tree surfaces D-213 index-only, bounded, owner-pending — and it is a status lag, not a gap", () => {
+    const root = join(import.meta.dir, "../../..");
+    const d213 = listOpenQuestions(root).find((q) => q.n === 213);
+    expect(d213).toBeDefined();
+    expect(d213!.indexOnly).toBe(true);
+    expect(d213!.file).toBe("");
+    expect(d213!.title.length).toBeLessThanOrEqual(INDEX_ONLY_TITLE_CAP + 1);
+    expect(d213!.awaiting).toMatch(/Owner/);
+    // there is no record file to read — the index-only era is the reason
+    expect(existsSync(join(root, "docs/decisions/D-213-law-stub-omega0.md"))).toBe(false);
+    // and the renderer says so in the cell instead of emitting a broken link
+    const md = renderOpenQuestionsBoard(root, "abc1234", "2026-01-01T00:00:00.000Z");
+    expect(md).toContain("index-only, no record file");
+    expect(md).not.toContain("[record](undefined)");
+    expect(md).toContain("index-only"); // the preamble no longer claims every row links to a record
   });
 });
 
