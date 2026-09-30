@@ -23,7 +23,7 @@
 | D-TEAM-010 | One writer corridor per worktree; gate results cite the tree snapshot | S2 |
 | D-TEAM-011 | Ratified records get dated annotations, never rewrites (D-427, D-436:28, WS-1.3 cross-refs) | S3 |
 | D-TEAM-012 | Write the beta-cut definition from ratified law + BACKLOG lineage; MATURITY-AND-GAPS cited as input only | S3 |
-| D-TEAM-013 | Model policy: space-bunny-alpha default + ladder on deterministic provider stops only | S2 |
+| D-TEAM-013 | Model policy: session model `new-provider/space-bunny-free` everywhere + fallback ladder on deterministic provider stops only | S2 |
 | D-TEAM-014 | The 13 untracked entries: evidence committed, heavy artifacts parked, nothing deleted | S2 |
 
 ## Decisions
@@ -143,7 +143,7 @@
 
 ### D-TEAM-013 — Model policy and fallback
 - **Severity:** S2 · **Status:** TEAM-DECIDED
-- **Decision:** Workflow subagents default to `new-provider/space-bunny-free`. On a **deterministic** provider stop only, relaunch via `AmendWorkflow` (settings-only) down the ladder `openrouter/free` → `openrouter/auto` → `space-bunny-alpha`. Transient errors (network, timeout, rate limit) get no action — the runtime retries. Never touch a run stopped `reason: user`; never apply the ladder to a script error.
+- **Decision:** Workflow subagents default to `new-provider/space-bunny-free`. On a **deterministic** provider stop only, relaunch via `AmendWorkflow` (settings-only) down the ladder `openrouter/free` → `openrouter/auto`, returning to the session model. **Updated 2026-09-30 (owner directive):** every agent — subagents, workflow runs, automations — runs on the session model `new-provider/space-bunny-free`; this supersedes the earlier `space-bunny-alpha` default (the Zen-tier failures that motivated it are historical). Transient errors (network, timeout, rate limit) get no action — the runtime retries. Never touch a run stopped `reason: user`; never apply the ladder to a script error.
 - **Reason:** the free tiers have been observed failing live (network errors/timeouts on WS-1.1), and the ladder converts a dead run into a resumable one without losing cached work.
 - **Evidence:** TEAM.md model-policy observation 2026-09-29/30; live Zen-tier failures.
 - **Alternatives:** hard-pin one model (rejected: single point of failure); per-role tuning (deferred: no evidence yet that a role needs a different model).
