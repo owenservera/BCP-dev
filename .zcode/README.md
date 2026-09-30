@@ -40,3 +40,5 @@ AGENTS_CONTEXT; this system serves whichever lane the owner points it at.
   (hard cap: 3 deliberating agents; read-only investigation may fan out).
 - `DECISIONS-POLICY.md` — no human answer ever blocks: severity-scaled panels (≤3) decide,
   record, inform, move forward. `board/DECISIONS.md` is the ledger of effective decisions.
+- `LESSONS.md` — the measured cost ledger and the operational lessons it bought (token
+  discipline, corridor ROI, reliability). Every rule here traces to a run that paid for it.
