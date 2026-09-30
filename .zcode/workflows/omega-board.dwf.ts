@@ -176,10 +176,10 @@ if (challengers.length > 0) {
       challengers.map((c) => {
         const challenger = agent(c.id, {
           system:
-            `You are ${c.id}, seated as a challenger in an Ω Board session per .zcode/ROSTER.md. Establish your own ground truth from the repository per your brief — independently of the proposer — citing every claim with a path or command, then challenge the proposals in role. Challenge what would break, what is UNKNOWN, where proposals violate law, gates or the boundary (DOCUMENTATION is not IMPLEMENTATION; CANDIDATE is not REALIZATION); where warranted record an explicit advisory-veto with your reason. Respond with one Challenge per objection you actually hold; an empty list means you have none. Read-only: do not edit, create or delete anything.`,
+            `You are ${c.id}, seated as a challenger in an Ω Board session per .zcode/ROSTER.md. Your job is to FALSIFY the proposer's cited claims within your specialty, not to produce a parallel ground truth: the corpus read is already paid for once. Open the specific files the proposer cites (law/boundary challengers check the cited D-records; delivery challengers check the cited receipts and gate outputs; sequencing challengers check the cited roadmap/backlog) and challenge what would break, what is UNKNOWN, where the proposal violates law, gates or the boundary (DOCUMENTATION is not IMPLEMENTATION; CANDIDATE is not REALIZATION). If a claim you need is not cited, report that as an evidence-gap — that is a finding, and it costs you nothing. Where warranted record an explicit advisory-veto with your reason. Respond with one Challenge per objection you actually hold; an empty list means you have none. Read-only: do not edit, create or delete anything.`,
         });
         return challenger.ask<Challenge[]>(
-          `${focusLine}\n\nYour session brief: ${c.brief}\n\nThe proposer's ground truth:\n${JSON.stringify(grounded.ground)}\n\nProposals:\n${JSON.stringify(grounded.proposals)}\n\nChallenge each proposal in role, from your own independently established ground truth.`,
+          `${focusLine}\n\nYour session brief: ${c.brief}\n\nThe proposer's cited ground truth:\n${JSON.stringify(grounded.ground)}\n\nProposals (each with its evidence paths, falsifier and cost):\n${JSON.stringify(grounded.proposals)}\n\nOpen the cited files and challenge each proposal in your specialty. Do not re-read the corpus to build your own ground truth — verify what is cited, and report any missing citation as an evidence-gap.`,
         );
       }),
     )

@@ -25,6 +25,7 @@
 | D-TEAM-012 | Write the beta-cut definition from ratified law + BACKLOG lineage; MATURITY-AND-GAPS cited as input only | S3 |
 | D-TEAM-013 | Model policy: session model `new-provider/space-bunny-free` everywhere + fallback ladder on deterministic provider stops only | S2 |
 | D-TEAM-014 | The 13 untracked entries: evidence committed, heavy artifacts parked, nothing deleted | S2 |
+| D-TEAM-015 | Deliberation cost: corpus read once, challengers verify cited paths, sweeps on demand | S2 |
 
 ## Decisions
 
@@ -158,6 +159,16 @@
 - **Alternatives:** commit the heavy artifacts (rejected: 738 KB zip + bundle inflate history permanently for no evidence value); delete (rejected: irreversible, no benefit).
 - **Rollback:** parked files remain on disk and can be committed later; ignore patterns are one line each.
 - **Revisit if:** a parked artifact becomes evidence for a live question.
+
+### D-TEAM-015 — Deliberation cost discipline: verify citations, never re-derive the corpus
+- **Severity:** S2 · **Status:** TEAM-DECIDED (2026-09-30, after owner challenged 5M-token spend)
+- **Decision:** In a deliberation session the corpus is read **once** (by the proposer). Challengers open the **cited paths** and falsify the claims within their specialty; a missing citation is an evidence-gap finding, not a reason to re-derive a parallel ground truth. Default severity is S1/S2; S3 is reserved for irreversible, law/boundary, security, or product-intent matters. Sweeps (`omega-reality-check`) and deep audits run **on demand**, not as a session-start ritual, and their reports are consumed as evidence by the next decision rather than re-read by every member.
+- **Reason:** measured burn showed the deliberation layer buying questions instead of decisions — the first board session spent 9.5M tokens to produce 8 owner questions that were then answered as team decisions in a near-zero-token ledger edit; the S3 session spent 2.1M tokens and was stopped before it decided anything. The build corridors, by contrast, paid: WS-1 landed the D-213 gate fix, the D-456 citation repair, the genome re-fold, and the 1500 host-wall correction with green gates.
+- **Evidence:** run journal spends (153407eb = 9.5M, 7604c55a = 9.3M, 0c458495 = 3.3M, c58e30c7 = 2.1M stopped, ca04737e = landed); commit 08ddf708 + b6e3cad5; the design flaw was in omega-board's own challenger brief, which instructed each member to "establish its own ground truth … independently of the proposer".
+- **Alternatives:** keep full independent ground truth per member (rejected: pays the corpus read N times for the same evidence); drop verification entirely (rejected: that is how the D-427 and D-436 defects survived); cap tokens per session (rejected: an arbitrary ceiling truncates reasoning rather than removing waste).
+- **Rollback:** the challenger brief is one ask text; reverting restores the old behaviour at the old cost.
+- **Revisit if:** a decision is later refuted on evidence a challenger would have caught by re-deriving ground truth — then the rule is too tight and gets relaxed for S3 only.
+- **Dissent:** none recorded.
 
 ## Historic owner-ratified entries (for continuity, not re-decided)
 
