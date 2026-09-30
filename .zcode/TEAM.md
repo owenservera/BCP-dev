@@ -5,10 +5,10 @@
 > Substrate: ZCode dynamic workflows (`.zcode/workflows/*.dwf.ts`) + cron automations. This file is the durable map; the workflow files are the mechanism.
 
 > **Two layers.** This file charters the *execution* team. The strategy layer is the
-> **Ω Board** — [board/CHARTER.md](board/CHARTER.md) — whose officers (CEO-01, RESEARCH-01,
-> GOVERNOR-01, DELIVERY-01) propose and debate and hand the owner decision memos; the team
-> below executes what the owner ratifies. Run a board session with the saved workflow
-> `omega-board`. Standing work is organized into **workstreams**:
+> **Ω Board** — [board/CHARTER.md](board/CHARTER.md) — which seats a flexible panel (max 3
+> deliberating agents, picked per task from [ROSTER.md](ROSTER.md)) that proposes and debates
+> and hands the owner decision memos; the team below executes what the owner ratifies. Run a
+> board session with the saved workflow `omega-board` (pass a `focus`, or name the `panel`). Standing work is organized into **workstreams**:
 > [workstreams/WORKSTREAMS.md](workstreams/WORKSTREAMS.md) (WS-1 truth repair, WS-2 commons
 > bootstrap, WS-3 dashboard v1, WS-4 reconciliation, WS-5 core build) — the daily standup
 > reports their status.
@@ -19,6 +19,7 @@
 2. **Delegation is a grant, not a boolean.** Each role has an explicit grant: which workers it may spawn, how many, what they may write. `maxDepth: 1` everywhere — workers never spawn workers (substrate-enforced: workflow subagents cannot start workflows).
 3. **Chat-reported completion is not completion.** Only `omega-verify` (or a committed receipt checked against the repo) promotes work to DONE.
 4. **Token economy.** Workers receive paths, never file contents. Results are narrow typed objects. Fan-out is the default; joins happen only at synthesis. The plan reviewer persists across review rounds to reuse its context. Every gate is a deterministic command (`world.run`), never a worker's claim.
+5. **Flexible panels, capped deliberation (owner amendment 2026-09-30).** Members are picked per task from [.zcode/ROSTER.md](ROSTER.md); a deliberation panel never exceeds **3 deliberating agents** — a bigger question means more rounds, not a bigger cast. Read-only investigation may still fan out; the cap binds deliberation, not investigation. Panel composition and pick-reasons are recorded in the minutes.
 
 ## Roles and delegation grants
 

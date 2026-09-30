@@ -1,9 +1,10 @@
 /* zcode-workflow
-description: "The Ω Board session: establishes ground truth from the repository,
-  the CEO tables up to 3 strategic proposals (each extending an existing roadmap
-  document), the Governor/Research/Delivery officers challenge every proposal,
-  the CEO amends and settles with dissent recorded, and the session closes with
-  a gap scan and publishes minutes for owner ratification."
+description: "The Ω Board session — flexible-panel edition. A selector picks a
+  deliberation panel of at most 3 members from .zcode/ROSTER.md to fit the session
+  focus (or the convening Steward names the panel directly via the panel argument).
+  The panel establishes its own ground truth from the repository, tables proposals,
+  challenges every proposal in role, settles with dissent recorded, and publishes
+  minutes for owner ratification. Hard cap: 3 deliberating agents per session."
 whenToUse: When the owner convenes the board ("convene the board"), or on the
   standing weekly cadence — for strategy-level proposing and debating, never
   direct execution.
@@ -13,14 +14,36 @@ args:
     description: Optional question or focus the board should prioritize this
       session. Empty = standing agenda.
     required: false
+  panel:
+    type: string
+    description: Optional comma-separated roster member ids to seat directly,
+      e.g. "CEO-01,GOVERNOR-01". Empty = a selector picks the panel from
+      .zcode/ROSTER.md.
+    required: false
 */
-interface Posture {
-  /** What is actually true right now in this domain, 3-6 sentences, evidence-cited. */
-  state: string;
-  /** Top open items in this domain. */
-  concerns: string[];
+interface PanelMember {
+  /** Member id from .zcode/ROSTER.md, e.g. CEO-01. */
+  id: string;
+  /** Role this member plays in THIS session. Exactly one proposer; the rest challenge. */
+  role: "proposer" | "challenger";
+  /** One sentence: why this member fits this focus. */
+  reason: string;
+  /** What this member should read/verify in the repository to establish their own ground truth for this focus. */
+  brief: string;
+}
+interface Panel {
+  /** 1-2 sentences: why this composition fits the focus. */
+  rationale: string;
+  /** At most 3 members. At least 1. */
+  members: PanelMember[];
+}
+interface GroundedProposals {
+  /** What is actually true right now in the areas this focus touches, 3-8 sentences, evidence-cited (paths/commands). */
+  ground: string;
   /** Anything that could not be verified, labelled UNKNOWN with its reason. */
   unknowns: string[];
+  /** Up to 3 proposals. May be empty if the ground truth answers the focus without new proposals. */
+  proposals: Proposal[];
 }
 interface Proposal {
   /** Short id, P1, P2, P3. */
@@ -29,7 +52,7 @@ interface Proposal {
   title: string;
   /** 2-4 sentences: what changes and why now. */
   statement: string;
-  /** Supporting evidence, with paths, and the existing roadmap/backlog document this extends or amends. */
+  /** Supporting evidence with paths, and the existing roadmap/backlog/destination document this extends or amends. */
   rationale: string;
   /** What observation would prove this proposal wrong. */
   falsifier: string;
@@ -39,7 +62,7 @@ interface Proposal {
 interface Challenge {
   /** Proposal id. */
   proposalId: string;
-  /** The challenging officer: Governor / Research / Delivery. */
+  /** The challenging member's id. */
   from: string;
   /** The challenge class. */
   type: "objection" | "evidence-gap" | "feasibility" | "advisory-veto";
@@ -64,118 +87,144 @@ interface Disposition {
   dissent: string[];
 }
 interface Gap {
-  /** One line: what is missing. */
+  /** One line: what is missing in the organization itself. */
   gap: string;
   /** Class: evidence / capability / role / process. */
   kind: string;
   /** What standing it up would take. */
   proposal: string;
 }
+interface Settled {
+  /** One Disposition per proposal. */
+  dispositions: Disposition[];
+  /** The 3-6 most load-bearing gaps in the organization itself (not the product backlog). */
+  gaps: Gap[];
+}
 
 const focus = String(args.focus ?? "").trim();
-const focusLine = focus ? `The owner asked this session to prioritize: ${focus}` : "Standing agenda: state of the gates, drift since the last session, strategic proposals, gap scan.";
+const panelArg = String(args.panel ?? "").trim();
+const focusLine = focus
+  ? `The owner asked this session to prioritize: ${focus}`
+  : "Standing agenda: state of the gates, drift since the last session, strategic proposals, gap scan.";
 
-phase("Establish the shared ground truth")
-const lenses: { id: string; area: string; brief: string }[] = [
-  {
-    id: "law-gates",
-    area: "law and gates",
-    brief:
-      "Read omega-baseline/omega-final/docs/decisions/CURRENT-INVARIANTS.md, omega-baseline/omega-final/docs/BUILD-DECISIONS.md and docs/decisions/OPEN-QUESTIONS.md under omega-baseline/omega-final/docs/decisions/. Report which decisions are binding, which gates are red (run `bun --cwd omega-baseline/omega-final run omega:quick` if useful, read-only), and where the decision corpus contradicts itself. Read-only: do not edit anything.",
-  },
-  {
-    id: "roadmap",
-    area: "roadmap and backlog",
-    brief:
-      "Read omega-baseline/omega-final/docs/forge/BACKLOG.md and omega-baseline/omega-final/docs/decisions/D-410-*.md (the authoritative sequencing per ROADMAP.md:8), plus docs/destination/DESTINATION-MASTER-MAP.md and docs/destination/MATURITY-AND-GAPS.md. Note that omega-baseline/omega-final/docs/ROADMAP.md is superseded by its own line 8 — use it only for history. Report what the current plan corpus actually says is next, and where it is silent. Read-only.",
-  },
-  {
-    id: "delivery",
-    area: "delivery and queues",
-    brief:
-      "Read AGENTS_CONTEXT/ARCHITECTURE_STEWARD/TASKS.md, docs/agent-system/FULL-INTEGRATION-TASK-LIST.md (if present) and run read-only git commands (status, log --oneline -15). Report what is actually in flight, what recently landed, and where queue claims contradict repository evidence. Read-only.",
-  },
-];
-const postures: { area: string; posture: Posture }[] = await Promise.all(
-  lenses.map(async (l) => {
-    const gatherer = agent(`posture-${l.id}`, {
-      system: `You are the evidence gatherer for the ${l.area} domain of an Ω Board session. You serve the officers, not any proposal. Cite every claim with a path or command. If a file is missing, say so. Read-only: do not edit, create or delete anything.`,
-    });
-    return { area: l.area, posture: await gatherer.ask<Posture>(l.brief) };
-  }),
-);
-log(`Ground truth gathered from ${postures.length} domains`);
+// Resolve the panel: a named panel short-circuits the selector; otherwise one
+// read-only selector pass picks the members. Hard cap 3 either way.
+let panel: Panel;
+if (panelArg) {
+  const ids = panelArg.split(",").map((s) => s.trim()).filter(Boolean).slice(0, 3);
+  panel = {
+    rationale: `Panel named directly by the convening Steward: ${ids.join(", ")}.`,
+    members: ids.map((id, i) => ({
+      id,
+      role: i === 0 ? ("proposer" as const) : ("challenger" as const),
+      reason: "named by the convening Steward",
+      brief:
+        "Read .zcode/ROSTER.md first for your specialty and the panel rules, then read what your specialty needs in the repository to establish ground truth for this focus.",
+    })),
+  };
+} else {
+  phase("Pick the panel for this focus");
+  const selector = agent("panel selector", {
+    system:
+      "You select deliberation panels for an Ω Board session. Read .zcode/ROSTER.md — the member registry with each member's specialty and pick-when criteria — and compose the smallest panel that can genuinely deliberate the session focus. Seat at most three members (fewer when the focus is narrow) and assign exactly one of them the proposer role; the others challenge. Give each member a brief naming the specific repository paths and questions their ground truth for THIS focus should cover. Read-only: do not edit anything.",
+  });
+  panel = await selector.ask<Panel>(
+    `Session focus: ${focusLine}\n\nCompose the panel. Seat at most three members from the roster (fewer when the focus is narrow); assign exactly one the proposer role. In each member's brief, name the concrete repository paths their ground truth should cover for this focus.`,
+  );
+  panel.members = panel.members.slice(0, 3);
+}
+if (!panel.members.some((m) => m.role === "proposer")) {
+  const first = panel.members[0];
+  if (first) first.role = "proposer";
+}
+log(`Panel seated: ${panel.members.map((m) => `${m.id} (${m.role})`).join(", ")} — ${panel.rationale}`);
 
-phase("Table the strategic proposals")
-const ceo = agent("CEO-01", {
-  system: `You are CEO-01, Chief Executive of the VIVIM Ω build. Governing mission: "Full VIVIM beta ready to distribute for free." You translate evidence into strategy. Hard rules: table at most 3 proposals; every proposal MUST name the existing roadmap/backlog/destination document it extends or amends (designing a fresh roadmap is forbidden — the corpus is authoritative and the board enhances it); every proposal states its own falsifier and its cost. You hold no ratification authority: your output is proposals, subject to challenge. You may not contradict binding Ω law; if a proposal would, say so plainly instead.`,
+const proposer = panel.members.find((m) => m.role === "proposer");
+const challengers = panel.members.filter((m) => m.role === "challenger");
+if (!proposer) {
+  return {
+    conclusion: "No panel could be seated (no proposer available) — session aborted before deliberation.",
+    findings: [],
+    verified: [],
+    notCovered: ["the entire session — the panel selection returned no usable proposer"],
+  };
+}
+
+phase("Establish ground truth and table proposals");
+const proposerAgent = agent(proposer.id, {
+  system:
+    `You are ${proposer.id}, seated as the proposer of an Ω Board session. Governing mission: "Full VIVIM beta ready to distribute for free." Establish your own ground truth from the repository per your brief, citing every claim with a path or command, then translate it into strategy. Hard rules: table at most 3 proposals; every proposal MUST name the existing roadmap/backlog/destination document it extends or amends (designing a fresh roadmap is forbidden — the corpus is authoritative and the board enhances it); every proposal states its own falsifier and its cost. You hold no ratification authority: your output is proposals, subject to challenge. You may not contradict binding Ω law; if a proposal would, say so plainly instead. Read-only: do not edit, create or delete anything.`,
 });
-const proposals: Proposal[] = await ceo.ask<Proposal[]>(
-  `Board session. ${focusLine}\n\nGround truth (evidence gatherers):\n${JSON.stringify(postures)}\n\nTable up to 3 strategic proposals that best advance the mission given this ground truth. Prefer enhancing what exists over inventing new structures.`,
+const grounded: GroundedProposals = await proposerAgent.ask<GroundedProposals>(
+  `${focusLine}\n\nYour session brief: ${proposer.brief}\n\nEstablish your ground truth, then table up to 3 strategic proposals that best advance the mission given it. Prefer enhancing what exists over inventing new structures. If the ground truth already answers the focus, return an empty proposals list and say so in the ground.`,
 );
+log(`${grounded.proposals.length} proposal(s) tabled on the proposer's ground truth`);
 
-phase("Challenge every proposal")
-const [governorChallenges, researchChallenges, deliveryChallenges] = await Promise.all([
-  agent("GOVERNOR-01", {
-    system: `You are GOVERNOR-01, the Mission Governor in the Truth & Trust department. You protect the trust chain: trust belongs to a traceable chain, never to confidence, agreement or position. Challenge every proposal: what would break it, what is UNKNOWN, where it violates law, gates or the boundary (DOCUMENTATION is not IMPLEMENTATION; CANDIDATE is not REALIZATION). Where warranted, record an explicit advisory-veto with your reason. You advise; you never set product direction. Read-only.`,
-  }).ask<Challenge[]>(
-    `Challenge each proposal below. Respond with one Challenge per objection you actually hold; an empty list means you have none. Proposals:\n${JSON.stringify(proposals)}\n\nGround truth:\n${JSON.stringify(postures)}`,
-  ),
-  agent("RESEARCH-01", {
-    system: `You are RESEARCH-01, director of Research & Alignment. You turn uncertainty into evidence and keep the organization aligned with reality. For each proposal: cite supporting or contradicting evidence from the repository, flag evidence-gaps (what would need to be proven before the proposal is safe), and check the proposal against the destination documents. Your findings are never authority. Read-only.`,
-  }).ask<Challenge[]>(
-    `Assess each proposal below for evidence support and alignment. Respond with one Challenge per substantive point; an empty list means you have none. Proposals:\n${JSON.stringify(proposals)}\n\nGround truth:\n${JSON.stringify(postures)}`,
-  ),
-  agent("DELIVERY-01", {
-    system: `You are DELIVERY-01, director of delivery for the Ω core. You cost work honestly from actual receipts and gate status — effort, risk, what it displaces, what is already landed in that area. You may not promise unverified capability, and you flag when a proposal duplicates work the queues already record. Read-only.`,
-  }).ask<Challenge[]>(
-    `Cost and feasibility-check each proposal below against the delivery state. Respond with one Challenge per substantive point; an empty list means you have none. Proposals:\n${JSON.stringify(proposals)}\n\nGround truth:\n${JSON.stringify(postures)}`,
-  ),
-]);
-const challenges: Challenge[] = [...governorChallenges, ...researchChallenges, ...deliveryChallenges];
-log(`${challenges.length} challenge(s) recorded`);
+let challenges: Challenge[] = [];
+if (challengers.length > 0) {
+  phase("Challenge every proposal in role");
+  challenges = (
+    await Promise.all(
+      challengers.map((c) => {
+        const challenger = agent(c.id, {
+          system:
+            `You are ${c.id}, seated as a challenger in an Ω Board session per .zcode/ROSTER.md. Establish your own ground truth from the repository per your brief — independently of the proposer — citing every claim with a path or command, then challenge the proposals in role. Challenge what would break, what is UNKNOWN, where proposals violate law, gates or the boundary (DOCUMENTATION is not IMPLEMENTATION; CANDIDATE is not REALIZATION); where warranted record an explicit advisory-veto with your reason. Respond with one Challenge per objection you actually hold; an empty list means you have none. Read-only: do not edit, create or delete anything.`,
+        });
+        return challenger.ask<Challenge[]>(
+          `${focusLine}\n\nYour session brief: ${c.brief}\n\nThe proposer's ground truth:\n${JSON.stringify(grounded.ground)}\n\nProposals:\n${JSON.stringify(grounded.proposals)}\n\nChallenge each proposal in role, from your own independently established ground truth.`,
+        );
+      }),
+    )
+  ).flat();
+  log(`${challenges.length} challenge(s) recorded from ${challengers.length} challenger(s)`);
+} else {
+  log("Single-member panel: no independent challengers; self-challenge and dissent must be recorded honestly in the settle step");
+}
 
-phase("Amend and settle")
-const dispositions: Disposition[] = await ceo.ask<Disposition[]>(
-  `The officers challenged your proposals:\n${JSON.stringify(challenges)}\n\nAmend or withdraw each proposal in light of the challenges and return one Disposition per proposal. Record every unresolved objection as dissent naming its holder, every question only the owner can answer under ownerQuestions, and every remaining UNKNOWN under unknowns. Do not adopt a proposal that still has an open advisory-veto without recording the veto in dissent.`,
+phase("Settle with dissent and publish the minutes");
+const settled: Settled = await proposerAgent.ask<Settled>(
+  `${challenges.length > 0 ? `The panel challenged your proposals:\n${JSON.stringify(challenges)}` : "You deliberated alone: challenge your own proposals honestly in the dispositions — record any objection you cannot refute as dissent naming yourself."}\n\nAmend or withdraw each proposal in light of the challenges and return one Disposition per proposal. Record every unresolved objection as dissent naming its holder, every question only the owner can answer under ownerQuestions, and every remaining UNKNOWN under unknowns. Do not adopt a proposal that still has an open advisory-veto without recording the veto in dissent. Also scan for gaps in the organization itself — evidence, capability, roles, process — naming what standing each up would take.`,
 );
-
-phase("Scan for gaps and publish the minutes")
-const gapScan: Gap[] = await agent("gap-scanner", {
-  system: "You identify what the organization is missing — evidence, capability, roles or process — from an Ω Board session's record. Concrete and small: a gap must name what standing it up would take. Read-only: do not edit anything.",
-}).ask<Gap[]>(
-  `From the postures, proposals, challenges and dispositions below, identify the 3-6 most load-bearing gaps in the organization itself (not the product backlog): missing evidence the board keeps needing, missing capability, missing roles, broken process. For each, say what standing it up would take.\n\nPostures:\n${JSON.stringify(postures)}\n\nProposals:\n${JSON.stringify(proposals)}\n\nChallenges:\n${JSON.stringify(challenges)}\n\nDispositions:\n${JSON.stringify(dispositions)}`,
-);
+for (const d of settled.dispositions) {
+  report({ proposal: d.id, status: d.status, title: d.title });
+}
 const minutes = [
   "# Ω Board minutes",
   "",
   `> Status: PROPOSED — awaiting owner ratification. Advisory vetoes are recorded, not enacted. ${focusLine}`,
   "",
-  "## Ground truth",
-  ...postures.map((p) => `### ${p.area}\n${p.posture.state}\n\nConcerns: ${p.posture.concerns.join("; ") || "none recorded"}\nUNKNOWNs: ${p.posture.unknowns.join("; ") || "none recorded"}`),
+  "## Panel composition (flexible-panel charter, cap 3 deliberators)",
+  `> ${panel.rationale}`,
+  ...panel.members.map((m) => `- **${m.id}** — ${m.role}; picked because: ${m.reason}`),
+  "",
+  "## Ground truth (established by the panel itself)",
+  grounded.ground,
+  `\nUNKNOWNs: ${grounded.unknowns.join("; ") || "none recorded"}`,
   "",
   "## Proposals and dispositions",
-  ...dispositions.map(
+  ...settled.dispositions.map(
     (d) =>
       `### ${d.id} — ${d.title} [${d.status.toUpperCase()}]\n${d.statement}\n\n- Owner questions: ${d.ownerQuestions.join("; ") || "none"}\n- UNKNOWNs: ${d.unknowns.join("; ") || "none"}\n- Dissent: ${d.dissent.join("; ") || "none"}`,
   ),
   "",
   "## Challenges recorded",
-  ...challenges.map((c) => `- **${c.type}** from ${c.from} on ${c.proposalId}: ${c.body} (evidence: ${c.evidence})`),
+  ...(challenges.length > 0
+    ? challenges.map((c) => `- **${c.type}** from ${c.from} on ${c.proposalId}: ${c.body} (evidence: ${c.evidence})`)
+    : ["- none — single-member panel; self-challenge is recorded in the dispositions"]),
   "",
   "## Gap scan",
-  ...gapScan.map((g) => `- [${g.kind}] ${g.gap} — proposal: ${g.proposal}`),
+  ...settled.gaps.map((g) => `- [${g.kind}] ${g.gap} — proposal: ${g.proposal}`),
 ].join("\n");
 await artifact.markdown("minutes", minutes, {
   title: "Ω Board minutes",
-  description: "Strategic proposals, officer challenges, dispositions, dissent, owner questions and the gap scan — PROPOSED, awaiting owner ratification.",
+  description: "Panel composition, ground truth, proposals, challenges, dispositions, dissent, owner questions and the gap scan — PROPOSED, awaiting owner ratification.",
   primary: true,
 });
 
 const vetoCount = challenges.filter((c) => c.type === "advisory-veto").length;
 return {
-  conclusion: `Board session settled ${dispositions.length} proposal(s) — ${dispositions.filter((d) => d.status === "adopted" || d.status === "amended").length} adopted/amended, ${vetoCount} advisory veto(s) recorded, ${gapScan.length} organization gaps identified. Minutes are PROPOSED awaiting owner ratification.`,
-  findings: dispositions.flatMap((d) =>
+  conclusion: `Board session settled ${settled.dispositions.length} proposal(s) — ${settled.dispositions.filter((d) => d.status === "adopted" || d.status === "amended").length} adopted/amended, ${vetoCount} advisory veto(s) recorded, ${settled.gaps.length} organization gaps identified. Panel: ${panel.members.map((m) => `${m.id} (${m.role})`).join(", ")}. Minutes are PROPOSED awaiting owner ratification.`,
+  findings: settled.dispositions.flatMap((d) =>
     d.ownerQuestions.map((q) => ({
       where: `proposal ${d.id} (${d.title})`,
       what: q,
@@ -185,12 +234,14 @@ return {
     })),
   ),
   verified: [
-    "ground truth was gathered by three independent evidence gatherers citing paths and commands",
-    "every proposal was challenged in role by the Governor, Research and Delivery officers",
+    `panel of ${panel.members.length} deliberator(s) was picked to fit the focus${panelArg ? " and named by the convening Steward" : " by an independent selector pass"}`,
+    "each panel member established its own ground truth from the repository, citing paths/commands",
+    "every proposal was challenged in role (or, for a single-member panel, self-challenged with dissent recorded)",
     "unresolved disagreement and advisory vetoes are recorded in the minutes, not smoothed away",
   ],
   notCovered: [
     "the board proposes only; no ratification or execution happened in this session",
-    ...postures.flatMap((p) => p.posture.unknowns.map((u) => `${p.area}: ${u}`)),
+    ...grounded.unknowns.map((u) => `proposer ground truth: ${u}`),
+    ...settled.dispositions.flatMap((d) => d.unknowns.map((u) => `${d.id}: ${u}`)),
   ],
 };

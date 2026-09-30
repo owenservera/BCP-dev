@@ -18,7 +18,16 @@ Two layers. The **Ω Board** (this charter) proposes, debates, challenges and id
 The **Ω Team** (`.zcode/TEAM.md`) executes what the owner ratifies. Board members never act on
 the product directly; team members never set strategy.
 
-## Officers
+**Flexible panels (owner amendment 2026-09-30).** There is no fixed cast. Each session seats a
+panel picked for that session's focus from the roster [../ROSTER.md](../ROSTER.md), with a
+**hard cap of 3 deliberating agents** — a bigger question is handled in more rounds, not a
+bigger cast. Read-only investigation (readers, checkers) may still fan out; the cap binds
+deliberation, not investigation. The panel establishes its own ground truth in its briefs;
+there is no separate evidence-gatherer cast. Panel composition and the reason each member was
+picked are recorded in the minutes. A panel may be named directly by the convening Steward
+(the `omega-board` workflow's `panel` argument) or picked by an independent selector pass.
+
+## Roster members
 
 | Officer | Lineage | Core decision responsibility | Powers | Limits |
 |---|---|---|---|---|
@@ -34,17 +43,19 @@ owner acts; ratified outcomes move to the decision ledger with lineage.
 
 ## Debate protocol (per session)
 
-1. **Ground truth** — three evidence gatherers establish law/gates state, roadmap/backlog
-   state, and delivery/queue state. No proposal may rest on a stale or aspirational citation.
-2. **Proposals** — CEO-01 tables ≤3 proposals. Each names the existing document it extends or
-   amends, states a falsifier, and states cost. More than three means the session is unfocused.
-3. **Challenge round** — Governor, Research and Delivery each respond to every proposal in
-   role. Objections cite evidence or name UNKNOWNs; advisory vetoes are explicit.
-4. **Amend and settle** — CEO-01 amends in light of challenges. Unresolved disagreement is
-   recorded as **dissent** with its holder — never smoothed away.
+1. **Ground truth** — the seated panel establishes ground truth from the repository within
+   its own briefs (law/gates, roadmap/backlog, delivery/queues as the focus requires). No
+   proposal may rest on a stale or aspirational citation.
+2. **Proposals** — the panel's proposer tables ≤3 proposals. Each names the existing document
+   it extends or amends, states a falsifier, and states cost. More than three means the
+   session is unfocused.
+3. **Challenge round** — the panel's challengers respond to every proposal in their specialties.
+   Objections cite evidence or name UNKNOWNs; advisory vetoes are explicit.
+4. **Amend and settle** — the proposer amends in light of challenges. Unresolved disagreement
+   is recorded as **dissent** with its holder — never smoothed away.
 5. **Gap scan + minutes** — the session closes by recording gaps (evidence / capability /
-   role / process) and publishing minutes: postures, proposals, challenges, dispositions,
-   dissent, owner questions, UNKNOWNs.
+   role / process) and publishing minutes: panel composition, ground truth, proposals,
+   challenges, dispositions, dissent, owner questions, UNKNOWNs.
 
 ## Session artifacts and lineage
 

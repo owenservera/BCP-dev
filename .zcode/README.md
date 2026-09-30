@@ -36,3 +36,5 @@ AGENTS_CONTEXT; this system serves whichever lane the owner points it at.
   the strategy team that proposes, debates, challenges and gap-scans; the owner ratifies.
   Convene with "convene the board" (saved workflow `omega-board`).
 - `workstreams/` — standing work lanes (WS-1..WS-5) with lifecycle and evidence rules.
+- `ROSTER.md` — the member registry deliberation panels are picked from per task
+  (hard cap: 3 deliberating agents; read-only investigation may fan out).
