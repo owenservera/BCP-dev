@@ -1,7 +1,10 @@
 # WS-5 — Ω Core Build (flagship)
 
-> Status: PROPOSED — entry gate: owner names the first lane
-> Owner: CEO-01 (sequencing) · DELIVERY-01 (execution) · GOVERNOR-01 (challenge) · ratified by owner
+> Status: **PROPOSED (TEAM-DECIDED gate)** — D-TEAM-007: opens only when WS-1 exits green; the first
+> lane is then named by an S3 decision panel from BACKLOG.md's four open lanes, ranked by
+> downstream unblocking, smallest verifiable increment, and absence of unresolved law/boundary
+> questions. No human naming required; the owner may override the pick.
+> Owner: CEO-01 (sequencing) · DELIVERY-01 (execution) · GOVERNOR-01 (challenge)
 > Serving workflows: `omega-boundary-audit`, `omega-research`, `omega-build`, `omega-verify`
 
 ## Purpose

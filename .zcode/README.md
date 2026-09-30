@@ -38,3 +38,5 @@ AGENTS_CONTEXT; this system serves whichever lane the owner points it at.
 - `workstreams/` — standing work lanes (WS-1..WS-5) with lifecycle and evidence rules.
 - `ROSTER.md` — the member registry deliberation panels are picked from per task
   (hard cap: 3 deliberating agents; read-only investigation may fan out).
+- `DECISIONS-POLICY.md` — no human answer ever blocks: severity-scaled panels (≤3) decide,
+  record, inform, move forward. `board/DECISIONS.md` is the ledger of effective decisions.

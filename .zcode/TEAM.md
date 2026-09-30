@@ -20,6 +20,7 @@
 3. **Chat-reported completion is not completion.** Only `omega-verify` (or a committed receipt checked against the repo) promotes work to DONE.
 4. **Token economy.** Workers receive paths, never file contents. Results are narrow typed objects. Fan-out is the default; joins happen only at synthesis. The plan reviewer persists across review rounds to reuse its context. Every gate is a deterministic command (`world.run`), never a worker's claim.
 5. **Flexible panels, capped deliberation (owner amendment 2026-09-30).** Members are picked per task from [.zcode/ROSTER.md](ROSTER.md); a deliberation panel never exceeds **3 deliberating agents** — a bigger question means more rounds, not a bigger cast. Read-only investigation may still fan out; the cap binds deliberation, not investigation. Panel composition and pick-reasons are recorded in the minutes.
+6. **No human answer ever blocks (owner directive 2026-09-30).** A question that would have parked a lane becomes a team decision in the same session: the panel is spawned per severity (S1 = 1 member, S2 = proposer + challenger, S3 = 3 with rollback), decides, records it in [board/DECISIONS.md](board/DECISIONS.md) with reason/evidence/alternatives/revisit-condition, and work continues. The owner is informed, not asked; any decision is theirs to override at any time, and silence means it stands. Full policy: [DECISIONS-POLICY.md](DECISIONS-POLICY.md).
 
 ## Roles and delegation grants
 

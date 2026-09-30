@@ -1,7 +1,9 @@
 # WS-2 — Commons Bootstrap
 
-> Status: BLOCKED-EVIDENCE — owner questions BQ-1…BQ-3 (Board session 2026-09-29, P1 amended)
-> Owner: STEW-01 (execution) · GOVERNOR-01 (gate discipline) · ratified by owner
+> Status: **ACTIVE (TEAM-DECIDED)** — unblocked 2026-09-30 by decisions D-TEAM-001 (bootstrap under
+> `agent:steward-zcode`), D-TEAM-002 (`user:owen` + human-principal amendment record), D-TEAM-003
+> (instruction channel in v1). Owner may override any of these; silence means they stand.
+> Owner: STEW-01 (execution) · GOVERNOR-01 (gate discipline)
 > Serving workflows: `omega-build` (amendment record, harness work), `omega-verify` (exchange proof)
 
 ## Purpose

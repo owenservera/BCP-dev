@@ -1,9 +1,9 @@
 # WS-4 — Reconciliation & Hygiene
 
-> Status: **ACTIVE** — owner "Begin" 2026-09-29 adopts the Steward recommendations (BQ-7:
-> Steward owns the reconciliation; BQ-8: pass runs ahead of WS-3). Items 1 and 3 in flight;
-> item 2's per-class decisions (commit/park/delete the 13 untracked entries) remain owner calls.
-> Owner: STEW-01 · ratified by owner
+> Status: **ACTIVE** — owner "Begin" 2026-09-29 (BQ-7/BQ-8, ratified). Items 1 and 3 done;
+> item 2's per-class dispositions are TEAM-DECIDED (D-TEAM-014: evidence committed, heavy
+> artifacts parked, nothing deleted — largely executed in 82fb8a7e and 11e4c1c5).
+> Owner: STEW-01
 > Serving workflows: `omega-verify` (closure), `omega-reality-check` (re-check)
 
 ## Purpose

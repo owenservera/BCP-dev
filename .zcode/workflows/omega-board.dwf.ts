@@ -3,11 +3,13 @@ description: "The Ω Board session — flexible-panel edition. A selector picks 
   deliberation panel of at most 3 members from .zcode/ROSTER.md to fit the session
   focus (or the convening Steward names the panel directly via the panel argument).
   The panel establishes its own ground truth from the repository, tables proposals,
-  challenges every proposal in role, settles with dissent recorded, and publishes
-  minutes for owner ratification. Hard cap: 3 deliberating agents per session."
-whenToUse: When the owner convenes the board ("convene the board"), or on the
-  standing weekly cadence — for strategy-level proposing and debating, never
-  direct execution.
+  challenges every proposal in role, then DECIDES — each decision carries severity,
+  rollback and owner-inform items, takes effect immediately, and is recorded for the
+  decision ledger. No decision defers to a human as a blocker; the owner may override
+  any decision at any time. Hard cap: 3 deliberating agents per session."
+whenToUse: When the owner convenes the board ("convene the board"), on the
+  standing weekly cadence, or whenever a question would previously have blocked
+  work — for strategy-level deciding and debating, never direct execution.
 args:
   focus:
     type: string
@@ -78,9 +80,15 @@ interface Disposition {
   title: string;
   /** Final statement after amendment. */
   statement: string;
-  status: "adopted" | "amended" | "rejected" | "parked";
-  /** Questions only the owner can answer before execution. */
-  ownerQuestions: string[];
+  status: "decided" | "amended" | "rejected" | "parked";
+  /** The decision, stated as what the team will now do. Effective immediately. */
+  decision: string;
+  /** Severity of the decision: S1 one member, S2 proposer+challenger, S3 three members with rollback. */
+  severity: "S1" | "S2" | "S3";
+  /** How the decision is undone if it proves wrong. Required for S3, encouraged otherwise. */
+  rollback: string;
+  /** Items the owner is informed of — they never block work and the owner may override at any time. */
+  ownerInformed: string[];
   /** Remaining UNKNOWNs. */
   unknowns: string[];
   /** Dissent that was not resolved, naming who dissents. */
@@ -153,7 +161,7 @@ if (!proposer) {
 phase("Establish ground truth and table proposals");
 const proposerAgent = agent(proposer.id, {
   system:
-    `You are ${proposer.id}, seated as the proposer of an Ω Board session. Governing mission: "Full VIVIM beta ready to distribute for free." Establish your own ground truth from the repository per your brief, citing every claim with a path or command, then translate it into strategy. Hard rules: table at most 3 proposals; every proposal MUST name the existing roadmap/backlog/destination document it extends or amends (designing a fresh roadmap is forbidden — the corpus is authoritative and the board enhances it); every proposal states its own falsifier and its cost. You hold no ratification authority: your output is proposals, subject to challenge. You may not contradict binding Ω law; if a proposal would, say so plainly instead. Read-only: do not edit, create or delete anything.`,
+    `You are ${proposer.id}, seated as the proposer of an Ω Board session. Governing mission: "Full VIVIM beta ready to distribute for free." Establish your own ground truth from the repository per your brief, citing every claim with a path or command, then translate it into strategy. Hard rules: table at most 3 proposals; every proposal MUST name the existing roadmap/backlog/destination document it extends or amends (designing a fresh roadmap is forbidden — the corpus is authoritative and the board enhances it); every proposal states its own falsifier and its cost. Proposals are subject to the panel's challenge, after which the panel DECIDES — a decision takes effect immediately, the owner is informed rather than asked, and the owner may override later. You may not contradict binding Ω law; if a proposal would, say so plainly instead. Read-only: do not edit, create or delete anything.`,
 });
 const grounded: GroundedProposals = await proposerAgent.ask<GroundedProposals>(
   `${focusLine}\n\nYour session brief: ${proposer.brief}\n\nEstablish your ground truth, then table up to 3 strategic proposals that best advance the mission given it. Prefer enhancing what exists over inventing new structures. If the ground truth already answers the focus, return an empty proposals list and say so in the ground.`,
@@ -183,7 +191,7 @@ if (challengers.length > 0) {
 
 phase("Settle with dissent and publish the minutes");
 const settled: Settled = await proposerAgent.ask<Settled>(
-  `${challenges.length > 0 ? `The panel challenged your proposals:\n${JSON.stringify(challenges)}` : "You deliberated alone: challenge your own proposals honestly in the dispositions — record any objection you cannot refute as dissent naming yourself."}\n\nAmend or withdraw each proposal in light of the challenges and return one Disposition per proposal. Record every unresolved objection as dissent naming its holder, every question only the owner can answer under ownerQuestions, and every remaining UNKNOWN under unknowns. Do not adopt a proposal that still has an open advisory-veto without recording the veto in dissent. Also scan for gaps in the organization itself — evidence, capability, roles, process — naming what standing each up would take.`,
+  `${challenges.length > 0 ? `The panel challenged your proposals:\n${JSON.stringify(challenges)}` : "You deliberated alone: challenge your own proposals honestly in the dispositions — record any objection you cannot refute as dissent naming yourself."}\n\nDecide. For each proposal return one Disposition whose status is decided/amended/rejected/parked, and whose decision field states plainly what the team will now do — the decision takes effect immediately, so never defer to the owner as a blocker. State its severity (S1 one member, S2 with a challenger, S3 three members with rollback), its rollback path (required for S3), and put anything the owner should know — not answer — under ownerInformed; the owner may override any decision at any time and silence means it stands. Record every unresolved objection as dissent naming its holder and every remaining UNKNOWN under unknowns. Do not decide in favour of a proposal that still has an open advisory-veto from a law/boundary challenger without recording the veto in dissent. Also scan for gaps in the organization itself — evidence, capability, roles, process — naming what standing each up would take.`,
 );
 for (const d of settled.dispositions) {
   report({ proposal: d.id, status: d.status, title: d.title });
@@ -191,7 +199,7 @@ for (const d of settled.dispositions) {
 const minutes = [
   "# Ω Board minutes",
   "",
-  `> Status: PROPOSED — awaiting owner ratification. Advisory vetoes are recorded, not enacted. ${focusLine}`,
+  `> Status: DECIDED — decisions are effective immediately; each is recorded in .zcode/board/DECISIONS.md and the owner may override any of them at any time (silence means it stands). Advisory vetoes are recorded, not enacted. ${focusLine}`,
   "",
   "## Panel composition (flexible-panel charter, cap 3 deliberators)",
   `> ${panel.rationale}`,
@@ -201,10 +209,10 @@ const minutes = [
   grounded.ground,
   `\nUNKNOWNs: ${grounded.unknowns.join("; ") || "none recorded"}`,
   "",
-  "## Proposals and dispositions",
+  "## Decisions",
   ...settled.dispositions.map(
     (d) =>
-      `### ${d.id} — ${d.title} [${d.status.toUpperCase()}]\n${d.statement}\n\n- Owner questions: ${d.ownerQuestions.join("; ") || "none"}\n- UNKNOWNs: ${d.unknowns.join("; ") || "none"}\n- Dissent: ${d.dissent.join("; ") || "none"}`,
+      `### ${d.id} — ${d.title} [${d.status.toUpperCase()} · ${d.severity}]\n**Decision:** ${d.decision}\n\n${d.statement}\n\n- Rollback: ${d.rollback || "not stated"}\n- Owner informed (never blocking): ${d.ownerInformed.join("; ") || "nothing"}\n- UNKNOWNs: ${d.unknowns.join("; ") || "none"}\n- Dissent: ${d.dissent.join("; ") || "none"}`,
   ),
   "",
   "## Challenges recorded",
@@ -217,30 +225,29 @@ const minutes = [
 ].join("\n");
 await artifact.markdown("minutes", minutes, {
   title: "Ω Board minutes",
-  description: "Panel composition, ground truth, proposals, challenges, dispositions, dissent, owner questions and the gap scan — PROPOSED, awaiting owner ratification.",
+  description: "Panel composition, ground truth, decisions (effective, with severity and rollback), challenges, dissent, owner-inform items and the gap scan.",
   primary: true,
 });
 
 const vetoCount = challenges.filter((c) => c.type === "advisory-veto").length;
 return {
-  conclusion: `Board session settled ${settled.dispositions.length} proposal(s) — ${settled.dispositions.filter((d) => d.status === "adopted" || d.status === "amended").length} adopted/amended, ${vetoCount} advisory veto(s) recorded, ${settled.gaps.length} organization gaps identified. Panel: ${panel.members.map((m) => `${m.id} (${m.role})`).join(", ")}. Minutes are PROPOSED awaiting owner ratification.`,
-  findings: settled.dispositions.flatMap((d) =>
-    d.ownerQuestions.map((q) => ({
-      where: `proposal ${d.id} (${d.title})`,
-      what: q,
-      evidence: "owner question recorded in the minutes",
-      status: "unconfirmed" as const,
-      severity: "medium" as const,
-    })),
-  ),
+  conclusion: `Board session decided ${settled.dispositions.length} matter(s) — ${settled.dispositions.filter((d) => d.status === "decided" || d.status === "amended").length} decided/amended, ${vetoCount} advisory veto(s) recorded, ${settled.gaps.length} organization gaps identified. Decisions are effective immediately and recorded for the ledger; the owner may override any of them. Panel: ${panel.members.map((m) => `${m.id} (${m.role})`).join(", ")}.`,
+  findings: settled.dispositions.map((d) => ({
+    where: `decision ${d.id} (${d.title}) [${d.severity}]`,
+    what: d.decision,
+    evidence: `board decision recorded in the minutes; rollback: ${d.rollback || "not stated"}`,
+    status: "verified" as const,
+    severity: (d.severity === "S3" ? "high" : d.severity === "S2" ? "medium" : "low") as "low" | "medium" | "high",
+  })),
   verified: [
     `panel of ${panel.members.length} deliberator(s) was picked to fit the focus${panelArg ? " and named by the convening Steward" : " by an independent selector pass"}`,
     "each panel member established its own ground truth from the repository, citing paths/commands",
     "every proposal was challenged in role (or, for a single-member panel, self-challenged with dissent recorded)",
+    "each decision states its severity, its rollback path and its owner-inform items; no decision defers to a human as a blocker",
     "unresolved disagreement and advisory vetoes are recorded in the minutes, not smoothed away",
   ],
   notCovered: [
-    "the board proposes only; no ratification or execution happened in this session",
+    "the board decides and informs; execution happens in the workstreams, and this session edited nothing outside its own minutes",
     ...grounded.unknowns.map((u) => `proposer ground truth: ${u}`),
     ...settled.dispositions.flatMap((d) => d.unknowns.map((u) => `${d.id}: ${u}`)),
   ],

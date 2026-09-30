@@ -1,7 +1,9 @@
 # WS-3 — Team Dashboard v1 (operational control panel)
 
-> Status: BLOCKED-EVIDENCE — WS-2 + owner questions BQ-4…BQ-6 + BQ-3
-> Owner: DELIVERY-01 (build) · CEO-01 (scope) · ratified by owner
+> Status: **ACTIVE after WS-2 (TEAM-DECIDED)** — unblocked 2026-09-30 by D-TEAM-004 (standalone in
+> `tooling/`), D-TEAM-005 (parallel sequencing), D-TEAM-006 (D-458 placement record), D-TEAM-003
+> (instruction path). Dependency on WS-2 remains real evidence, not a human gate.
+> Owner: DELIVERY-01 (build) · CEO-01 (scope)
 > Serving workflows: `omega-build` (corridors), `omega-verify` (acceptance)
 
 ## Purpose

@@ -66,6 +66,20 @@ For substantive changes:
 4. keep research/documentation and production-code changes explicit;
 5. commit coherent changes with a clear status.
 
+## Decision authority (owner directive 2026-09-30)
+
+**No human answer ever blocks work.** The engineering team decides and moves forward: a
+question that would otherwise park a lane is turned into a team decision in the same session,
+by a panel spawned per severity (S1 = 1 member, S2 = proposer + challenger, S3 = 3 members with
+rollback; never more than 3 deliberating agents). Decisions are effective immediately,
+recorded in `.zcode/board/DECISIONS.md` with reason, evidence, alternatives, rollback and
+revisit condition, and reported to the owner as **OWNER-INFORM** items. The owner may override
+any decision at any time; silence means it stands. Only the owner-reserved class (irreversible
+external commitments, credentials, material financial commitments, legal/compliance, product
+intent) is never actioned irreversibly without them — and even then the team takes the most
+conservative reversible step and keeps everything else moving. Full policy:
+`.zcode/DECISIONS-POLICY.md`.
+
 ## Windows / PowerShell command execution (non-hanging protocol)
 
 This machine is Windows 11 with PowerShell 7 (`pwsh`). A hung tool call is a **session-ending event**: the agent cannot recover, and the user must terminate `opencode.exe` manually, losing all in-memory context. Treat every command as a potential hang source and verify the risk class before running it.

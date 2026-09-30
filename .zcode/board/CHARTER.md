@@ -38,8 +38,13 @@ picked are recorded in the minutes. A panel may be named directly by the conveni
 | **METHODS-01** | GATE-07 instrument (owner-commissioned 2026-09-30: "design a devops team optimization team focused on evolving and improving the team's methods, practices etc without adding overhead or ceremony") | Evolves the team's own methods, practices, charters, workflows and cadence from evidence | Proposes removals and improvements; flags ceremony | May mine only evidence that already exists — never creates standing reports or meetings; every proposal passes the net-ceremony test (names what it removes before what it adds, with success measure + rollback); consequential changes route through board debate |
 | **Steward** | STEW surface (ZCode session) | Chairs sessions, records minutes, commits receipts, operates the cadence | Organizes, commits, publishes | No strategic vote |
 
-**Owner** = founder and sole ratifying authority. Every minute is labelled PROPOSED until the
-owner acts; ratified outcomes move to the decision ledger with lineage.
+**Owner** = founder and sole ratifying authority **by override**. Under the owner directive of
+2026-09-30 ("never allow human decisions as a blocking … decide and always move forward",
+policy: [../DECISIONS-POLICY.md](../DECISIONS-POLICY.md)), a board session **decides**: its
+decisions are effective immediately, recorded in [DECISIONS.md](DECISIONS.md) with severity,
+reason, evidence, alternatives, rollback and revisit condition, and the owner is **informed**.
+The owner may reverse any decision at any time; an override re-routes the work with lineage.
+Minutes therefore read DECIDED (effective) + OWNER-INFORM — never "awaiting ratification".
 
 ## Debate protocol (per session)
 
@@ -59,12 +64,14 @@ owner acts; ratified outcomes move to the decision ledger with lineage.
 
 ## Session artifacts and lineage
 
-- Minutes: `.zcode/board/SESSIONS/<date>-<slug>.md` — committed by the Steward after the owner
-  has seen them (or on request).
-- Decision ledger: `.zcode/board/DECISIONS.md` — only owner-ratified outcomes, each citing the
-  session minute and the roadmap/backlog document it amends.
+- Minutes: `.zcode/board/SESSIONS/<date>-<slug>.md` — committed by the Steward after the session;
+  they carry the panel composition, the decisions with severity/rollback/dissent, and the
+  OWNER-INFORM items.
+- Decision ledger: `.zcode/board/DECISIONS.md` — every decision (TEAM-DECIDED, effective
+  immediately) and every owner override, each citing the session minute and the document it
+  amends.
 - Gap ledger: `.zcode/board/GAP-LEDGER.md` — every session's gaps, open until resolved or
-  ratified into expansion.
+  decided into expansion.
 
 ## Self-governance and expansion
 
@@ -94,11 +101,12 @@ owner acts; ratified outcomes move to the decision ledger with lineage.
 > You are the Steward chairing the standing weekly Ω Board session in workspace
 > C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev. Create a Monday 10:00 automation that runs the
 > saved workflow `omega-board` with subagent_model "openrouter/stealth/space-bunny-alpha"
-> (standing agenda: state of the gates, drift since the last session, strategic proposals,
-> gap scan). The automation must publish the minutes as the session artifact, report the owner
-> questions verbatim, and not commit anything without the owner's instruction. Read-only
-> otherwise — the minutes live in the run artifact until the owner ratifies or asks for them
-> to be committed.
+> (standing agenda: state of the gates, drift since the last session, decisions, gap scan).
+> The automation publishes the minutes as the session artifact, records each decision in
+> `.zcode/board/DECISIONS.md` with severity/reason/evidence/alternatives/rollback/revisit
+> condition, commits the minutes and ledger under the decision policy, and reports the
+> OWNER-INFORM items verbatim. Read-only on the product tree — the board decides and informs,
+> it never edits the substrate outside its own ledger and minutes.
 
 </details>
 
