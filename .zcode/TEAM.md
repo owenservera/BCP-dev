@@ -114,12 +114,11 @@ cache, so a rung change re-pays only the unfinished steps. Never touch a run sto
 `reason: user`. Never apply the ladder to a *script* error (e.g. `args.task is required`) — those
 need a script fix, not a different model. Record each rung change in the run's lineage.
 
-**Watchdog:** a scheduled automation applies the ladder automatically (every 30 minutes). This
-session holds its one automation, so create it from a fresh chat — prompt preserved below.
-UNKNOWN until first fire: whether `openrouter/free` is actually serving (it is configured, but
-unverified in this workspace) — the watchdog's first live action is also its test.
+**Watchdog:** a scheduled automation applies the ladder automatically (every 30 minutes).
+**Created 2026-10-01** (automation-48094acf) from the preserved prompt below. Its first live
+fire is also the test of whether `openrouter/free` is actually serving (UNKNOWN until then).
 
-<details><summary>Prompt for the model-fallback watchdog automation (create from a new chat)</summary>
+<details><summary>Prompt for the model-fallback watchdog automation (created 2026-10-01, automation-48094acf)</summary>
 
 > You are the model-fallback watchdog for the VIVIM Ω workspace C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev.
 > Every 30 minutes: (1) call ListWorkflowRuns and inspect runs that are `stopped` with stop_reason
@@ -139,7 +138,8 @@ unverified in this workspace) — the watchdog's first live action is also its t
 | Automation | Schedule | Duty |
 |---|---|---|
 | Ω daily standup | daily 09:00 | Read-only sweep: reads [TRACKING.md](TRACKING.md) and verifies its rows against their homes, then queues, authority docs and git state; reports drift + one recommended next action. Modifies nothing. **Created** (automation-85b0ebf5); rewired to the tracker 2026-10-01. |
-| Completion gate audit + housekeeping sweep | Mondays 09:30 | Sample-verifies recent DONE claims in agent TASKS homes against repo evidence (flags UNVERIFIED); sweeps the working tree against [HOUSEKEEPING.md](HOUSEKEEPING.md) (every untracked entry owned per D-TEAM-014). Read-only. **Created** 2026-09-30 (automation-cdeac028); sweep added 2026-10-01. |
+| Completion gate audit + housekeeping sweep | Mondays 09:30 | Sample-verifies recent DONE claims in agent TASKS homes against repo evidence; sweeps the working tree against [HOUSEKEEPING.md](HOUSEKEEPING.md) (every untracked entry owned per D-TEAM-014). Read-only. **Created** 2026-09-30 (automation-cdeac028); sweep added 2026-10-01. |
+| Model-fallback watchdog | every 30 minutes | Applies the D-TEAM-013 ladder (`openrouter/free` → `openrouter/auto` → session model) to provider-stopped runs via `AmendWorkflow`; never touches user-stopped runs or script errors. Read-only otherwise. **Created** 2026-10-01 (automation-48094acf). |
 
 ## Operating rhythm
 

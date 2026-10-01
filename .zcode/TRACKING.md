@@ -54,7 +54,7 @@ Monday audit verifies them, then compress into the session log.
 | T-10 | Evolution research reconciliation | [EVOLUTION/TASKS.md](../AGENTS_CONTEXT/EVOLUTION/TASKS.md) | evolution research | READY | reconcile the twelve dimensions into the change constitution; seeded 2026-10-01 |
 | T-11 | Self-knowledge resume gate | [PERSONAL_AGENT/TASKS.md](../AGENTS_CONTEXT/PERSONAL_AGENT/TASKS.md) | personal agent | PAUSED | resume only after reconciling with the owner's newer symbolic-language design |
 | T-12 | Destination frontier characterization | [PRODUCT_VISION/TASKS.md](../AGENTS_CONTEXT/PRODUCT_VISION/TASKS.md) | product vision | READY | L-1 frontiers via the invariant/bypass/minimality test; seeded 2026-10-01 |
-| T-13 | Model-fallback watchdog | [TEAM.md](TEAM.md) | system | NOT CREATED | prompt preserved in TEAM.md; create from a fresh chat (30-min cron) |
+| T-13 | Model-fallback watchdog | [TEAM.md](TEAM.md) | system | DONE | created 2026-10-01 — automation-48094acf; first fire tests whether `openrouter/free` is serving (UNKNOWN until then) |
 
 ## Decisions in effect
 
@@ -75,7 +75,7 @@ with recorded revisit conditions.
 |---|---|---|---|
 | Ω daily standup | daily 09:00 | reads this board + the queues; reports drift + one next action; modifies nothing | active — automation-85b0ebf5 |
 | Ω completion-gate audit + housekeeping sweep | Mondays 09:30 | verifies DONE/LANDED rows vs repo evidence; hygiene sweep of the working tree | active — automation-cdeac028 |
-| Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs | not created — see T-13 |
+| Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
 
 ## Session log (append-only, newest first)
 
@@ -86,3 +86,7 @@ with recorded revisit conditions.
   testkit `.gen-deep/` parked via `.gitignore`. Drift found while seeding: WORKSTREAMS.md still
   showed WS-1 items 4/5 "in flight" after they landed (08ddf708) — index corrected. Standup and
   Monday automations rewired to consume this board.
+- **2026-10-01 (cont.)** — T-13 closed: model-fallback watchdog created (automation-48094acf,
+  every 30 min, prompt verbatim from TEAM.md). All three designed heartbeat automations are now
+  active; the one-cron-per-session limit did not block this session. UNKNOWN until first fire:
+  whether `openrouter/free` is actually serving.
