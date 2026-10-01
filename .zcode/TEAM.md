@@ -138,8 +138,8 @@ unverified in this workspace) — the watchdog's first live action is also its t
 
 | Automation | Schedule | Duty |
 |---|---|---|
-| Ω daily standup | daily 09:00 | Read-only sweep of queues, authority docs and git state; report drift + one recommended next action. Modifies nothing. **Created** (automation-85b0ebf5). |
-| Completion gate audit | Mondays 09:30 | Sample-verifies recent DONE claims in agent TASKS homes against repo evidence; flags UNVERIFIED. Read-only. **Created** 2026-09-30 (automation-cdeac028). |
+| Ω daily standup | daily 09:00 | Read-only sweep: reads [TRACKING.md](TRACKING.md) and verifies its rows against their homes, then queues, authority docs and git state; reports drift + one recommended next action. Modifies nothing. **Created** (automation-85b0ebf5); rewired to the tracker 2026-10-01. |
+| Completion gate audit + housekeeping sweep | Mondays 09:30 | Sample-verifies recent DONE claims in agent TASKS homes against repo evidence (flags UNVERIFIED); sweeps the working tree against [HOUSEKEEPING.md](HOUSEKEEPING.md) (every untracked entry owned per D-TEAM-014). Read-only. **Created** 2026-09-30 (automation-cdeac028); sweep added 2026-10-01. |
 
 ## Operating rhythm
 

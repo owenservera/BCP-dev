@@ -35,3 +35,9 @@ neither queue file.
 
 Every file tracked or queue-owned; fresh sweep shows zero confirmed high/medium drift in the
 queues and working-tree areas; receipts committed.
+
+## Standing hygiene register
+
+The working-tree hygiene layer of this lane lives in
+[.zcode/HOUSEKEEPING.md](../HOUSEKEEPING.md) (disposition rules per D-TEAM-014, open items,
+parked artifacts, weekly Monday sweep). Item 4's sweep and the register share evidence.

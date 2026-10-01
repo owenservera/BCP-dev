@@ -24,3 +24,7 @@ OmegaBuildBootstrap.txt
 # Windows device-name accidents from Git Bash redirects
 nul
 **/nul
+
+# Housekeeping 2026-10-01: noise + generated test fixtures (D-TEAM-014 disposition, .zcode/HOUSEKEEPING.md)
+debug.log
+**/.gen-deep/

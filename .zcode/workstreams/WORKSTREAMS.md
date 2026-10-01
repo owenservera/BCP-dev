@@ -25,7 +25,7 @@ carries its evidence source; reordering requires a Board decision (or an owner o
 
 | ID | Name | Owner officer | Status | Entry gate |
 |---|---|---|---|---|
-| [WS-1](WS-1-truth-repair.md) | Truth Repair (gates + corpus) | DELIVERY-01 | ACTIVE — items 1/2/3/6 DONE, 4/5 in flight | gate: `omega:quick` green |
+| [WS-1](WS-1-truth-repair.md) | Truth Repair (gates + corpus) | DELIVERY-01 | ACTIVE — items 1–6 landed (4/5: run dwfrun-ca04737e, commit 08ddf708); exit pending fresh sweep + verify receipts | gate: `omega:quick` green |
 | [WS-2](WS-2-commons-bootstrap.md) | Commons Bootstrap | STEW-01 | ACTIVE (TEAM-DECIDED D-001…003) | none — bootstrap authorized now |
 | [WS-3](WS-3-dashboard-v1.md) | Team Dashboard v1 (control panel) | DELIVERY-01 (build) · CEO-01 (scope) | ACTIVE after WS-2 (TEAM-DECIDED D-004…006) | WS-2 smoke exchange |
 | [WS-4](WS-4-reconciliation.md) | Reconciliation & Hygiene | STEW-01 | ACTIVE — items 1/2/3 done (TEAM-DECIDED D-014) | item 4: fresh sweep |

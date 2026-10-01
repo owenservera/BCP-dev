@@ -6,6 +6,11 @@ team charter: roles, responsibilities, delegation grants, and scheduled duties.
 ## Contents
 
 - `TEAM.md` — team charter (roles, workers, grants, rhythm).
+- `TRACKING.md` — the consolidated PM board: workstream rollup, cross-home task register,
+  decisions pointer, housekeeping pointer, automation heartbeat, session log. The standup
+  reads it, the Steward updates it, the Monday audit verifies it.
+- `HOUSEKEEPING.md` — the hygiene register: disposition rules (D-TEAM-014), open items,
+  standing parked artifacts, weekly Monday sweep.
 - `workflows/*.dwf.ts` — the saved workflows (the team's operational units). Each runs with
   `CreateWorkflow` using `saved: { name: "<workflow>" }`; these files are committed with the
   repository so any session can run them.

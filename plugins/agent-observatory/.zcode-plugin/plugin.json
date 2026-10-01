@@ -1,0 +1,14 @@
+{
+  "name": "agent-observatory",
+  "version": "0.1.0",
+  "description": "Realtime observatory for runtime agents: live agent sessions, their models, token spend, lifecycle state, and per-agent permission rules, exposed as MCP tools. Designed as a permanent global tool seeded with agent observability and evolving to cover more runtime use cases.",
+  "author": {
+    "name": "VIVIM"
+  },
+  "mcpServers": {
+    "agent-observatory": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/server.mjs"]
+    }
+  }
+}
