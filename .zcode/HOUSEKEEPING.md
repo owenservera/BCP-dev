@@ -46,3 +46,7 @@
   (crashpad noise) PARKED; `testkit/test/fixtures/ghosts/.gen-deep/` (test-generated fixtures)
   PARKED. System files landed in the same commit: TRACKING.md, HOUSEKEEPING.md, and TASKS.md
   seeds for the four peer homes.
+- **2026-10-01 (cont.)** — `AGENTS_CONTEXT/PEER-ZCODE-SETUP-CAPABILITY-OWNER.md` COMMITTED
+  (peer coordination evidence from the zcode-setup capability owner; suggested disposition
+  stated in-file). Steward intake (roster registration, N1–N5 brief verification) pending —
+  tracked as T-14 on the [TRACKING.md](TRACKING.md) board.

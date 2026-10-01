@@ -150,6 +150,7 @@
 - **Alternatives:** hard-pin one model (rejected: single point of failure); per-role tuning (deferred: no evidence yet that a role needs a different model).
 - **Rollback:** settings-only change; ladder rungs can be reordered.
 - **Revisit if:** `openrouter/free` is verified serving, or a role is shown to need a distinct model.
+- **Annotation 2026-10-01 (peer intake, [AGENTS_CONTEXT/PEER-ZCODE-SETUP-CAPABILITY-OWNER.md](../../../AGENTS_CONTEXT/PEER-ZCODE-SETUP-CAPABILITY-OWNER.md)):** the ladder's runtime ids are `openrouter/openrouter/free` and `openrouter/openrouter/auto` (owner-side ListModels verification; `openrouter/free` / `openrouter/auto` as written above are not runtime ids — the first rung would fail on an invalid model id). `new-provider/space-bunny-free` unchanged. The watchdog (automation-48094acf, created 2026-10-01) runs the corrected prompt and loads the `dynamic-workflows` skill before calling `AmendWorkflow`. Rung-1 live serving remains UNKNOWN — the watchdog's first fire is the test.
 
 ### D-TEAM-014 — Untracked-entry disposition
 - **Severity:** S2 · **Status:** TEAM-DECIDED (largely executed already)

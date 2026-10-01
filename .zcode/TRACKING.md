@@ -54,7 +54,9 @@ Monday audit verifies them, then compress into the session log.
 | T-10 | Evolution research reconciliation | [EVOLUTION/TASKS.md](../AGENTS_CONTEXT/EVOLUTION/TASKS.md) | evolution research | READY | reconcile the twelve dimensions into the change constitution; seeded 2026-10-01 |
 | T-11 | Self-knowledge resume gate | [PERSONAL_AGENT/TASKS.md](../AGENTS_CONTEXT/PERSONAL_AGENT/TASKS.md) | personal agent | PAUSED | resume only after reconciling with the owner's newer symbolic-language design |
 | T-12 | Destination frontier characterization | [PRODUCT_VISION/TASKS.md](../AGENTS_CONTEXT/PRODUCT_VISION/TASKS.md) | product vision | READY | L-1 frontiers via the invariant/bypass/minimality test; seeded 2026-10-01 |
-| T-13 | Model-fallback watchdog | [TEAM.md](TEAM.md) | system | DONE | created 2026-10-01 — automation-48094acf; first fire tests whether `openrouter/free` is serving (UNKNOWN until then) |
+| T-13 | Model-fallback watchdog | [TEAM.md](TEAM.md) | system | DONE | created 2026-10-01 (automation-48094acf), peer-corrected same day — skill-load line + runtime rung ids; first fire tests whether rung 1 serves (UNKNOWN until then) |
+| T-14 | Intake of the zcode-setup peer note | [PEER-ZCODE-SETUP-CAPABILITY-OWNER.md](../AGENTS_CONTEXT/PEER-ZCODE-SETUP-CAPABILITY-OWNER.md) | system | OPEN | file committed as evidence; full intake pending: roster registration, verify the N1–N5 contract at `zcode-setup/research/briefs/010-bcp-dev-capability-coordination.md` (owner-side), proxy operational contract |
+| T-15 | Fan-out concurrency risk through the single free-model proxy | peer note / [TEAM.md](TEAM.md) | system | FLAGGED | peer suspects parallel subagent fan-out kills subagents through the unshaped proxy (unverified under load); remedy is an owner-side proxy upgrade, not a workaround; D-TEAM-010's one-writer rule already caps corridor concurrency |
 
 ## Decisions in effect
 
@@ -90,3 +92,9 @@ with recorded revisit conditions.
   every 30 min, prompt verbatim from TEAM.md). All three designed heartbeat automations are now
   active; the one-cron-per-session limit did not block this session. UNKNOWN until first fire:
   whether `openrouter/free` is actually serving.
+- **2026-10-01 (cont. 2)** — peer note received from the zcode-setup capability owner
+  ([PEER-ZCODE-SETUP-CAPABILITY-OWNER.md](../AGENTS_CONTEXT/PEER-ZCODE-SETUP-CAPABILITY-OWNER.md),
+  committed as evidence): the watchdog prompt was wrong as preserved — corrected in place
+  (loads the `dynamic-workflows` skill first; rung ids are `openrouter/openrouter/free` /
+  `openrouter/openrouter/auto`). TEAM.md ladder table corrected; D-TEAM-013 annotated per
+  D-TEAM-011. Opened T-14 (full peer intake) and T-15 (proxy fan-out risk).

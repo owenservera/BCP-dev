@@ -105,8 +105,8 @@ the default; these rungs are what a *stopped* run falls back to, so a dead run n
 
 | Rung | Model | Notes |
 |---|---|---|
-| 1 | `openrouter/free` | OpenRouter free-model routing — configured in the host registry |
-| 2 | `openrouter/auto` | OpenRouter automatic routing |
+| 1 | `openrouter/openrouter/free` | OpenRouter free-model routing — runtime-exposed id (corrected 2026-10-01 from `openrouter/free` per peer ListModels verification) |
+| 2 | `openrouter/openrouter/auto` | OpenRouter automatic routing — runtime-exposed id (corrected 2026-10-01 from `openrouter/auto`) |
 | 3 | `new-provider/space-bunny-free` | the session model; the default everything returns to |
 
 **Rules:** relaunch with `AmendWorkflow` changing only `subagent_model` — finished work imports as
@@ -115,21 +115,24 @@ cache, so a rung change re-pays only the unfinished steps. Never touch a run sto
 need a script fix, not a different model. Record each rung change in the run's lineage.
 
 **Watchdog:** a scheduled automation applies the ladder automatically (every 30 minutes).
-**Created 2026-10-01** (automation-48094acf) from the preserved prompt below. Its first live
-fire is also the test of whether `openrouter/free` is actually serving (UNKNOWN until then).
+**Created 2026-10-01** (automation-48094acf) and corrected the same day after peer intake — the
+prompt below loads the `dynamic-workflows` skill before calling `AmendWorkflow` and uses the
+runtime rung ids. Its first live fire is also the test of whether rung 1 is actually serving
+(UNKNOWN until then).
 
-<details><summary>Prompt for the model-fallback watchdog automation (created 2026-10-01, automation-48094acf)</summary>
+<details><summary>Prompt for the model-fallback watchdog automation (created + peer-corrected 2026-10-01, automation-48094acf)</summary>
 
 > You are the model-fallback watchdog for the VIVIM Ω workspace C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev.
-> Every 30 minutes: (1) call ListWorkflowRuns and inspect runs that are `stopped` with stop_reason
-> `provider`, or `errored` with a model/provider condition (quota cap, model not in plan, invalid
-> request) rather than a script error. (2) For each qualifying run, apply the next rung of the
-> fallback ladder with AmendWorkflow — run id, the run's script `path`, and the new
-> `subagent_model`: `openrouter/free` first, then `openrouter/auto`, then
-> `new-provider/space-bunny-free`. (3) Never touch a run stopped `reason: user`; never apply
-> the ladder to a ScriptError — those need a script fix. (4) Report one line per run touched (run
-> id, old model, new rung, cache imported), or "no action". Modify no file, commit nothing, message
-> nobody.
+> First, load the `dynamic-workflows` skill with the Skill tool — workflow calls are
+> refused without it. Every 30 minutes: (1) call ListWorkflowRuns and inspect runs that are
+> `stopped` with stop_reason `provider`, or `errored` with a model/provider condition (quota
+> cap, model not in plan, invalid request) rather than a script error. (2) For each qualifying
+> run, apply the next rung of the fallback ladder with AmendWorkflow — run id, the run's script
+> `path`, and the new `subagent_model`: `openrouter/openrouter/free` first, then
+> `openrouter/openrouter/auto`, then `new-provider/space-bunny-free`. (3) Never touch a run
+> stopped `reason: user`; never apply the ladder to a script error — those need a script fix.
+> (4) Report one line per run touched (run id, old model, new rung, cache imported), or "no
+> action". Modify no file, commit nothing, message nobody.
 
 </details>
 
