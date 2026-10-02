@@ -17,8 +17,7 @@
 // host surface in this round.
 
 import type { ParsedChunk } from "@vivim/omega-contracts";
-import { PARSER_VERSION, parseChatGptStream, resolveParser } from "./parsers.ts";
-export { parseChatGptStream };
+import { PARSER_VERSION, resolveParser } from "./parsers.ts";
 
 export const CHATGPT_HOME = "https://chatgpt.com/";
 export const CHATGPT_COMPOSER_SELECTORS = [
@@ -583,6 +582,17 @@ export function parseChatGptStream(rawBody: string): { providerMessageId?: strin
   }
   if (deltaCount === 0) {
     throw new LiveSendError("MSG_SEND_STREAM_NO_DELTA", "ChatGPT response completed without any assistant text delta");
+  }
+
+  // A patch frame can carry text before any frame exposes the message id. Every
+  // delta cites the id (streamId = causation), so backfill the ones minted early.
+  if (providerMessageId) {
+    for (const chunk of chunks) {
+      const data = chunk.data as Record<string, unknown>;
+      if (data.kind === "assistant.delta" && data.providerMessageId === undefined) {
+        data.providerMessageId = providerMessageId;
+      }
+    }
   }
 
   const final: ParsedChunk = {

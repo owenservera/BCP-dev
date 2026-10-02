@@ -22,6 +22,10 @@ const LAW_CONTRACTS = ["law.check@1", "law.registry@1", "law.consent.grant@1", "
 const VAULT_CONTRACTS = ["vault.append@1", "vault.get@1", "vault.query@1", "vault.search@1", "vault.verify@1", "vault.compact@1", "vault.roundtrip@1"];
 const AGENT_CONTRACTS = ["agent.spawn@1", "agent.describe@1", "agent.exec@1", "behavior.propose@1", "behavior.promote@1", "behavior.rollback@1", "decision.record@1"];
 const AGENT_CAPS = ["port:vault.append@1", "port:vault.get@1", "port:vault.query@1", "port:law.forbidden.set@1", "port:law.check@1"];
+// The manifest REQUESTS these (agency.execute@1, p1-06); the D-309 ceremony below
+// never calls that op, so the test composition grants only the AGENT_CAPS subset.
+// Requested != granted: a capability is handed over per-composition by the Recipe.
+const AGENT_CAPS_REQUESTED = ["port:vault.append@1", "port:vault.get@1", "port:vault.query@1", "port:law.describe@1", "port:invoke.check@1", "port:message.send@1", "port:law.forbidden.set@1", "port:law.check@1"];
 
 function makeAgentSpec(name: string, dataDir: string): CompositionSpec {
   return {
@@ -147,7 +151,7 @@ describe("vivim.agent pure — scope mapping + authority + rollback tables", () 
 // ---- manifest ----
 
 describe("vivim.agent manifest — parses + validates through @vivim/omega-sdk", () => {
-  test("plugin.json: 18 engine ops, exact caps, zero validator issues", () => {
+  test("plugin.json: 19 engine ops, exact caps, zero validator issues", () => {
     const raw = JSON.parse(readFileSync(join(import.meta.dir, "../plugin.json"), "utf-8"));
     const parsed = parseManifest(raw);
     expect(parsed.ok).toBe(true);
@@ -155,13 +159,14 @@ describe("vivim.agent manifest — parses + validates through @vivim/omega-sdk",
     expect(parsed.value.id).toBe("vivim.agent");
     expect(parsed.value.contributions.engine?.map((e) => `${e.id}@${e.version}`).sort()).toEqual([
       "adapt.propose@1", "adapt.ratify@1", "adapt.read@1",
+      "agency.execute@1",
       "agent.delegate@1", "agent.describe@1", "agent.exec@1", "agent.snapshot@1",
       "agent.spawn@1", "behavior.promote@1", "behavior.propose@1", "behavior.rollback@1",
       "decision.record@1", "delegate.chain@1", "delegate.revoke@1",
       "evolution.evaluate@1", "evolution.promote@1",
       "evolution.propose@1", "evolution.rollback@1",
     ]);
-    expect(parsed.value.capabilities.requested).toEqual(AGENT_CAPS);
+    expect(parsed.value.capabilities.requested).toEqual(AGENT_CAPS_REQUESTED);
     expect(validateManifest(parsed.value)).toEqual([]);
   });
 });
