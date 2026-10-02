@@ -28,3 +28,8 @@ nul
 # Housekeeping 2026-10-01: noise + generated test fixtures (D-TEAM-014 disposition, .zcode/HOUSEKEEPING.md)
 debug.log
 **/.gen-deep/
+
+# Housekeeping 2026-10-03: a one-shot boot probe parked after it produced the
+# provider.browser compartment-crash root cause (evidence: commit 5baea9eb).
+# Never belongs in host/ — that tree is the B5-frozen 1500/1500 LOC budget.
+omega-baseline/omega-final/host/probe-*.ts
