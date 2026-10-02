@@ -62,6 +62,12 @@ function makeFixture(name: string, opts: FixtureOpts = {}): { home: string; ledg
   writeFileSync(join(home, "docs.md"), "# fixture\nthe archive is the bundle — no second format.\n");
   // the tree's own ignore law: local memory is reserved, never archived (the D-428 boundary)
   writeFileSync(join(home, ".gitignore"), "node_modules/\nboot/\nsessions/\ndev-vault/\n*.log\n");
+  // Byte identity must survive the clone, and the clone is made by a DIFFERENT
+  // process into a fresh repo (cloneFixture here, and verifyArchive's own clone
+  // in boot.ts). Only attributes travelling inside the bundle can hold the line:
+  // a host with core.autocrlf=true would otherwise check boot.ts out as CRLF and
+  // S2 correctly refuses with BOOT_UNVERIFIED_FILE.
+  writeFileSync(join(home, ".gitattributes"), "* -text\n");
   // commit + cut the bundle (the frozen archive)
   const g0 = Bun.spawnSync(["git", "init", "-q", "-b", "omega", home], { stdout: "pipe", stderr: "pipe" });
   if ((g0.exitCode ?? 1) !== 0) throw new Error(`git init failed: ${g0.stderr.toString()}`);
@@ -251,5 +257,5 @@ describe("F-BOOT (D-431)", () => {
     expect(rB2.ok && rB2.receipt!.badge).toBe("VERIFIED");
     // the ledger parser holds on the real shapes too (the README it will read at dogfood time)
     expect(parseLedgerRows(readFileSync(join(fxDrift.ledgerDir, "README.md"), "utf-8")).map((r) => r.n)).toEqual([1, 2]);
-  });
+  }, 30_000); // four fixtures + a real gate run each; bun's 5 s default is not this test's budget
 });
