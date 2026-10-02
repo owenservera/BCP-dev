@@ -504,12 +504,19 @@ export async function recoverWork(ctx: PluginContext) {
       });
       recovered.push({ workId: row.work.workId, from: "running", to: "reconciling", rev: out.rev });
     } else {
+      // running -> queued is NOT a legal edge (a running step may have crossed
+      // the effect boundary); the queue is only reachable through a wait state.
+      // No Attempt is in flight, so this is a resource wait, not an external one.
+      const waited = await transitionWork(ctx, row.work.workId, {
+        state: "waiting_resource",
+        wait: { kind: "resource", reason: "process recovery: no attempt in flight; requeueing the pending step" },
+        currentAttemptId: null,
+      });
       const out = await transitionWork(ctx, row.work.workId, {
         state: "queued",
-        currentAttemptId: null,
         clearWait: true,
       });
-      recovered.push({ workId: row.work.workId, from: "running", to: "queued", rev: out.rev });
+      recovered.push({ workId: row.work.workId, from: "running", to: "queued", rev: out.rev ?? waited.rev });
     }
   }
   return { scanned: works.length, recovered };

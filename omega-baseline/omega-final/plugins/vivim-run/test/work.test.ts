@@ -57,7 +57,10 @@ describe("VIVIM durable Work contract", () => {
     const p = plan();
     expect(readyStepIds(p, new Set())).toEqual(["step-a"]);
     expect(readyStepIds(p, new Set(["step-a"]))).toEqual(["step-b"]);
-    expect(readyStepIds(p, new Set(["step-b"]))).toEqual([]);
+    // Only a succeeded step leaves the ready set; with step-b alone done,
+    // step-a is still pending and dependency-free, so it is ready again.
+    expect(readyStepIds(p, new Set(["step-b"]))).toEqual(["step-a"]);
+    expect(readyStepIds(p, new Set(["step-a", "step-b"]))).toEqual([]);
   });
 
   test("work lifecycle permits waiting/retry/reconcile but forbids authority bypass", () => {
