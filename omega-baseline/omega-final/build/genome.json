@@ -12,10 +12,10 @@
     "externalAssumed": 0,
     "ratifiedUnimplemented": 0,
     "queued": 0,
-    "decisions": 163,
-    "ratified": 161,
+    "decisions": 165,
+    "ratified": 163,
     "proposed": 2,
-    "records": 137,
+    "records": 139,
     "testFiles": 151,
     "gateStages": 15,
     "plugins": 27,
@@ -1619,6 +1619,16 @@
       "n": 456,
       "status": "RATIFIED",
       "file": "docs/decisions/D-456-v1-substrate-chrome-only.md"
+    },
+    {
+      "n": 457,
+      "status": "RATIFIED",
+      "file": "docs/decisions/D-457-commons-human-principal.md"
+    },
+    {
+      "n": 458,
+      "status": "RATIFIED",
+      "file": "docs/decisions/D-458-tooling-ui-surface.md"
     },
     {
       "n": 459,
