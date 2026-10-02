@@ -29,7 +29,7 @@ carries its evidence source; reordering requires a Board decision (or an owner o
 | [WS-2](WS-2-commons-bootstrap.md) | Commons Bootstrap | STEW-01 | ACTIVE (TEAM-DECIDED D-001…003) | none — bootstrap authorized now |
 | [WS-3](WS-3-dashboard-v1.md) | Team Dashboard v1 (control panel) | DELIVERY-01 (build) · CEO-01 (scope) | ACTIVE after WS-2 (TEAM-DECIDED D-004…006) | WS-2 smoke exchange |
 | [WS-4](WS-4-reconciliation.md) | Reconciliation & Hygiene | STEW-01 | ACTIVE — items 1/2/3 done (TEAM-DECIDED D-014) | item 4: fresh sweep |
-| [WS-5](WS-5-core-build.md) | Ω Core Build (flagship) | CEO-01 (sequence) · DELIVERY-01 (execute) | PROPOSED (TEAM-DECIDED D-007 gate) | WS-1 green, then S3 panel names the lane |
+| [WS-5](WS-5-core-build.md) | Ω Core Build (flagship) | CEO-01 (sequence) · DELIVERY-01 (execute) | **ACTIVE — first lane named: Wave 1 mine wave (D-TEAM-016, 2026-10-03)** | gate met (`omega:quick` exit 0, hostLoc 1500); S3 panel named the lane |
 
 Dependency notes: WS-4's sweep runs before WS-3's UI renders queues (else the dashboard lies);
 WS-2 before WS-3 (the dashboard is a Commons client); WS-1 is independent and runs in parallel;

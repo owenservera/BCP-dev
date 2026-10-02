@@ -26,6 +26,7 @@
 | D-TEAM-013 | Model policy: session model `new-provider/space-bunny-free` everywhere + fallback ladder on deterministic provider stops only | S2 |
 | D-TEAM-014 | The 13 untracked entries: evidence committed, heavy artifacts parked, nothing deleted | S2 |
 | D-TEAM-015 | Deliberation cost: corpus read once, challengers verify cited paths, sweeps on demand | S2 |
+| D-TEAM-016 | WS-5's first lane = Wave 1 mine wave (`forge.mine-capture` + `forge-mine`) | S3 |
 
 ## Decisions
 
@@ -170,6 +171,18 @@
 - **Rollback:** the challenger brief is one ask text; reverting restores the old behaviour at the old cost.
 - **Revisit if:** a decision is later refuted on evidence a challenger would have caught by re-deriving ground truth — then the rule is too tight and gets relaxed for S3 only.
 - **Dissent:** none recorded.
+
+### D-TEAM-016 — WS-5's first lane is the Wave 1 mine wave
+- **Severity:** S3 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** WS-5 opens on **Wave 1 (the mine wave)**: run `forge.mine.capture@1` against `fixtures/mines/synthetic-v0/`, and land `forge-mine-capture` + `forge-mine` as the first lane pair. D-409's partition is already decided and is not re-litigated.
+- **Reason:** it is the only candidate that is simultaneously unblocked, first in the corpus's own words, and load-bearing for the next lane. `BACKLOG.md:40` heads it "**first lane pair**"; `D-419:69-70` says the register's Wave-1 pair "stays the first lane pair" and that the CDP lane "runs alongside it, not after the Wave-1+ buildout". Lane 2 (forge build-out) is downstream — its mine-id discipline "gets their first real consumers once a capture receipt exists" (`BACKLOG.md:49-50`), and only Wave 1 produces that receipt. Lane 4 (assembly plugin) is forward-gated: "design opens with Wave 2, never before" (`BACKLOG.md:77`). Lane 3 (CDP) carries an unmet precondition — §G5 requires writing down what "byte-identical" means *before* the substitution test is coded (`ARCHITECTURE-NEXT-STEPS.md:93`, restated as lane law in `D-419:31`), and no definition document exists on disk.
+- **Evidence:** `fixtures/mines/synthetic-v0/MANIFEST.json` is present and pinned (`fileCount: 42`, rootHash `a8a75d8e…`); neither `forge-mine-capture` nor `forge-mine` exists in `plugins/` (27 plugins, no `forge-mine*`) — greenfield, nothing to un-ship; the lane needs **zero** `host/src` LOC against the frozen 1500/1500 wall (`omega:quick` reports `hostLoc: 1500`). Two independent challengers were run against this pick under D-TEAM-015 — each opened the cited paths and tried to refute it rather than re-deriving the corpus — and **both returned UPHELD**.
+- **Panel:** proposer (Steward, from first-hand gate evidence) + 2 challengers, per the three-member rule in D-TEAM-007 and the ≤3 cap in [../ROSTER.md](../ROSTER.md). Deliberation cost ~3.2k tokens against the 79M-token ledger in [../LESSONS.md](../LESSONS.md) — D-TEAM-015 working as written.
+- **Alternatives:** CDP substrate first (rejected: its §G5 precondition is unmet, and D-419 places it alongside rather than ahead); forge build-out first (rejected: it waits on the capture receipt Wave 1 produces); assembly plugin first (rejected: explicitly gated behind Wave 2).
+- **Rollback:** a lane choice is a sequencing decision — re-decidable at any corridor boundary without touching landed work. No landed artifact depends on it yet.
+- **Revisit if:** §G5's byte-identity definition lands and removes the CDP lane's only blocker, or if the mine capture proves to need `host/src` LOC (which would need a D-record to move the B5 wall first).
+- **Dissent:** none recorded. OWNER-INFORM — the owner may re-rank the lane at any time; silence means this stands.
+- **Stale text noted, not edited:** `BACKLOG.md:6-10` still says plugin work is "PARKED until core-omega-ready". That is superseded by D-417's un-park (`:21`, `:38`). Correcting it is WS-1 housekeeping.
 
 ## Historic owner-ratified entries (for continuity, not re-decided)
 

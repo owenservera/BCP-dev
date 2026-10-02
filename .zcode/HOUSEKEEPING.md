@@ -27,7 +27,7 @@
 
 | Date | Item | Class | Disposition |
 |---|---|---|---|
-| — | *(none — working tree clean of unexplained entries as of 2026-10-01)* | | |
+| 2026-10-03 | Broken bun stub `C:\Users\VIVIM.inc\node_modules\.bin\bun.exe` (15,872 bytes, dies with "bin executable does not exist on disk") | **OWNER-INFORM — not ours to touch** | Outside the repo and not created by the team. Bun injects the nearest `node_modules/.bin` walking up from cwd, so any `bun run <script>` under `C:\Users\VIVIM.inc\` (including `%TEMP%`) exits 255. Isolated by running the same suite with `TMP=/c/temp-bcp`: F-BOOT goes 6/6 green. Tracked as **T-16**; the workaround is to run gates with `TMP=/c/temp-bcp TEMP=/c/temp-bcp`. Permanent fix is the owner's (delete/rename the stub). |
 
 ## Standing parked artifacts (not open, not forgotten)
 
@@ -42,6 +42,18 @@
 
 ## Disposition log (append-only, newest first)
 
+- **2026-10-03** — working tree clean of unexplained entries. `host/probe-browser.ts` PARKED via
+  `.gitignore` (pattern `host/probe-*.ts`, not one filename: `host/` is the B5-frozen 1500/1500 LOC
+  budget and a scratch diagnostic has no business there even untracked) — it had already produced
+  its finding, committed as evidence in `5baea9eb`. The machine-level bun stub is recorded as an
+  open OWNER-INFORM item, not a repo artifact.
+- **2026-10-03 (cont.)** — the 19 remaining `bun test` failures were triaged into buckets and
+  recorded rather than left as noise: **ENV** — Windows `EPERM` on symlink creation and on
+  recursive `cpSync` over `node_modules` junctions; bun's 5 s default killing 7 tests that run real
+  5–22 s workloads; a Store-alias `python3` that `Bun.spawn` cannot resolve; `EBUSY` removing a WAL
+  dir; and the bun stub above. **DEFECT** — all fixed except `GOV_FALSIFIER_UNCITED: D-459`, which
+  cannot be fixed without editing a ratified record (D-TEAM-011 forbids rewrites), so it is carried
+  as an open item rather than silently patched.
 - **2026-10-01** — three untracked entries dispositioned per D-TEAM-014: `plugins/`
   (agent-observatory MCP plugin — first-party team tooling, v0.1.0) COMMITTED; `debug.log`
   (crashpad noise) PARKED; `testkit/test/fixtures/ghosts/.gen-deep/` (test-generated fixtures)

@@ -29,11 +29,11 @@ Authority: [workstreams/WORKSTREAMS.md](workstreams/WORKSTREAMS.md) and the per-
 
 | Lane | Status | Next action | Home |
 |---|---|---|---|
-| WS-1 Truth Repair | ACTIVE — items 1–6 landed; exit pending | fresh `omega-reality-check` sweep (zero confirmed high/medium drift) + per-item verify receipts | [WS-1](workstreams/WS-1-truth-repair.md) |
-| WS-2 Commons Bootstrap | ACTIVE (TEAM-DECIDED D-001…003) — backlog not yet executed | item 1: D-457-style human-principal amendment record | [WS-2](workstreams/WS-2-commons-bootstrap.md) |
-| WS-3 Dashboard v1 | ACTIVE after WS-2 (D-004…006) — not started | item 1: D-458 placement decision record; the live Commons client waits on WS-2's smoke exchange | [WS-3](workstreams/WS-3-dashboard-v1.md) |
-| WS-4 Reconciliation & Hygiene | ACTIVE — items 1/2/3 done (D-014) | item 4: fresh queues sweep; standing hygiene cadence lives in [HOUSEKEEPING.md](HOUSEKEEPING.md) | [WS-4](workstreams/WS-4-reconciliation.md) |
-| WS-5 Ω Core Build | PROPOSED (gate D-007: WS-1 green) | when the gate opens, an S3 panel names the first lane from forge BACKLOG.md | [WS-5](workstreams/WS-5-core-build.md) |
+| WS-1 Truth Repair | ACTIVE — items 1–6 landed; **gate verified green** (`omega:quick` exit 0, `hostLoc 1500`) | per-item `omega-verify` receipts; 19 test failures triaged (ENV vs DEFECT) | [WS-1](workstreams/WS-1-truth-repair.md) |
+| WS-2 Commons Bootstrap | ACTIVE (TEAM-DECIDED D-001…003) — item 1 LANDED (D-457 written, `a3d694a1`) | items 2–4: mint `agent:steward-zcode`, two-principal smoke exchange, discharge the gate item | [WS-2](workstreams/WS-2-commons-bootstrap.md) |
+| WS-3 Dashboard v1 | ACTIVE after WS-2 — item 1 LANDED (D-458 written, `a3d694a1`) | items 2–5, still gated on WS-2's smoke exchange | [WS-3](workstreams/WS-3-dashboard-v1.md) |
+| WS-4 Reconciliation & Hygiene | ACTIVE — items 1/2/3 done (D-014); tree clean of unexplained entries | item 4 sweep; standing cadence in [HOUSEKEEPING.md](HOUSEKEEPING.md) | [WS-4](workstreams/WS-4-reconciliation.md) |
+| WS-5 Ω Core Build | **ACTIVE — first lane named: Wave 1 mine wave (D-TEAM-016)** | first corridor: `forge.mine.capture@1` vs the pinned mine fixture → capture receipt | [WS-5](workstreams/WS-5-core-build.md) |
 
 ## Active task register
 
@@ -45,8 +45,8 @@ Monday audit verifies them, then compress into the session log.
 | T-01 | WS-1 item 4 — D-213 decisions-gate hole (index-only rows) | [WS-1](workstreams/WS-1-truth-repair.md) | WS-1 | LANDED — receipt pending | run dwfrun-ca04737e, commit 08ddf708; `omega:test` + `omega:quick` green |
 | T-02 | WS-1 item 5 — verify-status real 1500 host-wall | [WS-1](workstreams/WS-1-truth-repair.md) | WS-1 | LANDED — receipt pending | same corridor as T-01 |
 | T-03 | WS-1 exit — fresh sweep + per-item receipts | [WS-1](workstreams/WS-1-truth-repair.md) | WS-1 | ACTIVE | close WS-1 on zero confirmed high/medium drift |
-| T-04 | Commons bootstrap items 1–4 | [WS-2](workstreams/WS-2-commons-bootstrap.md) | WS-2 | ACTIVE — not started | first live principal `agent:steward-zcode`; amendment record D-457-style |
-| T-05 | Dashboard v1 items 1–5 | [WS-3](workstreams/WS-3-dashboard-v1.md) | WS-3 | PROPOSED after WS-2 | D-458 record first; realtime client depends on T-04 |
+| T-04 | Commons bootstrap items 1–4 | [WS-2](workstreams/WS-2-commons-bootstrap.md) | WS-2 | ACTIVE — item 1 LANDED | D-457 written and committed `a3d694a1`; items 2–4 remain (mint `agent:steward-zcode`, two-principal smoke exchange, gate discharge) |
+| T-05 | Dashboard v1 items 1–5 | [WS-3](workstreams/WS-3-dashboard-v1.md) | WS-3 | PROPOSED after WS-2 | item 1 LANDED (D-458, `a3d694a1`); items 2–5 wait on T-04's smoke exchange |
 | T-06 | WS-4 item 4 — fresh queues sweep | [WS-4](workstreams/WS-4-reconciliation.md) | WS-4 | ACTIVE | zero confirmed high/medium queue drift closes WS-4 |
 | T-07 | WS-5 first-lane selection | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | PROPOSED | gate: WS-1 exit green; S3 panel picks from forge BACKLOG.md |
 | T-08 | Stage-E L3 graph-bundle contract | [ARCHITECTURE_STEWARD/TASKS.md](../AGENTS_CONTEXT/ARCHITECTURE_STEWARD/TASKS.md) | Path-A portfolio | READY | one bounded L3 contract/design pass, receipt, stop |
@@ -57,6 +57,7 @@ Monday audit verifies them, then compress into the session log.
 | T-13 | Model-fallback watchdog | [TEAM.md](TEAM.md) | system | DONE | created 2026-10-01 (automation-48094acf), peer-corrected same day — skill-load line + runtime rung ids; first fire tests whether rung 1 serves (UNKNOWN until then) |
 | T-14 | Intake of the zcode-setup peer note | [PEER-ZCODE-SETUP-CAPABILITY-OWNER.md](../AGENTS_CONTEXT/PEER-ZCODE-SETUP-CAPABILITY-OWNER.md) | system | OPEN | file committed as evidence; full intake pending: roster registration, verify the N1–N5 contract at `zcode-setup/research/briefs/010-bcp-dev-capability-coordination.md` (owner-side), proxy operational contract |
 | T-15 | Fan-out concurrency risk through the single free-model proxy | peer note / [TEAM.md](TEAM.md) | system | FLAGGED | peer suspects parallel subagent fan-out kills subagents through the unshaped proxy (unverified under load); remedy is an owner-side proxy upgrade, not a workaround; D-TEAM-010's one-writer rule already caps corridor concurrency |
+| T-16 | Broken bun stub in the user home (OWNER-INFORM) | [HOUSEKEEPING.md](HOUSEKEEPING.md) | machine | OPEN — needs owner action | `C:\Users\VIVIM.inc\node_modules\.bin\bun.exe` is a stale 15,872-byte bunx stub that dies with "bin executable does not exist on disk". Bun injects the nearest `node_modules/.bin` walking up from cwd, so **any** `bun run <script>` whose cwd is under `C:\Users\VIVIM.inc\` (including `%TEMP%`) resolves `bun` to the stub and exits 255. Confirmed by isolation: with `TMP=/c/temp-bcp` the F-BOOT suite goes 6/6 green; with the default `%TEMP%` it fails. **Not touched by the team** — it is outside the repo and was not created here. Workaround used throughout: run gates with `TMP=/c/temp-bcp TEMP=/c/temp-bcp`. Permanent fix is the owner's to make (delete/rename the stub). |
 
 ## Decisions in effect
 
@@ -81,6 +82,34 @@ with recorded revisit conditions.
 
 ## Session log (append-only, newest first)
 
+- **2026-10-03** — **truth repair, measured not assumed.** Started by running the gates instead of
+  reading the tracker: TRACKING.md T-01/T-02 claimed `omega:test` green at `08ddf708`. It was not.
+  `omega:quick` was green (`ok:true, failed:0, hostLoc 1500`) — WS-1's stated gate criterion — but
+  `bun test` stood at **41 unique failures**. Fixed and committed:
+  `5baea9eb` provider.browser compartment crash (a duplicate `export` name in `live.ts` from
+  `4d34a611` made the whole compartment crash on first touch — 7 D-357 failures; it had also made
+  `live-send.test.ts` unloadable, hiding a second providerMessageId backfill defect) + a stale
+  `vivim.agent` manifest fixture; `67945f69` `recoverWork` drove the illegal `running → queued`
+  edge, plus a wrong ready-step assertion and the `*.txt` `.gitattributes` gap that made recorded
+  fixtures hash-drift on a clean tree; `02c498ec` parked `host/probe-browser.ts`; `2e017da6` the
+  F-BOOT fixture built its archive with no attribute law, so a clone on an autocrlf host could
+  never be byte-identical. Failure-set diff at each step: **zero regressions**, 41 → 19 unique.
+- **2026-10-03 (cont.)** — the 19 were triaged, not hand-waved: **ENV** (Windows `EPERM` on
+  symlinks and on recursive `cpSync` over junctions; bun's 5 s default killing 7 tests that do
+  real 5–22 s work; a Store-alias `python3`; `EBUSY` on WAL dirs; and the machine's broken bun
+  stub, T-16) vs **DEFECT** (the two already fixed; `GOV_FALSIFIER_UNCITED: D-459`; the
+  D-345/348/349 citation holes). Each bucket is recorded with evidence, not claimed green.
+- **2026-10-03 (cont. 2)** — **D-457 and D-458 written** (`a3d694a1`). They were ratified by the
+  team and *never written down* — D-459 already cited both, and the five resulting docscan
+  findings were exactly that hole. They are also WS-2 backlog item 1 and WS-3 backlog item 1.
+  docscan 15 → 11 findings; `omega:quick` green; index rows and genome fold regenerated with the
+  repo's own tools (hand-editing them goes red).
+- **2026-10-03 (cont. 3)** — **WS-5 opened on the Wave 1 mine wave (D-TEAM-016)**. Gate condition
+  met; the S3 panel named the lane from BACKLOG's four candidates, and two independent challengers
+  tried to refute the pick and both upheld it. Deliberation cost ~3.2k tokens — D-TEAM-015's
+  "verify the cited paths, never re-derive the corpus" working as written, against a 79M-token
+  ledger. The CDP lane lost on an unmet §G5 precondition; forge build-out lost on waiting for this
+  lane's capture receipt; the assembly plugin is forward-gated behind Wave 2.
 - **2026-10-01** — tracking layer set up: TRACKING.md (this file), HOUSEKEEPING.md, TASKS.md
   seeded in the four peer homes (CORE_VS_PLUGIN_BOUNDARY, EVOLUTION, PERSONAL_AGENT,
   PRODUCT_VISION) per the AGENTS.md task-queue convention. Untracked entries dispositioned per
