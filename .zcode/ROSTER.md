@@ -57,7 +57,3 @@ One open question this assessment raised and did not settle: `omega-boundary-aud
 `omega-reality-check` overlap enough that METHODS-01 should test whether one is redundant before
 either is extended. Recorded here rather than decided, because retiring an instrument on a
 single assessment's impression is exactly the kind of call that wants a challenge pass.
-
-Add a member only on evidence of need: a gap-ledger row, an owner ratification, then a row
-here with specialty and pick-when criteria. Retire the same way, preserving lineage. No
-silent self-mutation (GATE-07 discipline).

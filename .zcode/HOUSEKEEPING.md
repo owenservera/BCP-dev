@@ -42,6 +42,19 @@
 
 ## Disposition log (append-only, newest first)
 
+- **2026-10-03 (cont. 2 — closure)** — **the HOLD above is discharged.** The four entries it
+  covered (`plugins/forge-mine/`, `compositions/forge-mine.json`, `compositions/_matrix.json`,
+  `tooling/gates/test/forge-surface.test.ts`) were verified, adopted by the team and committed in
+  `5475a57b` + `766b6d92`; the working tree is clean. `bun.lock` and `build/genome.*` came with
+  them. **Class: COMMIT** — evidence-bearing implementation, which is what D-TEAM-014 says to do
+  with it. The `bunfig.toml` added afterwards is likewise committed. Nothing in this repository is
+  unexplained: `git status --porcelain` is empty.
+- **2026-10-03 (cont.)** — the one entry this repo cannot discharge: the machine-level `bun.exe`
+  stub under the user profile (T-16, above). Outside the repo, not ours to touch, and it makes any
+  `bun run` whose cwd is under `C:\Users\VIVIM.inc\` exit 255. Every gate in this project runs
+  with `TMP=/c/temp-bcp TEMP=/c/temp-bcp` because of it; the workaround is in every command in
+  this ledger for that reason.
+
 - **2026-10-03 (cont. — NEAR-MISS, owner-reported)** — **a second concurrent test run crashed the
   ZCode client; the owner had to restart it.** Cause, from this session's own commands: a full
   `bun test` was already running in the background when a second `bun test` was launched to

@@ -117,14 +117,17 @@ with recorded revisit conditions.
 ## Session log (append-only, newest first)
 
 - **2026-10-03 (cont. 3 — full-suite measurement, and a crash I caused)** — **1586 pass / 2 skip /
-  3 fail, no regressions.** Baseline before this session was 1524 pass / 3 fail; the delta is
-  exactly +62, which is `forge-mine`'s own new suite. The same 3 failures, each classified:
-  - 2 are **declared Windows environment limits** — `symlinkSync` `EPERM` (no
-    `SeCreateSymbolicLinkPrivilege`) and the `python3` Store alias `Bun.spawn` cannot resolve.
-    Both are owner-side, neither is code.
-  - 1 is the **MCP stdio surface timing out at 30 s under full-suite load**. It passes at 70/70
-    when `./surfaces` runs alone, and the specific test that times out *moves between runs* — a
-    load-sensitive test, not a broken one. That variability is itself the evidence.
+  3 fail.** Baseline before this session was 1524 pass / 2 skip / 3 fail; the delta is exactly +62,
+  which is `forge-mine`'s own new suite (the plugin did not exist at `ee1549e8`).
+  **Correction to my own first wording of this: "no regressions" was literally false, and an
+  adversarial pass caught it.** The failure count is unchanged at 3, but the 3 are **not the same
+  3** — the baseline's third failure was `§4.4 fifty-swarm` (load-flaky, 5887 ms) and today's is
+  `GATE-Ω6 … unknown request method` (a 30 s MCP stdio timeout). A 3→3 count hid a one-for-one
+  exchange. What the evidence actually supports: **no test-count regression and no new defect
+  class**, with the MCP timeout evidenced as a load artifact — it passes 70/70 when `./surfaces`
+  runs alone, and the specific test that times out *moves between runs*, which is itself the
+  evidence. `§4.4` is no longer failing. Neither substitution is a code defect, but "3 fail,
+  therefore no regressions" is not a claim the numbers support.
   **G-08 is diagnosed: the `panic(thread): Stack overflow` is the runner's default concurrency, not
   the code.** Every area was bisected clean at `OMEGA_TEST_CONCURRENCY=1` (host 86, plugins 762,
   testkit/contracts/sdk/packs 163, surfaces 70, tooling 466) and the full suite then completed in
