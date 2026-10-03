@@ -59,6 +59,82 @@ METHODS-01 should test whether one is redundant before either is extended.
 Both inherit `maxDepth: 1`, the session model, and the token discipline above. Both publish a
 report artifact and nothing else. Neither may mark work DONE — `omega-verify` still owns that.
 
+## The oh-my-zcode-slim mesh — aligned (installed 2026-10-03, v0.1.1 `f9ad4e7`)
+
+A second agent team now exists in this project: **oh-my-zcode-slim**, nine native ZCode subagents
+plus the `omzs-dispatch` orchestrator skill, installed into **workspace scope** so it belongs to
+*this* repository and not to the machine. Source: <https://github.com/East5RingRoad-kyle/oh-my-zcode-slim>
+(MIT; a ZCode derivative of oh-my-opencode-slim). Agents live in `.zcode/agents/`, committed here.
+
+### The alignment rule — why this is not parallel bureaucracy
+
+The Ω team and the OMZS mesh **must never be used on the same question**. They are not two teams
+doing one job; they are two different *kinds* of work, and the distinction is durability:
+
+| | Ω board + `omega-*` workflows | OMZS mesh |
+|---|---|---|
+| Output | a **durable artifact** — decision record, receipt, commit | a disposable run; nothing survives it |
+| Proof | gates and `omega-verify` decide whether it is true | **none** — an OMZS answer is an assertion |
+| Cost | a corridor: plan → build → gate → verify | one dispatch |
+| Scope | changes law, lands code, closes workstreams | answers, scouts, or makes one bounded edit mid-conversation |
+
+**The rule, stated so it can be applied without re-deriving it:**
+
+- If the work **must leave a receipt, pass a gate, or change something durable** → **Ω workflow.**
+- If the work is **conversational, exploratory, or a single bounded edit inside a live session** →
+  **OMZS agent.**
+- Never both on one question. An OMZS result may **feed** a corridor (the Steward can turn a
+  `fixer`'s diff into an `omega-build` task, or an `oracle`'s critique into a `omega-verify` claim)
+  — but it is an *input* to the corridor, never a substitute for it. **Nothing an OMZS agent says
+  is DONE until `omega-verify` has checked it**, exactly as chat-reported completion never was.
+
+### What each OMZS role is good for here
+
+`explorer` (read-only recon, no write tools) · `oracle` (read-only architecture/review/YAGNI) ·
+`librarian` (read-only external docs) · `observer` (read-only image/PDF/OCR — keeps media out of
+the orchestrator's context) · `councillor-alpha` + `councillor-beta` (parallel independent
+read-only analysis) · `council` (synthesizes the two into one answer; **no information tools at
+all**, only its own checklist — never dispatch it to gather anything) · `fixer` (bounded
+implementation, can write) · `designer` (frontend UI/UX, can write).
+
+Two Ω-specific notes:
+- **`observer` has no `Bash`** — unlike `explorer`/`oracle`/`librarian`. It cannot run a command at all.
+- **`fixer` and `designer` carry no `tools:` allowlist**, only `disallowedTools`. They are
+  write-capable *by design* and are the only two roles that can touch the tree. Every other role's
+  read-only guarantee rests entirely on the `tools:` field being honored (see the caveat below).
+- `explorer` (lowercase, this team) is **not** the built-in `Explore` (capital E). Dispatch must not
+  substitute them.
+
+### UNKNOWN — the read-only guarantee is installed but NOT yet verified
+
+`oh-my-zcode-slim`'s own README warns: *"older ZCode versions silently ignore `disallowedTools`,
+`permissionMode` and `thoughtLevel`, and the read-only constraint weakens accordingly."*
+**This project's read-only guarantees depend on that warning not applying to the installed ZCode.**
+
+- **Verified**: the 9 agent files are installed, well-formed, and their frontmatter is as upstream
+  ships them. 7 use a `tools:` allowlist; all 9 set `disallowedTools: ["Agent", "Task", …]`; 3 set
+  `permissionMode: "default"`.
+- **NOT verified**: that this ZCode build *honors* `tools:`. The agents were installed after this
+  session started, so `Agent(subagent_type: "explorer")` correctly returned
+  `Agent type 'explorer' not found` — they load on **session restart**, and no runtime probe has
+  run yet.
+- **The falsifier, to run in the next session** (this is G-05's instrument applied to our own team):
+  dispatch `oracle` and ask it to enumerate its own tools and confirm it has no write tool. If it
+  can write, the whole permission model is decorative and every "read-only" claim in this file must
+  be downgraded to advisory. **Until that probe runs, treat the read-only roles as
+  advisory-only.** Recorded as task T-24.
+
+### Windows deviation from the upstream installer
+
+`install.sh` links `~/.zcode/skills/omzs-*` to `~/.agents/skills/omzs-*` with `ln -s`. **On this
+Windows host under Git Bash that produced a directory *copy*, not a symlink** — verified with
+`fs.lstatSync`: `isSymbolicLink() === false`. The installer's own `[ -e "$link" ]` check passes
+either way, so it reports success. Consequence: **`~/.zcode/skills/omzs-*` is a snapshot, not a
+live link** — an upstream update to `~/.agents/skills/` will not propagate, and the installer must
+be re-run after any upgrade. (The upstream README anticipates this: native Windows needs WSL or
+symlink privilege.) This is the same machine limitation as the D-384 symlink `EPERM`, recorded
+once here rather than twice.
+
 ## Roles and delegation grants
 
 | Role (saved workflow) | Responsibility | Workers it spawns (grant) | Write scope |

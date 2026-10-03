@@ -92,6 +92,7 @@ Monday audit verifies them, then compress into the session log.
 | T-16 | Broken bun stub in the user home (OWNER-INFORM) | [HOUSEKEEPING.md](HOUSEKEEPING.md) | machine | OPEN — needs owner action | `C:\Users\VIVIM.inc\node_modules\.bin\bun.exe` is a stale 15,872-byte bunx stub that dies with "bin executable does not exist on disk". Bun injects the nearest `node_modules/.bin` walking up from cwd, so **any** `bun run <script>` whose cwd is under `C:\Users\VIVIM.inc\` (including `%TEMP%`) resolves `bun` to the stub and exits 255. Confirmed by isolation: with `TMP=/c/temp-bcp` the F-BOOT suite goes 6/6 green; with the default `%TEMP%` it fails. **Not touched by the team** — it is outside the repo and was not created here. Workaround used throughout: run gates with `TMP=/c/temp-bcp TEMP=/c/temp-bcp`. Permanent fix is the owner's to make (delete/rename the stub). |
 | T-22 | `omega-fixture` — pinned second mine corpus | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | OPEN | `forge.proof.secondmine@1` / `replay@1` need a second pinned mine; only `synthetic-v0` exists and the corpus never says whether it suffices |
 | T-23 | Full-suite Bun stack-overflow crash | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | tooling | **DIAGNOSED — concurrency, not code** | every area bisects clean at `OMEGA_TEST_CONCURRENCY=1`; full suite then completes 326 s, 1586 pass / 3 fail, no crash. Standing rule: run this suite serially |
+| T-24 | **Probe the OMZS read-only guarantee** | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | **OPEN — P0, blocks trusting the mesh** | dispatch `oracle` after a session restart; ask it to enumerate its own tools and confirm no write tool. If it can write, downgrade every read-only claim in TEAM.md to advisory. Agents load on restart — `explorer` correctly returned "not found" in the installing session |
 
 ## Decisions in effect
 
@@ -115,6 +116,30 @@ with recorded revisit conditions.
 | Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
 
 ## Session log (append-only, newest first)
+
+- **2026-10-03 (cont. 4 — the oh-my-zcode-slim mesh, installed and aligned)** — **A second agent
+  team now exists here and the overlap with the Ω team is deliberately defined rather than
+  discovered.** `oh-my-zcode-slim` v0.1.1 (`f9ad4e7`, MIT, a ZCode derivative of
+  oh-my-opencode-slim) installed in **workspace scope** — 9 agents into `.zcode/agents/`, plus
+  `omzs-dispatch` and `omzs-deepwork` skills. Workspace scope means it belongs to *this repository*,
+  not the machine; the other projects on this box are untouched.
+  **The alignment rule is the point of the whole exercise:** OMZS and the Ω workflows are not two
+  teams doing one job. OMZS produces a **disposable run with no proof**; Ω produces a **receipt
+  that gates decide**. Work that must leave a durable artifact goes to `omega-*`; conversational or
+  single-bounded-edit work goes to an OMZS agent; **never both on one question**, and an OMZS result
+  is an *input* to a corridor, never a substitute for one. Nothing an OMZS agent says is DONE until
+  `omega-verify` checks it. Full mapping and the per-role notes are in [TEAM.md](TEAM.md).
+  **Two things recorded against the install rather than glossed:**
+  1. **The read-only guarantee is UNPROVEN (G-09 / T-24).** Seven of the nine agents get their
+     read-only property *solely* from the frontmatter `tools:` allowlist, and upstream's README
+     warns old ZCode builds silently ignore it. The agents were installed after this session
+     started — `Agent(subagent_type:"explorer")` correctly returned *"Agent type 'explorer' not
+     found"* — so no probe has run. Until one does, treat the read-only roles as **advisory**.
+  2. **`install.sh`'s `ln -s` produced directory COPIES, not symlinks**, on this Windows host under
+     Git Bash (`fs.lstatSync` → `isSymbolicLink() === false`). The installer's own `[ -e ]` check
+     passes either way, so it reported success. `~/.zcode/skills/omzs-*` is therefore a **snapshot**:
+     an upstream update will not propagate and the installer must be re-run after any upgrade. Same
+     machine limitation as the D-384 symlink `EPERM`.
 
 - **2026-10-03 (cont. 3 — full-suite measurement, and a crash I caused)** — **1586 pass / 2 skip /
   3 fail.** Baseline before this session was 1524 pass / 2 skip / 3 fail; the delta is exactly +62,
