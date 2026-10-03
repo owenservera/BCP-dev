@@ -27,7 +27,7 @@
 
 **The finding that shapes this section: the swarm is not short of agents. It is short of
 *capabilities*.** The board already seats up to 3 deliberating members per session from a
-5-member roster, and 7 saved workflows cover deliberation, research, sweeps, boundary audits,
+5-member roster, and 10 saved workflows cover deliberation, research, sweeps, boundary audits,
 builds and completion verification. The 2026-10-03 state assessment did **not** find a gap that a
 new roster seat would close — it found gaps that no existing agent can execute, because the work
 is not the shape any of them are built for.

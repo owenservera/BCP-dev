@@ -35,6 +35,7 @@
 | D-TEAM-022 | `omega-build`'s gate argv was inert (bun exits 0 on usage); fixed, and a gate now reads **red** when its output shows it never ran | S1 |
 | D-TEAM-023 | **SF2 is NOT blocked.** CAS blobs written by the existing capture seam; all three recorded collisions refuted at the cited file | S1 |
 | D-TEAM-024 | Suite is SHARDED across short-lived processes, not serial: `--max-concurrency` was measured inert. 326s/fatal 19.45GB -> ~249s/6.06GB | S1 |
+| D-TEAM-025 | Workflow registry + automated governance/dispatch; the charter's dead owner-ratification gate is deleted | S1 |
 
 ## Decisions
 
@@ -297,6 +298,19 @@
 - **Rollback:** revert `gate.ts` and `package.json` to the single `bun test` line; delete `sharded-test.ts`.
 - **Revisit if:** a shard crashes again, or the imbalance is worth a real cost model rather than a size proxy.
 - **Dissent:** none. OWNER-INFORM — this removes two standing rules the team had enforced for a week, on the strength of measurement rather than preference, and one of them (`one run at a time`) was written after crashing the owner's client twice.
+
+### D-TEAM-025 — Governance, housekeeping and dispatch are automated; the charter's dead gate is removed
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03) · **owner directive** ("yes fully automate governance, housekeeping and dev")
+- **Decision.** Three things stand up, each **removing** a manual step rather than adding a ritual:
+  1. **`.zcode/WORKFLOW-REGISTRY.md`** — one row per standing instrument: what it is for, what authorises it, who owns it. `.zcode/checks/governance-check.ts` **fails** on an orphaned workflow, a row with no lineage, or a charter count that disagrees with the disk.
+  2. **`.zcode/checks/dispatch-queue.ts`** — answers "is there work safe to start *right now*", and returns the exact `omega-build` call. It **never dispatches by itself**; the checked preconditions are the safety argument.
+  3. **The charter's dead ratification gate is deleted.** Its expansion path and mandate clause both required "owner ratification", written 2026-09-30 — the same day [DECISIONS-POLICY.md](../DECISIONS-POLICY.md) was opened superseding it. **The two governing documents contradicted each other for three days and nothing reconciled them.** Decide-and-inform wins.
+- **The finding that prompted this.** Ten workflows existed with **no owner, no registry, and no rule covering modification** — the charter governed *adding* an instrument and was silent on *changing* one, so editing `omega-build.dwf.ts` (whose gate had never once executed, D-TEAM-022) required no process step at all. Meanwhile [../TEAM.md](../TEAM.md) still claimed **"7 saved workflows"** against **10** on disk. The instruments that spend the owner's tokens and write to the repo were owned by nobody. Git authorship could not arbitrate: all ten carry the owner's identity, because the agent commits under their configured user whichever session wrote the file.
+- **Dispatch safety is a checked precondition, not a promise.** The queue refuses unless **no writer corridor is OPEN**, **the working tree has no unexplained changes**, and **a READY task sits in an implementation lane**. Verified live: with `forge-survey` open it refused and named both blockers. **Auto-dispatch is lane-scoped** — of the four READY tasks, all four are research or design lanes (`T-08` Path-A, `T-09` boundary, `T-10` evolution, `T-12` product vision) and none is a bounded implementation. `READY` means *unblocked*, not *the same kind of work*; handing a builder a contract-design task produces code where a decision was wanted. **So the honest state today is: no implementation task is dispatchable, because the only one is the corridor currently running.** Full dev automation cannot invent work, and this does not pretend to.
+- **What the governance check does NOT do.** It answers "does this instrument exist on purpose", nothing wider. Whether a workflow earns its tokens is `omega-verify`'s job. The registry also refuses to flatter itself: it records that **six rows pre-date the rule** (the original substrate, ratified by use rather than by a gap row) and that **`omega-decide` has never completed a run** — dispatched twice, 0 tokens each, which is why SF2 was decided by hand in minutes. **A workflow that has never completed a run is an untested instrument, not a working one.**
+- **Net-ceremony:** removes the manual "does the registry match reality" pass, the manual "which task is READY, go start it" step, and a contradictory clause nobody could satisfy. Adds one file, two scripts, two cron entries. Success measure: **a workflow added without a registry row turns the next sweep red, and a READY implementation task starts without a human noticing it.**
+- **Rollback:** delete the registry, the two scripts and the crons; revert the charter paragraph.
+- **Dissent:** none. OWNER-INFORM — this governs the owner's own instruments, and the first audit it produced found that three of ten had never been run to completion.
 
 ## Historic owner-ratified entries (for continuity, not re-decided)
 

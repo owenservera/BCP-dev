@@ -76,18 +76,32 @@ Minutes therefore read DECIDED (effective) + OWNER-INFORM — never "awaiting ra
 ## Self-governance and expansion
 
 - Role charters are this document. An officer may propose amending its own mandate through the
-  debate protocol; it takes effect only on owner ratification. No silent self-mutation
-  (GATE-07 discipline).
+  debate protocol; it takes effect on a team decision in [DECISIONS.md](DECISIONS.md), never
+  silently (GATE-07 discipline). *(D-TEAM-025: "only on owner ratification" → decide-and-inform,
+  for the reason given under Expansion path below.)*
 - **Methods evolution (METHODS-01):** runs as the saved workflow `omega-methods`, convened by
   the owner, by the Board, or after roughly every fifth closed corridor — never as a standing
   meeting. Its memo proposes charter/workflow/cadence changes under the net-ceremony test;
   consequential ones are debated by the Board before reaching the owner.
-- **Expansion path:** a gap-ledger row may propose a new officer, department or standing duty.
-  On owner ratification the Steward stands it up (workflow + charter amendment) with lineage to
-  the gap row that justified it. The organization grows from evidence of need, never ambition.
+- **Expansion path:** a gap-ledger row may propose a new officer, department or standing duty. **On a
+  team decision recorded in [DECISIONS.md](DECISIONS.md)** the Steward stands it up (workflow +
+  charter amendment) with lineage to the gap row that justified it, and registers the instrument in
+  [../WORKFLOW-REGISTRY.md](../WORKFLOW-REGISTRY.md). The organization grows from evidence of need,
+  never ambition.
+  *(D-TEAM-025, 2026-10-03: this clause previously read "on owner ratification". It was written on
+  2026-09-30 — the same day [../DECISIONS-POLICY.md](../DECISIONS-POLICY.md) was opened
+  superseding it. The two documents contradicted each other for three days and nothing reconciled
+  them. Decide-and-inform wins; the owner may override any decision and silence means it stands.)*
+- **Standing instruments are governed by the registry, and modification is covered too** (D-TEAM-025).
+  A workflow may exist only with a registry row carrying a lineage. A **behavioural** change to a
+  standing instrument takes the same path as adding one: a dated annotation in the file plus a ledger
+  entry. **Crash fixes and typos land directly**, with a commit message that says what was wrong —
+  a gate that reports green without executing is a defect, not a governance question, and a process
+  step that might have caught one would have been ceremony. `.zcode/checks/governance-check.ts` fails
+  when a workflow has no row, a row has no lineage, or the charter's stated count is wrong.
 - Every capability the board itself relies on remains falsifiable: if a mechanism (cadence,
-  persona, protocol) proves harmful, any officer may propose its retirement — same ratification
-  path, with rollback preserving lineage.
+  persona, protocol) proves harmful, any officer may propose its retirement — same decision path,
+  with rollback preserving lineage.
 
 ## Cadence
 
