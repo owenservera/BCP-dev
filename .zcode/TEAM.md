@@ -331,35 +331,38 @@ cache, so a rung change re-pays only the unfinished steps. Never touch a run sto
 `reason: user`. Never apply the ladder to a *script* error (e.g. `args.task is required`) — those
 need a script fix, not a different model. Record each rung change in the run's lineage.
 
-**Watchdog:** a scheduled automation applies the ladder automatically (every 30 minutes).
-**Created 2026-10-01** (automation-48094acf) and corrected the same day after peer intake — the
-prompt below loads the `dynamic-workflows` skill before calling `AmendWorkflow` and uses the
-runtime rung ids. Its first live fire is also the test of whether rung 1 is actually serving
-(UNKNOWN until then).
+**Watchdog: DELETED (D-TEAM-026).** It was a scheduled automation firing every 30 minutes.
+Created 2026-10-01 (automation-48094acf) and peer-corrected the same day, it **never once fired on
+a run that needed it** — and the ledger recorded T-13 as DONE on the strength of "it was created".
+**The ladder above survives**; only the clock is gone. A run reporting `stop_reason: provider` is
+repaired in-session, by whoever is in the session. **Rung 1 (`openrouter/openrouter/free`) has
+therefore never been exercised** — it remains UNKNOWN whether it serves, and that stays honest
+rather than being resolved by a watchdog that would have resumed runs nobody was waiting on.
 
-<details><summary>Prompt for the model-fallback watchdog automation (created + peer-corrected 2026-10-01, automation-48094acf)</summary>
 
-> You are the model-fallback watchdog for the VIVIM Ω workspace C:\0-BlackBoxProject-0\Vivim-omega\BCP-dev.
-> First, load the `dynamic-workflows` skill with the Skill tool — workflow calls are
-> refused without it. Every 30 minutes: (1) call ListWorkflowRuns and inspect runs that are
-> `stopped` with stop_reason `provider`, or `errored` with a model/provider condition (quota
-> cap, model not in plan, invalid request) rather than a script error. (2) For each qualifying
-> run, apply the next rung of the fallback ladder with AmendWorkflow — run id, the run's script
-> `path`, and the new `subagent_model`: `openrouter/openrouter/free` first, then
-> `openrouter/openrouter/auto`, then `new-provider/space-bunny-free`. (3) Never touch a run
-> stopped `reason: user`; never apply the ladder to a script error — those need a script fix.
-> (4) Report one line per run touched (run id, old model, new rung, cache imported), or "no
-> action". Modify no file, commit nothing, message nobody.
+## Duty cycles — event-driven, not clock-driven
 
-</details>
+**There are no scheduled automations.** All four were deleted on 2026-10-03 under D-TEAM-026
+(owner directive: *"remove timebound audits — this is always on project"*). Scheduling existed to
+catch drift while nobody was working; on a project that is always live it did the opposite —
+it fired sessions against a tree nobody was in, and in the watchdog's case it could resume a run
+whose owner had already walked away from it.
 
-## Scheduled duty cycles (cron automations)
-
-| Automation | Schedule | Duty |
+| Duty | Fires when | Instrument |
 |---|---|---|
-| Ω daily standup | daily 09:00 | Read-only sweep: reads [TRACKING.md](TRACKING.md) and verifies its rows against their homes, then queues, authority docs and git state; reports drift + one recommended next action. Modifies nothing. **Created** (automation-85b0ebf5); rewired to the tracker 2026-10-01. |
-| Completion gate audit + housekeeping sweep | Mondays 09:30 | Sample-verifies recent DONE claims in agent TASKS homes against repo evidence; sweeps the working tree against [HOUSEKEEPING.md](HOUSEKEEPING.md) (every untracked entry owned per D-TEAM-014). Read-only. **Created** 2026-09-30 (automation-cdeac028); sweep added 2026-10-01. |
-| Model-fallback watchdog | every 30 minutes | Applies the D-TEAM-013 ladder (`openrouter/free` → `openrouter/auto` → session model) to provider-stopped runs via `AmendWorkflow`; never touches user-stopped runs or script errors. Read-only otherwise. **Created** 2026-10-01 (automation-48094acf). |
+| Standing-state sweep | session start | the same read set the standup used, run in-session |
+| Completion gate audit | a corridor closes | `omega-verify`, inside the corridor's own script |
+| Housekeeping sweep | corridor close + session close | `git status --porcelain` vs [HOUSEKEEPING.md](HOUSEKEEPING.md) |
+| Governance drift | every gate run | `.zcode/checks/governance-check.ts` |
+| Next-task dispatch | corridor close + session close | `.zcode/checks/dispatch-queue.ts` |
+| Provider-failure repair | a run reports `stop_reason: provider` | the D-TEAM-013 ladder, applied in-session — **the ladder survives; only the clock was removed** |
+
+**What the schedules were actually worth recording.** The Monday audit was created 2026-09-30 and
+**never fired once** before being deleted — `runCount: 0`. A duty cycle that is created, celebrated
+in the ledger as DONE (T-13), and never executes is the same failure class as a gate that reports
+green without running (D-TEAM-022), one layer up. **The board recorded the watchdog as DONE on the
+strength of "it was created", never checking that it had ever run.** That is exactly the habit the
+governance check now mechanises against.
 
 ## Operating rhythm
 

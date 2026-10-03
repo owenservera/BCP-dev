@@ -15,11 +15,13 @@
 
 1. **Steward** updates this file at session close and whenever a row's status changes; each
    change gets a dated line in the session log.
-2. **Daily standup** (automation-85b0ebf5, 09:00) reads this file first, verifies each row
-   against its cited home, and reports drift — it never silently edits rows.
-3. **Monday audit** (automation-cdeac028, 09:30) sample-verifies DONE/LANDED rows against repo
-   evidence and runs the housekeeping sweep ([HOUSEKEEPING.md](HOUSEKEEPING.md)).
-4. Status vocabulary mirrors the workstream lifecycle: PROPOSED · ACTIVE · TEAM-DECIDED ·
+2. **No clock-driven audits** (D-TEAM-026, owner directive "remove timebound audits — this is
+   always on project"). The daily standup, the Monday audit, the model-fallback watchdog and the
+   hourly dispatch loop are **all deleted**. Auditing is now **event-driven**: it happens where
+   the event happens — at corridor close for completion-gate and housekeeping, inside the gate
+   for governance, and at session close for the dispatch queue. A drift introduced on Tuesday is
+   now caught on Tuesday, not on the following Monday.
+3. Status vocabulary mirrors the workstream lifecycle: PROPOSED · ACTIVE · TEAM-DECIDED ·
    BLOCKED-EVIDENCE · LANDED (gates green; receipt pending) · DONE (verified, receipt cited) ·
    PAUSED · SUPERSEDED.
 
@@ -87,7 +89,7 @@ Monday audit verifies them, then compress into the session log.
 | T-10 | Evolution research reconciliation | [EVOLUTION/TASKS.md](../AGENTS_CONTEXT/EVOLUTION/TASKS.md) | evolution research | READY | reconcile the twelve dimensions into the change constitution; seeded 2026-10-01 |
 | T-11 | Self-knowledge resume gate | [PERSONAL_AGENT/TASKS.md](../AGENTS_CONTEXT/PERSONAL_AGENT/TASKS.md) | personal agent | PAUSED | resume only after reconciling with the owner's newer symbolic-language design |
 | T-12 | Destination frontier characterization | [PRODUCT_VISION/TASKS.md](../AGENTS_CONTEXT/PRODUCT_VISION/TASKS.md) | product vision | READY | L-1 frontiers via the invariant/bypass/minimality test; seeded 2026-10-01 |
-| T-13 | Model-fallback watchdog | [TEAM.md](TEAM.md) | system | DONE | created 2026-10-01 (automation-48094acf), peer-corrected same day — skill-load line + runtime rung ids; first fire tests whether rung 1 serves (UNKNOWN until then) |
+| T-13 | Model-fallback ladder (the WATCHDOG automation is deleted, D-TEAM-026) | [TEAM.md](TEAM.md) | system | DONE — applied in-session | created as automation-48094acf on 2026-10-01 and peer-corrected the same day; **deleted 2026-10-03**. The LADDER survives and is applied in-session whenever a run reports `stop_reason: provider`; only the clock was removed |
 | T-14 | Intake of the zcode-setup peer note | [PEER-ZCODE-SETUP-CAPABILITY-OWNER.md](../AGENTS_CONTEXT/PEER-ZCODE-SETUP-CAPABILITY-OWNER.md) | system | OPEN | file committed as evidence; full intake pending: roster registration, verify the N1–N5 contract at `zcode-setup/research/briefs/010-bcp-dev-capability-coordination.md` (owner-side), proxy operational contract |
 | T-15 | Fan-out concurrency risk through the single free-model proxy | peer note / [TEAM.md](TEAM.md) | system | FLAGGED | peer suspects parallel subagent fan-out kills subagents through the unshaped proxy (unverified under load); remedy is an owner-side proxy upgrade, not a workaround; D-TEAM-010's one-writer rule already caps corridor concurrency |
 | T-16 | Broken bun stub in the user home (OWNER-INFORM) | [HOUSEKEEPING.md](HOUSEKEEPING.md) | machine | OPEN — needs owner action | `C:\Users\VIVIM.inc\node_modules\.bin\bun.exe` is a stale 15,872-byte bunx stub that dies with "bin executable does not exist on disk". Bun injects the nearest `node_modules/.bin` walking up from cwd, so **any** `bun run <script>` whose cwd is under `C:\Users\VIVIM.inc\` (including `%TEMP%`) resolves `bun` to the stub and exits 255. Confirmed by isolation: with `TMP=/c/temp-bcp` the F-BOOT suite goes 6/6 green; with the default `%TEMP%` it fails. **Not touched by the team** — it is outside the repo and was not created here. Workaround used throughout: run gates with `TMP=/c/temp-bcp TEMP=/c/temp-bcp`. Permanent fix is the owner's to make (delete/rename the stub). |
@@ -111,15 +113,47 @@ unexplained entries: `plugins/` committed as first-party tooling; `debug.log` an
 testkit fixtures parked by `.gitignore` per D-TEAM-014; heavy artifacts remain parked on disk
 with recorded revisit conditions.
 
-## System heartbeat (automations)
+## System heartbeat — event-driven, not clock-driven
 
-| Automation | Schedule | Duty | State |
-|---|---|---|---|
-| Ω daily standup | daily 09:00 | reads this board + the queues; reports drift + one next action; modifies nothing | active — automation-85b0ebf5 |
-| Ω completion-gate audit + housekeeping sweep | Mondays 09:30 | verifies DONE/LANDED rows vs repo evidence; hygiene sweep of the working tree | active — automation-cdeac028 |
-| Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
+**There are no scheduled automations.** All four were deleted on 2026-10-03 under D-TEAM-026.
+Scheduling existed to catch drift while nobody was working; on a project that is always live it
+only produced sessions that ran against a tree nobody was in, and — in the watchdog's case — a
+repair loop that could act on a run whose owner had already given up on it.
+
+| Duty | Fires when | Instrument |
+|---|---|---|
+| Completion-gate audit | a corridor closes | `omega-verify` in the corridor's own script |
+| Housekeeping sweep | a corridor closes + session close | `git status --porcelain` vs [HOUSEKEEPING.md](HOUSEKEEPING.md) |
+| Governance drift | every gate run | `.zcode/checks/governance-check.ts` (gate stage — pending the corridor) |
+| Next-task dispatch | a corridor closes + session close | `.zcode/checks/dispatch-queue.ts` |
+| Provider-failure repair | a run reports `stop_reason: provider` | D-TEAM-013 ladder, applied in-session |
 
 ## Session log (append-only, newest first)
+
+- **2026-10-03 (cont. 11 — all clock-driven automation removed; the duty survives the clock)** —
+  **Owner directive: "Remove timebound audits this is always on project." All four cron
+  automations deleted** — the daily standup, the Monday completion-gate + housekeeping audit, the
+  model-fallback watchdog, and the hourly dev corridor queue created an hour earlier.
+  `CronList` now returns an empty set. **D-TEAM-026.**
+  **The two scripts from D-TEAM-025 were always the real mechanism** — `governance-check.ts` and
+  `dispatch-queue.ts` answer state questions ("does every instrument exist on purpose", "is there
+  work safe to start right now"). The crons were only wrappers firing them on a clock, so removing
+  the wrappers removed the schedule and not the capability.
+  **Duty is now event-driven**, which is also strictly better at the job the schedules did: a drift
+  introduced on Tuesday is caught on Tuesday, at the moment of introduction, not up to seven days
+  later on a Monday. Completion-gate audit at corridor close · housekeeping at corridor close and
+  session close · governance drift on every gate run · dispatch at corridor close · the D-TEAM-013
+  provider ladder in-session when a run actually reports `stop_reason: provider`.
+  **The ladder survives; only the clock went.** Rung 1 (`openrouter/openrouter/free`) has therefore
+  **never been exercised** and stays UNKNOWN — the honest state, rather than a false "served"
+  inferred from a watchdog that never fired on anything.
+  **What the schedules were worth, recorded because it is this session's defect class for the third
+  time.** The Monday audit was created 2026-09-30 and **never fired once** before deletion
+  (`runCount: 0`). The watchdog was recorded as **T-13 DONE on the strength of "it was created"**,
+  never having run against a run that needed it. **A duty cycle celebrated in the ledger as DONE
+  without ever executing is a gate that reports green without running (D-TEAM-022), one layer up** —
+  and it survived a week of exactly the scrutiny this project applies to code. **Nothing was added
+  to replace them, which is the point.**
 
 - **2026-10-03 (cont. 10 — SF2 was never blocked; the blocker was a claim about files nobody opened)** —
   **The binding blocker on `forge-survey` is decided (D-TEAM-023) and the answer is that there was

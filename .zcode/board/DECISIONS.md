@@ -36,6 +36,7 @@
 | D-TEAM-023 | **SF2 is NOT blocked.** CAS blobs written by the existing capture seam; all three recorded collisions refuted at the cited file | S1 |
 | D-TEAM-024 | Suite is SHARDED across short-lived processes, not serial: `--max-concurrency` was measured inert. 326s/fatal 19.45GB -> ~249s/6.06GB | S1 |
 | D-TEAM-025 | Workflow registry + automated governance/dispatch; the charter's dead owner-ratification gate is deleted | S1 |
+| D-TEAM-026 | **No scheduled automations.** All four crons deleted; duty cycles become event-driven | S1 |
 
 ## Decisions
 
@@ -311,6 +312,27 @@
 - **Net-ceremony:** removes the manual "does the registry match reality" pass, the manual "which task is READY, go start it" step, and a contradictory clause nobody could satisfy. Adds one file, two scripts, two cron entries. Success measure: **a workflow added without a registry row turns the next sweep red, and a READY implementation task starts without a human noticing it.**
 - **Rollback:** delete the registry, the two scripts and the crons; revert the charter paragraph.
 - **Dissent:** none. OWNER-INFORM — this governs the owner's own instruments, and the first audit it produced found that three of ten had never been run to completion.
+
+### D-TEAM-026 — No scheduled automations; duty cycles are event-driven
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03) · **owner directive** ("Remove timebound audits this is always on project")
+- **Decision:** All four cron automations are **deleted** — the daily standup (`automation-85b0ebf5`), the Monday completion-gate + housekeeping audit (`automation-cdeac028`), the model-fallback watchdog (`automation-48094acf`), and the hourly dev corridor queue (`automation-745130bd`, created hours earlier under D-TEAM-025). `CronList` now returns an empty set. **Duty is event-driven instead**: audit where the event happens, not when a clock says so.
+- **Why this is not simply "the crons were removed".** Scheduling exists to catch drift *while nobody is working*. On a project that is always live it inverts: a fired session runs against a tree **nobody is in**, and the watchdog could resume a provider-stopped run whose owner had already walked away from it. Event-driven auditing is also **strictly better at the job it was doing** — a drift introduced on Tuesday is caught on Tuesday, at the moment of introduction, instead of up to seven days later on a Monday.
+- **What replaces each duty, and where it now fires:**
+
+  | Duty | Fired at | Instrument |
+  |---|---|---|
+  | Standing-state sweep | session start | the same read set, run in-session |
+  | Completion-gate audit | corridor close | `omega-verify`, inside the corridor's own script |
+  | Housekeeping sweep | corridor close + session close | `git status --porcelain` vs HOUSEKEEPING.md |
+  | Governance drift | every gate run | `.zcode/checks/governance-check.ts` |
+  | Next-task dispatch | corridor close + session close | `.zcode/checks/dispatch-queue.ts` |
+  | Provider-failure repair | when a run reports `stop_reason: provider` | the D-TEAM-013 ladder, applied in-session |
+
+- **The ladder survives; only the clock was removed.** `openrouter/openrouter/free` → `auto` → session model still applies, handled by whoever is in the session. **Rung 1 has therefore never been exercised and stays UNKNOWN** — the honest state, rather than a false "served" inferred from a watchdog that never fired on anything.
+- **What the schedules were actually worth, recorded because it is the same defect class twice.** The Monday audit was created 2026-09-30 and **never fired once** before deletion (`runCount: 0`). The watchdog was recorded as **T-13 DONE on the strength of "it was created"** — it had never run against a run that needed it. **A duty cycle celebrated in the ledger as DONE without ever executing is a gate that reports green without running (D-TEAM-022), one layer up.** Both were caught by asking a question nobody had asked — which is what the registry and `governance-check.ts` now mechanise.
+- **Net-ceremony:** removes four automations, one prompt block, and every schedule reference in TEAM.md / TRACKING.md / HOUSEKEEPING.md. Adds nothing. **The two scripts from D-TEAM-025 were already the real mechanism — the crons were only wrappers that fired them on a clock, and the wrappers are now gone.**
+- **Rollback:** re-create any of the four; their full prompts are preserved in this session's history.
+- **Dissent:** none. OWNER-INFORM — this removes three automations the team had recorded as delivered, one of them as DONE, and every one of them was unverified in exactly the way this project keeps getting burned.
 
 ## Historic owner-ratified entries (for continuity, not re-decided)
 

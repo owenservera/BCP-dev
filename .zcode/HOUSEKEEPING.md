@@ -4,7 +4,7 @@
 > Lane: [WS-4 Reconciliation & Hygiene](workstreams/WS-4-reconciliation.md) (owner: STEW-01).
 > Governing decision: **D-TEAM-014** — evidence-bearing material is committed, heavy artifacts
 > are parked via `.gitignore` and stay on disk, nothing is deleted without a lineage note.
-> Swept weekly by the Monday audit (automation-cdeac028); tracked on the
+> Swept at corridor close and session close (the Monday automation is deleted, D-TEAM-026); tracked on the
 > [TRACKING.md](TRACKING.md) board.
 
 ## Rules
