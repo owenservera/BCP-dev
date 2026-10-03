@@ -201,6 +201,9 @@ const SERIAL_FILES = [
   "plugins/vivim-chat/test/pilot.test.ts",
   "tooling/gates/test/f-durability.test.ts",
   "tooling/gates/test/efficiency-tooling.test.ts",
+  // D-325: "spawn persists the overlay, restart keeps it" — a reboot-durability assertion.
+  // Measured load-flaky at width 4 (fails in the pool, passes 4/4 alone), like the others here.
+  "plugins/vivim-law/test/forbidden-durability.test.ts",
 ];
 
 const norm = (f: string) => f.replace(/\\/g, "/");

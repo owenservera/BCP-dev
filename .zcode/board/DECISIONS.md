@@ -40,6 +40,9 @@
 | D-TEAM-027 | Decision-ledger integrity is checked; the six entries it caught (four of them mine) repaired | S1 |
 | D-TEAM-028 | Sharded-runner stdout bounded and timing tests serialised; it had killed a corridor at the gate | S1 |
 | D-TEAM-029 | **WS-5 corridor 3 ADOPTED and landed**; D-460 (SF2) RATIFIED | S2 |
+| D-TEAM-032 | **G-11 CLOSED** — `FORGE_READ_PURITY`: a READ-declared plugin importing a filesystem or process module now fails | S1 |
+| D-TEAM-033 | Watchdog reinstated by owner directive, keyed on failure state rather than a clock agenda | S1 |
+| D-TEAM-034 | Sharded-suite flakiness characterised as a RATE (~1 timing test per run, isolation-clean) and accepted, not chased file-by-file | S2 |
 
 ## Decisions
 
@@ -340,6 +343,8 @@
 - **Net-ceremony:** removes four automations, one prompt block, and every schedule reference in TEAM.md / TRACKING.md / HOUSEKEEPING.md. Adds nothing. **The two scripts from D-TEAM-025 were already the real mechanism — the crons were only wrappers that fired them on a clock, and the wrappers are now gone.**
 - **Rollback:** re-create any of the four; their full prompts are preserved in this session's history.
 - **Dissent:** none. OWNER-INFORM — this removes three automations the team had recorded as delivered, one of them as DONE, and every one of them was unverified in exactly the way this project keeps getting burned.
+
+- **AMENDED (D-TEAM-033) — one automation reinstated, by owner directive.** The owner's later instruction ("put yourself in watchdog status") supersedes the blanket removal. `automation-0350dee2` runs every 30 minutes and does exactly what this entry argued for, in the right shape: it is **keyed on the failure states**, not on a calendar agenda, it **reports one line and changes nothing when clean**, and the three things it repairs are the three that actually stranded work here — a provider-stopped run (D-TEAM-013 ladder), a run that errored on a defect since fixed, and a corridor row left OPEN by a run that died. **It is explicitly forbidden from dispatching a build corridor**, because a watchdog that starts work is a second writer, and from adopting unattributed work, because adoption is a team decision (D-TEAM-020). The distinction this entry drew still holds and is what the watchdog is built on: **the old cron audited a fixed agenda on a clock; the new one watches for state.** What was wrong with the old set was never the clock — it was that they ran when nobody was watching and nobody was watching them.
 
 ### D-TEAM-029 — WS-5 corridor 3 is ADOPTED and landed; D-460 ratified
 - **Severity:** S2 · **Status:** TEAM-DECIDED (2026-10-03)
