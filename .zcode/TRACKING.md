@@ -33,7 +33,7 @@ Authority: [workstreams/WORKSTREAMS.md](workstreams/WORKSTREAMS.md) and the per-
 | WS-2 Commons Bootstrap | ACTIVE (TEAM-DECIDED D-001…003) — item 1 LANDED (D-457 written, `a3d694a1`) | items 2–4: mint `agent:steward-zcode`, two-principal smoke exchange, discharge the gate item | [WS-2](workstreams/WS-2-commons-bootstrap.md) |
 | WS-3 Dashboard v1 | ACTIVE after WS-2 — item 1 LANDED (D-458 written, `a3d694a1`) | items 2–5, still gated on WS-2's smoke exchange | [WS-3](workstreams/WS-3-dashboard-v1.md) |
 | WS-4 Reconciliation & Hygiene | ACTIVE — items 1/2/3 done (D-014); tree clean of unexplained entries | item 4 sweep; standing cadence in [HOUSEKEEPING.md](HOUSEKEEPING.md) | [WS-4](workstreams/WS-4-reconciliation.md) |
-| WS-5 Ω Core Build | **ACTIVE — corridor 1 LANDED and verified** (`forge.mine-capture`, `16f95419`+`b37dec84`); lane = Wave 1 mine wave (D-TEAM-016). **Corridor 2 is in flight under an UNATTRIBUTED writer — see the live-corridor registry above** | the in-flight corridor owns `forge-mine`; the next *decision* after it is **SF2** (gap G-03), which blocks `forge-survey` | [WS-5](workstreams/WS-5-core-build.md) |
+| WS-5 Ω Core Build | **ACTIVE — corridors 1 AND 2 LANDED and verified** (`forge.mine-capture` `16f95419`+`b37dec84`; `forge-mine` READ siblings, adopted and landed under D-TEAM-020). Lane = Wave 1 mine wave (D-TEAM-016). `omega:quick` **GREEN** (exit 0, hostLoc 1500) | the next *decision* is **SF2** (gap G-03), which blocks `forge-survey` entirely; lane 2 (forge build-out) unblocks now that the capture receipt has real readers | [WS-5](workstreams/WS-5-core-build.md) |
 
 ## Live writer corridors
 
@@ -51,10 +51,16 @@ here before it writes**.
 
 | Corridor | Owner | Files | Opened | Status |
 |---|---|---|---|---|
-| `forge-mine` READ siblings (WS-5 corridor 2) | **UNKNOWN** — not any workflow run, automation, or opencode session | `plugins/forge-mine/`, `compositions/forge-mine.json`, `compositions/_matrix.json`, `tooling/gates/test/forge-surface.test.ts` | 2026-10-03 12:25 | **IN FLIGHT — owner unidentified.** 6 files written by 12:31, then a `bun install` into the plugin's `node_modules`. Entered retroactively from filesystem evidence. **Do not commit or revert these files; the Steward did once and had to undo it.** |
+| `forge-mine` READ siblings (WS-5 corridor 2) | **UNKNOWN author → adopted by the team** (D-TEAM-020) | `plugins/forge-mine/`, `compositions/forge-mine.json`, `compositions/_matrix.json`, `tooling/gates/test/forge-surface.test.ts`, `build/genome.*` | 2026-10-03 12:25 | **LANDED.** The writer stopped at 12:37 and never returned — no process, no workflow run, no session accounted for it. Its 5 failing tests were all *test* defects; the implementation was correct in every case. Fixed, mutation-tested (two mutations, both caught), 62 pass / 0 fail. |
 
 **Standing rule.** Register the row, then write. If a second writer appears in the same worktree,
 the second one stops — the first row's owner decides, not the filesystem's mtime.
+
+**What this incident cost, recorded so it is not repeated.** The corridor was live for twelve
+minutes and the PM system could not see it; a gate result was taken across it and was meaningless;
+and the Steward moved its files once to prove causation, which disrupted it for no gain. Twelve
+minutes of unregistered writing produced a red gate, a contaminated measurement, and a disrupted
+writer. The registry is the whole difference.
 
 ## Active task register
 
@@ -71,7 +77,7 @@ Monday audit verifies them, then compress into the session log.
 | T-06 | WS-4 item 4 — fresh queues sweep | [WS-4](workstreams/WS-4-reconciliation.md) | WS-4 | ACTIVE | zero confirmed high/medium queue drift closes WS-4 |
 | T-07 | WS-5 first-lane selection | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | **DONE** | D-TEAM-016 named the Wave 1 mine wave; two challengers upheld the pick; `7255d3fb` |
 | T-17 | WS-5 corridor 1 — `forge-mine-capture` | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | **LANDED — verified** | `16f95419` build, `b37dec84` assertion strengthening; receipt reproduces 42/42 pinned hashes and rootHash `a8a75d8e…`, independently recomputed and matching the mine's own `hashutil.py`; zero host LOC; 50 tests green |
-| T-18 | WS-5 corridor 2 — `forge-mine` READ siblings | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | **IN FLIGHT — owner UNKNOWN** | untracked writer, registered in the live-corridor table above; not committed, not reverted, not touched |
+| T-18 | WS-5 corridor 2 — `forge-mine` READ siblings | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | **LANDED — verified** | adopted from an abandoned unattributed writer (D-TEAM-020); 5 failing tests were all test defects, implementation correct throughout; 62 pass / 0 fail, mutation-tested with 2 injected mutations both caught |
 | T-19 | **Decide D-409 sub-fork SF2** (snapshot bytes: CAS blobs vs rows) | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | **READY — the binding blocker** | all three resolutions collide with a frozen rule; blocks `forge-survey` entirely. A decision, not an implementation |
 | T-20 | Composition count-pin maintenance (`19` → `20`) | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | OPEN | `generate.test.ts:27` + `shippable-fence.test.ts:55`; fails only in the **full** test stage, so `--quick` passes and the corridor goes red later |
 | T-21 | `omega-redproof` — red fixture on the real tree | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | OPEN | demanded by the corpus's own standing lesson (`BACKLOG.md:110-113`); would have caught T-20 at `--quick` time |
@@ -108,6 +114,37 @@ with recorded revisit conditions.
 | Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
 
 ## Session log (append-only, newest first)
+
+- **2026-10-03 (cont. 2 — ownership)** — **the abandoned corridor is adopted, verified and landed;
+  `omega:quick` is GREEN again.** The unattributed writer stopped at 12:37 and never returned — no
+  `bun` process, no workflow run, no session. The team took ownership of the work rather than
+  parking it. **All five of its failing tests were defects in the tests; the implementation was
+  correct in every case**, and in two the test asserted something the plugin's own manifest and the
+  frozen `ProofReportSchema` contradict:
+  - `not.toContain("forge-mine-capture")` and `not.toContain("node:fs")` were substring searches
+    over raw source that fired on the code's *own comments explaining the rule*. Replaced with an
+    import-specifier extractor that tests what the file reaches for.
+  - `crlfAffected > 0` demanded both CRLF branches from the **ambient checkout** — impossible on
+    this repo's `core.autocrlf=true`, where all 42 files arrive pre-normalised. Replaced with a
+    hermetic two-file probe mine so the branch coverage holds on any host. My first attempt at this
+    also failed (`CAPTURE_MINE_PIN_MISMATCH`) because I hashed a normalised *length* instead of
+    normalised *content*; the pin is the root hash over normalised bytes.
+  - the diff test expected `"none"` in `diff` on passing checks; `check()` (`src/mine.ts:154`) is
+    explicit that a *failing* check carries its reason, and the schema types the field
+    `string | null`.
+  - the "REAL difference" test expected `README.md` in `added`, but `fixtures/mines/synthetic-v0/`
+    already contains a `README.md` — so `added` is correctly only `src/main.ts`. **The diff was
+    right; the test was wrong.** It also demanded `MANIFEST.json` in `removed` while the receipt
+    excludes `MANIFEST.json` by declared policy, and asserted a 42-element `removed` list that
+    `pathList` deliberately caps at 20 with a visible `+N more`.
+  **62 pass / 0 fail, 400 `expect()` calls — and the green was mutation-tested, not trusted.** Two
+  mutations injected, both caught: neutering the `added` delta failed the diff test; making passing
+  checks carry `"none"` failed two. Sources restored from backup and re-verified clean. That is
+  G-05's instrument earning its place on its first real use, by hand, before it was automated.
+  **Genome fold re-emitted** by the repo's own `omega:genome` (29 plugins, 21 compositions, 165
+  decisions, 15 gate stages — the fold now matches the tree). `omega:quick`: `ok:true, failed:0,
+  hostLoc 1500`. Decision and lineage: **D-TEAM-020**.
+
 
 - **2026-10-03 (state assessment)** — **the board claimed a green gate; the gate is red, and an
   unattributed writer was live in the worktree while I measured it.** `omega:quick` today returns
