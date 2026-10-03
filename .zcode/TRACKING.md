@@ -29,7 +29,7 @@ Authority: [workstreams/WORKSTREAMS.md](workstreams/WORKSTREAMS.md) and the per-
 
 | Lane | Status | Next action | Home |
 |---|---|---|---|
-| WS-1 Truth Repair | ACTIVE — items 1–6 landed; **gate verified green**; test suite down 41 → 8 failures, **all 8 Windows environment limits, zero genuine defects** | per-item `omega-verify` receipts; the 8 ENV failures want a privilege/teardown fix, not a code fix | [WS-1](workstreams/WS-1-truth-repair.md) |
+| WS-1 Truth Repair | ACTIVE — items 1–6 landed; **gate verified green**; suite 41 → **3 failures**, of which 2 are declared Windows environment limits and 1 is load-flaky | per-item `omega-verify` receipts; the 2 ENV failures need `SeCreateSymbolicLinkPrivilege` (Developer Mode) or a real `python3` — owner-side, not code | [WS-1](workstreams/WS-1-truth-repair.md) |
 | WS-2 Commons Bootstrap | ACTIVE (TEAM-DECIDED D-001…003) — item 1 LANDED (D-457 written, `a3d694a1`) | items 2–4: mint `agent:steward-zcode`, two-principal smoke exchange, discharge the gate item | [WS-2](workstreams/WS-2-commons-bootstrap.md) |
 | WS-3 Dashboard v1 | ACTIVE after WS-2 — item 1 LANDED (D-458 written, `a3d694a1`) | items 2–5, still gated on WS-2's smoke exchange | [WS-3](workstreams/WS-3-dashboard-v1.md) |
 | WS-4 Reconciliation & Hygiene | ACTIVE — items 1/2/3 done (D-014); tree clean of unexplained entries | item 4 sweep; standing cadence in [HOUSEKEEPING.md](HOUSEKEEPING.md) | [WS-4](workstreams/WS-4-reconciliation.md) |
@@ -82,6 +82,28 @@ with recorded revisit conditions.
 | Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
 
 ## Session log (append-only, newest first)
+
+- **2026-10-03 (cont. 7)** — **the last two "environment" failures were not environment at all.**
+  The `EBUSY` in `F-DURABILITY.3`'s teardown was a **production** bug, exactly as `AGENTS.md`'s
+  rule predicts: `VaultDB.close()` was a bare pass-through, and `bun:sqlite`'s `Database.close()`
+  is *deferred* while any cached prepared statement is unfinalized — so a method documented as
+  "Graceful close" handed handle release to the garbage collector and left the vault directory
+  unremovable. Sibling tests had escaped by statement-count luck, not correctness. And the
+  forge-author self-host **fence had never run on Windows at all** — all five cases died at
+  `cpSync` with `EPERM` on `node_modules` junctions before reaching an assertion, so a whole
+  falsifier was silently absent. Fixed by copying the judge's own observation domain (it already
+  excludes `node_modules` as "machine state, not plugin bytes") and by finalizing statements in
+  `close()`. expect() 50 → 61: eleven assertions that had never executed now do, and they still
+  bite (proved by suppressing every mutation — the four red cases fail, only the authored-region
+  case passes, which is correct).
+- **2026-10-03 (cont. 8) — final measured state.** `bun test --timeout 60000`: **1524 pass, 2 skip,
+  3 fail** of 1529. The 3 are two declared Windows environment limits (symlink `EPERM` with no
+  `SeCreateSymbolicLinkPrivilege`; a `python3` Store alias `Bun.spawn` cannot resolve) and one
+  load-flaky concurrency test that passes 3/3 in isolation at ~1 s. `omega:quick`: exit 0,
+  `hostLoc: 1500` — the B5-frozen budget has not moved a line all session.
+  **From 41 unique failures at baseline to 3, with every one classified by evidence rather than
+  assumed.** The lesson worth keeping: of the eight that looked like environment limits, two were
+  real defects wearing the costume — and the repo's own EBUSY rule is what caught it.
 
 - **2026-10-03 (cont. 4)** — **WS-5 corridor 1 landed and independently verified.**
   `forge-mine-capture` implements `forge.mine.capture@1` (D-409's EXTERNAL_MUTATION half; the
