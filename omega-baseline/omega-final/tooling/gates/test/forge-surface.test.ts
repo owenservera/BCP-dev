@@ -5,7 +5,7 @@
 import { describe, test, expect, beforeAll } from "bun:test";
 import { join } from "node:path";
 import type { PluginManifest } from "@vivim/omega-contracts";
-import { checkForgeSurface, loadForgeSurfaceInput, type ForgeSurfaceInput } from "../forge-surface.ts";
+import { checkForgeSurface, loadForgeSurfaceInput, type ForgePluginRecord, type ForgeSurfaceInput } from "../forge-surface.ts";
 
 const ROOT = join(import.meta.dir, "../../..");
 let real: ForgeSurfaceInput;
@@ -21,6 +21,14 @@ function mutated(fn: (input: ForgeSurfaceInput) => void): ForgeSurfaceInput {
   return copy;
 }
 
+/** One forge plugin record by manifest id — the split assertions below read
+ *  through this so a renamed plugin fails by name instead of silently vacuous. */
+function forgeRecord(id: string): ForgePluginRecord {
+  const p = real.forgePlugins.find((x) => x.manifest.id === id);
+  if (!p) throw new Error(`forge plugin ${id} is not on the real tree`);
+  return p;
+}
+
 function rulesOf(r: { issues: Array<{ check: string }> }): string[] {
   return r.issues.map((i) => i.check);
 }
@@ -28,20 +36,32 @@ function rulesOf(r: { issues: Array<{ check: string }> }): string[] {
 describe("D5 — forge-surface on the REAL tree (all green)", () => {
   test("the loader actually sees the domain (guards against silent no-op)", () => {
     // D-409 split-plugin: the mine family is TWO plugin directories in TWO risk
-    // classes, and the READ siblings belong to forge-mine (whose lane is not
-    // this one, so it carries no forge-* directory yet). Naming the capture
-    // plugin's single EXTERNAL_MUTATION contribution here makes the split
-    // mechanically visible on the real tree, not just in prose.
-    expect(real.forgePlugins.map((p) => p.manifest.id)).toEqual(["forge.author", "forge.mine.capture"]);
-    const capture = real.forgePlugins.find((p) => p.manifest.id === "forge.mine.capture")!;
-    const contributions = capture.manifest.contributions?.contract ?? [];
+    // classes. Both halves are named here so the split is mechanically visible
+    // on the real tree, not just in prose — three READ ops in forge.mine, the
+    // single EXTERNAL_MUTATION op in forge.mine.capture, and neither plugin
+    // declaring the other's ops.
+    expect(real.forgePlugins.map((p) => p.manifest.id)).toEqual(["forge.author", "forge.mine", "forge.mine.capture"]);
+    const contributions = forgeRecord("forge.mine.capture").manifest.contributions?.contract ?? [];
     expect(contributions.map((c) => `${c.id}@${c.version}`)).toEqual(["forge.mine.capture@1"]);
     expect([...new Set(contributions.map((c) => c.risk))]).toEqual(["EXTERNAL_MUTATION"]); // one class per plugin
     for (const sibling of ["forge.mine.verify", "forge.mine.diff", "forge.mine.list"]) {
       expect(contributions.some((c) => c.id === sibling)).toBe(false); // the READ half is forge-mine's
     }
+    // ...and the READ half, which is the other side of the same split.
+    const mine = forgeRecord("forge.mine");
+    const readOps = mine.manifest.contributions?.contract ?? [];
+    expect(readOps.map((c) => `${c.id}@${c.version}`)).toEqual(["forge.mine.diff@1", "forge.mine.list@1", "forge.mine.verify@1"]);
+    expect([...new Set(readOps.map((c) => c.risk))]).toEqual(["READ"]);
+    expect(readOps.some((c) => c.id === "forge.mine.capture")).toBe(false);
+    // READ class = no filesystem-mutation capability, and nothing that could
+    // reach one: the only ports it asks for are the two read-only vault reads.
+    expect(mine.manifest.capabilities.requested).toEqual(["port:vault.get@1", "port:vault.query@1"]);
+    const mineSrc = Object.values(mine.sourceText).join("\n");
+    expect(mineSrc).not.toContain("node:fs");
+    expect(mineSrc).not.toContain("forge-mine-capture"); // no cross-plugin source import — the receipt arrives via the ledger
     expect(real.compositions.some((c) => c.name === "forge-author")).toBe(true);
     expect(real.compositions.some((c) => c.name === "forge-mine-capture")).toBe(true);
+    expect(real.compositions.some((c) => c.name === "forge-mine")).toBe(true);
     expect(real.compositions.length).toBeGreaterThanOrEqual(18);
     expect(Object.keys(real.catalog).length).toBe(24);
     expect(real.packFixtureValidation.length).toBe(14); // 7 valid + 7 invalid, each pinned to its sin
