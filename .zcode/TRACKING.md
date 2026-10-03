@@ -52,6 +52,7 @@ here before it writes**.
 | Corridor | Owner | Files | Opened | Status |
 |---|---|---|---|---|
 | `forge-mine` READ siblings (WS-5 corridor 2) | **UNKNOWN author → adopted by the team** (D-TEAM-020) | `plugins/forge-mine/`, `compositions/forge-mine.json`, `compositions/_matrix.json`, `tooling/gates/test/forge-surface.test.ts`, `build/genome.*` | 2026-10-03 12:25 | **LANDED.** The writer stopped at 12:37 and never returned — no process, no workflow run, no session accounted for it. Its 5 failing tests were all *test* defects; the implementation was correct in every case. Fixed, mutation-tested (two mutations, both caught), 62 pass / 0 fail. |
+| `forge-survey` (WS-5 corridor 3) | **`dwfrun-6b5f7d53` (omega-build)** | `plugins/forge-survey/`, `compositions/forge-survey.json`, `compositions/_matrix.json`, `build/genome.*` | 2026-10-03 18:5x | **OPEN — IN FLIGHT.** Implements `forge.survey.run@1` / `forge.survey.render@1` on the D-TEAM-023 path. **A gate run while this row is open is CONTAMINATED, not a measurement.** Note: the gates inside this corridor use the sharded runner (D-TEAM-024), which is the first end-to-end exercise of the `omega-build` gate fix from D-TEAM-022 |
 
 **Standing rule.** Register the row, then write. If a second writer appears in the same worktree,
 the second one stops — the first row's owner decides, not the filesystem's mtime.
