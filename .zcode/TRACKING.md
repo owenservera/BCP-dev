@@ -29,7 +29,7 @@ Authority: [workstreams/WORKSTREAMS.md](workstreams/WORKSTREAMS.md) and the per-
 
 | Lane | Status | Next action | Home |
 |---|---|---|---|
-| WS-1 Truth Repair | ACTIVE — items 1–6 landed; suite 41 → **3 failures** at last clean measurement, of which 2 are declared Windows environment limits and 1 is load-flaky | per-item `omega-verify` receipts; the 2 ENV failures need `SeCreateSymbolicLinkPrivilege` (Developer Mode) or a real `python3` — owner-side, not code | [WS-1](workstreams/WS-1-truth-repair.md) |
+| WS-1 Truth Repair | **CLOSE-READY — measured 2026-10-03: 1586 pass / 2 skip / 3 fail**, of which 2 are declared Windows environment limits and 1 is a load-sensitive MCP stdio test. Zero regressions; the suite's failure set is fully classified | per-item `omega-verify` receipts; the 2 ENV failures need `SeCreateSymbolicLinkPrivilege` (Developer Mode) or a real `python3` — owner-side, not code | [WS-1](workstreams/WS-1-truth-repair.md) |
 | WS-2 Commons Bootstrap | ACTIVE (TEAM-DECIDED D-001…003) — item 1 LANDED (D-457 written, `a3d694a1`) | items 2–4: mint `agent:steward-zcode`, two-principal smoke exchange, discharge the gate item | [WS-2](workstreams/WS-2-commons-bootstrap.md) |
 | WS-3 Dashboard v1 | ACTIVE after WS-2 — item 1 LANDED (D-458 written, `a3d694a1`) | items 2–5, still gated on WS-2's smoke exchange | [WS-3](workstreams/WS-3-dashboard-v1.md) |
 | WS-4 Reconciliation & Hygiene | ACTIVE — items 1/2/3 done (D-014); tree clean of unexplained entries | item 4 sweep; standing cadence in [HOUSEKEEPING.md](HOUSEKEEPING.md) | [WS-4](workstreams/WS-4-reconciliation.md) |
@@ -91,7 +91,7 @@ Monday audit verifies them, then compress into the session log.
 | T-15 | Fan-out concurrency risk through the single free-model proxy | peer note / [TEAM.md](TEAM.md) | system | FLAGGED | peer suspects parallel subagent fan-out kills subagents through the unshaped proxy (unverified under load); remedy is an owner-side proxy upgrade, not a workaround; D-TEAM-010's one-writer rule already caps corridor concurrency |
 | T-16 | Broken bun stub in the user home (OWNER-INFORM) | [HOUSEKEEPING.md](HOUSEKEEPING.md) | machine | OPEN — needs owner action | `C:\Users\VIVIM.inc\node_modules\.bin\bun.exe` is a stale 15,872-byte bunx stub that dies with "bin executable does not exist on disk". Bun injects the nearest `node_modules/.bin` walking up from cwd, so **any** `bun run <script>` whose cwd is under `C:\Users\VIVIM.inc\` (including `%TEMP%`) resolves `bun` to the stub and exits 255. Confirmed by isolation: with `TMP=/c/temp-bcp` the F-BOOT suite goes 6/6 green; with the default `%TEMP%` it fails. **Not touched by the team** — it is outside the repo and was not created here. Workaround used throughout: run gates with `TMP=/c/temp-bcp TEMP=/c/temp-bcp`. Permanent fix is the owner's to make (delete/rename the stub). |
 | T-22 | `omega-fixture` — pinned second mine corpus | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | OPEN | `forge.proof.secondmine@1` / `replay@1` need a second pinned mine; only `synthetic-v0` exists and the corpus never says whether it suffices |
-| T-23 | Full-suite Bun stack-overflow crash | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | tooling | **OPEN — real defect, needs its own corridor** | `panic(thread …): Stack overflow` / "a bug in Bun, not your code" / exit 3 after ~1457 passes. Needs suite bisection at `OMEGA_TEST_CONCURRENCY=1`, **one run at a time** |
+| T-23 | Full-suite Bun stack-overflow crash | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | tooling | **DIAGNOSED — concurrency, not code** | every area bisects clean at `OMEGA_TEST_CONCURRENCY=1`; full suite then completes 326 s, 1586 pass / 3 fail, no crash. Standing rule: run this suite serially |
 
 ## Decisions in effect
 
@@ -115,6 +115,27 @@ with recorded revisit conditions.
 | Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
 
 ## Session log (append-only, newest first)
+
+- **2026-10-03 (cont. 3 — full-suite measurement, and a crash I caused)** — **1586 pass / 2 skip /
+  3 fail, no regressions.** Baseline before this session was 1524 pass / 3 fail; the delta is
+  exactly +62, which is `forge-mine`'s own new suite. The same 3 failures, each classified:
+  - 2 are **declared Windows environment limits** — `symlinkSync` `EPERM` (no
+    `SeCreateSymbolicLinkPrivilege`) and the `python3` Store alias `Bun.spawn` cannot resolve.
+    Both are owner-side, neither is code.
+  - 1 is the **MCP stdio surface timing out at 30 s under full-suite load**. It passes at 70/70
+    when `./surfaces` runs alone, and the specific test that times out *moves between runs* — a
+    load-sensitive test, not a broken one. That variability is itself the evidence.
+  **G-08 is diagnosed: the `panic(thread): Stack overflow` is the runner's default concurrency, not
+  the code.** Every area was bisected clean at `OMEGA_TEST_CONCURRENCY=1` (host 86, plugins 762,
+  testkit/contracts/sdk/packs 163, surfaces 70, tooling 466) and the full suite then completed in
+  326 s with no crash. **Standing rule: this suite runs serially on this machine.**
+  **I crashed the ZCode client doing this.** A full suite was already running in the background
+  when I launched a second `bun test` to re-check the MCP failures; both spawn stdio JSON-RPC
+  servers and vault daemons, and the machine hit the handle exhaustion this suite's own log had
+  already shown once (`dofork: child died unexpectedly`). No work was lost — no orphaned `bun`
+  processes survived and every commit was already durable — but the restart was avoidable and was
+  mine. Recorded in [HOUSEKEEPING.md](HOUSEKEEPING.md); the rule now written down is *one test run
+  at a time, ever, and confirm `ps -W | grep -c bun` is 0 before starting one*.
 
 - **2026-10-03 (cont. 2 — ownership)** — **the abandoned corridor is adopted, verified and landed;
   `omega:quick` is GREEN again.** The unattributed writer stopped at 12:37 and never returned — no
