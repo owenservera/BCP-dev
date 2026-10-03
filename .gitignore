@@ -28,6 +28,10 @@ nul
 # Housekeeping 2026-10-01: noise + generated test fixtures (D-TEAM-014 disposition, .zcode/HOUSEKEEPING.md)
 debug.log
 **/.gen-deep/
+# 2026-10-03: a second generated testkit fixture dir, same class as .gen-deep above. Found by
+# check:all attributing an unexplained tree entry to the open forge-survey corridor. Regenerated
+# by its test, so it is parked rather than committed (D-TEAM-014).
+**/.gen-steward/
 
 # Housekeeping 2026-10-03: a one-shot boot probe parked after it produced the
 # provider.browser compartment-crash root cause (evidence: commit 5baea9eb).
