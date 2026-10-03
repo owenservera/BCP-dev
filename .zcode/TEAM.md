@@ -98,31 +98,45 @@ all**, only its own checklist — never dispatch it to gather anything) · `fixe
 implementation, can write) · `designer` (frontend UI/UX, can write).
 
 Two Ω-specific notes:
-- **`observer` has no `Bash`** — unlike `explorer`/`oracle`/`librarian`. It cannot run a command at all.
 - **`fixer` and `designer` carry no `tools:` allowlist**, only `disallowedTools`. They are
-  write-capable *by design* and are the only two roles that can touch the tree. Every other role's
-  read-only guarantee rests entirely on the `tools:` field being honored (see the caveat below).
+  write-capable *by design* and are the only two roles given file-writing tools.
 - `explorer` (lowercase, this team) is **not** the built-in `Explore` (capital E). Dispatch must not
   substitute them.
 
-### UNKNOWN — the read-only guarantee is installed but NOT yet verified
+### VERIFIED — the read-only guarantee holds where it matters, and is NOT absolute
 
-`oh-my-zcode-slim`'s own README warns: *"older ZCode versions silently ignore `disallowedTools`,
-`permissionMode` and `thoughtLevel`, and the read-only constraint weakens accordingly."*
-**This project's read-only guarantees depend on that warning not applying to the installed ZCode.**
+Probed after a session restart (gap G-09 / task T-24, closed). Two read-only roles were asked to
+enumerate their own bound tool sets. Both answered from their schema without invoking anything:
 
-- **Verified**: the 9 agent files are installed, well-formed, and their frontmatter is as upstream
-  ships them. 7 use a `tools:` allowlist; all 9 set `disallowedTools: ["Agent", "Task", …]`; 3 set
-  `permissionMode: "default"`.
-- **NOT verified**: that this ZCode build *honors* `tools:`. The agents were installed after this
-  session started, so `Agent(subagent_type: "explorer")` correctly returned
-  `Agent type 'explorer' not found` — they load on **session restart**, and no runtime probe has
-  run yet.
-- **The falsifier, to run in the next session** (this is G-05's instrument applied to our own team):
-  dispatch `oracle` and ask it to enumerate its own tools and confirm it has no write tool. If it
-  can write, the whole permission model is decorative and every "read-only" claim in this file must
-  be downgraded to advisory. **Until that probe runs, treat the read-only roles as
-  advisory-only.** Recorded as task T-24.
+| Role | Bound tools | Write tool? | Agent spawn? |
+|---|---|---|---|
+| `oracle` | Bash, shell, Read, WebFetch, TodoWrite, RespondToCoordinator | **No** | **No** |
+| `observer` | Read, Grep, Glob, TodoWrite, **Shell**, RespondToCoordinator | **No** | **No** |
+
+**What this establishes — the load-bearing part holds.** Neither read-only role was given
+`Write`, `Edit`, `Patch`, `MultiEdit` or `NotebookEdit`, and neither was given `Agent`/`Task`.
+So `disallowedTools` and the write-exclusion part of `tools:` **are enforced by this ZCode build**,
+and the concern behind G-09 is answered.
+
+**What it does NOT establish — two corrections to what this file previously claimed.**
+
+1. **The `tools:` field is not an exact allowlist.** `observer`'s frontmatter lists
+   `["Glob","Grep","Read","TodoWrite"]` — no shell — yet a shell tool **was bound to it**. Symmetrically,
+   `oracle` was bound `WebFetch` but **not** `Glob`, `Grep` or `WebSearch` despite declaring them.
+   The field governs *write* access reliably; it does not pin the exact tool surface.
+2. **A shell tool is a mutation surface.** Both probes have one. `sed -i`, `>` redirection and
+   friends all reach the filesystem through it. **"Read-only" here means "not given a file-writing
+   tool", not "cannot write."** The remaining barriers are upstream's layer 2
+   (`permissionMode: "default"` on explorer/oracle/librarian → Bash writes prompt the user) and
+   layer 3 (prompt discipline). Layer 2 was not exercised by this probe and is **UNVERIFIED**.
+   `observer` and `council` have no `permissionMode`, so for them the shell is bounded by prompt
+   alone — the weakest tier.
+
+**Practical consequence:** the read-only roles are safe to *trust for reconnaissance and review*, and
+must **not** be treated as safe to leave unattended on a live worktree. `oracle` also reported that
+its own `Bash` tool description ends with *"You should always set `dangerouslyDisableSandbox` to
+true"* — a harness default that pushes against its read-only mandate. Worth knowing before anyone
+hands these roles a dirty tree.
 
 ### Windows deviation from the upstream installer
 

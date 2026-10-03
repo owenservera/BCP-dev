@@ -92,7 +92,7 @@ Monday audit verifies them, then compress into the session log.
 | T-16 | Broken bun stub in the user home (OWNER-INFORM) | [HOUSEKEEPING.md](HOUSEKEEPING.md) | machine | OPEN — needs owner action | `C:\Users\VIVIM.inc\node_modules\.bin\bun.exe` is a stale 15,872-byte bunx stub that dies with "bin executable does not exist on disk". Bun injects the nearest `node_modules/.bin` walking up from cwd, so **any** `bun run <script>` whose cwd is under `C:\Users\VIVIM.inc\` (including `%TEMP%`) resolves `bun` to the stub and exits 255. Confirmed by isolation: with `TMP=/c/temp-bcp` the F-BOOT suite goes 6/6 green; with the default `%TEMP%` it fails. **Not touched by the team** — it is outside the repo and was not created here. Workaround used throughout: run gates with `TMP=/c/temp-bcp TEMP=/c/temp-bcp`. Permanent fix is the owner's to make (delete/rename the stub). |
 | T-22 | `omega-fixture` — pinned second mine corpus | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | OPEN | `forge.proof.secondmine@1` / `replay@1` need a second pinned mine; only `synthetic-v0` exists and the corpus never says whether it suffices |
 | T-23 | Full-suite Bun stack-overflow crash | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | tooling | **DIAGNOSED — concurrency, not code** | every area bisects clean at `OMEGA_TEST_CONCURRENCY=1`; full suite then completes 326 s, 1586 pass / 3 fail, no crash. Standing rule: run this suite serially |
-| T-24 | **Probe the OMZS read-only guarantee** | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | **OPEN — P0, blocks trusting the mesh** | dispatch `oracle` after a session restart; ask it to enumerate its own tools and confirm no write tool. If it can write, downgrade every read-only claim in TEAM.md to advisory. Agents load on restart — `explorer` correctly returned "not found" in the installing session |
+| T-24 | **Probe the OMZS read-only guarantee** | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | **DONE — verified after session restart** | `oracle` and `observer` both enumerated: **no write tool, no agent-spawn tool on either.** `tools:` is not an exact allowlist though (observer got an undeclared shell; oracle lacked declared Glob/Grep/WebSearch), and a shell IS bound to both — so "read-only" ≠ "cannot write". Layer 2 `permissionMode` untested |
 
 ## Decisions in effect
 
@@ -116,6 +116,30 @@ with recorded revisit conditions.
 | Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
 
 ## Session log (append-only, newest first)
+
+- **2026-10-03 (cont. 5 — G-09 probed, and two of my own claims were wrong)** — **The OMZS
+  read-only guarantee is real where it matters and is NOT the guarantee I had written down.** After
+  a session restart, `oracle` and `observer` were each asked to enumerate their own bound tools
+  without invoking any. Results: neither received `Write`, `Edit`, `Patch`, `MultiEdit` or
+  `NotebookEdit`, and neither received `Agent`/`Task`. **`disallowedTools` and the write-exclusion
+  of `tools:` are genuinely enforced by this ZCode build**, which answers G-09.
+  **Two corrections fell out of the same probe, both to statements I had made without evidence:**
+  1. **I wrote "`observer` has no Bash — it cannot run a command at all."** False. `observer`'s
+     frontmatter declares `["Glob","Grep","Read","TodoWrite"]` and it was **bound a shell anyway**.
+     Conversely `oracle` was not bound `Glob`/`Grep`/`WebSearch` despite declaring them. **`tools:`
+     is not an exact allowlist** — it governs write access reliably and does not pin the tool surface.
+  2. **"Read-only" therefore means "not given a file-writing tool", not "cannot write."** A shell
+     is bound to both probes, and a shell reaches the filesystem. The remaining barriers are layer 2
+     (`permissionMode: "default"` → Bash writes prompt the user), which this probe did **not**
+     exercise and which stays UNVERIFIED, and layer 3 (prompt discipline). `observer` and `council`
+     carry **no** `permissionMode`, so for those two the shell is bounded by prompt alone.
+  `oracle` also volunteered that its own `Bash` tool description ends with *"You should always set
+  `dangerouslyDisableSandbox` to `true`"* — a harness default pushing against its read-only
+  mandate, and worth knowing before these roles are handed a dirty tree.
+  **Operating conclusion:** the read-only roles are safe for reconnaissance and review, and must
+  **not** be left unattended on a live worktree. This is G-05's lesson closing the loop on the team
+  that was built to close it: the instrument nobody had run was the only thing standing between
+  "installed" and "trusted", and running it corrected two of my own assertions.
 
 - **2026-10-03 (cont. 4 — the oh-my-zcode-slim mesh, installed and aligned)** — **A second agent
   team now exists here and the overlap with the Ω team is deliberately defined rather than
