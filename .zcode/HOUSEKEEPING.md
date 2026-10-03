@@ -42,6 +42,20 @@
 
 ## Disposition log (append-only, newest first)
 
+- **2026-10-03 (cont. — NEAR-MISS, owner-reported)** — **a second concurrent test run crashed the
+  ZCode client; the owner had to restart it.** Cause, from this session's own commands: a full
+  `bun test` was already running in the background when a second `bun test` was launched to
+  re-check the MCP failures. Both spawn stdio JSON-RPC servers and vault daemons, so the machine
+  hit the handle exhaustion that had already shown up once in this suite's log as
+  `dofork: child died unexpectedly … Resource temporarily unavailable`.
+  **This is a self-inflicted instance of the rule AGENTS.md already states** — never run a
+  server-spawning test as an ordinary tool call, and never stack a second run on top of a live
+  one. The recovery worked (no orphaned `bun` processes survived; all four commits were already
+  durable), so no work was lost, but the client crash is the cost and it was avoidable.
+  **Standing rule adopted here:** one test run at a time, ever, in this workspace. Before starting
+  any run, confirm no prior run is live (`ps -W | grep -c bun` must be 0). A re-check of a single
+  test file is still a full process spawn — wait for the suite to finish, then run it.
+
 - **2026-10-03 (state assessment)** — **four unexplained entries, one live writer.** `git status`
   showed `?? plugins/forge-mine/`, `?? compositions/forge-mine.json`, `M compositions/_matrix.json`,
   `M tooling/gates/test/forge-surface.test.ts`. They are one corridor's work, entered in the
