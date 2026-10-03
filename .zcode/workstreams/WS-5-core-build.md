@@ -54,29 +54,34 @@ Built by an unattributed writer that stopped mid-flight and never returned; adop
 and landed under **D-TEAM-020** (`5475a57b` + `766b6d92`). Zero `host/src` LOC, as the lane
 requires. 62 plugin tests green and mutation-tested; `omega:quick` green at `hostLoc 1500`.
 
-### The next thing is a DECISION, not a corridor: D-409 sub-fork SF2
+### The next thing is a DECISION, not a corridor: D-409 sub-fork SF2 — **DECIDED (D-TEAM-023)**
 
 **Wave 1 is now structurally complete** — the EXTERNAL_MUTATION seam exists and its three READ
 consumers exist, which is the pairing D-409 decided. The next lane in the corpus's own order is
-the Wave 1+ build-out, and its **first** plugin, `forge-survey`
-(`forge.survey.run@1` / `forge.survey.render@1`), **cannot be written yet**:
+the Wave 1+ build-out, and its first plugin is `forge-survey`
+(`forge.survey.run@1` / `forge.survey.render@1`).
 
-> `forge.survey.run@1` needs a way to read a pinned mine's bytes, and D-409:30 explicitly left
-> that sub-fork **open**: *"SF2 snapshot bytes (CAS blobs vs rows; incremental hashing budget) …
-> lands with its own evidence in the implementing records, post-core."*
+**SF2 was recorded as blocked and it was not.** All three resolutions below were tested against
+the files they name, and **none of the three collisions holds**:
 
-All three available resolutions collide with a frozen rule, which is why this is a decision and
-not a task:
+| Option | Claimed collision | What the file actually says |
+|---|---|---|
+| capture emits inventory rows | `FORGE_CONTRACT_DRIFT` — catalog frozen | **Would not fire** (`forge-surface.ts:139-152`): it fires only on an op absent from the catalog or a risk mismatch. Same id, same `EXTERNAL_MUTATION` → no drift. The surviving objection is *design*, not gate — it duplicates `forge.survey.run@1`'s own declared result |
+| add a filesystem port for survey | `host/src` LOC frozen at 1500/1500 | **True, and irrelevant** — capture already does filesystem work as a plugin with **zero** `host/src` LOC, so no host port is needed and D-391 is never reopened |
+| survey re-walks the disk | `FORGE_CLASS_SPAN` | **Would not fire** (`forge-surface.ts:103-112`): it reads *declared* contributions, and survey's two ops are both `READ`. The rule's intent is violated; no check catches it — now **G-11** |
 
-| Option | Collides with |
-|---|---|
-| capture emits inventory rows instead of hashes | `FORGE_CONTRACT_DRIFT` — the op catalog is frozen (`packs/builder/contract/forge-ops.md:25`) |
-| add a filesystem port for survey | `host/src` LOC — the budget is frozen at 1500/1500 with zero headroom (D-391) |
-| survey re-walks the disk itself | `FORGE_CLASS_SPAN` — one risk class per plugin directory; this would put the system's highest-risk act inside a READ op the host never gates |
+**The decision: CAS blobs, written by the capture seam, addressed by the receipt's existing
+`casRef`.** The corpus had already built for this. `CaptureReceiptSchema`
+(`packs/builder/src/schemas.ts:73-90`, a `z.strictObject`) carries `casRef` on every file row;
+`casRefFor` returns `cas:${hash}` as a *pure function of content*, deliberately not a storage
+location, with a test named **"SF2 stays open"** (`capture.test.ts:121`). The seam was built so
+SF2 could land **without re-capturing any mine**. The catalog already calls capture *"the ONE
+filesystem seam"* and gives survey `{mineId}` — **no filesystem handle at all**
+(`forge-ops.md:20,23-24`).
 
-**Recorded as gap G-03 / task T-19. Panel: CEO-01 (sequence) + GOVERNOR-01 (frozen-rule
-collision), S2.** Whoever picks this must open the cited paths and falsify the collision claims
-before deciding — per D-TEAM-015, verify the citations, do not re-derive the corpus.
+Full reasoning and evidence: [../board/DECISIONS.md](../board/DECISIONS.md) (D-TEAM-023). Per
+D-409:30 the ratified `docs/decisions/` record is written by the implementing corridor, carrying
+the CAS location and the incremental-hashing budget as its evidence.
 
 Note the corpus is silent on the ranking *within* the six Wave 1+ forge lanes (D-417:38 — each
 "can open in any order the program schedules"), so ordering among the other five is the same

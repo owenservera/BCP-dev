@@ -33,7 +33,7 @@ Authority: [workstreams/WORKSTREAMS.md](workstreams/WORKSTREAMS.md) and the per-
 | WS-2 Commons Bootstrap | ACTIVE (TEAM-DECIDED D-001…003) — item 1 LANDED (D-457 written, `a3d694a1`) | items 2–4: mint `agent:steward-zcode`, two-principal smoke exchange, discharge the gate item | [WS-2](workstreams/WS-2-commons-bootstrap.md) |
 | WS-3 Dashboard v1 | ACTIVE after WS-2 — item 1 LANDED (D-458 written, `a3d694a1`) | items 2–5, still gated on WS-2's smoke exchange | [WS-3](workstreams/WS-3-dashboard-v1.md) |
 | WS-4 Reconciliation & Hygiene | ACTIVE — items 1/2/3 done (D-014); tree clean of unexplained entries | item 4 sweep; standing cadence in [HOUSEKEEPING.md](HOUSEKEEPING.md) | [WS-4](workstreams/WS-4-reconciliation.md) |
-| WS-5 Ω Core Build | **ACTIVE — corridors 1 AND 2 LANDED and verified** (`forge.mine-capture` `16f95419`+`b37dec84`; `forge-mine` READ siblings, adopted and landed under D-TEAM-020). Lane = Wave 1 mine wave (D-TEAM-016). `omega:quick` **GREEN** (exit 0, hostLoc 1500) | the next *decision* is **SF2** (gap G-03), which blocks `forge-survey` entirely; lane 2 (forge build-out) unblocks now that the capture receipt has real readers | [WS-5](workstreams/WS-5-core-build.md) |
+| WS-5 Ω Core Build | **ACTIVE — corridors 1 AND 2 LANDED and verified** (`forge-mine-capture` `16f95419`+`b37dec84`; `forge-mine` READ siblings, adopted and landed under D-TEAM-020). Lane = Wave 1 mine wave (D-TEAM-016). `omega:quick` **GREEN** (exit 0, hostLoc 1500) | **SF2 is DECIDED (D-TEAM-023) — it was not blocked.** `forge-survey` is now buildable: CAS blobs written by the existing capture seam, addressed by the receipt's `casRef`. Next lane is the Wave 1+ build-out | [WS-5](workstreams/WS-5-core-build.md) |
 
 ## Live writer corridors
 
@@ -78,9 +78,9 @@ Monday audit verifies them, then compress into the session log.
 | T-07 | WS-5 first-lane selection | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | **DONE** | D-TEAM-016 named the Wave 1 mine wave; two challengers upheld the pick; `7255d3fb` |
 | T-17 | WS-5 corridor 1 — `forge-mine-capture` | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | **LANDED — verified** | `16f95419` build, `b37dec84` assertion strengthening; receipt reproduces 42/42 pinned hashes and rootHash `a8a75d8e…`, independently recomputed and matching the mine's own `hashutil.py`; zero host LOC; 50 tests green |
 | T-18 | WS-5 corridor 2 — `forge-mine` READ siblings | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | **LANDED — verified** | adopted from an abandoned unattributed writer (D-TEAM-020); 5 failing tests were all test defects, implementation correct throughout; 62 pass / 0 fail, mutation-tested with 2 injected mutations both caught |
-| T-19 | **Decide D-409 sub-fork SF2** (snapshot bytes: CAS blobs vs rows) | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | **READY — the binding blocker. `omega-decide` now packages it.** | all three resolutions collide with a frozen rule; blocks `forge-survey` entirely. The "collides" claims have never been verified by opening the files — that is what the new workflow checks first |
+| T-19 | **Decide D-409 sub-fork SF2** (snapshot bytes: CAS blobs vs rows) | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | **DONE — D-TEAM-023. It was never blocked.** | all three recorded collisions tested against the files they name; none holds. `FORGE_CONTRACT_DRIFT` and `FORGE_CLASS_SPAN` both read *declarations*, not behaviour. Resolution: CAS blobs via the capture seam, addressed by the existing `casRef`; no frozen rule touched, zero `host/src` LOC |
 | T-20 | Composition count-pin maintenance (`19` → `20`) | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | **DONE — discharged in the landing commit** | `generate.test.ts:27` + `shippable-fence.test.ts:55`; both bumped to 20 in `766b6d92`. The third failure it predicted (a comment-substring check in `forge-surface.test.ts`) also landed there |
-| T-21 | `omega-redproof` — red fixture on the real tree | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | OPEN | demanded by the corpus's own standing lesson (`BACKLOG.md:110-113`); would have caught T-20 at `--quick` time |
+| T-21 | `omega-redproof` — red fixture on the real tree | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | OPEN | demanded by the corpus's own standing lesson (`BACKLOG.md:110-113`); would have caught T-20 at `--quick` time. **Also now applies to `omega-build` itself** (D-TEAM-022) — its corrected script is syntax-parsed but never run |
 | T-08 | Stage-E L3 graph-bundle contract | [ARCHITECTURE_STEWARD/TASKS.md](../AGENTS_CONTEXT/ARCHITECTURE_STEWARD/TASKS.md) | Path-A portfolio | READY | one bounded L3 contract/design pass, receipt, stop |
 | T-09 | Core adequacy/reduction exercise | [CORE_VS_PLUGIN_BOUNDARY/TASKS.md](../AGENTS_CONTEXT/CORE_VS_PLUGIN_BOUNDARY/TASKS.md) | boundary research | READY | targeted exercise vs the 125-row inventory; TASKS.md seeded 2026-10-01 |
 | T-10 | Evolution research reconciliation | [EVOLUTION/TASKS.md](../AGENTS_CONTEXT/EVOLUTION/TASKS.md) | evolution research | READY | reconcile the twelve dimensions into the change constitution; seeded 2026-10-01 |
@@ -93,7 +93,8 @@ Monday audit verifies them, then compress into the session log.
 | T-22 | `omega-fixture` — pinned second mine corpus | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | OPEN | `forge.proof.secondmine@1` / `replay@1` need a second pinned mine; only `synthetic-v0` exists and the corpus never says whether it suffices |
 | T-23 | Full-suite Bun crash (`panic(thread): Stack overflow`) | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | tooling | **FIXED IN CODE — D-TEAM-021** | `gate.ts` now defaults to serial and `omega:test` sets it explicitly; the inert `bunfig.toml` is deleted. Crash profile is memory exhaustion (RSS 8.86 GB, 2.9M page faults), not recursion |
 | T-24 | **Probe the OMZS read-only guarantee** | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | **DONE — verified after session restart** | `oracle` and `observer` both enumerated: **no write tool, no agent-spawn tool on either.** `tools:` is not an exact allowlist though (observer got an undeclared shell; oracle lacked declared Glob/Grep/WebSearch), and a shell IS bound to both — so "read-only" ≠ "cannot write". Layer 2 `permissionMode` untested |
-| T-25 | Run `omega-decide` on SF2 | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | **ATTEMPTED, PRODUCED NOTHING — retry owed** | `dwfrun-55b8ed4d` dispatched, stalled on provider `server_error`, stopped by the owner at 25 m. **0 tokens, phase 1 of 4, 0 items.** SF2 is still undecided and `forge-survey` is still blocked. The workflow itself is not implicated — the provider never answered |
+| T-25 | Run `omega-decide` on SF2 | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | **SUPERSEDED — done inline instead (D-TEAM-023)** | two dispatches (`dwfrun-55b8ed4d` stopped by owner; `dwfrun-4975a8fe` still retrying) **both hung on the same first step at 0 tokens.** Rather than pay a third run on an input the instrument cannot complete, the falsification was done by opening the cited files directly — the same discipline the workflow automates. **`omega-decide` is not refuted by this**; it has still never completed a run, and that is now its own untested status |
+| T-27 | G-11 — no check stops a `READ` op touching the filesystem | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | OPEN | `FORGE_CLASS_SPAN` reads declared contributions, not behaviour. Found by testing D-TEAM-023 option (c). Does not block the lane; the class-span rule is currently documentation |
 | T-26 | Orient the OMZS mesh to Ω (gap G-10) | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | OPEN — owner decision | the 9 agent files never mention ω gates, the board, the 1500/1500 wall, or `omega-verify`. Fixing it means editing upstream-stamped files that `install.sh` overwrites — a fork, or an upstream PR |
 
 ## Decisions in effect
@@ -118,6 +119,45 @@ with recorded revisit conditions.
 | Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
 
 ## Session log (append-only, newest first)
+
+- **2026-10-03 (cont. 10 — SF2 was never blocked; the blocker was a claim about files nobody opened)** —
+  **The binding blocker on `forge-survey` is decided (D-TEAM-023) and the answer is that there was
+  no blocker.** All three resolutions recorded as "collides with a frozen rule" were tested against
+  the files they name, and **none of the three collisions holds**:
+  - `FORGE_CONTRACT_DRIFT` fires only on an op missing from the catalog or a risk mismatch
+    (`forge-surface.ts:139-152`). Emitting content under the same op id at the same
+    `EXTERNAL_MUTATION` triggers neither. **The surviving objection is design, not gate** — it
+    would duplicate `forge.survey.run@1`'s own declared result.
+  - The `host/src` 1500/1500 budget is real, but **irrelevant**: `forge-mine-capture` already does
+    filesystem work as a plugin with **zero** `host/src` LOC, so no host port is needed and D-391 is
+    never reopened.
+  - `FORGE_CLASS_SPAN` reads a plugin's **declared** contributions (`forge-surface.ts:103-112`), and
+    survey's two ops are both `READ` — one class, **no fire**. The rule's *intent* is violated by a
+    disk-walking READ op and **no check catches it**. That is now **G-11**, and it is the more
+    interesting half of the finding: the recorded blocker was real to the rule and invisible to the
+    rule's implementation.
+  **The resolution costs nothing because it changes nothing frozen: CAS blobs written by the capture
+  seam, addressed by the receipt's existing `casRef`.** No op id, no risk class, no payload and no
+  receipt shape move, so neither gate can fire and no `host/src` LOC is added.
+  **The corpus had already built for this decision and said so in writing.** `CaptureReceiptSchema`
+  (`packs/builder/src/schemas.ts:73-90`) is a `z.strictObject` carrying `casRef` on every row;
+  `casRefFor` returns `cas:${hash}` as a *pure function of content, deliberately not a storage
+  location* — *"a casRef that named a storage location would have made the undecided fork into a fact
+  by accident"* (`receipt.ts:134-142`). A test is named **`"SF2 stays open"`**
+  (`capture.test.ts:121`). **Corridor 1 built the seam that lets SF2 land later without re-capturing
+  any mine.** The catalog already calls capture *"the ONE filesystem seam"* and hands survey
+  `{mineId}` — no filesystem handle at all.
+  **Two workflow runs produced nothing and are not evidence.** `dwfrun-55b8ed4d` (stopped by the
+  owner) and the retry `dwfrun-4975a8fe` (still retrying) **hung on the same first step at 0 tokens**
+  — the constraint scout never returned either time. Two failures on one identical step is a
+  reproducible input failure, not provider luck, so a third run was not worth paying for; the
+  falsification was done inline instead, by opening the cited files directly. **This does not refute
+  `omega-decide`; it means the workflow has still never completed a run, which is its own untested
+  status and belongs beside T-21.**
+  **Method note, and the cheapest thing in this entry:** the whole decision came from reading four
+  files — a gate source, a frozen contract, a schema, and a receipt helper. Every prior instance of
+  this habit in this ledger was satisfied by *opening the thing the claim was about*. None of it
+  needed a panel.
 
 - **2026-10-03 (cont. 9 — the build workflow's gate never ran; found by running it, not reading it)** —
   **`omega-build`'s two gates were inert, so every corridor it has ever run reported green without
