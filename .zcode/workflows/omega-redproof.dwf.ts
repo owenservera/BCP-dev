@@ -103,7 +103,6 @@ const attempted = await Promise.allSettled(
   ),
 );
 
-phase("Check the results and write the report");
 const results: RedResult[] = [];
 for (let i = 0; i < attempted.length; i += 1) {
   const outcome = attempted[i];
