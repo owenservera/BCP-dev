@@ -24,7 +24,7 @@ describe("W0-1 generator — composition emission (D-377)", () => {
     const { ok, reports } = emitCompositions(join(ROOT, "compositions"), { write: false });
     expect(reports.map((r) => r.status)).toEqual(reports.map(() => "identical"));
     expect(ok).toBe(true);
-    expect(reports.length).toBe(20); // 16 under the D-370 freeze; +1 by D-391 (kernel witness rig); +1 by D-406 (forge-author builder composition); +1 by D-409 (forge-mine-capture builder composition); +1 by D-TEAM-020 (forge-mine READ siblings) — all matrix-authored
+    expect(reports.length).toBe(21); // 16 under the D-370 freeze; +1 by D-391 (kernel witness rig); +1 by D-406 (forge-author builder composition); +1 by D-409 (forge-mine-capture builder composition); +1 by D-TEAM-020 (forge-mine READ siblings); +1 by D-460 (forge-survey builder composition) — all matrix-authored
   });
 
   test("a drifted hand-edit is named with its first diff line", () => {

@@ -44,7 +44,7 @@
       "source": "../plugins/forge-mine-capture",
       "bootPhase": 1,
       "grant": {
-        "capabilities": ["port:vault.append@1", "port:vault.get@1", "port:law.check@1"],
+        "capabilities": ["port:vault.append@1", "port:vault.get@1", "port:vault.getmany@1", "port:law.check@1"],
         "contracts": ["forge.mine.capture@1"]
       }
     },

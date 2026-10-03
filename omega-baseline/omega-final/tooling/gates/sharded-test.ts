@@ -98,7 +98,13 @@ async function runShard(index: number, files: string[]): Promise<ShardResult> {
   const fd = openSync(outPath, "w");
   // No `onTimeout` here: it would close over `proc` before the assignment completes,
   // so a timeout firing inside the spawn call throws ReferenceError and never kills.
-  const proc = Bun.spawn(["bun", "test", "--timeout", "60000", ...files], {
+  //
+  // `--failures-only` is LOAD-BEARING, not cosmetic (D-TEAM-028). The full suite prints
+  // ~349 KB of per-test output; `world.run` rejects any stdout over 256 KB, so the gate
+  // call inside omega-build died with "stdout is 348912 bytes, over the 262144-byte cap"
+  // — after 43 minutes of correct implementation, at the gate, for a reason that had
+  // nothing to do with the work. Only failures and the summary are ever read downstream.
+  const proc = Bun.spawn(["bun", "test", "--failures-only", "--timeout", "60000", ...files], {
     cwd: ROOT,
     stdout: fd,
     stderr: fd,
@@ -170,18 +176,49 @@ function shardCrashed(out: string): boolean {
  */
 const SERIAL_AREAS = ["surfaces", "host"];
 
-const isSerial = (f: string) => SERIAL_AREAS.some((a) => f.replace(/\\/g, "/").startsWith(`${a}/`));
-const parallelFiles = files.filter((f) => !isSerial(f));
-// One shard PER serial area, not one shard holding all of them. Measured: surfaces and
-// host take 58 s and 25 s as separate processes but 100.8 s merged into one — they
-// interact when they share a runner, which is the opposite of what this phase is for.
-const serialShards = SERIAL_AREAS.map((a) => files.filter((f) => f.replace(/\\/g, "/").startsWith(`${a}/`))).filter(
-  (s) => s.length > 0,
-);
+/**
+ * Files whose tests assert on TIMING, and so cannot share the box.
+ *
+ * Measured, not guessed — each of these failed under 4-way sharding and passes alone:
+ *   · vivim-run/integration  — "law.registry@1 p99 stays under 5ms while ~50 tasks flow"
+ *   · vivim-nlcl/nlcl       — "interpret is fast enough for keystroke latency (< 2ms)"
+ *   · vivim-director        — "the LIVE loop: intervalMs 100 fires the pass on schedule"
+ *   · vivim-chat/pilot      — the 200-append indexed-cap refusal (and the slowest file, 17.5 s)
+ *   · gates/f-durability    — 100 randomized torn appends
+ *   · gates/efficiency-tooling — F-5 spawns the gate itself, so it contends with everything
+ *
+ * A wall-clock assertion measured while three other shards compete for the same cores is not
+ * a test of the code under test. **Running them in parallel and reporting them as failures is
+ * the false-red this repository keeps fighting** — a gate that cries wolf is worse than a slow
+ * one, because the first response is to stop believing it.
+ *
+ * Cost of this list: ~60 s of serial time. It buys a report whose failures are real.
+ */
+const SERIAL_FILES = [
+  "plugins/vivim-run/test/integration.test.ts",
+  "plugins/vivim-nlcl/test/nlcl.test.ts",
+  "plugins/vivim-director/test/director.test.ts",
+  "plugins/vivim-chat/test/pilot.test.ts",
+  "tooling/gates/test/f-durability.test.ts",
+  "tooling/gates/test/efficiency-tooling.test.ts",
+];
+
+const norm = (f: string) => f.replace(/\\/g, "/");
+const isSerialArea = (f: string) => SERIAL_AREAS.some((a) => norm(f).startsWith(`${a}/`));
+const isSerialFile = (f: string) => SERIAL_FILES.some((p) => norm(f).includes(p));
+const parallelFiles = files.filter((f) => !isSerialArea(f) && !isSerialFile(f));
+// One shard PER serial unit — one per area, one per declared file — not one shard holding all
+// of them. Measured: surfaces and host take 58 s and 25 s as separate processes but 100.8 s
+// merged into one — they interact when they share a runner, which is the opposite of what
+// this phase is for.
+const serialShards = [
+  ...SERIAL_AREAS.map((a) => files.filter((f) => norm(f).startsWith(`${a}/`))),
+  ...SERIAL_FILES.map((p) => files.filter((f) => norm(f).includes(p))),
+].filter((s) => s.length > 0);
 
 console.error(
   `sharded-test: ${files.length} test files — ${serialShards.length} serial area shard(s) ` +
-    `(${SERIAL_AREAS.join(", ")}) + ${parallelFiles.length} sharded ${width}-at-a-time`,
+    `(${SERIAL_AREAS.join(", ")} + ${SERIAL_FILES.length} timing-sensitive file(s)) + ${parallelFiles.length} sharded ${width}-at-a-time`,
 );
 
 const results: ShardResult[] = [];
@@ -229,8 +266,23 @@ const fail = tally("fail");
 const skip = tally("skip");
 const failing = [...plain.matchAll(/\(fail\) (.+?) \[\d[\d.,]*m?s\]/g)].map((m) => m[1].trim().slice(0, 160));
 
-// The per-shard detail gate.ts needs when something goes wrong.
-console.log(plain);
+// What gate.ts actually reads: the failing test lines, and nothing else. Echoing the whole
+// log is what broke the corridor — `world.run` rejects stdout over 256 KB, and the full suite
+// prints ~349 KB (D-TEAM-028). A hard cap as well as the flag, so a regression that re-adds
+// noise fails here rather than 43 minutes downstream.
+//
+// The ORIGINAL lines are re-emitted, not reconstructed from the names, because gate.ts's
+// fallback regex requires the `[123.45ms]` suffix: `/\(fail\) (.+?) \[\d[\d.,]*m?s\]/`.
+const noise = plain
+  .split("\n")
+  .filter((l) => l.trimStart().startsWith("(fail)"))
+  .join("\n");
+if (noise.length > 60_000) {
+  console.error(`sharded-test: failure detail truncated (${noise.length} bytes)`);
+  console.log(noise.slice(0, 60_000));
+} else {
+  console.log(noise);
+}
 
 const crashedShards = results.filter((r) => r.crashed);
 const ok = crashedShards.length === 0 && results.every((r) => r.code === 0) && fail === 0;

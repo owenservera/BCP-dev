@@ -18,7 +18,10 @@
 //   CAPTURE_UNREADABLE_FILE       an entry cannot be resolved, stat-ed or read
 //   CAPTURE_EMPTY_MINE            zero admitted files
 //   CAPTURE_MINE_PIN_MISMATCH     the pin disagrees with the computed root hash
-//   CAPTURE_LEDGER_REFUSED        the receipt row was refused or did not read back
+//   CAPTURE_LEDGER_REFUSED        a governed row was refused or did not read
+//                                 back — a `cas:` blob or the `mine:` receipt;
+//                                 the DETAIL names which, and it is the only
+//                                 thing distinguishing the two ledger paths
 //
 // Every refusal is checked for a second property: the mine tree was not
 // written. Capture is read-only by construction, and a refusal that mutated the
@@ -335,6 +338,14 @@ describe("CAPTURE_LEDGER_REFUSED — an unledgered receipt attests to nothing", 
     // the handler runs, reads the mine correctly, and finds the ledger closed.
     // The receipt must be refused, not returned — a receipt the ledger does not
     // hold is a claim, not evidence.
+    //
+    // Which write died first is the interesting part now that there are TWO
+    // families of append. The blobs go first (fail-closed: no receipt for a
+    // snapshot that is not materialised), so the refusal must name a `cas:` row
+    // — and NOT the receipt id. That is what makes the detail informative
+    // instead of merely non-empty: under one shared rule, the two ledger paths
+    // are otherwise indistinguishable, and a reader would have to guess which
+    // write to go and fix.
     const { host } = await bootCaptureWithout("port:vault.append@1");
     try {
       await consent(host);
@@ -346,8 +357,35 @@ describe("CAPTURE_LEDGER_REFUSED — an unledgered receipt attests to nothing", 
       expect(v?.refused).toBe(true);
       expect(v?.rule).toBe("CAPTURE_LEDGER_REFUSED");
       expect(v?.detail).toContain("unledgered");
+      // the CAS path is the one that failed, and the detail SAYS SO
+      expect(v?.detail).toContain("CAS blob row cas:sha256:");
+      expect(v?.detail).not.toContain(`mine:ledger/`);
       // nothing was written into the ledger for that pin
       const row = await callOn(host, "vault.get@1", { ns: "proposal", id: `mine:ledger/${pin.replace("ledger@", "")}` });
+      expect(row.ok).toBe(false);
+    } finally {
+      await host.shutdown().catch(() => {});
+    }
+  }, 120_000);
+
+  test("with the getmany capability withheld, the blob READ-BACK is what refuses", async () => {
+    // The other half of the shared rule: the appends succeed (port:vault.append@1
+    // is granted) but the batched read-back cannot run, so the receipt must
+    // still be refused — a write nobody could verify is not a landed write. The
+    // detail names the blob family for the same reason the case above does.
+    const { host } = await bootCaptureWithout("port:vault.getmany@1");
+    try {
+      await consent(host);
+      const mine = makeMine("ledger-readback", { "a.txt": "a\n" });
+      const r = await callOn(host, OP, { mineRoot: mine, mineId: pinFor(mine, "readback") });
+      expect(r.ok).toBe(true);
+      const v = r.ok ? (r.value as { refused?: boolean; rule?: string; detail?: string }) : null;
+      expect(v?.refused).toBe(true);
+      expect(v?.rule).toBe("CAPTURE_LEDGER_REFUSED");
+      expect(v?.detail).toContain("unledgered");
+      expect(v?.detail).toMatch(/CAS blob rows? cas:sha256:/);
+      // and no receipt was emitted for a snapshot that could not be verified
+      const row = await callOn(host, "vault.get@1", { ns: "proposal", id: `mine:readback/${pinFor(mine, "readback").replace("readback@", "")}` });
       expect(row.ok).toBe(false);
     } finally {
       await host.shutdown().catch(() => {});

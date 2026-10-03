@@ -37,6 +37,9 @@
 | D-TEAM-024 | Suite is SHARDED across short-lived processes, not serial: `--max-concurrency` was measured inert. 326s/fatal 19.45GB -> ~249s/6.06GB | S1 |
 | D-TEAM-025 | Workflow registry + automated governance/dispatch; the charter's dead owner-ratification gate is deleted | S1 |
 | D-TEAM-026 | **No scheduled automations.** All four crons deleted; duty cycles become event-driven | S1 |
+| D-TEAM-027 | Decision-ledger integrity is checked; the six entries it caught (four of them mine) repaired | S1 |
+| D-TEAM-028 | Sharded-runner stdout bounded and timing tests serialised; it had killed a corridor at the gate | S1 |
+| D-TEAM-029 | **WS-5 corridor 3 ADOPTED and landed**; D-460 (SF2) RATIFIED | S2 |
 
 ## Decisions
 
@@ -337,6 +340,26 @@
 - **Net-ceremony:** removes four automations, one prompt block, and every schedule reference in TEAM.md / TRACKING.md / HOUSEKEEPING.md. Adds nothing. **The two scripts from D-TEAM-025 were already the real mechanism — the crons were only wrappers that fired them on a clock, and the wrappers are now gone.**
 - **Rollback:** re-create any of the four; their full prompts are preserved in this session's history.
 - **Dissent:** none. OWNER-INFORM — this removes three automations the team had recorded as delivered, one of them as DONE, and every one of them was unverified in exactly the way this project keeps getting burned.
+
+### D-TEAM-029 — WS-5 corridor 3 is ADOPTED and landed; D-460 ratified
+- **Severity:** S2 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** The `forge-survey` corridor's work is **adopted by the team and landed**, and `D-460-cas-blocks-in-the-proposal-ledger.md` is **RATIFIED**. `forge.survey.run@1` and `forge.survey.render@1` now exist; SF2's implementing record — the vehicle `D-409:30` deferred to — is law rather than a proposal sitting behind committed code.
+- **Reason.** Adoption rather than another dispatch: the corridor ran 1h31m: plan, three rounds of fresh-eyes review, and the full implementation. It then **errored at the gate** — on a regression of mine (D-TEAM-028), not on its own work. A resume was attempted and lost the task arguments (`args.task is required`, because an amended saved-workflow run is not re-supplied its args), and reconstructing the task text byte-exactly was not worth re-paying 45 minutes of planning. **The implementation was already on disk and measurable, so the team verified it directly** — the D-TEAM-020 pattern, applied to a corridor that died for a reason outside its control.
+- **Evidence.** Verification run by the team, not inherited from the corridor. `omega:quick` → exit 0, `ok:true, failed:0, hostLoc:1500`, twelve stages including `forge-surface`, `compositions` and `genome`. Full sharded suite → **1671 pass / 2 skip / 2 fail**, the two failures being the declared Windows environment limits (symlink `EPERM` without `SeCreateSymbolicLinkPrivilege`; the `python3` Store alias `Bun.spawn` cannot resolve) and nothing else.
+  **Also recorded: ratifying D-460 on its own was refused by the `decisions` gate** —
+  `RATIFIED with no resolvable commit SHA in ## Evidence`, plus `index PROPOSED, record
+  RATIFIED` and an index row the gate calls unexpressive by hand-editing. The record cannot be
+  ratified before the work it describes is committed, because the SHA it must cite does not
+  exist until then. The ratification is therefore sequenced AFTER the landing commit, not
+  before it.
+- **The three claims the falsifiers predicted, checked directly:**
+  - **Zero `host/src` LOC.** `git status host/` is empty and the gate reports `hostLoc: 1500` — unchanged. D-391 was never reopened, exactly as D-TEAM-023 claimed.
+  - **The `cas:` row landed.** `docs/VAULT-NAMESPACES.md` is modified; both `omega-decide` runs had flagged it as an undeclared third id form in a governed namespace.
+  - **The count pins moved.** `forge-surface.test.ts`, `generate.test.ts` and `shippable-fence.test.ts` are all modified — the three files the falsifiers named as going red the moment a fourth forge plugin appeared.
+  - **And the class honesty holds:** `forge-survey/src/` imports `node:crypto` and **no `node:fs`**. That is the whole point of the D-TEAM-023 decision, and **it is held by discipline, not by a gate** — which is why G-11 stays open rather than being closed by this landing.
+- **Structural check:** the plugin ships `src/{index,inventory,survey}.ts`, `test/boot.ts`, `test/happy/survey.test.ts` and `test/refusal/survey-refusals.test.ts`; both ops are declared; `forge-surface` green means `FORGE_NO_REFUSAL_TEST`, `FORGE_CLASS_SPAN`, `FORGE_EMIT_SCOPE` and `GEN_LEVEL_MISSING` all pass.
+- **Rollback:** one revert. D-460 returns to PROPOSED.
+- **Dissent:** none. OWNER-INFORM — this lands a plugin on the team's own verification after its corridor died, and **the corridor is not being credited with the gates it never got to report**.
 
 ## Historic owner-ratified entries (for continuity, not re-decided)
 

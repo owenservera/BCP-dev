@@ -16,7 +16,7 @@ import { readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { parseManifest, validateManifest } from "@vivim/omega-sdk";
 import { FORGE_OP_CATALOG, CaptureReceiptSchema } from "../../../../packs/builder/src/schemas.ts";
-import { normaliseTextBytes } from "../../src/receipt.ts";
+import { decodeCasBlob, hashBytes, normaliseTextBytes } from "../../src/receipt.ts";
 import {
   MINE_ROOT, bootCapture, call, capture, current, pinnedMineId, readMineManifest,
   consent, setCurrent, type MineManifest,
@@ -118,7 +118,7 @@ describe("the receipt — schema-exact against pack.builder CaptureReceipt@1", (
     }
   });
 
-  test("every row's casRef is a pure function of its content (SF2 stays open)", () => {
+  test("every row's casRef is a pure function of its content (and SF2 has since landed — the blobs are behind those addresses)", () => {
     for (const f of receipt.files) expect(f.casRef).toBe(`cas:${f.hash}`);
     // content-addressed means EQUAL CONTENT ⇒ EQUAL ADDRESS — two byte-identical
     // files in one mine share a casRef by construction, and that is correct.
@@ -198,6 +198,61 @@ describe("THE FALSIFIER — the receipt agrees with the mine's own MANIFEST.json
   });
 });
 
+describe("the CAS rows — every casRef the receipt cites resolves to bytes that re-hash to their address", () => {
+  test("every distinct casRef has a ledger row, and its decoded payload re-hashes to that row's own hash", async () => {
+    // The falsifier for the producer half (D-409 SF2 as decided by D-TEAM-023).
+    // Not "a row exists" — a row exists is what a vacuous check would say. The
+    // check is the CONTENT ADDRESS round trip: read the row back, decode it, and
+    // re-hash. Storing RAW bytes would pass "a row exists" and fail here on
+    // every CRLF file in this checkout, which is precisely the bug the
+    // normalised-payload rule exists to prevent.
+    const ids = [...new Set(receipt.files.map((f) => f.casRef))];
+    expect(ids.length).toBeGreaterThan(0);
+    const rows = await current().host.router.callAsRoot("vault.getmany@1", { ns: "proposal", ids });
+    expect(rows.ok).toBe(true);
+    const raw = rows.ok ? rows.value : [];
+    expect(Array.isArray(raw)).toBe(true);
+    const byId = new Map((raw as Array<{ id: string; found: boolean; data: unknown }>).map((r) => [r.id, r]));
+    const declared = new Map(receipt.files.map((f) => [f.casRef, f]));
+    let verified = 0;
+    for (const id of ids) {
+      const row = byId.get(id);
+      expect(row).toBeDefined();
+      expect(row!.found).toBe(true);
+      const decoded = decodeCasBlob(row!.data);
+      expect(decoded === null ? `undecodable: ${JSON.stringify(row!.data).slice(0, 200)}` : "decodable").toBe("decodable");
+      const blob = decoded!;
+      const want = declared.get(id)!;
+      // the content address IS the claim: re-hash and compare to BOTH the row's
+      // stored hash and the receipt's own row, so a blob that disagrees with the
+      // receipt is caught as well as one that disagrees with itself
+      expect(hashBytes(blob)).toBe(want.hash);
+      expect(blob.length).toBe(want.bytes);
+      // and the bytes must equal the mine's own NORMALISED bytes — this is the
+      // assertion that goes red on raw-byte storage for a CRLF file
+      const rawFile = readFileSync(join(MINE_ROOT, ...want.path.split("/")));
+      expect(blob.equals(normaliseTextBytes(rawFile))).toBe(true);
+      verified++;
+    }
+    console.log(`[cas] ${verified}/${ids.length} distinct casRefs resolved to a ledger row whose decoded bytes re-hash to the receipt's hash`);
+    expect(verified).toBe(ids.length);
+  }, 60_000);
+
+  test("the blob rows carry their own shape — casRef, hash, bytes, base64 of the NORMALISED bytes", async () => {
+    const first = receipt.files[0]!;
+    const got = await current().host.router.callAsRoot("vault.get@1", { ns: "proposal", id: first.casRef });
+    expect(got.ok).toBe(true);
+    const row = got.ok ? (got.value as { data: Record<string, unknown>; meta: Record<string, unknown> }) : null;
+    expect(Object.keys(row!.data).sort()).toEqual(["bytes", "casRef", "data", "encoding", "hash", "op", "schemaVersion"]);
+    expect(row!.data["casRef"]).toBe(first.casRef);
+    expect(row!.data["hash"]).toBe(first.hash);
+    expect(row!.data["encoding"]).toBe("base64");
+    expect(row!.meta).toMatchObject({ type: "cas-blob", casRef: first.casRef, hash: first.hash });
+    // base64 is a ~4/3 encoding of the byte count, never the byte count itself
+    expect(Buffer.from(row!.data["data"] as string, "base64").length).toBe(first.bytes);
+  });
+});
+
 describe("the receipt lands in the governed ledger — read back byte-identical", () => {
   test("the receipt row is in ns proposal under the content-derived id, byte-identical", async () => {
     const id = `mine:pantrylog/${receipt.rootHash.replace(/^sha256:/, "")}`;
@@ -229,4 +284,27 @@ describe("the receipt lands in the governed ledger — read back byte-identical"
     expect(third).not.toBeNull();
     expect(third!.files.map((f) => f.hash)).toEqual(receipt.files.map((f) => f.hash));
   });
+});
+
+// LAST, deliberately: every case here re-captures, which is a latest-wins upsert
+// of the receipt row and therefore rewrites `capturedAt`. Running it earlier
+// would invalidate the byte-identical receipt assertion above with a fact about
+// this test's own ordering rather than about the seam.
+describe("re-capture is idempotent for the blobs too — same row ids, not a pile", () => {
+  test("a second capture of an unchanged mine appends the SAME cas row ids", async () => {
+    const countCas = async (): Promise<number> => {
+      const q = await current().host.router.callAsRoot("vault.query@1", { ns: "proposal", filter: { idPrefix: "cas:" } });
+      expect(q.ok).toBe(true);
+      expect(Array.isArray(q.value)).toBe(true);
+      return (q.value as unknown[]).length;
+    };
+    const before = await countCas();
+    expect(before).toBe(new Set(receipt.files.map((f) => f.casRef)).size);
+    const again = await capture({ mineRoot: MINE_ROOT, mineId: pinnedMineId(manifest) });
+    expect(again.files.map((f) => f.casRef)).toEqual(receipt.files.map((f) => f.casRef));
+    // 42 files, 41 distinct addresses — one pair of byte-identical files in the
+    // pinned mine shares a row, which is content addressing working, not a miss
+    expect(again.files.length).toBe(42);
+    expect(await countCas()).toBe(before);
+  }, 60_000);
 });

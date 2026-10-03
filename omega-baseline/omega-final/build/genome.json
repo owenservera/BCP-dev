@@ -12,14 +12,14 @@
     "externalAssumed": 0,
     "ratifiedUnimplemented": 0,
     "queued": 0,
-    "decisions": 165,
+    "decisions": 166,
     "ratified": 163,
-    "proposed": 2,
-    "records": 139,
-    "testFiles": 155,
+    "proposed": 3,
+    "records": 140,
+    "testFiles": 157,
     "gateStages": 15,
-    "plugins": 29,
-    "compositions": 21
+    "plugins": 30,
+    "compositions": 22
   },
   "layers": [
     {
@@ -1634,6 +1634,11 @@
       "n": 459,
       "status": "PROPOSED",
       "file": "docs/decisions/D-459-world-work-contract-reservation.md"
+    },
+    {
+      "n": 460,
+      "status": "PROPOSED",
+      "file": "docs/decisions/D-460-cas-blocks-in-the-proposal-ledger.md"
     }
   ],
   "falsifiers": [
@@ -1992,6 +1997,8 @@
       "plugins\\forge-mine-capture\\test\\refusal\\capture-refusals.test.ts",
       "plugins\\forge-mine\\test\\happy\\mine-read.test.ts",
       "plugins\\forge-mine\\test\\refusal\\mine-refusals.test.ts",
+      "plugins\\forge-survey\\test\\happy\\survey.test.ts",
+      "plugins\\forge-survey\\test\\refusal\\survey-refusals.test.ts",
       "plugins\\parser-claude-sse-v2\\test\\differential.test.ts",
       "plugins\\parser-claude-sse-v2\\test\\parsers.test.ts",
       "plugins\\parser-claude-sse\\test\\parsers.test.ts",

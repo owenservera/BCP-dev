@@ -3,7 +3,9 @@
 Class 3 / **EXTERNAL_MUTATION** Forge plugin: `forge.mine.capture@1`, the ONE
 filesystem seam in the forge surface. It walks a declared, pinned legacy mine,
 hashes every admitted file, and emits a `CaptureReceipt@1` (the shape
-`pack.builder` freezes) plus one append-only proposal row carrying that receipt.
+`pack.builder` freezes) plus the append-only proposal rows that carry it — the
+receipt itself, and one CAS blob row per distinct content address so every
+`casRef` it cites resolves to bytes.
 
 D-409 **split** the mine family along the risk-class boundary: this directory is
 the EXTERNAL_MUTATION half, and the READ siblings (`forge.mine.verify@1`,
@@ -24,8 +26,10 @@ risk class (`FORGE_CLASS_SPAN`); merging them back would make this plugin a lie.
    the disk.
 5. Walks the tree, hashing every admitted file.
 6. Computes the root hash and checks it against the pin carried in `mineId`.
-7. Appends the receipt to vault ns `proposal` and reads it back; an unsynced
-   write is refused, never returned.
+7. Appends one CAS blob row per distinct `casRef` to vault ns `proposal` and
+   reads them all back in bounded batches.
+8. Appends the receipt row and reads it back. An unsynced write — of a blob or
+   of the receipt — is refused, never returned.
 
 ## The hash domain — two declared rules, neither a parameter
 
@@ -83,12 +87,66 @@ Every refusal is DATA (D-379 refusal-as-data): an `ok: true` result carrying
 | `CAPTURE_UNREADABLE_FILE` | an entry cannot be resolved, stat-ed, or read |
 | `CAPTURE_EMPTY_MINE` | zero admitted files — a receipt for nothing attests to nothing |
 | `CAPTURE_MINE_PIN_MISMATCH` | the pinned digest disagrees with the computed root hash |
-| `CAPTURE_LEDGER_REFUSED` | the receipt row was refused, or did not read back byte-identical |
+| `CAPTURE_LEDGER_REFUSED` | a governed row was refused or did not read back byte-identical — a CAS blob row (`cas:<sha256hex>`) or the receipt row (`mine:<repo>/<rootHash>`); the detail names which |
 
 The validation order is itself policy — structure, identity, existence, law,
 first byte, pin, ledger — so every refusal leaves the mine tree exactly as it
 found it and leaves no receipt row behind. The refusal suite asserts that
 property on a before/after snapshot of the tree for every filesystem-shaped case.
+
+## The CAS rows — where a `casRef`'s bytes live (D-409 SF2, decided by D-TEAM-023)
+
+The receipt cites `cas:<hash>` on every file row. Until SF2 landed that address
+had **no store behind it**: the walk read, hashed and pushed `{path, hash, bytes,
+casRef}` and dropped the bytes, and the op's only mutation was the receipt
+append. Any consumer resolving those addresses would have found nothing on every
+real file.
+
+The producer half now lives here, in the seam SF2 was assigned to:
+
+- **id** — the receipt's own `casRef`, verbatim (`cas:<sha256hex>`). The address
+  a receipt cites *is* the address the blob lives at, so there is no second
+  naming scheme to drift.
+- **namespace** — `proposal`, the same one the receipt uses. No new namespace is
+  invented, so SF1 stays un-retired exactly as D-409 left it.
+- **payload** — `{schemaVersion, op, casRef, hash, bytes, encoding: "base64", data}`,
+  where `data` is base64 of the **normalised** bytes: the exact buffer
+  `fileHashAndBytes` hashed and counted, never the raw on-disk bytes. That is
+  load-bearing on a CRLF checkout — raw bytes would not re-hash to the receipt's
+  own hash, and every consumer's verification would fail on every CRLF file while
+  presenting as a consumer bug.
+- **shape** — one row per **distinct** `casRef`, in receipt-path order. Two
+  byte-identical files in one mine share one row; that is what content addressing
+  means.
+- **order** — the blobs are appended *before* the receipt, and every one is read
+  back (bounded `vault.getmany@1` batches, `GET_MANY_BOUND` = 512) before the
+  receipt is returned. **No receipt is emitted for a snapshot that is not fully
+  materialised.** Orphan blob rows are inert: nothing cites them except a
+  receipt, and a receipt is only returned once its blobs verified.
+
+**Recorded, not solved — the incremental-hashing budget.** A re-capture of an
+unchanged mine still *reads and re-hashes every file*: the walk is the evidence,
+and skipping it would make the receipt a claim rather than a measurement. Only
+the **writes** dedupe, because the row id is the content address and append is
+latest-wins per id. A path+mtime+size cache is a separate decision with its own
+evidence.
+
+**Measured cost, and what the budget actually is.** The pinned 42-file mine now
+issues 41 blob appends plus the receipt append, and every vault append is
+TWO-PHASE with fsyncs (`changelog.ts` two-phase append + a blob fsync in
+`cas.ts`) — on the order of 120 fsyncs for one capture on Windows. Measured
+~1.2 s on a fresh vault and over 5 s on one that has already absorbed several
+captures. That is I/O wait, not CPU: `runtime.budget.cpuMs` is left at **4000**
+because it is the honest number for the CPU this op spends, and because nothing
+in `host/src` reads it anyway — only `maxConcurrentCalls` is enforced
+(`ports.ts:315`). The bound that actually fires is the **caller's**
+`deadlineMs`, default 5000 (`ports.ts:438`), which the suites now declare
+explicitly (`CAPTURE_DEADLINE_MS = 60_000` in both `test/boot.ts` files). A
+caller asking for a whole-mine capture has to say what that costs.
+
+`vault.compact@1` has no id-prefix logic, so it treats these rows as ordinary
+objects. Base64 inflates each payload ~33%, which is the accepted cost of
+storing bytes inside a ledger that already content-addresses them.
 
 ## Consent is part of the class, not a detail
 
@@ -115,11 +173,13 @@ behalf would be a consent nobody gave. Both halves are proven in
 | `files[]` | `{path, hash, bytes, casRef}` — `bytes` is the length of the HASHED (normalised) bytes |
 | `refusals[]` | `{path, reason}` for every path excluded by declared policy |
 
-`casRef` is `cas:<hash>` — a **pure function of the content**. That is deliberate:
-D-409's SF2 (CAS blobs vs rows, incremental hashing budget) is still OPEN, so the
-receipt must not encode a storage decision. Because the address does not depend
-on where the bytes live, SF2 can land without re-capturing any mine; the receipts
-already written stay valid.
+`casRef` is `cas:<hash>` — a **pure function of the content**, and still so. That
+was deliberate while D-409's SF2 (CAS blobs vs rows, incremental hashing budget)
+was OPEN: the receipt had to be free of any storage decision, so SF2 could land
+without re-capturing a single mine. SF2 has since been decided (D-TEAM-023) and
+is implemented here — see *The CAS rows* above — but the discipline it was built
+for still holds: the receipt encodes **no** storage decision, it cites an
+address, and the address happens to be where the bytes are.
 
 The receipt row id is `mine:<repo-slug>/<rootHash>` — stable in the mine's
 CONTENT, so re-capturing an unchanged mine is an idempotent upsert of the same

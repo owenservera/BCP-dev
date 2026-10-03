@@ -51,11 +51,25 @@ implementation.
 
 ### Wave 1+ (forge build-out) — OPEN
 
-- **forge.survey / forge.assay / forge.shape / forge.emit / forge.proof /
-  forge.tier** — wire declared in FORGE_OP_CATALOG (24 ops, frozen), zero
-  implementation. Each lands with: refusal tests naming every op (the
-  FORGE_NO_REFUSAL_TEST gate is waiting), one risk class per plugin,
-  generality declared, catalog-exact manifest contributions.
+- ~~**forge.survey**~~ — **LANDED** (`plugins/forge-survey/`,
+  `compositions/forge-survey.json`): `forge.survey.run@1` +
+  `forge.survey.render@1`, both READ, reading only the governed ledger (the receipt
+  row by `vault.get@1`, the CAS blobs by bounded `vault.getmany@1` batches). It is
+  the first Wave 1+ lane to land, and it did not land first by accident: D-TEAM-023
+  had to decide D-409 SF2 before it could, because survey reads the CAS blobs the
+  capture seam writes and until that seam wrote them every `casRef` resolved to
+  nothing. Ten named refusals, all triggered inside `expect()`; the atlas is
+  byte-identical across calls. Two things this lane did **not** do, both recorded
+  rather than quietly skipped: the architecture's `generic`/`harvested` prediction
+  (it ships `speculative` for both — see the decision record), and the enforcement
+  gap that lets a READ-class forge op touch the filesystem with no gate firing. That
+  check does not exist yet, so this compartment is held honest by a test rather than
+  by the toolchain.
+- **forge.assay / forge.shape / forge.emit / forge.proof / forge.tier** — wire
+  declared in FORGE_OP_CATALOG (24 ops, frozen), zero implementation. Each lands
+  with: refusal tests naming every op (the FORGE_NO_REFUSAL_TEST gate is waiting),
+  one risk class per plugin, generality declared, catalog-exact manifest
+  contributions.
 - **Wave/caller tracking for GEN_SPECULATIVE_STALE** — Wave 0 ships it
   report-only; turning it hard needs a caller census (who imports a
   speculative artifact) and a wave counter. Until then the code is honest

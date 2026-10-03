@@ -52,7 +52,7 @@ describe("D-420 · shippable fence on the REAL tree (all green)", () => {
   const specs = realSpecs();
 
   test("the loader actually sees the domain (guards against silent no-op)", () => {
-    expect(specs.length).toBe(20); // 18 before the Wave 1 mine lane; +1 by D-409 (forge-mine-capture builder composition); +1 by D-TEAM-020 (forge-mine READ siblings)
+    expect(specs.length).toBe(21); // 18 before the Wave 1 mine lane; +1 by D-409 (forge-mine-capture builder composition); +1 by D-TEAM-020 (forge-mine READ siblings); +1 by D-460 (forge-survey builder composition)
     const browser = specs.find((s) => s.name === SHIPPABLE_V1_NAME)!;
     expect(browser.note).toContain(SHIPPABLE_MARKER);
     expect(browser.entryIds).toContain("provider.browser"); // the realization v1 ships

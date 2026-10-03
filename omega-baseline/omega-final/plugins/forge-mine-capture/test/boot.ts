@@ -30,6 +30,27 @@ const PROBE_PAYLOAD = { mineRoot: ABSENT_ROOT, mineId: PROBE_MINE_ID };
 /** The plugin's own principal — the in-handler law self-check runs under it. */
 const PLUGIN_ID = "forge.mine.capture";
 
+/** The per-call deadline this suite gives `forge.mine.capture@1`.
+ *
+ *  NOT the manifest's `runtime.budget.cpuMs`: nothing in host/src reads that
+ *  field (only `maxConcurrentCalls` is enforced, host/src/ports.ts:315), so the
+ *  bound that actually fires is the CALLER's `deadlineMs`, default 5000
+ *  (host/src/ports.ts:438). That default is now too tight for this op and the
+ *  reason is structural, not incidental: after the CAS producer landed, a
+ *  capture of the pinned 42-file mine issues 41 blob appends + 1 receipt append,
+ *  and every vault append is TWO-PHASE with fsyncs (changelog.ts:105 two-phase
+ *  append + cas.ts:42 blob fsync) — roughly 120 fsyncs on Windows for one op.
+ *  Measured here: ~1.2 s on a fresh boot, over 5 s once the same vault has
+ *  absorbed several captures. A caller asking for a whole-mine capture has to
+ *  say so; 60 s is the declared budget, not a hope. */
+export const CAPTURE_DEADLINE_MS = 60_000;
+
+/** The deadline a given op gets here — the capture seam's declared budget,
+ *  everything else the router default. */
+export function deadlineFor(op: string): number | undefined {
+  return op === FORGE_MINE_CAPTURE_OP ? CAPTURE_DEADLINE_MS : undefined;
+}
+
 export interface MineManifest {
   description: string;
   fileCount: number;
@@ -102,12 +123,12 @@ export function setCurrent(b: Booted): void { booted = b; }
  *  tests need both the gate's {ok:false} shape and the handler's {ok:true,
  *  refused} shape. */
 export async function call(payload: unknown): Promise<PortResult> {
-  return current().host.router.callAsRoot(FORGE_MINE_CAPTURE_OP, payload);
+  return current().host.router.callAsRoot(FORGE_MINE_CAPTURE_OP, payload, CAPTURE_DEADLINE_MS);
 }
 
 /** One raw call on an explicitly named host. */
 export async function callOn(host: BootedHost, op: string, payload: unknown): Promise<PortResult> {
-  return host.router.callAsRoot(op, payload);
+  return host.router.callAsRoot(op, payload, deadlineFor(op));
 }
 
 /** The plugin's refusal envelope (D-379 refusal-as-data: ok:true carrying the
@@ -146,7 +167,7 @@ export async function capture(payload: unknown): Promise<CaptureReceipt> {
  *  Returns the GATE refusal that started it — proof the class default fired
  *  before any handler code ran. Throws if neither branch can be established. */
 export async function consent(host: BootedHost): Promise<PortResult> {
-  const first = await host.router.callAsRoot(FORGE_MINE_CAPTURE_OP, PROBE_PAYLOAD);
+  const first = await host.router.callAsRoot(FORGE_MINE_CAPTURE_OP, PROBE_PAYLOAD, CAPTURE_DEADLINE_MS);
   if (first.ok) {
     const v = first.value as { rule?: string };
     if (v?.rule !== "CAPTURE_MINE_ROOT_MISSING") {
@@ -168,7 +189,7 @@ export async function consent(host: BootedHost): Promise<PortResult> {
   if (!pluginGrant.ok) throw new Error(`law.consent.grant@1 (plugin principal) failed: ${pluginGrant.error} ${pluginGrant.detail ?? ""}`);
   // With both consents active the handler runs and refuses structurally —
   // proof the gate (not the handler) was what blocked the first call.
-  const second = await host.router.callAsRoot(FORGE_MINE_CAPTURE_OP, PROBE_PAYLOAD);
+  const second = await host.router.callAsRoot(FORGE_MINE_CAPTURE_OP, PROBE_PAYLOAD, CAPTURE_DEADLINE_MS);
   const v = second.ok ? (second.value as { rule?: string }) : null;
   if (!second.ok || v?.rule !== "CAPTURE_MINE_ROOT_MISSING") {
     throw new Error(`after consent the handler should have run and refused CAPTURE_MINE_ROOT_MISSING, got ${JSON.stringify(second).slice(0, 300)}`);

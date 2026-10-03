@@ -51,7 +51,7 @@ describe("D5 — forge-surface on the REAL tree (all green)", () => {
     // on the real tree, not just in prose — three READ ops in forge.mine, the
     // single EXTERNAL_MUTATION op in forge.mine.capture, and neither plugin
     // declaring the other's ops.
-    expect(real.forgePlugins.map((p) => p.manifest.id)).toEqual(["forge.author", "forge.mine", "forge.mine.capture"]);
+    expect(real.forgePlugins.map((p) => p.manifest.id)).toEqual(["forge.author", "forge.mine", "forge.mine.capture", "forge.survey"]);
     const contributions = forgeRecord("forge.mine.capture").manifest.contributions?.contract ?? [];
     expect(contributions.map((c) => `${c.id}@${c.version}`).sort()).toEqual(["forge.mine.capture@1"]);
     expect([...new Set(contributions.map((c) => c.risk))]).toEqual(["EXTERNAL_MUTATION"]); // one class per plugin
@@ -84,6 +84,20 @@ describe("D5 — forge-surface on the REAL tree (all green)", () => {
     expect(real.compositions.some((c) => c.name === "forge-author")).toBe(true);
     expect(real.compositions.some((c) => c.name === "forge-mine-capture")).toBe(true);
     expect(real.compositions.some((c) => c.name === "forge-mine")).toBe(true);
+    expect(real.compositions.some((c) => c.name === "forge-survey")).toBe(true);
+    // ...and the first Wave 1+ lane, which must span exactly one class too, ask
+    // for read-only ports only, and reach for no filesystem module. That last one
+    // is asserted HERE as well as in the plugin's own suite because the class-span
+    // CHECK reads the manifest and never the source — this is a test asserting
+    // the compartment's shape, NOT a gate that would make a future READ plugin
+    // unable to re-walk a mine. The gap that allows that is still open (G-11).
+    const survey = forgeRecord("forge.survey");
+    const surveyOps = survey.manifest.contributions?.contract ?? [];
+    expect(surveyOps.map((c) => `${c.id}@${c.version}`).sort()).toEqual(["forge.survey.render@1", "forge.survey.run@1"]);
+    expect([...new Set(surveyOps.map((c) => c.risk))]).toEqual(["READ"]);
+    expect(survey.manifest.capabilities.requested).toEqual(["port:vault.get@1", "port:vault.getmany@1"]);
+    const surveyImports = importSpecifiers(Object.values(survey.sourceText).join("\n"));
+    expect(surveyImports.filter((s) => s === "node:fs" || s === "node:fs/promises" || s === "fs")).toEqual([]);
     expect(real.compositions.length).toBeGreaterThanOrEqual(18);
     expect(Object.keys(real.catalog).length).toBe(24);
     expect(real.packFixtureValidation.length).toBe(14); // 7 valid + 7 invalid, each pinned to its sin

@@ -203,6 +203,19 @@
         "@vivim/omega-sdk": "workspace:*",
       },
     },
+    "plugins/forge-survey": {
+      "name": "@vivim/plugin-forge-survey",
+      "version": "0.1.0",
+      "dependencies": {
+        "@vivim/omega-contracts": "workspace:*",
+        "@vivim/omega-shim": "workspace:*",
+      },
+      "devDependencies": {
+        "@vivim/omega-host": "workspace:*",
+        "@vivim/omega-platform": "workspace:*",
+        "@vivim/omega-sdk": "workspace:*",
+      },
+    },
     "plugins/law-stub": {
       "name": "@vivim/plugin-law-stub",
       "version": "0.1.0",
@@ -561,6 +574,8 @@
     "@vivim/plugin-forge-mine": ["@vivim/plugin-forge-mine@workspace:plugins/forge-mine"],
 
     "@vivim/plugin-forge-mine-capture": ["@vivim/plugin-forge-mine-capture@workspace:plugins/forge-mine-capture"],
+
+    "@vivim/plugin-forge-survey": ["@vivim/plugin-forge-survey@workspace:plugins/forge-survey"],
 
     "@vivim/plugin-law-stub": ["@vivim/plugin-law-stub@workspace:plugins/law-stub"],
 

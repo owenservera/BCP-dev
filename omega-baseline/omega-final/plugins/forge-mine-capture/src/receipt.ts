@@ -24,6 +24,26 @@
 // computes (`fixtures/mines/synthetic-v0/src/hashutil.py::root_hash`), byte for
 // byte. Agreeing with an INDEPENDENT implementation is the falsifier; a
 // formula this plugin invented and then agreed with itself would prove nothing.
+//
+// THE CAS ROW — where a casRef's BYTES live (D-409 SF2, decided by D-TEAM-023).
+// The address was always `cas:<hash>`, a pure function of content; SF2 was
+// left open so the storage decision would not be smuggled into the receipt by
+// accident. This is the half that closes it, and it is deliberately the
+// NARROWEST answer available: one governed row per DISTINCT casRef, in the SAME
+// ns `proposal` the receipt already writes (no new namespace — SF1 stays
+// un-retired, and the namespaces registry stays one row per namespace), keyed
+// BY the address itself, payload base64 of the NORMALISED bytes — the exact
+// bytes `fileHashAndBytes` hashed and counted, never the raw on-disk bytes.
+// That last clause is load-bearing, not cosmetic: on a CRLF checkout the raw
+// bytes do not re-hash to the receipt's hash, so storing them would make every
+// consumer's `hashBytes(decoded) === row.hash` check fail on every CRLF file
+// and present as a consumer bug.
+// DEFERRED ON PURPOSE, and recorded rather than solved: the incremental-hashing
+// budget. A re-capture of an unchanged mine still READS and re-hashes every
+// file (the walk is the evidence); only the WRITES dedupe, because the row id
+// is the content address and append is latest-wins per id. A path+mtime+size
+// cache is a separate decision with its own evidence — this record does not
+// pretend to have solved it.
 import { createHash } from "node:crypto";
 
 /** The op this plugin exists for (frozen wire — pack.builder FORGE_OP_CATALOG). */
@@ -36,6 +56,74 @@ export const FORGE_MINE_CAPTURE_PLUGIN_ID = "forge.mine.capture";
  *  unless retention differs — see the `proposal` row in docs/VAULT-NAMESPACES.md).
  *  Nothing here is authority: a capture receipt is a proposal record. */
 export const RECEIPT_NAMESPACE = "proposal";
+
+/** The CAS row-id family (D-409 SF2 as decided by D-TEAM-023): `cas:<hash>` —
+ *  the receipt's own `casRef`, used VERBATIM as the governed row id, so the
+ *  address a receipt cites IS the address the blob lives at. There is no second
+ *  naming scheme and therefore no way for the two to drift apart. */
+export const CAS_ROW_ID_PREFIX = "cas:";
+
+/** Strict base64 — the payload alphabet, declared rather than assumed, because
+ *  `Buffer.from(s, "base64")` is LENIENT (it silently skips characters outside
+ *  the alphabet), and a lenient decoder turns a corrupt row into a plausible
+ *  buffer instead of the named failure it is. */
+const BASE64_PATTERN = /^[A-Za-z0-9+/]*={0,2}$/;
+
+/** One CAS blob row: the governed carrier for the bytes a casRef addresses.
+ *  `bytes` is the length of the DECODED payload, which is the length of the
+ *  bytes the hash covers — never the base64 length. */
+export interface CasBlobRow {
+  schemaVersion: "1";
+  op: "forge.mine.capture@1";
+  casRef: string;             // `cas:<hash>` — the row id, unchanged
+  hash: string;               // `sha256:<hex>` over the DECODED payload
+  bytes: number;              // decoded length, in bytes
+  encoding: "base64";
+  data: string;               // the NORMALISED bytes, base64
+}
+
+/** Build the CAS row for one content address from the NORMALISED bytes — the
+ *  exact buffer `fileHashAndBytes` hashed. Passing raw on-disk bytes here
+ *  would produce a row whose payload does not re-hash to its own `hash`. */
+export function casBlobRow(casRef: string, hash: string, normalised: Uint8Array): CasBlobRow {
+  return {
+    schemaVersion: "1",
+    op: "forge.mine.capture@1",
+    casRef,
+    hash,
+    bytes: normalised.length,
+    encoding: "base64",
+    data: Buffer.from(normalised).toString("base64"),
+  };
+}
+
+/** Decode a stored row back to its bytes, or null when it is not a decodable
+ *  CAS blob. STRICT on both halves: the shape must be a CasBlobRow whose
+ *  `casRef`/`hash`/`bytes` agree with each other, and the payload must be
+ *  strict base64 that round-trips (which is what makes `bytes` checkable
+ *  without trusting the stored count). A ZERO-BYTE file is legal — the pinned
+ *  mine contains one, and its payload is the empty string, which is strict
+ *  base64 by every rule above — so emptiness is not treated as malformed.
+ *  Returns null rather than throwing so
+ *  every consumer can name the failure in its own vocabulary; the re-hash
+ *  against `hash` is the caller's check, never this function's — a payload that
+ *  decodes cleanly but hashes to something else is CORRUPTION, not shape. */
+export function decodeCasBlob(row: unknown): Buffer | null {
+  if (row === null || typeof row !== "object" || Array.isArray(row)) return null;
+  const r = row as Record<string, unknown>;
+  if (r["schemaVersion"] !== "1" || r["op"] !== "forge.mine.capture@1") return null;
+  if (r["encoding"] !== "base64") return null;
+  if (typeof r["data"] !== "string") return null;
+  if (r["data"].length % 4 !== 0 || !BASE64_PATTERN.test(r["data"])) return null;
+  const casRef = r["casRef"];
+  const hash = r["hash"];
+  if (typeof casRef !== "string" || casRef !== `${CAS_ROW_ID_PREFIX}${String(hash)}`) return null;
+  if (typeof hash !== "string" || !SHA256_PATTERN.test(hash)) return null;
+  const decoded = Buffer.from(r["data"], "base64");
+  if (decoded.toString("base64") !== r["data"]) return null; // lenient-decode damage
+  if (typeof r["bytes"] !== "number" || !Number.isInteger(r["bytes"]) || r["bytes"] !== decoded.length) return null;
+  return decoded;
+}
 
 /** sdk MINE_PATTERN, mirrored: a mine id is `<repo>@<sha>` with a 7-64 hex pin.
  *  Mirrored rather than imported so the compartment depends on nothing but the
@@ -123,10 +211,19 @@ export function hashBytes(bytes: Uint8Array): string {
   return `sha256:${createHash("sha256").update(bytes).digest("hex")}`;
 }
 
-/** The file hash: sha256 over the CRLF→LF-normalised bytes (the declared rule). */
-export function hashFileBytes(raw: Uint8Array): { hash: string; bytes: number } {
+/** The file hash: sha256 over the CRLF→LF-normalised bytes (the declared rule).
+ *  `fileHashAndBytes` is the same computation with the buffer returned; this
+ *  one exists so callers that need only the address never hold a file's bytes
+ *  in memory. THE HASH DOMAIN IS DECLARED ONCE — both go through
+ *  `fileHashAndBytes`, so the two can never disagree about it. */
+export function fileHashAndBytes(raw: Uint8Array): { hash: string; bytes: number; normalised: Buffer } {
   const normalised = normaliseTextBytes(raw);
-  return { hash: hashBytes(normalised), bytes: normalised.length };
+  return { hash: hashBytes(normalised), bytes: normalised.length, normalised };
+}
+
+export function hashFileBytes(raw: Uint8Array): { hash: string; bytes: number } {
+  const { hash, bytes } = fileHashAndBytes(raw);
+  return { hash, bytes };
 }
 
 /** The content address a receipt row cites for its file.
