@@ -42,7 +42,8 @@
 | D-TEAM-029 | **WS-5 corridor 3 ADOPTED and landed**; D-460 (SF2) RATIFIED | S2 |
 | D-TEAM-032 | **G-11 CLOSED** — `FORGE_READ_PURITY`: a READ-declared plugin importing a filesystem or process module now fails | S1 |
 | D-TEAM-033 | Watchdog reinstated by owner directive, keyed on failure state rather than a clock agenda | S1 |
-| D-TEAM-034 | Sharded-suite flakiness characterised as a RATE (~1 timing test per run, isolation-clean) and accepted, not chased file-by-file | S2 |
+| D-TEAM-034 | Sharded-suite flakiness characterised as a RATE (1-3 per run, all isolation-clean) and accepted, not chased file-by-file | S2 |
+| D-TEAM-036 | G-12 verified at the source: host ops bypass the law gate. A false comment claiming otherwise is corrected; the code is not, because host/src is frozen at 1500/1500 | S1 |
 
 ## Decisions
 
@@ -409,6 +410,18 @@
 - **Revisit if** two runs in a row fail the **same** test — that would be a real defect rather than load sensitivity.
 - **Rollback:** not applicable — this is a characterisation, not a change.
 - **Dissent:** none recorded.
+### D-TEAM-036 — G-12 verified at the source: host ops are structurally not law-gated (recorded, not fixed)
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** **The invariant is recorded and a false comment in the code is corrected. `host/src` is NOT changed**, because any change there costs a paired removal under D-365 and the wall is frozen at 1500/1500 with zero headroom. G-12 stays OPEN with a named condition for closing it.
+- **Reason.** G-12 was filed by an `omega-decide` falsifier and has now been **verified at the source rather than cited from a summary**. Two call paths reach `hostOp` before any law check: `ports.ts:270` (`compartmentCall`) returns immediately on `isHostOp`, and `:439` (`callAsRoot`) does the same — both ahead of `dispatch`, which is the only place `callLaw` is consulted (`:283`). A host op also has no manifest, so `opRisk` holds no entry for it and it would not be gated even if it reached `dispatch`. **A host op therefore receives no law decision, no consent and no journal entry.**
+- **The sharper find: a comment was standing in for a check.** The doc comment on `callAsRoot` read *"risky ops still pass the law gate"* — **which was false for host ops**, and had apparently been believed. It is corrected in place, LOC-neutrally, to state the bypass and cite this record. **A comment asserting a guarantee the code does not provide is worse than no comment**, because it converts an unexamined assumption into something the next reader will not check. This is the same class as the `omega-build` gate that reported green without executing.
+- **Evidence.** Read at the source, not cited from a subagent: `host/src/ports.ts:270` (compartmentCall), `:283` (`callLaw` inside `dispatch`, the only consultation point), `:437` (the false comment), `:439` (callAsRoot); `contracts/src/lifecycle.ts:10` (`HOST_OPS`, pure data, five capabilities). After the comment edit the gate still reports **`hostLoc: 1500`, `ok:true`, `failed:0`** — confirming the correction cost zero lines against the frozen wall, which is the only reason it was safe to make.
+- **Why not fixed now.** The remedy is one line — route host ops through `dispatch` — and it is genuinely not free: `host/src` sits at exactly 1500/1500, so D-365 requires an equal-or-greater removal **in the same commit**, and D-391 re-froze the number. A paired removal is a design decision with its own evidence, not a drive-by.
+- **Alternatives.** (i) Remove the bypass — costs a paired host removal. (ii) Leave it and rely on HOST_OPS never growing — unmechanised, which is the gap G-12 already names. (iii) **Chosen: record it and make it honest in the code**, so the next person who considers adding a host op reads the actual guarantee rather than a false one.
+- **Rollback:** one comment revert.
+- **Revisit if:** a host op is ever added, or a paired removal makes the routing fix affordable. **Adding a filesystem-capable host op before then would put the corpus's highest-risk act — reading a foreign tree — behind no law decision at all**, which is the objection the host-LOC argument was standing in for.
+- **Dissent:** none recorded. OWNER-INFORM — **this is a hole in the enforcement model, verified but deliberately left open**, with the cost named rather than the gap hidden.
+
 ## Historic owner-ratified entries (for continuity, not re-decided)
 
 - BQ-7/BQ-8 (2026-09-29): Steward owns reconciliation; the pass runs ahead of the dashboard — **owner-ratified**, kept.
