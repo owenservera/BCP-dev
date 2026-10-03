@@ -149,6 +149,42 @@ be re-run after any upgrade. (The upstream README anticipates this: native Windo
 symlink privilege.) This is the same machine limitation as the D-384 symlink `EPERM`, recorded
 once here rather than twice.
 
+### NOT wired into workflows — and it cannot be
+
+**The mesh and the saved workflows are two disjoint dispatch mechanisms, and no amount of
+configuration joins them.** Verified 2026-10-03 by grepping all nine `.dwf.ts` files and by reading
+the workflow facade:
+
+- **Zero** of the nine workflows reference `omzs`, or any role name. The only textual matches are a
+  local variable `const fixer = agent("gate-fixer", …)` in `omega-build.dwf.ts` and the phrase
+  "fixture designer" in `omega-fixture.dwf.ts` — both are workflow-local labels, not OMZS roles.
+- **The workflow facade has no `subagent_type` parameter.** `agent(name?, persona?)` creates a fresh
+  generic subagent with a persona; it cannot select from `.zcode/agents/*.md`. So a workflow script
+  **cannot** dispatch `explorer`, `oracle` or any other OMZS role, and an OMZS agent cannot be given
+  a workflow's typed result contract.
+
+**Consequence, stated so nobody re-derives it:** the Ω side owns durable, gated, receipted work; the
+OMZS side owns fast interactive dispatch; **the only bridge is me.** When OMZS output should become
+durable work, I carry it into `omega-build` / `omega-verify` as a task or a claim — the same rule as
+"an OMZS result is an input to a corridor, never a substitute." This is a genuine limitation of the
+substrate, not an oversight in the install, and it is **not** worth "fixing" by rewriting workflows
+to emulate the roles: the workflows already have their own personas tuned for their jobs.
+
+### A real gap: the mesh has never heard of Ω
+
+Not one of the nine agent files mentions `omega-*`, `omega:quick`, the board, or the corridor
+registry. An OMZS agent asked to do work in this repository would not know that:
+
+- `omega:quick` and `bun test` exist as gates, or that the suite must run serially (D-TEAM-021);
+- `host/` is frozen at 1500/1500 LOC with zero headroom, so work belongs in `plugins/`;
+- the durability rule above — that a result must pass `omega-verify` before it counts;
+- the Windows non-hanging command protocol in `AGENTS.md` (though they do inherit it, since
+  `AGENTS.md` is injected into every agent in this workspace).
+
+`AGENTS.md` covers the last one. The other three are not covered anywhere an OMZS agent reads.
+Recorded as gap **G-10**; the cheap fix is a short orientation block appended to each role's prompt,
+which is an upstream-repo change and therefore **not** something to do unilaterally.
+
 ## Roles and delegation grants
 
 | Role (saved workflow) | Responsibility | Workers it spawns (grant) | Write scope |

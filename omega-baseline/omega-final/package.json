@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "omega:setup": "bun install",
-    "omega:test": "bun test",
+    "omega:test": "bun test --max-concurrency 1 --timeout 60000",
     "omega:test:host": "bun test host tooling/gates",
     "omega:test:plugins": "bun test plugins packs",
     "omega:test:surfaces": "bun test surfaces sdk testkit",

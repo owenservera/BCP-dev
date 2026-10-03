@@ -2,7 +2,6 @@
 // A wave ends only when this is green (D-205 existence law).
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { cpus } from "node:os";
 import { parseStageFilter, renderFailureLine } from "./failures.ts";
 
 const ROOT = join(import.meta.dir, "../..");
@@ -309,7 +308,19 @@ try {
 // D-368 --quick: host-loc + decisions + compositions + bun-surface +
 // os-surface + import-surface only (no tests/attest/status write) for inner loop.
 const QUICK = process.argv.includes("--quick");
-const testMaxConc = Number(process.env.OMEGA_TEST_CONCURRENCY ?? Math.max(4, Math.min(20, cpus().length)));
+// D-TEAM-021 (2026-10-03): SERIAL IS THE DEFAULT, not an opt-in fallback. At Bun's
+// own default (`max(4, min(20, cpus))`) a full run on this machine ends in
+// `panic(thread): Stack overflow` / exit 3 after ~900 tests, RSS 8.86GB and 2.9M
+// page faults — a memory-exhaustion symptom, reproduced twice. At concurrency 1
+// the same suite completed in 326s: 1586 pass / 2 skip / 3 fail, no crash.
+// OMEGA_TEST_CONCURRENCY overrides this deliberately.
+// A `bunfig.toml [test] maxConcurrency` was tried FIRST AND DOES NOT WORK: that
+// key is not in Bun's bunfig schema and is silently ignored, as is any unknown
+// key. Nor can the env var below reach a bare `bun test` — it is read HERE, in
+// this file, and is inert anywhere else. The ONLY lever that reaches the runner
+// is the `--max-concurrency` flag passed at line 327, which is why package.json's
+// `omega:test` passes the flag explicitly rather than setting the variable.
+const testMaxConc = Number(process.env.OMEGA_TEST_CONCURRENCY ?? 1);
 const TEST_TIMEOUT_MS = "60000";
 if (QUICK) {
   const summary = { ok: failed === 0, failed, hostLoc, quick: true, at: gate.startedAt };

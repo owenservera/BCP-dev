@@ -42,6 +42,23 @@
 
 ## Disposition log (append-only, newest first)
 
+- **2026-10-03 (cont. 3 — SECOND client crash, root cause identified)** — **The full Ω suite
+  exhausts this machine's memory and takes the ZCode client down with it.** Measured, not inferred:
+  the run dies at ~900 of 1591 tests with **RSS 8.70 GB, commit 19.45 GB, 2,879,459 page faults on a
+  23.52 GB box**; Bun's own message is *"Bun has run out of memory."* That commit charge does not fit
+  alongside a live editor and agent session, which is why the client dies rather than merely the test
+  run.
+  **This is the second time.** The first was a different mistake — two concurrent runs — but both
+  end here, in memory pressure. **The corrected `omega:test` (`bun test --max-concurrency 1
+  --timeout 60000`) has deliberately NOT been run to completion**, because proving it costs another
+  ~5-minute 19 GB run that has already taken the machine down twice. Running it is the owner's call,
+  on their schedule, ideally not inside a live session.
+  **Standing rule for this workspace: never start a full-suite run unattended in a live session.**
+  Scoped runs (`bun test ./plugins/forge-mine/`, one area at a time) are fine — every one of those
+  was clean and cheap.
+
+
+
 - **2026-10-03 (cont. 2 — closure)** — **the HOLD above is discharged.** The four entries it
   covered (`plugins/forge-mine/`, `compositions/forge-mine.json`, `compositions/_matrix.json`,
   `tooling/gates/test/forge-surface.test.ts`) were verified, adopted by the team and committed in
