@@ -33,6 +33,17 @@ function rulesOf(r: { issues: Array<{ check: string }> }): string[] {
   return r.issues.map((i) => i.check);
 }
 
+/** Every module specifier a source actually imports. Class checks are about what
+ *  a compartment REACHES FOR, not which words appear in it — a comment saying
+ *  "there is no node:fs import here" names node:fs. */
+function importSpecifiers(src: string): string[] {
+  const spec: string[] = [];
+  for (const re of [/\bfrom\s*["']([^"']+)["']/g, /\bimport\s*\(?\s*["']([^"']+)["']/g, /\brequire\s*\(\s*["']([^"']+)["']/g]) {
+    for (const m of src.matchAll(re)) if (m[1]) spec.push(m[1]);
+  }
+  return spec;
+}
+
 describe("D5 — forge-surface on the REAL tree (all green)", () => {
   test("the loader actually sees the domain (guards against silent no-op)", () => {
     // D-409 split-plugin: the mine family is TWO plugin directories in TWO risk
@@ -42,7 +53,7 @@ describe("D5 — forge-surface on the REAL tree (all green)", () => {
     // declaring the other's ops.
     expect(real.forgePlugins.map((p) => p.manifest.id)).toEqual(["forge.author", "forge.mine", "forge.mine.capture"]);
     const contributions = forgeRecord("forge.mine.capture").manifest.contributions?.contract ?? [];
-    expect(contributions.map((c) => `${c.id}@${c.version}`)).toEqual(["forge.mine.capture@1"]);
+    expect(contributions.map((c) => `${c.id}@${c.version}`).sort()).toEqual(["forge.mine.capture@1"]);
     expect([...new Set(contributions.map((c) => c.risk))]).toEqual(["EXTERNAL_MUTATION"]); // one class per plugin
     for (const sibling of ["forge.mine.verify", "forge.mine.diff", "forge.mine.list"]) {
       expect(contributions.some((c) => c.id === sibling)).toBe(false); // the READ half is forge-mine's
@@ -50,15 +61,26 @@ describe("D5 — forge-surface on the REAL tree (all green)", () => {
     // ...and the READ half, which is the other side of the same split.
     const mine = forgeRecord("forge.mine");
     const readOps = mine.manifest.contributions?.contract ?? [];
-    expect(readOps.map((c) => `${c.id}@${c.version}`)).toEqual(["forge.mine.diff@1", "forge.mine.list@1", "forge.mine.verify@1"]);
+    // Sorted on both sides: the claim is WHICH three ops this half declares, not
+    // the order the manifest happens to list them in. The manifest declares
+    // verify, diff, list (the order the ops are documented); asserting an
+    // alphabetical order made a correct manifest fail a correct test.
+    expect(readOps.map((c) => `${c.id}@${c.version}`).sort()).toEqual(["forge.mine.diff@1", "forge.mine.list@1", "forge.mine.verify@1"]);
     expect([...new Set(readOps.map((c) => c.risk))]).toEqual(["READ"]);
     expect(readOps.some((c) => c.id === "forge.mine.capture")).toBe(false);
     // READ class = no filesystem-mutation capability, and nothing that could
     // reach one: the only ports it asks for are the two read-only vault reads.
     expect(mine.manifest.capabilities.requested).toEqual(["port:vault.get@1", "port:vault.query@1"]);
     const mineSrc = Object.values(mine.sourceText).join("\n");
-    expect(mineSrc).not.toContain("node:fs");
-    expect(mineSrc).not.toContain("forge-mine-capture"); // no cross-plugin source import — the receipt arrives via the ledger
+    // Import specifiers, not raw text. This file's own comment says "There is no
+    // `node:fs` import in this compartment" — and a substring search over raw
+    // source cannot tell that sentence from the import it denies, so the check
+    // fired on the very prose that states the rule. Same defect the plugin's own
+    // suite had; fixed in both places.
+    const mineImports = importSpecifiers(mineSrc);
+    expect(mineImports.filter((s) => s === "node:fs" || s === "node:fs/promises")).toEqual([]);
+    // no cross-plugin source import — the receipt arrives via the ledger
+    expect(mineImports.filter((s) => s.includes("forge-mine-capture"))).toEqual([]);
     expect(real.compositions.some((c) => c.name === "forge-author")).toBe(true);
     expect(real.compositions.some((c) => c.name === "forge-mine-capture")).toBe(true);
     expect(real.compositions.some((c) => c.name === "forge-mine")).toBe(true);
