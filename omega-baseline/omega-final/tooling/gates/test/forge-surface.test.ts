@@ -27,8 +27,21 @@ function rulesOf(r: { issues: Array<{ check: string }> }): string[] {
 
 describe("D5 — forge-surface on the REAL tree (all green)", () => {
   test("the loader actually sees the domain (guards against silent no-op)", () => {
-    expect(real.forgePlugins.map((p) => p.manifest.id)).toEqual(["forge.author"]);
+    // D-409 split-plugin: the mine family is TWO plugin directories in TWO risk
+    // classes, and the READ siblings belong to forge-mine (whose lane is not
+    // this one, so it carries no forge-* directory yet). Naming the capture
+    // plugin's single EXTERNAL_MUTATION contribution here makes the split
+    // mechanically visible on the real tree, not just in prose.
+    expect(real.forgePlugins.map((p) => p.manifest.id)).toEqual(["forge.author", "forge.mine.capture"]);
+    const capture = real.forgePlugins.find((p) => p.manifest.id === "forge.mine.capture")!;
+    const contributions = capture.manifest.contributions?.contract ?? [];
+    expect(contributions.map((c) => `${c.id}@${c.version}`)).toEqual(["forge.mine.capture@1"]);
+    expect([...new Set(contributions.map((c) => c.risk))]).toEqual(["EXTERNAL_MUTATION"]); // one class per plugin
+    for (const sibling of ["forge.mine.verify", "forge.mine.diff", "forge.mine.list"]) {
+      expect(contributions.some((c) => c.id === sibling)).toBe(false); // the READ half is forge-mine's
+    }
     expect(real.compositions.some((c) => c.name === "forge-author")).toBe(true);
+    expect(real.compositions.some((c) => c.name === "forge-mine-capture")).toBe(true);
     expect(real.compositions.length).toBeGreaterThanOrEqual(18);
     expect(Object.keys(real.catalog).length).toBe(24);
     expect(real.packFixtureValidation.length).toBe(14); // 7 valid + 7 invalid, each pinned to its sin

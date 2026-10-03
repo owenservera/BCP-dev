@@ -16,10 +16,10 @@
     "ratified": 163,
     "proposed": 2,
     "records": 139,
-    "testFiles": 151,
+    "testFiles": 153,
     "gateStages": 15,
-    "plugins": 27,
-    "compositions": 19
+    "plugins": 28,
+    "compositions": 20
   },
   "layers": [
     {
@@ -1988,6 +1988,8 @@
       "plugins\\discovery-verification\\test\\verify.test.ts",
       "plugins\\forge-author\\test\\happy\\self-host.test.ts",
       "plugins\\forge-author\\test\\refusal\\init-refusals.test.ts",
+      "plugins\\forge-mine-capture\\test\\happy\\capture.test.ts",
+      "plugins\\forge-mine-capture\\test\\refusal\\capture-refusals.test.ts",
       "plugins\\parser-claude-sse-v2\\test\\differential.test.ts",
       "plugins\\parser-claude-sse-v2\\test\\parsers.test.ts",
       "plugins\\parser-claude-sse\\test\\parsers.test.ts",

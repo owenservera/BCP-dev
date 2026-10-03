@@ -1448,6 +1448,72 @@
         }
       ]
     },
+    "forge-mine-capture": {
+      "note": "OMEGA FORGE Wave 1 builder composition (D-409 split-plugin, D-417 §5 lane 1) — the capture seam boot: vivim.law (phase 0, gate + journal + the consent ceremony), vivim.vault (the proposal ledger the receipt lands in), and forge.mine.capture loaded AS A PLUGIN with forge.mine.capture@1 routed normally. The op is EXTERNAL_MUTATION (pack.builder FORGE_OP_CATALOG), so the host gates it through law.check@1 BEFORE the handler ever runs: the EXTERNAL_MUTATION class default is require-consent, so a caller performs the consent ceremony (law.consent.grant@1) and only then is the foreign tree read at all. The op READS the declared mine root and never writes it; its single mutation is the append-only receipt row in vault ns proposal (D-409 SF1), read back byte-identical before the receipt is returned. The READ siblings (forge.mine.verify/diff/list@1) are NOT routed here — they are the separate forge-mine plugin (D-409, one risk class per plugin). This is a builder composition: no product composition may route forge.* ops (FORGE_IN_PRODUCT).",
+      "entries": [
+        {
+          "id": "vivim.law",
+          "source": "../plugins/vivim-law",
+          "bootPhase": 0,
+          "grant": {
+            "capabilities": [
+              "port:host.journal.append@1",
+              "host.journal.append",
+              "port:host.tokens.revoke@1",
+              "host.tokens.revoke"
+            ],
+            "contracts": [
+              "law.check@1",
+              "law.registry@1",
+              "law.consent.grant@1",
+              "law.tokens.revoke@1",
+              "law.forbidden.set@1",
+              "law.amendment@1",
+              "law.describe@1"
+            ]
+          },
+          "config": {
+            "journalPath": ""
+          }
+        },
+        {
+          "id": "vivim.vault",
+          "source": "../plugins/vivim-vault",
+          "bootPhase": 1,
+          "grant": {
+            "capabilities": [],
+            "contracts": [
+              "vault.append@1",
+              "vault.get@1",
+              "vault.getmany@1",
+              "vault.query@1",
+              "vault.search@1",
+              "vault.verify@1",
+              "vault.compact@1",
+              "vault.roundtrip@1"
+            ]
+          },
+          "config": {
+            "dataDir": "${TMP}/omega-forge-mine-capture/vault-data"
+          }
+        },
+        {
+          "id": "forge.mine.capture",
+          "source": "../plugins/forge-mine-capture",
+          "bootPhase": 1,
+          "grant": {
+            "capabilities": [
+              "port:vault.append@1",
+              "port:vault.get@1",
+              "port:law.check@1"
+            ],
+            "contracts": [
+              "forge.mine.capture@1"
+            ]
+          }
+        }
+      ]
+    },
     "kernel": {
       "note": "D-340/D-391 kernel composition: the genesis-kernel witness rig. Law + echo + counter ride the demo grant shapes (no new drift fingerprints); vivim.kernel-lens is phase-2 dormant (D-331) so lens ops (kernel.centrality@1, kernel.audit.verify@1) spawn on first touch through generation-aware resolution — the same path the ghost pressure suite exercises.",
       "entries": [
