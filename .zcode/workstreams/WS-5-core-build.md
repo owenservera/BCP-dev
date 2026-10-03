@@ -45,7 +45,42 @@ Run `forge.mine.capture@1` against the already-pinned `fixtures/mines/synthetic-
 (`MANIFEST.json`, `fileCount: 42`, rootHash `a8a75d8e…`) and land a capture **receipt**. This
 is the artifact the next lane is waiting on, it needs zero `host/src` LOC against the frozen
 1500/1500 wall, and it is deterministic — the fixture is pinned, so the result is checkable
-rather than a matter of taste.
+rather than a matter of taste. **LANDED** — `16f95419` + `b37dec84`, receipt verified.
+
+### Second corridor (the READ siblings) — LANDED
+
+`forge-mine` implementing `forge.mine.verify@1`, `forge.mine.diff@1`, `forge.mine.list@1`.
+Built by an unattributed writer that stopped mid-flight and never returned; adopted by the team
+and landed under **D-TEAM-020** (`5475a57b` + `766b6d92`). Zero `host/src` LOC, as the lane
+requires. 62 plugin tests green and mutation-tested; `omega:quick` green at `hostLoc 1500`.
+
+### The next thing is a DECISION, not a corridor: D-409 sub-fork SF2
+
+**Wave 1 is now structurally complete** — the EXTERNAL_MUTATION seam exists and its three READ
+consumers exist, which is the pairing D-409 decided. The next lane in the corpus's own order is
+the Wave 1+ build-out, and its **first** plugin, `forge-survey`
+(`forge.survey.run@1` / `forge.survey.render@1`), **cannot be written yet**:
+
+> `forge.survey.run@1` needs a way to read a pinned mine's bytes, and D-409:30 explicitly left
+> that sub-fork **open**: *"SF2 snapshot bytes (CAS blobs vs rows; incremental hashing budget) …
+> lands with its own evidence in the implementing records, post-core."*
+
+All three available resolutions collide with a frozen rule, which is why this is a decision and
+not a task:
+
+| Option | Collides with |
+|---|---|
+| capture emits inventory rows instead of hashes | `FORGE_CONTRACT_DRIFT` — the op catalog is frozen (`packs/builder/contract/forge-ops.md:25`) |
+| add a filesystem port for survey | `host/src` LOC — the budget is frozen at 1500/1500 with zero headroom (D-391) |
+| survey re-walks the disk itself | `FORGE_CLASS_SPAN` — one risk class per plugin directory; this would put the system's highest-risk act inside a READ op the host never gates |
+
+**Recorded as gap G-03 / task T-19. Panel: CEO-01 (sequence) + GOVERNOR-01 (frozen-rule
+collision), S2.** Whoever picks this must open the cited paths and falsify the collision claims
+before deciding — per D-TEAM-015, verify the citations, do not re-derive the corpus.
+
+Note the corpus is silent on the ranking *within* the six Wave 1+ forge lanes (D-417:38 — each
+"can open in any order the program schedules"), so ordering among the other five is the same
+kind of unranked choice the first lane was.
 
 ## Exit criteria
 
