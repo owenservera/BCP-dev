@@ -147,7 +147,12 @@ describe("F-DOCTRUTH.6 (seed-continuity)", () => {
     // rule-by-rule, file-by-file identical (absorption = dependency, verdicts unchanged)
     const own = docscanOwn.findings.map((f) => `${f.rule}|${f.file}|${f.line}|${f.msg}`).sort();
     const absorbed = internal.map((i) => {
-      const m = /^(.*?)\.md:(\d+) (.*)$/.exec(i.detail);
+      // the absorbed detail is `${f.file}:${f.line} ${f.msg}` — the file is the WHOLE
+      // repo-relative path, extension included. The old `\.md:` here treated the
+      // `.md` as a separator to be dropped, so every row lost its extension and
+      // could never equal docscan's own `f.file`. Split on the LAST `:line ` the
+      // producer writes: a repo-relative path carries no colon of its own.
+      const m = /^(.*):(\d+) (.*)$/.exec(i.detail);
       const file = m !== null ? m[1]! : i.docPath;
       const line = m !== null ? Number(m[2]) : 0;
       const msg = m !== null ? m[3]! : i.detail;

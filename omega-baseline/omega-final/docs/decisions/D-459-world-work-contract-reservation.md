@@ -65,3 +65,33 @@ with their own wave and falsifier (still the owner's call while TBD).
 summary: The world.ts/work.ts contract exports landed 2026-09-25 (d0ebea0a, ce33ab45) as wire vocabulary ahead of their consumers; the D-332 net correctly flags them. Reserve them loudly per the D-373/D-389 precedent; consumers land with their own wave and falsifier.
 rationale: Wiring 29 exports now would mean fabricating consumers before the lanes that need them are sequenced (BACKLOG.md lanes are open, unranked per BQ-9); deleting them would discard the durable-Work lane's landed contracts. Loud reservation matches the D-373 storage.kv and D-389 plan-template precedent: names committed, writers arrive with their own wave.
 class: directive
+
+## Annotation 2026-10-03 (corridor repair — the D-426 named-falsifier form; D-TEAM-011)
+
+Additive note. No decision, status, option, or index row above is changed by it.
+
+The Evidence clause above names a real and runnable falsifier, but writes it in prose, so
+it carries no `F-*` id and the gov validator raised the named-falsifier finding against
+this record (F-GOV-CI.7). **The checker was right, not wrong.** D-426's named-falsifier
+convention governs every record from D-426 on (grandfathered below it, per the validator's
+own era constant); D-457's `F-COMMONS-PRINCIPAL.1` and D-458's `F-TOOLING-UI.1` are the
+form, and both pass. The gap is this record's naming, not the validator's expectation, so
+the repair is the record's — closed by giving the clause already written its id:
+
+- `F-WORLD-WORK-RESERVATION.1` (a reservation goes stale the day its export gains a
+  caller) — if any name in this record's reservation set gains a real tree-wide call
+  site, this record is falsified: that name's reservation entry is wrong and must be
+  removed. The check is the one the Evidence clause above already names, run through the
+  compositions stage: `bun run tooling/gates/contract-sites.ts` reports a reserved name
+  only while it is still zero-hit. This is the D-373/D-389 reservation posture stated as
+  a condition that can fail.
+
+Honest scope note, so the id is not read as more than it is: like the passing
+`F-COMMONS-PRINCIPAL.*` and `F-TOOLING-UI.*` ids, this is a named falsifier condition,
+not a registered test case — no suite under `tooling/gates/test/` carries this id. The
+mechanism it names is mechanical and already runs on every gate pass.
+
+Per D-TEAM-011 this is a dated annotation, never a rewrite: every line of the original
+record above is preserved verbatim, and a later dated note supersedes this one. Per D-364
+the falsifier was already named before ratification; it now also carries the id the
+generated era requires.
