@@ -91,6 +91,7 @@ const porcelain = git(["status", "--porcelain"]).split("\n").filter(Boolean);
 const governance = runCheck("governance-check.ts");
 const dispatch = runCheck("dispatch-queue.ts");
 const ledger = runCheck("ledger-check.ts");
+const resume = runCheck("resume-check.ts");
 const openCorridors = (governance.json?.openCorridors as string[] | undefined) ?? [];
 
 const unattributed = porcelain.filter((line) => {
@@ -170,6 +171,10 @@ const report = {
   problems,
   governance: { ok: governance.json?.ok, workflows: governance.json?.workflows },
   ledger: { ok: ledger.json?.ok, entries: ledger.json?.entries },
+  // Reported, never failed here: resume-check describes an interrupted state for whoever picks
+  // the work up, and a live session is by definition mid-something. Its HIGH findings are its
+  // own exit code; folding them into this one would report a clean session as broken.
+  resume: { ok: resume.json?.ok, recoveries: (resume.json?.recoveries as { check: string }[] | undefined)?.length ?? 0 },
   dispatch: {
     dispatchable: dispatch.json?.dispatchable,
     blocked: dispatch.json?.blocked,
