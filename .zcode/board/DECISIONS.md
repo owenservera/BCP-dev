@@ -366,6 +366,49 @@
 - **Rollback:** one revert. D-460 returns to PROPOSED.
 - **Dissent:** none. OWNER-INFORM — this lands a plugin on the team's own verification after its corridor died, and **the corridor is not being credited with the gates it never got to report**.
 
+### D-TEAM-027 — The decision ledger is checked, and the check caught five of its own gaps
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** `.zcode/checks/ledger-check.ts` verifies that every `### D-TEAM-NNN` entry carries Severity, Status, Decision, Reason, Evidence and Rollback, and that every entry appears in the owner-override index. The six entries it found incomplete were repaired. It is wired into `check:all`.
+- **Reason.** `DECISIONS.md` is load-bearing authority — D-TEAM-014 decides what may be deleted, D-TEAM-021 how the suite runs, D-TEAM-023 which lane the build is on — and nothing verified its entries carried the fields its own format demands.
+- **Evidence.** First run: **26 entries, 6 incomplete — and four of them were written earlier the same day by me** (D-TEAM-023/024/025/026, each missing Reason and/or Evidence). The reason is the one this repository keeps rediscovering: the field felt redundant because the decision "obviously" had one, and a document that is authority is exactly where that is least affordable.
+- **Repair method.** All six were fixed by **relabelling prose that already carried the content**, never by inventing lineage: "Why the resolution is free" became a labelled Reason; the measured full-suite table became a labelled Evidence. D-TEAM-005 and D-TEAM-006 gained a Rollback each — for 005, *"sequence WS-3 behind WS-1; nothing to revert in code, the decision is only about ordering."*
+- **Two bugs in the check itself, caught by running it.** The entry split lacked the multiline flag and matched nothing; the field matcher looked for `**Severity**` when entries write `**Severity:**`. A probe asserting the **whole ledger** was broken turned out to be wrong about twenty entries — the real answer was 6 of 26, four of them mine.
+- **Rollback:** delete the script and its `check:all` wiring.
+- **Dissent:** none recorded.
+
+### D-TEAM-028 — The sharded runner's unbounded stdout killed a corridor at the gate
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** `sharded-test.ts` passes `--failures-only`, re-emits only the failing lines, and hard-caps that detail at 60 KB. Six timing-asserting files run exclusively. Measured: **stdout 348,912 → 994 bytes.**
+- **Reason.** `dwfrun-6b5f7d53` ran 1h31m — plan, three rounds of review, full implementation — then errored at the gate: `stdout is 348912 bytes, over the 262144-byte cap`. `world.run` rejects stdout over 256 KB; the runner printed every test's output. **The work was correct and the mechanism that measured it was mine.**
+- **Evidence.** The 90× reduction came from not printing what nobody reads: `gate.ts` consumes pass/fail counts and failing test *names*. The original `(fail) … [123.45ms]` lines are re-emitted rather than reconstructed, because `gate.ts`'s fallback regex requires the timing suffix. Six files moved to serial **for honesty, not speed** — at width 4 the suite reported 8 failures of which 5 were load artefacts (`p99 < 5ms`, `< 2ms`, `intervalMs 100 fires on schedule`, the 200-append cap refusal, 100 torn appends), each passing in isolation. **A wall-clock assertion measured while three shards compete for cores is not a test of the code**, and a gate that cries wolf is worse than a slow one.
+- **Honest consequence.** D-TEAM-024's earlier "326 s → ~249 s" figure predates the serialisation and is larger in reality.
+- **Rollback:** drop the flag, restore the dump, empty the list.
+- **Dissent:** none recorded. OWNER-INFORM — **the regression was introduced by the session that shipped the speedup and was caught by a corridor rather than by me.** A change verified on the command line was never verified through the path that uses it.
+
+### D-TEAM-032 — `FORGE_READ_PURITY`: closing G-11, the hole two falsifiers proved by execution
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** A new `forge-surface` check fails a plugin whose declared contract contributions are all `READ` when its source imports `node:fs`, `node:fs/promises` or `node:child_process`. **`node:crypto` is deliberately allowed.**
+- **Reason.** D-409's criterion C1 is "declared class = actual capability envelope", and `FORGE_CLASS_SPAN` reads only the manifest — so nothing checked the second half. Two independent `omega-decide` falsifiers proved the hole by **execution**: each injected a READ-declared survey plugin importing `node:fs` and walking the mine root, and the real `checkForgeSurface` returned **zero issues**.
+- **Evidence.** Five fixtures: RED `node:fs` fires; RED `node:child_process` fires; GREEN `node:crypto` allowed; GREEN a non-READ plugin importing `node:fs` is **not** flagged (the capture seam owns the filesystem and must keep being able to); GREEN **a comment naming `node:fs` does not fire** — the recurring defect here, since the check matches import *specifiers*, not raw text. `forge-surface.test.ts` 19 pass / 0 fail; `omega:quick` green; the real tree passes, so `forge-survey`'s no-filesystem discipline is now **enforced** rather than asserted.
+- **Rollback:** remove the block and the D6 describe.
+- **Dissent:** none recorded.
+
+### D-TEAM-033 — The watchdog is reinstated, keyed on failure state rather than a clock agenda
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03) · **owner directive** ("put yourself in watchdog status")
+- **Decision:** `automation-0350dee2` runs every 30 minutes and repairs exactly three states: a provider-stopped run (D-TEAM-013 ladder), a run errored on a defect since fixed, and a corridor row left OPEN by a run that died. It is **forbidden from dispatching a build corridor** and **from adopting unattributed work**.
+- **Reason.** This amends D-TEAM-026 rather than silently contradicting it. What was wrong with the old automation set was never the clock — it was that they ran when nobody was watching and nobody was watching them. The new one runs on the same clock but is keyed on **state**, and its first live cycle correctly declined to resume the two errored `forge-survey` runs: their work is already landed under D-TEAM-029, so the named recovery would have rebuilt work that exists.
+- **Evidence.** First cycle: `resume-check` reported `UNATTRIBUTED_WORK` on two files with no registered corridor; the watchdog reported the file list and **stopped**, per the rule that adoption is a team decision (D-TEAM-020), not a watchdog's.
+- **Rollback:** delete the automation.
+- **Dissent:** none recorded.
+
+### D-TEAM-034 — Sharded-suite flakiness is a rate, not a set of bugs — and the rate is worse than first recorded
+- **Severity:** S2 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** Accepted as headroom. Not chased file-by-file.
+- **Reason.** Two consecutive full runs each reported a **different** timing-sensitive failure (D-325 reboot-durability, then D-329 pool burst accounting), both passing in isolation *and* in their own shard (measured 4/4, 9/9, and the `surfaces` shard 70/0). Adding files to the serial list one at a time is per-file whack-a-mole — the thing this ledger keeps warning about.
+- **Evidence, CORRECTED UPWARD.** I first recorded "roughly one per run" from two samples. A later run showed **three** extras (`harvest` vault round-trip, `d416-evidence-store` dangling rig, `exec` rollback), all passing **36/36 together in isolation with the change present** — so load sensitivity, not a regression. **The observed rate is 1–3 per run out of ~1675, and the invariant that actually holds is narrower and worth more: no observed failure has ever reproduced in isolation.** Writing a flattering number because two samples agreed would be the exact defect this ledger keeps recording.
+- **Revisit if** two runs in a row fail the **same** test — that would be a real defect rather than load sensitivity.
+- **Rollback:** not applicable — this is a characterisation, not a change.
+- **Dissent:** none recorded.
 ## Historic owner-ratified entries (for continuity, not re-decided)
 
 - BQ-7/BQ-8 (2026-09-29): Steward owns reconciliation; the pass runs ahead of the dashboard — **owner-ratified**, kept.

@@ -150,6 +150,8 @@ if (ledger.code !== 0) {
   for (const g of gaps) problems.push(`${g.entry} is missing ${g.missing.join(", ")}`);
   const un = (ledger.json?.unregistered as string[] | undefined) ?? [];
   for (const id of un) problems.push(`${id} has no row in the ledger's index table`);
+  const noEntry = (ledger.json?.rowsWithoutEntry as string[] | undefined) ?? [];
+  for (const id of noEntry) problems.push(`${id} is in the ledger index table with NO entry body — a summary is not a decision`);
   if (gaps.length === 0 && un.length === 0) problems.push("ledger-check failed without reporting an issue");
 }
 if (openCorridors.length === 0 && unattributed.length > 0) {

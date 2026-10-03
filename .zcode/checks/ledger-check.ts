@@ -53,28 +53,35 @@ for (const body of entries) {
   if (missing.length > 0) gaps.push({ entry: id, missing });
 }
 
-// The index table at the top must also carry every entry, or the ledger has a record the
+// The index table at the top must carry every entry, or the ledger has a record the
 // owner-override register does not know about.
+//
+// AND THE OTHER DIRECTION. This check shipped checking only entry→index, and five decisions
+// (D-TEAM-027/028/032/033/034) accumulated as one-line INDEX ROWS with no entry body at all —
+// a summary in the register and nothing in the ledger. The entries were written afterwards by
+// hand. A one-directional check passes happily on exactly the failure it cannot see, which is
+// this project's most repeated shape; it is caught here in both directions.
 const registered = new Set(
   [...text.matchAll(/^\| (D-TEAM-\d+) \|/gm)].map((m) => m[1]),
 );
-const unregistered = entries
-  .map((b) => `D-TEAM-${/^\d+/.exec(b)?.[0] ?? "?"}`)
-  .filter((id) => !registered.has(id));
+const ids = entries.map((b) => `D-TEAM-${/^\d+/.exec(b)?.[0] ?? "?"}`);
+const unregistered = ids.filter((id) => !registered.has(id));
+const rowsWithoutEntry = [...registered].filter((id) => !ids.includes(id));
 
 const report = {
-  ok: gaps.length === 0 && unregistered.length === 0,
+  ok: gaps.length === 0 && unregistered.length === 0 && rowsWithoutEntry.length === 0,
   entries: entries.length,
   registered: registered.size,
   gaps,
   unregistered,
+  rowsWithoutEntry,
 };
 
 console.log(JSON.stringify(report, null, 2));
 console.error(
   report.ok
     ? `ledger-check: ${entries.length} decision entries, all carrying the required fields and all indexed.`
-    : `ledger-check: ${gaps.length} entr(ies) missing required field(s); ${unregistered.length} not in the index table.`,
+    : `ledger-check: ${gaps.length} entr(ies) missing required field(s); ${unregistered.length} not indexed; ${rowsWithoutEntry.length} index row(s) with no entry.`,
 );
 
 process.exit(report.ok ? 0 : 1);
