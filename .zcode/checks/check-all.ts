@@ -90,6 +90,7 @@ const porcelain = git(["status", "--porcelain"]).split("\n").filter(Boolean);
 
 const governance = runCheck("governance-check.ts");
 const dispatch = runCheck("dispatch-queue.ts");
+const ledger = runCheck("ledger-check.ts");
 const openCorridors = (governance.json?.openCorridors as string[] | undefined) ?? [];
 
 const unattributed = porcelain.filter((line) => {
@@ -143,6 +144,13 @@ if (governance.code !== 0) {
   for (const i of issues) problems.push(`${i.check}: ${i.what}`);
   if (issues.length === 0) problems.push("governance-check failed without reporting an issue");
 }
+if (ledger.code !== 0) {
+  const gaps = (ledger.json?.gaps as { entry: string; missing: string[] }[] | undefined) ?? [];
+  for (const g of gaps) problems.push(`${g.entry} is missing ${g.missing.join(", ")}`);
+  const un = (ledger.json?.unregistered as string[] | undefined) ?? [];
+  for (const id of un) problems.push(`${id} has no row in the ledger's index table`);
+  if (gaps.length === 0 && un.length === 0) problems.push("ledger-check failed without reporting an issue");
+}
 if (openCorridors.length === 0 && unattributed.length > 0) {
   // Nothing is registered as writing, so nothing explains a dirty tree.
   problems.push(
@@ -161,6 +169,7 @@ const report = {
   ok: problems.length === 0,
   problems,
   governance: { ok: governance.json?.ok, workflows: governance.json?.workflows },
+  ledger: { ok: ledger.json?.ok, entries: ledger.json?.entries },
   dispatch: {
     dispatchable: dispatch.json?.dispatchable,
     blocked: dispatch.json?.blocked,
