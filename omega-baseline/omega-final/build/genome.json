@@ -13,8 +13,8 @@
     "ratifiedUnimplemented": 0,
     "queued": 0,
     "decisions": 166,
-    "ratified": 163,
-    "proposed": 3,
+    "ratified": 164,
+    "proposed": 2,
     "records": 140,
     "testFiles": 157,
     "gateStages": 15,
@@ -1637,7 +1637,7 @@
     },
     {
       "n": 460,
-      "status": "PROPOSED",
+      "status": "RATIFIED",
       "file": "docs/decisions/D-460-cas-blocks-in-the-proposal-ledger.md"
     }
   ],

@@ -2,7 +2,7 @@
 
 ## Status
 
-PROPOSED
+RATIFIED
 
 ## Context
 
@@ -97,6 +97,12 @@ naming scheme to drift, no new namespace to own, and no frozen rule to amend.
 
 ## Evidence
 
+- **Landing commit** — `a73eb44b`. Verified by the team directly, not inherited from the
+  corridor that implemented it: `omega:quick` exit 0 `ok:true failed:0 hostLoc:1500` across
+  twelve stages, and the full sharded suite at 1671 pass / 2 skip / 2 fail — the two
+  failures being the declared Windows environment limits (symlink EPERM without
+  SeCreateSymbolicLinkPrivilege; the `python3` Store alias `Bun.spawn` cannot resolve).
+  `git status host/` empty: zero host/src LOC, D-391 never reopened.
 - **F-CAS** — the falsifier: capture, then read every `cas:` row back and assert each
   decoded blob re-hashes to the receipt row's hash, its length matches, and its
   bytes equal the mine's own CRLF→LF-normalised bytes, including the CRLF files,
