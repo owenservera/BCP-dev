@@ -327,16 +327,38 @@ if (QUICK) {
   console.log(JSON.stringify(summary, null, 2));
   process.exit(failed === 0 ? 0 : 1);
 }
-const tests = await sh(["bun", "test", "--max-concurrency", String(testMaxConc), "--timeout", TEST_TIMEOUT_MS, ...(TARGETED ? STAGE_FILTER : [])]);
-const passMatch = tests.out.match(/^\s*(\d+) pass/m);
-const failMatch = tests.out.match(/^\s*(\d+) fail/m);
-const testPass = parseInt(passMatch?.[1] ?? "0");
-const testFail = parseInt(failMatch?.[1] ?? "0");
+// D-TEAM-024 (2026-10-03): the full run is SHARDED across short-lived processes, and
+// `--max-concurrency` no longer controls it — because that flag was measured to do nothing
+// at all. On four slow files: one process at `--max-concurrency 4` took 39.7 s, at
+// `--max-concurrency 1` took 39.6 s, and four SEPARATE processes took 18.8 s. The runner was
+// always sequential, which also means D-TEAM-021's serial default was buying nothing: the
+// suite's real problem was ONE long-lived process accumulating until it OOM'd, not too many
+// workers. Splitting it bounds each process and runs them in parallel — measured full run
+// 326 s / fatal 19.45 GB commit  ->  184 s / 8.1 GB peak, no crash.
+// D-TEAM-021's annotation above is preserved rather than rewritten, per D-TEAM-011.
+// A TARGETED run keeps the old path: it is a handful of files by definition, and the
+// sharded runner discovers files itself rather than taking a list.
+const tests = TARGETED
+  ? await sh(["bun", "test", "--max-concurrency", String(testMaxConc), "--timeout", TEST_TIMEOUT_MS, ...STAGE_FILTER])
+  : await sh(["bun", "run", "tooling/gates/sharded-test.ts"]);
+// The sharded runner's trailing JSON is authoritative — its own per-shard counts, not a
+// regex over concatenated output (which would sum the wrong line when a shard crashed).
+const shardSummary = (() => {
+  const start = tests.out.lastIndexOf("\n{\n");
+  if (start === -1) return null;
+  try { return JSON.parse(tests.out.slice(start + 1)); } catch { return null; }
+})();
+const testPass = shardSummary?.pass ?? parseInt(tests.out.match(/^\s*(\d+) pass/m)?.[1] ?? "0");
+const testFail = shardSummary?.fail ?? parseInt(tests.out.match(/^\s*(\d+) fail/m)?.[1] ?? "0");
 // failing test names (ANSI-stripped) straight into the gate record — no more
 // mystery single-fail runs; the names are what the next action needs.
-const failingTests = [...tests.out.replace(/\x1b\[[0-9;]*m/g, "").matchAll(/\(fail\) (.+?) \[\d[\d.,]*m?s\]/g)]
+const failingTests = shardSummary?.failingTests ?? [...tests.out.replace(/\x1b\[[0-9;]*m/g, "").matchAll(/\(fail\) (.+?) \[\d[\d.,]*m?s\]/g)]
   .map((m) => m[1].trim().slice(0, 160));
-if (tests.code === 0 && testFail === 0) pass("tests", TARGETED ? { pass: testPass, fail: testFail, maxConcurrency: testMaxConc, targeted: STAGE_FILTER } : { pass: testPass, fail: testFail, maxConcurrency: testMaxConc });
+// A shard that died without a verdict means those tests never ran. That is NOT "a few
+// failures" — it must never be reported as a pass count that looks complete.
+if (shardSummary?.INCOMPLETE) fail("tests", `INCOMPLETE — ${shardSummary.INCOMPLETE}: ${JSON.stringify(shardSummary.crashedShards)}`);
+else if (tests.code === 0 && testFail === 0)
+  pass("tests", TARGETED ? { pass: testPass, fail: testFail, maxConcurrency: testMaxConc, targeted: STAGE_FILTER } : { pass: testPass, fail: testFail, shards: shardSummary?.shards, width: shardSummary?.width });
 else fail("tests", `${testPass} pass / ${testFail} fail${TARGETED ? ` (targeted: ${STAGE_FILTER.join(", ")})` : ""} — failing: ${JSON.stringify(failingTests)}`);
 
 // 6 · attest: boot the demo composition, round-trip, recovery drill (existence proof)

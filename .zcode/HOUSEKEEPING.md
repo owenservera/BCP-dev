@@ -42,6 +42,34 @@
 
 ## Disposition log (append-only, newest first)
 
+- **2026-10-03 (cont. 4 — D-TEAM-024: the two rules below are REPLACED, not just relaxed)** —
+  **"Run the suite serially" and "one test run at a time" were both built on a flag that does
+  nothing, and both are superseded by a measured design.** `--max-concurrency` was measured
+  inert on this suite: four slow plugin files took **39.7 s at `--max-concurrency 4` and 39.6 s
+  at `--max-concurrency 1`**, while **four separate processes took 18.8 s**. The runner was always
+  sequential. So the serial rule was buying nothing, and the real fault was never "too many
+  workers" — it was **one long-lived process accumulating** until it OOM'd.
+  **Replacement:** `tooling/gates/sharded-test.ts` splits the suite into short-lived processes
+  run 4-at-a-time, with the two areas whose tests assert on concurrency or timing
+  (`surfaces`, `host`) given the box exclusively in a serial phase first. `omega:test` calls it;
+  the full gate calls it.
+  **Measured, full suite, same machine:** **326 s → ~249 s** and **a fatal 19.45 GB commit →
+  6.06 GB peak**, completing **1582 pass / 2 skip / 2 fail** — the same two declared Windows
+  environment limits as the 326 s baseline, with the load-flaky MCP timeout **not** firing.
+  **Width was tuned by measurement, not taste:** width 6 is *worse* on both axes (4 failures
+  instead of 2, including a `< 2 ms` latency assertion, and the slowest shard grew 147 s →
+  168 s), so width 4 ships.
+  **What replaces "one test run at a time":** the runner is itself the concurrency control, so
+  the rule becomes **do not start a second, unsharded `bun test` while `omega:test` is live.**
+  Two *sharded* runs would still double the process count and are still the crash the rule was
+  written for; the measured headroom is one sharded run at width 4.
+  **Two defects found in the new runner by running it, both now fixed:** reading shard output
+  over a **pipe** wedged the runner forever (a grandchild inherits the write end and never
+  closes it — the AGENTS.md hang, hit on the first attempt, 3 of 4 shards done), so output goes
+  to **files**; and a **crashed shard was being summed into an authoritative-looking
+  "1134 pass / 1 fail"** while silently discarding ~450 tests that never ran, so a shard with no
+  verdict line is now reported as `INCOMPLETE` and fails the gate.
+
 - **2026-10-03 (cont. 3 — SECOND client crash, root cause identified)** — **The full Ω suite
   exhausts this machine's memory and takes the ZCode client down with it.** Measured, not inferred:
   the run dies at ~900 of 1591 tests with **RSS 8.70 GB, commit 19.45 GB, 2,879,459 page faults on a

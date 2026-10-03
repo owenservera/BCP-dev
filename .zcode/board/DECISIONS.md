@@ -34,6 +34,7 @@
 | D-TEAM-021 | The Ω suite runs serially by DEFAULT in code (`gate.ts` + `omega:test`); the `bunfig.toml` "fix" that did nothing is deleted | S2 |
 | D-TEAM-022 | `omega-build`'s gate argv was inert (bun exits 0 on usage); fixed, and a gate now reads **red** when its output shows it never ran | S1 |
 | D-TEAM-023 | **SF2 is NOT blocked.** CAS blobs written by the existing capture seam; all three recorded collisions refuted at the cited file | S1 |
+| D-TEAM-024 | Suite is SHARDED across short-lived processes, not serial: `--max-concurrency` was measured inert. 326s/fatal 19.45GB -> ~249s/6.06GB | S1 |
 
 ## Decisions
 
@@ -276,6 +277,26 @@
 - **Revisit if:** the CAS needs a location that is neither the mine tree nor plugin-local writable state, in which case a storage decision — not a host port — is what lands.
 - **Where the ratified record goes:** D-409:30 says SF2 *"lands with its own evidence in the implementing records, post-core."* **This entry decides the direction; the `docs/decisions/` record is written by the corridor that implements it**, with the CAS location and the incremental-hashing budget as its evidence.
 - **Dissent:** none recorded. OWNER-INFORM — the recorded blocker was real to everyone who read the ledger and did not exist in the code.
+
+### D-TEAM-024 — The suite is sharded, not serial; the flag that was holding it back does nothing
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03) · **owner-requested** ("remove those rules and design for speed")
+- **Decision:** `omega:test` and the full gate run **`tooling/gates/sharded-test.ts`**, which splits the suite into short-lived `bun test` processes run **4 at a time**, with `surfaces` and `host` given the box exclusively in a serial phase first. **D-TEAM-021's serial-by-default rule and HOUSEKEEPING's one-run-at-a-time rule are superseded**, and `OMEGA_TEST_CONCURRENCY` now means *process-pool width* rather than a flag that did nothing.
+- **The finding that makes this a decision rather than a tuning change: `--max-concurrency` is inert on this suite.** Four slow plugin files, same box, seconds apart: one process at `--max-concurrency 4` **39.7 s**, at `--max-concurrency 1` **39.6 s**, four **separate processes 18.8 s**. Identical to within 0.1 s. The runner was always sequential, so D-TEAM-021 was buying nothing — and the fault was never too many workers but **one long-lived process accumulating** until it OOM'd. The fix is a **shorter process**, not a smaller number.
+- **Measured, full suite, same machine, end to end:**
+
+  | | wall | memory | result |
+  |---|---|---|---|
+  | baseline (serial, one process) | 326 s | **19.45 GB commit — fatal** | 1586 / 2 / 3 |
+  | **sharded, width 4** | **~249 s** | **6.06 GB peak** | **1582 / 2 / 2** |
+
+  The two remaining failures are the two declared Windows environment limits (a `python3` Store alias `Bun.spawn` cannot resolve; a symlink `EPERM` with no `SeCreateSymbolicLinkPrivilege`). The baseline's third failure was the load-flaky MCP stdio timeout, which **does not fire** now that no single process lives long enough to starve it.
+- **Width chosen by measurement.** Width 6 is **worse on both axes**: 4 failures instead of 2 — adding a `< 2 ms` keystroke-latency assertion and a gate e2e test — and the slowest shard grew 147 s → 168 s. Width 4 ships.
+- **Why two areas stay serial.** Measured both. `surfaces/daemon/test/pool.test.ts` **stack-overflowed** under 4-way load (`panic(thread): Stack overflow`, RSS 2.47 GB / Commit 5.99 GB — *not* out of memory, a genuine deep-recursion crash, logged right after `workers_spawned(95)`), and passes alone. `host/test/lazy.test.ts` asserts on dormant-spawn and singleflight timing and fails under contention while passing 6/6 alone. **Testing a scheduler's timing while three other shards compete for the same cores is not a fair test of it.**
+- **Two defects found in the new runner by running it — both are this session's own lesson, committed against myself.** (1) Reading shard output over a **pipe** wedged the runner forever: a grandchild inherits the write end and never closes it, so the read waits for an EOF that never comes — **3 of 4 shards finished in 14–35 s and the parent sat there with every child already exited.** Output now goes to files. (2) **A crashed shard was summed into an authoritative-looking `1134 pass / 1 fail`** while silently discarding ~450 tests that never ran. A shard with no verdict line is now reported as `INCOMPLETE` and fails the gate. **A summary that cannot tell "no failures" from "a third of the suite vanished" is worse than no summary.**
+- **One thing deliberately not done.** A size-weighted LPT shard balancer was written to fix a real imbalance (two 35-file shards measured 56 s and 147 s) and then **removed**. File size is a proxy for cost, not cost, and an unmeasured "probably faster" is not worth the complexity. Round-robin is what the suite was verified against, so round-robin ships — with the imbalance recorded as known headroom rather than papered over.
+- **Rollback:** revert `gate.ts` and `package.json` to the single `bun test` line; delete `sharded-test.ts`.
+- **Revisit if:** a shard crashes again, or the imbalance is worth a real cost model rather than a size proxy.
+- **Dissent:** none. OWNER-INFORM — this removes two standing rules the team had enforced for a week, on the strength of measurement rather than preference, and one of them (`one run at a time`) was written after crashing the owner's client twice.
 
 ## Historic owner-ratified entries (for continuity, not re-decided)
 
