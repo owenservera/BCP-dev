@@ -15,7 +15,7 @@ import { describe, test, expect, beforeAll, afterAll } from "bun:test";
 import { readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { parseManifest, validateManifest } from "@vivim/omega-sdk";
-import { FORGE_OP_CATALOG } from "../../../../packs/builder/src/schemas.ts";
+import { FORGE_OP_CATALOG, CaptureReceiptSchema } from "../../../../packs/builder/src/schemas.ts";
 import { normaliseTextBytes } from "../../src/receipt.ts";
 import {
   MINE_ROOT, bootCapture, call, capture, current, pinnedMineId, readMineManifest,
@@ -85,6 +85,18 @@ describe("the manifest — parses, validates, and is the class the catalog pins"
 // the repo root without importing a second copy of the path helpers.
 
 describe("the receipt — schema-exact against pack.builder CaptureReceipt@1", () => {
+  test("the LIVE receipt parses against the frozen CaptureReceiptSchema", () => {
+    // The field-by-field expects below are readable, but they are not the
+    // schema. CaptureReceiptSchema is a z.strictObject, so this also fails on
+    // any EXTRA key the op invents — the field expects cannot see that.
+    const parsed = CaptureReceiptSchema.safeParse(receipt);
+    expect(parsed.success).toBe(true);
+    if (!parsed.success) console.log("[capture] schema errors:", parsed.error.issues);
+    expect(parsed.success && Object.keys(parsed.data).sort()).toEqual([
+      "capturedAt", "fileCount", "files", "mineId", "mineRoot", "op", "refusals", "rootHash", "schemaVersion",
+    ]);
+  });
+
   test("every field carries the shape the frozen schema pins", () => {
     expect(receipt.schemaVersion).toBe("1");
     expect(receipt.op).toBe(OP);
@@ -165,7 +177,10 @@ describe("THE FALSIFIER — the receipt agrees with the mine's own MANIFEST.json
       expect(raw.equals(normalised)).toBe(true);
     }
     console.log(`[capture] ${manifest.files.length} files, ${crlfAffected} rewritten to CRLF by this checkout, ${manifest.files.length - crlfAffected} already LF`);
-    expect(crlfAffected).toBeGreaterThanOrEqual(0);
+    // Both branches must actually be exercised. `>= 0` holds on either being
+    // zero, so it would pass with the normalisation untested on half the corpus.
+    expect(crlfAffected).toBeGreaterThan(0);
+    expect(manifest.files.length - crlfAffected).toBeGreaterThan(0);
   });
 
   test("bytes[] is the length of the hashed (normalised) bytes, never the raw length", () => {
@@ -177,7 +192,9 @@ describe("THE FALSIFIER — the receipt agrees with the mine's own MANIFEST.json
       checked++;
     }
     console.log(`[capture] ${checked} of ${receipt.files.length} rows report post-normalisation byte lengths`);
-    expect(checked).toBeGreaterThanOrEqual(0);
+    // The point of this test is the files whose raw length is NOT the reported
+    // length. Zero of them would mean the rule was never exercised at all.
+    expect(checked).toBeGreaterThan(0);
   });
 });
 

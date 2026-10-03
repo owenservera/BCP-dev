@@ -113,7 +113,14 @@ describe("every refusal names a rule this file actually asserts", () => {
       "CAPTURE_UNREADABLE_FILE",
     ].sort());
     const me = readFileSync(import.meta.path, "utf-8");
-    for (const rule of CAPTURE_REFUSAL_RULES) expect(me).toContain(rule);
+    // "appears somewhere in the file" is not "is exercised": the header comment
+    // alone would satisfy a toContain check. Require each rule to be asserted
+    // in an expect() at least once, so a rule that stops being triggered goes red.
+    for (const rule of CAPTURE_REFUSAL_RULES) {
+      const assertions = me.split("\n").filter((l) => l.includes("expect(") && l.includes(rule));
+      expect({ rule, assertions: assertions.length }).toEqual({ rule, assertions: expect.any(Number) });
+      expect(assertions.length).toBeGreaterThan(0);
+    }
     expect(me).toContain(OP);
   });
 });
