@@ -34,7 +34,7 @@ Two lineages diverged at turn-009 (`4a108d7`): the **kernel lineage** (`omega` b
   freeze amendment — are **not** stale: they record what this merge did on 2026-09-18, and
   the host wall has since reached 1500/1500 during the Core Phase. The count has since
   moved on to 18 under D-406; that is a later amendment, not a correction of this record.
-- Host LOC 1,450/1,500 — 50 lines headroom under the re-frozen ceiling; D-365's removal-in-same-commit rule applies unchanged at the new number.
+- Host LOC 1,450/1,500 — 50 lines headroom under the re-frozen ceiling; D-365's removal-in-same-commit rule applies unchanged at the new number. **(D-TEAM-036 annotation, 2026-10-03: this number is HISTORICAL — it records the count at the 2026-09-18 merge. The wall has since reached 1500/1500 with ZERO headroom, as the four bullets above already say. The bullet is left unrewritten under D-TEAM-011, but it read in isolation as a current claim and an `omega-decide` falsifier flagged it as stale — correctly, because a reader should not have to reach the fourth bullet up to learn there is no headroom left. Measured today: `hostLoc: 1500`.)
 - The composition count leaves D-370's "16" — recorded here as the freeze amendment: the 17th spec is matrix-authored (the freeze's target was hand-maintained drift, and matrix rows carry none).
 - CURRENT-INVARIANTS B5/budget-watch rows updated in the same commit; the kernel-lens manifest rides the D-389-era optional-field schema unchanged.
 - Lineage rule hardened by practice: any future fork unification merges (or records first); rebasing a cited history is the one move this repo has already paid D-390 to learn not to make.
