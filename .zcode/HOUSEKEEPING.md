@@ -42,6 +42,18 @@
 
 ## Disposition log (append-only, newest first)
 
+- **2026-10-03 (state assessment)** — **four unexplained entries, one live writer.** `git status`
+  showed `?? plugins/forge-mine/`, `?? compositions/forge-mine.json`, `M compositions/_matrix.json`,
+  `M tooling/gates/test/forge-surface.test.ts`. They are one corridor's work, entered in the
+  [live-corridor registry](TRACKING.md#live-writer-corridors) with owner **UNKNOWN**. Disposition
+  class: **HOLD — do not commit, do not revert, do not move.** They are a lane in flight, not
+  debris; committing them would publish an unverified half-built plugin against a red gate, and
+  D-TEAM-014's default (nothing deleted) plus the corridor rule both say leave a live writer alone.
+  They close when their owner lands them with a receipt. **This entry is the first real use of
+  "nothing untracked stays unexplained" catching something the previous sweeps could not.**
+  **Self-reported defect:** the Steward moved these files once during this session to prove gate
+  causation and disrupted the live writer; the files were restored intact. A live corridor's files
+  are not evidence — they are someone's work in progress. Do not move them again.
 - **2026-10-03** — working tree clean of unexplained entries. `host/probe-browser.ts` PARKED via
   `.gitignore` (pattern `host/probe-*.ts`, not one filename: `host/` is the B5-frozen 1500/1500 LOC
   budget and a scratch diagnostic has no business there even untracked) — it had already produced

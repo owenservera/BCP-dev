@@ -23,6 +23,42 @@
 6. **No human answer ever blocks (owner directive 2026-09-30).** A question that would have parked a lane becomes a team decision in the same session: the panel is spawned per severity (S1 = 1 member, S2 = proposer + challenger, S3 = 3 with rollback), decides, records it in [board/DECISIONS.md](board/DECISIONS.md) with reason/evidence/alternatives/revisit-condition, and work continues. The owner is informed, not asked; any decision is theirs to override at any time, and silence means it stands. Full policy: [DECISIONS-POLICY.md](DECISIONS-POLICY.md).
 
 7. **Cost discipline (owner directive 2026-09-30).** Every run's cost is recorded in [.zcode/LESSONS.md](LESSONS.md). Build corridors are the default unit of work and the highest-ROI instrument; read-heavy passes are evidence for a corridor, not deliverables. A deliberation that does not reach a decision is a loss. Never fan out N readers over a corpus with fewer than N distinct sections; read the corpus once and verify cited paths. A read-heavy pass gets one agent and a question, not a fan-out and a topic. Measure a run by what it lands committed, not by what it reports.
+## The swarm — which agents this work actually needs (assessed 2026-10-03)
+
+**The finding that shapes this section: the swarm is not short of agents. It is short of
+*capabilities*.** The board already seats up to 3 deliberating members per session from a
+5-member roster, and 7 saved workflows cover deliberation, research, sweeps, boundary audits,
+builds and completion verification. The 2026-10-03 state assessment did **not** find a gap that a
+new roster seat would close — it found gaps that no existing agent can execute, because the work
+is not the shape any of them are built for.
+
+So the swarm is defined by **capability**, and adding one means adding a workflow, not an officer.
+This is the net-ceremony test applied to ourselves: every addition below names what it removes.
+
+| # | Capability the work demands | Covered today? | Instrument | What it removes |
+|---|---|---|---|---|
+| 1 | **Corridor registration** — a writer declares itself and its file list before it writes | **NO** — D-TEAM-010 mandates one writer per worktree and no mechanism registers one | live-corridor table in [TRACKING.md](TRACKING.md#live-writer-corridors) | unattributable writes; measured live this session (G-01) |
+| 2 | **Gate-contamination guard** — a gate result is only a measurement if no corridor was live | **NO** — today's 13-failure run was taken mid-corridor and was meaningless | the same table + the validity rule beside it | false greens and unattributable gate results (G-02) |
+| 3 | **Red-fixture falsification** — prove a gate check *can* fail, on the real tree | **NO** — and the corpus already demands it: *"every gate check needs a red fixture on the REAL tree before it is trusted"* (`docs/forge/BACKLOG.md:110-113`) | `omega-redproof` (below) | checks that are green because they never fire — the docscan bug, the forge-author fence, the `>= 0` assertions, all of this repo's recent near-misses |
+| 4 | **Open sub-fork decision authoring** — deliberate an undecided fork and record it as a D-record with frozen-catalog impact | **PARTIAL** — `omega-board` decides, `omega-build` implements, nothing owns the seam | `omega-board` + a recorded decision | the SF2 deadlock that blocks `forge-survey` entirely (G-03) |
+| 5 | **Pinned second corpus** — build a second mine fixture the way `synthetic-v0` is pinned | **NO** | `omega-fixture` (below) | `proof.replay@1` / `secondmine@1` have nothing to run against (G-06) |
+| 6 | **Live/external integration** — a real CDP socket, process containment, authority bar | **NO**, and every workflow is closed-world repo work | *deferred* | nothing yet — and correctly so: the CDP lane has an unmet §G5 precondition, so building this now is ceremony (G-07) |
+
+**Net verdict: 2 capabilities are worth standing up now (#3, #5), 1 needs a process answer not an
+agent (#1, #2 — done, above), 1 is a decision (#4), and 1 is deliberately deferred (#6).** No
+roster seat is added. `omega-boundary-audit` and `omega-reality-check` overlap enough that
+METHODS-01 should test whether one is redundant before either is extended.
+
+### The two new roles
+
+| Role | Responsibility | Workers it spawns | Write scope |
+|---|---|---|---|
+| **Red-proof falsifier** (`omega-redproof`) | Takes a named gate check, constructs the smallest fixture that SHOULD make it red, runs it on the real tree, and reports whether the check actually fired. Falsifies the *gate*, not the work. | 1 check extractor, 1 adversary per check (proposes the red fixture), 1 executor, 1 verifier | none — verdict only; the red fixture is built in a temp dir and never committed |
+| **Fixture forger** (`omega-fixture`) | Builds a pinned second corpus (a second synthetic mine) with its own `MANIFEST.json` + rootHash, byte-stable under `core.autocrlf`, so replay and second-mine checks have something to run against | 1 designer, 1 builder, 1 independent hasher (must not share the builder's code), 1 gate runner | only the fixture directory it names |
+
+Both inherit `maxDepth: 1`, the session model, and the token discipline above. Both publish a
+report artifact and nothing else. Neither may mark work DONE — `omega-verify` still owns that.
+
 ## Roles and delegation grants
 
 | Role (saved workflow) | Responsibility | Workers it spawns (grant) | Write scope |

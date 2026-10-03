@@ -27,6 +27,9 @@
 | D-TEAM-014 | The 13 untracked entries: evidence committed, heavy artifacts parked, nothing deleted | S2 |
 | D-TEAM-015 | Deliberation cost: corpus read once, challengers verify cited paths, sweeps on demand | S2 |
 | D-TEAM-016 | WS-5's first lane = Wave 1 mine wave (`forge.mine-capture` + `forge-mine`) | S3 |
+| D-TEAM-017 | A writer corridor registers before it writes; a gate run with a corridor live is CONTAMINATED, not a measurement | S2 |
+| D-TEAM-018 | The swarm grows by capability, not by seat: two workflows added (`omega-redproof`, `omega-fixture`), zero roster members | S2 |
+| D-TEAM-019 | `forge-surface` runs in `omega:quick`; the gate's own `--quick` comment under-describes its stage list and is annotated, not rewritten | S1 |
 
 ## Decisions
 
@@ -183,6 +186,36 @@
 - **Revisit if:** §G5's byte-identity definition lands and removes the CDP lane's only blocker, or if the mine capture proves to need `host/src` LOC (which would need a D-record to move the B5 wall first).
 - **Dissent:** none recorded. OWNER-INFORM — the owner may re-rank the lane at any time; silence means this stands.
 - **Stale text noted, not edited:** `BACKLOG.md:6-10` still says plugin work is "PARKED until core-omega-ready". That is superseded by D-417's un-park (`:21`, `:38`). Correcting it is WS-1 housekeeping.
+
+### D-TEAM-017 — A writer corridor registers before it writes
+- **Severity:** S2 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** Every writer corridor records a row in the `Live writer corridors` table of [../TRACKING.md](../TRACKING.md) **before** its first write, naming owner (session/agent id, or `UNKNOWN` as a recorded defect) and the exact file paths it owns. **A gate result taken while any row is open is CONTAMINATED and is not a measurement** — it is logged as such and supersedes no earlier figure.
+- **Reason:** D-TEAM-010 has mandated "one writer corridor per worktree" since 2026-09-30 but named no mechanism to register one, so the rule was unenforceable. Measured on 2026-10-03: an unattributed writer built `plugins/forge-mine/` in this worktree over 12:25–12:31 with no workflow run, automation, or session accounting for it, while the Steward took a 13-failure test run whose result was meaningless because it straddled the live corridor. Two of the three registry fields are unfillable-by-default; the rule needed teeth.
+- **Evidence:** `ListWorkflowRuns` (all 15 runs terminal, dated Sept 29–30); the opencode session table (all idle, days old); filesystem mtimes 12:25:37 → 12:31:25 across six files plus `compositions/forge-mine.json` and an 82-line `_matrix.json` diff. Gap rows G-01/G-02 in [GAP-LEDGER.md](GAP-LEDGER.md).
+- **Alternatives:** adopt the escalation D-TEAM-010 already names (per-corridor git worktrees) — rejected *for now*: it is heavier than the failure it prevents, and the registry detects the collision first. Keep the rule as written and rely on the Monday audit — rejected: the audit runs weekly and this collision lasted nine minutes.
+- **Rollback:** delete the table and the rule; the underlying D-TEAM-010 text is untouched.
+- **Revisit if:** corridors routinely exceed one session, at which point worktrees become the cheaper instrument.
+- **Dissent:** none recorded. OWNER-INFORM.
+
+### D-TEAM-018 — The swarm grows by capability, not by seat
+- **Severity:** S2 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** Two capabilities are stood up as workflows — `omega-redproof` (red-fixture falsification of gate checks) and `omega-fixture` (pinned second corpus). **No roster member is added.** The full capability assessment is in [../TEAM.md](../TEAM.md#the-swarm--which-agents-this-work-actually-needs-assessed-2026-10-03) and the gaps in [GAP-LEDGER.md](GAP-LEDGER.md).
+- **Reason:** the assessment found no gap that a new deliberating seat would close. The board already seats up to 3 members from a 5-member roster; the missing instruments are execution capabilities, and the charter's expansion path is for officers and standing duties. Adding a seat for work that is not deliberation would misapply the roster's own purpose.
+- **Evidence:** `docs/forge/BACKLOG.md:110-113` already states the standing lesson this session's own findings re-confirm — *"every gate check needs a red fixture on the REAL tree before it is trusted"* — and the repo's three most recent near-misses (docscan's never-firing exemptions, forge-author's fence that never ran on Windows, three `>= 0` assertions) are all instances of it. `forge.proof.replay@1` / `secondmine@1` (`packs/builder/contract/forge-ops.md:38,40`) have no second corpus to run against; only `synthetic-v0` exists.
+- **Alternatives:** add a FALSIFIER-01 officer — rejected: it would be an execution role seated in a deliberation registry. Build the live-integration capability now for the CDP lane — rejected: that lane's §G5 precondition is unmet, so the capability would have no first consumer. Extend `omega-verify` to cover red fixtures — rejected: verify checks claims against evidence; a red fixture *manufactures* a failure, and conflating them would blunt both.
+- **Rollback:** each is a standalone saved workflow; deleting it restores the prior instrument set with no other change.
+- **Revisit if:** `omega-redproof` shows a low red-fixture rate, meaning the checks are already falsifiable and the instrument is idle — then it is ceremony and should be retired under METHODS-01.
+- **Dissent:** none recorded. OWNER-INFORM.
+
+### D-TEAM-019 — `forge-surface` runs in `omega:quick`
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** Record, as a dated annotation on the gate's own `--quick` comment, that `--quick` executes **more** stages than its comment lists: the comment at `tooling/gates/gate.ts:309-310` names six stages and omits `anvil-loc`, `anvil-surface`, `forge-surface`, `invariants-freshness`, `process` and `genome`. The comment is annotated rather than rewritten, per D-TEAM-011.
+- **Reason:** "quick" has been read — including in this session's first pass — as a narrow subset. It is not, and the omitted stages are the ones a plugin-authoring corridor actually trips. Any reader reasoning about "will `--quick` catch this?" from the comment alone will be wrong.
+- **Evidence:** the 2026-10-03 `omega:quick` run reported `forge-surface` and `genome` failures under `--quick`; both are absent from the comment's list.
+- **Alternatives:** correct the comment's list — rejected under D-TEAM-011 (dated annotation preserves lineage and the gate file is gate-owned). Narrow `--quick` to match the comment — rejected: it would remove real coverage from the inner loop, which is the loop every corridor runs.
+- **Rollback:** the annotation is additive.
+- **Revisit if:** a gate-owner session rewrites the stage list deliberately.
+- **Dissent:** none recorded.
 
 ## Historic owner-ratified entries (for continuity, not re-decided)
 
