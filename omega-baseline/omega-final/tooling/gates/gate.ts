@@ -251,6 +251,26 @@ try {
   else fail("forge-surface", r.issues.map((i) => `${i.check} [${i.subject}]: ${i.reason} — fix: ${i.fix}`).join("; "));
 } catch (e) { fail("forge-surface", String(e)); }
 
+// 5d-bis · docscan (D-TEAM-030): the decision/docs citation scanner, wired as a
+// STAGE rather than left as a script somebody remembers to run. It exists, it is a
+// substrate tool next to every other check here, and it was not in the stage list —
+// which is why its findings have to be rediscovered by hand. It caught nine real
+// unresolved-citation problems on 2026-10-03 (which sent a session hunting for
+// records `git log --all` proved never existed, while the citing records already
+// said were retired), and a day later a Windows path-separator bug that had silently
+// dropped 92 decision files and 41 migration files out of the exemptions the tool's
+// own law grants them.
+//
+// The team-layer checks in `.zcode/checks/` are deliberately NOT wired here: a
+// substrate gate must not turn red because a team ledger entry lacks a field. Those
+// stay in `check:all`, which is where the team layer belongs.
+try {
+  const { scanDocs } = await import("./docscan.ts");
+  const d = scanDocs(ROOT);
+  if (d.findings.length === 0) pass("docscan", { files: d.checked.files, knownIds: d.checked.knownIds });
+  else fail("docscan", `${d.findings.length} finding(s): ` + d.findings.map((f) => `${f.file}:${f.line} ${f.message}`).join("; "));
+} catch (e) { fail("docscan", String(e)); }
+
 // 5e · invariants-freshness (D-415, A3 — report-only): the digest's staleness
 // on TRIGGER, not calendar — the marker's as-of vs ratified rows past it, the
 // marker's stage inventory vs this gate's stage registry. REPORT-ONLY by

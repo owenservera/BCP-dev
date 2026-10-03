@@ -17,7 +17,7 @@
     "proposed": 2,
     "records": 140,
     "testFiles": 157,
-    "gateStages": 15,
+    "gateStages": 16,
     "plugins": 30,
     "compositions": 22
   },
@@ -2136,6 +2136,7 @@
       "os-surface",
       "import-surface",
       "forge-surface",
+      "docscan",
       "invariants-freshness",
       "process",
       "genome",

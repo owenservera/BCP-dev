@@ -1,6 +1,6 @@
 # Current Invariants — the one-page law snapshot
 
-<!-- invariants: pass 7 · as-of D-431 · regenerated 2026-09-22 (D-431, the hermetic-bootstrap wave — Ω-0, spec `D-449`; no stage added — the boot chain rides its own ceremony + the genome layer law; pass 6 was as-of D-430) · stages: anvil-loc anvil-surface attest bun-surface compositions decisions forge-surface fresh-tree genome host-loc import-surface invariants-freshness os-surface process tests -->
+<!-- invariants: pass 7 · as-of D-431 · regenerated 2026-09-22 (D-431, the hermetic-bootstrap wave — Ω-0, spec `D-449`; no stage added — the boot chain rides its own ceremony + the genome layer law; pass 6 was as-of D-430) · 2026-10-03 D-TEAM-030: `docscan` added to the stage list — the citation scanner existed as a script nobody ran, and had caught 9 real unresolved-citation findings plus a Windows path bug that silently dropped 133 files from its own exemptions. Stage list only; no pass increment, no invariant changed · stages: anvil-loc anvil-surface attest bun-surface compositions decisions docscan forge-surface fresh-tree genome host-loc import-surface invariants-freshness os-surface process tests -->
 
 **Pass #7 (2026-09-22, the hermetic bootstrap).** Refreshed on the D-415
 wave-close trigger — the Ω-0 wave landed `D-431` (evidence-class, spec
