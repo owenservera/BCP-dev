@@ -32,6 +32,7 @@
 | D-TEAM-019 | `forge-surface` runs in `omega:quick`; the gate's own `--quick` comment under-describes its stage list and is annotated, not rewritten | S1 |
 | D-TEAM-020 | WS-5 corridor 2 (`forge-mine`) is adopted from an abandoned unattributed writer: 5 failing tests were all test defects, the implementation was correct, and the corridor lands | S2 |
 | D-TEAM-021 | The Ω suite runs serially by DEFAULT in code (`gate.ts` + `omega:test`); the `bunfig.toml` "fix" that did nothing is deleted | S2 |
+| D-TEAM-022 | `omega-build`'s gate argv was inert (bun exits 0 on usage); fixed, and a gate now reads **red** when its output shows it never ran | S1 |
 
 ## Decisions
 
@@ -242,6 +243,21 @@
 - **Rollback:** two one-line reversions.
 - **Revisit if:** Bun fixes the leak, or the suite's memory profile changes enough that serial is unnecessary.
 - **Dissent:** none recorded. **OWNER-INFORM — and an operational warning:** this crash has twice taken the owner's ZCode client down with it, because the suite's ~19.5 GB commit starves everything else on a 23.5 GB box. **Full-suite runs need the owner's machine and should not be run unattended in a live session.**
+
+### D-TEAM-022 — `omega-build`'s gate could not fail, because it never ran
+- **Severity:** S1 · **Status:** TEAM-DECIDED (2026-10-03)
+- **Decision:** Both gate invocations in `.zcode/workflows/omega-build.dwf.ts` are corrected to the argv form Bun actually executes (`bun run --cwd <dir> <script>`), and the gate is made **structurally incapable of reporting green without having run**: an `executed()` predicate treats Bun's usage banner as a non-execution, so an inert invocation reads **red**. The inert branch deliberately does **not** spawn the gate-fixer. `WS-1-truth-repair.md`'s exit criterion, which carried the same inert command, is corrected in place.
+- **Reason:** `bun --cwd <dir> run <script>` does not name a script Bun can resolve. Bun prints its usage banner and the package's script list, then **exits 0**. `omega-build` read `exitCode === 0` as green, so every corridor it ran reported `omega:test` and `omega:quick` green **without executing either**, the gate-fixer never fired on a red suite, and the run's `verified` array published the literal claim *"omega:test ran after implementation (exit 0)"* — false by construction, in the artifact the owner reads. A gate that cannot fail is worse than no gate: it manufactures evidence.
+- **Evidence — both forms run back to back on bun 1.3.14, same env, same cwd, seconds apart.**
+  - `bun --cwd omega-baseline/omega-final run omega:quick` → 203 lines of **usage text plus a script list**, exit **0**, no gate output.
+  - `bun run --cwd omega-baseline/omega-final omega:quick` → the twelve stage results and `{"ok": true, "failed": 0, "hostLoc": 1500}`, exit 0.
+  The distinction is entirely argv order. **Blast radius measured, not assumed:** `grep` for `world.run` across all ten saved workflows returns **two hits, both in this file** — no other saved workflow runs a deterministic gate. One durable doc (`WS-1-truth-repair.md:34`) carried the inert command as its exit criterion. `omega:quick` was re-measured after the change: `ok:true, failed:0, hostLoc 1500`.
+- **Why the fixer branch was changed, not just the argv.** The obvious shape — "inert, therefore red, therefore send the fixer" — would have handed an agent `omega:test failed:` followed by **empty stderr**, because an inert run has no failures. The obedient response is to go and "repair" working code until it produces output that was never missing. **A phantom failure is strictly worse than a real one, because the repair damages a correct tree and the run still reports green.**
+- **Alternatives:** leave the argv and rely on authors invoking the gate by hand — rejected; the workflow *is* the standing implementation path (TEAM.md's build loop), so an inert gate there disables gating for every corridor, not just some. Assert on `stdout` only — rejected as insufficient: `bun test`'s summary format is not a contract, whereas the usage banner is a stable signal that the command did not run. Add a red-fixture test for the workflow script itself — deferred; `omega-redproof` is the right instrument for it and is tracked as T-21, but the output-based predicate is the fix that costs nothing and holds today.
+- **Rollback:** one revert commit (`597c941e`). No law amended, no gate logic changed, no repository code touched.
+- **Revisit if:** `omega-redproof` is pointed at the workflow scripts and proves the predicate itself can fail.
+- **Dissent:** none recorded.
+- **UNVERIFIED, stated plainly:** the corrected **argv** is verified — both forms were executed above. The corrected **script** is not: it has not been compiled or run end to end, because compiling it requires submitting the workflow, which starts a build. Treat "omega-build still works" as unproven until its first real corridor reports.
 
 ## Historic owner-ratified entries (for continuity, not re-decided)
 

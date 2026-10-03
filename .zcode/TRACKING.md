@@ -93,7 +93,7 @@ Monday audit verifies them, then compress into the session log.
 | T-22 | `omega-fixture` — pinned second mine corpus | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | OPEN | `forge.proof.secondmine@1` / `replay@1` need a second pinned mine; only `synthetic-v0` exists and the corpus never says whether it suffices |
 | T-23 | Full-suite Bun crash (`panic(thread): Stack overflow`) | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | tooling | **FIXED IN CODE — D-TEAM-021** | `gate.ts` now defaults to serial and `omega:test` sets it explicitly; the inert `bunfig.toml` is deleted. Crash profile is memory exhaustion (RSS 8.86 GB, 2.9M page faults), not recursion |
 | T-24 | **Probe the OMZS read-only guarantee** | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | **DONE — verified after session restart** | `oracle` and `observer` both enumerated: **no write tool, no agent-spawn tool on either.** `tools:` is not an exact allowlist though (observer got an undeclared shell; oracle lacked declared Glob/Grep/WebSearch), and a shell IS bound to both — so "read-only" ≠ "cannot write". Layer 2 `permissionMode` untested |
-| T-25 | Run `omega-decide` on SF2 | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | **READY — the first user of the new workflow** | packages the binding blocker for the board: extracts the frozen constraints, tries to refute each claimed blocker, challenges the survivor, emits a D-record-ready packet |
+| T-25 | Run `omega-decide` on SF2 | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | WS-5 | **ATTEMPTED, PRODUCED NOTHING — retry owed** | `dwfrun-55b8ed4d` dispatched, stalled on provider `server_error`, stopped by the owner at 25 m. **0 tokens, phase 1 of 4, 0 items.** SF2 is still undecided and `forge-survey` is still blocked. The workflow itself is not implicated — the provider never answered |
 | T-26 | Orient the OMZS mesh to Ω (gap G-10) | [board/GAP-LEDGER.md](board/GAP-LEDGER.md#open-gaps) | system | OPEN — owner decision | the 9 agent files never mention ω gates, the board, the 1500/1500 wall, or `omega-verify`. Fixing it means editing upstream-stamped files that `install.sh` overwrites — a fork, or an upstream PR |
 
 ## Decisions in effect
@@ -118,6 +118,37 @@ with recorded revisit conditions.
 | Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
 
 ## Session log (append-only, newest first)
+
+- **2026-10-03 (cont. 9 — the build workflow's gate never ran; found by running it, not reading it)** —
+  **`omega-build`'s two gates were inert, so every corridor it has ever run reported green without
+  executing a gate.** `bun --cwd <dir> run <script>` does not name a script Bun can resolve: Bun prints
+  its usage banner plus the package's script list and **exits 0**. `omega-build` read `exitCode === 0`
+  as green. So the gate-fixer never fired on a red suite, and the run's `verified` array published
+  *"omega:test ran after implementation (exit 0)"* — false by construction, in the artifact the owner
+  reads. Both forms were run back to back on bun 1.3.14 to settle it: the first produced 203 lines of
+  usage text and exit 0; the second produced the twelve stage results and `{"ok": true, "hostLoc": 1500}`.
+  **The distinction is argv order alone.**
+  **Fixed in `597c941e` (D-TEAM-022):** correct argv, plus an `executed()` predicate that treats Bun's
+  usage banner as a non-execution, so an inert invocation reads **red** rather than green. The inert
+  branch deliberately does **not** spawn the gate-fixer — there are no failures to fix, and an agent
+  handed `omega:test failed:` with empty stderr would "repair" working code. **A phantom failure is
+  worse than a real one: the repair damages a correct tree and the run still reports green.**
+  **Blast radius measured, not assumed** — `grep` for `world.run` across all ten saved workflows returns
+  two hits, both in this file. No other saved workflow runs a deterministic gate. One durable doc
+  (`WS-1-truth-repair.md:34`) carried the inert command as its exit criterion; corrected in place.
+  **`omega:quick` re-measured green after the change: `ok:true, failed:0, hostLoc 1500`, twelve stages.**
+  **What this says about our own records:** the board's GREEN claims were true — the gates really are
+  green — and the mechanism that produced them was fiction. Three prior instances this session were all
+  *a claim that was false*; this one is different and more uncomfortable: **a true claim produced by a
+  check that could not fail.** Verified by running, never by reading, which is the only reason it was
+  caught at all. **UNVERIFIED and stated as such:** the corrected argv is proven; the corrected *script*
+  is not compiled, because compiling it requires submitting the workflow, which starts a build.
+  **`omega-decide` dispatched on SF2** (T-25, `dwfrun-55b8ed4d`) — **and it produced nothing.**
+  It sat on provider `server_error` for 20+ minutes and was **stopped by the owner**. The run record
+  is unambiguous: **0 tokens spent, phase 1 of 4, 0 items in the options table**, the constraint scout
+  having never returned a result. **T-25 is NOT discharged and SF2 remains undecided.** Nothing is
+  being inferred from a partial run: the honest entry is "the instrument did not run", not "the
+  decision is partly settled".
 
 - **2026-10-03 (cont. 5 — G-09 probed, and two of my own claims were wrong)** — **The OMZS
   read-only guarantee is real where it matters and is NOT the guarantee I had written down.** After
