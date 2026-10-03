@@ -257,7 +257,7 @@
 - **Rollback:** one revert commit (`597c941e`). No law amended, no gate logic changed, no repository code touched.
 - **Revisit if:** `omega-redproof` is pointed at the workflow scripts and proves the predicate itself can fail.
 - **Dissent:** none recorded.
-- **UNVERIFIED, stated plainly:** the corrected **argv** is verified — both forms were executed above. The corrected **script** is not: it has not been compiled or run end to end, because compiling it requires submitting the workflow, which starts a build. Treat "omega-build still works" as unproven until its first real corridor reports.
+- **UNVERIFIED, stated precisely rather than broadly.** The corrected **argv** is verified — both forms were executed above. The corrected **script** was syntax-parsed (`bun build --no-bundle`): the parser consumed the file through every edited line and stopped at the top-level `return`, which is a property of workflow scripts and **reproduces identically on the pre-edit file** (`git show 51d8fd01`, same error at the corresponding `artifact.markdown` line) — so it is not introduced by this change. That discharges **syntax**. What remains unverified is the workflow compiler's **facade typing** and end-to-end behaviour, because both require submitting the workflow, which starts a build. Treat "omega-build still works" as unproven until its first real corridor reports.
 
 ## Historic owner-ratified entries (for continuity, not re-decided)
 
