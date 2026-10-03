@@ -135,6 +135,63 @@ describe("D5 — FORGE_IN_PRODUCT (red)", () => {
   });
 });
 
+describe("D6 — FORGE_READ_PURITY (red) — G-11, closed by execution", () => {
+  // Every red case here is a probe the two omega-decide falsifiers ran against the REAL gate and
+  // which returned ZERO issues. This suite is what stops that from being true again.
+
+  test("a READ-declared plugin importing node:fs fails, with the class dishonesty named", () => {
+    const r = checkForgeSurface(mutated((input) => {
+      const survey = input.forgePlugins.find((p) => p.dir.includes("forge-survey"))!;
+      survey.sourceText["src/survey.ts"] = [
+        `import { readdirSync } from "node:fs";`,
+        `export const walk = (root: string) => readdirSync(root);`,
+      ].join("\n");
+    }));
+    expect(r.ok).toBe(false);
+    const hit = r.issues.find((i) => i.check === "FORGE_READ_PURITY")!;
+    expect(hit.reason).toContain("node:fs");
+    expect(hit.reason).toContain("READ");
+    expect(hit.fix).toContain("forge.mine.capture@1");
+  });
+
+  test("a READ-declared plugin importing node:child_process fails", () => {
+    const r = checkForgeSurface(mutated((input) => {
+      const survey = input.forgePlugins.find((p) => p.dir.includes("forge-survey"))!;
+      survey.sourceText["src/index.ts"] = `import { execFileSync } from "node:child_process";`;
+    }));
+    expect(r.ok).toBe(false);
+    expect(r.issues.find((i) => i.check === "FORGE_READ_PURITY")!.reason).toContain("node:child_process");
+  });
+
+  test("node:crypto is ALLOWED — hashing bytes is what a READ op is for", () => {
+    const r = checkForgeSurface(mutated((input) => {
+      const survey = input.forgePlugins.find((p) => p.dir.includes("forge-survey"))!;
+      survey.sourceText["src/survey.ts"] = `import { createHash } from "node:crypto";`;
+    }));
+    expect(r.issues.filter((i) => i.check === "FORGE_READ_PURITY")).toEqual([]);
+  });
+
+  test("a NON-read plugin importing node:fs is NOT flagged — the capture seam owns it", () => {
+    const r = checkForgeSurface(mutated((input) => {
+      const capture = input.forgePlugins.find((p) => p.dir.includes("forge-mine-capture"))!;
+      capture.sourceText["src/index.ts"] = `import { readdirSync } from "node:fs";`;
+    }));
+    expect(r.issues.filter((i) => i.check === "FORGE_READ_PURITY")).toEqual([]);
+  });
+
+  test("a COMMENT naming node:fs does not fire — specifiers only", () => {
+    const r = checkForgeSurface(mutated((input) => {
+      const survey = input.forgePlugins.find((p) => p.dir.includes("forge-survey"))!;
+      survey.sourceText["src/survey.ts"] = [
+        `// There is no node:fs import in this file, and that is the class.`,
+        `// node:child_process would break C1.`,
+        `import { createHash } from "node:crypto";`,
+      ].join("\n");
+    }));
+    expect(r.issues.filter((i) => i.check === "FORGE_READ_PURITY")).toEqual([]);
+  });
+});
+
 describe("D5 — FORGE_CLASS_SPAN (red)", () => {
   test("a forge plugin declaring ops in two risk classes fails (READ + MUTATION is still two)", () => {
     const r = checkForgeSurface(mutated((input) => {

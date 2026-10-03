@@ -97,6 +97,7 @@ naming scheme to drift, no new namespace to own, and no frozen rule to amend.
 
 ## Evidence
 
+- **Two-green (D-364 bar).** full gate green `ok:true, failed:0, hostLoc:1500` x2 on 2026-10-03 — at `20:56:07Z` after the stage registration and fold re-emit, and again at `21:22:26Z` after the landing commit. Thirteen stages, `docscan` among them.
 - **Landing commit** — `a73eb44b`. Verified by the team directly, not inherited from the
   corridor that implemented it: `omega:quick` exit 0 `ok:true failed:0 hostLoc:1500` across
   twelve stages, and the full sharded suite at 1671 pass / 2 skip / 2 fail — the two
