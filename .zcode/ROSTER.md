@@ -41,7 +41,7 @@ silent self-mutation (GATE-07 discipline).
 
 ### Standing note — the swarm grows by capability, not by seat (2026-10-03)
 
-The 2026-10-03 state assessment raised **eight** gap-ledger rows (G-00…G-07) and added **zero** members.
+The 2026-10-03 state assessment raised **nine** gap-ledger rows (G-00…G-08) and added **zero** members.
 Both expansion proposals it raised were mechanised instead of staffed: G-01 became the
 `Live writer corridors` table in [TRACKING.md](TRACKING.md#live-writer-corridors) and G-05
 became the `omega-redproof` workflow. Seating an officer for either would have put an
