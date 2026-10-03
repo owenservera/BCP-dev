@@ -39,7 +39,7 @@ decision stands. Nothing here waits on a human.
 | `omega-methods` | METHODS-01: mines existing evidence for friction, net-ceremony test | **CHARTER.md §Self-governance** (METHODS-01) | Steward | 2026-09-30 (stopped; 0 of 3 miners returned) |
 | `omega-redproof` | Red-fixture falsifier — proves a gate check *can* fail | **G-05** + [D-TEAM-018](board/DECISIONS.md) | Steward | built; never run |
 | `omega-fixture` | Builds the pinned second synthetic mine (`secondmine`/`replay` need one) | **G-06** + [D-TEAM-018](board/DECISIONS.md) | Steward | built; never run |
-| `omega-decide` | Packages an open sub-fork into a D-record-ready packet by refuting claimed blockers | **G-03** + [D-TEAM-023](board/DECISIONS.md) | Steward | **TWO RUNS, BOTH PRODUCED NOTHING** (0 tokens, phase 1/4) |
+| `omega-decide` | Packages an open sub-fork into a D-record-ready packet by refuting claimed blockers | **G-03** + [D-TEAM-023](board/DECISIONS.md) | Steward | **COMPLETED — 2026-10-03, after ~90 min of provider retries.** Two runs: 6 and 9 options, **6 of 8 blocker claims refuted at the cited file**, 2 upheld (both the same one: a 25th catalog op is amendment-class). **It independently confirmed D-TEAM-023, and corrected the question it was asked** — it caught that `tooling/gates/anvil-loc.ts` does not exist. The earlier `BOTH PRODUCED NOTHING` note was true when written and is superseded here |
 
 ## Honest notes on this table
 
@@ -48,9 +48,14 @@ was stood up on 2026-09-30, the same day the charter that later constrained it w
 are ratified by use, not by a gap row, and this registry records that rather than inventing
 lineage for them.
 
-**Three instruments have never completed a run** — `omega-decide` (twice, 0 tokens each),
-`omega-research`, `omega-boundary-audit`, and `omega-redproof`/`omega-fixture` are built but never
-run. **A workflow that has never completed a run is an untested instrument, not a working one.**
+**Five instruments have still never completed a run** — `omega-research`, `omega-boundary-audit`,
+`omega-redproof`, `omega-fixture`, and `omega-methods` (one run, stopped with 0 of 3 miners returned).
+**A workflow that has never completed a run is an untested instrument, not a working one**, and
+four of these were stood up specifically to fix problems that then got fixed by hand instead:
+`omega-redproof`'s mutation test was done by hand and left no receipt; `omega-decide` built the SF2
+packet that was in fact decided in minutes by reading four files. **They may be good instruments
+that have not earned their place yet — but the corpus's own rule is that intent is not evidence,
+and only a completed run is.**
 `omega-decide` is the cautionary case: it was built specifically to unblock SF2, dispatched twice,
 and returned nothing both times; SF2 was actually decided by hand in a few minutes. That is not a
 reason to delete it — it may be the provider, not the design — but it is a reason not to describe
