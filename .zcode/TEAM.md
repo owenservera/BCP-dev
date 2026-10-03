@@ -185,6 +185,61 @@ registry. An OMZS agent asked to do work in this repository would not know that:
 Recorded as gap **G-10**; the cheap fix is a short orientation block appended to each role's prompt,
 which is an upstream-repo change and therefore **not** something to do unilaterally.
 
+## How the build loop actually runs — and where the mesh earns its place
+
+The mission is *"Full VIVIM beta ready to distribute for free."* Measured against the ledger, the
+build is **not primarily blocked on code** — it is blocked on a small number of *decisions*, each
+of which is sitting behind a human-speed step. That is the thing worth automating, and it is why
+`omega-decide` exists.
+
+### The loop, and which tool moves it
+
+```
+   OPEN QUESTION  ──►  omega-decide ──►  D-record-ready packet  ──►  omega-board DECIDES
+   (gap / sub-fork)     falsifies every        (evidence,                 (≤3 members,
+                        claimed blocker)        severity, rollback)       owner may override)
+                                                                              │
+                                                                              ▼
+   CORRIDOR  ──►  omega-build ──►  omega:quick + gate ──►  omega-verify ──►  LANDED
+                plan→build→gate        (must be green)      claim-by-claim
+                                                                              │
+   ON ANY DIVERGENCE  ──►  omega-reality-check  ·  omega-redproof  ·  omega-boundary-audit
+                                                                              │
+                                                                              ▼
+                                                                    next corridor
+```
+
+**The OMZS mesh does not appear in that loop, and that is deliberate.** It is the *fast path for
+everything around* the loop: scouting a question before it is worth a corridor, reviewing a plan
+before it costs a build, reading a corpus so a decision packet is cheap. Dispatching `explorer` to
+find the citations for SF2 is minutes of work that would otherwise be an hour of mine — and its
+answer goes **into** the packet, where `omega-decide` and the board still check it.
+
+### Where each thing should go — the short version
+
+| You want to… | Use | Not |
+|---|---|---|
+| answer "where is X / which of these" | `explorer` (OMZS) | `omega-research` — that is a receipted corridor |
+| review a plan, find the YAGNI | `oracle` (OMZS) | a full board panel — that is 3 deliberating agents |
+| check external docs / a fresh API | `librarian` (OMZS) | `omega-research` |
+| unblock a decision | `omega-decide` | `omega-board` alone — the board settles, but it should settle from a packet |
+| land code with gates | `omega-build` | `fixer` — fixer does not gate and leaves no receipt |
+| prove a gate check can fail | `omega-redproof` | trusting a green run |
+| promote anything to DONE | `omega-verify` | anything an agent said |
+
+### What is still manual, and honestly why
+
+1. **The board still decides.** Automation makes the decision *cheap* and its evidence
+   *falsifiable*; it does not remove the decision. D-TEAM-015 is the reason: deliberation that
+   does not reach a decision is a loss, and a panel that rubber-stamps a generated packet is worse
+   than no panel.
+2. **`omega-build` is still invoked by hand.** Auto-dispatching a builder with no human in the loop
+   conflicts with D-TEAM-010 (one writer corridor per worktree) and with the fact that this
+   machine has already crashed twice under load. A corridor queue is the right next automation, but
+   it is a *sequencing* change and should be decided, not slipped in.
+3. **The mesh does not know Ω exists** (gap G-10). It is safe to use today only because the Steward
+   holds both sides of the bridge; that is a single point of failure worth removing eventually.
+
 ## Roles and delegation grants
 
 | Role (saved workflow) | Responsibility | Workers it spawns (grant) | Write scope |
