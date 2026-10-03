@@ -17,7 +17,7 @@
 //      (SPEC_HASH_MISMATCH).
 // No other exclusions are allowed — a wanted exclusion is backlog, not a gate
 // exception.
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { copyFileSync, mkdirSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import {
   specInputHash,
@@ -29,6 +29,12 @@ export interface CompareResult { ok: boolean; issues: CompareIssue[] }
 
 const GENERATED_HEADER = /FORGE:GENERATED-BEGIN schema=([\w.@-]+) spec-hash=(sha256:[0-9a-f]{64})/;
 
+/** Entries the comparison never observes, by name. node_modules is machine
+ *  state (package-manager links), not plugin bytes — the same exclusion the
+ *  host's contentHashDir applies. Single-sourced so the judge's view and the
+ *  judge's copy can never drift apart. */
+const UNOBSERVED = new Set(["node_modules"]);
+
 /** Every file under dir, as relative posix-style paths. node_modules is
  *  skipped — the same exclusion the host's contentHashDir applies: package
  *  manager links are machine state, not plugin bytes. */
@@ -36,7 +42,7 @@ export function listFilesRecursive(dir: string): string[] {
   const out: string[] = [];
   const walk = (d: string) => {
     for (const e of readdirSync(d)) {
-      if (e === "node_modules") continue;
+      if (UNOBSERVED.has(e)) continue;
       const p = join(d, e);
       if (statSync(p).isDirectory()) walk(p);
       else out.push(relative(dir, p).split("\\").join("/"));
@@ -44,6 +50,25 @@ export function listFilesRecursive(dir: string): string[] {
   };
   walk(dir);
   return out.sort();
+}
+
+/** Copy exactly the tree the judge observes — the same walk, the same
+ *  UNOBSERVED exclusion — so a scratch copy is byte-faithful over the judge's
+ *  whole domain and invents nothing the judge cannot see. The fence's red
+ *  cases tamper a copy of the checked-in tree and re-run the comparison; if
+ *  the copy dropped or added anything, the verdict would be about the copy
+ *  rather than about the tamper. (This also keeps the fence runnable where
+ *  node_modules is a junction farm no recursive copy may follow — the copy
+ *  never touches it, exactly as the judge never reads it.) */
+export function copyObservedTree(src: string, dest: string): void {
+  mkdirSync(dest, { recursive: true });
+  for (const e of readdirSync(src)) {
+    if (UNOBSERVED.has(e)) continue;
+    const from = join(src, e);
+    const to = join(dest, e);
+    if (statSync(from).isDirectory()) copyObservedTree(from, to);
+    else copyFileSync(from, to);
+  }
 }
 
 /** Remove every authored region (begin..end inclusive) from the text.
