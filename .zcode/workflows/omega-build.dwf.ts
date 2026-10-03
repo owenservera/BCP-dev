@@ -12,6 +12,17 @@ args:
       or area if known.
     required: true
 */
+/**
+ * True when the command actually did the work, as opposed to exiting 0 without
+ * running anything. `bun` prints its usage banner and still exits 0 when the argv
+ * it was handed does not name a script it can resolve, so exit code alone cannot
+ * tell "the gate passed" from "the gate never ran" — that is a green claim from a
+ * check that cannot fail.
+ */
+function executed(r: { stdout: string; stderr: string }): boolean {
+  return !(r.stdout.includes("Usage: bun run") || r.stderr.includes("Usage: bun run"));
+}
+
 interface PlanStep {
   /** One bounded step. */
   step: string;
@@ -85,14 +96,18 @@ const built = await builder.ask<BuildResult>(
 );
 
 phase("Run the Ω gates")
-const unit = await world.run("bun", ["--cwd", "omega-baseline/omega-final", "run", "omega:test"], { timeoutMs: 1200000 });
-if (unit.exitCode !== 0) {
+const unit = await world.run("bun", ["run", "--cwd", "omega-baseline/omega-final", "omega:test"], { timeoutMs: 1200000 });
+if (!executed(unit)) {
+  // No failures to fix — the command never ran. Sending a fixer after a phantom
+  // failure would have it "repair" working code to satisfy output that was never produced.
+  log("omega:test did not execute: the gate command printed bun's usage and exited 0. The suite is recorded as NOT RUN, not green.");
+} else if (unit.exitCode !== 0) {
   const fixer = agent("gate-fixer", {
     system: "You fix failing Ω tests without expanding the task's scope. Edit only files the plan touches. If a failure predates the change, say so instead of fixing unrelated code.",
   });
   await fixer.ask(`omega:test failed:\n${unit.stderr.slice(-8000)}\nThe plan was: ${JSON.stringify(plan)}\nFix the failures.`);
 }
-const gate = await world.run("bun", ["--cwd", "omega-baseline/omega-final", "run", "omega:quick"], { timeoutMs: 1200000 });
+const gate = await world.run("bun", ["run", "--cwd", "omega-baseline/omega-final", "omega:quick"], { timeoutMs: 1200000 });
 
 phase("Verify the build against the plan")
 const changed = await git.changedFiles();
@@ -103,13 +118,14 @@ const verdicts = await verifier.ask<StepVerdict[]>(
   `Plan: ${JSON.stringify(plan)}\nChanged files: ${JSON.stringify(changed)}\nBuilder report: ${JSON.stringify(built)}\nRead the changes and return one StepVerdict per plan step: did it land, and is it correct? Also flag any edit outside the plan's file list.`,
 );
 
-const gateGreen = unit.exitCode === 0 && gate.exitCode === 0;
+const unitGreen = unit.exitCode === 0 && executed(unit);
+const gateGreen = unitGreen && gate.exitCode === 0 && executed(gate);
 const failed = verdicts.filter((v) => !v.landed);
 const reportMd = [
   `# Ω build corridor: ${task}`,
   "",
   `**Approach:** ${plan.approach}`,
-  `**Gates:** omega:test ${unit.exitCode === 0 ? "green" : "red"}, omega:quick ${gate.exitCode === 0 ? "green" : "red"}`,
+  `**Gates:** omega:test ${unitGreen ? "green" : "red"}, omega:quick ${gateGreen ? "green" : "red"}`,
   "",
   "## Step verdicts",
   ...verdicts.map((v) => `- ${v.landed ? "✅" : "❌"} ${v.step} — ${v.note}`),
@@ -133,9 +149,12 @@ return {
     severity: "high" as const,
   })),
   verified: [
-    `omega:test ran after implementation (exit ${unit.exitCode})`,
-    `omega:quick ran after implementation (exit ${gate.exitCode})`,
+    `omega:test ran after implementation (exit ${unit.exitCode}, output showed the suite actually executed: ${executed(unit)})`,
+    `omega:quick ran after implementation (exit ${gate.exitCode}, output showed the gate actually executed: ${executed(gate)})`,
     "each plan step was checked by a verifier reading the changed code",
   ],
-  notCovered: built.skipped.concat(approved ? [] : ["the plan never received an approving review"]),
+  notCovered: built
+    .skipped
+    .concat(approved ? [] : ["the plan never received an approving review"])
+    .concat(executed(unit) && executed(gate) ? [] : ["a gate reported exit 0 without executing — the argv it was given did not name a runnable script"]),
 };

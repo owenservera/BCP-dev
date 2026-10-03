@@ -31,6 +31,6 @@ genome stage.
 
 ## Exit criteria
 
-`bun --cwd omega-baseline/omega-final run omega:quick` green; a fresh `omega-reality-check`
+`bun run --cwd omega-baseline/omega-final omega:quick` green; a fresh `omega-reality-check`
 shows zero confirmed high/medium drift in the law + substrate areas; each item closed with an
 `omega-verify` receipt.
