@@ -29,11 +29,11 @@ Authority: [workstreams/WORKSTREAMS.md](workstreams/WORKSTREAMS.md) and the per-
 
 | Lane | Status | Next action | Home |
 |---|---|---|---|
-| WS-1 Truth Repair | ACTIVE — items 1–6 landed; **gate verified green** (`omega:quick` exit 0, `hostLoc 1500`) | per-item `omega-verify` receipts; 19 test failures triaged (ENV vs DEFECT) | [WS-1](workstreams/WS-1-truth-repair.md) |
+| WS-1 Truth Repair | ACTIVE — items 1–6 landed; **gate verified green**; test suite down 41 → 8 failures, **all 8 Windows environment limits, zero genuine defects** | per-item `omega-verify` receipts; the 8 ENV failures want a privilege/teardown fix, not a code fix | [WS-1](workstreams/WS-1-truth-repair.md) |
 | WS-2 Commons Bootstrap | ACTIVE (TEAM-DECIDED D-001…003) — item 1 LANDED (D-457 written, `a3d694a1`) | items 2–4: mint `agent:steward-zcode`, two-principal smoke exchange, discharge the gate item | [WS-2](workstreams/WS-2-commons-bootstrap.md) |
 | WS-3 Dashboard v1 | ACTIVE after WS-2 — item 1 LANDED (D-458 written, `a3d694a1`) | items 2–5, still gated on WS-2's smoke exchange | [WS-3](workstreams/WS-3-dashboard-v1.md) |
 | WS-4 Reconciliation & Hygiene | ACTIVE — items 1/2/3 done (D-014); tree clean of unexplained entries | item 4 sweep; standing cadence in [HOUSEKEEPING.md](HOUSEKEEPING.md) | [WS-4](workstreams/WS-4-reconciliation.md) |
-| WS-5 Ω Core Build | **ACTIVE — first lane named: Wave 1 mine wave (D-TEAM-016)** | first corridor: `forge.mine.capture@1` vs the pinned mine fixture → capture receipt | [WS-5](workstreams/WS-5-core-build.md) |
+| WS-5 Ω Core Build | **ACTIVE — corridor 1 LANDED and verified** (`forge.mine-capture`, `16f95419`+`b37dec84`); lane = Wave 1 mine wave (D-TEAM-016) | corridor 2: `forge-mine` READ siblings (verify/diff/list@1) — the consumers this receipt exists for | [WS-5](workstreams/WS-5-core-build.md) |
 
 ## Active task register
 
@@ -48,7 +48,8 @@ Monday audit verifies them, then compress into the session log.
 | T-04 | Commons bootstrap items 1–4 | [WS-2](workstreams/WS-2-commons-bootstrap.md) | WS-2 | ACTIVE — item 1 LANDED | D-457 written and committed `a3d694a1`; items 2–4 remain (mint `agent:steward-zcode`, two-principal smoke exchange, gate discharge) |
 | T-05 | Dashboard v1 items 1–5 | [WS-3](workstreams/WS-3-dashboard-v1.md) | WS-3 | PROPOSED after WS-2 | item 1 LANDED (D-458, `a3d694a1`); items 2–5 wait on T-04's smoke exchange |
 | T-06 | WS-4 item 4 — fresh queues sweep | [WS-4](workstreams/WS-4-reconciliation.md) | WS-4 | ACTIVE | zero confirmed high/medium queue drift closes WS-4 |
-| T-07 | WS-5 first-lane selection | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | PROPOSED | gate: WS-1 exit green; S3 panel picks from forge BACKLOG.md |
+| T-07 | WS-5 first-lane selection | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | **DONE** | D-TEAM-016 named the Wave 1 mine wave; two challengers upheld the pick; `7255d3fb` |
+| T-17 | WS-5 corridor 1 — `forge-mine-capture` | [WS-5](workstreams/WS-5-core-build.md) | WS-5 | **LANDED — verified** | `16f95419` build, `b37dec84` assertion strengthening; receipt reproduces 42/42 pinned hashes and rootHash `a8a75d8e…`, independently recomputed and matching the mine's own `hashutil.py`; zero host LOC; 50 tests green |
 | T-08 | Stage-E L3 graph-bundle contract | [ARCHITECTURE_STEWARD/TASKS.md](../AGENTS_CONTEXT/ARCHITECTURE_STEWARD/TASKS.md) | Path-A portfolio | READY | one bounded L3 contract/design pass, receipt, stop |
 | T-09 | Core adequacy/reduction exercise | [CORE_VS_PLUGIN_BOUNDARY/TASKS.md](../AGENTS_CONTEXT/CORE_VS_PLUGIN_BOUNDARY/TASKS.md) | boundary research | READY | targeted exercise vs the 125-row inventory; TASKS.md seeded 2026-10-01 |
 | T-10 | Evolution research reconciliation | [EVOLUTION/TASKS.md](../AGENTS_CONTEXT/EVOLUTION/TASKS.md) | evolution research | READY | reconcile the twelve dimensions into the change constitution; seeded 2026-10-01 |
@@ -81,6 +82,33 @@ with recorded revisit conditions.
 | Model-fallback watchdog | every 30 min | applies the D-TEAM-013 ladder to provider-stopped runs; read-only otherwise | active — automation-48094acf · first fire = the live test of `openrouter/free` |
 
 ## Session log (append-only, newest first)
+
+- **2026-10-03 (cont. 4)** — **WS-5 corridor 1 landed and independently verified.**
+  `forge-mine-capture` implements `forge.mine.capture@1` (D-409's EXTERNAL_MUTATION half; the
+  READ siblings are deliberately in a separate plugin). The falsifier is not a tautology: the
+  capture never reads `MANIFEST.json`, and I recomputed all 42 hashes and the rootHash with a
+  walk written independently of the plugin's code — they agree, and they agree with the mine's
+  *own* Python reference (`fixtures/mines/synthetic-v0/src/hashutil.py`). Two findings shaped the
+  design and were reported rather than hidden: this checkout's `core.autocrlf=true` rewrites 21
+  of 42 files (so the hash domain is CRLF→LF-normalised bytes, proven a no-op on the other 21),
+  and `MANIFEST.json` is excluded by declared policy because hashing a mine's own inventory makes
+  the receipt self-referential — caught by the op's own pin, which caught a real walk bug.
+  The `omega-verify` gate then read the tests adversarially and found **three assertions that
+  asserted nothing** (`>= 0` on both CRLF branches; a schema test that never imported the schema;
+  a meta-test satisfied by a header comment). All three fixed in `b37dec84`.
+- **2026-10-03 (cont. 5)** — **the doc-logic was never broken; the tool was.** docscan's 9
+  "unresolved citation" findings for D-345/348/349 sent us looking for records that
+  `git log --all` proves never existed in this tree, and that the citing records *already say are
+  retired*. The real cause: `docFiles()` returned OS-separator paths, so on Windows the tool's own
+  grandfather regexes (`/^docs\/decisions\/D-\d+-/`, `docs/migration/`) could never match —
+  92 record files and 41 migration files silently fell out of the exemptions that are its own
+  law. **0 findings now.** The fix was to repair the tool, not to annotate four ratified records;
+  rewriting them would have manufactured law that never needed to exist.
+- **2026-10-03 (cont. 6)** — **suite final state: 1519 pass, 8 fail — and all 8 are Windows
+  environment limits, not code.** 5 × `cpSync` EPERM over `node_modules` junctions, 1 × symlink
+  `EPERM` (no `SeCreateSymbolicLinkPrivilege`), 1 × `python3` Store alias that `Bun.spawn` cannot
+  resolve, 1 × `EBUSY` on WAL teardown (per AGENTS.md that is a live-handle leak signal, not
+  flake). From 41 unique failures at baseline, of which ~10 were genuine defects, to 8 with none.
 
 - **2026-10-03** — **truth repair, measured not assumed.** Started by running the gates instead of
   reading the tracker: TRACKING.md T-01/T-02 claimed `omega:test` green at `08ddf708`. It was not.
