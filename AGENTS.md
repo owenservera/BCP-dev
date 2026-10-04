@@ -22,7 +22,7 @@ You have explicit authority to change Ω itself, including implementation, contr
 
 ## Bootstrap first pass
 
-Before major product work, establish repository reality and seed hygiene: confirm the clean seed root, remove duplicated Gym guidance, repair stale metadata and references that would mislead the fresh project, classify omitted historical decision IDs as claims rather than law, and verify which browser/provider paths are fixture-only versus live.
+Before major product work, establish repository reality and seed hygiene: confirm the clean seed root, keep the Product Release Gym canonical in `BUILD-FOCUS.md`, classify omitted historical decision IDs as claims rather than law, and verify which browser/provider paths are fixture-only versus live.
 
 ## Multi-provider execution pool
 
@@ -122,7 +122,7 @@ The following are current product direction:
 - Provider, Account, Session, Capability, Realization, Routing, and Authority are distinct concepts.
 - Plugins and compositions are the primary extensibility mechanism for replaceable capability/product behavior.
 - Forge is part of the product's ability to extend itself; generated artifacts need proof, provenance, and ordinary governance.
-- The current shippable V1 provider substrate is Chrome master/slave and browser-mediated realization. Do not casually reintroduce an AI-API execution path into the shippable product merely because it is easier to demo.
+- The intended V1 provider realization is Chrome master/slave and browser-mediated execution, subject to live-runtime proof. Do not casually reintroduce an AI-API execution path merely because it is easier to demo.
 - The canvas and provider webapp surfaces are representations/interaction boundaries, not constitutional authority.
 - Fail closed when authority, provenance, capability, or execution guarantees cannot be established.
 
