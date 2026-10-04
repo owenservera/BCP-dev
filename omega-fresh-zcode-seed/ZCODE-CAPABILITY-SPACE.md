@@ -246,6 +246,28 @@ Inspect:
 
 Record the result in a compact machine-readable and human-readable project environment manifest.
 
+### Bootstrap capability harvest
+
+Before spending time manually rediscovering how ZCode can perform or orchestrate development work, exploit the capability knowledge already seeded here and inspect what is actually available in the runtime.
+
+At bootstrap:
+
+- inventory installed and accessible skills, plugins, MCP servers, hooks, workflows, background/scheduling facilities, browser/Computer Use, memory, Git, and other native tools;
+- map those capabilities to the emerging core workstreams and their heads;
+- prefer an existing capability or composition over building an equivalent one;
+- reuse seeded ZCode knowledge as a prior, re-verifying only runtime-sensitive, version-sensitive, permission-sensitive, or genuinely uncertain claims;
+- record material capability gaps so new machinery is built for a demonstrated reason rather than because the project forgot that an existing mechanism already existed.
+
+The objective is **capability leverage at bootstrap**: use the environment's existing knowledge and extension surface immediately, then spend research effort on product and development questions that remain uncertain.
+
+### Core workstream orchestration
+
+The development system should create a small durable organizational layer with accountable heads rather than a flat pool of interchangeable agents. At minimum, cover R&D / Research & Architecture Discovery, Product Development / DevOps Efficiency, Project Management / Governance, and Truth / Quality / Verification. Add or split functions only when evidence warrants it.
+
+Each head should have a durable Commons room or channel connected to a project-wide Commons. Work requests, handoffs, decisions, blockers, escalations, research findings, verification results, and cross-stream dependencies should be communicable and recoverable through this system rather than existing only in a private agent context.
+
+Use event-driven activation where it creates leverage. Triggers may include new objectives, failed checks, unresolved research questions, changed dependencies, integration conflicts, stale or blocked work, external-change signals, scheduled maintenance, or detected risk. Triggers should activate or notify the accountable workstream/head and create observable work state. They must not bypass authorization boundaries.
+
 ### 2. Repository reality census
 
 Inspect the Ω baseline, tests, fixtures, contracts, gates, build system, runtime, docs, provider experiments, historical evidence, and current executable behavior.
