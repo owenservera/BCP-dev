@@ -1,6 +1,6 @@
 # Ω Autonomous Build — Project Instructions
 
-Read `START-HERE.md`, `VISION.md`, `PRODUCT-ANCHOR.md`, `INVARIANTS.md`, `PROJECT-CONTEXT.md`, `BUILD-FOCUS.md`, and `AUTONOMY.md` before making major architectural commitments.
+Read `START-HERE.md`, `VISION.md`, `PRODUCT-ANCHOR.md`, `INVARIANTS.md`, `PROJECT-CONTEXT.md`, `BUILD-FOCUS.md`, `AUTONOMY.md`, and `ZCODE-CAPABILITY-SPACE.md` before making major architectural commitments or designing the development system.
 
 This is a fresh autonomous build project seeded with the current VIVIM-Ω implementation baseline. The baseline is a starting implementation and evidence source, not a frozen architecture and not a prewritten roadmap.
 
