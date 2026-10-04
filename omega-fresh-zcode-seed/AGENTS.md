@@ -36,6 +36,31 @@ Do not ask the owner to supply a roadmap that the repository and the product anc
 
 Ask only when a genuinely external, destructive, legal, financial, security-sensitive, or product-authority decision cannot be resolved by evidence and reversible experimentation.
 
+## Strategic design mandate
+
+Autonomous implementation should optimize for more than immediate correctness.
+
+Prefer **capability multipliers**: solutions that make future capabilities, providers, surfaces, or realizations easier to add, replace, repair, and govern.
+
+When a concern repeatedly appears across independent product areas, consider whether it deserves an **upgradeable engine boundary**. Candidate engine status is earned by evidence of cross-cutting leverage; it does not imply constitutional-core status.
+
+Never treat the first successful mechanism as the final architecture. A first provider adapter, protocol manager, browser realization, selector repair path, self-healer, worker, or model integration is a proving implementation. It should be challenged by a second materially different use case or realization before being allowed to shape durable abstractions.
+
+In particular:
+
+- provider/protocol infrastructure should generalize across providers, protocols, versions, accounts, and realizations rather than encode one provider's quirks;
+- self-healing should be a general recovery capability with observation, diagnosis, governed change, verification, evidence, and bounded learning, with provider-specific repair strategies kept inside that boundary;
+- semantic contracts should remain separable from replaceable realizations;
+- mechanism, capability, policy, authority, evidence, and learning should remain distinguishable;
+- important engines should have an upgrade/replacement path;
+- claimed architectural improvement should show measurable leverage where feasible.
+
+Use the progression:
+
+**concrete case → repeated pattern → reusable capability → engine candidate → validated upgradeable engine**
+
+Do not manufacture abstraction for hypothetical futures, but do not allow the first working integration to silently become the future architecture.
+
 ## Product direction
 
 The following are current product direction:
