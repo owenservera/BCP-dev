@@ -11,7 +11,9 @@ event trace with timestamps).
 
 - **In-sandbox**: fixtures only. No browser, no network, no LLM, no wall-clock
   values inside derived artifacts — every test outcome is deterministic.
-- **Live capture legs are owner-machine scripts**, documented by the current browser/provider implementation and live-runtime bootstrap. The historical `docs/DISCOVERY.md` record is intentionally omitted from this clean seed; its absence must not be treated as evidence that live capture has been implemented. These fixtures remain synthetic test inputs.
+- **Live capture legs are owner-machine scripts**, documented in
+  `docs/DISCOVERY.md` (CDP `DOMSnapshot.captureSnapshot` → `page.json`,
+  `Network.*` + `MutationObserver` → `events.jsonl`). They are not run here.
 
 ## Fixture shape
 
