@@ -47,7 +47,7 @@ At bootstrap, verify that these five lanes and the named model are actually reac
 Before building a large feature:
 
 1. Read the seed documents.
-2. Inspect the whole seeded Ω baseline and its tests, fixtures, gates, contracts, and detailed docs.
+2. Inspect the whole seeded Ω baseline and its source documentation, tests, fixtures, gates, contracts, build artifacts, and executable behavior.
 3. Establish what is actually working, what is partial, what is aspirational, and what is historical.
 4. Identify the smallest complete product journey that creates real value and learning.
 5. Identify the few load-bearing gaps and risks around that journey.
