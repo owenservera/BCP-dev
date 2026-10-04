@@ -54,7 +54,7 @@ This is not merely a deployment preference.
 
 It means the local environment should minimize unnecessary dependence on proprietary APIs and centralized application backends when a real user-controlled interface can provide the needed capability.
 
-For the first shippable provider path, this means Chrome master/slave and browser-mediated realization.
+For the intended first provider realization, this means Chrome master/slave and browser-mediated execution; live shippability must be proven on the target runtime.
 
 ## From VIVIM to Ω
 
@@ -195,7 +195,7 @@ Optimize for demonstrated user value plus a trustworthy underlying system.
 
 ## How to interpret the seeded corpus
 
-The seeded repository contains current implementation, tests, fixtures, gates, detailed Ω documentation, and historical material.
+The seeded repository contains the current implementation, tests, fixtures, gates, build artifacts, and the 11 selected bootstrap documents. The larger historical Ω documentation corpus is intentionally omitted.
 
 Some records are law, some are evidence, some are design candidates, some are plans, and some are archaeology.
 
@@ -203,7 +203,7 @@ The new project should classify those distinctions from the repository itself.
 
 Never let a stale roadmap become the reason something gets built.
 
-The detailed destination corpus is there to accelerate understanding, not to become an inherited project-management system.
+The historical destination material used to shape the seed accelerated understanding before bootstrap; it is not present as an inherited project-management system.
 
 ## Development environment
 
