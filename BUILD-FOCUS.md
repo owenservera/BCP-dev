@@ -16,6 +16,8 @@ The development system should evolve through measured leverage: identify bottlen
 
 
 
+## 1. First tangible product route
+
 The highest-value near-term question is whether VIVIM can become a genuinely usable local environment around a real provider webapp.
 
 The target is not a polished browser wrapper.
