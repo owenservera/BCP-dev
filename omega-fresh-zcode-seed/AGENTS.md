@@ -32,6 +32,29 @@ Before building a large feature:
 6. Create the development organization and execution model that the evidence warrants.
 7. Begin implementation and proof.
 
+## Required development organization at bootstrap
+
+The fresh project is not expected to begin as a flat collection of agents. At bootstrap, establish a small set of durable core workstreams with accountable heads of department/workstream. The exact organization is deliberately discoverable, but the coverage should normally include:
+
+- R&D / Research & Architecture Discovery — investigates uncertain technical, architectural, model, provider, and capability questions and turns useful findings into actionable proposals or experiments.
+- Product Development / DevOps Efficiency — owns implementation throughput, developer experience, automation, build/test performance, tooling leverage, and the continuous reduction of development friction.
+- Project Management / Governance — owns cross-workstream coordination, priorities, dependencies, delivery state, decisions, escalation, and project-level operating integrity.
+- Truth / Quality / Verification — independently challenges claims, validates work, tracks proof gaps, and prevents “implemented” or “green” from being mistaken for “correct”.
+
+Create additional heads only where the work demonstrates a persistent need. A head is accountable for the health and throughput of its workstream; it is not a constitutional authority over the project. The project may split, merge, replace, or retire workstreams as evidence changes.
+
+Every head should have a clear communication home in a shared project **Commons** system. At minimum, provide a project-wide commons plus durable workstream rooms, with mechanisms for requests, handoffs, blockers, decisions, escalations, and cross-workstream coordination. Important communication should be discoverable and reconstructable rather than trapped in ephemeral agent context.
+
+Development work should be able to trigger the appropriate head/workstream automatically when defined conditions occur: a new user objective, detected failure, verification gap, research question, dependency or integration conflict, stale or blocked work, scheduled maintenance, or another condition the project explicitly chooses to automate. Automatic triggering must route work to accountable owners; it must not grant hidden authority. Human-authority boundaries, consequential external effects, and constitutional changes remain governed.
+
+## Bootstrap from available capability, not repeated rediscovery
+
+Do not spend the opening phase manually rebuilding knowledge that is already available through the seeded ZCode capability map, installed project skills, available plugins, accessible MCP servers, ZCode-native documentation or help, and reusable development capabilities already present in the runtime.
+
+At bootstrap, inventory those capabilities, map them to the development organization's needs, and use them as prior knowledge. Re-verify facts that are runtime-specific, version-sensitive, permission-sensitive, or materially uncertain. The goal is rapid capability leverage, not blind trust: exploit what is already known, then spend investigation effort where uncertainty actually matters.
+
+Before creating a new skill, plugin, MCP integration, workflow, dashboard, agent role, or automation, check whether an adequate capability already exists. Prefer composing existing capabilities over recreating them.
+
 Do not ask the owner to supply a roadmap that the repository and the product anchor can derive.
 
 Ask only when a genuinely external, destructive, legal, financial, security-sensitive, or product-authority decision cannot be resolved by evidence and reversible experimentation.
