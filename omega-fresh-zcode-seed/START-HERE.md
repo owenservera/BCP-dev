@@ -138,6 +138,14 @@ The project should make increasingly large parts of this statement true:
 The implementation behind that statement is allowed to change dramatically over time.
 
 
+## Bootstrap execution capacity
+
+The fresh project also begins with five independently wired ZCode provider lanes, each using a 1M-context **Space Bunny Free** model: **Owen**, **OpenCode acct 2**, **OpenCode acct 3**, **OpenCode acct 4**, and **OpenCode acct 5**.
+
+Treat this as pre-existing execution capacity. The bootstrap process should verify reachability and then use the five lanes to maximize useful parallel fan-out. Do not modify their provider/account/API/model configuration unless the owner explicitly requests it. The project should schedule work around the configuration, not redesign the configuration.
+
+Use concurrent lanes for genuinely independent work and deliberate independent verification. Partition work around dependencies and shared-file risk, keep outputs durable and concise, and rebalance idle capacity. The objective is maximum validated throughput, not maximum simultaneous activity.
+
 ## Bootstrap organization and Commons
 
 The fresh project should establish durable core workstreams with accountable heads early, normally covering R&D / Research & Architecture Discovery, Product Development / DevOps Efficiency, Project Management / Governance, and Truth / Quality / Verification. The exact boundaries may evolve.
