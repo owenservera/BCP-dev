@@ -6,7 +6,15 @@ Their purpose is to tell the autonomous build where deeper analysis, parallel in
 
 The project should continuously re-rank them from evidence.
 
-## 1. Make the product tangible
+## 0. Maximize the development capability space
+
+Before optimizing the product build, determine what the ZCode runtime can already do for this project and which combinations of native tools and extensions materially increase throughput, validation quality, continuity, and autonomous operation. The project should design its own DevOps from that capability census.
+
+Treat ZCode itself as an available development substrate: workspace operations, subagents, dynamic workflows, persistent memory, skills, plugins, MCP, hooks, browser/Computer Use, background and scheduled work, remote execution, Git, and observability should be considered options to compose and test—not a checklist to blindly enable.
+
+The development system should evolve through measured leverage: identify bottlenecks, create or change a capability, verify its effect, and retire machinery that does not earn its cost.
+
+
 
 The highest-value near-term question is whether VIVIM can become a genuinely usable local environment around a real provider webapp.
 
