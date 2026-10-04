@@ -16,8 +16,3 @@ build/orchestration-plan.json
 # (open.json + stream.jsonl + stream.chain.json + closed/), never committed;
 # law is committed, memory is local (the D-428 boundary)
 sessions/
-
-# D-431 (Ω-0, spec D-449): the hermetic bootstrap — environment-local boot
-# store (records.jsonl + records.chain.json), never committed; the chain of
-# custody is witnessed locally, the law that governs it is committed
-boot/

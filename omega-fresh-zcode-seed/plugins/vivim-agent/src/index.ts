@@ -16,11 +16,6 @@
 //   behavior.promote@1 {contractId, evidence: VaultProvenanceRef[]} → Outcome<{rev}>
 //   behavior.rollback@1 {contractId} → Outcome<{quarantinedRev, reactivatedRev, rev}>
 //   decision.record@1  {decisionId, subject, priorState, proposedState, actor, evidence?, parentDecisions} → Outcome<{rev, decisionId}>
-//   delegate.chain@1   {delegationId, carriedAuthority?, depthBudget?} → Outcome (D-454, Ω-15: the vault-recomputed chain fold)
-//   delegate.revoke@1  {delegationId} → Outcome (D-454, Ω-15: the subtree revocation cascade)
-//   adapt.propose@1    {proposalId, target, diffRef, rollbackPoint, census, censusBasis?, treatyChecks, window} → Outcome (D-455, Ω-16: open the ceremony)
-//   adapt.ratify@1     {proposalId, census, treatyChecks?, ratifier} → Outcome (D-455, Ω-16: the signed flip)
-//   adapt.read@1       {proposalId?} → Outcome (D-455, Ω-16: the ceremony renders headless)
 //
 // LEDGER RULE (stated before code, per the V2 risk discipline): every exec
 // attempt appends exactly one row to vault ns "agent" (id `exec:<causationId>`)
@@ -64,16 +59,6 @@ import {
   parseSpawnInput, resolveSpawnAuthority, stageBehaviorContract, type RevState,
 } from "./agent.ts";
 import { isSubset } from "./tokens.ts";
-import {
-  chainRowId, foldChain, parseChainOpInput, parseRevokeOpInput, planRevocation,
-  renderChain,
-} from "./delegation.ts";
-import {
-  ADAPT_NS, adaptProposalId, buildProposal, censusRefs, parseAdaptProposeOpInput,
-  parseAdaptRatifyOpInput, parseAdaptReadOpInput, parseAdaptRow, ratifierRefs,
-  ratifyProposal, renderCeremony, type AdaptProposalRow,
-} from "./adaptation.ts";
-import { PHASE1_CAPABILITY, AGENCY_NS, eventId, validateRequest, type GovernedEvent } from "./governance.ts";
 
 const AGENT_NS = "agent";
 const BEHAVIOR_NS = "behavior";
@@ -82,10 +67,6 @@ const DECISION_NS = "decision";
 const CONTROL_NS = "control";
 /** Bound: ledger-cursor scan over ns "agent" exec rows per snapshot. */
 const SNAPSHOT_CURSOR_CAP = 200;
-/** Bound: delegation-chain row scan over ns "control" chain: rows per fold (D-454). */
-const CHAIN_SCAN_CAP = 500;
-/** Bound: adaptation proposal scan over ns "adapt" proposal: rows per read (D-455). */
-const ADAPT_SCAN_CAP = 500;
 
 /** Port call that fails closed: a non-ok vault/law result becomes a thrown error → DEGRADED. */
 async function portCall<T>(ctx: PluginContext, op: string, payload: unknown): Promise<T> {
@@ -161,97 +142,6 @@ startPlugin(definePlugin({
   },
 
   ops: {
-    /** P1-06 Phase-1 governed chain: principal -> consent -> D-452 frame
-     * -> fixed capability -> governed event. Consent is the only authority
-     * form in this slice; standing/delegation/budget/adaptation are absent.
-     */
-    "agency.execute@1": async (payload: unknown, ctx: PluginContext, meta: CallMeta): Promise<Outcome> => {
-      const request = validateRequest(payload);
-      const causationId = meta.causationId;
-      const at = request.now ?? Date.now();
-      const frame = {
-        caller: request.principal.principal, behalf: request.principal.principal,
-        op: PHASE1_CAPABILITY, scope: PHASE1_CAPABILITY,
-        authority: { kind: "consent" as const, ref: request.authority.consentRef },
-        ...(request.intentRef !== undefined ? { intentRef: request.intentRef } : {}),
-      };
-      // Resolve the actual current consent registry first. The chain never
-      // turns the caller's assertion into "live: true"; law.describe is the
-      // source of the current consent rows for this principal.
-      const lawState = await portCall<{
-        principal: string;
-        consents: Array<{ consentId: string; active: boolean; scope?: string }>;
-      }>(ctx, "law.describe@1", { principal: request.principal.principal });
-      const liveConsent = lawState.consents.find((c) =>
-        c.consentId === request.authority.consentRef &&
-        c.active === true &&
-        (c.scope === undefined || c.scope === PHASE1_CAPABILITY)
-      );
-      const invocation = await portCall<{
-        verdict: "framed" | "refused"; code?: string; sentence?: string;
-        frameDigest: string | null; authorityResolved: "consent" | null; causationId: string;
-      }>(ctx, "invoke.check@1", {
-        frame,
-        target: { op: PHASE1_CAPABILITY, opClass: "EXTERNAL_MUTATION" },
-        knownOps: [PHASE1_CAPABILITY],
-        consents: [{
-          consentId: request.authority.consentRef,
-          principal: request.authority.principal,
-          op: PHASE1_CAPABILITY,
-          live: liveConsent !== undefined,
-        }],
-        delegations: [], standings: [], rootPrincipals: [], now: at, causationId,
-      });
-      if (invocation.verdict === "refused") {
-        const event: GovernedEvent = {
-          kind: "governed-action@1", eventId: eventId(causationId), at, causationId,
-          principal: request.principal, authority: request.authority, capability: PHASE1_CAPABILITY,
-          consentChecked: true,
-          invocation: {
-            frameDigest: invocation.frameDigest, verdict: "refused",
-            authorityResolved: invocation.authorityResolved,
-          },
-          execution: { attempted: false, completed: false }, outcome: "REFUSED",
-          ...(invocation.code !== undefined ? { reasonCode: invocation.code } : {}),
-          ...(invocation.sentence !== undefined ? { reasonSentence: invocation.sentence } : {}),
-          ...(request.intentRef !== undefined ? { intentRef: request.intentRef } : {}),
-        };
-        await portCall(ctx, "vault.append@1", {
-          ns: AGENCY_NS, id: event.eventId, data: event,
-          meta: { type: event.kind, capability: PHASE1_CAPABILITY, outcome: event.outcome },
-          refs: [{ ns: "invoke", id: "inv:" + causationId }],
-        });
-        return fail(
-          "REFUSED",
-          (event.reasonCode ?? "INVOKE_REFUSED") + ": " +
-          (event.reasonSentence ?? "governance refused the invocation"),
-        );
-      }
-      const target = await portCall<unknown>(ctx, PHASE1_CAPABILITY, request.payload);
-      const event: GovernedEvent = {
-        kind: "governed-action@1", eventId: eventId(causationId), at, causationId,
-        principal: request.principal, authority: request.authority, capability: PHASE1_CAPABILITY,
-        consentChecked: true,
-        invocation: {
-          frameDigest: invocation.frameDigest, verdict: "framed",
-          authorityResolved: invocation.authorityResolved,
-        },
-        execution: { attempted: true, completed: true }, outcome: "EXECUTED",
-        ...(request.intentRef !== undefined ? { intentRef: request.intentRef } : {}),
-        targetResult: target,
-      };
-      await portCall(ctx, "vault.append@1", {
-        ns: AGENCY_NS, id: event.eventId, data: event,
-        meta: { type: event.kind, capability: PHASE1_CAPABILITY, outcome: event.outcome },
-        refs: [{ ns: "invoke", id: "inv:" + causationId }],
-      });
-      return {
-        status: "OK",
-        value: { eventId: event.eventId, capability: PHASE1_CAPABILITY, outcome: "EXECUTED", target },
-      };
-    },
-
-
     "agent.spawn@1": async (payload: unknown, ctx: PluginContext, meta: CallMeta): Promise<Outcome> => {
       const input = parseSpawnInput(payload); // throws on malformed → DEGRADED
       // 1. resolve the behavior contract (must exist and be active)
@@ -786,154 +676,8 @@ startPlugin(definePlugin({
         },
       };
     },
-
-    // ---- D-454 (Ω-15): the delegation boundary ops ----
-
-    /** The chain fold (D-454, READ): resolve + verify a delegation chain
-     *  from ns "control" chain rows — vault-recomputed authority (carried
-     *  claims are routing hints), per-edge mechanical subset attenuation,
-     *  clock-pinned expiry at every hop, subtree revocation discovery, and
-     *  the authorityChain digest for Ω-12 frames to cite. */
-    "delegate.chain@1": async (payload: unknown, ctx: PluginContext): Promise<Outcome> => {
-      const input = parseChainOpInput(payload); // throws on malformed → DEGRADED
-      const snapshot = await loadChainRows(ctx);
-      const fold = foldChain({
-        rows: snapshot.rows.map((r) => r.data),
-        leafDelegationId: input.delegationId,
-        now: Date.now(),
-        ...(input.depthBudget !== undefined ? { depthBudget: input.depthBudget } : {}),
-        ...(input.carriedAuthority !== undefined ? { carriedAuthority: input.carriedAuthority } : {}),
-      });
-      if (!fold.ok) return fail("REFUSED", fold.sentence);
-      return { status: "OK", value: { ...fold.value, text: renderChain(fold.value) } };
-    },
-
-    /** The cascade (D-454, MUTATION): revoke a hop and its whole descendant
-     *  subtree in one append-only sweep (latest-wins per id; genealogy via
-     *  append refs; already-closed rows stay closed). Descendants discover
-     *  at their next fold — gate-time pull, no cached authority; the sweep
-     *  is atomic in this vault, so zero live descendants remain. */
-    "delegate.revoke@1": async (payload: unknown, ctx: PluginContext): Promise<Outcome> => {
-      const input = parseRevokeOpInput(payload); // throws on malformed → DEGRADED
-      const snapshot = await loadChainRows(ctx);
-      const plan = planRevocation(snapshot.rows.map((r) => r.data), input.delegationId, Date.now());
-      if (!plan.ok) return fail("REFUSED", plan.sentence);
-      const cascade: Array<{ delegationId: string; rev: number }> = [];
-      for (const entry of plan.value.cascade) {
-        const prior = snapshot.byId.get(chainRowId(entry.delegationId));
-        const r = await portCall<VaultAppendResult>(ctx, "vault.append@1", {
-          ns: CONTROL_NS, id: chainRowId(entry.delegationId), data: entry.row,
-          ...(prior ? { refs: [{ ns: CONTROL_NS, id: chainRowId(entry.delegationId), rev: prior.rev }] } : {}),
-          meta: { type: "delegation-chain", kind: "revocation", revokedThrough: plan.value.revokedThrough },
-        });
-        cascade.push({ delegationId: entry.delegationId, rev: r.rev });
-      }
-      return {
-        status: "OK",
-        value: {
-          revokedAt: plan.value.revokedAt, revokedThrough: plan.value.revokedThrough,
-          cascade, liveDescendants: 0,
-        },
-      };
-    },
-
-    // ---- D-455 (Ω-16): the adaptation governance ops ----
-
-    /** Open the ceremony (D-455, MUTATION): the diff + the rollback point
-     *  (REQUIRED — the way back) + the census (empty only with its cited
-     *  basis) + the treaty checks + the window. Born proposed, never
-     *  ratified by construction — the flip is a signature, not a state
-     *  flip. */
-    "adapt.propose@1": async (payload: unknown, ctx: PluginContext): Promise<Outcome> => {
-      const input = parseAdaptProposeOpInput(payload); // throws on malformed → DEGRADED
-      const row = buildProposal(input, Date.now());
-      if (!row.ok) return fail("REFUSED", row.sentence);
-      const r = await portCall<VaultAppendResult>(ctx, "vault.append@1", {
-        ns: ADAPT_NS, id: adaptProposalId(row.value.proposalId), data: row.value,
-        refs: [row.value.diffRef, row.value.rollbackPoint, ...censusRefs(row.value.census)],
-        meta: { type: "adaptation", kind: "proposal", target: `${row.value.target.kind}:${row.value.target.ref}` },
-      });
-      return {
-        status: "OK",
-        value: { proposalId: row.value.proposalId, status: row.value.status, censusDigest: row.value.censusDigest, rev: r.rev },
-      };
-    },
-
-    /** The flip (D-455, MUTATION): window-checked, census re-digested at
-     *  the flip (the census must describe the world being changed, not the
-     *  world that proposed), treaty-guarded, signed — a human principal or
-     *  a live auto-with-proof standing, both cited and resolved (the chain
-     *  of the yes). */
-    "adapt.ratify@1": async (payload: unknown, ctx: PluginContext): Promise<Outcome> => {
-      const input = parseAdaptRatifyOpInput(payload); // throws on malformed → DEGRADED
-      const head = await vaultGet(ctx, ADAPT_NS, adaptProposalId(input.proposalId));
-      if (!head) return fail("UNKNOWN", `adaptation proposal "${input.proposalId}" not found`);
-      const row = parseAdaptRow(head.data);
-      if (!row) return fail("UNKNOWN", `adaptation proposal "${input.proposalId}" does not parse as a ceremony row`);
-      if (input.ratifier !== undefined) {
-        for (const ref of ratifierRefs(input.ratifier)) {
-          const got = await vaultGet(ctx, ref.ns, ref.id, ref.rev);
-          if (!got) return fail("UNKNOWN", `ratifier ref ${ref.ns}/${ref.id}@${ref.rev} does not resolve — the signature is proof, not confidence`);
-        }
-      }
-      const ratified = ratifyProposal(row, {
-        ...(input.census !== undefined ? { census: input.census } : {}),
-        ...(input.treatyChecks !== undefined ? { treatyChecks: input.treatyChecks } : {}),
-        ...(input.ratifier !== undefined ? { ratifier: input.ratifier } : {}),
-      }, Date.now());
-      if (!ratified.ok) return fail("REFUSED", ratified.sentence);
-      const r = await portCall<VaultAppendResult>(ctx, "vault.append@1", {
-        ns: ADAPT_NS, id: adaptProposalId(input.proposalId), data: ratified.value,
-        refs: [
-          { ns: ADAPT_NS, id: adaptProposalId(input.proposalId), rev: head.rev },
-          ...censusRefs(ratified.value.census),
-          ...(ratified.value.ratifier !== undefined ? ratifierRefs(ratified.value.ratifier) : []),
-        ],
-        meta: { type: "adaptation", kind: "ratification", id: input.proposalId },
-      });
-      return {
-        status: "OK",
-        value: { proposalId: input.proposalId, status: "ratified", ratifier: ratified.value.ratifier, rev: r.rev },
-      };
-    },
-
-    /** The ceremony renders headless (D-455, READ): rows before pixels. */
-    "adapt.read@1": async (payload: unknown, ctx: PluginContext): Promise<Outcome> => {
-      const input = parseAdaptReadOpInput(payload);
-      if (input.proposalId !== undefined) {
-        const head = await vaultGet(ctx, ADAPT_NS, adaptProposalId(input.proposalId));
-        const row = head ? parseAdaptRow(head.data) : null;
-        if (!row) return fail("UNKNOWN", `adaptation proposal "${input.proposalId}" not found`);
-        return { status: "OK", value: { proposal: row, text: renderCeremony([row]) } };
-      }
-      const q: PortResult = await ctx.port.call("vault.query@1", { ns: ADAPT_NS, filter: { idPrefix: "proposal:" } });
-      if (!q.ok) throw new Error(`vivim.agent: vault.query@1 ${q.error}: ${q.detail ?? ""}`);
-      const rows: AdaptProposalRow[] = [];
-      for (const vrow of ((q.value as VaultRow[] | null) ?? []).slice(0, ADAPT_SCAN_CAP)) {
-        const got = await vaultGet(ctx, ADAPT_NS, vrow.id);
-        const row = got ? parseAdaptRow(got.data) : null;
-        if (row) rows.push(row);
-      }
-      return { status: "OK", value: { proposals: rows, text: renderCeremony(rows) } };
-    },
   },
 }));
-
-/** Latest-wins snapshot of the ns "control" delegation-chain rows (D-454,
- *  bounded scan — the vault is the authority, memory is nothing). */
-async function loadChainRows(ctx: PluginContext): Promise<{
-  rows: Array<{ id: string; rev: number; data: unknown }>;
-  byId: Map<string, { id: string; rev: number; data: unknown }>;
-}> {
-  const q: PortResult = await ctx.port.call("vault.query@1", { ns: CONTROL_NS, filter: { idPrefix: "chain:" } });
-  if (!q.ok) throw new Error(`vivim.agent: vault.query@1 ${q.error}: ${q.detail ?? ""}`);
-  const rows: Array<{ id: string; rev: number; data: unknown }> = [];
-  for (const vrow of ((q.value as VaultRow[] | null) ?? []).slice(0, CHAIN_SCAN_CAP)) {
-    const got = await vaultGet(ctx, CONTROL_NS, vrow.id);
-    if (got) rows.push({ id: vrow.id, rev: got.rev, data: got.data });
-  }
-  return { rows, byId: new Map(rows.map((r) => [r.id, r])) };
-}
 
 /** Shared spawn finalization (identity append with lineage refs). */
 async function finishSpawn(

@@ -2,6 +2,7 @@
 // A wave ends only when this is green (D-205 existence law).
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { cpus } from "node:os";
 import { parseStageFilter, renderFailureLine } from "./failures.ts";
 
 const ROOT = join(import.meta.dir, "../..");
@@ -251,26 +252,6 @@ try {
   else fail("forge-surface", r.issues.map((i) => `${i.check} [${i.subject}]: ${i.reason} — fix: ${i.fix}`).join("; "));
 } catch (e) { fail("forge-surface", String(e)); }
 
-// 5d-bis · docscan (D-TEAM-030): the decision/docs citation scanner, wired as a
-// STAGE rather than left as a script somebody remembers to run. It exists, it is a
-// substrate tool next to every other check here, and it was not in the stage list —
-// which is why its findings have to be rediscovered by hand. It caught nine real
-// unresolved-citation problems on 2026-10-03 (which sent a session hunting for
-// records `git log --all` proved never existed, while the citing records already
-// said were retired), and a day later a Windows path-separator bug that had silently
-// dropped 92 decision files and 41 migration files out of the exemptions the tool's
-// own law grants them.
-//
-// The team-layer checks in `.zcode/checks/` are deliberately NOT wired here: a
-// substrate gate must not turn red because a team ledger entry lacks a field. Those
-// stay in `check:all`, which is where the team layer belongs.
-try {
-  const { scanDocs } = await import("./docscan.ts");
-  const d = scanDocs(ROOT);
-  if (d.findings.length === 0) pass("docscan", { files: d.checked.files, knownIds: d.checked.knownIds });
-  else fail("docscan", `${d.findings.length} finding(s): ` + d.findings.map((f) => `${f.file}:${f.line} ${f.message}`).join("; "));
-} catch (e) { fail("docscan", String(e)); }
-
 // 5e · invariants-freshness (D-415, A3 — report-only): the digest's staleness
 // on TRIGGER, not calendar — the marker's as-of vs ratified rows past it, the
 // marker's stage inventory vs this gate's stage registry. REPORT-ONLY by
@@ -328,57 +309,23 @@ try {
 // D-368 --quick: host-loc + decisions + compositions + bun-surface +
 // os-surface + import-surface only (no tests/attest/status write) for inner loop.
 const QUICK = process.argv.includes("--quick");
-// D-TEAM-021 (2026-10-03): SERIAL IS THE DEFAULT, not an opt-in fallback. At Bun's
-// own default (`max(4, min(20, cpus))`) a full run on this machine ends in
-// `panic(thread): Stack overflow` / exit 3 after ~900 tests, RSS 8.86GB and 2.9M
-// page faults — a memory-exhaustion symptom, reproduced twice. At concurrency 1
-// the same suite completed in 326s: 1586 pass / 2 skip / 3 fail, no crash.
-// OMEGA_TEST_CONCURRENCY overrides this deliberately.
-// A `bunfig.toml [test] maxConcurrency` was tried FIRST AND DOES NOT WORK: that
-// key is not in Bun's bunfig schema and is silently ignored, as is any unknown
-// key. Nor can the env var below reach a bare `bun test` — it is read HERE, in
-// this file, and is inert anywhere else. The ONLY lever that reaches the runner
-// is the `--max-concurrency` flag passed at line 327, which is why package.json's
-// `omega:test` passes the flag explicitly rather than setting the variable.
-const testMaxConc = Number(process.env.OMEGA_TEST_CONCURRENCY ?? 1);
+const testMaxConc = Number(process.env.OMEGA_TEST_CONCURRENCY ?? Math.max(4, Math.min(20, cpus().length)));
 const TEST_TIMEOUT_MS = "60000";
 if (QUICK) {
   const summary = { ok: failed === 0, failed, hostLoc, quick: true, at: gate.startedAt };
   console.log(JSON.stringify(summary, null, 2));
   process.exit(failed === 0 ? 0 : 1);
 }
-// D-TEAM-024 (2026-10-03): the full run is SHARDED across short-lived processes, and
-// `--max-concurrency` no longer controls it — because that flag was measured to do nothing
-// at all. On four slow files: one process at `--max-concurrency 4` took 39.7 s, at
-// `--max-concurrency 1` took 39.6 s, and four SEPARATE processes took 18.8 s. The runner was
-// always sequential, which also means D-TEAM-021's serial default was buying nothing: the
-// suite's real problem was ONE long-lived process accumulating until it OOM'd, not too many
-// workers. Splitting it bounds each process and runs them in parallel — measured full run
-// 326 s / fatal 19.45 GB commit  ->  184 s / 8.1 GB peak, no crash.
-// D-TEAM-021's annotation above is preserved rather than rewritten, per D-TEAM-011.
-// A TARGETED run keeps the old path: it is a handful of files by definition, and the
-// sharded runner discovers files itself rather than taking a list.
-const tests = TARGETED
-  ? await sh(["bun", "test", "--max-concurrency", String(testMaxConc), "--timeout", TEST_TIMEOUT_MS, ...STAGE_FILTER])
-  : await sh(["bun", "run", "tooling/gates/sharded-test.ts"]);
-// The sharded runner's trailing JSON is authoritative — its own per-shard counts, not a
-// regex over concatenated output (which would sum the wrong line when a shard crashed).
-const shardSummary = (() => {
-  const start = tests.out.lastIndexOf("\n{\n");
-  if (start === -1) return null;
-  try { return JSON.parse(tests.out.slice(start + 1)); } catch { return null; }
-})();
-const testPass = shardSummary?.pass ?? parseInt(tests.out.match(/^\s*(\d+) pass/m)?.[1] ?? "0");
-const testFail = shardSummary?.fail ?? parseInt(tests.out.match(/^\s*(\d+) fail/m)?.[1] ?? "0");
+const tests = await sh(["bun", "test", "--max-concurrency", String(testMaxConc), "--timeout", TEST_TIMEOUT_MS, ...(TARGETED ? STAGE_FILTER : [])]);
+const passMatch = tests.out.match(/^\s*(\d+) pass/m);
+const failMatch = tests.out.match(/^\s*(\d+) fail/m);
+const testPass = parseInt(passMatch?.[1] ?? "0");
+const testFail = parseInt(failMatch?.[1] ?? "0");
 // failing test names (ANSI-stripped) straight into the gate record — no more
 // mystery single-fail runs; the names are what the next action needs.
-const failingTests = shardSummary?.failingTests ?? [...tests.out.replace(/\x1b\[[0-9;]*m/g, "").matchAll(/\(fail\) (.+?) \[\d[\d.,]*m?s\]/g)]
+const failingTests = [...tests.out.replace(/\x1b\[[0-9;]*m/g, "").matchAll(/\(fail\) (.+?) \[\d[\d.,]*m?s\]/g)]
   .map((m) => m[1].trim().slice(0, 160));
-// A shard that died without a verdict means those tests never ran. That is NOT "a few
-// failures" — it must never be reported as a pass count that looks complete.
-if (shardSummary?.INCOMPLETE) fail("tests", `INCOMPLETE — ${shardSummary.INCOMPLETE}: ${JSON.stringify(shardSummary.crashedShards)}`);
-else if (tests.code === 0 && testFail === 0)
-  pass("tests", TARGETED ? { pass: testPass, fail: testFail, maxConcurrency: testMaxConc, targeted: STAGE_FILTER } : { pass: testPass, fail: testFail, shards: shardSummary?.shards, width: shardSummary?.width });
+if (tests.code === 0 && testFail === 0) pass("tests", TARGETED ? { pass: testPass, fail: testFail, maxConcurrency: testMaxConc, targeted: STAGE_FILTER } : { pass: testPass, fail: testFail, maxConcurrency: testMaxConc });
 else fail("tests", `${testPass} pass / ${testFail} fail${TARGETED ? ` (targeted: ${STAGE_FILTER.join(", ")})` : ""} — failing: ${JSON.stringify(failingTests)}`);
 
 // 6 · attest: boot the demo composition, round-trip, recovery drill (existence proof)

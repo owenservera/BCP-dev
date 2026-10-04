@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-21T08:34:55.460Z",
+  "generatedAt": "2026-09-20T23:28:38.876Z",
   "repo": "vivim-omega",
   "branch": "omega",
-  "head": "9b443c6",
+  "head": "93cf286",
   "toolchain": {
     "bun": "1.3.14",
     "node": "24.3.0",
@@ -96,7 +96,7 @@
     }
   ],
   "gate": {
-    "startedAt": "2026-09-21T08:33:15.172Z",
+    "startedAt": "2026-09-20T23:27:06.521Z",
     "checks": {
       "host-loc": {
         "ok": true,
@@ -131,12 +131,12 @@
       "decisions": {
         "ok": true,
         "detail": {
-          "rows": 161,
-          "records": 135,
-          "ratified": 135,
+          "rows": 136,
+          "records": 110,
+          "ratified": 110,
           "grandfatherBelow": 313,
           "generatedFrom": 413,
-          "trackWarnings": 1,
+          "trackWarnings": 0,
           "openQuestions": {
             "count": 0,
             "ids": [],
@@ -255,7 +255,7 @@
       "import-surface": {
         "ok": true,
         "detail": {
-          "scanned": 177,
+          "scanned": 149,
           "rules": 5
         }
       },
@@ -272,9 +272,9 @@
         "ok": true,
         "detail": {
           "policy": "report-only (D-415, A3 — the flip to failing is a future record's call, after one green wave of reports)",
-          "pass": 7,
-          "asOf": "D-431",
-          "ratifiedSince": 24,
+          "pass": 6,
+          "asOf": "D-430",
+          "ratifiedSince": 0,
           "gateStages": 15,
           "stale": false,
           "triggers": []
@@ -284,8 +284,8 @@
         "ok": true,
         "detail": {
           "policy": "report-only (D-423 — mirrors D-415/D-368; the flip to failing, if ever, is a future record's call)",
-          "gateGreen": false,
-          "gateStale": false,
+          "gateGreen": true,
+          "gateStale": true,
           "boardOpen": 0,
           "boardBlocking": 0,
           "boardFreshness": "stale",
@@ -293,9 +293,9 @@
           "ledgerResolved": true,
           "sessionOpen": true,
           "sessionHomePresent": true,
-          "sessionEvents": 13,
-          "sessionClosedCount": 2,
-          "ratifiedCount": 160
+          "sessionEvents": 3,
+          "sessionClosedCount": 0,
+          "ratifiedCount": 135
         }
       },
       "genome": {
@@ -304,30 +304,47 @@
           "policy": "mechanical (D-425): artifact integrity fails; record-status and the assumed directive are reported facts (the ratify ceremony and the owner own them)",
           "counts": {
             "layers": 32,
-            "implemented": 32,
-            "externalAssumed": 0,
-            "ratifiedUnimplemented": 0,
-            "queued": 0,
-            "decisions": 161,
-            "ratified": 160,
+            "implemented": 7,
+            "externalAssumed": 16,
+            "ratifiedUnimplemented": 1,
+            "queued": 8,
+            "decisions": 136,
+            "ratified": 135,
             "proposed": 1,
-            "records": 135,
-            "testFiles": 143,
+            "records": 110,
+            "testFiles": 118,
             "gateStages": 15,
             "plugins": 25,
             "compositions": 19
           },
-          "genomeBytes": 68162,
-          "briefBytes": 12040,
+          "genomeBytes": 47178,
+          "briefBytes": 7557,
           "inFlight": [],
-          "externalAssumed": 0,
-          "unresolvedFalsifiers": []
+          "externalAssumed": 16,
+          "unresolvedFalsifiers": [
+            "F-BOOT (Ω-0)",
+            "F-DURABILITY (Ω-0.5)",
+            "F-WATCH (Ω-1)",
+            "F-GOV (Ω-2)",
+            "F-CTX (Ω-3)",
+            "F-TRUST (Ω-4)",
+            "F-ANALYTICS (Ω-5)",
+            "F-LAYOUT (Ω-6)",
+            "F-BADGE (Ω-7)",
+            "F-DISCLOSURE (Ω-9)",
+            "F-PARTIAL (Ω-10)",
+            "F-INVOKE (Ω-12)",
+            "F-STANDING (Ω-13)",
+            "F-LIVENESS (Ω-14)",
+            "F-DELEGATE (Ω-15)",
+            "F-ADAPT (Ω-16)"
+          ]
         }
       },
       "tests": {
         "ok": true,
         "detail": {
-          "pass": 1418,
+          "pass": 1247,
           "fail": 0,
           "maxConcurrency": 4
         }
@@ -335,8 +352,8 @@
       "attest": {
         "ok": true,
         "detail": {
-          "compileMs": 4,
-          "bootMs": 22,
+          "compileMs": 22,
+          "bootMs": 90,
           "echo": true,
           "counterBump": true,
           "counterValue": {
@@ -359,7 +376,7 @@
   },
   "hostLoc": 1500,
   "tests": {
-    "pass": 1418,
+    "pass": 1247,
     "fail": 0
   },
   "benchmarks": {

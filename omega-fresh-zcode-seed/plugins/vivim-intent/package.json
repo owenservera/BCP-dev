@@ -6,7 +6,6 @@
   "dependencies": {
     "@vivim/omega-shim": "workspace:*",
     "@vivim/omega-contracts": "workspace:*",
-    "@vivim/omega-nlcl-pure": "workspace:*",
     "@vivim/omega-testkit": "workspace:*"
   }
 }

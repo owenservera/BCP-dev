@@ -26,20 +26,12 @@
 //   S6 banner coverage — a doc whose header claims supersession names a
 //      D-id somewhere in its body
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
-import { join, relative, sep } from "node:path";
+import { join } from "node:path";
 import { GRANDFATHER_BELOW, GENERATED_FROM } from "./decisions.ts";
 
 export interface Finding { rule: string; file: string; line: number; msg: string }
 
-/** All .md files under docs/ (recursive), repo-relative.
- *  CANONICAL FORWARD SLASHES, ALWAYS — every rule below compares `rel`
- *  against a forward-slash literal (`docs/migration/`, `docs/decisions/D-\d+-`,
- *  `docs/BUILD-DECISIONS.md`). `join()` yields the OS separator, so on win32 a
- *  raw slice handed back `docs\migration\INTENT.md`: the migration exclusion
- *  missed 41 files and the hand-era S4 grandfather missed 92 record files, which
- *  turned the D-418/D-422 exemptions (frozen corpus out of scope; hand-era
- *  D-313..D-412 rows citing the retired D-340..D-349 range) into live findings.
- *  The exemptions were the tool's own law and only ever worked on POSIX. */
+/** All .md files under docs/ (recursive), repo-relative. */
 export function docFiles(root: string): string[] {
   const docsDir = join(root, "docs");
   const abs: string[] = [];
@@ -52,7 +44,7 @@ export function docFiles(root: string): string[] {
     }
   };
   rec(docsDir);
-  return abs.map((p) => relative(root, p).split(sep).join("/"));
+  return abs.map((p) => p.slice(root.length + 1));
 }
 
 export function knownDecisionIds(root: string): Set<number> {

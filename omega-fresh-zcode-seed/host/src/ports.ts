@@ -434,7 +434,7 @@ export class PortRouter {
     }
   }
 
-  /** Root principal (host-held, e.g. the CLI): no token needed — the host IS the caller. HOST OPS ARE NOT LAW-GATED (D-TEAM-036 / G-12): the `isHostOp` return below happens before `dispatch`, the only place `callLaw` is consulted — and a host op has no manifest, so `opRisk` has no entry for it and it would not be gated even if it reached `dispatch`. This comment previously claimed "risky ops still pass the law gate"; that was false, and a comment asserting a guarantee the code does not provide is worse than no comment. */
+  /** Root principal (host-held, e.g. the CLI): no token needed — the host IS the caller — but risky ops still pass the law gate. */
   async callAsRoot(op: string, payload: unknown, deadlineMs = 5000): Promise<PortResult> {
     if (this.isHostOp(op)) return this.hostOp("root", op, payload);
     const causationId = this.nextCausation();

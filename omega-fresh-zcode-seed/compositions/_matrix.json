@@ -92,8 +92,7 @@
               "host.tokens.revoke",
               "port:vault.append@1",
               "port:vault.query@1",
-              "port:vault.get@1",
-              "port:vault.getmany@1"
+              "port:vault.get@1"
             ],
             "contracts": [
               "law.check@1",
@@ -1288,25 +1287,12 @@
           "grant": {
             "capabilities": [
               "host.compartment.admin",
-              "port:echo.ping@1",
-              "port:vault.append@1",
-              "port:vault.get@1",
-              "port:vault.query@1"
+              "port:echo.ping@1"
             ],
             "contracts": [
               "run.submit@1",
               "run.stats@1",
-              "run.health@1",
-              "work.create@1",
-              "work.get@1",
-              "work.list@1",
-              "work.transition@1",
-              "work.attempt.start@1",
-              "work.attempt.finish@1",
-              "work.reconcile@1",
-              "work.verify@1",
-              "work.cancel@1",
-              "work.recover@1"
+              "run.health@1"
             ]
           },
           "config": {
@@ -1445,238 +1431,6 @@
           },
           "config": {
             "scratchDir": "${TMP}/omega-forge-author/emission"
-          }
-        }
-      ]
-    },
-    "forge-mine-capture": {
-      "note": "OMEGA FORGE Wave 1 builder composition (D-409 split-plugin, D-417 §5 lane 1) — the capture seam boot: vivim.law (phase 0, gate + journal + the consent ceremony), vivim.vault (the proposal ledger the receipt lands in), and forge.mine.capture loaded AS A PLUGIN with forge.mine.capture@1 routed normally. The op is EXTERNAL_MUTATION (pack.builder FORGE_OP_CATALOG), so the host gates it through law.check@1 BEFORE the handler ever runs: the EXTERNAL_MUTATION class default is require-consent, so a caller performs the consent ceremony (law.consent.grant@1) and only then is the foreign tree read at all. The op READS the declared mine root and never writes it; its single mutation is the append-only receipt row in vault ns proposal (D-409 SF1), read back byte-identical before the receipt is returned. The READ siblings (forge.mine.verify/diff/list@1) are NOT routed here — they are the separate forge-mine plugin (D-409, one risk class per plugin). This is a builder composition: no product composition may route forge.* ops (FORGE_IN_PRODUCT).",
-      "entries": [
-        {
-          "id": "vivim.law",
-          "source": "../plugins/vivim-law",
-          "bootPhase": 0,
-          "grant": {
-            "capabilities": [
-              "port:host.journal.append@1",
-              "host.journal.append",
-              "port:host.tokens.revoke@1",
-              "host.tokens.revoke"
-            ],
-            "contracts": [
-              "law.check@1",
-              "law.registry@1",
-              "law.consent.grant@1",
-              "law.tokens.revoke@1",
-              "law.forbidden.set@1",
-              "law.amendment@1",
-              "law.describe@1"
-            ]
-          },
-          "config": {
-            "journalPath": ""
-          }
-        },
-        {
-          "id": "vivim.vault",
-          "source": "../plugins/vivim-vault",
-          "bootPhase": 1,
-          "grant": {
-            "capabilities": [],
-            "contracts": [
-              "vault.append@1",
-              "vault.get@1",
-              "vault.getmany@1",
-              "vault.query@1",
-              "vault.search@1",
-              "vault.verify@1",
-              "vault.compact@1",
-              "vault.roundtrip@1"
-            ]
-          },
-          "config": {
-            "dataDir": "${TMP}/omega-forge-mine-capture/vault-data"
-          }
-        },
-        {
-          "id": "forge.mine.capture",
-          "source": "../plugins/forge-mine-capture",
-          "bootPhase": 1,
-          "grant": {
-            "capabilities": [
-              "port:vault.append@1",
-              "port:vault.get@1",
-              "port:vault.getmany@1",
-              "port:law.check@1"
-            ],
-            "contracts": [
-              "forge.mine.capture@1"
-            ]
-          }
-        }
-      ]
-    },
-    "forge-survey": {
-      "note": "OMEGA FORGE Wave 1+ builder composition (D-417 §5 lane 3) — the survey boot: vivim.law (phase 0, gate + journal + the consent ceremony), vivim.vault (the proposal ledger that HOLDS the capture receipt and its CAS blobs), forge.mine.capture (the ONE filesystem seam, booted here so a receipt and its blobs EXIST in this ledger — forge.mine.capture@1 routed normally, EXTERNAL_MUTATION so the host gates it through law.check@1 before the handler ever reads a byte; the caller performs the two-principal consent ceremony), and forge.survey (READ — forge.survey.run@1 / forge.survey.render@1, granted exactly the two read-only vault ports they use: get for the receipt row, bounded getmany batches for the blobs). Survey reads the snapshot AS STORED and never re-walks the mine tree: there is no node:fs import in its compartment and no filesystem capability in its grant, which is what keeps D-409's class split honest. The capture entry's grant set is IDENTICAL to the one in forge-mine.json and forge-mine-capture.json (append + get + getmany + law.check): compositions.ts check 4 fingerprints every plugin's grant across compositions and flags any variance with no DRIFT_ALLOWLIST entry, and the identity is also functionally required — without the getmany grant the capture's own blob read-back is capability-refused there. The vivim.law entry is copied VERBATIM from those compositions including law.consent.grant@1: the whole capture ceremony runs through it, and vivim.law IS DRIFT_ALLOWLISTed, so a divergent law grant would fail SILENTLY — every capture gate-refused and the suite could never produce its own evidence. This is a builder composition — no product composition may route forge.* ops (FORGE_IN_PRODUCT).",
-      "entries": [
-        {
-          "id": "vivim.law",
-          "source": "../plugins/vivim-law",
-          "bootPhase": 0,
-          "grant": {
-            "capabilities": [
-              "port:host.journal.append@1",
-              "host.journal.append",
-              "port:host.tokens.revoke@1",
-              "host.tokens.revoke"
-            ],
-            "contracts": [
-              "law.check@1",
-              "law.registry@1",
-              "law.consent.grant@1",
-              "law.tokens.revoke@1",
-              "law.forbidden.set@1",
-              "law.amendment@1",
-              "law.describe@1"
-            ]
-          },
-          "config": {
-            "journalPath": ""
-          }
-        },
-        {
-          "id": "vivim.vault",
-          "source": "../plugins/vivim-vault",
-          "bootPhase": 1,
-          "grant": {
-            "capabilities": [],
-            "contracts": [
-              "vault.append@1",
-              "vault.get@1",
-              "vault.getmany@1",
-              "vault.query@1",
-              "vault.search@1",
-              "vault.verify@1",
-              "vault.compact@1",
-              "vault.roundtrip@1"
-            ]
-          },
-          "config": {
-            "dataDir": "${TMP}/omega-forge-survey/vault-data"
-          }
-        },
-        {
-          "id": "forge.mine.capture",
-          "source": "../plugins/forge-mine-capture",
-          "bootPhase": 1,
-          "grant": {
-            "capabilities": [
-              "port:vault.append@1",
-              "port:vault.get@1",
-              "port:vault.getmany@1",
-              "port:law.check@1"
-            ],
-            "contracts": [
-              "forge.mine.capture@1"
-            ]
-          }
-        },
-        {
-          "id": "forge.survey",
-          "source": "../plugins/forge-survey",
-          "bootPhase": 1,
-          "grant": {
-            "capabilities": [
-              "port:vault.get@1",
-              "port:vault.getmany@1"
-            ],
-            "contracts": [
-              "forge.survey.run@1",
-              "forge.survey.render@1"
-            ]
-          }
-        }
-      ]
-    },
-    "forge-mine": {
-      "note": "OMEGA FORGE Wave 1 builder composition (D-409 split-plugin, D-417 §5 lane 2) — the READ half of the mine family, booted WITH its EXTERNAL_MUTATION sibling so the receipt these ops consume exists in the same ledger: vivim.law (phase 0, gate + journal + the consent ceremony), vivim.vault (the proposal ledger that HOLDS the capture receipt), forge.mine.capture (the ONE filesystem seam — forge.mine.capture@1 routed normally, EXTERNAL_MUTATION so the host gates it through law.check@1 before the handler ever reads a byte; the caller performs the two-principal consent ceremony), and forge.mine (READ — forge.mine.verify@1 / forge.mine.diff@1 / forge.mine.list@1, granted exactly two read-only vault ports). The READ ops read the receipt AS STORED: the row capture appended to ns proposal under the content-derived id `mine:<repo>/<rootHash>`, which forge.mine re-derives from the mine id's own pin. Neither plugin class is compromised by sharing this composition: FORGE_CLASS_SPAN is about a plugin's declared contributions, not about which plugins boot together, and the grants stay per-entry. This is a builder composition — no product composition may route forge.* ops (FORGE_IN_PRODUCT).",
-      "entries": [
-        {
-          "id": "vivim.law",
-          "source": "../plugins/vivim-law",
-          "bootPhase": 0,
-          "grant": {
-            "capabilities": [
-              "port:host.journal.append@1",
-              "host.journal.append",
-              "port:host.tokens.revoke@1",
-              "host.tokens.revoke"
-            ],
-            "contracts": [
-              "law.check@1",
-              "law.registry@1",
-              "law.consent.grant@1",
-              "law.tokens.revoke@1",
-              "law.forbidden.set@1",
-              "law.amendment@1",
-              "law.describe@1"
-            ]
-          },
-          "config": {
-            "journalPath": ""
-          }
-        },
-        {
-          "id": "vivim.vault",
-          "source": "../plugins/vivim-vault",
-          "bootPhase": 1,
-          "grant": {
-            "capabilities": [],
-            "contracts": [
-              "vault.append@1",
-              "vault.get@1",
-              "vault.getmany@1",
-              "vault.query@1",
-              "vault.search@1",
-              "vault.verify@1",
-              "vault.compact@1",
-              "vault.roundtrip@1"
-            ]
-          },
-          "config": {
-            "dataDir": "${TMP}/omega-forge-mine/vault-data"
-          }
-        },
-        {
-          "id": "forge.mine.capture",
-          "source": "../plugins/forge-mine-capture",
-          "bootPhase": 1,
-          "grant": {
-            "capabilities": [
-              "port:vault.append@1",
-              "port:vault.get@1",
-              "port:vault.getmany@1",
-              "port:law.check@1"
-            ],
-            "contracts": [
-              "forge.mine.capture@1"
-            ]
-          }
-        },
-        {
-          "id": "forge.mine",
-          "source": "../plugins/forge-mine",
-          "bootPhase": 1,
-          "grant": {
-            "capabilities": [
-              "port:vault.get@1",
-              "port:vault.query@1"
-            ],
-            "contracts": [
-              "forge.mine.diff@1",
-              "forge.mine.list@1",
-              "forge.mine.verify@1"
-            ]
           }
         }
       ]

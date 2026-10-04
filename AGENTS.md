@@ -1,71 +1,174 @@
 # Ω Autonomous Build — Project Instructions
 
-Read START-HERE.md, PROJECT-CONTEXT.md, VISION.md, BUILD-FOCUS.md, and AUTONOMY.md before making architectural commitments.
+Read `START-HERE.md`, `VISION.md`, `PRODUCT-ANCHOR.md`, `INVARIANTS.md`, `PROJECT-CONTEXT.md`, `BUILD-FOCUS.md`, `AUTONOMY.md`, and `ZCODE-CAPABILITY-SPACE.md` before making major architectural commitments or designing the development system.
 
 This is a fresh autonomous build project seeded with the current VIVIM-Ω implementation baseline. The baseline is a starting implementation and evidence source, not a frozen architecture and not a prewritten roadmap.
 
 ## Operating mandate
 
-Build the best shippable VIVIM-Ω implementation that satisfies the project vision and produces a working beta. Discover the actual state of the seeded code first. Then decide what the product needs, what the architecture needs, and what development machinery you need.
+Build the best shippable VIVIM-Ω implementation that expresses the durable product vision and produces a working beta.
 
-You may create whatever development structure the work requires: agents, subagents, departments, workstreams, workflows, task systems, memory/context systems, test harnesses, research tracks, or other tooling. None of those structures are preinstalled here on purpose.
+Start by understanding reality.
+
+Then decide what the product needs, what architecture best expresses it, and what development machinery will increase throughput and quality.
+
+You may create whatever development structure the work requires: agents, subagents, departments, workstreams, workflows, task systems, memory/context systems, test harnesses, research tracks, or other tooling.
+
+None of those structures are preinstalled here on purpose.
 
 Do not import or recreate the old BCP-dev ZCode/OpenCode team architecture merely because it existed before. Re-derive your development organization from the work.
 
-The strategic model is deliberately worker-neutral. A Dot, Codex, ZCode agent, model, specialist process, human, or future worker is an execution resource, not the identity of the user's responsibility.
-
-You have explicit authority to change Ω itself. This includes code, contracts, plugin boundaries, runtime choices, schemas, architecture, and—when evidence demonstrates that the current direction is wrong—the project vision or its constitutional assumptions. Do not preserve a design solely because it appears in the baseline.
+You have explicit authority to change Ω itself, including implementation, contracts, plugin boundaries, runtime choices, schemas, architecture, surfaces, and—when evidence demonstrates that the current direction is wrong—the project's vision or assumptions.
 
 ## First action
 
-Before building a large feature, perform an autonomous orientation pass:
+Before building a large feature:
 
-1. Read this project-level seed documentation.
-2. Inspect the entire Ω baseline and its existing tests and gates.
-3. Read the detailed Ω vision and the current invariant and decision material in docs.
-4. Build an accurate map of what is implemented, what is partial, what is aspirational, and what is obsolete.
-5. Identify the smallest set of load-bearing gaps and risks that determine the build order.
-6. Create your own execution model and begin the highest-value work.
+1. Read the seed documents.
+2. Inspect the whole seeded Ω baseline and its tests, fixtures, gates, contracts, and detailed docs.
+3. Establish what is actually working, what is partial, what is aspirational, and what is historical.
+4. Identify the smallest complete product journey that creates real value and learning.
+5. Identify the few load-bearing gaps and risks around that journey.
+6. Create the development organization and execution model that the evidence warrants.
+7. Begin implementation and proof.
 
-During that orientation, explicitly map:
+Do not ask the owner to supply a roadmap that the repository and the product anchor can derive.
 
-Intent → Truth → Authority → Capability → Worker → Realization → Proof.
+Ask only when a genuinely external, destructive, legal, financial, security-sensitive, or product-authority decision cannot be resolved by evidence and reversible experimentation.
 
-Determine which parts of that chain are already strong, which are incomplete, and which are accidentally coupled.
+## Strategic design mandate
 
-Do not ask the owner to supply a roadmap that the repository can derive. Ask only when a genuinely external, destructive, legal, financial, security-sensitive, or product-authority decision cannot be resolved by evidence and reversible experimentation.
+Autonomous implementation should optimize for more than immediate correctness.
 
-## Product-direction guardrails
+Prefer **capability multipliers**: solutions that make future capabilities, providers, surfaces, or realizations easier to add, replace, repair, and govern.
 
-The following are current product direction, not invitations to silently drift:
+When a concern repeatedly appears across independent product areas, consider whether it deserves an **upgradeable engine boundary**. Candidate engine status is earned by evidence of cross-cutting leverage; it does not imply constitutional-core status.
+
+Never treat the first successful mechanism as the final architecture. A first provider adapter, protocol manager, browser realization, selector repair path, self-healer, worker, or model integration is a proving implementation. It should be challenged by a second materially different use case or realization before being allowed to shape durable abstractions.
+
+In particular:
+
+- provider/protocol infrastructure should generalize across providers, protocols, versions, accounts, and realizations rather than encode one provider's quirks;
+- self-healing should be a general recovery capability with observation, diagnosis, governed change, verification, evidence, and bounded learning, with provider-specific repair strategies kept inside that boundary;
+- semantic contracts should remain separable from replaceable realizations;
+- mechanism, capability, policy, authority, evidence, and learning should remain distinguishable;
+- important engines should have an upgrade/replacement path;
+- claimed architectural improvement should show measurable leverage where feasible.
+
+Use the progression:
+
+**concrete case → repeated pattern → reusable capability → engine candidate → validated upgradeable engine**
+
+Do not manufacture abstraction for hypothetical futures, but do not allow the first working integration to silently become the future architecture.
+
+## Product direction
+
+The following are current product direction:
 
 - VIVIM-Ω is a personal operating environment for a person's digital world, not a conventional SaaS application.
-- The user's data, state, capabilities, evidence, and memory belong in the local sovereign environment.
-- Vault is the durable source of truth; derived surfaces are projections.
-- Law, authority, provenance, consent, and refusal are first-class system concerns.
-- Natural-language interaction must separate probabilistic perception from deterministic intent and deterministic execution.
+- The long-term differentiation is the combination of human semantic control, a persistent personal semantic world, governed action, durable Work/proof/continuity, and governed evolution.
+- The first tangible product anchor is a persistent VIVIM environment in which real provider webapps can be used as external capabilities through the user's local environment.
+- The user's durable data, state, accounts, interaction, evidence, and memory belong in the local sovereign environment, subject to the external authority of the services they interact with.
+- Vault is durable canonical local truth; World and other views are derived/organized representations.
+- Authority, provenance, consent, refusal, and evidence are first-class concerns.
+- Natural-language interaction must separate probabilistic perception from explicit semantic meaning and governed/deterministic execution.
 - Raw model output is never constitutional authority.
-- Plugins and compositions are the primary extensibility mechanism.
-- The Forge is part of the product's ability to extend itself; generated artifacts need proof, provenance, and an honest trust/generalization story.
-- The current shippable V1 provider substrate is Chrome master/slave (provider.browser); do not casually reintroduce an AI-API execution dependency into the shippable product.
-- The canvas is a projection/surface over authoritative state, not the authority itself.
-- A worker is not the canonical identity of work. Responsibilities must survive worker replacement where the product semantics require it.
+- Work is more durable than the worker performing it.
+- Provider, Account, Session, Capability, Realization, Routing, and Authority are distinct concepts.
+- Plugins and compositions are the primary extensibility mechanism for replaceable capability/product behavior.
+- Forge is part of the product's ability to extend itself; generated artifacts need proof, provenance, and ordinary governance.
+- The current shippable V1 provider substrate is Chrome master/slave and browser-mediated realization. Do not casually reintroduce an AI-API execution path into the shippable product merely because it is easier to demo.
+- The canvas and provider webapp surfaces are representations/interaction boundaries, not constitutional authority.
 - Fail closed when authority, provenance, capability, or execution guarantees cannot be established.
 
-These statements may themselves be changed, but only because the build discovers stronger evidence or a better product truth.
+These statements may change, but not silently and not merely for implementation convenience.
 
-## Evidence discipline
+## Product-anchor discipline
 
-Prefer measured behavior over prose claims. Prefer existing tests and gates over assumptions. When changing a load-bearing invariant, add the smallest falsifying test or measurement that can prove the old assumption wrong.
+Keep the product tangible.
 
-Keep the project's own documentation honest as the implementation evolves. Supersede stale architectural claims rather than silently leaving contradictory instructions behind.
+When choosing substantial work, ask whether it advances or validates a real end-to-end path through the product anchor.
 
-The baseline already contains a mature gate and test system. Use it. Do not weaken tests, bypass gates, or reshape the architecture merely to make a report look green.
+A provider-webapp surface is a functional wedge, not a permanent architectural commitment.
 
-When a worker produces a claim, keep separate:
-- the worker's assertion;
-- the evidence supporting it;
-- the canonical representation accepted by Ω;
-- the authority that admitted it.
+Do not hard-wire the architecture to today's provider list, browser protocol, visual layout, or model landscape.
 
-When a worker changes or disappears, preserve enough durable state for another worker to continue without treating the previous worker's private memory as canonical.
+The durable test is whether semantic meaning, authority, Work, evidence, and user continuity survive replacement of the realization.
+
+Do not allow the product to regress into a simulated demo when real external execution is the relevant proof.
+
+## Semantic guardrails
+
+Use `INVARIANTS.md` as the seed-level reference.
+
+Especially protect these distinctions:
+
+- reality ≠ representation;
+- evidence ≠ authority;
+- intent ≠ execution;
+- capability ≠ realization;
+- provider ≠ account;
+- account ≠ session;
+- discovery ≠ routing;
+- routing ≠ authority;
+- memory ≠ context;
+- Work ≠ worker;
+- World ≠ surface;
+- confidence ≠ proof;
+- activity ≠ progress.
+
+Fundamental to VIVIM does not automatically mean fundamental to K0.
+
+Keep the constitutional kernel minimal unless a concrete, non-bypassable, domain-neutral need proves otherwise.
+
+## Evidence and learning discipline
+
+Treat execution evidence as a first-class product and engineering concern.
+
+When the system makes a consequential claim about work, prefer durable evidence that can distinguish completion, active work, interruption, deliberate stop, never-started work, and uncertainty where those distinctions are knowable.
+
+Do not infer completion merely because a process disappeared, a session ended, or an error was absent.
+
+Preserve evidence for as long as the claim depends on it.
+
+Prefer measured behavior over prose claims.
+
+A measurement, hypothesis, caveat, rule, and proof are different things.
+
+Promote an observation into a governing rule only when it is actionable, testable/falsifiable, and tied to behavior the system can actually change.
+
+Retire or supersede rules when evidence shows they are inert, unreachable, contradicted, or obsolete.
+
+When changing a load-bearing invariant, add the smallest useful falsifier or measurement that could prove the assumption wrong.
+
+When changing a mechanism intended to improve behavior, measure whether the intervention actually changed the target behavior.
+
+Do not equate more agents, more tasks, more executions, more rules, more code, or greener dashboards with product progress.
+
+## Evolution discipline
+
+The environment may evolve itself, but self-improvement is not self-authorized sovereignty.
+
+For consequential change, maintain enough lineage to answer what changed, why, what was affected, what authority applied, what was verified, and what remains uncertain.
+
+Replacement should preserve user-owned canonical state and history where compatibility permits.
+
+Unresolved impact or compatibility is not the same as zero impact or compatibility.
+
+## Development discipline
+
+Prefer:
+
+**measure → understand → experiment → falsify → choose → implement → verify**
+
+over:
+
+**assume → organize → plan extensively → build the plan → rationalize the result**
+
+Keep internal complexity underneath the user mental model.
+
+Do not create a second semantic or authority system to make a feature convenient.
+
+Do not preserve a mechanism merely because it is already implemented.
+
+The goal is a trustworthy, tangible product, not a monument to the current architecture.

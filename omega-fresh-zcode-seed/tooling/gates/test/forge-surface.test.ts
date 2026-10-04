@@ -5,7 +5,7 @@
 import { describe, test, expect, beforeAll } from "bun:test";
 import { join } from "node:path";
 import type { PluginManifest } from "@vivim/omega-contracts";
-import { checkForgeSurface, loadForgeSurfaceInput, type ForgePluginRecord, type ForgeSurfaceInput } from "../forge-surface.ts";
+import { checkForgeSurface, loadForgeSurfaceInput, type ForgeSurfaceInput } from "../forge-surface.ts";
 
 const ROOT = join(import.meta.dir, "../../..");
 let real: ForgeSurfaceInput;
@@ -21,83 +21,14 @@ function mutated(fn: (input: ForgeSurfaceInput) => void): ForgeSurfaceInput {
   return copy;
 }
 
-/** One forge plugin record by manifest id — the split assertions below read
- *  through this so a renamed plugin fails by name instead of silently vacuous. */
-function forgeRecord(id: string): ForgePluginRecord {
-  const p = real.forgePlugins.find((x) => x.manifest.id === id);
-  if (!p) throw new Error(`forge plugin ${id} is not on the real tree`);
-  return p;
-}
-
 function rulesOf(r: { issues: Array<{ check: string }> }): string[] {
   return r.issues.map((i) => i.check);
 }
 
-/** Every module specifier a source actually imports. Class checks are about what
- *  a compartment REACHES FOR, not which words appear in it — a comment saying
- *  "there is no node:fs import here" names node:fs. */
-function importSpecifiers(src: string): string[] {
-  const spec: string[] = [];
-  for (const re of [/\bfrom\s*["']([^"']+)["']/g, /\bimport\s*\(?\s*["']([^"']+)["']/g, /\brequire\s*\(\s*["']([^"']+)["']/g]) {
-    for (const m of src.matchAll(re)) if (m[1]) spec.push(m[1]);
-  }
-  return spec;
-}
-
 describe("D5 — forge-surface on the REAL tree (all green)", () => {
   test("the loader actually sees the domain (guards against silent no-op)", () => {
-    // D-409 split-plugin: the mine family is TWO plugin directories in TWO risk
-    // classes. Both halves are named here so the split is mechanically visible
-    // on the real tree, not just in prose — three READ ops in forge.mine, the
-    // single EXTERNAL_MUTATION op in forge.mine.capture, and neither plugin
-    // declaring the other's ops.
-    expect(real.forgePlugins.map((p) => p.manifest.id)).toEqual(["forge.author", "forge.mine", "forge.mine.capture", "forge.survey"]);
-    const contributions = forgeRecord("forge.mine.capture").manifest.contributions?.contract ?? [];
-    expect(contributions.map((c) => `${c.id}@${c.version}`).sort()).toEqual(["forge.mine.capture@1"]);
-    expect([...new Set(contributions.map((c) => c.risk))]).toEqual(["EXTERNAL_MUTATION"]); // one class per plugin
-    for (const sibling of ["forge.mine.verify", "forge.mine.diff", "forge.mine.list"]) {
-      expect(contributions.some((c) => c.id === sibling)).toBe(false); // the READ half is forge-mine's
-    }
-    // ...and the READ half, which is the other side of the same split.
-    const mine = forgeRecord("forge.mine");
-    const readOps = mine.manifest.contributions?.contract ?? [];
-    // Sorted on both sides: the claim is WHICH three ops this half declares, not
-    // the order the manifest happens to list them in. The manifest declares
-    // verify, diff, list (the order the ops are documented); asserting an
-    // alphabetical order made a correct manifest fail a correct test.
-    expect(readOps.map((c) => `${c.id}@${c.version}`).sort()).toEqual(["forge.mine.diff@1", "forge.mine.list@1", "forge.mine.verify@1"]);
-    expect([...new Set(readOps.map((c) => c.risk))]).toEqual(["READ"]);
-    expect(readOps.some((c) => c.id === "forge.mine.capture")).toBe(false);
-    // READ class = no filesystem-mutation capability, and nothing that could
-    // reach one: the only ports it asks for are the two read-only vault reads.
-    expect(mine.manifest.capabilities.requested).toEqual(["port:vault.get@1", "port:vault.query@1"]);
-    const mineSrc = Object.values(mine.sourceText).join("\n");
-    // Import specifiers, not raw text. This file's own comment says "There is no
-    // `node:fs` import in this compartment" — and a substring search over raw
-    // source cannot tell that sentence from the import it denies, so the check
-    // fired on the very prose that states the rule. Same defect the plugin's own
-    // suite had; fixed in both places.
-    const mineImports = importSpecifiers(mineSrc);
-    expect(mineImports.filter((s) => s === "node:fs" || s === "node:fs/promises")).toEqual([]);
-    // no cross-plugin source import — the receipt arrives via the ledger
-    expect(mineImports.filter((s) => s.includes("forge-mine-capture"))).toEqual([]);
+    expect(real.forgePlugins.map((p) => p.manifest.id)).toEqual(["forge.author"]);
     expect(real.compositions.some((c) => c.name === "forge-author")).toBe(true);
-    expect(real.compositions.some((c) => c.name === "forge-mine-capture")).toBe(true);
-    expect(real.compositions.some((c) => c.name === "forge-mine")).toBe(true);
-    expect(real.compositions.some((c) => c.name === "forge-survey")).toBe(true);
-    // ...and the first Wave 1+ lane, which must span exactly one class too, ask
-    // for read-only ports only, and reach for no filesystem module. That last one
-    // is asserted HERE as well as in the plugin's own suite because the class-span
-    // CHECK reads the manifest and never the source — this is a test asserting
-    // the compartment's shape, NOT a gate that would make a future READ plugin
-    // unable to re-walk a mine. The gap that allows that is still open (G-11).
-    const survey = forgeRecord("forge.survey");
-    const surveyOps = survey.manifest.contributions?.contract ?? [];
-    expect(surveyOps.map((c) => `${c.id}@${c.version}`).sort()).toEqual(["forge.survey.render@1", "forge.survey.run@1"]);
-    expect([...new Set(surveyOps.map((c) => c.risk))]).toEqual(["READ"]);
-    expect(survey.manifest.capabilities.requested).toEqual(["port:vault.get@1", "port:vault.getmany@1"]);
-    const surveyImports = importSpecifiers(Object.values(survey.sourceText).join("\n"));
-    expect(surveyImports.filter((s) => s === "node:fs" || s === "node:fs/promises" || s === "fs")).toEqual([]);
     expect(real.compositions.length).toBeGreaterThanOrEqual(18);
     expect(Object.keys(real.catalog).length).toBe(24);
     expect(real.packFixtureValidation.length).toBe(14); // 7 valid + 7 invalid, each pinned to its sin
@@ -132,63 +63,6 @@ describe("D5 — FORGE_IN_PRODUCT (red)", () => {
     expect(hit.subject).toContain("agent");
     expect(hit.reason).toContain("forge.emit.plugin@1");
     expect(hit.fix).toContain("builder composition");
-  });
-});
-
-describe("D6 — FORGE_READ_PURITY (red) — G-11, closed by execution", () => {
-  // Every red case here is a probe the two omega-decide falsifiers ran against the REAL gate and
-  // which returned ZERO issues. This suite is what stops that from being true again.
-
-  test("a READ-declared plugin importing node:fs fails, with the class dishonesty named", () => {
-    const r = checkForgeSurface(mutated((input) => {
-      const survey = input.forgePlugins.find((p) => p.dir.includes("forge-survey"))!;
-      survey.sourceText["src/survey.ts"] = [
-        `import { readdirSync } from "node:fs";`,
-        `export const walk = (root: string) => readdirSync(root);`,
-      ].join("\n");
-    }));
-    expect(r.ok).toBe(false);
-    const hit = r.issues.find((i) => i.check === "FORGE_READ_PURITY")!;
-    expect(hit.reason).toContain("node:fs");
-    expect(hit.reason).toContain("READ");
-    expect(hit.fix).toContain("forge.mine.capture@1");
-  });
-
-  test("a READ-declared plugin importing node:child_process fails", () => {
-    const r = checkForgeSurface(mutated((input) => {
-      const survey = input.forgePlugins.find((p) => p.dir.includes("forge-survey"))!;
-      survey.sourceText["src/index.ts"] = `import { execFileSync } from "node:child_process";`;
-    }));
-    expect(r.ok).toBe(false);
-    expect(r.issues.find((i) => i.check === "FORGE_READ_PURITY")!.reason).toContain("node:child_process");
-  });
-
-  test("node:crypto is ALLOWED — hashing bytes is what a READ op is for", () => {
-    const r = checkForgeSurface(mutated((input) => {
-      const survey = input.forgePlugins.find((p) => p.dir.includes("forge-survey"))!;
-      survey.sourceText["src/survey.ts"] = `import { createHash } from "node:crypto";`;
-    }));
-    expect(r.issues.filter((i) => i.check === "FORGE_READ_PURITY")).toEqual([]);
-  });
-
-  test("a NON-read plugin importing node:fs is NOT flagged — the capture seam owns it", () => {
-    const r = checkForgeSurface(mutated((input) => {
-      const capture = input.forgePlugins.find((p) => p.dir.includes("forge-mine-capture"))!;
-      capture.sourceText["src/index.ts"] = `import { readdirSync } from "node:fs";`;
-    }));
-    expect(r.issues.filter((i) => i.check === "FORGE_READ_PURITY")).toEqual([]);
-  });
-
-  test("a COMMENT naming node:fs does not fire — specifiers only", () => {
-    const r = checkForgeSurface(mutated((input) => {
-      const survey = input.forgePlugins.find((p) => p.dir.includes("forge-survey"))!;
-      survey.sourceText["src/survey.ts"] = [
-        `// There is no node:fs import in this file, and that is the class.`,
-        `// node:child_process would break C1.`,
-        `import { createHash } from "node:crypto";`,
-      ].join("\n");
-    }));
-    expect(r.issues.filter((i) => i.check === "FORGE_READ_PURITY")).toEqual([]);
   });
 });
 

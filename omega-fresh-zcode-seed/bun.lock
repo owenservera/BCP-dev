@@ -36,17 +36,6 @@
         "@vivim/omega-shim": "workspace:*",
       },
     },
-    "examples/plugin-echo2": {
-      "name": "@vivim/plugin-plugin-echo2",
-      "version": "0.1.0",
-      "dependencies": {
-        "@vivim/omega-contracts": "workspace:*",
-        "@vivim/omega-platform": "workspace:*",
-        "@vivim/omega-sdk": "workspace:*",
-        "@vivim/omega-shim": "workspace:*",
-        "@vivim/omega-testkit": "workspace:*",
-      },
-    },
     "examples/plugin-notes": {
       "name": "@vivim/plugin-plugin-notes",
       "version": "0.1.0",
@@ -177,71 +166,12 @@
         "@vivim/omega-sdk": "workspace:*",
       },
     },
-    "plugins/forge-mine": {
-      "name": "@vivim/plugin-forge-mine",
-      "version": "0.1.0",
-      "dependencies": {
-        "@vivim/omega-contracts": "workspace:*",
-        "@vivim/omega-shim": "workspace:*",
-      },
-      "devDependencies": {
-        "@vivim/omega-host": "workspace:*",
-        "@vivim/omega-platform": "workspace:*",
-        "@vivim/omega-sdk": "workspace:*",
-      },
-    },
-    "plugins/forge-mine-capture": {
-      "name": "@vivim/plugin-forge-mine-capture",
-      "version": "0.1.0",
-      "dependencies": {
-        "@vivim/omega-contracts": "workspace:*",
-        "@vivim/omega-shim": "workspace:*",
-      },
-      "devDependencies": {
-        "@vivim/omega-host": "workspace:*",
-        "@vivim/omega-platform": "workspace:*",
-        "@vivim/omega-sdk": "workspace:*",
-      },
-    },
-    "plugins/forge-survey": {
-      "name": "@vivim/plugin-forge-survey",
-      "version": "0.1.0",
-      "dependencies": {
-        "@vivim/omega-contracts": "workspace:*",
-        "@vivim/omega-shim": "workspace:*",
-      },
-      "devDependencies": {
-        "@vivim/omega-host": "workspace:*",
-        "@vivim/omega-platform": "workspace:*",
-        "@vivim/omega-sdk": "workspace:*",
-      },
-    },
     "plugins/law-stub": {
       "name": "@vivim/plugin-law-stub",
       "version": "0.1.0",
       "dependencies": {
         "@vivim/omega-contracts": "workspace:*",
         "@vivim/omega-shim": "workspace:*",
-      },
-    },
-    "plugins/parser-claude-sse": {
-      "name": "@vivim/plugin-parser-claude-sse",
-      "version": "0.1.0",
-      "dependencies": {
-        "@vivim/omega-contracts": "workspace:*",
-        "@vivim/omega-platform": "workspace:*",
-        "@vivim/omega-shim": "workspace:*",
-        "@vivim/omega-testkit": "workspace:*",
-      },
-    },
-    "plugins/parser-claude-sse-v2": {
-      "name": "@vivim/plugin-parser-claude-sse-v2",
-      "version": "0.1.0",
-      "dependencies": {
-        "@vivim/omega-contracts": "workspace:*",
-        "@vivim/omega-platform": "workspace:*",
-        "@vivim/omega-shim": "workspace:*",
-        "@vivim/omega-testkit": "workspace:*",
       },
     },
     "plugins/provider-browser": {
@@ -334,7 +264,6 @@
       "version": "0.1.0",
       "dependencies": {
         "@vivim/omega-contracts": "workspace:*",
-        "@vivim/omega-nlcl-pure": "workspace:*",
         "@vivim/omega-shim": "workspace:*",
         "@vivim/omega-testkit": "workspace:*",
       },
@@ -571,25 +500,13 @@
 
     "@vivim/plugin-forge-author": ["@vivim/plugin-forge-author@workspace:plugins/forge-author"],
 
-    "@vivim/plugin-forge-mine": ["@vivim/plugin-forge-mine@workspace:plugins/forge-mine"],
-
-    "@vivim/plugin-forge-mine-capture": ["@vivim/plugin-forge-mine-capture@workspace:plugins/forge-mine-capture"],
-
-    "@vivim/plugin-forge-survey": ["@vivim/plugin-forge-survey@workspace:plugins/forge-survey"],
-
     "@vivim/plugin-law-stub": ["@vivim/plugin-law-stub@workspace:plugins/law-stub"],
-
-    "@vivim/plugin-parser-claude-sse": ["@vivim/plugin-parser-claude-sse@workspace:plugins/parser-claude-sse"],
-
-    "@vivim/plugin-parser-claude-sse-v2": ["@vivim/plugin-parser-claude-sse-v2@workspace:plugins/parser-claude-sse-v2"],
 
     "@vivim/plugin-plugin-counter": ["@vivim/plugin-plugin-counter@workspace:examples/plugin-counter"],
 
     "@vivim/plugin-plugin-crashy": ["@vivim/plugin-plugin-crashy@workspace:examples/plugin-crashy"],
 
     "@vivim/plugin-plugin-echo": ["@vivim/plugin-plugin-echo@workspace:examples/plugin-echo"],
-
-    "@vivim/plugin-plugin-echo2": ["@vivim/plugin-plugin-echo2@workspace:examples/plugin-echo2"],
 
     "@vivim/plugin-plugin-notes": ["@vivim/plugin-plugin-notes@workspace:examples/plugin-notes"],
 

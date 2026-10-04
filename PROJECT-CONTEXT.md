@@ -4,36 +4,57 @@
 
 VIVIM is intended to be the place where a person's digital world lives: a local environment that can hold and operate their information, accounts, conversations, tools, agents, automations, and other digital objects as governed, composable things.
 
-The important word is environment. This is not primarily another application with a chat interface. The product ambition is a personal operating environment with a constitutional kernel: authoritative state, capabilities, intent, law, evidence, memory, execution, composition, surfaces, and evolution all belong to one coherent system.
+The important word is **environment**.
 
-The canvas is a visible language for that environment. It is not the source of truth.
+This is not primarily another application with a chat interface, another agent manager, or another browser shell. The product ambition is a personal operating environment in which meaning, capability, authority, work, evidence, memory, continuity, and interaction form one coherent system.
 
-## The emerging worker model
+## The long-horizon proposition
 
-The market is moving toward persistent autonomous workers. That makes worker persistence, tool use, browser use, memory, delegation, and background execution increasingly ordinary capabilities rather than the core reason for Ω to exist.
+Over a five-to-ten-year horizon, assume that models, agent frameworks, protocols, providers, browsers, execution substrates, and interfaces will all change.
 
-Ω should therefore treat workers as a population of interchangeable executors, not as the identity of the system.
+The durable proposition should therefore be:
 
-The durable unit is the responsibility or work.
+> A person can express what they want in human terms, have that meaning resolved into explicit and governed operations, act across their digital world, retain what happened and what was learned, and allow the environment to evolve without surrendering ownership or continuity.
 
-A responsibility may move between workers while retaining its identity, history, authority, evidence, context, and outcome lineage.
+The strongest candidate durable capabilities are:
 
-This is the critical distinction between:
+- a human-readable semantic execution language;
+- a persistent personal semantic world;
+- governed action between intent and effect;
+- durable Work, evidence, and continuity;
+- governed self-extension and evolution.
 
-worker memory and canonical memory;
-worker claims and verified truth;
-worker capability and Ω authority;
-worker interface and system state.
+These are conceptual assets, not declarations that today's implementations are already complete.
+
+## The product anchor
+
+The first tangible beta should be a persistent local VIVIM environment in which real provider webapps are usable as first-class external capabilities.
+
+A simple visible realization may be a single-pane environment where one or more provider webapps occupy the working surface.
+
+That is a **functional wedge**, not the destination.
+
+The value of the wedge is that it creates a complete, falsifiable product path:
+
+**person → address/expression → intent → context → capability → provider/account/realization → authority → work → browser/webapp → observed result → evidence → local continuity**
+
+The provider remains external.
+
+VIVIM owns the local semantic relationship, authorized interaction, configuration, Work, evidence, and continuity around that external system.
+
+The browser is a realization mechanism, not constitutional authority.
 
 ## Sovereignty
 
-The core product stance is:
+The core product stance remains:
 
-my machine, my internet, my accounts, my data, my apps.
+**my machine, my internet, my accounts, my data, my apps, my intelligence, my rules, my interaction.**
 
-The system should minimize dependence on proprietary APIs and centralized application backends when a real user-controlled interface can provide the needed capability. For the initial shippable provider path, that means Chrome master/slave and browser-mediated realization.
+This is not merely a deployment preference.
 
-This is not an aesthetic preference. It is part of the product's reason for existing.
+It means the local environment should minimize unnecessary dependence on proprietary APIs and centralized application backends when a real user-controlled interface can provide the needed capability.
+
+For the first shippable provider path, this means Chrome master/slave and browser-mediated realization.
 
 ## From VIVIM to Ω
 
@@ -41,54 +62,153 @@ The older VIVIM implementations are the mine.
 
 They contain useful algorithms, domain knowledge, fixtures, parser evidence, provider experiments, interaction patterns, failures, and hard-earned constraints. They also contain architectural debt, duplication, assumptions that should not survive, and structures that were never designed as one composable system.
 
-Ω is the destination.
+Ω is the destination and the seeded baseline is its current implementation substrate.
 
 The intended relationship is therefore:
 
-old VIVIM → evidence / ore / fixtures
+**old VIVIM → evidence / ore / fixtures / proven mechanisms**
 
-Ω → fresh constitutional system built from the lessons
+**Ω baseline → current implementation to inspect and challenge**
 
-Do not default to porting old code. Reuse an old implementation when it is genuinely the best proven realization of a requirement, and treat that reuse as an explicit engineering choice.
+**fresh build → new architecture and roadmap derived from current reality**
 
-## The architectural idea
+Do not default to porting old code.
 
-The central stack is:
+Reuse an old implementation when it is genuinely the best proven realization of a requirement, and treat that reuse as an explicit engineering choice.
 
-Intent → Truth → Authority → Capability → Worker → Realization → Proof
+## Canonical conceptual stack
 
-These are conceptual boundaries expressed through the concrete Ω machinery: vault, law, contracts, plugins, compositions, execution, provider realization, Forge, and surfaces.
+The repository uses many implementation-specific structures, but the durable conceptual path is:
 
-Natural language is a control interface, not a source of authority.
+**World → Context → Intent → Capability → Authority → Work → Execution → Evidence → World/Memory update**
 
-AI is a replaceable realization inside the system, not the constitutional decision maker.
+For a concrete external interaction:
 
-The system should remain meaningful without an LLM: deterministic intent, policy, capability checks, state change, evidence, and execution remain explicit.
+**human expression → semantic meaning → governed action → external realization → observed result → durable local evidence**
+
+These are semantic coordinates, not a required class hierarchy.
+
+## Important distinctions
+
+The system should retain the separations captured in `INVARIANTS.md`.
+
+In particular:
+
+- reality is not representation;
+- evidence is not authority;
+- intent is not execution;
+- capability is not realization;
+- provider is not account;
+- account is not session;
+- discovery is not routing;
+- routing is not authority;
+- memory is not context;
+- Work is not the worker;
+- World is not the surface.
+
+These distinctions are more durable than today's component boundaries.
+
+## Canonicality, memory, and surfaces
+
+The intended model is:
+
+- the **Vault** is the durable local source of truth;
+- the **World** is canonical product-level reality/semantic organization derived from durable truth and relationships;
+- **Work** is durable process reality;
+- **Evidence** supports claims about what happened;
+- **Context** is a task-scoped derived assembly;
+- a **Surface** is a representation and interaction boundary;
+- a **Process/Session** is transient execution state.
+
+A canvas, chat surface, provider webapp, CLI, or future interface may represent the same underlying world.
+
+A surface can be replaced without changing canonical identity.
+
+Current context can change without changing the world's canonical meaning.
+
+## Human semantic control
+
+The central control inversion is:
+
+**probabilistic perception → deterministic meaning → governed/deterministic execution**
+
+Natural language is an interface, not authority.
+
+AI can be used for ambiguity resolution, inference, synthesis, discovery, planning, adaptation, and other tasks where intelligence adds value.
+
+But raw model output never becomes constitutional authority.
+
+The strategic objective is not more AI everywhere.
+
+It is to flatten the boundary between what needs probabilistic intelligence and what can now be deterministic while still remaining usable by a normal person through human language.
+
+## Work, observation, and proof
+
+Consequential work should be something the environment can observe, reconstruct, and prove rather than infer from process behavior.
+
+Where knowable, distinguish:
+
+- completed work;
+- active work;
+- interrupted work;
+- deliberately stopped work;
+- work that never actually started;
+- genuinely uncertain external effects.
+
+Completion should be positively evidenced where practical.
+
+A disappeared process is not proof of completion.
+
+Evidence should survive long enough that consequential claims remain reconstructable after the worker, process, browser session, or other transient mechanism disappears.
+
+Observations, hypotheses, caveats, rules, and proofs are distinct.
 
 ## The Forge
 
 Ω is intended to make extension a first-class capability.
 
-A Forge is not a privileged SDK layer. It is itself part of the plugin and composition model, constrained by the same capability and evidence discipline as the rest of the system.
+Forge is not a privileged SDK or second authority system.
 
-The long-term test is more demanding than the product simply running: the environment should be capable of describing, generating, proving, and incorporating new pieces of itself in a controlled, inspectable way.
+It is part of the same governed extensibility model as other plugins and compositions.
 
-## The beta objective
+The long-term test is whether the environment can describe, create, prove, and incorporate new pieces of itself without giving those pieces a secret authority path.
 
-The practical objective is a functioning, coherent beta that can be distributed and used by real people, while retaining the constitutional properties that make Ω meaningfully different from a conventional AI application.
+## Evolution
 
-Do not optimize for documentation volume, architecture ceremony, agent count, or feature count. Optimize for demonstrated user value plus a trustworthy underlying system.
+VIVIM should be able to change without losing identity, evidence, sovereignty, or continuity.
 
-## How to interpret the seeded baseline
+The project should distinguish ordinary maintenance, governed evolution, and constitutional change conceptually even if the implementation expresses those categories differently.
 
-The seeded baseline is a strong starting point, but it represents a particular point in Ω's evolution. Some docs are design law; some are evidence; some are historical plans; some describe limits that may now be closed.
+A system that can change itself but cannot explain what changed, why, what was affected, what was authorized, and what evidence supports the result is not trustworthy self-evolution.
 
-The new project must classify those distinctions from the repository itself.
+## Beta objective
+
+The practical objective remains a functioning, coherent beta that real people can use.
+
+The product should demonstrate a real end-to-end environment rather than an impressive inventory of disconnected subsystems.
+
+The project should prefer a small complete vertical slice over many partial features.
+
+Do not optimize for documentation volume, architecture ceremony, agent count, provider count, rule count, or feature count.
+
+Optimize for demonstrated user value plus a trustworthy underlying system.
+
+## How to interpret the seeded corpus
+
+The seeded repository contains current implementation, tests, fixtures, gates, detailed Ω documentation, and historical material.
+
+Some records are law, some are evidence, some are design candidates, some are plans, and some are archaeology.
+
+The new project should classify those distinctions from the repository itself.
 
 Never let a stale roadmap become the reason something gets built.
 
+The detailed destination corpus is there to accelerate understanding, not to become an inherited project-management system.
+
 ## Development environment
 
-The current project can be developed on Windows, and the Ω architecture already contains explicit cross-runtime and platform seams. Preserve runtime-neutrality where it is a real architectural property rather than coupling core logic to one developer environment.
+The project can be developed on Windows and should preserve genuine runtime-neutrality where it matters.
 
-The ZCode harness is intentionally outside this seed's concerns. Build whatever agent and development machinery the work proves necessary.
+The ZCode harness is intentionally outside the product architecture described here.
+
+Build whatever development machinery the work proves necessary.

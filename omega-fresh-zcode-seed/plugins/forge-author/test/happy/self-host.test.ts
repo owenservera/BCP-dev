@@ -15,7 +15,7 @@ import { compileComposition, ensureVault, bootComposition, contentHashDir } from
 import type { BootedHost } from "../../../../host/src/index.ts";
 import { omegaTmp, resolveDataDir } from "@vivim/omega-platform";
 import { validateManifest } from "@vivim/omega-sdk";
-import { comparePluginTree, copyObservedTree, listFilesRecursive, stripAuthoredRegions } from "../compare.ts";
+import { comparePluginTree, listFilesRecursive, stripAuthoredRegions } from "../compare.ts";
 import { specInputHash, FORGE_AUTHOR_OP, type RecordedSpec } from "../../src/index.ts";
 
 const PLUGIN_DIR = join(import.meta.dir, "../../");
@@ -134,20 +134,10 @@ describe("the keystone: forge.author.init@1 emits itself", () => {
 describe("the fence: hand-edits fail with NAMED diffs (red cases on scratch copies)", () => {
   // Each red case copies the checked-in tree to scratch, tampering ONE thing,
   // then re-runs the comparison — the falsifier must name the sin.
-  //
-  // The copy is copyObservedTree, NOT a whole-tree cpSync: the judge's subject
-  // matter is exactly what listFilesRecursive reads, and it skips node_modules
-  // (package-manager links are machine state, not plugin bytes — the same
-  // exclusion the host's contentHashDir applies). A whole-tree copy therefore
-  // drags in bytes no rule can ever judge, and on Windows those are junctions
-  // that a recursive copy refuses with EPERM — which killed all five red cases
-  // before their assertions, leaving the fence unverified. Copying the judge's
-  // own domain loses nothing: every observed byte is present and unaltered,
-  // and nothing unobservable is invented.
   function tamperedCopy(name: string, mutate: (dir: string) => void): string {
     const dir = omegaTmp("omega-forge-author-happy", `tamper-${name}`);
     rmSync(dir, { recursive: true, force: true });
-    copyObservedTree(PLUGIN_DIR, dir);
+    cpSync(PLUGIN_DIR, dir, { recursive: true });
     mutate(dir);
     return dir;
   }

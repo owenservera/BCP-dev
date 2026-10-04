@@ -1,7 +1,0 @@
-[submodule "vendor/zcode"]
-	path = vendor/zcode
-	url = https://github.com/zai-org/ZCode.git
-
-[submodule "vendor/symphony"]
-	path = vendor/symphony
-	url = https://github.com/openai/symphony.git

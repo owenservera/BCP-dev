@@ -121,12 +121,10 @@ describe("F-4 — the live lock: the real digest is fresh against the real regis
     // as-of D-424); pass 5 the agent-multiplier wave (a gate stage added, D-425;
     // D-425..D-429, the Ω-DEV family; as-of D-429); pass 6 the session-ledger
     // wave (no stage added — the session law rides round-close + process;
-    // D-430, Ω-DEV.6; as-of D-430); pass 7 the hermetic-bootstrap wave
-    // (no stage added — the boot chain rides its own ceremony + the genome
-    // layer law; D-431, Ω-0 / spec D-449; as-of D-431). Lawful per the D-415
-    // refresh policy. A future refresh bumps this pin in the same commit as the page.
-    expect((r.detail as { pass: number }).pass).toBe(7);
-    expect((r.detail as { asOf: string }).asOf).toBe("D-431");
+    // D-430, Ω-DEV.6; as-of D-430). Lawful per the D-415 refresh
+    // policy. A future refresh bumps this pin in the same commit as the page.
+    expect((r.detail as { pass: number }).pass).toBe(6);
+    expect((r.detail as { asOf: string }).asOf).toBe("D-430");
   });
 });
 

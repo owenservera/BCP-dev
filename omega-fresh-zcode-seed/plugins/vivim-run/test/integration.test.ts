@@ -218,14 +218,7 @@ describe("GATE-Ω3 · O(1) authorization under load", () => {
     // full-suite parallel load on a 4-core box those spike to ~50ms. The
     // sandbox envelope stays strict; Windows gets stall headroom (worst
     // observed in-suite ≈47ms; 100ms still catches systemic collapse).
-    // D-455-era recalibration, honestly: p99 over 200 sequential awaits measures
-    // event-loop stalls, not the law — the authors' own comment records ~50ms
-    // spikes under full-suite load on 4-core boxes, and both the nested
-    // omega:accept sweep and loaded evenings reproduce it. p50 (< 5ms, the
-    // sharp O(1) guard) stays strict in EVERY environment; p99 gets the
-    // stall headroom the measurements always demanded (60ms: above the
-    // observed spikes, far below systemic collapse, Windows keeps 100ms).
-    const p99BudgetMs = process.platform === "win32" ? 100 : 60;
-    expect(p99).toBeLessThan(p99BudgetMs); // wave-spec envelope for the real law is <1ms; p50 above is the strict guard
+    const p99BudgetMs = process.platform === "win32" ? 100 : 5;
+    expect(p99).toBeLessThan(p99BudgetMs); // wave-spec envelope for the real law is <1ms; honest sandbox bound is 5ms
   }, 20_000);
 });

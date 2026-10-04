@@ -251,14 +251,8 @@ describe("F-GENOME.6 live-lock", () => {
     const registry = parseLayerRegistry(readFileSync(join(REAL_ROOT, "genome/layers.json"), "utf-8"));
     const claimed = registry.registry!.layers.filter((l) => l.status === "external-assumed").length;
     expect(r.detail.externalAssumed).toBe(claimed);
-    // in-flight layers are implemented layers whose record flip is pending — reported, never failed.
-    // The pin walked with the tree: Ω-DEV.* through D-430; Ω-0 joins at D-431;
-    // Ω-0.5/Ω-2.5/Ω-2.6/Ω-3.5 join at D-432..D-435 (wave A);
-    // Ω-4.5/Ω-5.5/Ω-6.5/Ω-7.5 join at D-436..D-439 (wave B — the builder tier
-    // completes). Extended, never weakened — the pin names exactly who awaits
-    // the ratify ceremony.
-    const LAWFUL_IN_FLIGHT = /^(?:Ω-DEV\.\d+|CORE|Ω-0|Ω-0\.5|Ω-(?:[1-9]|1[0-6])(?:\.5)?)$/; // waves C+D+E: the whole corpus (Ω-1..Ω-16) joins at D-440..D-455 — 32/32 implemented, the boundary tier in flight
-    for (const id of (r.detail.inFlight as string[]) ?? []) expect(LAWFUL_IN_FLIGHT.test(id)).toBe(true);
+    // in-flight layers are implemented layers whose record flip is pending — reported, never failed
+    for (const id of (r.detail.inFlight as string[]) ?? []) expect(id.startsWith("Ω-DEV.") || id === "CORE").toBe(true);
     // every implemented layer's falsifier resolves
     expect((r.detail.unresolvedFalsifiers as string[]).filter((f) => f.includes("F-GENOME") || f.includes("F-LOOP") || f.includes("F-ORCH") || f.includes("F-DEVAULT") || f.includes("F-PRESIM"))).toEqual([]);
   });

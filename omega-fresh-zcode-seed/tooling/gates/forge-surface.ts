@@ -76,19 +76,6 @@ function nsLiterals(sourceText: Record<string, string>): string[] {
   return found;
 }
 
-/** node builtin module specifiers a plugin's source imports. */
-function nodeBuiltinImports(sourceText: Record<string, string>): string[] {
-  const found: Set<string> = new Set();
-  for (const text of Object.values(sourceText)) {
-    // Specifiers only — never a raw substring search. A substring search fires on the code's own
-    // comments explaining that the import is absent, which is how three of this repository's own
-    // tests came to fail for the wrong reason.
-    for (const m of text.matchAll(/(?:^|\n)\s*import\s[^;]*?from\s*["'](node:[a-z_/]+)["']/g)) found.add(m[1]!);
-    for (const m of text.matchAll(/\brequire\(\s*["'](node:[a-z_/]+)["']\s*\)/g)) found.add(m[1]!);
-  }
-  return [...found].sort();
-}
-
 // ---- the five checks + the generality bar --------------------------------------
 
 export function checkForgeSurface(input: ForgeSurfaceInput): ForgeSurfaceResult {
@@ -122,32 +109,6 @@ export function checkForgeSurface(input: ForgeSurfaceInput): ForgeSurfaceResult 
       issue("FORGE_CLASS_SPAN", p.dir,
         `declares contract contributions across ${classes.size} risk classes (${[...classes].join(", ")}) — the wire spans classes, a plugin partition does not`,
         `split the plugin along the class boundary (one plugin per class; e.g. the capture seam separates from its READ siblings)`);
-    }
-
-    // FORGE_READ_PURITY (D-TEAM-032, closing G-11) — a plugin whose DECLARED contract
-    // contributions are all `READ` must not reach for the filesystem or a process.
-    //
-    // D-409's criterion C1 is "declared class = actual capability envelope", and
-    // FORGE_CLASS_SPAN above reads only the manifest — so until now nothing checked what the
-    // source actually did. Two independent `omega-decide` falsifiers proved the hole by
-    // EXECUTION: each injected a `READ`-declared survey plugin whose source imported `node:fs`
-    // and walked the mine root, and the real `checkForgeSurface` returned ZERO issues. The
-    // corpus calls reading a foreign tree "the single highest-risk act in the system", so a
-    // green `forge-surface` did not mean a READ op was pure.
-    //
-    // `node:crypto` is deliberately ALLOWED: hashing bytes is what a READ op is for, and
-    // `forge-survey` legitimately imports it. Filesystem and process modules are not.
-    const READ_PURITY_FORBIDDEN = ["node:fs", "node:fs/promises", "node:child_process"];
-    const declaredClasses = new Set(
-      contracts.map((c) => c.risk).filter((r): r is RiskClass => typeof r === "string"),
-    );
-    if (declaredClasses.size > 0 && declaredClasses.has("READ") && !declaredClasses.has("MUTATION") && !declaredClasses.has("EXTERNAL_MUTATION")) {
-      const reached = nodeBuiltinImports(p.sourceText).filter((m) => READ_PURITY_FORBIDDEN.some((f) => m === f || m.startsWith(`${f}/`)));
-      for (const mod of reached) {
-        issue("FORGE_READ_PURITY", p.dir,
-          `declares only READ ops but its source imports ${mod} — a READ op that reaches the filesystem or spawns a process is not READ, whatever the manifest says (D-409 C1)`,
-          `resolve the bytes through the sanctioned seam (forge.mine.capture@1 materialises them; read them back with the already-granted vault ports) — or declare the real risk class and pay for it honestly`);
-      }
     }
 
     // FORGE_NO_REFUSAL_TEST — every declared op is named in some refusal test.

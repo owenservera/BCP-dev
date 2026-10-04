@@ -54,11 +54,6 @@ export const STAGE_DOCS: Record<string, { scans: string; allowlist: string; rule
     allowlist: "forge-*.json are builder compositions (forge.* ops route there only); one risk class per forge plugin; ns proposal + scratch only for Class-2 emission; every forge.* op refusal-tested; manifest↔FORGE_OP_CATALOG exact match; generality mandatory (hard) for forge.*/pack.builder",
     rule: "tooling/gates/forge-surface.ts (D-405/D-406), red/green falsifiers in tooling/gates/test/forge-surface.test.ts",
   },
-  "docscan": {
-    scans: "every .md under docs/ — unresolved decision citations, broken record references, vision-heading numbering",
-    allowlist: "the tool's own grandfather rules: D-418/D-422 frozen-corpus scope, hand-era S4 records, docs/migration/* — all matched on FORWARD SLASHES, which is the whole bug it once had on Windows",
-    rule: "tooling/gates/docscan.ts, gate.ts §5d-bis",
-  },
   "invariants-freshness": {
     scans: "docs/decisions/CURRENT-INVARIANTS.md's marker (pass · as-of D-NNN · stage inventory) vs the decisions index and this registry",
     allowlist: "REPORT-ONLY (D-415, A3): staleness (30 ratified rows past as-of; stage drift either direction) reports in the detail and stays green — the flip to failing is a future record's call; mechanical breakage (unreadable digest, malformed marker) fails",

@@ -1,236 +1,201 @@
-# Build Focus — Revised for the Multi-Worker World
+# Build Focus — Where to Over-Resource the Work
 
-These are focus areas, not a prescribed roadmap. They tell the autonomous build where deeper investigation, parallel reasoning, stronger falsifiers, and disproportionate engineering attention are likely to pay off.
+These are focus areas, not a prescribed roadmap.
 
-This version deliberately treats autonomous workers as an external and interchangeable population. A worker may be a Dot, Codex, ZCode agent, Claude/Gemini agent, local model, human, or something not yet imagined. Ω must not become identified with any one of them.
+Their purpose is to tell the autonomous build where deeper analysis, parallel investigation, stronger tests, and disproportionate engineering attention are likely to pay off.
 
-The project should continuously re-rank these areas from evidence.
+The project should continuously re-rank them from evidence.
 
-## 1. Ω as the sovereign control plane
+## 0. Maximize the development capability space
 
-**Focus:** Intent → Truth → Authority → Capability → Worker → Realization → Proof.
+Before optimizing the product build, determine what the ZCode runtime can already do for this project and which combinations of native tools and extensions materially increase throughput, validation quality, continuity, and autonomous operation. The project should design its own DevOps from that capability census.
 
-This is now the central architectural question.
+Treat ZCode itself as an available development substrate: workspace operations, subagents, dynamic workflows, persistent memory, skills, plugins, MCP, hooks, browser/Computer Use, background and scheduled work, remote execution, Git, and observability should be considered options to compose and test—not a checklist to blindly enable.
 
-Ω should own the responsibility and its meaning. Workers execute responsibilities on Ω's behalf; realizations provide ways to make changes in the real world; evidence proves what actually happened.
+The development system should evolve through measured leverage: identify bottlenecks, create or change a capability, verify its effect, and retire machinery that does not earn its cost.
 
-The key invariant to test relentlessly is:
 
-**the worker is replaceable; the responsibility is not.**
 
-A change of worker must not change the identity of the work, its authority, its accumulated evidence, its lineage, or its recoverability.
+The highest-value near-term question is whether VIVIM can become a genuinely usable local environment around a real provider webapp.
 
-Watch for accidental designs where a model, agent, conversation, browser session, or UI becomes the canonical identity of work.
+The target is not a polished browser wrapper.
 
-## 2. Work continuity across worker replacement
+The target is a complete governed route:
 
-**Focus:** durable Work/Responsibility identity, state, plans, attempts, handoffs, worker assignment, replacement, resumption, cancellation, and outcome history.
+**person → address/expression → intent → context → capability → provider/account/realization → authority → work → browser/webapp → observed result → evidence → local continuity**
 
-A piece of work should survive:
+A small complete route is more valuable than a large collection of isolated subsystems.
 
-- model replacement;
-- agent replacement;
-- crashed workers;
-- changed execution substrates;
-- changed interfaces;
-- context compaction;
-- long gaps in time.
+The product anchor is a proving ground, not a permanent feature boundary.
 
-The system should be able to say:
+## 2. Human semantic execution language
 
-"this responsibility is still the same responsibility, although Worker A stopped and Worker B continued."
+Treat the human-readable semantic layer as a primary long-horizon investment.
 
-This is where data continuity becomes operational rather than philosophical.
+Investigate deeply:
 
-The load-bearing falsifier is worker substitution without semantic loss.
+- human expression → canonical meaning;
+- deterministic semantic representation;
+- addressing and context;
+- ambiguity and clarification;
+- composability;
+- explainability;
+- replay/reproducibility;
+- self-knowledge;
+- language learning without silent semantic drift.
 
-## 3. Truth, evidence, provenance, and canonical representation
+The important question is not merely whether VIVIM can understand prompts.
 
-**Focus:** separating:
+It is whether a non-programmer can reliably express meaningful operations through a semantic language whose consequences the system can govern deterministically.
 
-**EVIDENCE ≠ REPRESENTATION ≠ DESCRIPTION ≠ AUTHORITY**
+## 3. Personal semantic world, memory, and context
 
-A worker claim is not a fact merely because the worker is capable or confident.
+Focus on one coherent user-owned semantic world rather than scattered stores.
 
-Ω should preserve:
+Watch the boundaries among:
 
-- what a worker claimed;
-- what source or observation supports it;
-- the canonical representation currently accepted;
-- who or what had authority to admit it;
-- how the representation can be reconstructed;
-- what changed when a claim was rejected, superseded, or corrected.
+- external source data;
+- canonical local records;
+- relationships;
+- memory;
+- context;
+- representations;
+- evidence.
 
-Treat provenance, replay, and explainability as product capabilities.
+Current context is a derived lens over the world, work, focus, policy, and standing intent.
 
-This becomes especially important when many heterogeneous workers produce competing interpretations.
+It should not become a second source of truth.
 
-## 4. Realization independence and the sovereign edge
+## 4. Authority, Work, evidence, and continuity
 
-**Focus:** the boundary between abstract capability and real-world execution.
+The system should be able to show:
 
-A capability should be separable from the mechanism that realizes it:
+**what was requested → what was understood → what could do it → what was allowed → what work occurred → what actually happened**
 
-**capability → realization**
+Invest deeply in durable Work, honest execution state, evidence, recovery, and user continuity.
 
-Examples include Chrome/browser interaction, local files, desktop applications, APIs, shell tools, MCP services, cloud computers, or human action.
+The exact state machines and orchestration mechanisms are implementation choices.
 
-The current shippable direction remains browser-mediated Chrome master/slave rather than an AI-API execution dependency.
+The durable requirement is that consequential work remains understandable and reconstructable across interruption and replacement where possible.
 
-But the deeper architectural goal is broader:
+## 5. Provider, Account, Routing, and browser realization
 
-**Ω should be able to swap realizations without changing the identity or authority of the underlying responsibility.**
+Keep these concepts separate:
 
-The browser is not truth. A selector is not truth. A worker's interpretation of a webpage is not truth. The realized action and its evidence are what matter.
+- Provider;
+- Account;
+- Capability;
+- Realization;
+- Session;
+- Routing policy;
+- Authority.
 
-## 5. Context, knowledge, and handoff portability
+Routing chooses among valid candidates; it does not grant permission.
 
-**Focus:** giving any worker the right context without making that worker the owner of the context.
+Discovery establishes available candidates; it does not silently decide user policy.
 
-This includes self-knowledge, context assembly, task briefs, relevant history, evidence references, constraints, capabilities, and handoff state.
+The browser is a practical V1 realization substrate, not the long-term product identity.
 
-The desirable pattern is:
+Live authenticated provider behavior is especially valuable evidence because fixture-only success can hide the real product risks.
 
-**Ω owns context continuity → workers receive task-specific views.**
+## 6. Extensibility and Forge
 
-A replacement worker should be able to continue meaningful work without inheriting an opaque private memory blob from the previous worker.
+Make capabilities genuinely composable and replaceable.
 
-Context should be reconstructable, scoped, and evidence-linked.
+Focus on the principle:
 
-This is also where Ω's emerging "self-knowledge" concept matters: the environment should be able to explain itself to whichever worker currently operates within it.
+**new capability → explicit contribution → proof → ordinary admission/governance → usable capability**
 
-## 6. Capability and Forge economics
+A first-party or Forge-created capability should not receive a secret path.
 
-**Focus:** turning capabilities into portable, governable Lego rather than creating ever more bespoke agents.
+The strongest long-term test is whether the Forge can eventually create or modify ordinary governed pieces without creating a second privileged development universe.
 
-The important unit is no longer primarily "an agent."
+## 7. Evolution, learning, and healing
 
-It is a capability/responsibility definition with:
+VIVIM should become easier to improve while remaining trustworthy.
 
-- input contract;
-- output contract;
-- authority requirements;
-- capabilities required;
-- acceptable realizations;
-- worker requirements or preferences;
-- evidence requirements;
-- escalation rules;
-- fallback behavior;
-- provenance;
-- tests/falsifiers.
+Investigate how the environment can:
 
-The Forge should help produce and prove these pieces.
+- observe;
+- understand;
+- propose;
+- assess impact;
+- obtain appropriate authority;
+- change;
+- verify;
+- preserve lineage;
+- measure effect;
+- recover or retire.
 
-The strategic question is whether a capability can be moved between workers and environments without being rebuilt around each worker.
+Do not assume that activity is improvement.
 
-Avoid creating another privileged SDK-like agent layer.
+Do not let learned behavior silently override user policy or constitutional meaning.
 
-## 7. Authority, identity, trust, and governed change
+Unknown impact, compatibility, identity, or external effect should remain representable as unknown.
 
-**Focus:** stable identity of people, responsibilities, capabilities, workers, realizations, and consequential changes.
+## 8. Surfaces and product coherence
 
-Merge the old identity/trust and adaptation concerns here.
+Treat canvas, provider webapps, chat, CLI, MCP, and future interfaces as ways of experiencing the same underlying semantic system.
 
-The system needs clear answers to:
+Protect the distinction:
 
-Who is acting?
+**World is not Surface.**
 
-For whom?
+A surface can evolve independently of canonical identity and meaning.
 
-Under what authority?
+At the same time, the user experience should remain simple enough that architectural complexity stays underneath.
 
-Through which worker?
+## 9. Runtime, resources, and failure semantics
 
-Using which realization?
+As VIVIM becomes more autonomous, process isolation, resource governance, cancellation, restart, recovery, and external-effect uncertainty become increasingly important.
 
-With what evidence?
+Focus on honest failure and bounded behavior rather than theoretical perfection.
 
-What is allowed to change automatically?
+A transient worker should never be the sole authority for durable state.
 
-What requires explicit approval?
+## 10. Product lifecycle and sovereign exit
 
-How is rollback represented?
+A real product eventually needs coherent install, first run, account connection, defaults, configuration, update, recovery, export, reconstruction, and replacement.
 
-Self-change should remain possible, but it must not create a hidden route around the authority model.
+Do not build these as isolated administrative subsystems.
 
-The worker itself should not become a privileged authority merely because it is persistent.
+They should grow naturally from the same semantic world and authority model.
 
-## 8. Runtime containment, failure, and resource economics
+Exit and reconstruction are product capabilities, not compliance afterthoughts.
 
-**Focus:** workers and realizations as unreliable, replaceable resources.
+## Architectural leverage and upgradeability
 
-Expect:
+Across all focus areas, preferentially invest in mechanisms that multiply future capability.
 
-- hung workers;
-- crashed workers;
-- duplicated attempts;
-- partial execution;
-- stale context;
-- unavailable browsers;
-- external service changes;
-- resource pressure;
-- disconnected machines.
+For a substantial new subsystem or integration, investigate:
 
-The architecture should make replacement normal rather than exceptional.
+- whether it is likely to recur across independent capabilities;
+- whether it has a clean, replaceable boundary;
+- whether a second materially different use case or realization can use that boundary;
+- whether adding the next provider/capability is becoming cheaper rather than more exception-heavy;
+- whether recovery and self-healing generalize beyond the motivating failure;
+- whether the mechanism can be upgraded without forcing the product to adopt the same implementation forever;
+- whether the proposed centralization belongs in a kernel, an engine, a plugin, a composition, or ordinary implementation.
 
-Measure containment, recovery, retry behavior, resource budgets, and sibling impact.
+The builder should periodically ask whether the current system is accumulating **engines** or merely accumulating **working integrations**.
 
-Do not build theoretical sandbox machinery without a concrete product or failure requirement.
+The strategic target is not maximum abstraction. It is increasing leverage with minimal architectural lock-in.
 
-## 9. Surfaces as control and observability, not alternate systems
+## Long-horizon questions
 
-**Focus:** language, canvas, CLI, MCP, dashboards, and future interfaces as projections of the same governed state.
+Keep these questions alive across every build cycle:
 
-A surface should let a person understand:
+- What part of this is likely to remain valuable if today's models and providers disappear?
+- Are we strengthening the human semantic layer or merely wiring another tool?
+- Where is canonical truth?
+- What exactly proves the claim?
+- Who was authorized, and on whose behalf?
+- Can the operation be explained and replayed?
+- What happens under uncertainty?
+- What survives process, worker, provider, plugin, or surface replacement?
+- Can this be a replaceable contribution instead of a privileged special case?
+- Does the intervention measurably improve the target behavior?
+- Is the current structure still the simplest one?
+- Does a real person get more useful control of their digital world?
 
-- what responsibility exists;
-- who/what is working on it;
-- what the worker claimed;
-- what is verified;
-- what is waiting;
-- what is blocked;
-- what authority is required;
-- what happened in the real world.
-
-The surface must not become a competing source of truth.
-
-This also gives the "agent activity dashboard" a more durable meaning: it is an Ω control/observability surface, not a UI specifically for one agent framework.
-
-## 10. Product coherence and beta reality
-
-**Focus:** demonstrate the model with a small number of high-value end-to-end responsibilities.
-
-The first compelling product experience should prove:
-
-**human intent → Ω responsibility → worker → realization → evidence → canonical outcome**
-
-The worker can change during the journey.
-
-The realization can change where possible.
-
-The interface can change.
-
-The responsibility and its evidence should survive.
-
-Do not optimize for number of agents, number of integrations, number of plugins, or documentation volume.
-
-The final test remains:
-
-**Can a real person entrust Ω with something meaningful, leave, return later, understand what happened, and continue without losing the thread?**
-
-## Cross-cutting questions
-
-- Who owns the responsibility?
-- Is the worker merely executing it?
-- What exactly is known, and what is merely claimed?
-- What evidence admitted the claim?
-- Can another worker continue without losing meaning?
-- Can the realization be swapped?
-- Where is authority evaluated?
-- What survives a crash or replacement?
-- Can this capability be expressed as portable Lego?
-- Is this generic infrastructure or a special case for today's worker?
-- Can the claim be falsified cheaply?
-- Is Ω still sovereign if the worker disappears?
-
-These questions should be applied continuously rather than turned into a separate governance ceremony.
+These questions are more important than preserving any particular current roadmap.

@@ -264,10 +264,6 @@ export async function checkDecisions(
     if (doc.status === "RATIFIED") ratified++;
     warnings.push(...scanTrackCollisions(doc));
   }
-  // Record-only, on purpose: this loop iterates `byId` (the record files), so an
-  // index-only row (< D-313, the grandfathered era) is never validated, never
-  // reaches validateRecord's SHA-evidence rule, and is not "missing a record" here.
-  // Index-only rows reach the board via indexOnlyOpenQuestions (below), not here.
   for (const r of rows) {
     if (r.n >= GRANDFATHER_BELOW && !byId.has(r.n)) {
       issues.push(`D-${r.n}: index row with no docs/decisions/D-${r.n}-*.md record file`);
@@ -275,9 +271,7 @@ export async function checkDecisions(
   }
   const detail: Record<string, unknown> = { rows: rows.length, records: byId.size, ratified, grandfatherBelow: GRANDFATHER_BELOW, generatedFrom: GENERATED_FROM, trackWarnings: warnings.length };
   try {
-    const summary = summarizeOpenQuestions(root);
-    detail.openQuestions = summary;
-    detail.indexOnlyRows = summary.ids.filter((n) => n < GRANDFATHER_BELOW).length;
+    detail.openQuestions = summarizeOpenQuestions(root);
   } catch { /* board summary is informational — never fails the contract check */ }
   return { ok: issues.length === 0, detail, issues, warnings };
 }
@@ -304,61 +298,12 @@ export function decisionBody(text: string): string {
 
 export interface OpenQuestion {
   n: number;
-  file: string;        // repo-relative record path ("" for index-only rows)
-  title: string;       // record `#` heading (index-only rows: bounded index cell)
+  file: string;        // repo-relative record path
+  title: string;       // record `#` heading
   recommended: string; // Decision-line body (may contain TBD)
   hasTbd: boolean;     // semantically open, not just unconfirmed
   awaiting: string;    // who acts next
   blocks: string;      // the Blocks: line, "none" when absent (D-413, A4)
-  /** The index-only era (< D-313, CURRENT-INVARIANTS.md:184): the row lives only
-   *  in BUILD-DECISIONS.md, with no record file to validate. Such rows NEVER
-   *  reach validateRecord — the record-shape and SHA-evidence rules are
-   *  record-only, and the missing-record issue below does not reach them either. */
-  indexOnly?: boolean;
-}
-
-/** Question-cell cap for index-only rows only. Round to 100 like round-close.ts's
- *  board-title render — but bounded HERE, in the pure helper, so the value that
- *  reaches the board (and every other consumer) is already the short one.
- *  Record-backed rows are byte-unchanged: their titles come from record headings. */
-export const INDEX_ONLY_TITLE_CAP = 100;
-
-/** Board order: blocking-first, then D-number (D-413, A4). Exported so the merged
- *  record + index-only list is sorted by the ONE comparator, not two. */
-export const compareOpenQuestions = (a: OpenQuestion, b: OpenQuestion): number =>
-  (a.blocks === "none" ? 1 : 0) - (b.blocks === "none" ? 1 : 0) || a.n - b.n;
-
-/** PROPOSED index rows that have NO record file (the grandfathered index-only
- *  era, < D-313 — CURRENT-INVARIANTS.md:184). Pure: (indexText, recordIds) -> rows.
- *  No filesystem, no git, no validateRecord — the shape rules and the SHA-evidence
- *  rule are record-only by design, and calling them here would raise phantom
- *  issues for a legal era. `recordIds` is every id that HAS a record file, so a
- *  row whose record exists (even a sub-D-313 grandfathered one) never duplicates. */
-export function indexOnlyOpenQuestions(indexText: string, recordIds: Iterable<number>): OpenQuestion[] {
-  const withRecord = new Set(recordIds);
-  const out: OpenQuestion[] = [];
-  for (const r of parseIndexRows(indexText)) {
-    if (r.status !== "PROPOSED" || withRecord.has(r.n)) continue;
-    // `| **D-NNN** | Decision | STATUS | Rationale |` — split on the cell pipe.
-    // The status CELL is authoritative here (cell 3), not r.status: the line-wide
-    // status regex can bite a status word inside prose, and a false PROPOSED on a
-    // RATIFIED row would put a settled decision back on the board.
-    const cells = r.raw.split("|").map((c) => c.trim());
-    const status = /\b(PROPOSED|RATIFIED|SUPERSEDED|REJECTED)\b/.exec((cells[3] ?? "").toUpperCase());
-    if ((status?.[1] ?? r.status) !== "PROPOSED") continue;
-    const decision = cells[2] ?? "";
-    const rationale = cells[4] ?? "";
-    const title = decision.length > INDEX_ONLY_TITLE_CAP
-      ? `${decision.slice(0, INDEX_ONLY_TITLE_CAP).trimEnd()}…`
-      : decision;
-    const hasTbd = /\bTBD\b/.test(rationale);
-    out.push({
-      n: r.n, file: "", title, recommended: rationale || "(index row has no Rationale cell)",
-      hasTbd, blocks: "none", indexOnly: true,
-      awaiting: hasTbd ? "Owner decision — TBD open" : "Owner confirmation (index row only — no record file)",
-    });
-  }
-  return out;
 }
 
 /** Pure core of the board (D-413): PROPOSED records → open questions, sorted
@@ -378,11 +323,10 @@ export function computeOpenQuestions(items: Array<{ n: number; file: string; tex
       awaiting: hasTbd ? "Owner decision — TBD open" : "Owner confirmation",
     });
   }
-  return out.sort(compareOpenQuestions);
+  return out.sort((a, b) => (a.blocks === "none" ? 1 : 0) - (b.blocks === "none" ? 1 : 0) || a.n - b.n);
 }
 
-/** Every PROPOSED record is an open question by definition, plus every PROPOSED
- *  index-only row (no record file, the < D-313 era). Blocking-first, then D-number. */
+/** Every PROPOSED record is an open question by definition. Blocking-first, then D-number (D-413, A4). */
 export function listOpenQuestions(root: string): OpenQuestion[] {
   const dir = join(root, "docs/decisions");
   let files: string[] = [];
@@ -392,10 +336,8 @@ export function listOpenQuestions(root: string): OpenQuestion[] {
     return [];
   }
   const items: Array<{ n: number; file: string; text: string }> = [];
-  const recordIds: number[] = [];
   for (const f of files) {
     const n = Number(/^D-(\d+)-/.exec(f)![1]);
-    recordIds.push(n); // present at all = "has a record file", grandfathered or not
     if (n < GRANDFATHER_BELOW) continue;
     let text: string;
     try {
@@ -405,11 +347,7 @@ export function listOpenQuestions(root: string): OpenQuestion[] {
     }
     items.push({ n, file: `docs/decisions/${f}`, text });
   }
-  let indexOnly: OpenQuestion[] = [];
-  try {
-    indexOnly = indexOnlyOpenQuestions(readFileSync(join(root, "docs/BUILD-DECISIONS.md"), "utf-8"), recordIds);
-  } catch { /* no index → nothing to add; the record pass stands alone */ }
-  return [...computeOpenQuestions(items), ...indexOnly].sort(compareOpenQuestions);
+  return computeOpenQuestions(items);
 }
 
 function headSha(root: string): string {
@@ -468,19 +406,9 @@ function summarizeOpenQuestions(root: string): { count: number; ids: number[]; b
 /** Render the team board. Generated file — do not hand-edit (see header). */
 export function renderOpenQuestionsBoard(root: string, baseSha: string, generatedAt: string): string {
   const qs = listOpenQuestions(root);
-  const hasIndexOnly = qs.some((q) => q.indexOnly === true);
   const rows = qs.map((q) => {
     const short = q.title.replace(/^D-\d+\s*[—–-]\s*/, ""); // ID has its own column
-    // Index-only rows carry a Decision cell that is a whole paragraph (the
-    // hand-era rows have no `D-NNN — ` prefix for the strip above, and no record
-    // heading to shorten from). Their title is already bounded to
-    // INDEX_ONLY_TITLE_CAP by indexOnlyOpenQuestions; point the reader at the
-    // index for the full cell. Record-backed rows are byte-unchanged.
-    const question = q.indexOnly === true ? `${short} _(full cell: docs/BUILD-DECISIONS.md)_` : short;
-    // an index-only row has no record file (file === "") — say so rather than
-    // rendering a broken `[record](undefined)` link.
-    const record = q.file === "" ? "index-only, no record file" : `[record](${q.file.split("/").pop()})`;
-    return `| **D-${q.n}** | ${question} | ${q.recommended} | ${q.blocks} | ${q.awaiting} | ${record} |`;
+    return `| **D-${q.n}** | ${short} | ${q.recommended} | ${q.blocks} | ${q.awaiting} | [record](${q.file.split("/").pop()}) |`;
   });
   return `# Open Questions (decision backlog)
 
@@ -488,7 +416,7 @@ export function renderOpenQuestionsBoard(root: string, baseSha: string, generate
 
 ${qs.length === 0
     ? "No open questions. Every decision record is RATIFIED, SUPERSEDED, or REJECTED."
-    : `_${qs.length} PROPOSED decision${qs.length === 1 ? "" : "s"} awaiting owner calls. ${hasIndexOnly ? "Rows marked *index-only* in the Record column have no record file — their full cell lives in docs/BUILD-DECISIONS.md. " : ""}Each row links to its record — the matrix, criteria, and evidence live there, not here._`}
+    : `_${qs.length} PROPOSED decision${qs.length === 1 ? "" : "s"} awaiting owner calls. Each row links to its record — the matrix, criteria, and evidence live there, not here._`}
 
 | ID | Question | Recommended position | Blocks | Awaiting | Record |
 |---|---|---|---|---|---|

@@ -1,6 +1,0 @@
-# Local/secret Commons state for RUNTIME-01
-identity/private-key.pem
-outbox/
-cursors/
-projections/
-*.lock

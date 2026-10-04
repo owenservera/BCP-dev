@@ -1,142 +1,257 @@
 # VIVIM-Ω Vision
 
-## One sentence
+## The durable proposition
 
-VIVIM is a personal operating environment for a person's digital world.
+VIVIM is a sovereign personal operating environment for a person's digital world.
 
-The canvas is its spatial language. The vault is its memory. The law is its constitution. Compositions are its executable objects. The Forge is its ability to evolve. Intelligence is one replaceable engine inside it.
+Its purpose is not to become the best AI chatbot, agent framework, browser automation library, workflow engine, or canvas implementation.
 
-## The strategic position
+Those are replaceable means.
 
-Ω is not principally an autonomous-agent competitor.
+The durable proposition is:
 
-Its purpose is to provide a sovereign operating layer in which many kinds of capable workers can operate on a person's behalf without the user's world becoming coupled to any one worker, model, provider, interface, or execution substrate.
+> **A person can express what they want in human terms, have that meaning resolved into deterministic and governed operations, act across their digital world, retain the resulting knowledge and evidence, and allow the environment to evolve without surrendering ownership or continuity.**
 
-A worker may be a hosted agent, coding agent, local agent, specialist process, model, or human.
+## What should still matter in ten years
 
-**The worker is replaceable. The responsibility is not.**
+The surrounding technology should be assumed to change radically.
 
-That distinction should survive throughout the architecture.
+Models will change.
+Agent frameworks will change.
+Providers will change.
+Browsers will change.
+Protocols will change.
+Interfaces will change.
+Execution substrates will change.
+
+The project should therefore protect the following durable assets.
+
+### 1. Human semantic execution language
+
+The strongest candidate for distinctive VIVIM intellectual property is a human-readable semantic language that can express meaningful operations without requiring the person to be a programmer.
+
+The important asset is not natural language itself.
+
+It is the bridge:
+
+**human expression ↔ canonical meaning ↔ deterministic execution**
+
+The system should learn how people express intentions, but established semantic meaning should not silently mutate because an AI model produced a different interpretation.
+
+The language should be:
+
+- human-readable;
+- addressable;
+- composable;
+- inspectable;
+- deterministic at the semantic/execution boundary;
+- explainable;
+- extensible;
+- learnable without becoming ungoverned.
+
+The long-term goal is that a person does not need to learn VIVIM's implementation vocabulary in order to operate capabilities that VIVIM exposes.
+
+### 2. A personal semantic world
+
+VIVIM should maintain a persistent, user-owned representation of the person's digital world: things, identities, relationships, work, history, context, memory, and evidence.
+
+This is not merely “memory.”
+
+It is continuity.
+
+The world should retain meaning even as individual surfaces, providers, models, plugins, and execution mechanisms change.
+
+The person's world should be addressable and manipulable through the semantic language.
+
+### 3. Governed action
+
+VIVIM should be able to separate:
+
+**what was said → what was meant → what could do it → what was allowed → what was attempted → what happened**
+
+Authority belongs to explicit policy, consent, and law.
+
+AI can help interpret, reason, discover, or synthesize.
+
+AI does not become sovereign authority merely because it is capable.
+
+This creates a durable control boundary between probabilistic intelligence and consequential effect.
+
+### 4. Durable Work, proof, and continuity
+
+Consequential activity should be represented as durable Work rather than as the life of a particular agent or process.
+
+Workers are replaceable.
+
+Work survives them where the environment can preserve enough state and evidence.
+
+The environment should be able to distinguish attempted, active, interrupted, completed, deliberately stopped, never-started, and genuinely uncertain outcomes when those distinctions are knowable.
+
+The deeper asset is an honest epistemology of execution:
+
+> **what does VIVIM actually know happened?**
+
+That becomes increasingly important as machine activity becomes more autonomous.
+
+### 5. Governed self-extension and evolution
+
+VIVIM should eventually be able to extend and repair itself without creating privileged exceptions.
+
+Plugins and compositions provide replaceable contribution boundaries.
+
+Forge provides self-extension.
+
+Provider intelligence and maintenance provide adaptation to changing external reality.
+
+These are all instances of a broader proposition:
+
+> **VIVIM can change itself while preserving identity, sovereignty, evidence, and continuity.**
+
+The mechanism used to create or repair something does not grant that thing special authority.
 
 ## The core inversion
 
-VIVIM should not be a drawing surface with an AI assistant attached.
+VIVIM is not fundamentally:
 
-The visible canvas is a projection of an invisible constitutional system that already works without pixels:
+**application + AI assistant**
 
-- authoritative state lives in the vault;
-- events and evidence are durable and inspectable;
-- capabilities are explicit and bounded;
-- authority is governed by law and consent;
-- intent is canonical and deterministic;
-- execution is deterministic and evidence-producing;
-- plugins and compositions provide extension;
-- surfaces present and operate the same underlying system.
+and not:
 
-A canvas can disappear without taking the system's meaning with it.
+**canvas + AI assistant**
 
-## Natural-language control
+The deeper model is:
 
-The control plane follows:
+**semantic environment + governed execution + replaceable intelligence**
 
-probabilistic perception → deterministic intent → deterministic execution
+The canvas, browser, chat, CLI, MCP, and other surfaces are ways of experiencing or operating that underlying system.
 
-Language may be ambiguous. The system may use probabilistic intelligence to interpret it. But the resulting canonical intent is an explicit artifact, and execution is governed from that artifact.
+## Strategic design shape
 
-The law gate never treats raw model output as authority.
+The long-horizon product proposition should shape the architecture of the solutions built underneath it.
 
-The same canonical operation vocabulary should be reachable from language, canvas, CLI, MCP, automation, and agents. Different surfaces express the operation; they do not invent separate execution paths.
+Prefer **capability multipliers** over isolated features: when a capability is likely to recur across providers, surfaces, domains, or compositions, a successful implementation should make the next use materially cheaper, safer, or more general.
 
-When certainty is insufficient, the system should clarify, narrow, or refuse rather than silently guess.
+Important recurring capabilities may eventually deserve **upgradeable engine boundaries**. Candidate areas include semantic interpretation, context/world understanding, authority/policy, Work and execution, evidence, provider/protocol realization, discovery/diagnosis, routing, recovery/self-healing, and learning. These are candidates, not a frozen architecture. Engine status must be earned by demonstrated cross-cutting leverage.
 
-## Seven conceptual primitives
+Do not confuse the first working mechanism with the durable abstraction. A provider implementation, protocol adapter, browser realization, selector repair, agent worker, or model integration proves that one case can work; it does not prove that its current mechanism should define the system.
 
-The architecture should increasingly be understood through seven primitives:
+The preferred progression is:
 
-**Intent** — what is being asked or attempted.
+**concrete case → repeated pattern → observed commonality → reusable capability → capability multiplier → upgradeable engine**
 
-**Truth** — what is currently known, represented, evidenced, and reconstructable.
+Generalization should be earned by evidence rather than by either hard-coding the first case or prematurely building a framework for hypothetical cases.
 
-**Authority** — who or what may decide, mutate, approve, or delegate.
+Durable semantic contracts should remain separable from replaceable realizations. Adding a second materially different provider, realization, or use case should be a useful architectural test: if it repeatedly requires duplicated semantics and special-case machinery, the system is accumulating solutions rather than building leverage.
 
-**Capability** — what can be done under a contract.
+Self-healing belongs to this same principle. Provider-specific repair techniques may be necessary, but the durable capability is broader: observe deviation → diagnose → propose or perform a governed repair → verify → preserve evidence → learn. Repair machinery must not become an excuse for hidden provider-specific authority.
 
-**Worker** — who or what performs a responsibility.
+AI, workers, browsers, protocols, providers, and orchestration mechanisms remain replaceable means. The architecture should make consequential capabilities easier to upgrade without making the product hostage to the current realization.
 
-**Realization** — where and how the capability actually happens.
+## Intelligence is a replaceable resource
 
-**Proof** — what demonstrates what happened and why the resulting state is trustworthy.
+VIVIM should use intelligence where it creates value.
 
-These are conceptual boundaries, not a demand for seven specific plugins.
+That may include:
 
-## Sovereign memory and evidence
+- ambiguity resolution;
+- synthesis;
+- inference;
+- discovery;
+- planning;
+- language interpretation;
+- adaptation;
+- creative generation.
 
-The user's durable state belongs to one authoritative local vault.
+But the product should remain meaningful when an LLM is unavailable.
 
-Evidence, provenance, identity, permissions, decisions, failures, and outcomes should be traceable. Derived views should be reconstructible from authoritative state.
+Deterministic state, semantics, policy, authority, capability checks, execution boundaries, evidence, and continuity remain explicit.
 
-A worker's memory is useful context. It is not automatically canonical user memory.
+The strategic target is not “more AI everywhere.”
 
-A worker's claim is useful input. It is not automatically truth.
+It is **less unnecessary dependence on AI because the environment itself has a richer deterministic semantic layer.**
 
-A worker's interface is a representation. It is not automatically authority.
+## The human mental model
+
+The internal system may become extremely sophisticated.
+
+The person's mental model should remain closer to:
+
+**my world → what matters now → what I want → what can do it → what I allow → what work happens → what actually happened → what becomes part of my continuing world**
+
+Complexity should be absorbed by the environment.
+
+The person should not need to understand architecture in order to control the environment.
+
+## Sovereignty
+
+The core promise remains:
+
+**my machine, my internet, my accounts, my apps, my data, my intelligence, my rules, my interaction.**
+
+External providers may remain essential capabilities.
+
+They are not the sovereign owner of the local semantic environment.
+
+The environment should minimize unnecessary dependence on proprietary APIs and centralized application backends when the user's own authorized interface can provide the needed capability.
+
+## Surfaces are projections
+
+A canvas, provider webapp, conversation view, CLI, or future interface may represent the same underlying world.
+
+A surface can be replaced without changing canonical identity.
+
+A spatial arrangement can be useful without becoming canonical truth.
+
+The first product anchor may be a single-pane environment with persistent provider webapp surfaces.
+
+The destination is not the pane itself.
 
 ## Extensibility
 
-Everything possible should be a plugin rather than a privileged special case.
+Replaceable capabilities and product contributions should use explicit boundaries.
 
-Compositions assemble plugins into working capabilities.
+Everything-is-a-plugin means that important extensible behavior should not require a secret development universe.
 
-The Forge makes it possible to inspect, shape, emit, prove, and eventually promote new system pieces without creating a second privileged development universe.
+First-party functionality should not automatically receive special constitutional privilege.
 
-The useful unit of extensibility is increasingly the portable capability/responsibility rather than the permanent identity of an agent.
+Forge should ultimately be able to create ordinary governed extensions.
 
-A capability should be able to name its contracts, authority requirements, acceptable realizations, worker requirements or preferences, evidence requirements, escalation behavior, and falsifiers.
+## Evolution and learning
 
-## Real-world interaction
+VIVIM should learn without becoming opaque.
 
-For the initial shippable product, browser-mediated interaction is the deliberate substrate:
+Learning should improve interpretation, retrieval, prediction, routing suggestions, discovery, or other bounded behavior.
 
-Chrome master/slave → provider.browser → governed operation → evidence in the vault
+Durable semantic meaning, authority, canonical identity, and evidence should not silently mutate as an accidental side effect of learning.
 
-The browser is a realization mechanism, not the authority.
+When the environment changes itself, it should retain enough evidence and lineage to explain what changed, why, what was affected, what was verified, and what remains uncertain.
 
-This makes existing user web applications usable without turning their private APIs into Ω's architecture.
+## Long-horizon test
 
-More generally, the realization layer should be replaceable where the capability contract permits it.
+A VIVIM design is durable when most of the following can remain true while the underlying machinery is replaced:
 
-## Living objects and surfaces
+- the person can express the same intention;
+- the intention retains recognizable meaning;
+- authority remains explicit;
+- the user's world retains identity and relationships;
+- Work remains attributable and recoverable;
+- evidence remains reconstructable;
+- capabilities can be replaced;
+- providers can be replaced;
+- models can be replaced;
+- surfaces can be replaced;
+- the user can exit.
 
-A live object is an executable participant in the environment, not a picture.
+Those are stronger indicators of a ten-year architecture than preserving today's components.
 
-It observes authoritative state, reacts to events, reflects capability and provenance and failure state, and can be acted upon.
+## Success
 
-The canvas is one surface for such objects. CLI and MCP are other projections of the same governed system.
+A person can operate meaningful parts of their digital world through one coherent local environment.
 
-A future control surface should make the distinction between responsibility, worker, claim, evidence, and verified outcome legible to the person.
+They can use ordinary human expression rather than programming every operation.
 
-## Evolution
+They can see what the environment knows, what it is doing, what it was allowed to do, and what actually happened.
 
-Ω should be able to improve itself, but self-change is not silent mutation.
+The environment can use the best available intelligence without becoming dependent on any one model or provider.
 
-Behavior, policies, realizations, lexicons, and other important changes need evidence, a bounded impact view, and a recoverable path.
-
-Adaptation should become easier over time without becoming less trustworthy.
-
-## What success looks like
-
-A person can entrust meaningful responsibilities to Ω.
-
-Ω can select, coordinate, replace, or stop workers without losing the identity of the work.
-
-Different workers can use different realizations.
-
-The user's state and evidence remain under the user's sovereignty.
-
-The system can explain and prove its consequential behavior.
-
-And the architecture is genuinely composable: new capabilities are built by adding or changing Lego-like pieces, not by repeatedly creating bespoke monoliths around a particular agent.
-
-A useful end-state test is:
-
-**the worker disappears, the interface disappears, or the model is replaced — and the person's work, meaning, evidence, and authority remain.**
+And the environment can extend, repair, replace, and evolve its own capabilities without creating a privileged backdoor or losing the person's continuity.

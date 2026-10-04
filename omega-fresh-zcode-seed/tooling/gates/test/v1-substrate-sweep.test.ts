@@ -28,8 +28,8 @@ const lines = (text: string): string[] => text.split("\n");
 
 /** The sequencing claims D-418 kills — none may survive unmarkered. */
 const SEQUENCING_CLAIM_RE = /Ollama pilots the spine|Ollama first|Ollama over ChatGPT|ollama pilot-first|the named pilot/i;
-/** The markers that make a surviving mention lawful (D-418's sweep inventory, extended by D-456). */
-const MARKERED_RE = /D-418|D-456|post-v1|historical record|superseded/i;
+/** The markers that make a surviving mention lawful (D-418's sweep inventory). */
+const MARKERED_RE = /D-418|post-v1|historical record|superseded/i;
 /** The §3 end-state realization list: external intelligence as substitutable
  *  realizations — an end-state claim D-418 explicitly leaves standing. */
 const ENDSTATE_LIST_RE = /substitutable, revocable realizations/;
@@ -48,12 +48,11 @@ describe("D-418 · F-1a — the vision doc's amended passages (line-level sweep)
     expect(text).toContain("no AI-API realization ships in v1");
   });
 
-  test("§24's Frank badge is Chrome-mediated: the Ollama example is gone, the D-456 marker is present", () => {
-    const frank = lines(text).find((l) => l.includes("Frank asks"));
+  test("§24's Frank badge is re-dated post-v1, not depicted as a v1 shipment", () => {
+    const frank = lines(text).find((l) => l.includes("provider.llm-ollama"));
     expect(frank).toBeDefined();
-    expect(frank).not.toContain("provider.llm-ollama");
-    expect(frank).toContain("provider.browser");
-    expect(frank).toContain("D-456");
+    expect(frank).toContain("post-v1");
+    expect(frank).toContain("D-418");
   });
 
   test("§31's Wave-1 boundary names provider.browser and no longer provider.llm-ollama", () => {

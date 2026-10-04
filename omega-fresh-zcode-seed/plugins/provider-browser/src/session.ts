@@ -25,18 +25,7 @@ export interface CaptureRecord {
   capturedAt: number;
 }
 
-/** The vault record for one attached session (references, never bytes).
- * Fixture sessions use sim:true; a real ChatGPT session carries a localhost
- * live descriptor and uses sim:false. */
-export interface LiveSessionDescriptor {
-  providerId: "chatgpt";
-  /** Local Chrome DevTools HTTP debug port; never a remote endpoint. */
-  debugPort: number;
-}
-
-/** Optional live transport attached to a session. A live session is never
- * mislabeled as a fixture: sim=false, while legacy fixture sessions remain
- * sim=true. */
+/** The vault record for one attached session (references, never bytes). */
 export interface SessionRecord {
   sessionId: string;
   providerId: "browser";
@@ -44,8 +33,7 @@ export interface SessionRecord {
   parserVersion: string;
   captureRef: { ns: string; id: string; rev: number };
   status: "ATTACHED" | "RELEASED";
-  sim: boolean;
-  live?: LiveSessionDescriptor;
+  sim: true;            // in-sandbox sessions are sim fixtures by construction
   createdAt: number;
 }
 
@@ -91,7 +79,6 @@ export function buildCaptureRecord(input: {
 export function buildSessionRecord(input: {
   sessionId: string; archetypeSlug: string; parserVersion: string;
   captureRef: { ns: string; id: string; rev: number };
-  live?: LiveSessionDescriptor;
 }): SessionRecord {
   const sid = requireNonEmpty("browser.attach@1", "sessionId", input.sessionId);
   if (!sid.startsWith(SESSION_ID_PREFIX)) {
@@ -102,16 +89,6 @@ export function buildSessionRecord(input: {
     || !Number.isInteger(cr.rev) || cr.rev < 1) {
     throw new Error("browser.attach@1: captureRef must be a {ns, id, rev >= 1} vault ref");
   }
-  if (input.live !== undefined) {
-    if (
-      input.live.providerId !== "chatgpt" ||
-      !Number.isInteger(input.live.debugPort) ||
-      input.live.debugPort < 1024 ||
-      input.live.debugPort > 65535
-    ) {
-      throw new Error("browser.attach@1: live must be {providerId:'chatgpt', debugPort:1024..65535}");
-    }
-  }
   return {
     sessionId: sid,
     providerId: "browser",
@@ -119,8 +96,7 @@ export function buildSessionRecord(input: {
     parserVersion: requireNonEmpty("browser.attach@1", "parserVersion", input.parserVersion),
     captureRef: cr,
     status: "ATTACHED",
-    sim: input.live === undefined,
-    ...(input.live !== undefined ? { live: input.live } : {}),
+    sim: true,
     createdAt: Date.now(),
   };
 }
@@ -136,19 +112,7 @@ export function asSessionRecord(data: unknown): SessionRecord | null {
   const cr = r.captureRef as Record<string, unknown> | undefined;
   if (!cr || typeof cr.ns !== "string" || typeof cr.id !== "string" || !Number.isInteger(cr.rev) || (cr.rev as number) < 1) return null;
   if (r.status !== "ATTACHED" && r.status !== "RELEASED") return null;
-  const live = r.live as Record<string, unknown> | undefined;
-  if (live !== undefined) {
-    if (
-      live === null ||
-      live.providerId !== "chatgpt" ||
-      !Number.isInteger(live.debugPort) ||
-      (live.debugPort as number) < 1024 ||
-      (live.debugPort as number) > 65535 ||
-      r.sim !== false
-    ) return null;
-  } else if (r.sim !== true) {
-    return null;
-  }
+  if (r.sim !== true) return null;
   if (typeof r.createdAt !== "number" || !Number.isFinite(r.createdAt)) return null;
   return {
     sessionId: r.sessionId,
@@ -157,8 +121,7 @@ export function asSessionRecord(data: unknown): SessionRecord | null {
     parserVersion: r.parserVersion,
     captureRef: { ns: cr.ns, id: cr.id, rev: cr.rev as number },
     status: r.status,
-    sim: live !== undefined ? false : true,
-    ...(live !== undefined ? { live: { providerId: "chatgpt", debugPort: live.debugPort as number } } : {}),
+    sim: true,
     createdAt: r.createdAt,
   };
 }
@@ -182,4 +145,3 @@ export function asCaptureRecord(data: unknown): CaptureRecord | null {
     capturedAt: r.capturedAt,
   };
 }
-

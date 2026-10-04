@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "omega:setup": "bun install",
-    "omega:test": "bun run tooling/gates/sharded-test.ts",
+    "omega:test": "bun test",
     "omega:test:host": "bun test host tooling/gates",
     "omega:test:plugins": "bun test plugins packs",
     "omega:test:surfaces": "bun test surfaces sdk testkit",
@@ -37,7 +37,6 @@
     "omega:orchestrate": "bun run tooling/gates/orchestrate.ts",
     "omega:devault": "bun run tooling/gates/devvault.ts",
     "omega:session": "bun run tooling/gates/session.ts",
-    "omega:boot": "bun run tooling/gates/boot.ts",
     "omega:simulate": "bun run tooling/gates/simulate.ts",
     "omega:bench": "bun run tooling/bench/bench.ts",
     "omega:probe": "bun run tooling/bench/vault-probe.ts",
@@ -49,9 +48,7 @@
     "omega:status": "bun run tooling/gates/status.ts",
     "omega:demo": "bun run tooling/demo/demo.ts",
     "omega:portrait": "bun run tooling/portrait/portrait.ts",
-    "omega:host": "bun run host/src/main.ts",
-    "omega:gov": "bun run tooling/gates/gov.ts gov",
-    "omega:accept": "bun run tooling/gates/gov.ts accept"
+    "omega:host": "bun run host/src/main.ts"
   },
   "dependencies": {
     "zod": "^4.6.2"

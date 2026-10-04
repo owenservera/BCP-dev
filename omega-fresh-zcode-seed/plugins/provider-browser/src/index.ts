@@ -1,12 +1,12 @@
 // plugins/provider-browser — index.ts (D-357, M0: the BROWSER_MEDIATED realization)
 // The first provider to hold a categorically larger trust surface than any
 // capability token before it (D-338): it reads and writes another
-// application's UI state. It now has two explicit modes: legacy fixture replay
-// and a real ChatGPT CDP leg against a caller-supplied localhost debug port.
+// application's UI state. In-sandbox it is a FIXTURE realization — the CDP
+// leg is owner-machine-only, future work, and never silently simulated.
 //
 // Ops exposed (PROVIDER contributions, see plugin.json — risk lives on
 // pack.domain-email's contract declarations, the cross-plugin pattern):
-//   browser.attach@1   {captureText, archetypeSlug?, parserVersion?, live?}
+//   browser.attach@1   {captureText, archetypeSlug?, parserVersion?}
 //                      → {sessionId, captureRef, redactions, integrity}
 //                      M12/D-356 ordering law: the capture runs through
 //                      credential.redact@1 BEFORE the vault sees it; the
@@ -34,13 +34,11 @@ import { definePlugin, startPlugin } from "@vivim/omega-shim";
 import type { PluginContext, CallMeta } from "@vivim/omega-shim";
 import type { PortResult, ProviderRealization, StreamChunk } from "@vivim/omega-contracts";
 import { buildChunkEnvelope, pinMatches } from "@vivim/omega-contracts";
-import { executeChatGptSend } from "./live.ts";
 import { createHash, randomBytes } from "node:crypto";
 import { PARSER_VERSION, resolveParser } from "./parsers.ts";
 import {
   asCaptureRecord, asSessionRecord, buildCaptureRecord, buildSessionRecord,
   captureId, PROVIDERS_NS, sessionId,
-  type LiveSessionDescriptor,
 } from "./session.ts";
 
 interface VaultAppendResult { rev: number; cid: string; seq: number }
@@ -145,7 +143,7 @@ export const def = definePlugin({
     "browser.attach@1": async (payload: unknown, ctx: PluginContext) => {
       const op = "browser.attach@1";
       if (payload === null || typeof payload !== "object" || Array.isArray(payload)) {
-        throw new Error(`${op}: payload must be an object {captureText, archetypeSlug?, parserVersion?, live?: {providerId:chatgpt, debugPort}}`);
+        throw new Error(`${op}: payload must be an object {captureText, archetypeSlug?, parserVersion?}`);
       }
       const p = payload as Record<string, unknown>;
       const captureText = reqStr(op, "captureText", p.captureText);
@@ -176,29 +174,10 @@ export const def = definePlugin({
         refs: [],
       });
 
-      let live: LiveSessionDescriptor | undefined;
-      if (p.live !== undefined) {
-        if (p.live === null || typeof p.live !== "object" || Array.isArray(p.live)) {
-          throw new Error(`${op}: live must be {providerId:chatgpt, debugPort:1024..65535}`);
-        }
-        const lv = p.live as Record<string, unknown>;
-        if (
-          lv.providerId !== "chatgpt" ||
-          typeof lv.debugPort !== "number" ||
-          !Number.isInteger(lv.debugPort) ||
-          lv.debugPort < 1024 ||
-          lv.debugPort > 65535
-        ) {
-          throw new Error(`${op}: live must be {providerId:chatgpt, debugPort:1024..65535}`);
-        }
-        live = { providerId: "chatgpt", debugPort: lv.debugPort };
-      }
-
       const session = buildSessionRecord({
         sessionId: sessionId(`sess_${randomBytes(8).toString("hex")}`),
         archetypeSlug, parserVersion,
         captureRef: { ns: PROVIDERS_NS, id: capId, rev: capAppend.rev },
-        ...(live ? { live } : {}),
       });
       const sessAppend = await portCall<VaultAppendResult>(ctx, "vault.append@1", {
         ns: PROVIDERS_NS, id: session.sessionId, data: session,
@@ -283,49 +262,7 @@ export const def = definePlugin({
         throw new Error(`${op}: no verified pin covers browser/message.send v${session.parserVersion} (pins: ${pins.length}) — refusing (bar 4)`);
       }
 
-      // ── Live realization ─────────────────────────────────────────────
-      // The four bars above are unchanged. A live session substitutes the
-      // fixture replay only after those bars pass. The live CDP leg is the
-      // provider-browser plugin's localhost-only adapter; once its click occurs
-      // it never retries the send intent.
-      if (session.live) {
-        const live = await executeChatGptSend(session.live, input.body);
-        const chunks: StreamChunk[] = buildChunkEnvelope(meta.causationId, live.chunks);
-        for (const c of chunks) meta.emit(c.data, c.final);
-
-        const id = `msg_${randomBytes(8).toString("hex")}`;
-        const sentAt = Date.now();
-        const message = {
-          id,
-          threadId: input.threadId ?? threadIdFor(input.subject, input.to),
-          folder: "sent",
-          from: cfg.from,
-          to: input.to,
-          subject: input.subject,
-          body: input.body,
-          sentAt,
-          flags: { seen: true, flagged: false, draft: false },
-        };
-        const append = await portCall<VaultAppendResult>(ctx, "vault.append@1", {
-          ns: "email", id, data: message,
-          meta: {
-            type: "message", provider: "browser", providerId: "chatgpt",
-            sessionId: session.sessionId, captureRef: session.captureRef,
-            responseUrl: live.responseUrl, responseStatus: live.responseStatus,
-            ...(live.providerMessageId ? { providerMessageId: live.providerMessageId } : {}),
-          },
-          refs: [{ ns: PROVIDERS_NS, id: session.sessionId, rev: sessGot.rev }, session.captureRef],
-        });
-        return {
-          messageId: id,
-          rev: append.rev,
-          sentAt,
-          chunks: chunks.length,
-          ...(live.providerMessageId ? { providerMessageId: live.providerMessageId } : {}),
-        };
-      }
-
-      // ── The gated fixture replay ───────────────────────────────────────
+      // ── The gated replay ───────────────────────────────────────────────
       const capGot = await portCall<VaultGetResult>(ctx, "vault.get@1", {
         ns: session.captureRef.ns, id: session.captureRef.id, rev: session.captureRef.rev,
       });

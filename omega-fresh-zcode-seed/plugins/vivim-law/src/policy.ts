@@ -78,17 +78,10 @@ export interface PolicyDoc {
  *  row → MUTATION (the audit-chain persistence write, ns `audit`, the same
  *  vault-internal class family; catalog-declared MUTATION in the manifest,
  *  never default-riding — the parity net holds the two sources to one
- *  truth, the D-351 discipline).
- *  1.10.0 (WS-1 gate repair 2026-09-30): the durable Work family enters the
- *  net — exact rows `work.create/transition/attempt.start/attempt.finish/
- *  reconcile/verify/cancel/recover@1` → MUTATION (vault-internal Plan/Work/
- *  Attempt rows, ns `work`, VAULT-NAMESPACES registry; the vivim-run manifest
- *  declared MUTATION at the durable-Work landing but the policy table was
- *  never updated — D-351 parity caught it once the compositions stage could
- *  parse again). `work.get@1`/`work.list@1` are READ (never gated). */
+ *  truth, the D-351 discipline). */
 export const LAW_POLICY_V1: PolicyDoc = {
   policyId: "law.policy",
-  version: "1.10.0",
+  version: "1.8.0",
   description: "Ω1 baseline: risk-class defaults, mutation journaling, principal deny-list, credential-consent rule",
   riskTable: [
     { op: "risky.op@1", risk: "EXTERNAL_MUTATION" },
@@ -110,15 +103,6 @@ export const LAW_POLICY_V1: PolicyDoc = {
     { op: "law.principal.register@1", risk: "MUTATION" },    // D-412 (S2): principal identity rows (ns principal) — exact rows, never default-riding
     { op: "law.principal.retire@1", risk: "MUTATION" },      // D-412 (S2): retirement appends the identity row's terminal state
     { op: "law.audit.drain@1", risk: "MUTATION" },           // D-416 (S3): the audit-chain persistence point (ns audit) — vault-internal class family, exact row, never default-riding
-    { op: "agency.execute@1", risk: "MUTATION" },            // P1-06: governed single-action orchestration, journaled evidence
-    { op: "work.create@1", risk: "MUTATION" },               // durable Work: vault-internal Plan+Work creation (ns work, VAULT-NAMESPACES registry) — exact rows, never default-riding
-    { op: "work.transition@1", risk: "MUTATION" },           // durable Work: state-transition appends to ns work
-    { op: "work.attempt.start@1", risk: "MUTATION" },        // durable Work: execution-occurrence start rows
-    { op: "work.attempt.finish@1", risk: "MUTATION" },       // durable Work: execution-occurrence settle rows
-    { op: "work.reconcile@1", risk: "MUTATION" },            // durable Work: post-recovery reconciliation writes
-    { op: "work.verify@1", risk: "MUTATION" },               // durable Work: verification rows
-    { op: "work.cancel@1", risk: "MUTATION" },               // durable Work: cancellation + evidence writes
-    { op: "work.recover@1", risk: "MUTATION" },              // durable Work: recovery-path writes
   ],
   defaultRisk: "EXTERNAL_MUTATION", // unknown ops are treated as the strictest class (fail-closed)
   riskDefaults: {

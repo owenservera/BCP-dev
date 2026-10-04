@@ -1,39 +1,23 @@
-# BCP-dev snapshot — heavy files excluded by design
-**/node_modules/
-**/__pycache__/
-*.pyc
-*.pyo
-**/.test-tmp/
-.bcp.lock
-# Redundant / regenerable weight (see README "What was left out")
-bcp-speed.zip
-vivim-original-baseline/vivim-final-enhanced/.opencode/
-vivim-original-baseline/vivim-final-enhanced/bundles/
-omega-baseline/vivim-omega-final.bundle
-# OS noise
-Thumbs.db
-Desktop.ini
+node_modules/
+dev-vault/
+*.log
+.DS_Store
+build/self-portrait.json
+.test-tmp/
+testkit/test/fixtures/ghosts/.gen/
 
-# WS-4 reconciliation 2026-09-29: parked heavy artifacts + session exports (owner-designated Steward class)
-BCP-dev-omega-endstate-full-history*.bundle
-BCP-dev-omega-endstate-worktree*.zip
-local-team.md
-session-ses_*.md
-OmegaBuildBootstrap.txt
+# D-422 (A17): the environment-local ledger pin (absolute or root-relative path to the bundle ledger)
+.ledger-path
 
-# Windows device-name accidents from Git Bash redirects
-nul
-**/nul
+# D-427 (Ω-DEV.3): the orchestration plan is a derived LENS, regenerate on demand — the genome is the law
+build/orchestration-plan.json
 
-# Housekeeping 2026-10-01: noise + generated test fixtures (D-TEAM-014 disposition, .zcode/HOUSEKEEPING.md)
-debug.log
-**/.gen-deep/
-# 2026-10-03: a second generated testkit fixture dir, same class as .gen-deep above. Found by
-# check:all attributing an unexplained tree entry to the open forge-survey corridor. Regenerated
-# by its test, so it is parked rather than committed (D-TEAM-014).
-**/.gen-steward/
+# D-430 (Ω-DEV.6): the session ledger — environment-local stream memory
+# (open.json + stream.jsonl + stream.chain.json + closed/), never committed;
+# law is committed, memory is local (the D-428 boundary)
+sessions/
 
-# Housekeeping 2026-10-03: a one-shot boot probe parked after it produced the
-# provider.browser compartment-crash root cause (evidence: commit 5baea9eb).
-# Never belongs in host/ — that tree is the B5-frozen 1500/1500 LOC budget.
-omega-baseline/omega-final/host/probe-*.ts
+# D-431 (Ω-0, spec D-449): the hermetic bootstrap — environment-local boot
+# store (records.jsonl + records.chain.json), never committed; the chain of
+# custody is witnessed locally, the law that governs it is committed
+boot/

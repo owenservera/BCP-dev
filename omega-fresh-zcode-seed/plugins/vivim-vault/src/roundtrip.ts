@@ -9,8 +9,8 @@
 // deterministically (data if string, else canonical JSON) from the COPIED blobs — which
 // doubles as proof that the copy's CAS is complete.
 
-import { cpSync, existsSync, mkdirSync } from "node:fs";
-import { isAbsolute, join, relative, resolve } from "node:path";
+import { mkdirSync } from "node:fs";
+import { isAbsolute, relative, resolve } from "node:path";
 import { casCopyAll, casGet } from "./cas.ts";
 import { bodyText } from "./canon.ts";
 import { dbPath, DDL, ftsInsert, openVault, openDatabase, type Database, type VaultDB } from "./sql.ts";
@@ -35,12 +35,6 @@ export function roundtrip(v: VaultDB, targetDir: string): RoundtripResult {
 
   mkdirSync(dstRoot, { recursive: true });
   const blobsCopied = casCopyAll(v.dataDir, dstRoot);
-  // D-432: the quarantine zone rides along (verbatim bytes + sidecars) — a
-  // copy's recovery rows keep their evidence. The intent journal deliberately
-  // does NOT: it is the in-flight protocol, not history; the changelog is the
-  // truth, and the copy's journal starts clean.
-  const srcQuarantine = join(resolve(v.dataDir), "quarantine");
-  if (existsSync(srcQuarantine)) cpSync(srcQuarantine, join(dstRoot, "quarantine"), { recursive: true });
 
   const target = openDatabase(dbPath(dstRoot));
   target.exec("PRAGMA journal_mode = WAL; PRAGMA synchronous = NORMAL;");
