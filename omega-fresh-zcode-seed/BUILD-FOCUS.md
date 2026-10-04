@@ -1,114 +1,175 @@
 # Build Focus — Where to Over-Resource the Work
 
-These are focus areas, not a prescribed roadmap. Their purpose is to tell the autonomous build where deeper analysis, parallel investigation, stronger tests, and disproportionate engineering attention are likely to pay off.
+These are focus areas, not a prescribed roadmap.
 
-The project should re-rank them from evidence as reality changes.
+Their purpose is to tell the autonomous build where deeper analysis, parallel investigation, stronger tests, and disproportionate engineering attention are likely to pay off.
 
-## 1. Constitutional control loop
+The project should continuously re-rank them from evidence.
 
-Focus: Vault → evidence/event → law/authority → canonical intent → execution.
+## 1. Make the product tangible
 
-This is the product's load-bearing spine. Every new surface or capability becomes cheaper and safer if it flows through one coherent control path. Watch especially for duplicate execution paths, authority checks occurring after side effects, opaque interpretation steps, and state that exists only in a projection.
+The highest-value near-term question is whether VIVIM can become a genuinely usable local environment around a real provider webapp.
 
-The key question is not "does this feature work?" but "does it work through the same governing machinery as everything else?"
+The target is not a polished browser wrapper.
 
-## 2. Natural-language control and self-knowledge
+The target is a complete governed route:
 
-Focus: deterministic NLCL, intent artifacts, explainability, self-description, context assembly, and eventually a system that can understand enough of itself to act as its own development environment.
+**person → address/expression → intent → context → capability → provider/account/realization → authority → work → browser/webapp → observed result → evidence → local continuity**
 
-Ω's differentiator is not simply accepting natural language. It is turning language into inspectable, reproducible operations while keeping authority outside the model.
+A small complete route is more valuable than a large collection of isolated subsystems.
 
-Invest deeply in the boundary between perception and authority, especially around ambiguity, canonicalization, replay, context grounding, and explaining why a resolution occurred.
+The product anchor is a proving ground, not a permanent feature boundary.
 
-## 3. Vault, provenance, evidence, and replay
+## 2. Human semantic execution language
 
-Focus: one authoritative memory substrate with durable lineage.
+Treat the human-readable semantic layer as a primary long-horizon investment.
 
-The vault is the long-term continuity layer. Changes should remain attributable; evidence should resolve; projections should be rebuildable; important decisions should be replayable; corruption and crash cases should fail loudly.
+Investigate deeply:
 
-Treat provenance and replay as product capabilities, not merely audit features.
+- human expression → canonical meaning;
+- deterministic semantic representation;
+- addressing and context;
+- ambiguity and clarification;
+- composability;
+- explainability;
+- replay/reproducibility;
+- self-knowledge;
+- language learning without silent semantic drift.
 
-A consequential claim should remain reconstructable after the worker, process, browser session, or other transient mechanism that produced it disappears. Evidence that expires before the claim does is a design defect.
+The important question is not merely whether VIVIM can understand prompts.
 
-## 4. Forge and self-extension
+It is whether a non-programmer can reliably express meaningful operations through a semantic language whose consequences the system can govern deterministically.
 
-Focus: making the plugin and composition ecosystem genuinely generative rather than merely declarative.
+## 3. Personal semantic world, memory, and context
 
-The important progression is:
+Focus on one coherent user-owned semantic world rather than scattered stores.
 
-describe → shape → emit → test/prove → use → learn/generalize
+Watch the boundaries among:
 
-The self-hosting and second-mine ideas are particularly valuable because they test whether Ω's extensibility is actually generic rather than tuned to its own codebase.
+- external source data;
+- canonical local records;
+- relationships;
+- memory;
+- context;
+- representations;
+- evidence.
 
-Avoid creating a new privileged SDK-like layer to make the Forge convenient.
+Current context is a derived lens over the world, work, focus, policy, and standing intent.
 
-## 5. Browser-mediated provider realization
+It should not become a second source of truth.
 
-Focus: Chrome master/slave, provider.browser, reliable discovery, evidence-backed realization, attachment and containment, and healing.
+## 4. Authority, Work, evidence, and continuity
 
-The current shippable V1 direction is browser-mediated rather than direct AI APIs. That makes the provider boundary one of the most important practical product paths.
+The system should be able to show:
 
-Pay special attention to the difference between selector/DOM convenience and authoritative truth. Browser interaction should produce evidence; the browser is not the source of constitutional authority.
+**what was requested → what was understood → what could do it → what was allowed → what work occurred → what actually happened**
 
-## 6. Runtime containment, resource governance, and failure semantics
+Invest deeply in durable Work, honest execution state, evidence, recovery, and user continuity.
 
-Focus: process isolation, watchdog behavior, resource budgets, cancellation, recovery, crash loops, named refusal/failure states, and observable execution state.
+The exact state machines and orchestration mechanisms are implementation choices.
 
-As Ω becomes capable of running many extensions and potentially many concurrent realizations, resource behavior becomes architectural.
+The durable requirement is that consequential work remains understandable and reconstructable across interruption and replacement where possible.
 
-Treat interruption and recovery as normal states, not exceptional afterthoughts. The runtime should be able to distinguish active work from completed work and retryable failure where evidence permits.
+## 5. Provider, Account, Routing, and browser realization
 
-The goal is not theoretical sandbox perfection. The goal is honest, measurable containment with bounded failure and no silent escalation of privilege.
+Keep these concepts separate:
 
-## 7. Identity, authority, and multi-party trust
+- Provider;
+- Account;
+- Capability;
+- Realization;
+- Session;
+- Routing policy;
+- Authority.
 
-Focus: stable identity, key binding, consent, capability delegation, trust lineage, eventual multi-device and multi-principal semantics, and adaptation authority.
+Routing chooses among valid candidates; it does not grant permission.
 
-Do not let identity become an afterthought that forces every historical row to be reinterpreted later.
+Discovery establishes available candidates; it does not silently decide user policy.
 
-At the same time, do not build speculative distributed identity infrastructure before a real product need justifies it.
+The browser is a practical V1 realization substrate, not the long-term product identity.
 
-## 8. Surfaces, canvas, and live-object semantics
+Live authenticated provider behavior is especially valuable evidence because fixture-only success can hide the real product risks.
 
-Focus: deriving multiple surfaces from one operation vocabulary; canvas as authoritative-state projection; durable spatial state; live objects; accessibility and legibility.
+## 6. Extensibility and Forge
 
-The surface layer should expose the constitutional system, not become a second application with its own state machine.
+Make capabilities genuinely composable and replaceable.
 
-A strong litmus test: the same consequential action should be explainable and enforceable whether it arrived from language, CLI, MCP, automation, or canvas.
+Focus on the principle:
 
-## 9. Healing and governed adaptation
+**new capability → explicit contribution → proof → ordinary admission/governance → usable capability**
 
-Focus: discovery → evidence → propose/repair → verify → install → recover.
+A first-party or Forge-created capability should not receive a secret path.
 
-Healing is strategically important because Ω is intended to operate in a changing external world. But the healing loop must remain evidence-driven and reversible.
+The strongest long-term test is whether the Forge can eventually create or modify ordinary governed pieces without creating a second privileged development universe.
 
-The dangerous failure mode is autonomous change that becomes authority by accident.
+## 7. Evolution, learning, and healing
 
-Any self-improvement mechanism should also be able to show whether a change actually improved the behavior it was intended to change. Activity, rule count, or successful execution alone are not evidence of improvement.
+VIVIM should become easier to improve while remaining trustworthy.
 
-## 10. Product coherence and beta reality
+Investigate how the environment can:
 
-Focus: one compelling end-to-end user journey, not ten half-built subsystems.
+- observe;
+- understand;
+- propose;
+- assess impact;
+- obtain appropriate authority;
+- change;
+- verify;
+- preserve lineage;
+- measure effect;
+- recover or retire.
 
-Regularly step outside architecture and ask:
+Do not assume that activity is improvement.
 
-Can a real person do something valuable with this yet?
+Do not let learned behavior silently override user policy or constitutional meaning.
 
-Use the answer to collapse unnecessary work, sequence dependencies, and decide where engineering effort has the highest user return.
+Unknown impact, compatibility, identity, or external effect should remain representable as unknown.
 
-## Cross-cutting questions worth keeping alive
+## 8. Surfaces and product coherence
 
-- Where is the single source of truth?
-- What exactly proves that this happened?
+Treat canvas, provider webapps, chat, CLI, MCP, and future interfaces as ways of experiencing the same underlying semantic system.
+
+Protect the distinction:
+
+**World is not Surface.**
+
+A surface can evolve independently of canonical identity and meaning.
+
+At the same time, the user experience should remain simple enough that architectural complexity stays underneath.
+
+## 9. Runtime, resources, and failure semantics
+
+As VIVIM becomes more autonomous, process isolation, resource governance, cancellation, restart, recovery, and external-effect uncertainty become increasingly important.
+
+Focus on honest failure and bounded behavior rather than theoretical perfection.
+
+A transient worker should never be the sole authority for durable state.
+
+## 10. Product lifecycle and sovereign exit
+
+A real product eventually needs coherent install, first run, account connection, defaults, configuration, update, recovery, export, reconstruction, and replacement.
+
+Do not build these as isolated administrative subsystems.
+
+They should grow naturally from the same semantic world and authority model.
+
+Exit and reconstruction are product capabilities, not compliance afterthoughts.
+
+## Long-horizon questions
+
+Keep these questions alive across every build cycle:
+
+- What part of this is likely to remain valuable if today's models and providers disappear?
+- Are we strengthening the human semantic layer or merely wiring another tool?
+- Where is canonical truth?
+- What exactly proves the claim?
 - Who was authorized, and on whose behalf?
-- Can the operation be replayed or explained?
-- What happens when the system is uncertain?
-- What happens when a component lies, hangs, crashes, disappears, or is replaced?
-- Can this be a plugin rather than a special case?
-- Is this architecture genuinely generic, or merely tuned to Vivim?
-- Can we prove the claim with a small falsifier?
-- Does the evidence survive the transient mechanism that produced it?
-- Did the intervention measurably change the behavior it targeted?
+- Can the operation be explained and replayed?
+- What happens under uncertainty?
+- What survives process, worker, provider, plugin, or surface replacement?
+- Can this be a replaceable contribution instead of a privileged special case?
+- Does the intervention measurably improve the target behavior?
 - Is the current structure still the simplest one?
+- Does a real person get more useful control of their digital world?
 
 These questions are more important than preserving any particular current roadmap.
