@@ -45,10 +45,16 @@ The following are current product direction, not invitations to silently drift:
 
 These statements may themselves be changed, but only because the build discovers stronger evidence or a better product truth.
 
-## Evidence discipline
+## Evidence and learning discipline
 
-Prefer measured behavior over prose claims. Prefer existing tests and gates over assumptions. When changing a load-bearing invariant, add the smallest falsifying test or measurement that can prove the old assumption wrong.
+Treat execution evidence as a first-class product and engineering concern. When the system makes a consequential claim about work, prefer a durable record that can distinguish completion, active work, interruption, deliberate stop, and work that never started.
 
-Keep the project's own documentation honest as the implementation evolves. Supersede stale architectural claims rather than silently leaving contradictory instructions behind.
+Do not infer completion merely because a process disappeared, a session ended, or an error was absent. Where practical, completion should have positive evidence. Retryable transport, cancellation, preemption, and similar failures should not silently become authority to stop; deliberate stopping is a distinct state.
+
+Preserve evidence for as long as the claim depends on it. A deleted transient artifact cannot continue to serve as proof.
+
+Prefer measured behavior over prose claims. A measurement, hypothesis, caveat, and rule are different things. Promote an observation into a governing rule only when it is actionable, testable/falsifiable, and tied to behavior the system can actually change. Retire or supersede a rule when evidence shows it is inert, structurally unreachable, or no longer valid.
+
+When changing a load-bearing invariant, add the smallest falsifying test or measurement that can prove the old assumption wrong. When changing a mechanism intended to improve behavior, measure whether the intervention actually changed that behavior.
 
 The baseline already contains a mature gate/test system. Use it. Do not weaken tests, bypass gates, or reshape the architecture merely to make a report look green.
