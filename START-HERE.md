@@ -153,3 +153,84 @@ The fresh project should establish durable core workstreams with accountable hea
 Those heads should communicate through a shared project Commons with durable workstream rooms and cross-workstream coordination. Useful events should be able to activate or notify the relevant head automatically: new objectives, failures, verification gaps, research questions, blocked or stale work, integration conflicts, external changes, and scheduled maintenance are examples. Automation routes responsibility; it does not grant authority.
 
 Bootstrap should start from the capability surface already available in ZCode and the environment. Inventory and compose existing skills, plugins, MCPs, workflows, hooks, background execution, browser/Computer Use, memory, and other native capabilities before recreating equivalent machinery. Re-verify only runtime-sensitive or genuinely uncertain claims.
+
+
+# Continuous Product Release Gym
+
+The project should operate a continuous product-release gym rather than a fixed feature roadmap.
+
+The gym repeatedly asks:
+
+> **What is the smallest genuinely useful product we can release now that a real user would actually install?**
+
+For every round, generate **10 product-release candidates**. Optimize for the smallest useful product space and the shortest credible time to market, while maximizing the real user value and learning produced by the release.
+
+Prefer:
+
+**small product surface + real utility + existing Ω capability reuse + immediate installability + strong learning**
+
+over:
+
+**large feature set + architectural completeness + speculative future functionality**
+
+Every candidate should state the user, the single job, the minimum installable surface, existing Ω capabilities reused, what must be built, what can remain manual, how success would be observed, and what evidence would justify expanding it.
+
+Rank candidates by minimum product surface, immediate usefulness, time-to-market, reuse of existing capabilities, distinctiveness, learning value, and expansion potential.
+
+### Current first-round hypothesis
+
+A particularly strong example from the current Ω state is a **floating AI control center**.
+
+The minimum product is a small installable VIVIM utility with a floating control surface based primarily on a text box.
+
+The user types one prompt.
+
+VIVIM shows which supported AI WebApps are currently available and, for a first useful release, can send the same prompt to each available provider.
+
+Initial required providers:
+
+- ChatGPT / OpenAI Web
+- Claude Web
+- Gemini Web
+
+The UI can remain extremely small, for example:
+
+**● ChatGPT   ● Claude   ○ Gemini**
+
+The product should remember observed provider/account/profile capabilities locally, including differences such as which models or capabilities are available on free versus paid profiles. Observed capability state is refreshable evidence, not permanent truth.
+
+The product should not require an AI API merely to provide this capability. Existing user-controlled AI WebApps are the external intelligence providers; VIVIM supplies semantic control, discovery, routing, authorization, browser realization, observed outcome, evidence, and continuity.
+
+The first interface should resist becoming a dashboard. Start with the text command surface and a compact availability indicator. Additional UI should be discoverable and configurable through user language rather than built in advance.
+
+The first release is valuable because a very small product can exercise a meaningful Ω path:
+
+**human expression → intent → context → capability → provider/account/realization → authority → Work → browser/WebApp → observed result → evidence → continuity**
+
+This candidate is a hypothesis, not a predetermined roadmap. The gym must remain free to select a different candidate when current evidence indicates that another tiny product has better immediate value.
+
+### Release-loop rule
+
+Do not automatically build candidate 2 after candidate 1.
+
+A release creates evidence. The next gym round should be influenced by installation, use, repeated user requests, friction, failures, successful/unsuccessful provider realization, architectural reuse, and what the released product teaches about the actual product boundary.
+
+Therefore:
+
+**released product + observed evidence → next 10 candidates**
+
+not:
+
+**predetermined roadmap → implementation**
+
+A product is not considered released merely because its underlying mechanism works. A release must support the basic user journey:
+
+**install → launch → understand → perform the core job → receive a real result**
+
+The gym is also an architectural pressure test. A mechanism that helps one product is not automatically an engine. Promote abstractions only when repeated product work demonstrates reusable value.
+
+Preferred progression:
+
+**concrete case → repeated pattern → reusable capability → engine candidate → validated upgradeable engine**
+
+No engine boundary is sacred. No product-release round should become an excuse to freeze the architecture.
