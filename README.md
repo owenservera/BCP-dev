@@ -33,7 +33,7 @@ The seed intentionally embeds strategic design principles across the core docume
 
 The implementation tree is inherited as a starting substrate.
 
-The historical `docs/` corpus is intentionally omitted from this seed. Git cannot represent an empty directory, so no `docs/` directory is present. The current implementation is the seeded Ω source; the 11 root documents provide the deliberately selected bootstrap context.
+The historical `docs/` corpus is intentionally omitted from this seed. Git cannot represent an empty directory, so no `docs/` directory is present. The current implementation is the seeded Ω source; the 11 root documents provide the deliberately selected bootstrap context. Among those 11, the strategy documents are intentionally allowed to diverge from the source repository's historical prose, while implementation files outside the 11 remain the latest Ω source.
 
 ## The fresh-project premise
 
