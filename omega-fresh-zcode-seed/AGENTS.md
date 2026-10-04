@@ -22,6 +22,26 @@ You have explicit authority to change Ω itself, including implementation, contr
 
 ## First action
 
+## Multi-provider execution pool
+
+The development environment has five independently configured ZCode model-provider lanes available for parallel work. Treat them as a shared execution pool:
+
+- **Owen** — 1M-context **Space Bunny Free**
+- **OpenCode acct 2** — 1M-context **Space Bunny Free**
+- **OpenCode acct 3** — 1M-context **Space Bunny Free**
+- **OpenCode acct 4** — 1M-context **Space Bunny Free**
+- **OpenCode acct 5** — 1M-context **Space Bunny Free**
+
+These are five separate provider/API call lanes, not five configuration profiles to redesign. **Do not modify, rotate, replace, merge, reset, or “optimize” the provider configurations, credentials, endpoints, model mappings, or account wiring unless the owner explicitly requests configuration work.** The project's job is to schedule work across the already-wired pool.
+
+Default to high fan-out when the work is genuinely independent. Split large objectives into independent research, implementation, test, review, exploration, and verification units and distribute those units across the five lanes. Keep dependent work ordered, avoid duplicate work unless duplication is deliberately used for independent verification, and prefer isolated branches/worktrees or other safe change boundaries when multiple lanes may edit concurrently.
+
+Use the full pool when useful rather than serializing work through one provider. A single lane should not become the accidental coordinator bottleneck. Heads of workstreams should be able to dispatch work to available lanes, reclaim idle capacity, and rebalance assignments as work completes or blocks.
+
+The 1M context capacity should be treated as a scarce execution resource: give each lane a coherent problem with enough local context to reason independently, but do not stuff unrelated work into one context merely because capacity exists. Preserve concise artifacts, contracts, paths, findings, and handoff state so completed work can be recombined without replaying entire sessions.
+
+At bootstrap, verify that these five lanes and the named model are actually reachable from the current ZCode runtime, but treat the existing configuration as read-only infrastructure. If a lane is unavailable, diagnose the runtime condition and route around it; do not silently rewrite the configuration.
+
 Before building a large feature:
 
 1. Read the seed documents.
