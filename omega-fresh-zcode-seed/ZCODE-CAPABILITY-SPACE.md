@@ -22,6 +22,24 @@ Source:
 - https://github.com/zai-org/ZCode
 - https://zcode.z.ai/en/changelog
 
+## Release-derived capability trajectory
+
+The published changelog shows the development substrate becoming substantially more autonomous over the recent release history.
+
+| Release | Strategic capability signal |
+|---|---|
+| 3.10.1 / 3.10.2 | Workspace skills, searchable thinking traces, MCP protocol configuration, execution summaries/durations, Browser Control, more reliable background/Computer Use behavior, plugin-skill recognition and workspace tooling. |
+| 3.11.2 | Workspace-scoped plugins, plugin update flow, PDF/media handling, browser persistence, clearer blocked-action diagnostics, remote/WSL/SSH stability, stronger task/session recovery. |
+| 3.12.3 | More mature Plan/queue interaction, provider configuration, OpenRouter compatibility, streaming retry, session recovery, official MCP/plugin recovery, remote-workspace stability, browser isolation between tasks, lower resource use on large workspaces. |
+| 3.14.0 | Dynamic workflows for multiple cooperating sub-agents, Office/Coding modes, independent Plan use, full-access approval, improved Computer Use and phone remote control. |
+| 3.14.1 | More reliable plugin/context behavior, provider identity preservation, Computer Use startup fixes. |
+| 3.14.3 | Live workflow retuning, reusable workflow restart/modification behavior, large-workflow status, more token-efficient workflow submission. |
+| 3.14.4 | Model-request CAPTCHA verification disabled to improve free-tier usage. |
+
+The public changelog currently ends at v3.14.4 and contains some skipped version numbers and overlapping entries. Treat these as published capability evidence, not as a semantic version contract.
+
+The most strategically important progression is toward **programmable orchestration**: ZCode is moving from a single interactive coding loop toward persistent tasks, reusable workflows, cooperating sub-agents, extension surfaces, background execution, and runtime control.
+
 ## What ZCode can already provide
 
 ### Workspace and software engineering
