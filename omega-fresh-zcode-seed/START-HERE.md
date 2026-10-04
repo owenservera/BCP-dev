@@ -6,7 +6,7 @@ The purpose of this seed is to let a new ZCode project start from a known Ω imp
 
 ## Read these first
 
-The project-level seed is now eight documents, each with a deliberately different job:
+The project-level seed is now nine documents, each with a deliberately different job:
 
 - **AGENTS.md** — operating mandate for the autonomous build.
 - **START-HERE.md** — this orientation and documentation map.
@@ -16,6 +16,7 @@ The project-level seed is now eight documents, each with a deliberately differen
 - **PROJECT-CONTEXT.md** — why Ω exists, how VIVIM evolved, and how to interpret the seeded corpus.
 - **BUILD-FOCUS.md** — areas likely to deserve disproportionate investigation and engineering attention.
 - **AUTONOMY.md** — explicit authority to create the development organization and change Ω when evidence warrants it.
+- **ZCODE-CAPABILITY-SPACE.md** — the current ZCode capability substrate, release-derived capability trajectory, and autonomous DevOps boot sequence.
 
 These documents are not equally authoritative:
 
