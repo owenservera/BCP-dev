@@ -48,9 +48,8 @@ Wave 0 lands **only** `forge.author` (plus this pack). The rest of the catalog
 is declared wire — the partition and landing order are recorded in
 `docs/forge/wave0-evidence.md` and the master architecture document.
 
-## References
+## Historical references
 
-- `docs/forge/OMEGA-FORGE-ARCHITECTURE.md` — the master design (governs on conflict)
-- `docs/forge/OMEGA-FORGE-ARCHITECTURE_plus.md` — the Wave 0 construction packet
+The historical Forge architecture packets and evidence records under `docs/forge/` are intentionally omitted from the clean seed. Their references remain useful as historical clues but are not automatically authoritative for the fresh project.
 - `contract/forge-ops.md` — the human-readable frozen wire
 - `policy/builder-policy.md` — the ten policy rows in prose
