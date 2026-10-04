@@ -28,6 +28,8 @@ The vault is the long-term continuity layer. Changes should remain attributable;
 
 Treat provenance and replay as product capabilities, not merely audit features.
 
+A consequential claim should remain reconstructable after the worker, process, browser session, or other transient mechanism that produced it disappears. Evidence that expires before the claim does is a design defect.
+
 ## 4. Forge and self-extension
 
 Focus: making the plugin and composition ecosystem genuinely generative rather than merely declarative.
@@ -50,9 +52,11 @@ Pay special attention to the difference between selector/DOM convenience and aut
 
 ## 6. Runtime containment, resource governance, and failure semantics
 
-Focus: process isolation, watchdog behavior, resource budgets, cancellation, recovery, crash loops, and named refusal/failure states.
+Focus: process isolation, watchdog behavior, resource budgets, cancellation, recovery, crash loops, named refusal/failure states, and observable execution state.
 
 As Ω becomes capable of running many extensions and potentially many concurrent realizations, resource behavior becomes architectural.
+
+Treat interruption and recovery as normal states, not exceptional afterthoughts. The runtime should be able to distinguish active work from completed work and retryable failure where evidence permits.
 
 The goal is not theoretical sandbox perfection. The goal is honest, measurable containment with bounded failure and no silent escalation of privilege.
 
@@ -80,6 +84,8 @@ Healing is strategically important because Ω is intended to operate in a changi
 
 The dangerous failure mode is autonomous change that becomes authority by accident.
 
+Any self-improvement mechanism should also be able to show whether a change actually improved the behavior it was intended to change. Activity, rule count, or successful execution alone are not evidence of improvement.
+
 ## 10. Product coherence and beta reality
 
 Focus: one compelling end-to-end user journey, not ten half-built subsystems.
@@ -97,10 +103,12 @@ Use the answer to collapse unnecessary work, sequence dependencies, and decide w
 - Who was authorized, and on whose behalf?
 - Can the operation be replayed or explained?
 - What happens when the system is uncertain?
-- What happens when a component lies, hangs, crashes, or disappears?
+- What happens when a component lies, hangs, crashes, disappears, or is replaced?
 - Can this be a plugin rather than a special case?
 - Is this architecture genuinely generic, or merely tuned to Vivim?
 - Can we prove the claim with a small falsifier?
+- Does the evidence survive the transient mechanism that produced it?
+- Did the intervention measurably change the behavior it targeted?
 - Is the current structure still the simplest one?
 
 These questions are more important than preserving any particular current roadmap.
