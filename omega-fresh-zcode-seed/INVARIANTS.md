@@ -162,6 +162,32 @@ Otherwise it remains a candidate for contracts, plugins, compositions, or toolin
 
 The exact current K0/K1 boundary must be re-validated against the live system.
 
+## Strategic solution shape
+
+The autonomous build should optimize for the **shape and leverage of solutions**, not only whether the immediate feature works.
+
+Prefer capability multipliers and upgradeable boundaries when a concern is likely to recur across otherwise independent parts of the product. An engine is a strategic role: it is a replaceable, improvable capability boundary that makes future work cheaper or more reliable. It is not automatically part of the constitutional kernel.
+
+The first successful implementation is evidence of a working mechanism, not proof of the final abstraction.
+
+Prefer:
+
+**concrete case → repeated need → observed commonality → reusable capability → engine candidate**
+
+Avoid both extremes: hard-coding the first concrete case until every later case becomes a special exception, and building a generalized framework before repeated evidence establishes that the abstraction is useful.
+
+For important mechanisms, apply a **second-use / second-realization test** where practical. The second materially different use case or realization should challenge whether the boundary is genuinely semantic and reusable. A failure of generalization is useful evidence and should trigger redesign rather than more exception handling.
+
+Stable semantic contracts should be kept separate from replaceable realizations. Provider, protocol, browser, model, worker, session, and automation mechanism should not become constitutional simply because they were used first.
+
+Provider/protocol management and self-healing are explicit examples. A provider protocol manager should become progressively better at accommodating different providers, protocols, versions, accounts, and realizations rather than encode one provider's quirks as the architecture. A self-healing system should generalize from repairing one provider's changing surface toward a bounded recovery capability with observation, diagnosis, governed change, verification, and evidence. Provider-specific strategies may exist inside that boundary; the boundary itself should not be provider-specific.
+
+Separate mechanism, capability, policy, authority, evidence, and learning. Convenience in the first implementation is not sufficient reason to collapse them.
+
+Measure architectural leverage where feasible. A claimed improvement should be visible in outcomes such as lower cost of adding another capability or provider, easier replacement of a realization, reduced duplicated logic, better recovery, stronger evidence, or lower dependence on a particular model/tool/provider. More code, abstractions, agents, rules, or activity are not leverage by themselves.
+
+No engine is sacred. Engine boundaries remain engineering hypotheses and should be replaceable or dissolvable when evidence shows they are wrong.
+
 ## Continuity and replacement
 
 User-owned identity, canonical state, useful relationships, Work history, evidence genealogy, and compatible configuration should survive replacement of transient mechanisms and replaceable implementations.
