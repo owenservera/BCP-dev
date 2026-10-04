@@ -200,66 +200,100 @@ Keep these questions alive across every build cycle:
 
 These questions are more important than preserving any particular current roadmap.
 
-
 # Continuous Product Release Gym
 
 The project should operate a continuous product-release gym rather than a fixed feature roadmap.
 
-The gym repeatedly asks:
+## Purpose
 
-> **What is the smallest genuinely useful product we can release now that a real user would actually install?**
+For every round, generate **10 product-release candidates** and identify the smallest genuinely useful product that a real user would actually install.
 
-For every round, generate **10 product-release candidates**. Optimize for the smallest useful product space and the shortest credible time to market, while maximizing the real user value and learning produced by the release.
+Optimize for:
 
-Prefer:
+**smallest useful product surface + shortest credible time-to-market + real user value + reuse of existing Ω capability + learning produced by release**
 
-**small product surface + real utility + existing Ω capability reuse + immediate installability + strong learning**
+Do not optimize for architectural completeness.
 
-over:
+## Candidate scoring
 
-**large feature set + architectural completeness + speculative future functionality**
+Every candidate must be scored against BOTH product opportunity and current implementation reality.
 
-Every candidate should state the user, the single job, the minimum installable surface, existing Ω capabilities reused, what must be built, what can remain manual, how success would be observed, and what evidence would justify expanding it.
+At minimum score:
+- user value;
+- minimum product surface;
+- credible time-to-market;
+- reuse of existing capability;
+- distinctiveness / unmet space;
+- learning value;
+- expansion potential;
+- **current-code readiness**.
 
-Rank candidates by minimum product surface, immediate usefulness, time-to-market, reuse of existing capabilities, distinctiveness, learning value, and expansion potential.
+Current-code readiness must explicitly distinguish:
+- already real and executable;
+- partially implemented;
+- fixture/simulation only;
+- missing;
+- blocked by an external capability or runtime condition.
 
-### Current first-round hypothesis
+A candidate with excellent product value but poor current-code readiness must not be treated as immediately shippable merely because it fits the Ω vision.
 
-A particularly strong example from the current Ω state is a **floating AI control center**.
+## Current first-round hypothesis
 
-The minimum product is a small installable VIVIM utility with a floating control surface based primarily on a text box.
-
-The user types one prompt.
-
-VIVIM shows which supported AI WebApps are currently available and, for a first useful release, can send the same prompt to each available provider.
+A strong current hypothesis is a **floating AI control center**: a small installable VIVIM utility with a floating control surface based primarily on one text box, a compact availability indicator, and the ability to send one prompt to each available supported AI WebApp.
 
 Initial required providers:
-
 - ChatGPT / OpenAI Web
 - Claude Web
 - Gemini Web
 
-The UI can remain extremely small, for example:
+Example: **● ChatGPT   ● Claude   ○ Gemini**
 
-**● ChatGPT   ● Claude   ○ Gemini**
+VIVIM should locally remember observed provider/account/profile capabilities, including differences such as free versus paid profiles and observed model availability. Capability knowledge is evidence that can become stale and must be refreshed.
 
-The product should remember observed provider/account/profile capabilities locally, including differences such as which models or capabilities are available on free versus paid profiles. Observed capability state is refreshable evidence, not permanent truth.
+The product should not require an AI API merely to obtain the intelligence. The user's provider WebApps are the external intelligence providers; VIVIM supplies semantic control, discovery, routing, authorization, browser realization, observed outcome, evidence, and continuity.
 
-The product should not require an AI API merely to provide this capability. Existing user-controlled AI WebApps are the external intelligence providers; VIVIM supplies semantic control, discovery, routing, authorization, browser realization, observed outcome, evidence, and continuity.
+Keep the UI extremely small. Do not pre-build a dashboard when text interaction can discover and configure capability.
 
-The first interface should resist becoming a dashboard. Start with the text command surface and a compact availability indicator. Additional UI should be discoverable and configurable through user language rather than built in advance.
+## Reality gate for browser-based releases
 
-The first release is valuable because a very small product can exercise a meaningful Ω path:
+The current Ω seed contains a substantial **fixture-based** browser/provider path, but a fixture is not live external execution.
 
-**human expression → intent → context → capability → provider/account/realization → authority → Work → browser/WebApp → observed result → evidence → continuity**
+Any candidate whose core promise depends on real provider-WebApp interaction is **not release-ready** until at least one live, non-fixture browser realization has been demonstrated end-to-end on the target runtime.
 
-This candidate is a hypothesis, not a predetermined roadmap. The gym must remain free to select a different candidate when current evidence indicates that another tiny product has better immediate value.
+The first live realization may be only one provider and one operation. It must prove real external interaction, not parse or replay fixtures.
 
-### Release-loop rule
+For the floating-AI hypothesis, the likely first enabling task is therefore:
 
-Do not automatically build candidate 2 after candidate 1.
+**make one real live browser/CDP provider leg work and produce observable evidence**
 
-A release creates evidence. The next gym round should be influenced by installation, use, repeated user requests, friction, failures, successful/unsuccessful provider realization, architectural reuse, and what the released product teaches about the actual product boundary.
+rather than immediately attempting the complete three-provider floating product.
+
+After one live leg works, apply the second-use test: can the same realization boundary support a materially different provider or equivalent second realization without creating a parallel architecture? Keep provider-specific quirks inside the realization boundary.
+
+## Release definition
+
+A product is not released merely because its internal mechanism or fixture tests work.
+
+A release must support:
+
+**install → launch → understand → perform the core job → receive a real result**
+
+For a browser-mediated product, “real result” means an observed external interaction on the intended live substrate.
+
+## Round loop
+
+For each round:
+1. inspect current product/code reality;
+2. generate 10 candidates;
+3. score product opportunity and code readiness separately;
+4. identify hidden enabling work;
+5. choose the candidate or enabling slice that maximizes expected product learning per unit effort;
+6. implement the smallest real slice;
+7. test it;
+8. independently verify it;
+9. release when the release definition is satisfied;
+10. collect evidence;
+11. use that evidence to generate the next 10 candidates.
 
 Therefore:
 
@@ -269,14 +303,12 @@ not:
 
 **predetermined roadmap → implementation**
 
-A product is not considered released merely because its underlying mechanism works. A release must support the basic user journey:
+## Architectural learning
 
-**install → launch → understand → perform the core job → receive a real result**
+The Gym is also an architectural pressure test. Do not promote the first working mechanism into permanent architecture.
 
-The gym is also an architectural pressure test. A mechanism that helps one product is not automatically an engine. Promote abstractions only when repeated product work demonstrates reusable value.
-
-Preferred progression:
+Prefer:
 
 **concrete case → repeated pattern → reusable capability → engine candidate → validated upgradeable engine**
 
-No engine boundary is sacred. No product-release round should become an excuse to freeze the architecture.
+No engine boundary is sacred. A product release can be tiny even when the architecture underneath it is becoming powerful.
