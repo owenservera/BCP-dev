@@ -21,6 +21,10 @@ Read these in this order:
 7. **AGENTS.md** — autonomous operating mandate.
 8. **AUTONOMY.md** — authority to create the development organization and change Ω.
 
+## Strategic solution design
+
+The seed intentionally embeds strategic design principles across the core documents rather than adding another architecture manual. The autonomous builder is expected to favor capability multipliers, upgradeable engines, replaceable realizations, measurable leverage, and evidence-earned abstraction—and to resist one-off solutions that quietly become the architecture.
+
 ## What is inherited
 
 The implementation tree is inherited as a starting substrate.
