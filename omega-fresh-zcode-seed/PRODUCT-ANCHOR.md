@@ -190,6 +190,23 @@ one coherent semantic environment
 
 The environment should eventually make a provider webapp just one kind of live participant among projects, conversations, documents, people, work, agents, automations, services, and other digital things.
 
+## Strategic design tests for the anchor
+
+The first vertical slice must not accidentally define the permanent architecture.
+
+In particular, treat the first provider/protocol implementation, browser realization, account integration, and recovery/self-healing mechanism as **proving realizations**. They should solve the immediate product problem while preserving a credible path to reuse.
+
+Ask of important implementation boundaries:
+
+- Does solving today's case make a materially different second case easier?
+- Can a second provider or realization satisfy the same semantic capability without creating a parallel product path?
+- Are provider/protocol quirks isolated as realizations or being promoted into canonical semantics?
+- Can the recovery mechanism generalize beyond the exact failure that motivated it?
+- Can the mechanism be upgraded or replaced without rewriting the surrounding product?
+- Does the abstraction reduce future complexity, or merely hide today's special cases?
+
+A working first slice is successful product evidence. It is not by itself evidence that its internal mechanisms deserve permanent architectural status.
+
 ## Product anchor tests
 
 A new design should be challenged with questions such as:
