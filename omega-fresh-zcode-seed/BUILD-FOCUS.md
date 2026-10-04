@@ -155,6 +155,24 @@ They should grow naturally from the same semantic world and authority model.
 
 Exit and reconstruction are product capabilities, not compliance afterthoughts.
 
+## Architectural leverage and upgradeability
+
+Across all focus areas, preferentially invest in mechanisms that multiply future capability.
+
+For a substantial new subsystem or integration, investigate:
+
+- whether it is likely to recur across independent capabilities;
+- whether it has a clean, replaceable boundary;
+- whether a second materially different use case or realization can use that boundary;
+- whether adding the next provider/capability is becoming cheaper rather than more exception-heavy;
+- whether recovery and self-healing generalize beyond the motivating failure;
+- whether the mechanism can be upgraded without forcing the product to adopt the same implementation forever;
+- whether the proposed centralization belongs in a kernel, an engine, a plugin, a composition, or ordinary implementation.
+
+The builder should periodically ask whether the current system is accumulating **engines** or merely accumulating **working integrations**.
+
+The strategic target is not maximum abstraction. It is increasing leverage with minimal architectural lock-in.
+
 ## Long-horizon questions
 
 Keep these questions alive across every build cycle:
