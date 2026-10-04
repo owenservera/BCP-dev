@@ -1,12 +1,12 @@
 # Start Here — VIVIM-Ω Fresh Autonomous Build
 
-This folder is deliberately small at the project-intent level and deliberately rich at the implementation level: the Ω baseline is already here, but the old agent-development machinery is not.
+This folder is deliberately small at the project-intent level and deliberately rich at the implementation level: the Ω baseline is already here, while the new development organization must be instantiated by the fresh project rather than inherited from the old build.
 
 The purpose of this seed is to let a new ZCode project start from a known Ω implementation and enough durable product context to autonomously determine what to build next.
 
 ## Read these first
 
-The project-level seed is now nine documents, each with a deliberately different job:
+The project-level seed is eleven documents, each with a deliberately different job:
 
 - **AGENTS.md** — operating mandate for the autonomous build.
 - **START-HERE.md** — this orientation and documentation map.
@@ -17,6 +17,8 @@ The project-level seed is now nine documents, each with a deliberately different
 - **BUILD-FOCUS.md** — areas likely to deserve disproportionate investigation and engineering attention.
 - **AUTONOMY.md** — explicit authority to create the development organization and change Ω when evidence warrants it.
 - **ZCODE-CAPABILITY-SPACE.md** — the current ZCode capability substrate, release-derived capability trajectory, and autonomous DevOps boot sequence.
+- **BENCHMARKS.md** — measured implementation-lineage evidence that should be re-checked against current reality.
+- **README.md** — repository orientation and clean-room interpretation rules.
 
 These documents are not equally authoritative:
 
@@ -80,11 +82,11 @@ Establish:
 - where the largest value and architectural risks are;
 - what development structure increases throughput rather than adding bureaucracy.
 
-Then build the development system you actually need and start closing the highest-leverage gap.
+Then instantiate the required core workstreams and their heads, establish the Commons communication layer and useful event triggers, exploit already-available ZCode/skill/plugin/MCP capability, and start closing the highest-leverage gap.
 
 ## The seed is a launchpad, not a cage
 
-There is intentionally no prebuilt ZCode team, workflow graph, board, roster, department tree, backlog, or old project-management structure.
+There is intentionally no inherited ZCode team, workflow graph, board, roster, department tree, backlog, or old project-management structure. The fresh project is nevertheless expected to create a small accountable organizational layer at bootstrap.
 
 The new project may create any of these if the work proves they are useful.
 
@@ -134,3 +136,12 @@ The project should make increasingly large parts of this statement true:
 > **I can use my local VIVIM environment to express what I want, operate my digital world through real capabilities, understand what it is doing and why, retain the resulting knowledge and evidence, and return later without losing continuity.**
 
 The implementation behind that statement is allowed to change dramatically over time.
+
+
+## Bootstrap organization and Commons
+
+The fresh project should establish durable core workstreams with accountable heads early, normally covering R&D / Research & Architecture Discovery, Product Development / DevOps Efficiency, Project Management / Governance, and Truth / Quality / Verification. The exact boundaries may evolve.
+
+Those heads should communicate through a shared project Commons with durable workstream rooms and cross-workstream coordination. Useful events should be able to activate or notify the relevant head automatically: new objectives, failures, verification gaps, research questions, blocked or stale work, integration conflicts, external changes, and scheduled maintenance are examples. Automation routes responsibility; it does not grant authority.
+
+Bootstrap should start from the capability surface already available in ZCode and the environment. Inventory and compose existing skills, plugins, MCPs, workflows, hooks, background execution, browser/Computer Use, memory, and other native capabilities before recreating equivalent machinery. Re-verify only runtime-sensitive or genuinely uncertain claims.
