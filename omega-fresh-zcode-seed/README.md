@@ -6,11 +6,11 @@ Start with **START-HERE.md**.
 
 The root contains a substantial Ω implementation baseline because the new project needs real code, tests, fixtures, contracts, gates, and prior evidence to inspect.
 
-The root-facing project guidance has deliberately been rewritten so that the old Ω development program does not become the new project's organization or roadmap.
+The root-facing project guidance deliberately defines a clean-room bootstrap: the old Ω development program is not inherited, while the fresh project is expected to create a small accountable organization and operating system of its own.
 
 ## Seed documents
 
-Read these in this order:
+Eleven seed documents provide the project-level bootstrap context. Read these in this order:
 
 1. **START-HERE.md** — documentation map and fresh-project rules.
 2. **VISION.md** — the durable five-to-ten-year product proposition.
@@ -33,21 +33,18 @@ The seed intentionally embeds strategic design principles across the core docume
 
 The implementation tree is inherited as a starting substrate.
 
-The detailed `docs/` corpus is inherited as a body of evidence and prior reasoning.
-
-Neither is automatically the blueprint.
-
-Distinguish law, evidence, design candidates, historical decisions, implementation detail, archaeology, and program planning.
+The `docs/` directory is intentionally empty. There is no inherited documentation corpus in the clean-room seed. The current implementation itself is the seeded Ω source; the 11 root documents provide the deliberately selected bootstrap context.
 
 ## The fresh-project premise
 
 The new ZCode project must derive its own:
 
 - architecture;
-- development organization;
+- development organization, including accountable core workstream heads;
+- Commons communication and useful event-trigger mechanisms;
 - work decomposition;
 - roadmap;
-- tooling;
+- tooling and capability composition;
 - validation strategy;
 - implementation choices.
 
