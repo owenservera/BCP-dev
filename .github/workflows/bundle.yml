@@ -25,7 +25,7 @@ jobs:
           REPO_NAME="$(basename -s .git "$(git config --get remote.origin.url)")"
           BUNDLE="dist/${REPO_NAME}-${SHORT_SHA}.bundle"
           git bundle create "${BUNDLE}" --all
-          (cd dist && sha256sum "vivim-omega-${SHORT_SHA}.bundle" > "vivim-omega-${SHORT_SHA}.bundle.sha256")
+          (cd dist && sha256sum "${BUNDLE##*/}" > "${BUNDLE##*/}.sha256")
           git bundle verify "${BUNDLE}"
           git bundle list-heads "${BUNDLE}"
           ls -la dist
@@ -33,7 +33,7 @@ jobs:
       - name: Upload full git bundle
         uses: actions/upload-artifact@v4
         with:
-          name: vivim-omega-full-bundle
+          name: full-git-bundle
           path: dist/
           retention-days: 90
           if-no-files-found: error
