@@ -113,7 +113,7 @@ These distinctions are more durable than today's component boundaries.
 The intended model is:
 
 - the **Vault** is the durable local source of truth;
-- the **World** is the meaningful projection of canonical things and relationships;
+- the **World** is canonical product-level reality/semantic organization derived from durable truth and relationships;
 - **Work** is durable process reality;
 - **Evidence** supports claims about what happened;
 - **Context** is a task-scoped derived assembly;
