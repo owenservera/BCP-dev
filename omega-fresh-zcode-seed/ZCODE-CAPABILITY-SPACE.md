@@ -50,6 +50,28 @@ The current tool surface includes capabilities for reading, writing and editing 
 
 The important architectural fact is that the agent is not limited to generating code in its response. It can operate the repository as an active development environment.
 
+## Pre-wired five-provider execution pool
+
+This project starts with an unusually valuable execution resource already wired into ZCode: five independent provider/account lanes, each exposing the same 1M-context model, **Space Bunny Free**:
+
+| Provider lane | Context | Model |
+|---|---:|---|
+| Owen | 1M | Space Bunny Free |
+| OpenCode acct 2 | 1M | Space Bunny Free |
+| OpenCode acct 3 | 1M | Space Bunny Free |
+| OpenCode acct 4 | 1M | Space Bunny Free |
+| OpenCode acct 5 | 1M | Space Bunny Free |
+
+Treat these as five execution lanes in an existing resource pool. Do not spend bootstrap effort recreating the accounts or attempting to improve the provider configuration. **Configuration is read-only by default:** do not modify credentials, endpoints, provider definitions, account wiring, model mappings, routing configuration, or quotas unless the owner explicitly requests it.
+
+The development system should maximize useful fan-out across all available lanes. For a large objective, decompose into independent units and dispatch them concurrently across the pool: independent research questions, repository reconnaissance, implementation slices, fixture/test creation, browser exploration, code review, verification, benchmarking, and failure investigation are natural candidates. Keep dependency chains ordered. Do not clone the same task across multiple lanes merely to create activity; deliberate redundant verification is the exception.
+
+Heads of workstreams should treat provider lanes as fungible capacity beneath their accountability. They should be able to allocate, rebalance, pause, and reclaim work as lanes become idle or blocked. No provider lane should become an accidental single-threaded coordinator.
+
+Use the 1M context windows for coherent deep work. Context capacity should increase independent reasoning quality, not become a justification for mixing unrelated projects into one session. Handoffs should be reduced to durable, compact artifacts and findings rather than giant transcript replay.
+
+At bootstrap, verify runtime reachability and current health of all five lanes. If one is unavailable, record the condition and route around it; do not silently “fix” it by changing the provider configuration.
+
 ### Subagents and delegation
 
 ZCode supports subagents as persistent execution participants.
