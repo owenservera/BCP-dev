@@ -125,6 +125,28 @@ The deeper model is:
 
 The canvas, browser, chat, CLI, MCP, and other surfaces are ways of experiencing or operating that underlying system.
 
+## Strategic design shape
+
+The long-horizon product proposition should shape the architecture of the solutions built underneath it.
+
+Prefer **capability multipliers** over isolated features: when a capability is likely to recur across providers, surfaces, domains, or compositions, a successful implementation should make the next use materially cheaper, safer, or more general.
+
+Important recurring capabilities may eventually deserve **upgradeable engine boundaries**. Candidate areas include semantic interpretation, context/world understanding, authority/policy, Work and execution, evidence, provider/protocol realization, discovery/diagnosis, routing, recovery/self-healing, and learning. These are candidates, not a frozen architecture. Engine status must be earned by demonstrated cross-cutting leverage.
+
+Do not confuse the first working mechanism with the durable abstraction. A provider implementation, protocol adapter, browser realization, selector repair, agent worker, or model integration proves that one case can work; it does not prove that its current mechanism should define the system.
+
+The preferred progression is:
+
+**concrete case → repeated pattern → observed commonality → reusable capability → capability multiplier → upgradeable engine**
+
+Generalization should be earned by evidence rather than by either hard-coding the first case or prematurely building a framework for hypothetical cases.
+
+Durable semantic contracts should remain separable from replaceable realizations. Adding a second materially different provider, realization, or use case should be a useful architectural test: if it repeatedly requires duplicated semantics and special-case machinery, the system is accumulating solutions rather than building leverage.
+
+Self-healing belongs to this same principle. Provider-specific repair techniques may be necessary, but the durable capability is broader: observe deviation → diagnose → propose or perform a governed repair → verify → preserve evidence → learn. Repair machinery must not become an excuse for hidden provider-specific authority.
+
+AI, workers, browsers, protocols, providers, and orchestration mechanisms remain replaceable means. The architecture should make consequential capabilities easier to upgrade without making the product hostage to the current realization.
+
 ## Intelligence is a replaceable resource
 
 VIVIM should use intelligence where it creates value.
