@@ -25,6 +25,10 @@ Read these in this order:
 
 The seed intentionally embeds strategic design principles across the core documents rather than adding another architecture manual. The autonomous builder is expected to favor capability multipliers, upgradeable engines, replaceable realizations, measurable leverage, and evidence-earned abstraction—and to resist one-off solutions that quietly become the architecture.
 
+## ZCode development substrate
+
+`ZCODE-CAPABILITY-SPACE.md` records the current ZCode execution and extension capabilities relevant to this autonomous build. The fresh project should inspect the actual installed runtime, then use the available native and extension surfaces to design its own development/DevOps environment rather than importing an old agent organization.
+
 ## What is inherited
 
 The implementation tree is inherited as a starting substrate.
