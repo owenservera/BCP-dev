@@ -46,6 +46,24 @@ AI is a replaceable realization inside the system, not the constitutional decisi
 
 The system should remain meaningful without an LLM: deterministic intent, policy, capability checks, state change, evidence, and execution remain explicit.
 
+## Work, observation, and proof
+
+Ω should treat consequential work as something that can be observed, reconstructed, and proven rather than inferred from the apparent continuation of a process.
+
+An execution record should distinguish, where the runtime can know the difference, at least:
+
+- work that completed;
+- work that is still active;
+- work interrupted by transport, cancellation, preemption, or crash;
+- work deliberately stopped;
+- work that never actually started.
+
+This is a conceptual requirement, not a prescription for a particular trace format. Completion should be positively evidenced rather than assumed from the absence of an error or from the last visible process state.
+
+Likewise, observations about system behavior are not automatically rules. A measurement becomes a useful control only when the system can identify what behavior it changes, what evidence supports the claim, and how the claim can be falsified or retired. Otherwise it remains an observation, hypothesis, or caveat.
+
+Preserve evidence long enough that consequential claims remain reconstructable. A record that refers to an artifact the runtime silently deletes is not durable proof.
+
 ## The Forge
 
 Ω is intended to make extension a first-class capability.
