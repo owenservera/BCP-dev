@@ -88,7 +88,7 @@ compositions/ composition specifications
 surfaces/     current interaction surfaces
 examples/     reference examples
 tooling/      tests, gates, diagnostics, build tooling
-docs/         detailed implementation and historical corpus
+implementation tree   current Ω code, tests, fixtures, contracts, gates, and tooling
 ```
 
 These are descriptive of the seeded baseline, not a declaration that the fresh project must retain this decomposition.
