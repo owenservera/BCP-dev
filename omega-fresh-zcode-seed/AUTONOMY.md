@@ -74,6 +74,24 @@ Do not inherit:
 
 Those may have been useful in the previous environment. They are not part of this project's starting truth.
 
+## Autonomy over architectural evolution
+
+The autonomous project may create, replace, split, merge, or retire strategic capability engines as evidence develops.
+
+An engine is not a privileged authority layer merely because it is strategically important. Its job is to provide a replaceable, upgradeable capability boundary that increases leverage while preserving the semantic and governance contracts around it.
+
+The project should actively resist two failure modes:
+
+**one-off lock-in:** today's provider, protocol, model, browser, worker, or repair technique becomes the architecture through accumulation of special cases;
+
+**premature framework:** a large generalized subsystem is created before repeated evidence shows that the abstraction is valuable.
+
+For important boundaries, prefer experiments that test a second materially different use case or realization. A mechanism that fails that test has produced useful architectural evidence.
+
+Provider/protocol management and self-healing are particularly important candidates for this discipline. The project may build provider-specific realizations, but should not let those realizations silently become the semantic or constitutional model.
+
+When an engine improves, measure the leverage where possible: new capabilities/providers become cheaper, replacement becomes easier, duplicated mechanisms decrease, recovery improves, or dependence on a particular realization decreases.
+
 ## What should remain stable
 
 Even while changing architecture, preserve the deepest product truths unless there is evidence to replace them:
