@@ -1,0 +1,50 @@
+{
+  "manifestVersion": "1",
+  "id": "vivim.vault",
+  "version": "0.1.0",
+  "description": "Ω2 vault spine — SQLite WAL+FTS5 canonical store, content-addressed CAS (write-tmp→fsync→rename), Merkle-chained changelog, verify walk, refs-honoring compaction, roundtrip swap harness. Owns vault format v1; the data dir belongs to the user's vault (config.dataDir), never to this plugin.",
+  "entry": "src/index.ts",
+  "publisher": { "keyId": "", "signature": "" },
+  "contributions": {
+    "schema": [
+      {
+        "kind": "schema",
+        "id": "vault.object",
+        "version": "1",
+        "fields": [
+          { "name": "ns", "type": "string", "required": true, "doc": "namespace; non-empty, no '|' (Merkle field separator)" },
+          { "name": "id", "type": "string", "required": true, "doc": "object id within ns; non-empty, no '|'" },
+          { "name": "rev", "type": "integer", "required": true, "doc": "per-(ns,id) revision; starts at 1, increments per append (allocated from the changelog, compaction-proof)" },
+          { "name": "cid", "type": "string", "doc": "sha256 hex of canonical JSON of data; the CAS blob address cas/<cid[0:2]>/<cid>" },
+          { "name": "data", "type": "json", "required": true, "doc": "structured-clone-safe payload; stored content-addressed, small payloads inline via the same CAS" },
+          { "name": "meta", "type": "json", "doc": "caller metadata object; stored in objects.meta envelope {meta, refs} and returned verbatim by vault.get@1" },
+          { "name": "refs", "type": "array", "doc": "provenance edges [{ns, id, rev}]; referenced revisions survive compaction" }
+        ],
+        "doc": "vault.object v1 — the stored object shape (D3 03-WAVE-SPECS §1 vault format v1)."
+      }
+    ],
+    "contract": [
+      { "kind": "contract", "id": "vault.append", "version": "1", "risk": "MUTATION", "doc": "D-432: two-phase append — append.intent journaled+fsynced before the data transaction, append.commit after; intent-without-commit never enters the fold." },
+      { "kind": "contract", "id": "vault.get", "version": "1", "risk": "READ" },
+      { "kind": "contract", "id": "vault.getmany", "version": "1", "risk": "READ", "doc": "D-387: bounded batch of latest-rev-per-id reads (ids ≤ 512 distinct) — one port hop instead of one per id; missing ids are {found:false} data, malformed envelopes and missing CAS blobs still throw fail-closed." },
+      { "kind": "contract", "id": "vault.query", "version": "1", "risk": "READ" },
+      { "kind": "contract", "id": "vault.search", "version": "1", "risk": "READ" },
+      { "kind": "contract", "id": "vault.verify", "version": "1", "risk": "READ" },
+      { "kind": "contract", "id": "vault.compact", "version": "1", "risk": "MUTATION", "doc": "D-432: plan-driven path via planRef {ns, keep, censusDigest} — dry-run-first, VAULT_COMPACTION_REFERENCED_BLOB guard, receipt row; legacy (ns, keep) shape keeps protective-skip semantics." },
+      { "kind": "contract", "id": "vault.compact.dryrun", "version": "1", "risk": "MUTATION", "doc": "D-432: the reference census + ledgered plan row; its only write is its own ledgered plan (READ-only over schema and object rows)." },
+      { "kind": "contract", "id": "vault.recover", "version": "1", "risk": "MUTATION", "doc": "D-432: the crash-recovery ceremony — torn tails quarantined verbatim + ledgered as vault.recovery rows; also automatic on boot." },
+      { "kind": "contract", "id": "vault.migrate.dryrun", "version": "1", "risk": "MUTATION", "doc": "D-432: migration census + ledgered plan row; stamps the implicit genesis version so every rollback point cites a real row." },
+      { "kind": "contract", "id": "vault.migrate", "version": "1", "risk": "EXTERNAL_MUTATION", "doc": "D-432: schema change through the versioned registry; refuses VAULT_MIGRATION_REQUIRES_DRYRUN / VAULT_MIGRATION_ROLLBACK_UNCITED." },
+      { "kind": "contract", "id": "vault.export", "version": "1", "risk": "READ", "doc": "D-432: namespace-scoped chain-preserving archive (segment + blobs + seals + retention manifest + quarantine evidence); refuses VAULT_EXPORT_SCOPE_UNNAMED." },
+      { "kind": "contract", "id": "vault.import", "version": "1", "risk": "EXTERNAL_MUTATION", "doc": "D-432: verified merge into a caller-named fresh vault dir; refuses VAULT_IMPORT_CHAIN_MISMATCH on divergence, mid-chain segments, non-empty targets." },
+      { "kind": "contract", "id": "vault.roundtrip", "version": "1", "risk": "EXTERNAL_MUTATION", "doc": "D-432: copies the quarantine zone with the fold (a copy's recovery rows keep their evidence)." }
+    ]
+  },
+  "dependencies": [],
+  "capabilities": {
+    "requested": [],
+    "justification": "Self-contained by construction: the vault data dir is user-vault territory (ctx.config.dataDir passthrough) and every capability this plugin needs is its own storage; roundtrip writes only to a caller-specified target dir, gated as EXTERNAL_MUTATION by law."
+  },
+  "runtime": { "tier": "worker-thread", "budget": { "cpuMs": 2000, "memMB": 256 } },
+  "contentHash": ""
+}

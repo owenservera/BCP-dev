@@ -1,0 +1,120 @@
+{
+  "manifestVersion": "1",
+  "id": "vivim.intent",
+  "version": "0.1.0",
+  "description": "D-389 Phase 1 + D-411 S1 + D-434 (Ω-2.6) — the Intent spine with the debugging door: durable vault objects, the canonical writer path, replayable traces, the principal-owned lexicon, and the leakage audit.",
+  "entry": "src/index.ts",
+  "publisher": {
+    "keyId": "",
+    "signature": ""
+  },
+  "contributions": {
+    "contract": [
+      {
+        "kind": "contract",
+        "id": "intent.submit",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "intent.resolve",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "intent.step.execute",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "intent.cancel",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "intent.status",
+        "version": "1",
+        "risk": "READ"
+      },
+      {
+        "kind": "contract",
+        "id": "intent.resolution",
+        "version": "1",
+        "risk": "MUTATION"
+      },
+      {
+        "kind": "contract",
+        "id": "intent.explain",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-434: the replayable derivation trace (normalize → parse → lexicon → disambiguate → resolve), resolverDigest-pinned, lexicon state cited per hit."
+      },
+      {
+        "kind": "contract",
+        "id": "intent.trace.diff",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-434: localize the change between the stored trace and a fresh resolution; refuses INTENT_TRACE_UNAVAILABLE when no stored trace exists."
+      },
+      {
+        "kind": "contract",
+        "id": "intent.lexicon.add",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-434: principal-authored lexicon entry (alias/pattern/default/disambiguation-rule); realizations refused with INTENT_LEXICON_AUTO_APPLY_REFUSED."
+      },
+      {
+        "kind": "contract",
+        "id": "intent.lexicon.revoke",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-434: the append-only revocation tombstone; revocation reverts the lexicon digest exactly."
+      },
+      {
+        "kind": "contract",
+        "id": "intent.lexicon.propose",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-434: a badged realization proposes; the proposal waits for a person (30d expiry)."
+      },
+      {
+        "kind": "contract",
+        "id": "intent.lexicon.accept",
+        "version": "1",
+        "risk": "MUTATION",
+        "doc": "D-434: the principal's one-time acceptance ceremony citing proposalRef."
+      },
+      {
+        "kind": "contract",
+        "id": "intent.audit",
+        "version": "1",
+        "risk": "READ",
+        "doc": "D-434: the standing leakage audit — replay battery (INTENT_RESOLUTION_NONDETERMINISTIC tripwire) + static no-realization-in-walk provenance scan."
+      }
+    ]
+  },
+  "dependencies": [],
+  "capabilities": {
+    "requested": [
+      "port:vault.append@1",
+      "port:vault.get@1",
+      "port:vault.query@1",
+      "port:resolve.classify@1",
+      "port:law.check@1",
+      "port:law.attenuate@1"
+    ],
+    "justification": "Phase 1: vault persistence for intent/intent-plan, resolution delegated to director, every step gated by law + single-use attenuated delegation (§3.2)."
+  },
+  "runtime": {
+    "tier": "worker-thread",
+    "budget": {
+      "cpuMs": 750,
+      "memMB": 96
+    }
+  },
+  "contentHash": ""
+}

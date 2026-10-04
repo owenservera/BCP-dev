@@ -1,0 +1,10 @@
+{
+  "rows": [
+    {
+      "artifactPath": "build/genome.md",
+      "surfaceRef": "harness",
+      "derivationTool": "omega:genome",
+      "vocabularyOf": "genome/layers.json + docs/decisions/ + the test-tree inventory (the fold)"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "fixtures": [
+    {
+      "fixtureId": "chain-latency",
+      "workload": {
+        "seed": 20260921,
+        "opMix": {
+          "vault.append@1": 60,
+          "vault.verify@1": 20,
+          "vault.compact@1": 20
+        }
+      },
+      "budget": {
+        "metrics": {
+          "appendMs": {
+            "budget": 25,
+            "variancePct": 100,
+            "direction": "at-most"
+          },
+          "verifyMs": {
+            "budget": 40,
+            "variancePct": 100,
+            "direction": "at-most"
+          }
+        }
+      },
+      "badge": "GEN_ENVIRONMENT"
+    },
+    {
+      "fixtureId": "vault-throughput",
+      "workload": {
+        "seed": 20260921,
+        "opMix": {
+          "vault.append@1": 100
+        }
+      },
+      "budget": {
+        "metrics": {
+          "opsPerSec": {
+            "budget": 50,
+            "variancePct": 60,
+            "direction": "at-least"
+          }
+        }
+      },
+      "badge": "GEN_ENVIRONMENT"
+    },
+    {
+      "fixtureId": "soak-headless-30d",
+      "workload": {
+        "seed": 20260921,
+        "opMix": {
+          "mixed": 100
+        },
+        "thinkTimeMs": 50
+      },
+      "budget": {
+        "metrics": {
+          "memFootprintMb": {
+            "budget": 512,
+            "variancePct": 20,
+            "direction": "at-most"
+          }
+        }
+      },
+      "badge": "GEN_ENVIRONMENT",
+      "deferredTo": "the host-runtime wave \u2014 a soak without the real host measures the harness, not the system (registered-and-honest, D-438 as-built)"
+    },
+    {
+      "fixtureId": "canvas-1000-ghosts",
+      "workload": {
+        "seed": 20260921,
+        "opMix": {
+          "ghost.hydrate": 1000
+        }
+      },
+      "budget": {
+        "metrics": {
+          "frameMs": {
+            "budget": 16,
+            "variancePct": 25,
+            "direction": "at-most"
+          }
+        }
+      },
+      "badge": "GEN_ENVIRONMENT",
+      "deferredTo": "the canvas wave (CP-3) \u2014 the canvas runtime does not exist yet; the fixture is declared so its budget is law from the first frame (D-438 as-built)"
+    }
+  ]
+}

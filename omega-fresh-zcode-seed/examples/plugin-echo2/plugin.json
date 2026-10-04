@@ -1,0 +1,17 @@
+{
+  "manifestVersion": "1",
+  "id": "omega.echo2",
+  "version": "0.1.0",
+  "description": "Substitution-experiment V2 for echo.ping@1 (Prompt 4, Phase 3): same stable contract, materially different interior — append-only hash-chained log, monotonic seq, NO clock (V1 is stateless + Date.now()). The consumer promise ({echo:true, payload round-trip}) is identical; the observable interior (seq/chain vs at) proves genuine substitution.",
+  "entry": "src/index.ts",
+  "publisher": { "keyId": "", "signature": "" },
+  "contributions": {
+    "contract": [
+      { "kind": "contract", "id": "echo.ping", "version": "1", "risk": "READ" }
+    ]
+  },
+  "dependencies": [],
+  "capabilities": { "requested": [] },
+  "runtime": { "tier": "worker-thread", "budget": { "cpuMs": 100, "memMB": 64 } },
+  "contentHash": ""
+}

@@ -1,0 +1,53 @@
+{
+  "manifestVersion": "1",
+  "id": "forge.survey",
+  "version": "0.1.0",
+  "description": "Class 1 (READ) — 'pure past the capture'. forge.survey.run@1 turns a stored capture receipt into an inventory of its files (path, content hash, byte length, language, exports/imports/models/headings), and forge.survey.render@1 renders that inventory as a deterministic, timestamp-free markdown atlas. Both ops read ONLY the governed vault ledger — the receipt row at `mine:<repo>/<rootHash>` via vault.get@1, and the CAS blobs it cites at `cas:<sha256hex>` via bounded vault.getmany@1 batches. There is no node:fs import anywhere in this compartment and no filesystem capability of any kind: reading a foreign tree is forge.mine.capture@1's consent-gated EXTERNAL_MUTATION job, and a READ op that re-walked the mine would make D-409's class split a fiction. Every blob is re-hashed before it becomes a row (hashBytes(decoded) === the address the receipt cited, and the byte length must agree) — a mismatch is a NAMED refusal, because InventoryRowSchema is a strictObject with nowhere to record a corrupt row. Truncation lives in the envelope's capped[], counted out loud, never silently inside a row. Refuses by NAME, ten rules, each triggered by the refusal suite. NOTE on generality: this ships speculative, not the generic/harvested pair OMEGA-FORGE-ARCHITECTURE.md:649-651 predicts — generic requires >=2 resolvable evidence refs with one independent of the declared mine, which a first landing cannot honestly evidence — and the divergence is recorded in the decision record, not left as silent prose drift.",
+  "entry": "src/index.ts",
+  "publisher": {
+    "keyId": "",
+    "signature": ""
+  },
+  "contributions": {
+    "contract": [
+      {
+        "kind": "contract",
+        "id": "forge.survey.run",
+        "version": "1",
+        "risk": "READ",
+        "doc": "run {mineId} → SurveyInventory@1 {schemaVersion, op, mineId, rootHash, count, rows[], capped[]} — the frozen inventory of one CAPTURED mine, read entirely out of vault ns `proposal`. The receipt row id is `mine:<repo>/<rootHash>`, re-derived here from the mine id's own pin (the capture refuses unless pin == rootHash, so the two derivations agree by construction, and their agreement is asserted on the live receipt). Every row is pack.builder's frozen InventoryRowSchema: {schemaVersion:'1', path, hash, bytes, language, exports[], imports[], models[], headings[]} — a strictObject, so an extra key fails the consumer. `language` is a CLOSED extension map (.py/.ts/.tsx/.js/.jsx/.mjs/.cjs/.md/.markdown/.json/.yml/.yaml/.toml/.txt/.sh/.bash) and null for anything else: a row that guesses 'text' for an unclaimed extension is a claim, not an observation. Per-language extraction: python takes `def`/`class` as exports and `import`/`from … import` as imports; ts/js take `export` declarations (and `export {…}` members) and `from \"…\"`/`require(\"…\")` as imports; markdown takes ATX headings; every other language returns all four arrays EMPTY by declared rule, `models` among them. `bytes` and `hash` come from the receipt and are RE-VERIFIED against the decoded blob before the row exists. `capped[]` is `[{path, field, kept, dropped}]` — truncation is stated, never implied. rows[] is sorted by path, so the inventory is a function of the mine's paths rather than of the walk's order. Refuses when there is nothing to survey or when what is stored cannot be trusted: malformed payload, unpinned mine id, no receipt, an unreadable receipt row, a missing blob, an undecodable blob, a blob that does not re-hash to its address, a closed ledger."
+      },
+      {
+        "kind": "contract",
+        "id": "forge.survey.render",
+        "version": "1",
+        "risk": "READ",
+        "doc": "render {mineId | inventory} → SurveyAtlas@1 {schemaVersion, op, mineId, rootHash, count, capped[], atlas} — the inventory as deterministic markdown. The payload is a closed pair and EXACTLY one of the two must be present: `mineId` resolves the inventory through the same ledger path run@1 uses, `inventory` renders a supplied envelope and touches NO port at all. That second form is the split's whole point — the architecture's §6.5 note is that the fused `build-atlas.ts` failed the substitutability axis because you could not swap the renderer without touching the walker, so the renderer is a pure function (`renderAtlas`) behind an op that can be handed its input. A supplied envelope must be one this op could have emitted (shape, pinned mine id, root hash, rows carrying the frozen row shape, `count` matching `rows.length`); one that does not is SURVEY_INVENTORY_MALFORMED, because rendering an inventory this op would refuse to emit would make the renderer a second, laxer entry point into the same facts. `atlas` is byte-identical across calls: no clock, no randomness, no ordering that is not already in the inventory. A report whose diff is a timestamp teaches nothing."
+      }
+    ]
+  },
+  "dependencies": [],
+  "capabilities": {
+    "requested": [
+      "port:vault.get@1",
+      "port:vault.getmany@1"
+    ],
+    "justification": "Two read-only ports over vault ns `proposal`, and nothing else. port:vault.get@1 reads the ONE capture-receipt row at the content-derived id `mine:<repo>/<rootHash>`, re-derived from the mine id's own pin; port:vault.getmany@1 reads the CAS blobs that receipt cites at `cas:<sha256hex>` in bounded batches (GET_MANY_BOUND is 512) — one hop for many ids rather than one round trip per file. Both rows are proposal records: read-only here, written by forge.mine.capture@1, and nothing in this namespace is authority. This plugin requests NO mutation capability, NO filesystem capability of any kind, and no law port: READ classifies as allow/unjournaled in LAW_POLICY_V1, so the host never gates these ops and an in-handler self-check would be theatre. The proposal-scope claim is literal: this compartment writes nothing at all, in ns proposal or anywhere else."
+  },
+  "runtime": {
+    "tier": "worker-thread",
+    "budget": {
+      "cpuMs": 4000,
+      "memMB": 256
+    }
+  },
+  "granularity": "atomic",
+  "generality": {
+    "level": "speculative",
+    "mine": null,
+    "originPaths": [],
+    "harvestClass": null,
+    "evidence": []
+  },
+  "contentHash": ""
+}

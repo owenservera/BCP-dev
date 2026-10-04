@@ -1,0 +1,39 @@
+{
+  "manifestVersion": "1",
+  "id": "discovery.healing",
+  "version": "0.1.0",
+  "description": "Ω9 healing engine — the closed loop as ONE deterministic operation over supplied data: drift detection (promoted contract evidence signature vs fresh observation) → rediscovery (a DRAFT replacement candidate that must cite evidence) → probation (postcondition probes scored against the POLICY threshold) → promotion (≥ threshold with the required probe count) — the promote decision hands the replacement to the amendment transport (recipe re-compile + atomic pin swap, Ω0 host machinery). Consumes the discovery pipeline's DATA shapes (SurfaceContract / probe results) as tolerant plain JSON; imports no discovery-* code. Every healing event is journaled to the user's vault (ns 'discovery', id 'heal:<ts>') with the full evidence chain.",
+  "entry": "src/index.ts",
+  "publisher": { "keyId": "", "signature": "" },
+  "contributions": {
+    "engine": [
+      {
+        "kind": "engine",
+        "id": "discovery.heal",
+        "version": "1",
+        "doc": "discovery.heal@1 {contractEvidence, freshObservation, candidate, probes, provider?, archetypeSlug?} → healing report. READ-class: engine contributions carry no risk attribute (risk is CONTRACT-kind declared data, per the pinned manifest law); this op mutates nothing except the journaled vault event, and the actual install is a separate user-signed recipe amendment. D-326: on drift the current-state realization record in ns 'providers' is appended (DEGRADED for reject, TESTING for hold-in-probation) via providerRealizationId(), superseding the prior rev and citing the drift observation; none/promote write no realization (verify owns promotion)."
+      }
+    ],
+    "policy": [
+      {
+        "kind": "policy",
+        "id": "discovery.healing-policy",
+        "version": "1",
+        "driftThreshold": 0.3,
+        "probationProbes": 3,
+        "promotionThreshold": 0.95,
+        "doc": "The healing policy, as versioned DATA (never code constants): driftThreshold — drift scores at or above this trigger rediscovery; probationProbes — the minimum probe count a probation report must carry; promotionThreshold — the probe pass-rate score promotion requires. Amendable by manifest change → recipe re-compile → atomic pin swap, exactly like any other plugin content."
+      }
+    ]
+  },
+  "dependencies": [
+    { "ref": "contract:vault.append@1", "range": "1.x" },
+    { "ref": "contract:vault.get@1", "range": "1.x" }
+  ],
+  "capabilities": {
+    "requested": ["port:vault.append@1", "port:vault.get@1"],
+    "justification": "Healing events are journaled into the USER'S VAULT (data/code divorce): ns 'discovery', id 'heal:<ts>', data = the healing report with the full evidence chain. D-326: the current-state realization record (ns 'providers', DEGRADED on drift / TESTING on probation entry) is appended alongside, reading the prior rev first for supersedes lineage and evidence carry-forward (port:vault.get@1). The composition grants exactly these per user-signed Recipe — never this manifest. Both writes are reported, never blocking the healing decision."
+  },
+  "runtime": { "tier": "worker-thread", "budget": { "cpuMs": 500, "memMB": 128 } },
+  "contentHash": ""
+}

@@ -1,0 +1,404 @@
+{
+ "registryVersion": 1,
+ "kind": "the layer registry — the ONLY hand-authored input to the genome fold (D-425). Everything else in build/genome.json is derived and byte-verified; drift here is a registry edit, drift there is a gate failure.",
+ "lineage": {
+  "note": "Two numbering systems, never conflated. treeId = THIS repo's ledger (docs/decisions/D-<n>-*.md, contiguous, authoritative for record files). specId = the external upgrade-spec lineage (paper ids; cite them backticked in prose). Where a paper id collides with a tree id the fields keep them distinct — the runbook's build-time renumbering rule, made mechanical.",
+  "specLineage": "Ω-0 paper D-449 (upgrade doc delivered 2026-09-21); Ω-DEV.1..5 paper D-450..D-454 (that wave); Ω-DEV.6 has no paper id — the owner's 2026-09-22 directives (session stream + structured lessons; timestamps for bottlenecks) landed directly as tree D-430; Ω-1..Ω-8 paper D-425..D-432; Ω-9 paper D-433; Ω-10..Ω-16 paper D-442..D-448; builder-gap reservations paper D-434..D-441 per D-451 §2 and the delivered upgrade docs (Ω-2.5→D-434, Ω-2.6→D-435, Ω-3.5→D-436, Ω-4+→D-437, Ω-4.5→D-438, Ω-5.5→D-439, Ω-6.5→D-440, Ω-7.5→D-441; the earlier off-by-one in this registry is corrected at D-432's landing); Ω-0.5 candidate D-455. The tree ledger assigns D-425..D-429 to the Ω-DEV family — the collision is recorded here, not hidden.",
+  "assumedDirective": "The owner directed (2026-09-21): the Ω-1..Ω-16 layers are assume-implemented for continuation purposes per their ratified external specs. The genome records BOTH facts honestly: the directive (this field) and the tree evidence (null record / null falsifier file per layer, reported by the fold). external-assumed is a claim about paper, never about this tree."
+ },
+ "statuses": [
+  "implemented",
+  "external-assumed",
+  "ratified-unimplemented",
+  "queued"
+ ],
+ "layers": [
+  {
+   "id": "CORE",
+   "name": "The constitutional core program",
+   "status": "implemented",
+   "treeId": null,
+   "specId": null,
+   "falsifier": null,
+   "dependsOn": [],
+   "evidence": "program",
+   "note": "µhost, law, vault, run, sdk/testkit, surfaces, discovery, mind, nlcl, director — the built program (status.json wave registry Ω0..Ω13; the gate itself is the falsifier)"
+  },
+  {
+   "id": "Ω-0",
+   "name": "Hermetic bootstrap",
+   "status": "implemented",
+   "treeId": 431,
+   "specId": "D-449",
+   "falsifier": "F-BOOT",
+   "dependsOn": [
+    "CORE"
+   ],
+   "note": "the boot chain (archive hash → manifest walk → toolchain pin → hermeticity → gate digest); landed as tree D-431 (spec lineage D-449, upgrade doc omega-upgrades/OMEGA-0-HERMETIC-BOOTSTRAP.md); no hash, no boot — no proof, no verify; boot.emit makes the self-forge (F2) mechanical"
+  },
+  {
+   "id": "Ω-DEV.1",
+   "name": "System genome",
+   "status": "implemented",
+   "treeId": 425,
+   "specId": "D-450",
+   "falsifier": "F-GENOME",
+   "dependsOn": [
+    "CORE"
+   ],
+   "note": "the machine-readable constitution: one fold over the registry + the ledger + the test tree, emitted as build/genome.json + build/genome.md, byte-verified by the genome gate stage"
+  },
+  {
+   "id": "Ω-DEV.2",
+   "name": "Falsifier-first loop",
+   "status": "implemented",
+   "treeId": 426,
+   "specId": "D-451",
+   "falsifier": "F-LOOP",
+   "dependsOn": [
+    "Ω-DEV.1"
+   ],
+   "note": "records declare named falsifiers; omega:loop generates RED stubs at scaffold time, never clobbers implemented files, and audits coverage"
+  },
+  {
+   "id": "Ω-DEV.3",
+   "name": "Orchestration graph",
+   "status": "implemented",
+   "treeId": 427,
+   "specId": "D-452",
+   "falsifier": "F-ORCH",
+   "dependsOn": [
+    "Ω-DEV.1"
+   ],
+   "note": "the layer DAG made loadable: omega:orchestrate plans done/inFlight/verifyQueue/buildQueue/specQueue/blocked; the constitutional merge check IS the full gate"
+  },
+  {
+   "id": "Ω-DEV.4",
+   "name": "Development vault",
+   "status": "implemented",
+   "treeId": 428,
+   "specId": "D-453",
+   "falsifier": "F-DEVAULT",
+   "dependsOn": [
+    "Ω-DEV.1"
+   ],
+   "note": "ns.dev as environment-local agent memory (dev-vault/, gitignored by pre-existing reservation): append-only, hash-chained, evidence-required, never committed — law is committed, memory is local"
+  },
+  {
+   "id": "Ω-DEV.5",
+   "name": "Design simulation sandbox",
+   "status": "implemented",
+   "treeId": 429,
+   "specId": "D-454",
+   "falsifier": "F-PRESIM",
+   "dependsOn": [
+    "Ω-DEV.1"
+   ],
+   "note": "try-before-you-build as falsifier red-case rehearsal: omega:simulate mutates a layer's registry entry through the genome verifier and receipts which clauses bite; advisory, never blocking; runtime behavioral simulation stays with Ω-8 (paper D-432)"
+  },
+  {
+   "id": "Ω-DEV.6",
+   "name": "Session ledger",
+   "status": "implemented",
+   "treeId": 430,
+   "specId": null,
+   "falsifier": "F-SESSION",
+   "dependsOn": [
+    "Ω-DEV.4"
+   ],
+   "note": "the intake protocol for the dev-vault: every agent session opens with a mission, streams chain-witnessed time-stamped events (at + tMs, regress refused; gates.log auto-import), and closes with a structured retrospective whose lessons graduate to the dev-vault; round-close refuses while a session is open — no retrospective, no publish; the close derives the bottleneck report (top silence gaps, slowest ops) so lessons cite measured friction (owner directives 2026-09-22)"
+  },
+  {
+   "id": "Ω-0.5",
+   "name": "Vault durability, compaction and migration",
+   "status": "implemented",
+   "treeId": 432,
+   "specId": "D-455",
+   "falsifier": "F-DURABILITY",
+   "dependsOn": [
+    "Ω-0"
+   ],
+   "note": "two-phase append (fsynced intent+commit journal), torn-tail quarantine as ledgered vault.recovery rows, dry-run-first migration with cited rollback points, census-guarded compaction with receipts (D-410-C mechanized), namespace-scoped chain-preserving export + verified import; landed as tree D-432 (spec lineage D-455 per the genome collision note — the doc's D-450 was consumed by Ω-DEV.1)"
+  },
+  {
+   "id": "Ω-1",
+   "name": "Substrate: watch (namespaced process/signal watch)",
+   "status": "implemented",
+   "treeId": 440,
+   "specId": "D-425",
+   "falsifier": "F-WATCH",
+   "dependsOn": [
+    "CORE"
+   ],
+   "note": "the watch substrate: namespaced process/signal/heartbeat registrations with typed predicates (windowed crash rule, version-bump, no-progress), first-sight late-observer honesty, the watcher's own lease (WATCH_LEASE_EXPIRED), budget-seamed polls; landed as tree D-440 (re-materialized spec, paper lineage D-425)"
+  },
+  {
+   "id": "Ω-2",
+   "name": "Substrate: governance",
+   "status": "implemented",
+   "treeId": 442,
+   "specId": "D-426",
+   "falsifier": "F-GOV",
+   "dependsOn": [
+    "CORE"
+   ],
+   "note": "the budget ledger: declared scopes, attributable sampled burn (accrue-then-flush at burnIntervalMs), the assertBudget fold (GOV_BUDGET_EXCEEDED naming budget+consumer), loud exhaustion, read as derived view; landed as tree D-442 (re-materialized spec, paper lineage D-426)"
+  },
+  {
+   "id": "Ω-3",
+   "name": "Substrate: context",
+   "status": "implemented",
+   "treeId": 443,
+   "specId": "D-427",
+   "falsifier": "F-CTX",
+   "dependsOn": [
+    "Ω-1",
+    "Ω-2",
+    "Ω-4"
+   ],
+   "note": "the assembled context window: deterministic digest fold over cited sources with byte offsets, named eviction (fail-closed at cap), read-through digest cache (never a second truth), the light call, cross-principal fence; landed as tree D-443 (re-materialized spec, paper lineage D-427)"
+  },
+  {
+   "id": "Ω-4",
+   "name": "Substrate: trust",
+   "status": "implemented",
+   "treeId": 444,
+   "specId": "D-428",
+   "falsifier": "F-TRUST",
+   "dependsOn": [
+    "CORE"
+   ],
+   "note": "the trust substrate: key-lineage rows with era-aware verification (judged under the law of signing time), principal binding (TRUST_PRINCIPAL_UNRESOLVABLE / TRUST_KEY_EXPIRED / TRUST_FINGERPRINT_MISMATCH), revocation scars forward; landed as tree D-444 (re-materialized spec, paper lineage D-428)"
+  },
+  {
+   "id": "Ω-5",
+   "name": "Substrate: analytics",
+   "status": "implemented",
+   "treeId": 445,
+   "specId": "D-429",
+   "falsifier": "F-ANALYTICS",
+   "dependsOn": [
+    "CORE"
+   ],
+   "note": "the analytics substrate: retention-declared observation rows with payload digests, per-namespace counter folds, ANALYTICS_RETENTION_UNDECLARED / DIGEST_MISMATCH / NS_UNKNOWN; landed as tree D-445 (re-materialized spec, paper lineage D-429)"
+  },
+  {
+   "id": "Ω-6",
+   "name": "Substrate: layout",
+   "status": "implemented",
+   "treeId": 446,
+   "specId": "D-430",
+   "falsifier": "F-LAYOUT",
+   "dependsOn": [
+    "Ω-5"
+   ],
+   "note": "the layout substrate: versioned placement snapshots with deterministic digest fold, verified restore (LAYOUT_DIGEST_MISMATCH), geometry door (LAYOUT_TILE_OVERLAP), fork law (one named deterministic per-tile LWW merge record); ns layout, canvas reserved; landed as tree D-446 (re-materialized spec, paper lineage D-430)"
+  },
+  {
+   "id": "Ω-7",
+   "name": "Substrate: badge",
+   "status": "implemented",
+   "treeId": 441,
+   "specId": "D-431",
+   "falsifier": "F-BADGE",
+   "dependsOn": [
+    "Ω-6"
+   ],
+   "note": "the badge substrate: kernel-minted tiers (self-claims refused BADGE_TIER_CLAIMED), promotion citing two-resolvable-one-independent evidence (the static law at runtime), reason-carrying demotions with scars, era-aware evaluation, the print fold as the only renderer; landed as tree D-441 (re-materialized spec, paper lineage D-431)"
+  },
+  {
+   "id": "Ω-8",
+   "name": "Substrate: simulation (the rehearsal engine)",
+   "status": "implemented",
+   "treeId": 447,
+   "specId": "D-432",
+   "falsifier": "F-SIM",
+   "dependsOn": [
+    "Ω-7"
+   ],
+   "note": "the simulation substrate: pinned seeded scenarios, deterministic replay fold (byte-identical), contained exec seam (SIM_CONTAINMENT_BREACH refused and ledgered), SIM_REPLAY_DIVERGENT / SIM_SELF_CERTIFICATION, advisory-for-production; landed as tree D-447 (re-materialized spec, paper lineage D-432)"
+  },
+  {
+   "id": "Ω-9",
+   "name": "The aperture (progressive disclosure)",
+   "status": "implemented",
+   "treeId": 448,
+   "specId": "D-433",
+   "falsifier": "F-DISCLOSURE",
+   "dependsOn": [
+    "Ω-2",
+    "Ω-3",
+    "Ω-5"
+   ],
+   "note": "the aperture: disclosure scopes over the width lattice (summary|body|detail|raw), the deterministic projection fold with honest elision {count, kinds}, fail-closed strangers, cited-ceremony widening with receipt rows; landed as tree D-448 (re-materialized spec, paper lineage D-433)"
+  },
+  {
+   "id": "Ω-10",
+   "name": "Boundary: partial evaluation",
+   "status": "implemented",
+   "treeId": 449,
+   "specId": "D-442",
+   "falsifier": "F-PARTIAL",
+   "dependsOn": [
+    "Ω-9"
+   ],
+   "note": "partial evaluation: named unknowns (ambiguity|missing|deferred) over the plan, the determined-prefix fold, unknowns as permanent luggage, residuals as fresh gated invocations — no privileged path from evaluation to doing; landed as tree D-449 (re-materialized spec, paper lineage D-442)"
+  },
+  {
+   "id": "Ω-11",
+   "name": "Boundary: aperture privacy",
+   "status": "implemented",
+   "treeId": 451,
+   "specId": "D-443",
+   "falsifier": "F-APERTURE-PRIVACY",
+   "dependsOn": [
+    "Ω-10"
+   ],
+   "note": "aperture privacy: the sensitivity lattice (open<internal<principal<secret) with taint = max of cited inputs verified at write, strengthen-only ratchets, the D-379 universal fence, deputy dataReach absent = none (fail closed), undeclared namespaces fail closed to secret; landed as tree D-451 (re-materialized spec, paper lineage D-443)"
+  },
+  {
+   "id": "Ω-12",
+   "name": "Boundary: invocation",
+   "status": "implemented",
+   "treeId": 452,
+   "specId": "D-444",
+   "falsifier": "F-INVOKE",
+   "dependsOn": [
+    "Ω-11"
+   ],
+   "note": "invocation: the frame (caller, behalf, op, scope, authority, intentRef) with authority re-resolved at EVERY check (zero state, live rows), root gets a declared frame kind never an exemption, EXECUTED↔inv pairing audited; landed as tree D-452 (re-materialized spec, paper lineage D-444)"
+  },
+  {
+   "id": "Ω-13",
+   "name": "Boundary: standing",
+   "status": "implemented",
+   "treeId": 453,
+   "specId": "D-445",
+   "falsifier": "F-STANDING",
+   "dependsOn": [
+    "Ω-12"
+   ],
+   "note": "standing: radius rows with expiresAt REQUIRED (no perpetual standing — renewal is a fresh citing grant), immediate loud revocation, scope fences, the escalation book (one card per ask, zero auto-yes); landed as tree D-453 (re-materialized spec, paper lineage D-445)"
+  },
+  {
+   "id": "Ω-14",
+   "name": "Boundary: liveness",
+   "status": "implemented",
+   "treeId": 450,
+   "specId": "D-446",
+   "falsifier": "F-LIVENESS",
+   "dependsOn": [
+    "Ω-13"
+   ],
+   "note": "liveness: the ghost|dormant|hydrated|suspended machine as governed rows, budget-check-first framed wakes, typed badged suspends, ghost-write refusal, signed dormancy proofs with staleness probes; landed as tree D-450 (re-materialized spec, paper lineage D-446)"
+  },
+  {
+   "id": "Ω-15",
+   "name": "Boundary: delegation",
+   "status": "implemented",
+   "treeId": 454,
+   "specId": "D-447",
+   "falsifier": "F-DELEGATE",
+   "dependsOn": [
+    "Ω-14"
+   ],
+   "note": "the delegation boundary: chain rows with vault-recomputed authority (carried claims are hints), mechanical per-edge attenuation, subtree-wide loud revocation cascades, expiry at every hop, treaty row shape declared (transport owed to the sharing wave); landed as tree D-454 (re-materialized spec, paper lineage D-447)"
+  },
+  {
+   "id": "Ω-16",
+   "name": "Boundary: adaptation governance",
+   "status": "implemented",
+   "treeId": 455,
+   "specId": "D-448",
+   "falsifier": "F-ADAPT",
+   "dependsOn": [
+    "Ω-15"
+   ],
+   "note": "adaptation governance: the ceremony (propose → census → treaty check → ratify → windowed rollback) over typed targets, digest-pinned censuses re-digested at flip, signed flips, the self-governance recursion (a ceremony-targeted proposal must count ns adapt in its census); landed as tree D-455 (re-materialized spec, paper lineage D-448)"
+  },
+  {
+   "id": "Ω-2.5",
+   "name": "Builder gap: policy conflict / safety scan",
+   "status": "implemented",
+   "treeId": 433,
+   "specId": "D-434",
+   "falsifier": null,
+   "dependsOn": [
+    "Ω-2"
+   ],
+   "note": "the policy lattice (constitutional > statutory > grant > advisory, deny-overrides-allow, constraints intersect, most-restrictive-at-tie; PARADOX a first-class refusal), the append-only amendment, and the five-check composition security scan gating activation on a manifest-hash-pinned passing row; landed as tree D-433 (spec lineage D-434)"
+  },
+  {
+   "id": "Ω-2.6",
+   "name": "Builder gap: intent debugging / personalization",
+   "status": "implemented",
+   "treeId": 434,
+   "specId": "D-435",
+   "falsifier": null,
+   "dependsOn": [
+    "Ω-2"
+   ],
+   "note": "the derivation trace (replayable, resolverDigest-pinned), the principal-owned deterministic lexicon (proposal-only ML path, 30d expiry, GEN_PERSONAL), and the leakage audit (replay battery + static no-realization-in-walk); landed as tree D-434 (spec lineage D-435)"
+  },
+  {
+   "id": "Ω-3.5",
+   "name": "Builder gap: execution debugging / capability deprecation",
+   "status": "implemented",
+   "treeId": 435,
+   "specId": "D-436",
+   "falsifier": null,
+   "dependsOn": [
+    "Ω-3"
+   ],
+   "note": "the plan registry with the derived plan.state view (typed blockedOn, EXEC_PLAN_STALLED), the four gated intervention verbs with the OS break-glass scar, and the capability deprecation lifecycle (vault-cited census, successor-or-none, badged expiring shims, sunset refusals); landed as tree D-435 (spec lineage D-436)"
+  },
+  {
+   "id": "Ω-4.5",
+   "name": "Builder gap: surface sync / drift",
+   "status": "implemented",
+   "treeId": 436,
+   "specId": "D-438",
+   "falsifier": null,
+   "dependsOn": [
+    "Ω-4"
+   ],
+   "note": "the (op × surface) parity sweep over injected LIVE dispatch probes, the surface.derivation stamp + tamper gate (the derivation tool's grant is the only writer), reasoned revocable N/A rows, the one-command drift report; landed as tree D-436 (spec lineage D-438)"
+  },
+  {
+   "id": "Ω-5.5",
+   "name": "Builder gap: auto-librarian verification / doc drift",
+   "status": "implemented",
+   "treeId": 437,
+   "specId": "D-439",
+   "falsifier": null,
+   "dependsOn": [
+    "Ω-5"
+   ],
+   "note": "the librarian's law: per-doc source manifests (sha256-pinned roles), re-derivation byte-diffs for generated-era docs, the citation law refusing uncited claims at print, drift by blast radius, docscan S1-S6 absorbed as the internal-docs stage; landed as tree D-437 (spec lineage D-439)"
+  },
+  {
+   "id": "Ω-6.5",
+   "name": "Builder gap: performance / benchmarks",
+   "status": "implemented",
+   "treeId": 438,
+   "specId": "D-440",
+   "falsifier": null,
+   "dependsOn": [
+    "Ω-6"
+   ],
+   "note": "the perf discipline: fixture rows with pinned seeds + declared directional budgets + variance, environment-pinned result rows, PERF_REGRESSION_RED with last-green diffs, the monotone-growth leak detector, per-stage attribution; chain-latency + vault-throughput live, soak + canvas-ghosts registered-deferred; landed as tree D-438 (spec lineage D-440)"
+  },
+  {
+   "id": "Ω-7.5",
+   "name": "Builder gap: decision-record validation / architecture metrics",
+   "status": "implemented",
+   "treeId": 439,
+   "specId": "D-441",
+   "falsifier": null,
+   "dependsOn": [
+    "Ω-7"
+   ],
+   "note": "gov.validate (six mechanical corpus checks with honest era grandfathering), gov.metrics (the deterministic scorecard folded from the genome + ledger, never stored), and omega:accept — the one fail-closed command running validate, falsifier suites, doctruth, parity, perf, archive integrity, board freshness, status carriage; landed as tree D-439 (spec lineage D-441 — the last builder-gap document)"
+  }
+ ]
+}

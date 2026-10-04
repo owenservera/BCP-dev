@@ -1,0 +1,21 @@
+{
+  "manifestVersion": "1",
+  "id": "provider.llm",
+  "version": "0.1.0",
+  "description": "LLM provider: chat.complete@1 with a deterministic in-sandbox SIMULATOR backend (every completion carries sim: true). The live openai-compatible leg is implemented but owner-machine-only: it requires config.live AND a credential.use capability that no in-sandbox composition grants. A live adapter tier would declare EXTERNAL_MUTATION for paid API usage (v2 policy refinement); the simulator is local, so chat.complete stays READ.",
+  "entry": "src/index.ts",
+  "publisher": { "keyId": "", "signature": "" },
+  "contributions": {
+    "contract": [{ "kind": "contract", "id": "chat.complete", "version": "1", "risk": "READ" }],
+    "parser": [
+      { "kind": "parser", "id": "chat.complete", "version": "1", "doc": "W1/T-04 harvest (D-355): the version-pinned SSE framing parser parser:chat.complete:llm — NOT routable (parser kind registers no op). The transform is pure and deterministic: recorded SSE stream text in, ordered ParsedChunk rows out (sse.frame / sse.delta*n / sse.done-final). Algorithm harvested from vivim-final-program@4a5eb84 src/engines/parsers/sse-parser.ts (73 lines, pure) with I/O re-expressed to M1 chunk rows; transport off, recorded fixtures only (fixtures/sse/), fail-closed on unterminated streams. Discovery-derived evidence trail: the fixture pipeline's recorded stream + the pin the realization carries." }
+    ]
+  },
+  "dependencies": [],
+  "capabilities": {
+    "requested": [],
+    "justification": "The simulator is self-contained (no network, no secrets, no capabilities). A live adapter tier would request credential.use — a REFERENCE to a vault-held credential, never the secret itself; that tier is owner-machine only (docs/SURFACES.md credential law)."
+  },
+  "runtime": { "tier": "worker-thread", "budget": { "cpuMs": 500, "memMB": 128 } },
+  "contentHash": ""
+}
