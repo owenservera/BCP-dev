@@ -31,6 +31,8 @@ These documents are not equally authoritative:
 
 **AUTONOMY** and **AGENTS** define how the fresh project is allowed to operate.
 
+**ZCODE-CAPABILITY-SPACE** describes the external development substrate the fresh project can exploit and the boot sequence for designing its own DevOps.
+
 ## The central distinction
 
 Do not confuse:
