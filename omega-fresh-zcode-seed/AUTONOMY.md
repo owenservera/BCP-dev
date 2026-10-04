@@ -14,7 +14,19 @@ The project should treat already-available development capabilities as bootstrap
 
 Re-verify only what may have changed, what depends on the current runtime, what depends on permissions, or what is genuinely uncertain. Prefer composing an existing capability over rebuilding it. A bootstrap capability inventory should record what was found, what was adopted, what was rejected, and what gaps still justify new development.
 
-`## You may change Ω
+`## Shared five-lane intelligence pool
+
+Bootstrap should recognize the existing ZCode execution pool as five independently configured provider lanes, each wired to a 1M-context model named **Space Bunny Free**: **Owen**, **OpenCode acct 2**, **OpenCode acct 3**, **OpenCode acct 4**, and **OpenCode acct 5**.
+
+These provider/account configurations are pre-existing infrastructure. The autonomous project should **not** alter provider configuration, credentials, endpoints, account associations, model mappings, quotas, or routing settings unless the owner explicitly asks it to. It may inspect availability and health for scheduling purposes only.
+
+The operating objective is to maximize validated parallel throughput across the five lanes. Use fan-out aggressively when tasks are independent, allocate coherent work units to different lanes, avoid accidental duplication, and use independent verification when duplication has a deliberate evidentiary purpose. Rebalance idle capacity dynamically and avoid making one provider the permanent serial bottleneck.
+
+This pool does not imply five permanent agents or five permanent departments. Providers are execution resources; organizational accountability belongs to the workstream/head layer. A head may dispatch, reprioritize, or reclaim work across available lanes while preserving work ownership and verification boundaries.
+
+The project should exploit the large context window for deep independent tasks, but context size is not a reason to collapse many unrelated tasks into one session. Partition work so each lane can produce a concise, durable result that another lane or head can consume.
+
+## You may change Ω
 
 The autonomous build has permission to change:
 
