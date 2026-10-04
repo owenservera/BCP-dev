@@ -93,6 +93,8 @@ Preserve a durable product truth because it remains true, not because it happens
 
 ## Using the repository corpus
 
+These principles are embedded across the seed rather than defined as a separate architecture specification. `VISION.md` defines the durable strategic shape; `INVARIANTS.md` protects solution-selection constraints; `PRODUCT-ANCHOR.md` applies them to the first real route; and `AGENTS.md` / `AUTONOMY.md` make them part of autonomous architectural decision-making.
+
 The seeded Ω implementation and the wider `docs/` corpus contain several kinds of material:
 
 - product vision;
