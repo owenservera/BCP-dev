@@ -1,5 +1,7 @@
 # BENCHMARKS — Historical measured evidence from the seeded Ω baseline
 
+These measurements belong to the seeded implementation lineage. Referenced historical decision IDs and evidence paths may not exist in the clean seed. They are evidence to re-check, not current authority or release proof.
+
 These measurements belong to the implementation lineage that was used to seed this fresh project.
 
 They are useful evidence, regression clues, and hypotheses about system behavior.
