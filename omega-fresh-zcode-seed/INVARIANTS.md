@@ -29,7 +29,7 @@ Do not allow a projection, cache, summary, session, model context, browser obser
 The intended conceptual distinction is:
 
 - **Vault:** durable canonical local truth.
-- **World:** meaningful projection/organization of canonical things and relationships.
+- **World:** canonical product-level reality/semantic organization derived from durable truth and relationships.
 - **Work:** durable process reality.
 - **Evidence:** record supporting claims about what happened.
 - **Surface:** representation and interaction.
@@ -57,7 +57,7 @@ Do not casually collapse:
 | Routing / Authority | selecting a realization is not permission to act |
 | Memory / Context | durable retention is not temporary task assembly |
 | Work / Worker | durable work is not the actor performing it |
-| World / Surface | UI projection is not canonical state |
+| World / Surface | UI projection is not canonical product reality |
 | Space / World | organization is not a second database |
 | Confidence / Proof | plausibility is not evidence |
 | Construction / Authority | creating something does not authorize it |
