@@ -156,7 +156,7 @@ The completeness of the route is the important part.
 
 ## V1 boundary
 
-Current product direction is browser-mediated external realization through Chrome master/slave.
+Intended V1 product direction is browser-mediated external realization through Chrome master/slave; live-runtime readiness must be established by the Product Release Gym before calling this shippable.
 
 The shippable V1 should not quietly grow a second AI-API architecture merely because it is easier to demonstrate a model interaction.
 
