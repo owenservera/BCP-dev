@@ -100,7 +100,7 @@ Preserve a durable product truth because it remains true, not because it happens
 
 These principles are embedded across the seed rather than defined as a separate architecture specification. `VISION.md` defines the durable strategic shape; `INVARIANTS.md` protects solution-selection constraints; `PRODUCT-ANCHOR.md` applies them to the first real route; and `AGENTS.md` / `AUTONOMY.md` make them part of autonomous architectural decision-making.
 
-The seeded Ω implementation and the wider `docs/` corpus contain several kinds of material:
+The seeded Ω implementation and selected bootstrap documents contain several kinds of material. The historical `docs/` corpus is intentionally omitted from this clean seed:
 
 - product vision;
 - ratified or near-ratified law;
@@ -115,7 +115,7 @@ The seeded Ω implementation and the wider `docs/` corpus contain several kinds 
 
 Do not flatten these categories.
 
-The destination corpus is primarily a source of durable concepts, semantic separations, failure lessons, and useful falsifiers.
+The historical/destination corpus used to shape this seed is a source of durable concepts, semantic separations, failure lessons, and useful falsifiers, not an inherited project corpus.
 
 Its historical work plans, maturity scores, ownership structures, sequencing, and agent organization are not automatically inherited.
 
