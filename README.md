@@ -33,7 +33,7 @@ The seed intentionally embeds strategic design principles across the core docume
 
 The implementation tree is inherited as a starting substrate.
 
-The `docs/` directory is intentionally empty. There is no inherited documentation corpus in the clean-room seed. The current implementation itself is the seeded Ω source; the 11 root documents provide the deliberately selected bootstrap context.
+The historical `docs/` corpus is intentionally omitted from this seed. Git cannot represent an empty directory, so no `docs/` directory is present. The current implementation is the seeded Ω source; the 11 root documents provide the deliberately selected bootstrap context.
 
 ## The fresh-project premise
 
@@ -49,6 +49,12 @@ The new ZCode project must derive its own:
 - implementation choices.
 
 There is intentionally no inherited ZCode/OpenCode team structure here.
+
+## Historical references
+
+The implementation baseline and generated build artifacts contain references to historical decision IDs and omitted `docs/` records. These are historical claims, not automatically reachable authority. Do not reconstruct the omitted corpus merely to satisfy references; verify the underlying behavior and treat unresolvable IDs as non-authoritative until independently recovered.
+
+The canonical Product Release Gym is defined in `BUILD-FOCUS.md`.
 
 ## The product anchor
 
