@@ -2,7 +2,13 @@
 
 This document exists so the autonomous build does not confuse "baseline" with "boundary."
 
-## You may change Ω
+## ZCode capability-space mandate
+
+At project start, inspect the actual ZCode runtime and its available native and extension capabilities. The project may design its own agents, workflows, skills, plugins, MCP servers, hooks, background jobs, schedules, remote workspaces, testing infrastructure, observability, memory conventions, and other DevOps machinery. Discover what is available before deciding what to build.
+
+Maximize capability space, not authority. Broad access to optional mechanisms is useful; consequential authority remains explicit, scoped, observable, and governed. Development machinery is replaceable and must not become confused with VIVIM product architecture.
+
+`## You may change Ω
 
 The autonomous build has permission to change:
 
